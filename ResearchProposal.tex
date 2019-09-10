@@ -1,0 +1,553 @@
+\documentclass[12pt]{article}
+
+\usepackage[round]{natbib}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,       % false: boxed links; true: colored links
+    linkcolor=red,          % color of internal links (change box color with linkbordercolor)
+    citecolor=green,       % color of links to bibliography
+    filecolor=magenta,   % color of file links
+    urlcolor=cyan           % color of external links
+}
+
+%% Comments
+\newif\ifcomments\commentstrue
+
+\ifcomments
+\newcommand{\authornote}[3]{\textcolor{#1}{[#3 ---#2]}}
+\newcommand{\todo}[1]{\textcolor{red}{[TODO: #1]}}
+\else
+\newcommand{\authornote}[3]{}
+\newcommand{\todo}[1]{}
+\fi
+
+\newcommand{\wss}[1]{\authornote{blue}{SS}{#1}} %Spencer Smith
+\newcommand{\jc}[1]{\authornote{red}{JC}{#1}} %Jacques Carette
+\newcommand{\oo}[1]{\authornote{magenta}{OO}{#1}} %Olu Owojaiye
+\newcommand{\pmi}[1]{\authornote{green}{PM}{#1}} %Peter Michalski
+\newcommand{\ad}[1]{\authornote{cyan}{AD}{#1}} %Ao Dong
+
+%\oddsidemargin 0mm
+%\evensidemargin 0mm
+%\textwidth 160mm
+%\textheight 200mm
+
+\begin{document}
+
+\title{Assessing the Impact of MDE and Code Generation on the Sustainability of
+  Scientific Computing Software: A Research Proposal} 
+\author{Spencer Smith}
+\date{\today}
+	
+\maketitle
+
+\begin{abstract}
+  ...
+\end{abstract}
+
+\tableofcontents
+
+\section{Introduction}
+
+Without dramatic intervention, our collective confidence in Scientific Computing
+Software (SCS) is due for a catastrophic collapse.  We are increasingly trusting
+ever more complex and ambitious computations, but our software foundations are
+built on sand. Areas of concern include nuclear safety analysis and
+computational medicine. Successfully building such software requires
+communication between software developers and experts from multiple
+domains. Collaboration is difficult at the best of times, and is made worse
+because developers favour handcrafted solutions over adapting software
+engineering processes, methods and tools \citep{FaulkEtAl2009}. Handcrafted
+solutions do not account for the inevitable changes in requirements, design and
+implementation. The twin challenges of changing requirements and inadequate
+documentation conspire to make computational results notoriously difficult to
+reproduce, especially in the important endeavour of one researcher independently
+replicating the results of another \citep{Smith2018}.  Inadequate traceability
+within documentation means re­certification of previously certified engineering
+software is as expensive and time consuming as the original certification
+exercise, because of a lack of explicit, effort reducing, traceability
+information.
+
+Quality of SCS improved through documentation.  SCS developers do not always
+value documentation, but grants such as, NSERC's CRDPJ 447533-13, have allowed
+me to demonstrate its value and to provide techniques to improve its quality.
+For instance, \citet{SmithEtAl2015-SS-TR}
+shows that the quality of statistical software for psychology is generally
+improved when developed using the structured CRAN (Comprehensive R Archive
+Network) process and tools, versus an ad hoc process.
+\citet{SmithAndKoothoor2016}
+highlights the value of proper documentation by redeveloping nuclear safety
+analysis software.  Twenty seven (27) worrisome documentation problems were
+found, including incompleteness, ambiguity, inconsistency, verifiability,
+modifiability, traceability and a lack of abstraction.  A redevelopment
+experiment with five existing projects \citep{SmithJegatheesanAndKelly2016}
+enabled the code owners (as ascertained through interviews) to clearly see the
+value of documentation.  However, mirroring other studies
+\citep{CarverEtAl2007}, the code owners felt documentation takes too much time.
+
+One promising approach to avoid the impending collapse is to use a Model Driven
+Engineering (MDE) where MDE is an engineering approach that exploits structured representations
+(metamodels for abstract syntax, and constraints to capture static semantics) to
+automate repetitive, tedious and error prone tasks.  In particular, code
+generation.   approach together with code generation.  Citation supporting
+this idea.  My research will dramatically reduce the cost of developing reliable,
+reproducible and re-certifiable software by: i) creating infrastructure for a
+knowledge base of scientific and computing models; and, ii) writing explicit
+``recipes'' that weave together this knowledge to generate theoretical models,
+design documents, code, test cases and build scripts. The generator will render
+to multiple languages, such as html, LaTeX, RTF for documentation and Python,
+Java, C, and Matlab, for code. One source of knowledge, with rules for
+transformation, means completeness, consistency and traceability can be achieved by
+construction. Moreover, these qualities can be maintained as requirements are
+modified, design decisions are changed, documentation standards are varied, and
+software is re­certified.  The knowledge will be built up incrementally.  New
+projects will reuse existing knowledge and expand as necessary.
+
+Scientists are awakening to the critical importance of SCS sustainability, as
+evidenced by the success of Software Carpentry and the Software
+Sustainability Institute, but the current solutions are not bold enough.
+Although valuable, we need more than studies of developers, training sessions
+and project support tools.  \emph{We need transformative change (enabled by
+  creating new tools for knowledge capture and document/code generation) where
+  documentation, design and verification are expected for all SCS.}
+
+- background and context
+
+- problem statement and research question
+- research question: What ideas (if any) from Drasil and Drasil procedures are perceived
+by graduate students and end user developers with improving software quality and
+productivity - for long lived (safety related?) projects
+
+roadmap of document
+
+\section{Literature Review}
+
+roadmap of this section
+
+\subsection{Current State of Practice for SCS Development}
+
+- how currently done, qualities of interest, add sustainability
+
+The SCS community is finally realizing that current practices are not
+sustainable.  \citet{FaulkEtAl2009} observe, ``growing concern about the
+reliability of scientific results based on ... software.''  Embarrassing
+failures have occurred, like a retraction of derived molecular protein
+structures \citep{Miller2006}, false reproduction of sonoluminescent fusion
+\citep{PostAndVotta2005}, and fixing and then reintroducing the same error in a
+large code base three times in 20 year \citep{MilewiczAndRaybourn2018}.  A
+recent report on directions for SCS research and education states: ``While the
+volume and complexity of [SCS] have grown substantially in recent decades, [SCS]
+traditionally has not received the focused attention it so desperately needs
+... to fulfill this key role as a cornerstone of long-term collaboration and
+scientific progress'' \citep{RudeEtAl2018}.  Estimates suggest that the number
+of released faults per thousand executable lines of code during a given
+program’s life cycle is at best 0.1, and more likely 10 to 100 times worse
+\citep{Hatton2007}.
+
+Although reproducibility is the cornerstone of the scientific method, until
+recently it has not been treated seriously in software
+\citep{BenureauAndRougier2017}.  Fortunately, in recent years multiple
+conferences, workshops and individuals are calling for dramatic change
+\citep{BaileyEtAl2016}.  The need for action is highlighted by a study of 402
+computer systems papers - only 48.3\% of the code was both available and
+compilable \citep{CollbergEtAl2015}.  (Drasil addresses this problem because as
+programming languages evolve the code renderers in Drasil can be updated.)
+Reproducibility problems are even more extreme when the goal is replicability.
+A third party should be able to repeat a study using only the description of the
+methodology from a published article %, with no access to the original code or
+%computing environment 
+\citep{BenureauAndRougier2017}.  However, replicability is rarely achieved, as
+shown for microarray gene expression \citep{IoannidisEtAl2009} and for economics
+modelling \citep{IonescuAndJansson2013}.  Drasil addresses completeness and
+ambiguity problems, since it emphasizes capturing and documenting all of the
+required knowledge, including derivation of equations and
+rationales. \citet{CrickAndHall2014} point out potential roadblocks for
+reproducibility, including page length constraints and differing detail needs
+depending on the audience.  Again Drasil addresses these concerns because the
+recipes used to generate the documentation can be tailored to the level of
+detail required.
+
+\emph{Although scientists recognize the seriousness of their SCS problems, their
+  corrective steps are too incremental.}  For instance, a recent proposal for
+the future of High Energy Physics (HEP) software \cite{StewartEtAl2017} uses
+words like sustainability, maintainability and reproducibility, but is almost
+completely silent on how these qualities are to be achieved.  The proposal
+mentions developing new and improved algorithms (including parallel computing
+and machine learning), programming tools, recruitment and training, but there is
+little on documentation, design or verification techniques (other than unit
+testing).  Similarly, a recent proposal on future directions for SCS research
+and education \citep{RudeEtAl2018} recognizes the desperate need for change, but
+then only suggests training on project management tools, open sharing and
+ethics.  \emph{Incremental change is not adequate; we need transformative
+  change.}
+
+Thankfully SCS leaders recognize that an interdisciplinary approach provides the
+path forward.  They believe that the solution to SCS quality problems is
+applying, adapting and developing SE methods, tools and techniques.  However,
+typical software processes are a barrier to progress.  ``To break the gridlock,
+we must establish a degree of cooperation and collaboration with the [SE]
+community that does not yet exist'' \citep{FaulkEtAl2009}.  ``There is a need to
+improve the transfer of existing practices and tools from ... [SE] to scientific
+programming. In addition, ... there is a need for research to specifically
+develop methods and tools that are tailored to the domain'' \citep{Storer2017}.
+\emph{This tailored research will require individuals, like myself, that have a
+  multidisciplinary background.}
+
+\subsection{MDE and Code Generation}
+
+DSLs and code/document generation provide a transformative technology for
+documentation, design and verification \citep{JohansonAndHasselbring2018,
+  Smith2018}.  DSLs allow scientists their preferred approach of focusing on
+science not software \citep{Kelly2007}.  A generative approach removes the
+maintenance nightmare of documentation duplicates and near duplicates
+\citep{LucivEtAl2018}, since knowledge is only captured once and automatically
+transformed as needed.  Code generation has previously been applied to improve
+SCS \citep{WhaleyEtAl2001, Veldhuizen1998, Pueschel2001}.
+%   For instance,
+% ATLAS (Automatically Tuned Linear Algebra Software) \citep{WhaleyEtAl2001} 
+%and
+%Blitz++ \citep{Veldhuizen1998} 
+% produces efficient and portable linear algebra
+% software.  
+% Spiral \citep{Pueschel2001} uses software/hardware generation for
+% digital signal processing.  
+\citet{Carette2008} shows how to generate a family
+of efficient, type-safe Gaussian elimination algorithms.  FEniCS (Finite Element
+and Computational Software) \citep{LoggEtAl2012} uses code generation when
+solving differential equations.  Unlike previous work on SCS code generation,
+Drasil will focus on generating all software artifacts (requirements, design
+etc.), not just code.
+
+\citet{SzymczakEtAl2016} removes excuses for avoiding documentation by providing
+transformative SCS development technology.  Drasil provides an infrastructure
+for knowledge capture and document/code generation.  Jacques Carette and I,
+along with our students, have developed a prototype (available on GitHub),
+implemented via Domain Specific Languages (DSLs) embedded in Haskell.  Drasil
+already generates requirements documentation and code for several case studies,
+including simulating the temperature of a solar water heating system, glass
+breakage and two-dimensional game physics.  The full documentation
+(requirements, design etc), code and test cases have been created manually for
+each case study.  These manual case studies (many from \citet{SmithJegatheesanAndKelly2016})
+provide the `gold standard' against which Drasil is tested.  All of these
+artifacts are available publicly.  The generation techniques for Drasil began to
+take shape during my work on generating geometric data structures and functions
+\citep{CaretteEtAl2011}.
+
+\subsection{Empirical Methods for Software Engineering}
+
+empirical software engineering paper, case study paper
+
+\section{Research Design and Methodologies}
+
+roadmap - fit the different pieces together
+
+\subsection{State of the Practice}
+
+A survey of existing SCS software will identify patterns, find opportunities for
+improvement and identify candidate program families for future implementation.
+The survey will require developing terminology and a classification system to
+answer such questions as: What are the current best practises?  What software
+packages are reused and why these packages?  What do practitioners look for in
+the tools that support their work?
+
+To achieve objective S2, a measurement template, possibly using pairwise
+comparisons of quality metrics between software packages, will be developed for
+assessing the quality of the documentation, code, test cases and development
+processes for existing SCS program families.  The quality measurement template
+will be used to assess the quality of approximately 30 different SCS families.
+About half of the families will be model oriented and the other half tool
+oriented.  Additional details on best practices will be collected by students
+interviewing code owners.  Based on preliminary discussions, Dr.\ Jeffrey Carver
+from the University of Alabama and some of his colleagues may also participate
+in collecting interview data. Once all the surveys and interviews are
+completed, a meta-analysis will draw conclusions for each domain and between
+domains.  Knowing the state of practice for family development will highlight
+which domains are using best practices that should be emulated in LSS.
+
+The plan here is to return to the task of measuring/assessing the state of
+software development practice in several scientific computing domains.  We will
+update the work that was done previously for domains such as Geographic
+Information Systems~\cite{SmithEtAl2018_arXivGIS}, Mesh
+Generators~\cite{SmithEtAl2016}, Seismology software~\cite{SmithEtAl2018}, and
+Statistical software for psychology~\cite{SmithEtAl2018_StatSoft}.  We could
+return to these domains and/or introduce new domains.  Potential domains/collaborators
+are listed in the subsections.
+
+MEng students will be asked to assess the state of practice in each domain.
+Last time each student measured two domains, so we would start off with this
+model again.  If the scope becomes large enough, we might switch to one domain
+per student.
+
+In the previous project, we measured 30 software projects for each domain.  With
+the increased scrutiny required in this re-boot, we won't likely be able to
+measure the details on this high a number of software projects.  We may still
+start with 30 software examples in each domain, but then use some criteria to
+create a shorter sub-list for detailed measurement.  The details of how to
+proceed here would be determined and documented in the measurement protocol.
+
+In the previous state of practice assessing exercise, a series of questions and
+simple metrics was devised to measure the quality of the documentation and
+adherence to best software development practices.  The new project will
+critically assess the previous set of questions and revise as necessary.  In
+addition, the following data will be collected/developed for each domain:
+
+\begin{itemize}
+\item Characterization of the functionality provided by the software in the
+  domain.  What services does each member of the domain provide?  Ideally this
+  information would be summarized in a commonality analysis document.  The
+  document will summarize the domain software via its commonalities,
+  variabilities and parameters of variation.
+\item Usability testing of each software in the domain.  Specific metrics for
+  assessing usability still need to be researched, but measures that involve the
+  time to complete a task and the users overall impression would be considered.
+\item Collect empirical software engineering related data, such as the number of
+  files, number of lines of code, cyclomatic complexity, number of open issues,
+  etc.  As a starting point for tool support, HubListener
+  (\url{https://github.com/pjmc-oliveira/HubListener}) could be used.
+\item Collect at least one empirical measure of the quality of the documentation
+  - the number of lines of documentation.  [Has anyone previously looked at this
+  metric?]
+\end{itemize}
+
+The above data will be combined to rank the software in the domain.  The
+specifics are yet to be determined, but in the past the Analytic Hierarchy
+Process proved helpful in this.
+
+Key to the success of this exercise will be to involve and engage a partner for
+each state of practice project.  In the previous effort we didn't involve domain
+experts with the rationale of excluding potential bias, but this advantage is
+not worth not being able to evaluate the functionality/usability of the software.
+Moreover, not having an expert makes publication more difficult, since there is
+no one to advice on how best to approach journals and publishers.  The domain
+expert will be asked to help in the following ways:
+
+\begin{itemize}
+\item Review the protocol for assessing/measuring quality.  This same protocol
+  will be used in each domain.
+\item Provide their expertise on potential publication.  Specifically, they will
+  recommend a suitable journal and act as the corresponding author for any paper
+  submissions. 
+\item Provide an authoritative list of domain software, possibly augmented by
+  existing on-line lists.
+\item Provide some assistance from their own team of supervised students to
+  facilitate software testing and domain characterization.  Assessing the
+  functionality and measuring usability will require an individual with domain
+  knowledge.  Multiple measurements will be necessary to have confidence.  The
+  measurements will likely take a few hours over a few days of time from each
+  student volunteer.
+\end{itemize}
+
+There is no budget for this project, but the student volunteers will be
+considered co-authors in the resulting paper.  Having them as co-authors also
+means that ethics approval should not be necessary.
+
+GitHub will be used to coordinate the work of the large team of people that will
+be involved in this project.  In addition to the project record left on GitHub,
+the final data will be exported to Mendeley.
+
+Potential collaborators/domains are listed in the following subsections.
+
+\subsection{Medical Imaging}
+
+Medical imaging and analysis software (Dr.\ Michael Noseworthy).
+
+\subsection{Climate Modelling Software}
+
+Climate modelling software (Dr.\ Zoe Li or Dr.\ Xander Wang).
+
+\subsection{Computational Medicine}
+
+Extraction of 3D geometries from medical images (Dr.\ Zahra Motamed).
+
+\subsection{Finite Element Analysis}
+
+Finite element solvers and/or mesh generators (Dr.\ Dieter Stolle).  Potential
+software includes FeNiCS, MOOSE, FreeFEM++, Dolphin, etc.  Install the packages
+and use them to do something non-trivial.
+
+\subsection{Psychology Software}
+
+Statistics software for psychology (Dr.\ Karin Humphreys).
+
+\subsection{Chemical Engineering Software}
+
+Li Xi (\url{https://www.eng.mcmaster.ca/chemeng/people/faculty/li-xi}).
+
+\subsection{Geographic Information Systems}
+
+Geographic Information Systems (Jason Brodeur and/or Patrick DeLuca).
+
+\subsection{Solidification and Casting Software}
+
+Solidification and casting software (Dr.\ Andr\'e Phillion).
+
+\subsection{Quantum Chemistry Software}
+
+Quantum chemistry software (Dr.\ Paul Ayers).
+
+\subsection{Impact of MDE on SCS}
+
+roadmap
+
+\subsection{Fitting Drasil into the Scientific Software Development Process}
+
+Scientists generally use an approximation of agile methods for their software
+development.  In addition, documentation is generally not emphasized.  How
+should Drasil be fit into the scientific software development process?  The
+Drasil process should encourage an early intensity of thought and effort, but at
+the same time, it shouldn't require waterfall development.  Drasil supports
+frequent chance and incremental development, but where should developers start
+and how should the work proceed?  How does one create an almost empty project in
+Drasil and then borrow from existing knowledge and create new knowledge?  This
+project could start with something like the task described in~\ref{SecPDF}.
+
+Drasil process should move importance of requirements and domain analysis
+earlier in the process.  The quality of the resulting software depends on the
+quality of the requirements.  As is known from historical data, the greatest
+return on investment is at the requirements state (Boehm papers).
+Unfortunately, developers don't like requirements.  Quite possibly they don't
+like the intensity of thought that is necessary to get the requirements right.
+Inspection techniques, such as task based inspection (Kelly et al) hold promise
+for getting the scientist to think deeply at an earlier stage in the development
+process.
+
+\subsection{etc.}
+
+Experimentally Determine Appropriate Documentation Template: The best approach
+for documenting requirements and design is an open question.  Drasil could be
+used to attempt to address this question.  Different recipes for documentation
+could be developed and compared.  Some comparison could be automated between the
+documents, such as empirical measures of their quality
+(Section~\ref{SecEmpiricalMeasureDoc}).  Other measures would require some kind
+of usability experiments.
+
+Empirical Measurement of Documentation: Considerable effort has been invested
+into developing metrics, like cyclomatic complexity, to attempt to quantify code
+quality, but no measures (as far as I know) exist for quantifying the quality of
+documentation.  (Khedri does have some work with Bhahati (sp?) Sanga that
+quantifies the connectivity of the documentation via the traceability graph.)
+Likely the reason that effort has not been invested to quantifying the quality
+of documentation is that is not represented formally.  With Drasil much of the
+documentation is formal.  This should facilitate automatic measures of
+documentation quality, or at least metrics that might be correlated with
+quality.
+
+Measuring the Impact of Drasil on Developing Scientific Software: This project
+is challenging to design, but would be HUGE if we were successful.  We assume
+that Drasil will improve the quality of scientific software and the efficiency
+of its production, but data to back this up would go a long way to convincing
+the scientific community.  Experiments where a given project is developed in
+parallel by two independent teams come to mind, but this would be expensive, and
+difficult to control.  Some additional thought, and resources, are necessary
+here.  If we could do a project where the scientist, or a student under their
+supervision, is a true partner in the development, we might get more convincing
+anecdotal evidence.
+
+To quantify the quality of the generated documentation, measures of information
+compression will be used.  The measure will be based on the length of the
+(family of) generated documentation, code and test cases, compared to the length
+of the generator itself.  Our measure will be based on the Minimum Description
+Length (MDL) Principle, which states that ``the more we are able to compress the
+data, the more we have learned about the data'' \citep{Grunwald2004}.  Another
+important measure will be whether the generated documentation achieves
+reproducibility. The proposed measure is reproducibility depth
+\citep{Soergel2014}.  A depth of 1 means that an independent researcher can
+start from the generated code and calculate the same results.  Achieving deeper
+reproducibility will mean the same results can be calculated for an independent
+researcher starting with the design documentation.  Each higher measure gets
+further from the source code, until the highest depth (replicability), which
+starts from the requirements and leads to identical (within acceptable error)
+results.
+
+\subsection{Impact of Assurance Cases for Building Confidence}
+
+Some SCS needs to be verifiably safe.  We will achieve this by building a safety
+assurance case. An assurance case is an explicit structured argument pertaining
+to specific properties, such as trustworthiness
+
+Assurance cases have potential to be used in SC to improve our collective
+confidence in the developed software~\cite{SmithEtAl2018_ICSEPoster}.  Further
+work is necessary to demonstrate the value of assurance cases, but they
+certainly hold promise.  Drasil could go a long way to supporting development of
+assurance cases.  Some potential Drasil related support ideas include the
+following:
+
+\begin{itemize}
+\item Automatic generation of visual depiction of the assurance case from the
+  goals, claims, evidence etc.
+\item Automated reporting of missing evidence, incomplete arguments, etc.
+\item Coordination of requirements, design decisions, etc.  Assurance cases use
+  the same information as recommended in ``document driven'' design, but the
+  traceability and connection between the data is even more important.  A tool
+  like Drasil could go a long way in facilitating the presentation and
+  navigation of an assurance case.
+\end{itemize}
+
+Assurance cases in Drasil could potentially go beyond the scientific context.
+For instance, they could also incorporate safety cases for
+control systems.  This could potentially be of interest to McSCert.
+
+\subsection{Impact of Computational Variability Testing}
+
+This activity supports objective S3.  The applicant's students will apply LSS
+and code generation to Computational Variability Testing (CVT), using the
+example of a family of finite element programs.  As proposed by the applicant,
+CVT uses code generation to build confidence in the generated code in an
+analogous way to the use of grid refinement studies.  Grid refinement looks at
+how the solution changes by varying the run-time parameter of grid density and
+comparing the results to theoretical expectations.  CVT, on the other hand, can
+generate code to ``refine'' build time parameters, such as order of
+interpolation, or degree of implicitness.  These parameters can be
+systematically varied and the results compared against the expected trend.
+Varying computational variabilities is not a new idea, but it is only recently
+that the option has become available of coupling this with code generation, so
+that the validity of an entire program family can be assessed at the same time.
+The experimentation with CVT will initially use the FEniCS
+package~\citep{LoggEtAl2012} for elliptical partial differential equations to
+compare elements with different orders of interpolation to verify that the
+convergence to the solution agrees with the theoretical expectations.
+
+{Design and Documentation For Family of Data Fitting Algorithms}: The fitting
+used in GlassBR and in SFS (Software for Solidification) could be made much more
+generic.  We could have a family of fitting algorithms that could be used in any
+situation where fitting is required.  A proper commonality analysis of this
+domain could potentially show the potential design decisions that bridge between
+the requirements and the design.  In the SFS example many different fitting
+routines were tried.  If the experiments could have been done easily via a
+declarative specification, considerable time would have been saved.  If the
+experiments are combined with automated testing and ``properties of a correct
+solution'' the human involvement could be reduced, so that we have partially
+automated algorithm selection.
+
+\section{Implications and Contributions to Knowledge}
+
+We are currently putting too much trust in SCS.  Examples such as nuclear safety
+analysis and computational medicine show the significance of SCS for health and
+safety.  Although SCS developers do excellent work, we do not currently have
+enough checks and balances in place for full confidence.  More should be
+expected for documentation, design and testing.  Fortunately, SE offers
+techniques, like DSLs and code generation, that can be employed to not only
+improve SCS quality, but also reduce development costs.  Now is the time for
+change.  SCS practitioners have recognized problems with the status quo and
+multidisciplinary researchers are needed to bridge the gap between SE and SCS.
+
+Codifying medical, biomechanical and computational knowledge is challenging, but
+success will completely transform the development of safety-related software in
+medicine, science and engineering.  MDE will remove the drudgery of generating
+and maintaining documentation, code, test cases and build environments, enabling
+scientists to focus on science, engineers to focus on engineering and medical
+professionals to focus on medicine.  MDE will detect inconsistencies between
+models via inter-model consistency constraints.  As a consequence, mistakes like
+inconsistent units or assumptions cannot occur.  MDE will raise the bar so that
+we can expect an explicit argument for safety, not just code that we are
+expected to blindly trust.  With the right up-front investment of knowledge
+capture, we can have software that is long lived because the stable knowledge is
+separated from the rapidly changing modelling assumptions and design decisions.
+
+\section{Research Schedule}
+
+\bibliographystyle {plainnat}
+\bibliography {ResearchProposal}
+
+\end{document}
