@@ -1,12 +1,13 @@
 \documentclass[12pt]{article}
 
 \usepackage[round]{natbib}
+\usepackage{booktabs}
 
 \usepackage{hyperref}
 \hypersetup{
     colorlinks=true,       % false: boxed links; true: colored links
     linkcolor=red,          % color of internal links (change box color with linkbordercolor)
-    citecolor=green,       % color of links to bibliography
+    citecolor=blue,       % color of links to bibliography
     filecolor=magenta,   % color of file links
     urlcolor=cyan           % color of external links
 }
@@ -48,6 +49,8 @@
 
 \tableofcontents
 
+\newpage
+
 \section{Introduction}
 
 Without dramatic intervention, our collective confidence in Scientific Computing
@@ -69,40 +72,48 @@ software is as expensive and time consuming as the original certification
 exercise, because of a lack of explicit, effort reducing, traceability
 information.
 
-Quality of SCS improved through documentation.  SCS developers do not always
-value documentation, but grants such as, NSERC's CRDPJ 447533-13, have allowed
-me to demonstrate its value and to provide techniques to improve its quality.
-For instance, \citet{SmithEtAl2015-SS-TR}
-shows that the quality of statistical software for psychology is generally
-improved when developed using the structured CRAN (Comprehensive R Archive
-Network) process and tools, versus an ad hoc process.
-\citet{SmithAndKoothoor2016}
-highlights the value of proper documentation by redeveloping nuclear safety
-analysis software.  Twenty seven (27) worrisome documentation problems were
-found, including incompleteness, ambiguity, inconsistency, verifiability,
-modifiability, traceability and a lack of abstraction.  A redevelopment
-experiment with five existing projects \citep{SmithJegatheesanAndKelly2016}
-enabled the code owners (as ascertained through interviews) to clearly see the
-value of documentation.  However, mirroring other studies
-\citep{CarverEtAl2007}, the code owners felt documentation takes too much time.
+Documentation can address the confidence problem mentioned above.  For software
+in general, documentation, written before and during development, provides many
+benefits~\cite{Parnas2010}: easier reuse of old designs, better communication
+about requirements, more useful design reviews, easier integration of separately
+written modules, more effective code inspection, more effective testing, and
+more efficient corrections and improvements.  For SCS in particular, developers
+do not always value documentation, but documentation has been shown to help
+improve SCS.  For instance, \citet{SmithEtAl2015-SS-TR} shows that the quality
+of statistical software for psychology is generally improved when developed
+using the structured CRAN (Comprehensive R Archive Network) process and tools,
+versus an ad hoc process.  \citet{SmithAndKoothoor2016} highlights the value of
+proper documentation by redeveloping nuclear safety analysis software.  Twenty
+seven (27) worrisome documentation problems were found, including
+incompleteness, ambiguity, inconsistency, verifiability, modifiability,
+traceability and a lack of abstraction.  A redevelopment experiment with five
+existing projects \citep{SmithJegatheesanAndKelly2016} enabled the code owners
+(as ascertained through interviews) to clearly see the value of documentation.
+However, mirroring other studies \citep{CarverEtAl2007}, the code owners felt
+documentation takes too much time.
 
-One promising approach to avoid the impending collapse is to use a Model Driven
-Engineering (MDE) where MDE is an engineering approach that exploits structured representations
+One promising approach to gain the benefits of documentation, without the often
+infeasible time commitment, is to use a Model Driven Engineering (MDE), where
+MDE is an engineering approach that exploits structured representations
 (metamodels for abstract syntax, and constraints to capture static semantics) to
-automate repetitive, tedious and error prone tasks.  In particular, code
-generation.   approach together with code generation.  Citation supporting
-this idea.  My research will dramatically reduce the cost of developing reliable,
-reproducible and re-certifiable software by: i) creating infrastructure for a
-knowledge base of scientific and computing models; and, ii) writing explicit
-``recipes'' that weave together this knowledge to generate theoretical models,
-design documents, code, test cases and build scripts. The generator will render
-to multiple languages, such as html, LaTeX, RTF for documentation and Python,
-Java, C, and Matlab, for code. One source of knowledge, with rules for
-transformation, means completeness, consistency and traceability can be achieved by
-construction. Moreover, these qualities can be maintained as requirements are
-modified, design decisions are changed, documentation standards are varied, and
-software is re­certified.  The knowledge will be built up incrementally.  New
-projects will reuse existing knowledge and expand as necessary.
+automate repetitive, tedious and error prone tasks.  In this research proposal,
+we will use MDE as a short-hand to include model transformation, Domain Specific
+Languages (DSLs) and code generation.  Several current papers point to DSLs and
+code/document generation as a transformative technology for documentation,
+design and verification of SCS \citep{JohansonAndHasselbring2018, Smith2018}.
+The benefit of an MDE approach is to dramatically reduce the cost of developing
+reliable, reproducible and re-certifiable software by: i) creating
+infrastructure for a knowledge base of scientific and computing models; and, ii)
+writing explicit ``recipes'' that weave together this knowledge to generate
+theoretical models, design documents, code, test cases and build scripts. The
+generator can render to multiple languages, such as html, LaTeX, RTF for
+documentation and Python, Java, C, and Matlab, for code. One source of
+knowledge, with rules for transformation, means completeness, consistency and
+traceability can be achieved by construction. Moreover, these qualities can be
+maintained as requirements are modified, design decisions are changed,
+documentation standards are varied, and software is re­certified.  The knowledge
+will be built up incrementally.  New projects will reuse existing knowledge and
+expand as necessary.
 
 Scientists are awakening to the critical importance of SCS sustainability, as
 evidenced by the success of Software Carpentry and the Software
@@ -121,13 +132,149 @@ productivity - for long lived (safety related?) projects
 
 roadmap of document
 
-\section{Literature Review}
+\section{Background and Literature Review}
 
-roadmap of this section
+roadmap of this section.  Some overview of the topics themselves, but an
+emphasis on how they appear in the SCS context.
+
+\subsection{Software Qualities of Interest}
+
+For instance,
+a rational design process can provide quality improvements, and Quality
+Assurance (QA), as shown in Table~\ref{Tbl_Qualities}.  Moreover, documentation,
+written before and during development, can provide many
+benefits~\cite{Parnas2010}: easier reuse of old designs, better communication
+about requirements, more useful design reviews, easier integration of separately
+written modules, more effective code inspection, more effective testing, and
+more efficient corrections and improvements.
+
+- qualities of interest, add sustainability
+
+\begin{description}%[leftmargin=\the\parindent]
+
+\item [\textbf{Verifiability}] involves ``solving the equations
+  right''~\cite[p.~23]{Roache1998}; it benefits from rational documentation
+  that systematically shows, with explicit traceability, how the governing
+  equations are transformed into code.
+
+\item [\textbf{Validatability}] means ``solving the right
+  equations''~\cite[p.~23]{Roache1998}.  Validatability is improved by a
+  rational process via clear documentation of the theory and assumptions, along
+  with an explicit statement of the systematic steps required for experimental
+  validation.
+
+% \item [\textbf{Reliability}] is a critical quality for scientific software,
+%   since the results of computations are meaningless, if they are not dependable.
+%   Reliability is closely tied to verifiability, since the key quality to verify
+%   is reliability, while the act of verification itself improves reliability.
+
+% \item [\textbf{Performance}] considerations can make certification challenging, since QA
+%   becomes more difficult for more complex code.  However,
+%   as Roache~\cite[p.~355]{Roache1998} points out, using simpler algorithms and
+%   reducing the number of options in general purpose code, is not always a
+%   practical option.
+
+\item [\textbf{Usability}] can be a problem.  Different users, solving the same
+  physical problem, using the same software, can come up with different answers,
+  due to differences in parameter selection~\cite[p.~370]{Roache1998}.  To
+  reduce misuse, a rational process must state expected user characteristics,
+  modelling assumptions, definitions and the range of applicability of the code.
+
+\item [\textbf{Maintainability}] is necessary in scientific software, since change,
+  through iteration, experimentation and exploration, is inevitable.  Models of
+  physical phenomena and numerical techniques necessarily evolve over
+  time~\cite{CarverEtAl2007, SegalAndMorris2008}.  Proper documentation,
+  designed with change in mind, can greatly assist with change management.%   QA
+  % activities need to take the need for creativity into account, while not
+  % smothering it~\cite[p.~352]{Roache1998}.
+
+\item [\textbf{Reusability}] provides support for the quality of reliability,
+  since reliability is improved by reusing trusted components~\cite{Dubois2005}.
+  (Care must still be taken with reusing trusted components, since blind reuse
+  in a new context can lead to errors, as dramatically shown in the Ariane 5
+  disaster~\cite[p.~37--38]{OliveiraAndStewart2006}.)  The odds of reuse are
+  improved when it is considered right from the start.
+
+\item [\textbf{Understandability}] is necessary, since reviewers can only certify
+  something they understand.  Scientific software developers have the
+  view ``that the science a developer embeds in the code must be apparent to
+  another scientist, even ten years later''~\cite{Kelly2013}.
+  Understandability applies to the documentation and code, while usability
+  refers to the executable software.  Documentation that follows a rational
+  process is the easiest to follow.
+
+\item [\textbf{Reproducibility}] is a required component of the scientific
+  method~\cite{Davison2012}.  Although QA has, ``a bad name among
+  creative scientists and engineers''~\cite[p.~352]{Roache1998}, the community
+  need to recognize that participating in QA management also improves
+  reproducibility.  Reproducibility, like QA, benefits from a consistent and
+  repeatable computing environment, version control and separating code from
+  configuration/parameters~\cite{Davison2012}.
+\end{description}
+
+\subsection{Desirable Qualities of Documentation}
+
+To address the challenges for adequate documentation for QA and certification
+efforts for SCS, the qualities described below need to be a priority.  All but
+the final quality listed (abstraction), are adapted from the IEEE recommended
+practise for producing good software requirements~\cite{IEEE1998}.
+
+\begin{itemize}
+
+\item \emph{Completeness}: Documentation is said to be complete when all the
+  requirements of the software are detailed. That is, each goal, functionality,
+  attribute, design constraint, value, data, model, symbol, term (with its unit
+  of measurement if applicable), abbreviation, acronym, assumption and
+  performance requirement of the software is defined.  The software's response
+  to all classes of inputs, both valid and invalid and for both desired and
+  undesired events, also needs to be specified.
+
+\item \emph{Consistency}: Documentation is said to be consistent when no subset
+  of individual statements are in conflict with each other. That is, a
+  specification of an item made at one place in the document should not
+  contradict the specification of the same item at another location.
+
+\item \emph{Modifiability}: The documentation should be developed in such a way
+  that it is easily modifiable so that likely future changes do not destroy the
+  structure of the document. Also it should be easy to reflect the change,
+  wherever needed in the document to maintain consistency, traceability and
+  completeness. For documentation to be modifiable, its format must be
+  structured in a way that repetition is avoided and cross-referencing is
+  employed.
+
+\item \emph{Traceability}: Documentation should be traceable, as this
+  facilitates maintenance and review. If a change is made to the design or code
+  of the software, then all the documentation relating to those segments have to
+  be modified.  This property is also important for recertification.
+
+\item \emph{Unambiguity}: Documentation is said to be unambiguous only when
+  every requirement's specification has a unique interpretation.  The
+  documentation should be unambiguous to all audiences, including developers,
+  users and reviewers.
+
+\item \emph{Correctness}: There is no direct tool or method for measuring
+  correctness. One way of building confidence in correctness is by reviewing to
+  ensure that each requirement stated is one that the stakeholders and experts
+  desire.  By maintaining traceability, consistency and unambiguity, we can
+  reduce the occurrence of errors and make the goal of reviewing for correctness
+  easier.
+
+\item \emph{Verifiability}: Every requirement in the documentation must be the
+  one fulfilled by the implemented software. Therefore all the requirements
+  should be clear, unambiguous and testable, so that a person or a machine can
+  verify whether the software product meets the requirements.
+
+\item \emph{Abstract}: Documented requirements are said to be abstract if they
+  state what the software must do and the properties it must possess, but do not
+  speak about how these are to be achieved. For example, a requirement can
+  specify that an Ordinary Differential Equation (ODE) must be solved, but it
+  should not mention that Euler's method should be used to solve the ODE. How to
+  accomplish the requirement is a design decision, which is documented during
+  the design phase.
+
+\end{itemize}
 
 \subsection{Current State of Practice for SCS Development}
-
-- how currently done, qualities of interest, add sustainability
 
 The SCS community is finally realizing that current practices are not
 sustainable.  \citet{FaulkEtAl2009} observe, ``growing concern about the
@@ -193,6 +340,56 @@ programming. In addition, ... there is a need for research to specifically
 develop methods and tools that are tailored to the domain'' \citep{Storer2017}.
 \emph{This tailored research will require individuals, like myself, that have a
   multidisciplinary background.}
+
+\subsection{Documentation for SCS}
+
+Table~\ref{TblDocuments} shows the recommended documentation for a scientific
+software project.  The documents are typical of what is suggested for scientific
+software certification, where certification consists of official recognition by
+an authority, or regulatory body, that the software is fit for its intended use.
+For instance, the Canadian Standards Association (CSA) requires a similar set of
+documents for quality assurance of scientific programs for nuclear power
+plants~\cite{CSA1999}.
+
+\begin{table}[!h]
+  \caption{Recommended Documentation} \label{TblDocuments}
+  
+  \begin{tabular}{l p{8cm}}
+    %\hline
+    %\toprule
+    \textit{Problem Statement} & Description of problem to be solved\\
+    \textit{Development Plan} & Overview of development process/infrastructure\\
+    \textit{Requirements} & Desired functions and qualities of the software\\
+    \textit{V\&V Plan} & Verification that all documentation artifacts,
+                           including the code, are internally correct.
+                           Validation, from an external viewpoint, that the right
+                           problem, or model, is being solved.\\
+    \textit{Design Specification} & Documentation of how the requirements are to
+                                    be realized, through both a software
+                                    architecture and detailed design of modules
+                                    and their interfaces\\
+    \textit{Code} & Implementation of the design in code\\
+    \textit{V\&V Report} & Summary of the V\&V efforts,
+                             including testing\\
+    \textit{User Manual} & Instructions on installation, usage; worked examples\\
+    %\hline
+    %\bottomrule
+  \end{tabular}
+\end{table}
+
+To achieve the qualities listed in Table~\ref{Tbl_Qualities}, the documentation
+in Table~\ref{TblDocuments} should have the following qualities:
+\emph{complete}, \emph{correct}, \emph{consistent}, \emph{modifiable},
+\emph{traceable}, \emph{unambiguous}, and \emph{verifiable}.  All of these
+qualities are listed in the IEEE recommended practice for software
+requirements~\cite{IEEE1998}.  The IEEE guidelines are for requirements, but
+most qualities are relevant for all documentation artifacts.  Another relevant
+quality, which is not on the IEEE list, is \emph{abstract}.  Requirements should
+state what is to be achieved, but be silent on how it is to be achieved.
+Abstraction is an important software development principle for dealing with
+complexity~\cite[p.~40]{GhezziEtAl2003}.  Smith and Koothoor present further
+details on the qualities of documentation for scientific
+software~\cite{SmithAndKoothoor2016}.
 
 \subsection{MDE and Code Generation}
 
@@ -346,45 +543,48 @@ GitHub will be used to coordinate the work of the large team of people that will
 be involved in this project.  In addition to the project record left on GitHub,
 the final data will be exported to Mendeley.
 
+Determine criteria for what makes a domain a good fit.
+
 Potential collaborators/domains are listed in the following subsections.
 
-\subsection{Medical Imaging}
+\subsubsection{Medical Imaging}
 
-Medical imaging and analysis software (Dr.\ Michael Noseworthy).
+Medical imaging and analysis software (Dr.\ Michael Noseworthy)?
 
-\subsection{Climate Modelling Software}
+\subsubsection{Climate Modelling Software}
 
-Climate modelling software (Dr.\ Zoe Li or Dr.\ Xander Wang).
+Climate modelling software (Dr.\ Zoe Li or Dr.\ Xander Wang)?
 
-\subsection{Computational Medicine}
+\subsubsection{Computational Medicine}
 
-Extraction of 3D geometries from medical images (Dr.\ Zahra Motamed).
+Extraction of 3D geometries from medical images (Dr.\ Zahra Motamed)?  Lattice
+Boltzmann Solver?
 
-\subsection{Finite Element Analysis}
+\subsubsection{Finite Element Analysis}
 
-Finite element solvers and/or mesh generators (Dr.\ Dieter Stolle).  Potential
+Finite element solvers and/or mesh generators (Dr.\ Dieter Stolle)?  Potential
 software includes FeNiCS, MOOSE, FreeFEM++, Dolphin, etc.  Install the packages
 and use them to do something non-trivial.
 
-\subsection{Psychology Software}
+\subsubsection{Psychology Software}
 
-Statistics software for psychology (Dr.\ Karin Humphreys).
+Statistics software for psychology (Dr.\ Karin Humphreys)?
 
-\subsection{Chemical Engineering Software}
+\subsubsection{Chemical Engineering Software}
 
-Li Xi (\url{https://www.eng.mcmaster.ca/chemeng/people/faculty/li-xi}).
+Li Xi (\url{https://www.eng.mcmaster.ca/chemeng/people/faculty/li-xi})?
 
-\subsection{Geographic Information Systems}
+\subsubsection{Geographic Information Systems}
 
-Geographic Information Systems (Jason Brodeur and/or Patrick DeLuca).
+Geographic Information Systems (Jason Brodeur and/or Patrick DeLuca)?
 
-\subsection{Solidification and Casting Software}
+\subsubsection{Physical Metallurgy Software}
 
-Solidification and casting software (Dr.\ Andr\'e Phillion).
+Solidification and casting software (Dr.\ Andr\'e Phillion)?
 
 \subsection{Quantum Chemistry Software}
 
-Quantum chemistry software (Dr.\ Paul Ayers).
+Quantum chemistry software (Dr.\ Paul Ayers)?
 
 \subsection{Impact of MDE on SCS}
 
@@ -544,6 +744,8 @@ we can expect an explicit argument for safety, not just code that we are
 expected to blindly trust.  With the right up-front investment of knowledge
 capture, we can have software that is long lived because the stable knowledge is
 separated from the rapidly changing modelling assumptions and design decisions.
+
+\newpage
 
 \section{Research Schedule}
 
