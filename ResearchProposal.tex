@@ -70,87 +70,156 @@ replicating the results of another \citep{Smith2018}.  Inadequate traceability
 within documentation means re­certification of previously certified engineering
 software is as expensive and time consuming as the original certification
 exercise, because of a lack of explicit, effort reducing, traceability
-information.
+information.  The existing challenges for modification, maintenance and
+extension point to problems with the sustainability of SCS.
 
-Documentation can address the confidence problem mentioned above.  For software
+Documentation can improve software sustainability.  For software
 in general, documentation, written before and during development, provides many
 benefits~\cite{Parnas2010}: easier reuse of old designs, better communication
 about requirements, more useful design reviews, easier integration of separately
 written modules, more effective code inspection, more effective testing, and
-more efficient corrections and improvements.  For SCS in particular, developers
-do not always value documentation, but documentation has been shown to help
-improve SCS.  For instance, \citet{SmithEtAl2015-SS-TR} shows that the quality
-of statistical software for psychology is generally improved when developed
-using the structured CRAN (Comprehensive R Archive Network) process and tools,
-versus an ad hoc process.  \citet{SmithAndKoothoor2016} highlights the value of
-proper documentation by redeveloping nuclear safety analysis software.  Twenty
-seven (27) worrisome documentation problems were found, including
-incompleteness, ambiguity, inconsistency, verifiability, modifiability,
-traceability and a lack of abstraction.  A redevelopment experiment with five
-existing projects \citep{SmithJegatheesanAndKelly2016} enabled the code owners
-(as ascertained through interviews) to clearly see the value of documentation.
-However, mirroring other studies \citep{CarverEtAl2007}, the code owners felt
-documentation takes too much time.
+more efficient corrections and improvements. For SCS in particular,
+documentation provides benefits.  For instance, \citet{SmithEtAl2015-SS-TR}
+shows that the quality of statistical software for psychology is generally
+improved when developed using the structured CRAN (Comprehensive R Archive
+Network) process and tools, versus an ad hoc process.
+\citet{SmithAndKoothoor2016} highlights the value of proper documentation by
+redeveloping nuclear safety analysis software.  Twenty seven (27) worrisome
+documentation problems were found, including incompleteness, ambiguity,
+inconsistency, verifiability, modifiability, traceability and a lack of
+abstraction.  A redevelopment experiment with five existing projects
+\citep{SmithJegatheesanAndKelly2016} enabled the code owners (as ascertained
+through interviews) to clearly see the value of documentation.  However,
+mirroring other studies \citep{CarverEtAl2007}, the code owners felt
+documentation takes too much time.  Due to the time commitment and resource
+limitation, documentation is rarely emphasized in SCS.
 
-One promising approach to gain the benefits of documentation, without the often
-infeasible time commitment, is to use a Model Driven Engineering (MDE), where
-MDE is an engineering approach that exploits structured representations
-(metamodels for abstract syntax, and constraints to capture static semantics) to
-automate repetitive, tedious and error prone tasks.  In this research proposal,
-we will use MDE as a short-hand to include model transformation, Domain Specific
-Languages (DSLs) and code generation.  Several current papers point to DSLs and
-code/document generation as a transformative technology for documentation,
-design and verification of SCS \citep{JohansonAndHasselbring2018, Smith2018}.
-The benefit of an MDE approach is to dramatically reduce the cost of developing
-reliable, reproducible and re-certifiable software by: i) creating
-infrastructure for a knowledge base of scientific and computing models; and, ii)
-writing explicit ``recipes'' that weave together this knowledge to generate
-theoretical models, design documents, code, test cases and build scripts. The
-generator can render to multiple languages, such as html, LaTeX, RTF for
-documentation and Python, Java, C, and Matlab, for code. One source of
+One promising approach to gain the benefits of documentation, but significantly
+reduce the time commitment, is to use a Model Driven Engineering (MDE).  MDE is
+an engineering approach that exploits structured representations (metamodels for
+abstract syntax, and constraints to capture static semantics) to automate
+repetitive, tedious and error prone tasks.  In this research proposal, we will
+use MDE as a short-hand to include knowledge models, model transformation,
+Domain Specific Languages (DSLs) and code generation.  Several current papers
+point to DSLs and code/document generation as a transformative technology for
+documentation, design and verification of SCS \citep{JohansonAndHasselbring2018,
+  Smith2018}.  The benefit of an MDE approach is to dramatically reduce the cost
+of developing reliable, reproducible and re-certifiable software.
+
+One example of applying MDE to SCS is Drasil, which is introduced in
+\citet{SzymczakEtAl2016} and available at
+\href{https://github.com/JacquesCarette/Drasil}
+{https://github.com/JacquesCarette/Drasil}.  Drasil is implemented as an open
+source set of Domain Specific Languages (DSLs).  The Drasil approach involves:
+i) creating infrastructure for a knowledge base of scientific and computing
+models; and, ii) writing explicit ``recipes'' that weave together this knowledge
+to generate theoretical models, design documents, code, test cases and build
+scripts. The generator can render to multiple languages, such as html, LaTeX,
+RTF for documentation and Python, Java, C, and Matlab, for code. One source of
 knowledge, with rules for transformation, means completeness, consistency and
 traceability can be achieved by construction. Moreover, these qualities can be
 maintained as requirements are modified, design decisions are changed,
-documentation standards are varied, and software is re­certified.  The knowledge
-will be built up incrementally.  New projects will reuse existing knowledge and
-expand as necessary.
+documentation standards are varied, and software is re­certified.  Although
+creating the knowledge base is time consuming, the knowledge can be built up
+incrementally.  New projects will reuse existing knowledge and expand as
+necessary.
 
-Scientists are awakening to the critical importance of SCS sustainability, as
-evidenced by the success of Software Carpentry and the Software
-Sustainability Institute, but the current solutions are not bold enough.
-Although valuable, we need more than studies of developers, training sessions
-and project support tools.  \emph{We need transformative change (enabled by
-  creating new tools for knowledge capture and document/code generation) where
-  documentation, design and verification are expected for all SCS.}
+As described above, sustainability is a concern for SCS, and MDE holds promise
+for addressing this concern.  However, a transformative change in the
+development of SCS requires more than promise.  Empirical evidence is necessary
+to demonstrate that an MDE process can improve the sustainability of SCS.  This
+leads to the long-term objective for this research proposal: \emph{assess and
+  measure the impact of MDE on the sustainability of SCS.}
 
-- background and context
+The scope of SCS software for this proposal includes long-lived software, as
+implied by the sustainability objective.  To gain the full benefits of
+generating documentation, the scope also includes software that interests
+multiple stakeholders, with different interests and backgrounds.  Finally, the
+scope of this proposal emphasizes safety related software, such as software for
+nuclear safety analysis, medical imaging and computational medicine.  Safety
+related software is prioritized because documentation is often expected as part
+of a certification exercise.  Although this study is not specifically restricted
+to open-source software, for practical reasons, commercial software will not be
+strongly emphasized.
 
-- problem statement and research question
-- research question: What ideas (if any) from Drasil and Drasil procedures are perceived
-by graduate students and end user developers with improving software quality and
-productivity - for long lived (safety related?) projects
+Given the large number of potential MDE processes, techniques and technologies,
+together with the wide variety in purpose, scope and context for SCS, the
+long-term objective of measuring the impact of MDE is decomposed into four
+short-term objectives.  For each objective, a reference is given to the
+corresponding section in this document that provides the details.
 
-roadmap of document
+\begin{enumerate}
+\item Assess the current state of software development practice for SCS.  How is
+  the software developed?  Are there existing development methods that lead to
+  higher software sustainability? (Section~\ref{SecStateOfThePractice})
+\item Assess the impact of an MDE process on end user developed SCS with respect
+  to developer productivity and software sustainability.  
+  (Section~\ref{SecImpactMDE})
+\item Assess the impact on safety when the MDE generated documentation targets a
+  safety assurance case.  An assurance case is an explicit structured argument
+  pertaining to specific properties, such as trustworthiness.  The evidence for
+  the argument will come from the traceability between artifacts generated by
+  model transformations, expert reviews, test cases,
+  etc. (Section~\ref{SecAssuranceCase})
+\item Assess the impact on software quality when using MDE to facilitate
+  Computational Variability Testing (CVT).  CVT uses code generation to build
+  confidence in the generated code in an analogous way to the use of grid
+  refinement studies.  Grid refinement looks at how the solution changes by
+  varying the run-time parameter of grid density and comparing the results to
+  theoretical expectations.  CVT, on the other hand, can generate code to
+  ``refine'' build time parameters, such as order of interpolation, or degree of
+  implicitness.  These parameters can be systematically varied and the results
+  compared against the expected trend.  (Section~\ref{SecCVT})
+\end{enumerate}
 
-\section{Background and Literature Review}
+Before presenting the details of the short-term objectives
+(Section~\ref{SecMethodologies}), the necessary background information is
+provided, along with a literature review (Section~\ref{SecBackgroundLitReview}).
+The literature review covers software quality (Sections~\ref{SecSoftwareQuality}
+and~\ref{SecDesirableQs}), the literature on the current state of the practice
+for SCS development (Section~\ref{SecCurrStateOfThePractice}), potential target
+documentation artifacts for SCS (Section~\ref{SecDocumentation}), MDE and code
+generation (Section~\ref{SecMDE}) and empirical methods for software engineering
+(Section~\ref{SecEmpirical}).  This document ends with a summary of the
+potential contributions to knowledge from this study
+(Section~\ref{SecContribKnowledge}) and a research schedule
+(Section~\ref{SecSchedule}).
 
-roadmap of this section.  Some overview of the topics themselves, but an
-emphasis on how they appear in the SCS context.
+\section{Background and Literature Review} \label{SecBackgroundLitReview}
 
-\subsection{Software Qualities of Interest}
+To assess the impact of MDE on SCS quality, we need a clear definition of what
+we mean by quality.  Section~\ref{SecSoftwareQuality} shows how the concept of
+quality is decomposed into a set of separate qualities.  This set of qualities
+can be applied to the software artifacts (documentation, test cases, etc) and to
+the software development process itself.  Several of the qualities from the list
+in Section~\ref{SecSoftwareQuality} cannot be measured directly, such as
+maintainability.  Therefore, Section~\ref{SecDesirableQs} introduces measurable
+documentation qualities that are believed to contribute to software quality.  In
+some cases it may be necessary to use the qualities in
+Section~\ref{SecDesirableQs} to indirectly measure qualities listed in
+Section~\ref{SecSoftwareQuality}.  
 
-For instance,
-a rational design process can provide quality improvements, and Quality
-Assurance (QA), as shown in Table~\ref{Tbl_Qualities}.  Moreover, documentation,
-written before and during development, can provide many
-benefits~\cite{Parnas2010}: easier reuse of old designs, better communication
-about requirements, more useful design reviews, easier integration of separately
-written modules, more effective code inspection, more effective testing, and
-more efficient corrections and improvements.
+focuses on presents it, roadmap of this
+section.  Some overview of the topics themselves, but an emphasis on how they
+appear in the SCS context.
 
-- qualities of interest, add sustainability
+\subsection{Software Qualities of Interest} \label{SecSoftwareQuality}
+
+Our analysis is centred around a set of software qualities.  Quality is not
+considered as a single measure, but a collection of different qualities, often
+called ``ilities.''  These qualities highlight the desirable nonfunctional
+properties for software artifacts, which include both documentation and
+code. Some qualities, such as visibility and productivity, apply to the process
+used for developing the software. The following list of qualities is based on
+\cite{GhezziEtAl2003}. To the list from \cite{GhezziEtAl2003}, we have added
+three qualities important for SC: installability, reproducibility and
+sustainability.
 
 \begin{description}%[leftmargin=\the\parindent]
+
+\item [\textbf{Installability}] A measure of the ease of installation.
+
+\item [\textbf{Correctness}] Software is correct if it matches its specification.
 
 \item [\textbf{Verifiability}] involves ``solving the equations
   right''~\cite[p.~23]{Roache1998}; it benefits from rational documentation
@@ -163,16 +232,16 @@ more efficient corrections and improvements.
   with an explicit statement of the systematic steps required for experimental
   validation.
 
-% \item [\textbf{Reliability}] is a critical quality for scientific software,
-%   since the results of computations are meaningless, if they are not dependable.
-%   Reliability is closely tied to verifiability, since the key quality to verify
-%   is reliability, while the act of verification itself improves reliability.
+\item [\textbf{Reliability}] is a critical quality for scientific software,
+  since the results of computations are meaningless, if they are not dependable.
+  Reliability is closely tied to verifiability, since the key quality to verify
+  is reliability, while the act of verification itself improves reliability.
 
-% \item [\textbf{Performance}] considerations can make certification challenging, since QA
-%   becomes more difficult for more complex code.  However,
-%   as Roache~\cite[p.~355]{Roache1998} points out, using simpler algorithms and
-%   reducing the number of options in general purpose code, is not always a
-%   practical option.
+\item [\textbf{Performance}] considerations can make certification challenging, since QA
+  becomes more difficult for more complex code.  However,
+  as Roache~\cite[p.~355]{Roache1998} points out, using simpler algorithms and
+  reducing the number of options in general purpose code, is not always a
+  practical option.
 
 \item [\textbf{Usability}] can be a problem.  Different users, solving the same
   physical problem, using the same software, can come up with different answers,
@@ -210,18 +279,23 @@ more efficient corrections and improvements.
   reproducibility.  Reproducibility, like QA, benefits from a consistent and
   repeatable computing environment, version control and separating code from
   configuration/parameters~\cite{Davison2012}.
+
+\item [\textbf{Productivity}] [Fill in]
+
+\item [\textbf{Sustainability}] A combination of other qualities.
+
 \end{description}
 
-\subsection{Desirable Qualities of Documentation}
+\subsection{Desirable Qualities of Documentation} \label{SecDesirableQs}
 
-To address the challenges for adequate documentation for QA and certification
-efforts for SCS, the qualities described below need to be a priority.  All but
-the final quality listed (abstraction), are adapted from the IEEE recommended
+To achieve the qualities listed in Section~\ref{SecSoftwareQuality}, the
+documentation should achieve the qualities listed in this section.  All but the
+final quality listed (abstraction), are adapted from the IEEE recommended
 practise for producing good software requirements~\cite{IEEE1998}.
 
-\begin{itemize}
+\begin{description}
 
-\item \emph{Completeness}: Documentation is said to be complete when all the
+\item [\textbf{Completeness}] Documentation is said to be complete when all the
   requirements of the software are detailed. That is, each goal, functionality,
   attribute, design constraint, value, data, model, symbol, term (with its unit
   of measurement if applicable), abbreviation, acronym, assumption and
@@ -229,12 +303,12 @@ practise for producing good software requirements~\cite{IEEE1998}.
   to all classes of inputs, both valid and invalid and for both desired and
   undesired events, also needs to be specified.
 
-\item \emph{Consistency}: Documentation is said to be consistent when no subset
+\item [\textbf{Consistency}] Documentation is said to be consistent when no subset
   of individual statements are in conflict with each other. That is, a
   specification of an item made at one place in the document should not
   contradict the specification of the same item at another location.
 
-\item \emph{Modifiability}: The documentation should be developed in such a way
+\item [\textbf{Modifiability}] The documentation should be developed in such a way
   that it is easily modifiable so that likely future changes do not destroy the
   structure of the document. Also it should be easy to reflect the change,
   wherever needed in the document to maintain consistency, traceability and
@@ -242,29 +316,29 @@ practise for producing good software requirements~\cite{IEEE1998}.
   structured in a way that repetition is avoided and cross-referencing is
   employed.
 
-\item \emph{Traceability}: Documentation should be traceable, as this
+\item [\textbf{Traceability}] Documentation should be traceable, as this
   facilitates maintenance and review. If a change is made to the design or code
   of the software, then all the documentation relating to those segments have to
   be modified.  This property is also important for recertification.
 
-\item \emph{Unambiguity}: Documentation is said to be unambiguous only when
+\item [\textbf{Unambiguity}] Documentation is said to be unambiguous only when
   every requirement's specification has a unique interpretation.  The
   documentation should be unambiguous to all audiences, including developers,
   users and reviewers.
 
-\item \emph{Correctness}: There is no direct tool or method for measuring
+\item [\textbf{Correctness}] There is no direct tool or method for measuring
   correctness. One way of building confidence in correctness is by reviewing to
   ensure that each requirement stated is one that the stakeholders and experts
   desire.  By maintaining traceability, consistency and unambiguity, we can
   reduce the occurrence of errors and make the goal of reviewing for correctness
   easier.
 
-\item \emph{Verifiability}: Every requirement in the documentation must be the
+\item [\textbf{Verifiability}] Every requirement in the documentation must be the
   one fulfilled by the implemented software. Therefore all the requirements
   should be clear, unambiguous and testable, so that a person or a machine can
   verify whether the software product meets the requirements.
 
-\item \emph{Abstract}: Documented requirements are said to be abstract if they
+\item [\textbf{Abstract}] Documented requirements are said to be abstract if they
   state what the software must do and the properties it must possess, but do not
   speak about how these are to be achieved. For example, a requirement can
   specify that an Ordinary Differential Equation (ODE) must be solved, but it
@@ -272,9 +346,10 @@ practise for producing good software requirements~\cite{IEEE1998}.
   accomplish the requirement is a design decision, which is documented during
   the design phase.
 
-\end{itemize}
+\end{description}
 
-\subsection{Current State of Practice for SCS Development}
+\subsection{Literature Review on Current State of the Practice for SCS
+  Development} \label{SecCurrStateOfThePractice}
 
 The SCS community is finally realizing that current practices are not
 sustainable.  \citet{FaulkEtAl2009} observe, ``growing concern about the
@@ -341,7 +416,7 @@ develop methods and tools that are tailored to the domain'' \citep{Storer2017}.
 \emph{This tailored research will require individuals, like myself, that have a
   multidisciplinary background.}
 
-\subsection{Documentation for SCS}
+\subsection{Documentation for SCS} \label{SecDocumentation}
 
 Table~\ref{TblDocuments} shows the recommended documentation for a scientific
 software project.  The documents are typical of what is suggested for scientific
@@ -391,7 +466,7 @@ complexity~\cite[p.~40]{GhezziEtAl2003}.  Smith and Koothoor present further
 details on the qualities of documentation for scientific
 software~\cite{SmithAndKoothoor2016}.
 
-\subsection{MDE and Code Generation}
+\subsection{MDE and Code Generation} \label{SecMDE}
 
 DSLs and code/document generation provide a transformative technology for
 documentation, design and verification \citep{JohansonAndHasselbring2018,
@@ -400,21 +475,16 @@ science not software \citep{Kelly2007}.  A generative approach removes the
 maintenance nightmare of documentation duplicates and near duplicates
 \citep{LucivEtAl2018}, since knowledge is only captured once and automatically
 transformed as needed.  Code generation has previously been applied to improve
-SCS \citep{WhaleyEtAl2001, Veldhuizen1998, Pueschel2001}.
-%   For instance,
-% ATLAS (Automatically Tuned Linear Algebra Software) \citep{WhaleyEtAl2001} 
-%and
-%Blitz++ \citep{Veldhuizen1998} 
-% produces efficient and portable linear algebra
-% software.  
-% Spiral \citep{Pueschel2001} uses software/hardware generation for
-% digital signal processing.  
-\citet{Carette2008} shows how to generate a family
-of efficient, type-safe Gaussian elimination algorithms.  FEniCS (Finite Element
-and Computational Software) \citep{LoggEtAl2012} uses code generation when
-solving differential equations.  Unlike previous work on SCS code generation,
-Drasil will focus on generating all software artifacts (requirements, design
-etc.), not just code.
+SCS \citep{WhaleyEtAl2001, Veldhuizen1998, Pueschel2001}.  For instance, ATLAS
+(Automatically Tuned Linear Algebra Software) \citep{WhaleyEtAl2001} and Blitz++
+\citep{Veldhuizen1998} produces efficient and portable linear algebra software.
+Spiral \citep{Pueschel2001} uses software/hardware generation for digital signal
+processing.  \citet{Carette2008} shows how to generate a family of efficient,
+type-safe Gaussian elimination algorithms.  FEniCS (Finite Element and
+Computational Software) \citep{LoggEtAl2012} uses code generation when solving
+differential equations.  Unlike previous work on SCS code generation, Drasil
+will focus on generating all software artifacts (requirements, design etc.), not
+just code.
 
 \citet{SzymczakEtAl2016} removes excuses for avoiding documentation by providing
 transformative SCS development technology.  Drasil provides an infrastructure
@@ -431,15 +501,15 @@ artifacts are available publicly.  The generation techniques for Drasil began to
 take shape during my work on generating geometric data structures and functions
 \citep{CaretteEtAl2011}.
 
-\subsection{Empirical Methods for Software Engineering}
+\subsection{Empirical Methods for Software Engineering} \label{SecEmpirical}
 
 empirical software engineering paper, case study paper
 
-\section{Research Design and Methodologies}
+\section{Research Design and Methodologies} \label{SecMethodologies}
 
 roadmap - fit the different pieces together
 
-\subsection{State of the Practice}
+\subsection{State of the Practice} \label{SecStateOfThePractice}
 
 A survey of existing SCS software will identify patterns, find opportunities for
 improvement and identify candidate program families for future implementation.
@@ -582,15 +652,18 @@ Geographic Information Systems (Jason Brodeur and/or Patrick DeLuca)?
 
 Solidification and casting software (Dr.\ Andr\'e Phillion)?
 
-\subsection{Quantum Chemistry Software}
+\subsubsection{Quantum Chemistry Software}
 
 Quantum chemistry software (Dr.\ Paul Ayers)?
 
-\subsection{Impact of MDE on SCS}
+\subsection{Impact of MDE on SCS} \label{SecImpactMDE}
 
 roadmap
 
-\subsection{Fitting Drasil into the Scientific Software Development Process}
+Research Question: What tools and methods from MDE are perceived by end user developers to
+  improve their productivity and the sustainability of their software.
+
+\subsubsection{Fitting Drasil into the Scientific Software Development Process} \label{Sec}
 
 Scientists generally use an approximation of agile methods for their software
 development.  In addition, documentation is generally not emphasized.  How
@@ -612,7 +685,7 @@ Inspection techniques, such as task based inspection (Kelly et al) hold promise
 for getting the scientist to think deeply at an earlier stage in the development
 process.
 
-\subsection{etc.}
+\subsubsection{etc.}
 
 Experimentally Determine Appropriate Documentation Template: The best approach
 for documenting requirements and design is an open question.  Drasil could be
@@ -660,7 +733,7 @@ further from the source code, until the highest depth (replicability), which
 starts from the requirements and leads to identical (within acceptable error)
 results.
 
-\subsection{Impact of Assurance Cases for Building Confidence}
+\subsection{Impact of Assurance Cases for Building Confidence} \label{SecAssuranceCase}
 
 Some SCS needs to be verifiably safe.  We will achieve this by building a safety
 assurance case. An assurance case is an explicit structured argument pertaining
@@ -688,7 +761,7 @@ Assurance cases in Drasil could potentially go beyond the scientific context.
 For instance, they could also incorporate safety cases for
 control systems.  This could potentially be of interest to McSCert.
 
-\subsection{Impact of Computational Variability Testing}
+\subsection{Impact of Computational Variability Testing} \label{SecCVT}
 
 This activity supports objective S3.  The applicant's students will apply LSS
 and code generation to Computational Variability Testing (CVT), using the
@@ -720,7 +793,7 @@ experiments are combined with automated testing and ``properties of a correct
 solution'' the human involvement could be reduced, so that we have partially
 automated algorithm selection.
 
-\section{Implications and Contributions to Knowledge}
+\section{Implications and Contributions to Knowledge} \label{SecContribKnowledge}
 
 We are currently putting too much trust in SCS.  Examples such as nuclear safety
 analysis and computational medicine show the significance of SCS for health and
@@ -747,7 +820,7 @@ separated from the rapidly changing modelling assumptions and design decisions.
 
 \newpage
 
-\section{Research Schedule}
+\section{Research Schedule} \label{SecSchedule}
 
 \bibliographystyle {plainnat}
 \bibliography {ResearchProposal}
