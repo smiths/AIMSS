@@ -51,7 +51,7 @@
 
 \newpage
 
-\section{Introduction}
+\section{Introduction} \label{SecIntroduction}
 
 Without dramatic intervention, our collective confidence in Scientific Computing
 Software (SCS) is due for a catastrophic collapse.  We are increasingly trusting
@@ -512,66 +512,51 @@ engineering \citep{RunesonAndHost2009} will be followed.
 \section{Research Design and Methodologies} \label{SecMethodologies}
 
 This section is decomposed into 4 subsections -- one for each of the different
-approaches for assessing the impact of MDE on the sustainability of SCS.  The
-goal of the first section is to establish a ``baseline'' on the current state of
-the practice for SCS.  This is done by identifying domains within SCS where
-significant software development work has been done and then systematically
-assessing the quality of the existing work.  The next section looks specifically
-at the impact of MDE on SCS through a series of case studies.  An ``ideal'' MDE
-process is proposed and then followed with different stakeholders and
-qualitative data is collected.  The last two sub-sections discuss assessing the
-impact on SCS of assurance cases and computational variability testing,
-respectively.
+approaches for assessing the impact of MDE on the sustainability of SCS, as
+outlined in the Introduction (Section~\ref{SecIntroduction}).  The goal of the
+first subsection is to establish a ``baseline'' on the current state of the
+practice for SCS.  This is done by identifying domains within SCS and then
+systematically assessing the quality of the work in those domains.  The second
+subsection looks specifically at the impact of MDE on SCS through a series of
+case studies.  An ``ideal'' MDE process is proposed and then followed with
+different stakeholders and qualitative data is collected.  The last two
+sub-sections discuss assessing the impact on SCS of assurance cases and
+computational variability testing, respectively.
 
 \subsection{State of the Practice} \label{SecStateOfThePractice}
 
-A survey of existing SCS software will identify patterns, find opportunities for
-improvement and identify candidate program families for future implementation.
-The survey will require developing terminology and a classification system to
-answer such questions as: What are the current best practises?  What software
-packages are reused and why these packages?  What do practitioners look for in
-the tools that support their work?
-
-To achieve objective S2, a measurement template, possibly using pairwise
-comparisons of quality metrics between software packages, will be developed for
-assessing the quality of the documentation, code, test cases and development
-processes for existing SCS program families.  The quality measurement template
-will be used to assess the quality of approximately 30 different SCS families.
-About half of the families will be model oriented and the other half tool
-oriented.  Additional details on best practices will be collected by students
-interviewing code owners.  Based on preliminary discussions, Dr.\ Jeffrey Carver
-from the University of Alabama and some of his colleagues may also participate
-in collecting interview data. Once all the surveys and interviews are
-completed, a meta-analysis will draw conclusions for each domain and between
-domains.  Knowing the state of practice for family development will highlight
-which domains are using best practices that should be emulated in LSS.
-
-The plan here is to return to the task of measuring/assessing the state of
-software development practice in several scientific computing domains.  We will
-update the work that was done previously for domains such as Geographic
-Information Systems~\cite{SmithEtAl2018_arXivGIS}, Mesh
-Generators~\cite{SmithEtAl2016}, Seismology software~\cite{SmithEtAl2018}, and
-Statistical software for psychology~\cite{SmithEtAl2018_StatSoft}.  We could
-return to these domains and/or introduce new domains.  Potential domains/collaborators
-are listed in the subsections.
+To understand the current quality of SCS and to assist in developing methods for
+measuring qualities, we will identify several domains within SCS and endeavour
+to summarize the current state of the practice within those domains.  This
+``state of the practice'' exercise will build off of prior work on
+measuring/assessing the state of software development practice in several SCS
+domains.  We will update the work that was done previously for domains such as
+Geographic Information Systems \citep{SmithEtAl2018_arXivGIS}, Mesh Generators
+\citep{SmithEtAl2016}, Seismology software \citep{SmithEtAl2018}, and
+Statistical software for psychology \citep{SmithEtAl2018_StatSoft}.  We may
+return to these domains and/or introduce new domains.  Potential
+domains/collaborators are listed in the subsections below.
 
 MEng students will be asked to assess the state of practice in each domain.
-Last time each student measured two domains, so we would start off with this
-model again.  If the scope becomes large enough, we might switch to one domain
-per student.
+During the last state of the practice exercise each student measured two
+domains, but with the higher demands from the new measurement protocol, we will
+likely switch to one domain per student.
 
 In the previous project, we measured 30 software projects for each domain.  With
-the increased scrutiny required in this re-boot, we won't likely be able to
+the increased scrutiny required in this re-boot, we will not likely be able to
 measure the details on this high a number of software projects.  We may still
 start with 30 software examples in each domain, but then use some criteria to
 create a shorter sub-list for detailed measurement.  The details of how to
 proceed here would be determined and documented in the measurement protocol.
 
-In the previous state of practice assessing exercise, a series of questions and
-simple metrics was devised to measure the quality of the documentation and
-adherence to best software development practices.  The new project will
-critically assess the previous set of questions and revise as necessary.  In
-addition, the following data will be collected/developed for each domain:
+In the previous state of the practice assessing exercise
+\citep{SmithEtAl2018_arXivGIS}, a series of questions and simple metrics was
+devised to measure the quality of the documentation and adherence to best
+software development practices.  The previous set of questions is provided
+\href{https://github.com/adamlazz/DomainX/blob/master/TemplateToGradeSCSoft.pdf}
+{here}. The new project will critically assess the previous set of questions and
+revise as necessary.  In addition, the following data will also be considered
+for collection for each domain:
 
 \begin{itemize}
 \item Characterization of the functionality provided by the software in the
@@ -581,19 +566,33 @@ addition, the following data will be collected/developed for each domain:
   variabilities and parameters of variation.
 \item Usability testing of each software in the domain.  Specific metrics for
   assessing usability still need to be researched, but measures that involve the
-  time to complete a task and the users overall impression would be considered.
+  time to complete a task and the users overall impression will be considered.
 \item Collect empirical software engineering related data, such as the number of
   files, number of lines of code, cyclomatic complexity, number of open issues,
   etc.  As a starting point for tool support, HubListener
   (\url{https://github.com/pjmc-oliveira/HubListener}) could be used.
 \item Collect at least one empirical measure of the quality of the documentation
-  - the number of lines of documentation.  [Has anyone previously looked at this
-  metric?]
+  - the number of lines of documentation.  We should investigate to see if this
+  is a metric that has previously been collected.  So many of the existing
+  metrics are completely focused on the code, or possibly on issue creation and
+  management; it seems that little work has been done to assess the
+  documentation quality.
+\item One of the guidelines for successfully on-boarding new developers is to
+  ``Keep knowledge up to date and findable'' \citep{ShollerEtAl2019}.  The
+  measurements selected should be able to assist with judging whether a project
+  succeeds on this front.
 \end{itemize}
 
 The above data will be combined to rank the software in the domain.  The
 specifics are yet to be determined, but in the past the Analytic Hierarchy
-Process proved helpful in this.
+Process (AHP) \citep{Saaty1980} proved helpful in this.  In the past the AHP
+results were calculated by a grade out of 10 that each student evaluator gave to
+each quality for each measured product.  A better approach may be to have a
+group of people familiar with the software do a pairwise comparison between each
+product to come up with a number.  The number would be based on the data
+collected, but not in a numerical way.  The data collected would sever the same
+role as a decision support system.  It would provided insight, but human beings
+would do the final pairwise comparisons.
 
 Key to the success of this exercise will be to involve and engage a partner for
 each state of practice project.  In the previous effort we did not involve domain
@@ -625,121 +624,174 @@ means that ethics approval should not be necessary.
 
 GitHub will be used to coordinate the work of the large team of people that will
 be involved in this project.  In addition to the project record left on GitHub,
-the final data will be exported to Mendeley.
+the final data will be exported to Mendeley (as was done for the previous
+quality measurement exercise, for instance the grades for GIS software are
+summarized at \href{https://data.mendeley.com/datasets/6kprpvv7r7/1}
+{https://data.mendeley.com/datasets/6kprpvv7r7/1}.)
 
-Determine criteria for what makes a domain a good fit.
+As a next step for this work, the procedure for measuring software qualities in
+SCS will be brainstormed, discussed and written up.  The procedure will be
+applied to each domain with SCS that is assessed.  The write-up on the procedure
+will be published.  Ideally at a relevant conference, but if that is not a
+feasible option, it will be hosted on the arxiv.
 
-Write up experimental procedure as a publication - on arxiv, but hopefully
-somewhere else too.
+Potential domains for future measurement are listed below.  Determination of
+these domains are good candidates will require evaluation of the following
+criteria:
 
-Start from previous work and modify.  Brainstorm how to do measures.
+\begin{itemize}
+\item Availability of a domain expert that is willing to assist, and who has at
+  least a few graduate students that can assist with the measurement tasks.
+\item A domain where end-user developed software is common
+\item A domain where open-source software is available.  Commercial products are
+  not as effective for measurement, since we cannot generally gain access to the
+  source code, developer documentation, or issue tracking system.
+\item A domain where scientific computing is used.  The selected software should
+  fit in the larger domain of SCS.
+\end{itemize}
 
-Schedule meeting.
-
-Potential collaborators/domains are listed in the following subsections.
-
-Rule 4: Keep knowledge up to date and findable \citep{ShollerEtAl2019}.
+The data for each of the different subdomains within SCS will be standardized to
+facilitate a meta-analysis that combines all of the data.
 
 \subsubsection{Medical Imaging}
 
-Medical imaging and analysis software (Dr.\ Michael Noseworthy)?
+Medical imaging and analysis software.  This work could build off of the
+previous project on this topic completed by Vasudha Kapil.  (Vasudha's report is
+located in the \texttt{mmsc} svn repo) .  % (Dr.\ Michael Noseworthy)?
 
 \subsubsection{Climate Modelling Software}
 
-Climate modelling software (Dr.\ Zoe Li or Dr.\ Xander Wang)?
+Climate modelling software.  This could be software used for multi-model
+ensemble aggregating \citep{SamoulyEtAl2018} or possibly with software that uses
+physical models to predict climate change.
+% (Dr.\ Zoe Li or Dr.\ Xander Wang)?
 
 \subsubsection{Computational Medicine}
 
-Extraction of 3D geometries from medical images (Dr.\ Zahra Motamed)?  Lattice
-Boltzmann Solver?
+Potential sub-domains with computational medicine could include: extraction of
+3D geometries from medical images, or the use of Lattice Boltzmann
+Solvers.  % (Dr.\ Zahra Motamed)?
 
 \subsubsection{Finite Element Analysis}
 
-Finite element solvers and/or mesh generators (Dr.\ Dieter Stolle)?  Potential
+Finite element solvers and/or mesh generators.  Potential
 software includes FeNiCS, MOOSE, FreeFEM++, Dolphin, etc.  Install the packages
-and use them to do something non-trivial.
+and use them to do something non-trivial.  %(Dr.\ Dieter Stolle)?
 
 \subsubsection{Psychology Software}
 
-Statistics software for psychology (Dr.\ Karin Humphreys)?
+Statistics software for psychology.  A project in this domain would allow us to
+update \citet{SmithEtAl2018_StatSoft}. %(Dr.\ Karin Humphreys?)
 
 \subsubsection{Chemical Engineering Software}
 
-Li Xi (\url{https://www.eng.mcmaster.ca/chemeng/people/faculty/li-xi})?
+Software is used for many purposes in chemical engineering.  We would want to
+find an application where non-commercial software is available.
+% Li Xi? (\url{https://www.eng.mcmaster.ca/chemeng/people/faculty/li-xi})?
 
-\subsubsection{Geographic Information Systems}
+\subsubsection{Geographic Information Systems (GIS)}
 
-Geographic Information Systems (Jason Brodeur and/or Patrick DeLuca)?
+We studied GIS software in the past \citep{SmithEtAl2018_arXivGIS}, so this
+would be an interesting area to update.  The key for the updated effort will be
+to identify a domain expert available for collaboration. %(Jason Brodeur and/or Patrick DeLuca)?
 
 \subsubsection{Physical Metallurgy Software}
 
-Solidification and casting software (Dr.\ Andr\'e Phillion)?
+Solidification and casting software and other software used for physical
+metallurgy.  An example of software written for analyzing the solidification of
+a molten alloy is given in \citet{SmithEtAl2019_arXiv}.  % (Dr.\ Andr\'e Phillion)?
 
 \subsubsection{Quantum Chemistry Software}
 
-Quantum chemistry software (Dr.\ Paul Ayers)?
+Quantum chemistry software.  One example is software for searching for
+conformers, like
+\href{https://github.com/PeaWagon/Kaplan}{Kaplan}.  %(Dr.\ Paul Ayers)?
 
-\subsection{Impact of MDE on SCS} \label{SecImpactMDE}
+\subsection{Impact of MDE on the Sustainability of SCS} \label{SecImpactMDE}
 
-roadmap
+Once we have details on the current state of the practice in SCS, we can begin
+to apply MDE to SCS projects and assess the ramifications of this change.  This
+section starts by laying out the details on how MDE can be applied to SCS
+(Section~\ref{SecMDEProcess}).  We plan to start with an ideal process and then
+approximate it through different experiments to measure and assess the impact of
+MDE.  The second subsection (Section~\ref{SecQOfMDEArtifacts}) outlines how the
+quality of MDE artifacts can be assessed.  These measurements will be used in
+the various experiments to assess the impact of MDE.  The third and fourth
+subsections describe two experiments for collecting data: i) conducting case
+studies with real SCS projects (Section~\ref{SecCaseStudy}); and, ii) performing
+an experiment where multiple developers create a small SCS project in one day
+(Section~\ref{SecSmallPhysExample}).
 
-Research Question: What tools and methods from MDE are perceived by end user developers to
-  improve their productivity and the sustainability of their software.
+\subsubsection{Fitting MDE into the Scientific Software Development
+  Process} \label{SecMDEProcess}
 
-\subsubsection{Fitting Drasil into the Scientific Software Development Process} \label{Sec}
+Many researchers have stated that a document driven process is not used by, nor
+suitable for, scientific software.  These researchers argue that scientific
+developers naturally use an agile philosophy~\cite{AckroydEtAl2008,
+  CarverEtAl2007, EasterbrookAndJohns2009, Segal2005}, or an amethododical
+process~\cite{Kelly2013}, or a knowledge acquisition driven
+process~\cite{Kelly2015}.  However, as discussed in the introduction to this
+proposal (Section~\ref{SecIntroduction}, documentation provides many benefits.
+An MDE approach holds promise to provide these benefits, while removing the
+drudgery from the process of documentation and facilitating inevitable changes
+in the documentation and the software.
 
-Scientists generally use an approximation of agile methods for their software
-development.  In addition, documentation is generally not emphasized.  How
-should Drasil be fit into the scientific software development process?  The
-Drasil process should encourage an early intensity of thought and effort, but at
-the same time, it shouldn't require waterfall development.  Drasil supports
-frequent chance and incremental development, but where should developers start
+The general idea that MDE will be helpful is appealing, but to study the impact
+of MDE, we need to know how it will actually be used.  How exactly would MDE be
+fit into the scientific software development process?  The new process should
+encourage an early intensity of thought and effort, but at the same time, it
+should not impose waterfall development, since waterfall is an unrealistic
+expectation for a problem that is not yet well understood.  MDE supports
+frequent change and incremental development, but where should developers start
 and how should the work proceed?  How does one create an almost empty project in
-Drasil and then borrow from existing knowledge and create new knowledge?  This
-project could start with something like the
+MDE and then borrow from existing knowledge and create new knowledge?  To create
+a specific MDE process for SCS, the Drasil tools will be utilized.  A good
+starting project could be
 \href{https://jacquescarette.github.io/Drasil/examples/Projectile/srs/Projectile_SRS.html}
-{Projectile} example currently in Drasil.
+{Projectile}, which models simple projectile motion.
 
-Drasil process should move importance of requirements and domain analysis
-earlier in the process.  The quality of the resulting software depends on the
-quality of the requirements.  As is known from historical data, the greatest
-return on investment is at the requirements state (Boehm papers).
-Unfortunately, developers don't like requirements.  Quite possibly they don't
-like the intensity of thought that is necessary to get the requirements right.
-Inspection techniques, such as task based inspection (Kelly et al) hold promise
+Compared to existing SCS development techniques, the new Drasil process should
+emphasize requirements and domain analysis earlier in the process.  The quality
+of the resulting software depends on the quality of the requirements.  As
+Boehm's data shows~\cite{Boehm1981}, early identification of errors implies a
+significant return on investment, since the cost of fixing errors increases
+dramatically for later development stages.  An SRS is invaluable for
+verification, since the quality of software cannot be assessed without a
+standard against which to judge it. Better design decisions are facilitated by
+the information captured in an SRS.  Moreover, the SRS aids the software
+lifecycle by facilitating incremental development.  This last advantage is
+important for SCS software, since changes frequently occur as developers explore
+the problem domain.  Unfortunately, developers do not generally write
+requirements.  Quite possibly they do not like the intensity of thought that is
+necessary to get the requirements right.  Inspection techniques, such as task
+based inspection \citep{KellyAndShepard2000, KellyAndShepard2004} hold promise
 for getting the scientist to think deeply at an earlier stage in the development
 process.
 
-\subsubsection{etc.}
+Since Drasil is not the only tool that can be used for MDE, we will also
+consider what an MDE approach would look like using other tools.  As a starting
+point, we will look at \href{https://www.eclipse.org/epsilon/}{Epsilon}.
+Epsilon is a family of languages and tools for code generation, model-to-model
+transformation, model validation, comparison, migration and refactoring that
+work out of the box with EMF, UML, Simulink, XML and other types of models.
 
-Experimentally Determine Appropriate Documentation Template: The best approach
-for documenting requirements and design is an open question.  Drasil could be
-used to attempt to address this question.  Different recipes for documentation
-could be developed and compared.  Some comparison could be automated between the
-documents, such as empirical measures of their quality.  Other measures would
-require some kind of usability experiments.
 
-Empirical Measurement of Documentation: Considerable effort has been invested
-into developing metrics, like cyclomatic complexity, to attempt to quantify code
-quality, but no measures (as far as I know) exist for quantifying the quality of
-documentation.  (Khedri does have some work with Bhahati (sp?) Sanga that
-quantifies the connectivity of the documentation via the traceability graph.)
-Likely the reason that effort has not been invested to quantifying the quality
-of documentation is that is not represented formally.  With Drasil much of the
-documentation is formal.  This should facilitate automatic measures of
-documentation quality, or at least metrics that might be correlated with
-quality.
+\subsubsection{Measuring the Qualities of MDE Developed
+  Artifacts} \label{SecQOfMDEArtifacts}
 
-Measuring the Impact of Drasil on Developing Scientific Software: This project
-is challenging to design, but would be HUGE if we were successful.  We assume
-that Drasil will improve the quality of scientific software and the efficiency
-of its production, but data to back this up would go a long way to convincing
-the scientific community.  Experiments where a given project is developed in
-parallel by two independent teams come to mind, but this would be expensive, and
-difficult to control.  Some additional thought, and resources, are necessary
-here.  If we could do a project where the scientist, or a student under their
-supervision, is a true partner in the development, we might get more convincing
-anecdotal evidence.
+Some of the quality measures developed in Section~\ref{SecStateOfThePractice}
+for the ``state of the practice'' exercise will also be used to measure the
+quality of the generated documentation and code.
+Section~\ref{SecStateOfThePractice} mentions using code quality metrics, like
+cyclomatic complexity, to attempt to quantify code quality.  Given the
+importance of documentation, it seems reasonable to also assess its quality.
+Measuring documentation quality is not something that is often promoted.
+(\citet{Sanga2003} does discuss quantifying the connectivity within an SRS
+document by analyzing the traceability graph.)  Part of the reason for the lack
+of effort on quantifying the quality of documentation is that is not represented
+formally.  With Drasil much of the documentation is formal.  This should
+facilitate automatic measures of documentation quality, or at least metrics that
+might be correlated with quality.
 
 To quantify the quality of the generated documentation, measures of information
 compression will be used.  The measure will be based on the length of the
@@ -757,7 +809,55 @@ further from the source code, until the highest depth (replicability), which
 starts from the requirements and leads to identical (within acceptable error)
 results.
 
-\subsection{Impact of Assurance Cases for Building Confidence} \label{SecAssuranceCase}
+\subsubsection{Case Study} \label{SecCaseStudy}
+
+For assessing the impact of MDE, experiments where a given project is developed
+in parallel by two independent teams are infeasible due to expense and
+challenges for having a truly controlled experiment.  Instead, we will focus on
+the more practical, but still very useful, case study approach.  Guidelines for
+conducting and reporting case study research in software engineering are given
+in \citet{RunesonAndHost2009}.  As explained there, a case study should be built
+around a research question.  The research question should be specific and
+measurable.  For the current case study exercise, we propose the question:
+``What tools and methods from MDE are perceived by end user developers to
+improve their productivity and the sustainability of their software in the long
+term?''
+
+We will identify multiple case studies, with potential projects coming from the
+domains listed for the ``state of the practice'' exercise
+(Section~\ref{SecStateOfThePractice}), like computational medicine, medical
+imaging or quantum chemistry software.  We will first identify the partners and
+look for feasible projects that can be developed using an MDE approach.  We will
+use the ideal process identified in Section~\ref{SecMDEProcess}.  Compare to Some additional thought, and resources, are necessary
+here.  If we could do a project where the scientist, or a student under their
+supervision, is a true partner in the development, we might get more convincing
+anecdotal evidence.  Pre and post interviews.  Measurement of quality following the
+techniques developed in the state of the practice exercise.
+
+List of projects above could also be used for case studies.
+
+Observe - how answer questions when problems come up.  Should have so
+pre and post interviews.
+
+\subsubsection{Development of Small Physics
+  Examples} \label{SecSmallPhysExample}
+
+describe a different experiment.  conference multiple develop physics code.
+Like projectile.  Survey before and after.  Quantify success of efforts and time required.
+
+\subsection{Impact of Assurance Cases for Building
+  Confidence} \label{SecAssuranceCase}
+
+Sketching out an Assurance Case in advance of developing the software could be
+just what is needed to manufacture the up-front intensity that is needed for
+successful projects.
+
+Experimentally Determine Appropriate Documentation Template: The best approach
+for documenting requirements and design is an open question.  Drasil could be
+used to attempt to address this question.  Different recipes for documentation
+could be developed and compared.  Some comparison could be automated between the
+documents, such as empirical measures of their quality.  Other measures would
+require some kind of usability experiments.
 
 Some SCS needs to be verifiably safe.  We will achieve this by building a safety
 assurance case. An assurance case is an explicit structured argument pertaining
@@ -842,9 +942,9 @@ expected to blindly trust.  With the right up-front investment of knowledge
 capture, we can have software that is long lived because the stable knowledge is
 separated from the rapidly changing modelling assumptions and design decisions.
 
-\newpage
-
 \section{Research Schedule} \label{SecSchedule}
+
+\newpage
 
 \bibliographystyle {plainnat}
 \bibliography {ResearchProposal}
