@@ -132,16 +132,44 @@ to demonstrate that an MDE process can improve the sustainability of SCS.  This
 leads to the long-term objective for this research proposal: \emph{assess and
   measure the impact of MDE on the sustainability of SCS.}
 
-The scope of SCS software for this proposal includes long-lived software, as
-implied by the sustainability objective.  To gain the full benefits of
-generating documentation, the scope also includes software that interests
-multiple stakeholders, with different interests and backgrounds.  Finally, the
-scope of this proposal emphasizes safety related software, such as software for
-nuclear safety analysis, medical imaging and computational medicine.  Safety
-related software is prioritized because documentation is often expected as part
-of a certification exercise.  Although this study is not specifically restricted
-to open-source software, for practical reasons (especially the lack of access to
-the code), commercial software will not be strongly emphasized.
+The scope of SCS software for this proposal includes software intended for a
+long life (10+ years), as implied by the sustainability objective.  The effort
+involved in MDE does not provide enough of a payoff for short-term projects.  To
+gain the full benefits of generating documentation, the scope also includes
+software that interests multiple stakeholders, with different interests and
+backgrounds.  Finally, the scope of this proposal emphasizes safety related
+software, such as software for nuclear safety analysis, medical imaging and
+computational medicine.  Safety related software is prioritized because
+documentation is often expected as part of a certification exercise.  Although
+this study is not specifically restricted to open-source software, for practical
+reasons (especially the lack of access to the code), commercial software will
+not be strongly emphasized.
+
+Implicit in the scope is that we are interested in software for domains that are
+well-understood.  This is necessary for knowledge capture and the associated
+construction of models.  We can refine the notion of well-understood by using
+the fact that MDE is simply a technology based realization of the older concept
+of program families.  Success with an MDE approach requires
+satisfaction of the same three hypotheses as success for program family
+development \citep{Weiss1997}:
+
+\begin{description}
+\item [Redevelopement Hypothesis] -- most software development involved in
+  producing an individual family members should be redevelopement because the
+  family members have so much in common. 
+
+\item[Oracle Hypothesis] -- the changes that are likely to occur during the
+  software's lifetime are predictable.
+
+\item [Organizational Hypothesis] -- designers can organize the software and the
+  development effort so that predicted changes can be made independently.
+\end{description}
+
+SCS can be shown to satisfy these three hypotheses \citep{SmithAndChen2004,
+  SmithMcCutchanAndCao2007}; therefore, SCS is suitable for a program family, or
+MDE software development approach.  Although our focus is on SCS, an MDE
+approach could be applied to any domain that satisfies the above three
+hypotheses.
 
 Given the large number of potential MDE processes, techniques and technologies,
 together with the wide variety in purpose, scope and context for SCS, the
@@ -285,10 +313,13 @@ sustainability.
   repeatable computing environment, version control and separating code from
   configuration/parameters~\cite{Davison2012}.
 
-\item [\textbf{Productivity}] [Fill in]
+\item [\textbf{Productivity}] \wss{This needs to be filled in.  Productivity is
+    an important quality for this proposal, since part of what MDE promises is
+    increased productivity.}
 
-\item [\textbf{Sustainability}] A combination of other qualities, likely
-  maintainability and productivity.  Reference authorless paper found on-line.
+\item [\textbf{Sustainability}] \wss{This needs to be filled in.  A search needs
+    to be done to find a good definition.  A starting point might be the recent
+    paper that defines sustainability as a combination of other qualities.}
 
 \end{description}
 
@@ -538,7 +569,7 @@ return to these domains and/or introduce new domains.  Potential
 domains/collaborators are listed in the subsections below.
 
 MEng students will be asked to assess the state of practice in each domain.
-During the last state of the practice exercise each student measured two
+During the previous state of the practice exercise each student measured two
 domains, but with the higher demands from the new measurement protocol, we will
 likely switch to one domain per student.
 
@@ -547,7 +578,8 @@ the increased scrutiny required in this re-boot, we will not likely be able to
 measure the details on this high a number of software projects.  We may still
 start with 30 software examples in each domain, but then use some criteria to
 create a shorter sub-list for detailed measurement.  The details of how to
-proceed here would be determined and documented in the measurement protocol.
+proceed here would be determined and documented in the measurement procedures.
+We still would like to keep the number of measured software projects above 10.
 
 In the previous state of the practice assessing exercise
 \citep{SmithEtAl2018_arXivGIS}, a series of questions and simple metrics was
@@ -569,8 +601,9 @@ for collection for each domain:
   time to complete a task and the users overall impression will be considered.
 \item Collect empirical software engineering related data, such as the number of
   files, number of lines of code, cyclomatic complexity, number of open issues,
-  etc.  As a starting point for tool support, HubListener
-  (\url{https://github.com/pjmc-oliveira/HubListener}) could be used.
+  number of closed issues, etc.  As a starting point for tool support,
+  HubListener (\url{https://github.com/pjmc-oliveira/HubListener}) could be
+  used.
 \item Collect at least one empirical measure of the quality of the documentation
   - the number of lines of documentation.  We should investigate to see if this
   is a metric that has previously been collected.  So many of the existing
@@ -579,20 +612,25 @@ for collection for each domain:
   documentation quality.
 \item One of the guidelines for successfully on-boarding new developers is to
   ``Keep knowledge up to date and findable'' \citep{ShollerEtAl2019}.  The
-  measurements selected should be able to assist with judging whether a project
+  selected measurements should be able to assist with judging whether a project
   succeeds on this front.
 \end{itemize}
+
+To focus the revised measurement procedure, we will go through each of the
+quality criteria listed in Section~\ref{SecSoftwareQuality}.  For each criteria
+we will look at how it was previously measured by us, but also at the literature
+and current best practices for its measurement.
 
 The above data will be combined to rank the software in the domain.  The
 specifics are yet to be determined, but in the past the Analytic Hierarchy
 Process (AHP) \citep{Saaty1980} proved helpful in this.  In the past the AHP
-results were calculated by a grade out of 10 that each student evaluator gave to
+results were calculated by a grade out of 10 from each student evaluator for
 each quality for each measured product.  A better approach may be to have a
 group of people familiar with the software do a pairwise comparison between each
 product to come up with a number.  The number would be based on the data
-collected, but not in a numerical way.  The data collected would sever the same
+collected, but not in a numerical way.  The data collected would serve the same
 role as a decision support system.  It would provided insight, but human beings
-would do the final pairwise comparisons.
+would do the final pairwise comparisons, and thus the final ranking.
 
 Key to the success of this exercise will be to involve and engage a partner for
 each state of practice project.  In the previous effort we did not involve domain
@@ -631,9 +669,9 @@ summarized at \href{https://data.mendeley.com/datasets/6kprpvv7r7/1}
 
 As a next step for this work, the procedure for measuring software qualities in
 SCS will be brainstormed, discussed and written up.  The procedure will be
-applied to each domain with SCS that is assessed.  The write-up on the procedure
+applied to each domain within SCS that is assessed.  The write-up on the procedure
 will be published.  Ideally at a relevant conference, but if that is not a
-feasible option, it will be hosted on the arxiv.
+feasible option, it will be posted on the arxiv.
 
 Potential domains for future measurement are listed below.  Determination of
 these domains are good candidates will require evaluation of the following
@@ -642,10 +680,12 @@ criteria:
 \begin{itemize}
 \item Availability of a domain expert that is willing to assist, and who has at
   least a few graduate students that can assist with the measurement tasks.
-\item A domain where end-user developed software is common
+\item A domain where end-user developed software is common.
 \item A domain where open-source software is available.  Commercial products are
   not as effective for measurement, since we cannot generally gain access to the
   source code, developer documentation, or issue tracking system.
+\item A domain where at least 10 software projects are available for
+  measurement.
 \item A domain where scientific computing is used.  The selected software should
   fit in the larger domain of SCS.
 \end{itemize}
@@ -738,9 +778,9 @@ in the documentation and the software.
 
 The general idea that MDE will be helpful is appealing, but to study the impact
 of MDE, we need to know how it will actually be used.  How exactly would MDE be
-fit into the scientific software development process?  The new process should
-encourage an early intensity of thought and effort, but at the same time, it
-should not impose waterfall development, since waterfall is an unrealistic
+fit into the scientific software development process?  The new ideal process
+should encourage an early intensity of thought and effort, but at the same time,
+it should not impose waterfall development, since waterfall is an unrealistic
 expectation for a problem that is not yet well understood.  MDE supports
 frequent change and incremental development, but where should developers start
 and how should the work proceed?  How does one create an almost empty project in
@@ -768,13 +808,16 @@ based inspection \citep{KellyAndShepard2000, KellyAndShepard2004} hold promise
 for getting the scientist to think deeply at an earlier stage in the development
 process.
 
+The ideal process using the Drasil tool will focus on the ideal version of
+Drasil, since Drasil is still a work on progress.  The design of the ideal
+process for the ideal Drasil, will help to guide future development of Drasil.
+
 Since Drasil is not the only tool that can be used for MDE, we will also
 consider what an MDE approach would look like using other tools.  As a starting
 point, we will look at \href{https://www.eclipse.org/epsilon/}{Epsilon}.
 Epsilon is a family of languages and tools for code generation, model-to-model
 transformation, model validation, comparison, migration and refactoring that
 work out of the box with EMF, UML, Simulink, XML and other types of models.
-
 
 \subsubsection{Measuring the Qualities of MDE Developed
   Artifacts} \label{SecQOfMDEArtifacts}
@@ -828,22 +871,25 @@ domains listed for the ``state of the practice'' exercise
 (Section~\ref{SecStateOfThePractice}), like computational medicine, medical
 imaging or quantum chemistry software.  We will first identify the partners and
 look for feasible projects that can be developed using an MDE approach.  We will
-use the ideal process identified in Section~\ref{SecMDEProcess}.  Compare to Some additional thought, and resources, are necessary
-here.  If we could do a project where the scientist, or a student under their
-supervision, is a true partner in the development, we might get more convincing
-anecdotal evidence.  Pre and post interviews.  Measurement of quality following the
-techniques developed in the state of the practice exercise.
+use the ideal process identified in Section~\ref{SecMDEProcess}.  The respective
+advantages and disadvantages of Drasil versus Epsilon will be compared.
 
-List of projects above could also be used for case studies.
+To assess the impact of MDE, we will use techniques like pre and post
+interviews, the measurements of quality used for the ``state of the practice''
+exercise, ethnographic study,  etc.
 
-Observe - how answer questions when problems come up.  Should have so
-pre and post interviews.
+\wss{More information is needed in this section.}
 
-\subsubsection{Development of Small Physics
-  Examples} \label{SecSmallPhysExample}
+\subsubsection {Development of Small Physics Examples} \label{SecSmallPhysExample}
 
-describe a different experiment.  conference multiple develop physics code.
-Like projectile.  Survey before and after.  Quantify success of efforts and time required.
+To learn more about MDE for SCS, and to assess the current and future state of
+Drasil, a workshop could be conducted where the participants are all expected to
+build a small physics application, together with full documentation and test
+cases, in a one day, or possibly half day workshop.  The participants would be
+surveyed before and after the development exercise, and observations would be
+made throughout the exercise.
+
+\wss{More detail is needed.}
 
 \subsection{Impact of Assurance Cases for Building
   Confidence} \label{SecAssuranceCase}
@@ -943,6 +989,54 @@ capture, we can have software that is long lived because the stable knowledge is
 separated from the rapidly changing modelling assumptions and design decisions.
 
 \section{Research Schedule} \label{SecSchedule}
+
+\wss{Schedules are incomplete}
+
+\subsection{State of Practice Exercise}
+
+\begin{itemize}
+\item Fall 2019
+  \begin{itemize}
+  \item Review previous measurement template
+  \item Update measurement process
+  \item Meet with stakeholders
+  \item Identify list of software to be measured
+  \end{itemize}
+\item Winter 2020
+  \begin{itemize}
+  \item Complete measurements
+  \item Use AHP to rank software products for each quality, and for overall
+    quality
+  \end{itemize}
+\item Summer 2020
+  \begin{itemize}
+  \item Write up results, MEng reports, papers
+  \end{itemize}
+\end{itemize}
+
+\subsection{Impact of MDE on the Sustainability Timeline}
+
+A high-level timeline of the research plan for assessing the impact of MDE on
+sustainability (see Section~\ref{SecImpactMDE} ) follows:
+
+\begin{itemize}
+\item Fall 2019
+  \begin{itemize}
+  \item Write research protocol
+  \end{itemize}
+\item Winter 2020
+  \begin{itemize}
+  \item 
+  \end{itemize}
+\item Summer 2020
+  \begin{itemize}
+  \item 
+  \end{itemize}
+\item Fall 2020
+\item Winter 2021
+\item Summer 2021
+\item Fall 2021
+\end{itemize}
 
 \newpage
 
