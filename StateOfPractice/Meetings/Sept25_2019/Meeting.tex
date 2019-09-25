@@ -1,0 +1,257 @@
+%\documentclass[handout]{beamer} 
+\documentclass[t,12pt,numbers,fleqn]{beamer}
+%\documentclass[ignorenonframetext]{beamer}
+
+\newif\ifquestions
+%\questionstrue
+\questionsfalse
+
+\usepackage{pgfpages} 
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,
+    linkcolor=blue,
+    citecolor=blue,
+    filecolor=blue,
+    urlcolor=blue,
+    unicode=false}
+\urlstyle{same}
+
+\usepackage{booktabs}
+\usepackage{bibentry}
+\usepackage[round, authoryear]{natbib}
+\bibliographystyle{plainnat}
+
+%\usetheme{Iimenau}
+
+\useoutertheme{split} %so the footline can be seen, without needing pgfpages
+
+%\pgfpagesuselayout{resize to}[letterpaper,border shrink=5mm,landscape]  %if this is uncommented, the hyperref links do not work
+
+\mode<presentation>{}
+
+\input{def-beamer}
+
+\newcommand{\instructor}{Dr.~Spencer Smith} %use to switch instructor
+\newcommand{\instructSmall}{Dr.~Smith}
+
+%\setbeamerfont{structure}{series=\bfseries}
+%\usefonttheme[stillsansseriftext,stillsansserifmath]{serif}
+\setbeamertemplate{navigation symbols}{} 
+\setbeamertemplate{itemize item}[ball]
+
+\title{
+  {\normalsize \bf 
+    \borange{Assessing the Impact of MDE on SCS (AIMS)}}\\[2ex]
+  {\Large \bf State of the Practice}}
+
+\author[Smith]{\instructor}
+
+\institute{
+  Faculty of Engineering,
+  McMaster University}
+
+\date{
+\today
+%January 2011\\
+\bc
+  \includegraphics[scale = 0.2, keepaspectratio]
+  {mcmaster-logo-full-color.jpg}
+\ec
+}
+
+\renewcommand{\borange}[1] %orange is too hard to read
+{
+   \bred{#1}
+}
+
+\begin{document}
+
+% Footline for  Slides
+
+% Display title page and displays footers
+
+\setbeamertemplate{footline}{} %so the title screen does not have a footline
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setbeamertemplate{footline}{
+\begin{beamercolorbox}{sectioninhead/foot}
+\hspace{1ex}\bblue{\hrulefill}\hspace{1ex}
+
+\vspace{1ex}
+\hspace{1ex}
+{\tiny \instructSmall \hfill 
+State of the Practice \hfill 
+\insertframenumber/\inserttotalframenumber~~}
+%\insertframenumber/\ref{lastframe}}
+%\hfill {\small \insertframenumber} \hspace{10ex}
+%{\small $$\insertframenumber$$}
+\vspace{1ex}
+\end{beamercolorbox}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Agenda}
+
+\be
+\item Introductions
+\item Recruited domain experts
+\item Planned publications
+\item High level view
+\item Ranking software
+\item Measurement options
+\item Brainstorming
+\item ``Homework''
+\ee
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{High Level View}
+
+\be
+\item Identify client
+\item Identify software (10--30 packages)
+\item Measurements
+\item Ranking/assessment
+\item Report and paper writing
+\item Meta-analysis
+\item Apply similar techniques to MDE developed software
+\ee
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Ranking}
+
+\begin{itemize}
+
+\item Analytic Hierarchy Process (AHP) for decision making with multiple options
+  and multiple criteria
+\item Options = software products, Criteria = Qualities
+\item Relative comparisons%, rather than requiring an unattainable unified scale
+\item $n$ \textit{options} (software products) and $m$
+\textit{criteria} (qualities)
+\item For each quality a pairwise comps between each software
+\item Forms an $n$x$n$ matrix $a$.  The value of $a_{jk}$ ranges from:
+\bi
+\item $1$, when options $j$ and $k$ are equally successful, to 
+\item $9$, when option $j$ is extremely more successful than option $k$ 
+\ei
+\item Prioritize qualities to select the best software% for a given project
+\item Previously calculated $a$ from a measure out of 10
+\item Recommend - pairwise comparision with domain experts
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Measurement Options}
+
+\begin{itemize}
+
+\item
+  \href{https://github.com/adamlazz/DomainX/blob/master/TemplateToGradeSCSoft.pdf}
+  {Previous Measures}
+\item Functionality of family members - commonality analysis
+\item Empirical measures of code
+\bi
+\item Lines of code
+\item Cyclomatic complexity
+\item etc.
+\ei
+\item Empirical measures of documentation
+\bi
+\item Presence or absence of types of documents
+\item Number of lines of documentation
+\item Traceability 
+\item etc.
+\ei
+\item Empirical measures of issue tracking
+\bi
+\item Number of open issues
+\item Number of closed issues
+\item etc.
+\ei
+
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Measurement Options: Qualities of Artifacts}
+
+\begin{itemize}
+
+\item Completness
+\item Consistency
+\item Modifiability
+\item Traceability
+\item Unambiguity
+\item Correctness
+\item Verifiability
+\item Abstract
+
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Brainstorming Metrics}
+
+\begin{itemize}
+\item Usability?
+\item Correctness?
+\item Performance?
+\item Maintainability?
+\item Reproducibility?
+\item Quality of documentation?
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Homework}
+
+\begin{itemize}
+\item Define sustainability
+\item Measures for each quality
+\bi
+\item Installability
+\item Correctness
+\item Verifiability
+\item Reliability
+\item Performance
+\item Usability
+\item Maintainability
+\item Reusability
+\item Understandability
+\item Reproducibility
+\item Productivity
+\item Sustainability
+\ei
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
