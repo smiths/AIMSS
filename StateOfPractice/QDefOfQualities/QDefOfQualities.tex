@@ -1,0 +1,260 @@
+\documentclass[12pt]{article}
+
+\usepackage[round]{natbib}
+\usepackage{booktabs}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,       % false: boxed links; true: colored links
+    linkcolor=red,          % color of internal links (change box color with linkbordercolor)
+    citecolor=blue,       % color of links to bibliography
+    filecolor=magenta,   % color of file links
+    urlcolor=cyan           % color of external links
+}
+
+%% Comments
+\newif\ifcomments\commentstrue
+
+\ifcomments
+\newcommand{\authornote}[3]{\textcolor{#1}{[#3 ---#2]}}
+\newcommand{\todo}[1]{\textcolor{red}{[TODO: #1]}}
+\else
+\newcommand{\authornote}[3]{}
+\newcommand{\todo}[1]{}
+\fi
+
+\newcommand{\wss}[1]{\authornote{blue}{SS}{#1}} %Spencer Smith
+\newcommand{\jc}[1]{\authornote{red}{JC}{#1}} %Jacques Carette
+\newcommand{\oo}[1]{\authornote{magenta}{OO}{#1}} %Olu Owojaiye
+\newcommand{\pmi}[1]{\authornote{green}{PM}{#1}} %Peter Michalski
+\newcommand{\ad}[1]{\authornote{cyan}{AD}{#1}} %Ao Dong
+
+%\oddsidemargin 0mm
+%\evensidemargin 0mm
+%\textwidth 160mm
+%\textheight 200mm
+
+\begin{document}
+
+\title{Quality Definitions of Qualities} 
+\author{Spencer Smith, Jacques Carette, Olu Owojaiye,\\Peter Michalski and Ao Dong}
+\date{\today}
+	
+\maketitle
+
+\begin{abstract}
+  ...
+\end{abstract}
+
+\tableofcontents
+
+\newpage
+
+\section{Introduction} \label{SecIntroduction}
+
+Purpose and scope of the document.  \wss{Needs to be filled in.  Should
+  reference the overal research proposal, and the ``state of the practice''
+  exercise in particular.}
+
+The presentation is divided into two main sections: i) qualities that apply to software products,
+software artifacts and software development processes, and ii) qualities that
+are considered important for good specifications.  The specification could be a
+specification of requirements, design or a test plan.  
+
+\section{Qualities of Software Products, Artifacts and
+  Processes} \label{SecQualities}
+
+To assess the current state of software development, and to understand how
+future changes impact software development, we need a clear definition of what
+we mean by quality.  The concept of quality is decomposed into a set of separate
+qualities.  This set of qualities can be applied to the software product, the
+software artifacts (documentation, test cases, etc) and to the software
+development process itself.
+
+Our analysis is centred around a set of software qualities.  Quality is not
+considered as a single measure, but a collection of different qualities, often
+called ``ilities.''  These qualities highlight the desirable nonfunctional
+properties for software artifacts, which include both documentation and
+code. Some qualities, such as visibility and productivity, apply to the process
+used for developing the software. The following list of qualities is based on
+\cite{GhezziEtAl2003}. To the list from \cite{GhezziEtAl2003}, we have added
+three qualities important for SC: installability, reproducibility and
+sustainability.
+
+\subsection{Installability}
+
+A measure of the ease of installation.
+
+
+\subsection{Correctness}
+
+Software is correct if it matches its specification.
+
+\subsection{Verifiability}
+
+Verifiability involves ``solving the equations right''~\cite[p.~23]{Roache1998};
+it benefits from rational documentation that systematically shows, with explicit
+traceability, how the governing equations are transformed into code.
+
+\subsection{Validatability}
+
+Validatability means ``solving the right equations''~\cite[p.~23]{Roache1998}.
+Validatability is improved by a rational process via clear documentation of the
+theory and assumptions, along with an explicit statement of the systematic steps
+required for experimental validation.
+
+\subsection{Reliability}
+
+Reliability is a critical quality for scientific software, since the results of
+computations are meaningless, if they are not dependable.  Reliability is
+closely tied to verifiability, since the key quality to verify is reliability,
+while the act of verification itself improves reliability.
+
+\subsection{Robustness}
+
+\subsection{Performance}
+
+Performance considerations can make certification challenging, since QA becomes
+more difficult for more complex code.  However, as
+Roache~\cite[p.~355]{Roache1998} points out, using simpler algorithms and
+reducing the number of options in general purpose code, is not always a
+practical option.
+
+\subsection{Usability}
+
+Usability can be a problem.  Different users, solving the same physical problem,
+using the same software, can come up with different answers, due to differences
+in parameter selection~\cite[p.~370]{Roache1998}.  To reduce misuse, a rational
+process must state expected user characteristics, modelling assumptions,
+definitions and the range of applicability of the code.
+
+\subsection{Maintainability}
+
+Maintainability is necessary in scientific software, since change, through
+iteration, experimentation and exploration, is inevitable.  Models of physical
+phenomena and numerical techniques necessarily evolve over
+time~\cite{CarverEtAl2007, SegalAndMorris2008}.  Proper documentation, designed
+with change in mind, can greatly assist with change management.  QA activities
+need to take the need for creativity into account, while not smothering
+it~\cite[p.~352]{Roache1998}.
+
+\subsection{Reusability}
+
+Reusability provides support for the quality of reliability, since reliability
+is improved by reusing trusted components~\cite{Dubois2005}.  (Care must still
+be taken with reusing trusted components, since blind reuse in a new context can
+lead to errors, as dramatically shown in the Ariane 5
+disaster~\cite[p.~37--38]{OliveiraAndStewart2006}.)  The odds of reuse are
+improved when it is considered right from the start.
+
+\subsection{Portability}
+
+\subsection{Understandability}
+
+Understandability is necessary, since reviewers can only certify something they
+understand.  Scientific software developers have the view ``that the science a
+developer embeds in the code must be apparent to another scientist, even ten
+years later''~\cite{Kelly2013}.  Understandability applies to the documentation
+and code, while usability refers to the executable software.  Documentation that
+follows a rational process is the easiest to follow.
+
+\subsection{Interoperability}
+
+\subsection{Visibility/Transparency}
+
+\subsection{Reproducibility}
+
+Reproducibility is a required component of the scientific
+method~\cite{Davison2012}.  Although QA has, ``a bad name among creative
+scientists and engineers''~\cite[p.~352]{Roache1998}, the community need to
+recognize that participating in QA management also improves reproducibility.
+Reproducibility, like QA, benefits from a consistent and repeatable computing
+environment, version control and separating code from
+configuration/parameters~\cite{Davison2012}.
+
+\subsection{Productivity}
+
+
+\subsection{Sustainability}
+
+
+\section{Desirable Qualities of Good Specifications} \label{SecDesirableQs}
+
+To achieve the qualities listed in Section~\ref{SecQualities}, the documentation
+should achieve the qualities listed in this section.  All but the final quality
+listed (abstraction), are adapted from the IEEE recommended practise for
+producing good software requirements~\cite{IEEE1998}.  Abstraction means only
+revealing relevant details, which in a requirements document means stating what
+is to be achieved, but remaining silent on how it is to be achieved.
+Abstraction is an important software development principle for dealing with
+complexity~\cite[p.~40]{GhezziEtAl2003}.  \citet{SmithAndKoothoor2016} present
+further details on the qualities of documentation for SCS.
+
+\subsection{Completeness}
+
+Documentation is said to be complete when all the requirements of the software
+are detailed. That is, each goal, functionality, attribute, design constraint,
+value, data, model, symbol, term (with its unit of measurement if applicable),
+abbreviation, acronym, assumption and performance requirement of the software is
+defined.  The software's response to all classes of inputs, both valid and
+invalid and for both desired and undesired events, also needs to be specified.
+
+\subsection{Consistency}
+
+Documentation is said to be consistent when no subset of individual statements
+are in conflict with each other. That is, a specification of an item made at one
+place in the document should not contradict the specification of the same item
+at another location.
+
+\subsection{Modifiability}
+
+The documentation should be developed in such a way that it is easily modifiable
+so that likely future changes do not destroy the structure of the document. Also
+it should be easy to reflect the change, wherever needed in the document to
+maintain consistency, traceability and completeness. For documentation to be
+modifiable, its format must be structured in a way that repetition is avoided
+and cross-referencing is employed.
+
+\subsection{Traceability}
+
+Documentation should be traceable, as this facilitates maintenance and
+review. If a change is made to the design or code of the software, then all the
+documentation relating to those segments have to be modified.  This property is
+also important for recertification.
+
+\subsection{Unambiguity}
+
+Documentation is said to be unambiguous only when every requirement's
+specification has a unique interpretation.  The documentation should be
+unambiguous to all audiences, including developers, users and reviewers.
+
+\subsection{Correctness}
+
+There is no direct tool or method for measuring correctness. One way of building
+confidence in correctness is by reviewing to ensure that each requirement stated
+is one that the stakeholders and experts desire.  By maintaining traceability,
+consistency and unambiguity, we can reduce the occurrence of errors and make the
+goal of reviewing for correctness easier.
+
+\subsection{Verifiability}
+
+Every requirement in the documentation must be the one fulfilled by the
+implemented software. Therefore all the requirements should be clear,
+unambiguous and testable, so that a person or a machine can verify whether the
+software product meets the requirements.
+
+\subsection{Abstract}
+
+Documented requirements are said to be abstract if they state what the software
+must do and the properties it must possess, but do not speak about how these are
+to be achieved. For example, a requirement can specify that an Ordinary
+Differential Equation (ODE) must be solved, but it should not mention that
+Euler's method should be used to solve the ODE. How to accomplish the
+requirement is a design decision, which is documented during the design phase.
+
+\newpage
+
+\bibliographystyle {plainnat}
+\bibliography {../../CommonFiles/ResearchProposal}
+
+\end{document}
