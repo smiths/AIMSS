@@ -2,6 +2,7 @@
 
 \usepackage[round]{natbib}
 \usepackage{booktabs}
+\usepackage{amsmath}
 
 \usepackage{hyperref}
 \hypersetup{
@@ -165,8 +166,18 @@ follows a rational process is the easiest to follow.
 
 \subsection{Interoperability}
 
-\subsection{Visibility/Transparency}
+\begin{quotation}
+	\noindent Interoperability is the ability of two or more systems or components to exchange information and to use the information that has been exchanged~\cite{IEEE1991}.
+	\noindent The degree to which two or more systems, products or components can exchange information and use the information that has been exchanged~\cite{ISO/IEC25010}.
+	\noindent The capability to communicate, execute programs, and transfer data among various functional units in a manner that requires the user to have little or no knowledge of the unique characteristics of those units~\cite{ISO/IEC/IEEE24765}.
+	\noindent Interoperability is a characteristic of a product or system, whose interfaces are completely understood, to work with other products or systems, present or future, in either implementation or access, without any restrictions~\cite{AFUL}.
+\end{quotation}
 
+\subsection{Visibility/Transparency}
+    \ad{I found little contents related to visibility or transparency. The following definition is the only one I could find, but may be irrelevant to this project.}
+    \begin{quotation}
+        1. the degree to which a transaction can access object state concurrently with other transactions. 2. the specification, for a property, of "who can see it?"~\cite{ISO/IEC/IEEE24765}
+    \end{quotation}
 \subsection{Reproducibility}
 
 Reproducibility is a required component of the scientific
@@ -179,6 +190,18 @@ configuration/parameters~\cite{Davison2012}.
 
 \subsection{Productivity}
 
+\begin{quotation}
+    The best definition of the productivity of a process is
+    \[Productivity = \dfrac{Outputs\ produced\ by\ the\ process}{Inputs\ consumed\ by\ the\ process}\]
+    Defining inputs. For the software process, providing a meaningful definition of inputs is a nontrivial but generally workable problem. Inputs to the software process generally comprise labor, computers, supplies, and other support facilities and equipment. Defining outputs. The big problem in defining software productivity is defining outputs. Here we find a paradox. Most sources say that defining delivered source instructions (DSI) or lines of code as the output of the software process is totally inadequate, and they argue that there are a number of deficiencies in using DSI. However, most organizations doing practical productivity measurement still use DSI as their primary metric~\cite{Boehm1987}.\\
+
+    \smallskip
+    Productivity is the amount of output (what is produced) per unit of input used.If we can measure the size of the software product and the effort required to develop the product, we have:
+    \begin{align}
+        productivity = size/effort
+    \end{align}
+    Equation (1) assumes that size is the output of the software production process and effort is the input to the process. This can be contrasted with the viewpoint of software cost models where we use size as an independent variable (i.e., an input) to predict effort which is treated as an output. Equation (1) is simple to operationalize if we have a single dominant size measure, for example, product size measured in lines of code~\cite{Kitchenham2004}.
+\end{quotation}
 
 \subsection{Sustainability}
 
@@ -275,12 +298,34 @@ abbreviation, acronym, assumption and performance requirement of the software is
 defined.  The software's response to all classes of inputs, both valid and
 invalid and for both desired and undesired events, also needs to be specified.
 
+\begin{quotation}
+    A specification is complete to the extent that all of its parts are present and each part is fully developed. A software specification must exhibit several properties to assure its completeness:
+    \begin{itemize}
+        \item No TBDs. TBDs are places in the specification where decisions have been postponed by writing "To be Determined" or "TBD."
+        \item No nonexistent references. These are references in the specification to functions, inputs, or outputs (including databases) not defined in the specification.
+        \item No missing specification items. These are items that should be present as part of the standard format of the specification, but are not present.
+        \item No missing functions. These are functions that should be part of the software product but are not called for in the specification.
+        \item No missing products. These are products that should be part of the delivered software but are not called for in the specification.~\cite{Boehm1984}.
+    \end{itemize}
+
+\end{quotation}
+
 \subsection{Consistency}
 
 Documentation is said to be consistent when no subset of individual statements
 are in conflict with each other. That is, a specification of an item made at one
 place in the document should not contradict the specification of the same item
 at another location.
+
+\begin{quotation}
+    A specification is consistent to the extent that its provisions do not conflict with each other or with governing specifications and objectives. Specifications require consistency in several ways.
+    \begin{itemize}
+        \item Internal consistency. Items within the specification do not conflict with each other.
+        \item External consistency. Items in the specification do not conflict with external specifications or entities.
+        \item Traceability. Items in the specification have clear antecedents in earlier specifications or statements of system objectives~\cite{Boehm1984}.
+    \end{itemize}
+    Consistency requires that no two or more requirements in a specification contradict each other. It is also often regarded as the case where words and terms have the same meaning throughout the requirements specifications (consistent use of terminology). These two views of consistency imply that mutually exclusive statements and clashes in terminology should be avoided~\cite{ZOWGHI2003}. Consistency: 1. the degree of uniformity, standardization, and freedom from contradiction among the documents or parts of a system or component 2. software attributes that provide uniform design and implementation techniques and notations~\cite{ISO/IEC/IEEE24765}
+\end{quotation}
 
 \subsection{Modifiability}
 
