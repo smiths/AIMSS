@@ -241,6 +241,7 @@ Section 11.2 of~\cite{adams2015nonfunctional} does have a full definition.
     \begin{quotation}
         1. the degree to which a transaction can access object state concurrently with other transactions. 2. the specification, for a property, of "who can see it?"~\cite{ISO/IEC/IEEE24765}
     \end{quotation}
+    
 \subsection{Reproducibility}
 
 Reproducibility is a required component of the scientific
@@ -251,19 +252,49 @@ Reproducibility, like QA, benefits from a consistent and repeatable computing
 environment, version control and separating code from
 configuration/parameters~\cite{Davison2012}.
 
+Reproducibility is defined as:
+
+A result is said to be reproducible if another researcher can take the original
+code and input data, execute it, and re-obtain the same result (Peng, Dominici,
+and Zeger, 2006), as cited in \citet{BenureauAndRougier2017}.
+
+The related concept of replicable is defined as:
+
+Documentation achieves replicability if the description it provides of the
+algorithms is sufficiently precise and complete for an independent researcher to
+re-obtain the results it presents.  \citep{BenureauAndRougier2017}
+
+It would be worthwhile to look for some additional definitions.
+
 \subsection{Productivity}
 
 \begin{quotation}
     The best definition of the productivity of a process is
-    \[Productivity = \dfrac{Outputs\ produced\ by\ the\ process}{Inputs\ consumed\ by\ the\ process}\]
-    Defining inputs. For the software process, providing a meaningful definition of inputs is a nontrivial but generally workable problem. Inputs to the software process generally comprise labor, computers, supplies, and other support facilities and equipment. Defining outputs. The big problem in defining software productivity is defining outputs. Here we find a paradox. Most sources say that defining delivered source instructions (DSI) or lines of code as the output of the software process is totally inadequate, and they argue that there are a number of deficiencies in using DSI. However, most organizations doing practical productivity measurement still use DSI as their primary metric~\cite{Boehm1987}.\\
+    \[\text{Productivity} = \dfrac{\text{Outputs produced by the
+          process}}{\text{Inputs consumed by the process}}\]
+    Defining inputs. For the software process, providing a meaningful definition
+    of inputs is a nontrivial but generally workable problem. Inputs to the
+    software process generally comprise labor, computers, supplies, and other
+    support facilities and equipment. Defining outputs. The big problem in
+    defining software productivity is defining outputs. Here we find a
+    paradox. Most sources say that defining delivered source instructions (DSI)
+    or lines of code as the output of the software process is totally
+    inadequate, and they argue that there are a number of deficiencies in using
+    DSI. However, most organizations doing practical productivity measurement
+    still use DSI as their primary metric~\cite{Boehm1987}.
 
     \smallskip
     Productivity is the amount of output (what is produced) per unit of input used.If we can measure the size of the software product and the effort required to develop the product, we have:
     \begin{align}
-        productivity = size/effort
+        \text{productivity} = \text{size}/\text{effort}
     \end{align}
-    Equation (1) assumes that size is the output of the software production process and effort is the input to the process. This can be contrasted with the viewpoint of software cost models where we use size as an independent variable (i.e., an input) to predict effort which is treated as an output. Equation (1) is simple to operationalize if we have a single dominant size measure, for example, product size measured in lines of code~\cite{Kitchenham2004}.
+    Equation (1) assumes that size is the output of the software production
+    process and effort is the input to the process. This can be contrasted with
+    the viewpoint of software cost models where we use size as an independent
+    variable (i.e., an input) to predict effort which is treated as an
+    output. Equation (1) is simple to operationalize if we have a single
+    dominant size measure, for example, product size measured in lines of
+    code~\cite{Kitchenham2004}.
 \end{quotation}
 
 \subsection{Sustainability}
@@ -435,25 +466,75 @@ verifications, or tasks.
 
 \subsection{Unambiguity}
 
-Documentation is said to be unambiguous only when every requirement's
-specification has a unique interpretation.  The documentation should be
-unambiguous to all audiences, including developers, users and reviewers.
+A specification is unambiguous when it has a unique interpretation.  If there is
+a possibility that two readers will have two different interpretations, than the
+specification is ambiguous.  \wss{When I get the Ghezzi text back from Olu, I'll
+  check to see if they have anything to add to this definition.}
+
+A Software Requirements Specification (SRS) is unambiguous if, and only if,
+every requirement stated therein has only one interpretation \citep{IEEE1998}.
 
 \subsection{Verifiability}
 
-Every requirement in the documentation must be the one fulfilled by the
-implemented software. Therefore all the requirements should be clear,
-unambiguous and testable, so that a person or a machine can verify whether the
-software product meets the requirements.
+\begin{itemize}
+
+\item Verification - Are we building the product right?  Are we implementing the
+  requirements correctly (internal)
+\item Validation - Are we building the right product? Are we getting the right
+  requirements (external)
+\item According to
+  \href{https://en.wikipedia.org/wiki/Software_verification_and_validation}{Capability
+    Maturity Model (CMM)}
+\begin{itemize}
+\item 
+    Software Verification: The process of evaluating software to determine
+    whether the products of a given development phase satisfy the conditions
+    imposed at the start of that phase. [IEEE-STD-610]
+  \item Software Validation: The process of evaluating software during or at the
+    end of the development process to determine whether it satisfies specified
+    requirements. [IEEE-STD-610] 
+\end{itemize}
+\end{itemize}
+
+``An SRS is verifiable if, and only if, every requirement stated therein is
+verifiable. A requirement is verifiable if, and only if, there exists some
+finite cost-effective process with which a person or machine can check that the
+software product meets the requirement. In general any ambiguous requirement is
+not verifiable.'' \citep{IEEE1998}
+
+Verifiability is related to testability, which is defined by McCall et al.\ as
+``The effort required to test a program to ensure that it performs its intended
+function'' \cite{VanVliet2000}.  
+
+\wss{When I get the Ghezzi text back from Olu,
+  I'll check to see if they have anything to add to this definition.}
 
 \subsection{Abstract}
 
 Documented requirements are said to be abstract if they state what the software
 must do and the properties it must possess, but do not speak about how these are
-to be achieved. For example, a requirement can specify that an Ordinary
-Differential Equation (ODE) must be solved, but it should not mention that
-Euler's method should be used to solve the ODE. How to accomplish the
-requirement is a design decision, which is documented during the design phase.
+to be achieved \citep{GhezziEtAl2003}.  
+
+``An abstraction for a software artifact is a succinct description that suppresses
+the details that are unimportant to a software developer and emphasizes the
+information that is important.'' \cite{Krueger1992}
+
+``Abstraction means that we concentrate on the essential features and ignore,
+abstract from, details that are not relevant at the level we are currently
+working.''  \cite[p.\ 296]{VanVliet2000}
+
+``Abstraction in mathematics is the process of extracting the underlying essence
+of a mathematical concept, removing any dependence on real world objects with
+which it might originally have been connected, and generalizing it so that it
+has wider applications or matching among other abstract descriptions of
+equivalent phenomena.''
+\href{https://en.wikipedia.org/wiki/Abstraction_(mathematics)} {Wikipedia
+  Definition}
+
+Abstraction is related to reusability (and other qualities).
+
+\wss{When I get the Ghezzi text back from Olu, I'll check to see if they have
+  anything to add to this definition.}
 
 \newpage
 
