@@ -2,7 +2,7 @@
 
 \usepackage[round]{natbib}
 \usepackage{booktabs}
-\usepackage{amsmath}
+\usepackage{amsmath,amsthm}
 
 \usepackage{hyperref}
 \hypersetup{
@@ -34,6 +34,9 @@
 %\evensidemargin 0mm
 %\textwidth 160mm
 %\textheight 200mm
+
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}
 
 \title{Quality Definitions of Qualities} 
 \author{Spencer Smith}{McMaster University, Canada}{smiths@mcmaster.ca}{}{}
@@ -76,9 +79,10 @@ specification of requirements, design or a test plan.
 To assess the current state of software development, and to understand how
 future changes impact software development, we need a clear definition of what
 we mean by quality.  The concept of quality is decomposed into a set of separate
-qualities.  This set of qualities can be applied to the software product, the
-software artifacts (documentation, test cases, etc) and to the software
-development process itself.
+components that together make up ``quality''. Unfortunately, these are
+called \emph{qualities}. These are associated to the software product,
+the software artifacts (documentation, test cases, etc) and to the software
+development process itself, and combinations thereof.
 
 Our analysis is centred around a set of software qualities.  Quality is not
 considered as a single measure, but a collection of different qualities, often
@@ -133,16 +137,57 @@ The quality can be further informally refined as the ability of a software to ke
 
 \subsection{Performance}
 
-The degree to which a system or component accomplishes its designated functions within given constraints, such as speed, accuracy, or memory usage \cite{IEEEStdGlossarySET1990}.
-Performance considerations can make certification challenging, since QA becomes more difficult for more complex code.  However, as Roache~\cite[p.~355]{Roache1998} points out, using simpler algorithms and reducing the number of options in general purpose code, is not always a practical option.
+The degree to which a system or component accomplishes its designated functions
+within given constraints, such as speed, accuracy, or memory usage
+\cite{IEEEStdGlossarySET1990}.  Performance considerations can make
+certification challenging, since QA becomes more difficult for more complex
+code.  However, as Roache~\cite[p.~355]{Roache1998} points out, using simpler
+algorithms and reducing the number of options in general purpose code, is not
+always a practical option.
 
 \subsection{Usability}
 
-Usability can be a problem.  Different users, solving the same physical problem,
-using the same software, can come up with different answers, due to differences
-in parameter selection~\cite[p.~370]{Roache1998}.  To reduce misuse, a rational
-process must state expected user characteristics, modelling assumptions,
-definitions and the range of applicability of the code.
+ISO defines usability as
+\begin{quote}
+The extent to which a product can be used by specified users to achieve
+specified goals with effectiveness, efficiency, and satisfaction in a specified
+context of use.
+\end{quote}
+
+Nielsen and (separately) Schneidermann have defined usability as part of usefulness and
+is composed of
+\begin{itemize}
+\item Learnability: How easy is it for users to accomplish basic tasks the
+  first time they encounter the design?
+\item Efficiency: Once users have learned the design, how quickly can they perform tasks?
+\item Memorability: When users return to the design after a period of not using
+  it, how easily can they re-establish proficiency?
+\item Errors: How many errors do users make, how severe are these errors, and
+  how easily can they recover from the errors?
+\item Satisfaction: How pleasant is it to use the design?
+\end{itemize}
+In that context, it makes sense to separate \emph{usefulness} into
+\emph{usability} (purely an interface concern) and \emph{utility} (in the economics
+sense of the word).
+
+There are two ISO standards covering this, namely ISO/TR 16982:202 and ISO 9241. 
+
+The Interaction Design Foundation~\url{https://www.interaction-design.org/literature/topics/usability}
+further lists the following desirable outcomes:
+\begin{enumerate}
+\item It should be easy for the user to become familiar with and competent in using
+the user interface during the first contact with the website. For example, if a
+travel agent’s website is a well-designed one, the user should be able to move
+through the sequence of actions to book a ticket quickly.
+\item It should be easy for users to achieve their objective through using the
+website. If a user has the goal of booking a flight, a good design will guide
+him/her through the easiest process to purchase that ticket.
+\item It should be easy to recall the user interface and how to use it on
+subsequent visits. So, a good design on the travel agent’s site means the user
+should learn from the first time and book a second ticket just as easily.
+\end{enumerate}
+
+One core reference, for definitions and metrics, is Bevan~\cite{bevan1995measuring}.
 
 \subsection{Maintainability}
 
@@ -163,12 +208,24 @@ The ease with which a system or component can be transferred from one hardware o
 
 \subsection{Understandability}
 
-Understandability is necessary, since reviewers can only certify something they
-understand.  Scientific software developers have the view ``that the science a
-developer embeds in the code must be apparent to another scientist, even ten
-years later''~\cite{Kelly2013}.  Understandability applies to the documentation
-and code, while usability refers to the executable software.  Documentation that
-follows a rational process is the easiest to follow.
+Understandability is artifact-dependent. What it means for a user-interface (graphical
+or otherwise) to be understandable is wildly different than what it means for the code,
+and even the user documentation.
+
+The literature here is thin and scattered.  More work will need to be done to find
+something useful.
+
+Interestingly, the business literature seems to have taken more care to define this.
+Here we encounter
+\begin{quote}
+Understandability is the concept that X should be presented
+so that a reader can easily comprehend it.
+\end{quote}
+At least this brings in the idea that the \emph{reader} is actively involved, and
+indirectly that the reader's knowledge may be relevant, as well as the
+``clarity of exposition'' of X.
+
+Section 11.2 of~\cite{adams2015nonfunctional} does have a full definition.
 
 \subsection{Interoperability}
 
@@ -335,19 +392,46 @@ at another location.
 
 \subsection{Modifiability}
 
-The documentation should be developed in such a way that it is easily modifiable
-so that likely future changes do not destroy the structure of the document. Also
-it should be easy to reflect the change, wherever needed in the document to
-maintain consistency, traceability and completeness. For documentation to be
-modifiable, its format must be structured in a way that repetition is avoided
-and cross-referencing is employed.
+Here we do seem to have a simple, if somewhat uninformative, definition:
+
+\begin{defn}
+Modifiability is the degree of ease at which changes can be made to a system,
+and the flexibility with which the system adapts to such changes.
+\end{defn}
+
+IEEE Standard 610 seems to speak about this. (which is superceded?)
 
 \subsection{Traceability}
 
-Documentation should be traceable, as this facilitates maintenance and
-review. If a change is made to the design or code of the software, then all the
-documentation relating to those segments have to be modified.  This property is
-also important for recertification.
+Here the Wikipedia page~\url{https://en.wikipedia.org/wiki/Traceability} is actually
+rather informative, especially as it also lists how this concept is used in other domains.
+A generic definition that is still quite useful is
+\begin{defn}
+The capability (and implementation) of keeping track of a given set or type of
+information to a given degree, or the ability to chronologically interrelate
+uniquely identifiable entities in a way that is verifiable.
+\end{defn}
+By specializing the above to software artifacts, ``interrelate'' to 
+``why is this here'' (for forward tracing from requirements), this does
+indeed give what is meant in SE.
+
+Various standards (DO178C, ISO 26262, and IEC61508) explicitly mention it.
+
+24765-2017 - ISO/IEC/IEEE International Standard - Systems and software engineering--Vocabulary
+has a full definition, namely
+\begin{enumerate}
+\item the degree to which a relationship can be established between two or more
+products of the development process, especially products having a
+predecessor-successor or master-subordinate relationship to one another;
+\item
+the identification and documentation of derivation paths (upward) and
+allocation or flowdown paths (downward) of work products in the work product
+hierarchy;
+\item the degree to which each element in a software development
+product establishes its reason for existing; and discernible association
+among two or more logical entities, such as requirements, system elements,
+verifications, or tasks.
+\end{enumerate}
 
 \subsection{Unambiguity}
 
