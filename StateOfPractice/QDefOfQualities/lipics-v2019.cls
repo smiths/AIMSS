@@ -490,7 +490,7 @@
         {.4em\@plus.275em\@minus.183em}
 \RequirePackage{color}
 \definecolor{darkgray}{rgb}{0.31,0.31,0.33}
-\RequirePackage{babel}
+\RequirePackage[american]{babel}
 \RequirePackage[tbtags,fleqn]{amsmath}
 \AtBeginDocument{
 	\@ifpackageloaded{enumitem}{\ClassWarning{Package 'enuitem' incompatible}{Don't use package 'enumitem'; Package enumerate preloaded!}}{}
