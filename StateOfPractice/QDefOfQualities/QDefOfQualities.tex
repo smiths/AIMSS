@@ -42,7 +42,7 @@
 \author{Spencer Smith}{McMaster University, Canada}{smiths@mcmaster.ca}{}{}
 \author{Jacques Carette}{McMaster University, Canada}{carette@mcmaster.ca}{}{}
 \author{Olu Owojaiye}{McMaster University, Canada}{owojaiyo@mcmaster.ca}{}{}
-\author{Peter Michalski}{McMaster University, Canada}{}{}{}
+\author{Peter Michalski}{McMaster University, Canada}{michap@mcmaster.ca}{}{}
 \author{Ao Dong}{McMaster University, Canada}{}{}{}
 
 \authorrunning{Smith et al.}
@@ -214,47 +214,59 @@ example measuring Mean Time to Fail (MTTF) can be a good measure of reliability
 \begin{defn}
   The degree to which a system or component can function correctly in the
   presence of invalid inputs or stressful environmental conditions
-  \cite{IEEEStdGlossarySET1990}.
+  \citep{IEEEStdGlossarySET1990}.
 \end{defn}
 \begin{defn}
   The quality can be further informally refined as the ability of a software to
   keep an acceptable behavior, expressed in terms of robustness requirements, in
   spite of exceptional or unforeseen execution conditions (such as the
   unavailability of system resources, communication failures, invalid or
-  stressful inputs, etc.) \cite{fernandez2005model}.
+  stressful inputs, etc.) \citep{fernandez2005model}.
 \end{defn}
 \begin{defn}
   Code possesses the characteristic of robustness to the extent that it can
   continue to perform despite some violation of the assumptions in its
-  specification \cite{boehm2007software}.
+  specification \citep{boehm2007software}.
 \end{defn}
-\begin{defn}
+\begin{defn} \label{RobustnessDefnSelected}
   A program is robust if it behaves "reasonably", even in circumstances that
   were not anticipated in the requirements specification - for example, when it
   encounters incorrect input data or some hardware malfunction
-  \cite{ghezzi1991fundamentals}
+  \citep{ghezzi1991fundamentals}.
 \end{defn}
 
-\textbf{Chosen definition:}\\
-Combined Boehm and GhezziL\\
-Software possesses the characteristic of robustness if it fulfills its requirements correctly or behaves reasonably in circumstances not anticipated in the requirements specification.\\
+\noindent \textbf{Chosen definition:} Definition \ref{RobustnessDefnSelected} rephrased:
+
+Software possesses the characteristic of robustness if it fulfills its requirements correctly or behaves reasonably in circumstances not anticipated in the requirements specification.
+
+\noindent \textbf{Reasoning:}
+
+This definition indicates that robustness is related to the quality of correctness (both within and outside of it). 
+
+\pmi{I think this is done.}
 
 
 
 \subsection{Performance}
 \begin{defn}
-The degree to which a system or component accomplishes its designated functions within given constraints, such as speed, accuracy, or memory usage \cite{IEEEStdGlossarySET1990}.\\
+The degree to which a system or component accomplishes its designated functions within given constraints, such as speed, accuracy, or memory usage \citep{IEEEStdGlossarySET1990}.
+\end{defn}
+\begin{defn} \label{PerformanceDefnSelected}
+How well or how rapidly the system must perform specific functions. Performance requirements encompass speed (database response times, for instance), throughput ( transactions per second), capacity (con-current usage loads), and timing (hard real-time demands) \citep{wiegers2003softreq}.
 \end{defn}
 \begin{defn}
-How well or how rapidly the system must perform specific functions. Performance requirements encompass speed (database response times, for instance), throughput ( transactions per second), capacity (con-current usage loads), and timing (hard real-time demands) \cite{wiegers2003softreq}.
-\end{defn}
-\begin{defn}
-In software engineering we often equate performance with efficiency. A software system is efficient if it uses computing resources economically \cite{ghezzi1991fundamentals}\\
+In software engineering we often equate performance with efficiency. A software system is efficient if it uses computing resources economically \citep{ghezzi1991fundamentals}.
 \end{defn}
 
-\textbf{Chosen definition:}\\
-How well or how rapidly the system must perform specific functions. Performance requirements encompass speed (database response times, for instance), throughput ( transactions per second), capacity (con-current usage loads), and timing (hard real-time demands) \cite{wiegers2003softreq}.\\
+\noindent \textbf{Chosen definition:} Definition \ref{PerformanceDefnSelected}:
 
+How well or how rapidly the system must perform specific functions. Performance requirements encompass speed (database response times, for instance), throughput ( transactions per second), capacity (con-current usage loads), and timing (hard real-time demands).
+
+\noindent \textbf{Reasoning:}
+
+This definition includes all important categories of performance. 
+
+\pmi{I think this is done.}
 
 \subsection{Usability}
 
@@ -301,71 +313,87 @@ should learn from the first time and book a second ticket just as easily.
 One core reference, for definitions and metrics, is Bevan~\cite{bevan1995measuring}.
 
 \subsection{Maintainability}
-\begin{defn}
-The ease with which a software system or component can be modified to correct faults, improve performance or other attributes, or adapt to a changed environment \cite{IEEEStdGlossarySET1990}. 
+\begin{defn} \label{MaintainabilityDefnSelected1}
+The ease with which a software system or component can be modified to correct faults, improve performance or other attributes, or adapt to a changed environment \citep{IEEEStdGlossarySET1990}. 
 \end{defn}\
 \begin{defn}
-ISO/IEC 25010 refers to maintainability as the degree of effectiveness and efficiency with which a product or system can be modified by the intended maintainers \cite{ISO/IEC25010}.
+ISO/IEC 25010 refers to maintainability as the degree of effectiveness and efficiency with which a product or system can be modified by the intended maintainers \citep{ISO/IEC25010}.
 \end{defn}
 \begin{defn}
 Effort required to locate and fix an error in a program
-\cite{pressman2005software}.\\
+\citep{pressman2005software}.
 \end{defn}
 \begin{defn}
-A set of attributes that bear on the effort needed to make specified modifications (which may include corrections, improvements, or adaptations of software to environmental changes and changes in the requirements and functional specifications)\cite{pfleeger2006software}.
+A set of attributes that bear on the effort needed to make specified modifications (which may include corrections, improvements, or adaptations of software to environmental changes and changes in the requirements and functional specifications)\citep{pfleeger2006software}.
 \end{defn}
 \begin{defn}
-We will view maintainability as two separate qualities: repairability and evolvability. Software is repairable if it allows the fixing of defects; it is evolvable if it allows changes that enable it to satisfy new requirements \cite{ghezzi1991fundamentals}.
+We will view maintainability as two separate qualities: repairability and evolvability. Software is repairable if it allows the fixing of defects; it is evolvable if it allows changes that enable it to satisfy new requirements \citep{ghezzi1991fundamentals}.
 \end{defn}
-\begin{defn}
-Code possesses the characteristic of maintainability to the extent that it facilitates updating to satisfy new requirements or to correct deficiencies \cite{boehm2007software}.
+\begin{defn} \label{MaintainabilityDefnSelected2}
+Code possesses the characteristic of maintainability to the extent that it facilitates updating to satisfy new requirements or to correct deficiencies \citep{boehm2007software}.
 \end{defn}
 
-\textbf{Chosen definition:}\\
-Combined IEEE and Boehm:\\
-The ease with which a software system or component can be modified to correct faults, improve performance or other attributes, or satisfy new requirements.\\
+\noindent \textbf{Chosen definition:} Combined Definition \ref{MaintainabilityDefnSelected1} and Definition \ref{MaintainabilityDefnSelected2}:
 
+The ease with which a software system or component can be modified to correct faults, improve performance or other attributes, or satisfy new requirements.
+
+\noindent \textbf{Reasoning:}
+
+This definition includes all potential reasons to modify the software. 
+
+\pmi{I think this is done.}
 
 
 \subsection{Reusability}
-\begin{defn}
-The degree to which a software module or other work product can be used in more than one software system \cite{IEEEStdGlossarySET1990}. \\
+\begin{defn} \label{ReusabilityDefnSelected}
+The degree to which a software module or other work product can be used in more than one software system \citep{IEEEStdGlossarySET1990}. 
 \end{defn}
 \begin{defn}
-Extent to which a program [or parts of a program] can be reused in other applications - related to the packaging and scope of the functions that the program performs \cite{pressman2005software}.\\
+Extent to which a program [or parts of a program] can be reused in other applications - related to the packaging and scope of the functions that the program performs \citep{pressman2005software}.
 \end{defn}
 
-\textbf{Chosen definition:}\\
-New definition:\\ The degree to which a software product can be modularized for easy transferal into other systems.\\
+\noindent \textbf{Chosen definition:} Definition \ref{ReusabilityDefnSelected} rephrased:
+
+The degree to which a software product can be modularized for easy transferal into other systems.
+
+\noindent \textbf{Reasoning:}
+
+This definition highlights transferal of parts of the system, or the whole system as a module into another system. Transferal of the whole system onto another environment would be covered in portability.
+
+\pmi{I am still not comfortable with this.}
 
 
 
 
 \subsection{Portability}
 \begin{defn}
-The ease with which a system or component can be transferred from one hardware or software environment to another \cite{IEEEStdGlossarySET1990}. \\
+The ease with which a system or component can be transferred from one hardware or software environment to another \citep{IEEEStdGlossarySET1990}.
 \end{defn}
 \begin{defn}
-An application is portable across a class of environments to the degree that the effort required to transport and adapt it to a new environment in the class is less than the effort of redevelopment \cite{mooney1990strategies}.\\
+An application is portable across a class of environments to the degree that the effort required to transport and adapt it to a new environment in the class is less than the effort of redevelopment \citep{mooney1990strategies}.
+\end{defn}
+\begin{defn} \label{PortabilityDefnSelected}
+Effort required to transfer the program from one hardware and/or software system environment to another \citep{pressman2005software}.
 \end{defn}
 \begin{defn}
-Effort required to transfer the program from one hardware and/or software system environment to another \cite{pressman2005software}.\\
+A set of attributes that bear on the ability of software to be transferred from one environment to another (including the organizational, hardware, of software environment)\citep{pfleeger2006software}.
 \end{defn}
 \begin{defn}
-A set of attributes that bear on the ability of software to be transferred from one environment to another (including the organizational, hardware, of software environment)\cite{pfleeger2006software}.\\
+Code possesses the characteristic of portability to the extent that it can be operated easily and well on computer configurations other than its current one. This implies that special function features, not easily available at other facilities, are not used, that standard library functions and subroutines are selected for universal applicability, and so on \citep{boehm2007software}.
 \end{defn}
 \begin{defn}
-Code possesses the characteristic of portability to the extent that it can be operated easily and well on computer configurations other than its current one. This implies that special function features, not easily available at other facilities, are not used, that standard library functions and subroutines are selected for universal applicability, and so on \cite{boehm2007software}.
+Portability refers to the ability to run a system on different hardware platforms \citep{ghezzi1991fundamentals}.
 \end{defn}
-\begin{defn}
-Portability refers to the ability to run a system on different hardware platforms \cite{ghezzi1991fundamentals}.
-\end{defn}
-\textbf{Chosen definition:}\\ Effort required to transfer the program from one hardware and/or software system environment to another \cite{pressman2005software}.\\
-Rephrased: Effort required to transfer a program between system environments.\\
-Alternatively: Ease with which a program can be transferred between system environments.
-How is effort defined here? metric? measure?\\
 
+\noindent \textbf{Chosen definition:} Definition \ref{PortabilityDefnSelected} rephrased:
 
+Effort required to transfer a program between system environments.
+
+\noindent \textbf{Reasoning:}
+
+This is measurable and succinct. 
+
+\pmi{I think this is done.}
 
  
 
