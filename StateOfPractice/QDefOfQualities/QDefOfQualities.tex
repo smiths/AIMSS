@@ -1,6 +1,6 @@
 \documentclass[letterpaper,cleveref]{lipics-v2019}
 
-\usepackage[round]{natbib}
+\usepackage{natbib}
 \usepackage{booktabs}
 \usepackage{amsmath,amsthm}
 
@@ -30,6 +30,8 @@
 \newcommand{\pmi}[1]{\authornote{green}{PM}{#1}} %Peter Michalski
 \newcommand{\ad}[1]{\authornote{cyan}{AD}{#1}} %Ao Dong
 
+\newcommand{\notdone}[1]{\textcolor{red}{#1}}
+
 %\oddsidemargin 0mm
 %\evensidemargin 0mm
 %\textwidth 160mm
@@ -45,8 +47,8 @@
 \author{Peter Michalski}{McMaster University, Canada}{michap@mcmaster.ca}{}{}
 \author{Ao Dong}{McMaster University, Canada}{}{}{}
 
-\authorrunning{Smith et al.}
-\Copyright{Spencer Smith and Jacques Carette and Olu Owojaiye and Peter Michalski and Ao Dong}
+\authorrunning{Smith et al.}  \Copyright{Spencer Smith and Jacques Carette and
+  Olu Owojaiye and Peter Michalski and Ao Dong}
 
 \date{\today}
 	
@@ -65,13 +67,23 @@
 \section{Introduction} \label{SecIntroduction}
 
 Purpose and scope of the document.  \wss{Needs to be filled in.  Should
-  reference the overal research proposal, and the ``state of the practice''
+  reference the overall research proposal, and the ``state of the practice''
   exercise in particular.}
 
 The presentation is divided into two main sections: i) qualities that apply to
 software products, software artifacts and software development processes, and
 ii) qualities that are considered important for good specifications.  The
 specification could be a specification of requirements, design or a test plan.
+
+The pattern in the presentation for each of the qualities is the same.  First we
+summarize all of the definitions that we could find in the literature.  To keep
+the clutter of quotation marks down, we have adopted the convention that each
+definition is given verbatim from the cited source, but without showing
+quotation marks.  After the summary of the existing definitions, we propose the
+definition that we would like to work with going forward.  This definition can
+either be our preference from the existing definitions, or a new definition,
+which is often found by combining existing definitions.  Following the proposed
+definition is an explanation for the reasoning that led to this choice.
 
 \section{Qualities of Software Products, Artifacts and
   Processes} \label{SecQualities}
@@ -94,25 +106,51 @@ used for developing the software. The following list of qualities is based on
 three qualities important for SC: installability, reproducibility and
 sustainability.
 
-\subsection{Installability}
-\begin{itemize}
-\item{Definition 1:} A measure of the ease of installation.\\
-\item{Definition 2:} Installability is related to the amount of human effort required to install a software in a designated environment \cite{berander2005software}. \\
-\item{Definition 3:} ``The capability of a software product to be installed in a specified environment'' \cite{berander2005software}.\\
-\item{Definition 4:}  ``The efficacy of the installation, uninstallation or reinstallation process of a software product in a specified enviroment'' (\cite{iso201017043})\\
-\item {\textbf{Proposed definition}:} (Definition 2)
-\end{itemize}
+\subsection{\notdone{Installability} \oo{owner}}
 
-\subsection{Correctness}
+\begin{defn}
+  A measure of the ease of installation.  \wss{Where does this definition come
+    from? Please add a citation.  Is it from \citet{McCallEtAl1977}?  I thought
+    so originally, but after looking into it, I don't think so anymore.}
+\end{defn}
+
+\begin{defn} \label{DefnInstallability}
+  Installability is related to the amount of human effort required to install a
+  software in a designated environment \citep{berander2005software}.
+\end{defn}
+
+\begin{defn}
+  ``The capability of a software product to be installed in a specified
+  environment'' \citep{berander2005software}.
+\end{defn}
+
+\begin{defn}
+  ``The efficacy of the installation, uninstallation or reinstallation process
+  of a software product in a specified environment'' \citep{iso201017043}
+\end{defn}
+
+\noindent \textbf{Proposed Definition}
+
+Definition~\ref{DefnInstallability}.  \wss{This definition does not allow for
+  measuring the machine time.}
+
+\noindent \textbf{Reasoning}
+
+\wss{The rationale is missing.  Please add.}
+
+\subsection{\notdone{Correctness} \oo{owner}}
 
 \begin{defn}
   The degree to which a software's specification is satisfied
   \citep{berander2005software}.
 \end{defn}
 
-\begin{defn} \label{CorrectDefnSelected}
+\begin{defn} \label{CorrectDefnSelected} 
   A software is correct if it functions according to its specified functional
-  and non-functional specification \citep{GhezziEtAl2003}.
+  and non-functional specification \citep{GhezziEtAl2003}.  \wss{This is not how
+    \citet{GhezziEtAl2003} defines correctness.  They only require satisfaction
+    of the functional requirements.}
+
 \end{defn}
 
 \begin{defn}
@@ -127,14 +165,16 @@ sustainability.
 \end{defn}
 
 \begin{defn}
-  The extent to which a program satisfies its specifications and fulfills the
-  user's mission objectives \citep{McCallEtAl1977}. (As summarized in
+  ``The extent to which a program satisfies its specifications and fulfills the
+  user's mission objectives'' \citep{McCallEtAl1977}. (As summarized in
   \citet{VanVliet2000}.)
 \end{defn}
 
-\noindent \textbf{Proposed definition}: Definition~\ref{CorrectDefnSelected}
+\noindent \textbf{Proposed Definition}
+
+Definition~\ref{CorrectDefnSelected}
 	
-\subsubsection{Discussion}
+\noindent \textbf{Reasoning}
 
 There is no direct tool or method for measuring correctness. One way of building
 confidence in correctness is by reviewing to ensure that each requirement stated
@@ -143,74 +183,141 @@ consistency and unambiguity, we can reduce the occurrence of errors and make the
 goal of reviewing for correctness easier.
 
 The quality of a software's operation is dependent on the degree of correctness
-\cite{berander2005software}. Correctness and reliability are said to have
+\citep{berander2005software}. Correctness and reliability are said to have
 dependencies, such that if a system exhibits a high degree of correctness then
-it tends to be reliable (\cite{GhezziEtAl2003}).
+it tends to be reliable \citep{GhezziEtAl2003}.
 
-\subsection{Verifiability}
-\begin{itemize}
-\item{Definition 1:} A software is verifiable if its properties can be verified
-  (\cite{GhezziEtAl2003}).
-\item{Definition 2:} Attributes of software that relate to the effort needed for
-  validating the modified software (\cite{berander2005software}).
-\item{Definition 3:}) The degree to which a system or component facilitates the
-  establishment of test criteria and the performance of tests to determine
-  whether those criteria have been met (\cite{IEEEStdGlossarySET1990}).
-\item{Definition 4:} The degree to which a requirement is stated in terms that
-  permit establishment of test criteria and performance
-  (\cite{IEEEStdGlossarySET1990}).
-\item{Definition 5:} Ease of performing testing on a software product or system
-  (\cite{IEEEStdGlossarySET1990}).
-\item{\textbf{Proposed definition}:} Combo of definitions 4 and 5 ?
-\end{itemize}
-\subsubsection{Discussion}
-Verifiability involves ``solving the equations right''~\cite[p.~23]{Roache1998};
+\subsection{\notdone{Verifiability} \oo{owner}}
+
+\begin{defn}
+  A software is verifiable if its properties can be verified
+  \citep{GhezziEtAl2003}.
+\end{defn}
+
+\begin{defn}
+  Attributes of software that relate to the effort needed for validating the
+  modified software \citep{berander2005software}.
+\end{defn}
+
+\begin{defn}
+  The degree to which a system or component facilitates the establishment of
+  test criteria and the performance of tests to determine whether those criteria
+  have been met \citep{IEEEStdGlossarySET1990}.
+\end{defn}
+
+\begin{defn} \label{Defn_Verifiability1}
+  The degree to which a requirement is stated in terms that permit establishment
+  of test criteria and performance \citep{IEEEStdGlossarySET1990}.
+\end{defn}
+
+\begin{defn} \label{Defn_Verifiability2}
+  Ease of performing testing on a software product or system
+  \citep{IEEEStdGlossarySET1990}.
+\end{defn}
+
+\noindent \textbf{Proposed Definition}
+
+Combo of definitions~\ref{Defn_Verifiability1} and~\ref{Defn_Verifiability2} ?
+
+\noindent \textbf{Reasoning}
+
+Verifiability involves ``solving the equations right'' \citep[p.~23]{Roache1998};
 it benefits from rational documentation that systematically shows, with explicit
 traceability, how the governing equations are transformed into code.
 \oo{Verifiability is sometimes referred to as testability, so I culled some
-  testability definitions here}
+  testability definitions here}  \wss{culled means removed - is that your
+  intention?}
 
-\subsection{Validatability}
+\wss{In case we need it, here is a definition of testability.}
 
-\begin{itemize}
-\item{Definition 1:} Validatability of a software is the degree of ease in
-  validating(checking) that software meets user needs.
-\item{Definition 2:} Validatability means ``solving the right equations''~\cite[p.~23]{Roache1998}.
-\oo{question about this definition}
-\item{Definition 3:} The degree of ease of evaluating software products or
-  system to determine whether it satisfies specified business
+\begin{defn}
+  ``The effort required to test a program to ensure that it performs its
+  intended function'' \citep{McCallEtAl1977}. (As summarized in
+  \citet{VanVliet2000}.)
+\end{defn}
+
+
+\subsection{\notdone{Validatability} \oo{owner}}
+
+\begin{defn}
+  Validatability of a software is the degree of ease in validating (checking)
+  that software meets user needs.
+\end{defn}
+
+\begin{defn}
+  Validatability means ``solving the right equations'' \citep[p.~23]{Roache1998}.
+  \oo{question about this definition}
+\end{defn}
+
+\begin{defn} \label{DefnValidatability}
+  The degree of ease of evaluating software products or system to determine
+  whether it satisfies specified business
   requirements. \url{http://softwaretestingfundamentals.com/verification-vs-validation/}
-  \oo{Here I tweaked the meaning of validation to suit validatability}
-  \oo{Only a few resource on validatability}
-\item{\textbf{Proposed definition}:} Definition 3
-\end{itemize}
+  \oo{Here I tweaked the meaning of validation to suit validatability} \oo{Only
+    a few resource on validatability}
+\end{defn}
 
-\subsubsection{Discussion}
+\noindent \textbf{Proposed Definition}
+
+Definition~\ref{DefnValidatability}.
+
+\noindent \textbf{Reasoning}
 
 Validatability is improved by a rational process via clear documentation of the
 theory and assumptions, along with an explicit statement of the systematic steps
 required for experimental validation.
 
-\subsection{Reliability}
-\begin{itemize}
-\item{Definition 1:} The probability that the software will operate as expected over a specified time interval (\cite{GhezziEtAl2003}).\\
-\item{Definition 2:} A set of attributes that relate to the capability of software to maintain its level of performance under stated conditions for a stated period of time (\cite{berander2005software}).\\
-\item{Definition 3:} “The capability of the software product to maintain a specified level of performance when used under specified conditions (\cite{international2001iso}).\\
-\item{Definition 4:} Code possesses the characteristic reliability to the extent that it can be expected to perform its intended functions satisfactorily (\cite{boehm2007software})\\
-\item{Definition 5:} A concern encompassing correctness and robustness (\cite{meyer1988object}).\\
-\item{Proposed definition}\\
-\end{itemize}
+\subsection{\notdone{Reliability} \oo{owner}}
 
-\subsubsection{Discussion}
+\begin{defn}
+  The probability that the software will operate as expected over a specified
+  time interval \citep{GhezziEtAl2003}.
+\end{defn}
+
+\begin{defn}
+  A set of attributes that relate to the capability of software to maintain its
+  level of performance under stated conditions for a stated period of time
+  \citep{berander2005software}.
+\end{defn}
+
+\begin{defn}
+  ``The capability of the software product to maintain a specified level of
+  performance when used under specified conditions''
+  \citep{international2001iso}.
+\end{defn}
+
+\begin{defn}
+  Code possesses the characteristic reliability to the extent that it can be
+  expected to perform its intended functions satisfactorily
+  \citep{boehm2007software}.
+\end{defn}
+
+\begin{defn}
+  A concern encompassing correctness and robustness \citep{meyer1988object}.
+\end{defn}
+
+\begin{defn}
+  ``The extent to which a program can be expected to perform its intended
+  function with required precision'' \citep{McCallEtAl1977}. (As summarized in
+  \citet{VanVliet2000}.)
+\end{defn}
+
+\noindent \textbf{Proposed Definition}
+
+\wss{Needs to be completed.}
+
+\noindent \textbf{Reasoning}
+
 Reliability is a critical quality for scientific software, since the results of
 computations are meaningless, if they are not dependable.  Reliability is
 closely tied to verifiability, since the key quality to verify is reliability,
-while the act of verification itself improves reliability.\\
+while the act of verification itself improves reliability.
+
 Reliability models can be used to predict reliability of a software product. For
 example measuring Mean Time to Fail (MTTF) can be a good measure of reliability
-\cite{berander2005software}
+\citep{berander2005software}.
 
-\subsection{Robustness}
+\subsection{\notdone{Robustness} \pmi{owner}}
 \begin{defn}
   The degree to which a system or component can function correctly in the
   presence of invalid inputs or stressful environmental conditions
@@ -218,7 +325,7 @@ example measuring Mean Time to Fail (MTTF) can be a good measure of reliability
 \end{defn}
 \begin{defn}
   The quality can be further informally refined as the ability of a software to
-  keep an acceptable behavior, expressed in terms of robustness requirements, in
+  keep an acceptable behaviour, expressed in terms of robustness requirements, in
   spite of exceptional or unforeseen execution conditions (such as the
   unavailability of system resources, communication failures, invalid or
   stressful inputs, etc.) \citep{fernandez2005model}.
@@ -229,56 +336,68 @@ example measuring Mean Time to Fail (MTTF) can be a good measure of reliability
   specification \citep{boehm2007software}.
 \end{defn}
 \begin{defn} \label{RobustnessDefnSelected}
-  A program is robust if it behaves "reasonably", even in circumstances that
+  A program is robust if it behaves ``reasonably'', even in circumstances that
   were not anticipated in the requirements specification - for example, when it
   encounters incorrect input data or some hardware malfunction
   \citep{ghezzi1991fundamentals}.
 \end{defn}
 
-\noindent \textbf{Chosen definition:} Definition \ref{RobustnessDefnSelected} rephrased:
+\noindent \textbf{Proposed Definition}
 
-Software possesses the characteristic of robustness if it fulfills its requirements correctly or behaves reasonably in circumstances not anticipated in the requirements specification.
+Definition \ref{RobustnessDefnSelected} rephrased: Software possesses the
+characteristic of robustness if it behaves ``reasonably'' in circumstances that
+were not anticipated in the requirements specification or are in violation of
+it.
 
-\noindent \textbf{Reasoning:}
+\noindent \textbf{Reasoning}
 
-This definition indicates that robustness is related to the quality of correctness (both within and outside of it). 
+This definition indicates that robustness is related to the quality of
+correctness (both within and outside of it). 
 
-\pmi{I think this is done.}
+\pmi{Still want to refine what we mean by reasonable}
 
+\subsection{\notdone{Performance} \pmi{owner}}
 
-
-\subsection{Performance}
-\begin{defn}
-The degree to which a system or component accomplishes its designated functions within given constraints, such as speed, accuracy, or memory usage \citep{IEEEStdGlossarySET1990}.
-\end{defn}
 \begin{defn} \label{PerformanceDefnSelected}
-How well or how rapidly the system must perform specific functions. Performance requirements encompass speed (database response times, for instance), throughput ( transactions per second), capacity (con-current usage loads), and timing (hard real-time demands) \citep{wiegers2003softreq}.
+The degree to which a system or component accomplishes its designated functions
+within given constraints, such as speed, accuracy, or memory usage
+\citep{IEEEStdGlossarySET1990}.
+\end{defn}
+\begin{defn} \label{PerformanceDefnSelected2}
+How well or how rapidly the system must perform specific functions. Performance
+requirements encompass speed (database response times, for instance), throughput
+( transactions per second), capacity (con-current usage loads), and timing (hard
+real-time demands) \citep{wiegers2003softreq}.
 \end{defn}
 \begin{defn}
-In software engineering we often equate performance with efficiency. A software system is efficient if it uses computing resources economically \citep{ghezzi1991fundamentals}.
+In software engineering we often equate performance with efficiency. A software
+system is efficient if it uses computing resources economically
+\citep{ghezzi1991fundamentals}.
 \end{defn}
 
-\noindent \textbf{Chosen definition:} Definition \ref{PerformanceDefnSelected}:
+\noindent \textbf{Proposed Definition}
 
-How well or how rapidly the system must perform specific functions. Performance requirements encompass speed (database response times, for instance), throughput ( transactions per second), capacity (con-current usage loads), and timing (hard real-time demands).
+Combined definition \ref{PerformanceDefnSelected} and \ref{PerformanceDefnSelected2}: The degree to which a system or component accomplishes its designated functions within given constraints, such as speed
+(database response times, for instance), throughput ( transactions per second),
+capacity (con-current usage loads), and timing (hard real-time demands).
 
-\noindent \textbf{Reasoning:}
+\noindent \textbf{Reasoning}
 
 This definition includes all important categories of performance. 
 
 \pmi{I think this is done.}
 
-\subsection{Usability}
+\subsection{\notdone{Usability} \jc{owner}} 
 
-ISO defines usability as
-\begin{quote}
+\begin{defn}
 The extent to which a product can be used by specified users to achieve
 specified goals with effectiveness, efficiency, and satisfaction in a specified
 context of use.
-\end{quote}
+\end{defn}
+ISO defines usability as
 
 Nielsen and (separately) Schneidermann have defined usability as part of usefulness and
-is composed of
+is composed of:
 \begin{itemize}
 \item Learnability: How easy is it for users to accomplish basic tasks the
   first time they encounter the design?
@@ -297,6 +416,7 @@ There are two ISO standards covering this, namely ISO/TR 16982:202 and ISO 9241.
 
 The Interaction Design Foundation~\url{https://www.interaction-design.org/literature/topics/usability}
 further lists the following desirable outcomes:
+
 \begin{enumerate}
 \item It should be easy for the user to become familiar with and competent in using
 the user interface during the first contact with the website. For example, if a
@@ -310,94 +430,165 @@ subsequent visits. So, a good design on the travel agent’s site means the user
 should learn from the first time and book a second ticket just as easily.
 \end{enumerate}
 
-One core reference, for definitions and metrics, is Bevan~\cite{bevan1995measuring}.
+One core reference, for definitions and metrics, is
+\citet{bevan1995measuring}.
 
-\subsection{Maintainability}
+\begin{defn}
+  ``The effort required to learn, operate, prepare input, and interpret output
+  of a program'' \citep{McCallEtAl1977}. (As summarized in
+  \citet{VanVliet2000}.)
+\end{defn}
+
+\noindent \textbf{Proposed Definition}
+
+\wss{Still needs to be completed}
+
+\noindent \textbf{Reasoning}
+
+\wss{Needs to be completed}
+
+\subsection{\notdone{Maintainability} \pmi{owner}}
+
 \begin{defn} \label{MaintainabilityDefnSelected1}
-The ease with which a software system or component can be modified to correct faults, improve performance or other attributes, or adapt to a changed environment \citep{IEEEStdGlossarySET1990}. 
+The ease with which a software system or component can be modified to correct
+faults, improve performance or other attributes, or adapt to a changed
+environment \citep{IEEEStdGlossarySET1990}. 
 \end{defn}\
 \begin{defn}
-ISO/IEC 25010 refers to maintainability as the degree of effectiveness and efficiency with which a product or system can be modified by the intended maintainers \citep{ISO/IEC25010}.
+ISO/IEC 25010 refers to maintainability as the degree of effectiveness and
+efficiency with which a product or system can be modified by the intended
+maintainers \citep{ISO/IEC25010}.
 \end{defn}
 \begin{defn}
 Effort required to locate and fix an error in a program
 \citep{pressman2005software}.
 \end{defn}
 \begin{defn}
-A set of attributes that bear on the effort needed to make specified modifications (which may include corrections, improvements, or adaptations of software to environmental changes and changes in the requirements and functional specifications)\citep{pfleeger2006software}.
+A set of attributes that bear on the effort needed to make specified
+modifications (which may include corrections, improvements, or adaptations of
+software to environmental changes and changes in the requirements and functional
+specifications)\citep{pfleeger2006software}.
 \end{defn}
 \begin{defn}
-We will view maintainability as two separate qualities: repairability and evolvability. Software is repairable if it allows the fixing of defects; it is evolvable if it allows changes that enable it to satisfy new requirements \citep{ghezzi1991fundamentals}.
+We will view maintainability as two separate qualities: repairability and
+evolvability. Software is repairable if it allows the fixing of defects; it is
+evolvable if it allows changes that enable it to satisfy new requirements
+\citep{ghezzi1991fundamentals}.
 \end{defn}
 \begin{defn} \label{MaintainabilityDefnSelected2}
-Code possesses the characteristic of maintainability to the extent that it facilitates updating to satisfy new requirements or to correct deficiencies \citep{boehm2007software}.
+Code possesses the characteristic of maintainability to the extent that it
+facilitates updating to satisfy new requirements or to correct deficiencies
+\citep{boehm2007software}.
 \end{defn}
 
-\noindent \textbf{Chosen definition:} Combined Definition \ref{MaintainabilityDefnSelected1} and Definition \ref{MaintainabilityDefnSelected2}:
+\begin{defn}
+  ``The effort required to locate and fix an error in an operational program''
+  \citep{McCallEtAl1977}. (As summarized in \citet{VanVliet2000}.) \wss{It looks
+    like \citet{pressman2005software} was using \citet{McCallEtAl1977} for their
+    definition.}
+\end{defn}
 
-The ease with which a software system or component can be modified to correct faults, improve performance or other attributes, or satisfy new requirements.
+\noindent \textbf{Proposed Definition}
 
-\noindent \textbf{Reasoning:}
+Combined Definition \ref{MaintainabilityDefnSelected1} and Definition
+\ref{MaintainabilityDefnSelected2}: The ease with which a software system or
+component can be modified to correct faults, improve performance or other
+attributes, or satisfy new requirements.
+
+\noindent \textbf{Reasoning}
 
 This definition includes all potential reasons to modify the software. 
 
 \pmi{I think this is done.}
 
+\subsection{\notdone{Reusability} \pmi{owner}}
 
-\subsection{Reusability}
+\begin{defn} 
+The degree to which a software module or other work product can be used in more
+than one software system \citep{IEEEStdGlossarySET1990}. 
+\end{defn}
+\begin{defn}
+Extent to which a program [or parts of a program] can be reused in other
+applications - related to the packaging and scope of the functions that the
+program performs \citep{pressman2005software}.
+\end{defn}
 \begin{defn} \label{ReusabilityDefnSelected}
-The degree to which a software module or other work product can be used in more than one software system \citep{IEEEStdGlossarySET1990}. 
+The extent to which a software component can be used with or without adaptation
+in a problem solution other than the one for which it was originally developed
+\citep{kalagiakos2003non}.
 \end{defn}
 \begin{defn}
-Extent to which a program [or parts of a program] can be reused in other applications - related to the packaging and scope of the functions that the program performs \citep{pressman2005software}.
+Reusability is the likelihood a segment of source code that can be used again to
+add new functionalities with slight or no modification \citep{sandhu2010survey}.
 \end{defn}
 
-\noindent \textbf{Chosen definition:} Definition \ref{ReusabilityDefnSelected} rephrased:
-
-The degree to which a software product can be modularized for easy transferal into other systems.
-
-\noindent \textbf{Reasoning:}
-
-This definition highlights transferal of parts of the system, or the whole system as a module into another system. Transferal of the whole system onto another environment would be covered in portability.
-
-\pmi{I am still not comfortable with this.}
-
-
-
-
-\subsection{Portability}
 \begin{defn}
-The ease with which a system or component can be transferred from one hardware or software environment to another \citep{IEEEStdGlossarySET1990}.
+  ``The extent to which a program (or parts thereof) can be reused in other
+  applications'' \citep{McCallEtAl1977}. (As summarized in
+  \citet{VanVliet2000}.)
+\end{defn}
+
+\noindent \textbf{Proposed Definition}
+
+Definition \ref{ReusabilityDefnSelected}: The extent to which a software
+component can be used with or without adaptation in a problem solution other
+than the one for which it was originally developed.
+
+\noindent \textbf{Reasoning}
+
+This definition highlights the possible but not necessary adaptation of the
+software component(s) being transferred.
+
+\pmi{I think this is done.}
+
+\subsection{\notdone{Portability} \pmi{owner}}
+\begin{defn}
+The ease with which a system or component can be transferred from one hardware
+or software environment to another \citep{IEEEStdGlossarySET1990}.
 \end{defn}
 \begin{defn}
-An application is portable across a class of environments to the degree that the effort required to transport and adapt it to a new environment in the class is less than the effort of redevelopment \citep{mooney1990strategies}.
+An application is portable across a class of environments to the degree that the
+effort required to transport and adapt it to a new environment in the class is
+less than the effort of redevelopment \citep{mooney1990strategies}.
 \end{defn}
 \begin{defn} \label{PortabilityDefnSelected}
-Effort required to transfer the program from one hardware and/or software system environment to another \citep{pressman2005software}.
+Effort required to transfer the program from one hardware and/or software system
+environment to another \citep{pressman2005software}.
 \end{defn}
 \begin{defn}
-A set of attributes that bear on the ability of software to be transferred from one environment to another (including the organizational, hardware, of software environment)\citep{pfleeger2006software}.
+A set of attributes that bear on the ability of software to be transferred from
+one environment to another (including the organizational, hardware, of software
+environment)\citep{pfleeger2006software}.
 \end{defn}
 \begin{defn}
-Code possesses the characteristic of portability to the extent that it can be operated easily and well on computer configurations other than its current one. This implies that special function features, not easily available at other facilities, are not used, that standard library functions and subroutines are selected for universal applicability, and so on \citep{boehm2007software}.
+Code possesses the characteristic of portability to the extent that it can be
+operated easily and well on computer configurations other than its current
+one. This implies that special function features, not easily available at other
+facilities, are not used, that standard library functions and subroutines are
+selected for universal applicability, and so on \citep{boehm2007software}.
 \end{defn}
 \begin{defn}
-Portability refers to the ability to run a system on different hardware platforms \citep{ghezzi1991fundamentals}.
+Portability refers to the ability to run a system on different hardware
+platforms \citep{ghezzi1991fundamentals}.
+\end{defn}
+\begin{defn}
+  ``The effort required to transfer a program from one hardware and/or software
+  environment to another'' \citep{McCallEtAl1977}. (As summarized in
+  \citet{VanVliet2000}.)
 \end{defn}
 
-\noindent \textbf{Chosen definition:} Definition \ref{PortabilityDefnSelected} rephrased:
+\noindent \textbf{Proposed Definition}
 
-Effort required to transfer a program between system environments.
+Definition \ref{PortabilityDefnSelected} rephrased: Effort required to transfer
+a program between system environments.
 
-\noindent \textbf{Reasoning:}
+\noindent \textbf{Reasoning}
 
 This is measurable and succinct. 
 
 \pmi{I think this is done.}
 
- 
-
-\subsection{Understandability}
+\subsection{\notdone{Understandability} \jc{owner}}
 
 Understandability is artifact-dependent. What it means for a user-interface (graphical
 or otherwise) to be understandable is wildly different than what it means for the code,
@@ -416,45 +607,123 @@ At least this brings in the idea that the \emph{reader} is actively involved, an
 indirectly that the reader's knowledge may be relevant, as well as the
 ``clarity of exposition'' of X.
 
-Section 11.2 of~\cite{adams2015nonfunctional} does have a full definition.
+Section 11.2 of \citet{adams2015nonfunctional} does have a full definition.
 
-\subsection{Interoperability}
+\noindent \textbf{Proposed Definition}
 
-\begin{enumerate}[(1).]
-    \item Interoperability is the ability of two or more systems or components to exchange information and to use the information that has been exchanged~\cite{IEEE1991}.
-	\item The degree to which two or more systems, products or components can exchange information and use the information that has been exchanged~\cite{ISO/IEC25010}.
-	\item The capability to communicate, execute programs, and transfer data among various functional units in a manner that requires the user to have little or no knowledge of the unique characteristics of those units~\cite{ISO/IEC/IEEE24765}.
-	\item Interoperability is a characteristic of a product or system, whose interfaces are completely understood, to work with other products or systems, present or future, in either implementation or access, without any restrictions~\cite{AFUL}.
-    \item \ad{My recommendation is the following one}\\
-    Interoperability is the ability of different information systems, devices and applications (‘systems’) to access, exchange, integrate and cooperatively use data in a coordinated manner, within and across organizational, regional and national boundaries, to provide timely and seamless portability of information~\cite{HIMSS}.
+\wss{Still needs to be completed}
+
+\noindent \textbf{Reasoning}
+
+\wss{Needs to be completed}
+
+\subsection{\notdone{Interoperability} \ad{owner}}
+
+\begin{defn}
+  ``The effort required to couple one system with another''
+  \citep{McCallEtAl1977}. (As summarized in \citet{VanVliet2000}.)
+\end{defn}
+
+\begin{defn}
+Interoperability is the ability of two or more systems or components to exchange
+information and to use the information that has been exchanged
+\citep{IEEEComputerDictionary1991}.
+\end{defn}
+\begin{defn}
+\label{InteroperabilitySelected}
+The degree to which two or more systems, products or components can exchange
+information and use the information that has been exchanged
+\citep{ISO/IEC25010}.
+\end{defn}
+\begin{defn}
+The ability of a system to coexist and cooperate with other systems.
+\citep{ghezzi1991fundamentals}.
+\end{defn}
+\begin{defn}
+The capability to communicate, execute programs, and transfer data among various
+functional units in a manner that requires the user to have little or no
+knowledge of the unique characteristics of those units
+\citep{ISO/IEC/IEEE24765}.
+\end{defn}
+\begin{defn}Interoperability is a characteristic of a product or system, whose
+interfaces are completely understood, to work with other products or systems,
+present or future, in either implementation or access, without any restrictions
+\citep{AFUL2019}.
+\end{defn}
+\begin{defn}
+Interoperability is the ability of different information systems, devices and
+applications (‘systems’) to access, exchange, integrate and cooperatively use
+data in a coordinated manner, within and across organizational, regional and
+national boundaries, to provide timely and seamless portability of information
+and optimize the health of individuals and populations globally. Health data
+exchange architectures, application interfaces and standards enable data to be
+accessed and shared appropriately and securely across the complete spectrum of
+care, within all applicable settings and with relevant stakeholders, including
+by the individual \citep{HIMSS2019}.
         
-    Four Levels of Interoperability:
-    \begin{itemize}
-        \item Foundational (Level 1) – establishes the inter-connectivity requirements needed for one system or application to securely communicate data to and receive data from another
+Four Levels of Interoperability:
+\begin{itemize}
+\item Foundational (Level 1) – establishes the inter-connectivity requirements
+needed for one system or application to securely communicate data to and receive
+data from another
 
-        \item Structural (Level 2) – defines the format, syntax, and organization of data exchange including at the data field level for interpretation
+\item Structural (Level 2) – defines the format, syntax, and organization of
+data exchange including at the data field level for interpretation
 
-        \item Semantic (Level 3) – provides for common underlying models and codification of the data including the use of data elements with standardized definitions from publicly available value sets and coding vocabularies, providing shared understanding and meaning to the user
+\item Semantic (Level 3) – provides for common underlying models and
+codification of the data including the use of data elements with standardized
+definitions from publicly available value sets and coding vocabularies,
+providing shared understanding and meaning to the user
 
-        \item “New” Organizational (Level 4) – includes governance, policy, social, legal and organizational considerations to facilitate the secure, seamless and timely communication and use of data both within and between organizations, entities and individuals. These components enable shared consent, trust and integrated end-user processes and workflows
-    \end{itemize}
-\end{enumerate}
+\item Organizational (Level 4) – includes governance, policy, social, legal and
+organizational considerations to facilitate the secure, seamless and timely
+communication and use of data both within and between organizations, entities
+and individuals. These components enable shared consent, trust and integrated
+end-user processes and workflows
+\end{itemize}
+\end{defn}
 
-\subsection{Visibility/Transparency}
-    \ad{I found little contents related to visibility or transparency. The following definition is the only one I could find, but may be irrelevant to this project.}
-    \begin{quotation}
-        1. the degree to which a transaction can access object state concurrently with other transactions. 2. the specification, for a property, of "who can see it?"~\cite{ISO/IEC/IEEE24765}
-    \end{quotation}
+\noindent \textbf{Proposed Definition}
+
+Definition \ref{InteroperabilitySelected}
+rephrased: The effort to exchange information between two or more systems,
+products or components and use the information that has been exchanged.
+
+\noindent \textbf{Reasoning}
+
+This definition is concise and also detailed enough to show the concept not only
+on system, but also on products and components. Rephrased ``degree'' to
+``effort'' because the latter is more measurable.
+
+\subsection{\notdone{Visibility/Transparency} \ad{owner}}
+
+\begin{defn}
+\label{VisibilitySelected}
+A software development process is visible if all of its steps and its current
+status are documented clearly. Another term used to characterize this property
+is transparency \citep{ghezzi1991fundamentals}.
+\end{defn}
       
-\subsection{Reproducibility}
+\noindent \textbf{Proposed Definition} 
+
+Definition \ref{VisibilitySelected} rephrased: The clarity of documentation for
+all of the steps and the current status of a software development process.
+
+\noindent \textbf{Reasoning}
+
+Definition \ref{VisibilitySelected} is the only one could be found. It is
+rephrased because the original one might refer to binary status - ``visible'' or
+``unvisible''.
+
+\subsection{\notdone{Reproducibility} \wss{owner}}
 
 Reproducibility is a required component of the scientific
-method~\cite{Davison2012}.  Although QA has, ``a bad name among creative
-scientists and engineers''~\cite[p.~352]{Roache1998}, the community need to
+method \citep{Davison2012}.  Although QA has, ``a bad name among creative
+scientists and engineers'' \citep[p.~352]{Roache1998}, the community need to
 recognize that participating in QA management also improves reproducibility.
 Reproducibility, like QA, benefits from a consistent and repeatable computing
 environment, version control and separating code from
-configuration/parameters~\cite{Davison2012}.
+configuration/parameters \citep{Davison2012}.
 
 Reproducibility is defined as:
 
@@ -474,71 +743,94 @@ re-obtain the results it presents.  \citep{BenureauAndRougier2017}
 
 It would be worthwhile to look for some additional definitions.
 
-\subsection{Productivity}
-\begin{enumerate}[(1).]
-    \item
-    
-    The best definition of the productivity of a process is
-    \[\text{Productivity} = \dfrac{\text{Outputs produced by the
-          process}}{\text{Inputs consumed by the process}}\]
-    Defining inputs. For the software process, providing a meaningful definition
-    of inputs is a nontrivial but generally workable problem. Inputs to the software process generally comprise labor, computers, supplies, and other support facilities and equipment. Defining outputs. The big problem in
-    defining software productivity is defining outputs. Here we find a
-    paradox. Most sources say that defining delivered source instructions (DSI)
-    or lines of code as the output of the software process is totally
-    inadequate, and they argue that there are a number of deficiencies in using
-    DSI. However, most organizations doing practical productivity measurement
-    still use DSI as their primary metric~\cite{Boehm1987}.
+\noindent \textbf{Proposed Definition} 
 
-    \item \ad{My recommendation is the following one}\\
-    Productivity is the amount of output (what is produced) per unit of input used.If we can measure the size of the software product and the effort required to develop the product, we have:
-    \begin{align}
-        \text{productivity} = \text{size}/\text{effort}
-    \end{align}
-    Equation (1) assumes that size is the output of the software production
-    process and effort is the input to the process. This can be contrasted with
-    the viewpoint of software cost models where we use size as an independent
-    variable (i.e., an input) to predict effort which is treated as an
-    output. Equation (1) is simple to operationalize if we have a single
-    dominant size measure, for example, product size measured in lines of
-    code~\cite{Kitchenham2004}.
-\end{enumerate}
+\wss{Needs to be completed}
 
-\subsection{Sustainability}
+\noindent \textbf{Reasoning}
+
+\wss{Needs to be completed}
+
+\subsection{\notdone{Productivity} \ad{owner}}
+
+\begin{defn}
+A quality of the software production process, referring to its efficiency and
+performance \citep{ghezzi1991fundamentals}.
+\end{defn}
+\begin{defn}
+The best definition of the productivity of a process is
+\[\text{Productivity} = \dfrac{\text{Outputs produced by the
+      process}}{\text{Inputs consumed by the process}}\] Defining inputs. For
+the software process, providing a meaningful definition of inputs is a
+nontrivial but generally workable problem. Inputs to the software process
+generally comprise labor, computers, supplies, and other support facilities and
+equipment. Defining outputs. The big problem in defining software productivity
+is defining outputs. Here we find a defining delivered source instructions (DSI)
+or lines of code as the output of the software process is totally inadequate,
+and they argue that there are a number of deficiencies in using DSI. However,
+most organizations doing practical productivity measurement still use DSI as
+their primary metric \citep{Boehm1987}.
+\end{defn}
+\begin{defn}
+\label{ProductivitySelected}
+Productivity is the amount of output (what is produced) per unit of input
+used.If we can measure the size of the software product and the effort required
+to develop the product, we have:
+\begin{align}
+\text{productivity} = \text{size}/\text{effort}
+\end{align}
+Equation (1) assumes that size is the output of the software production process
+and effort is the input to the process. This can be contrasted with the
+viewpoint of software cost models where we use size as an independent variable
+(i.e., an input) to predict effort which is treated as an output. Equation (1)
+is simple to operationalize if we have a single dominant size measure, for
+example, product size measured in lines of code \citep{Kitchenham2004}.
+\end{defn}
+
+\noindent \textbf{Proposed Definition} 
+
+The first sentence of Definition \ref{ProductivitySelected}: Productivity is the
+amount of output (what is produced) per unit of input used.
+
+\noindent \textbf{Reasoning}
+
+It is concise and measurable.
+
+\subsection{\notdone{Sustainability} \wss{owner}}
 
 One of the original definitions of sustainability (for systems, not software
 specific), and still often quoted, is:
 
 \begin{defn}
 \noindent The ability to meet the needs of the present without compromising the ability of
-future generations to meet their own needs \cite{Brundtland1987}.
+future generations to meet their own needs \citep{Brundtland1987}.
 \end{defn}
 
-This is the definition used by~\cite{IISD2019}.
+This is the definition used by \citet{IISD2019}.
 
 To make it more useful, this definition is often split into three dimensions:
 social, economic and environmental. \wss{cite UN paper [9] in
-  \cite{PenzenstadlerAndHenning2013}}  To this list Penzenstadler and Henning
-(2013) have added technical sustainability \cite{PenzenstadlerAndHenning2013}.
+  \citet{PenzenstadlerAndHenning2013}}  To this list Penzenstadler and Henning
+(2013) have added technical sustainability \citep{PenzenstadlerAndHenning2013}.
 Where technical sustainability for software is defined as:
 
 \begin{defn}
 \noindent Technical sustainability has the central objective of long-time
 usage of systems and their adequate evolution with changing surrounding
-conditions and respective requirements \cite{PenzenstadlerAndHenning2013}.
+conditions and respective requirements \citep{PenzenstadlerAndHenning2013}.
 \end{defn}
 
 The fourth dimension of technical sustainability is also added
-by~\cite{WolframEtAl2017}.  Technical sustainability is the focus on the thesis
-by~\cite{Hygerth2016}.
+by \citep{WolframEtAl2017}.  Technical sustainability is the focus on the thesis
+by \citet{Hygerth2016}.
 
 \begin{defn}
   \noindent Sustainable development is a mindset (principles) and an
   accompanying set of practices that enable a team to achieve and maintain an
-  optimal development pace indefinitely~\cite{Tate2005}.
+  optimal development pace indefinitely \citep{Tate2005}.
 \end{defn}
 
-Parnas discusses as software aging~\cite{Parnas1994a}.
+Parnas discusses as software aging \citep{Parnas1994a}.
 
 SCS specific definitions:
 
@@ -549,13 +841,13 @@ SCS specific definitions:
   the environment, the economy and the society into account. In addition, the
   entire life cycle of a software has to be considered: from planning and
   conception to programming, distribution, installation, usage and
-  disposal~\cite{Heine2017}.
+  disposal \citep{Heine2017}.
 \end{defn}
 
 \begin{defn}
   \noindent The capacity of the software to endure. In other words,
   sustainability means that the software will continue to be available in the
-  future, on new platforms, meeting new needs~\cite{Katz2016}.
+  future, on new platforms, meeting new needs \citep{Katz2016}.
 \end{defn}
 
 Definition from Neil Chue Hong:
@@ -565,10 +857,10 @@ Sustainable software is software which is:
 -- Fulfils its intent over time
 -- Survives uncertainty
 -- Supports relevant concerns (Political, Economic, Social, Technical,
-Legal, Environmental)~\cite{Katz2016}.
+Legal, Environmental) \citep{Katz2016}.
 \end{defn}
 
-Paper critical of a lack of a definition~\cite{VentersEtAl2014}.
+Paper critical of a lack of a definition \citep{VentersEtAl2014}.
 
 Sounds like definition of maintainability.
 
@@ -577,54 +869,101 @@ Find paper that combines nonfunctional qualities into sustainability.
 Sustainability depends on the software artifacts AND the software team AND the
 development process.
 
+\noindent \textbf{Proposed Definition} 
+
+\wss{Needs to be completed}
+
+\noindent \textbf{Reasoning}
+
+\wss{Needs to be completed}
+
 \section{Desirable Qualities of Good Specifications} \label{SecDesirableQs}
 
 To achieve the qualities listed in Section~\ref{SecQualities}, the documentation
 should achieve the qualities listed in this section.  All but the final quality
 listed (abstraction), are adapted from the IEEE recommended practise for
-producing good software requirements~\cite{IEEE1998}.  Abstraction means only
+producing good software requirements \citep{IEEE1998}.  Abstraction means only
 revealing relevant details, which in a requirements document means stating what
 is to be achieved, but remaining silent on how it is to be achieved.
 Abstraction is an important software development principle for dealing with
-complexity~\cite[p.~40]{GhezziEtAl2003}.  Correctness was in the above list, so
+complexity \citep[p.~40]{GhezziEtAl2003}.  Correctness was in the above list, so
 it is not repeated here.  \citet{SmithAndKoothoor2016} present further details
 on the qualities of documentation for SCS.
 
-\subsection{Completeness}
-\begin{enumerate}[(1).]
-    \item
-    \ad{This part was here before my modification}\\
-    Documentation is said to be complete when all the requirements of the software are detailed. That is, each goal, functionality, attribute, design constraint, value, data, model, symbol, term (with its unit of measurement if applicable), abbreviation, acronym, assumption and performance requirement of the software is defined.  The software's response to all classes of inputs, both valid and invalid and for both desired and undesired events, also needs to be specified.
+\subsection{\notdone{Completeness} \ad{owner}}
 
-    \item
-    \ad{My recommendation is the following one}\\
-    A specification is complete to the extent that all of its parts are present and each part is fully developed. A software specification must exhibit several properties to assure its completeness:
-    \begin{itemize}
-        \item No TBDs. TBDs are places in the specification where decisions have been postponed by writing "To be Determined" or "TBD."
-        \item No nonexistent references. These are references in the specification to functions, inputs, or outputs (including databases) not defined in the specification.
-        \item No missing specification items. These are items that should be present as part of the standard format of the specification, but are not present.
-        \item No missing functions. These are functions that should be part of the software product but are not called for in the specification.
-        \item No missing products. These are products that should be part of the delivered software but are not called for in the specification.~\cite{Boehm1984}.
-    \end{itemize}
-\end{enumerate}
+\begin{defn}
+\label{CompletenessSelected}
+A specification is complete to the extent that all of its parts are present and
+each part is fully developed. A software specification must exhibit several
+properties to assure its completeness \citep{Boehm1984}:
+\begin{itemize}
+\item No TBDs. TBDs are places in the specification where decisions have been
+postponed by writing "To be Determined" or "TBD."
+\item No nonexistent references. These are references in the specification to
+functions, inputs, or outputs (including databases) not defined in the
+specification.
+\item No missing specification items. These are items that should be present as
+part of the standard format of the specification, but are not present.
+\item No missing functions. These are functions that should be part of the
+software product but are not called for in the specification.
+\item No missing products. These are products that should be part of the
+delivered software but are not called for in the specification.
+\end{itemize}
+\end{defn}
 
-\subsection{Consistency}
-\begin{enumerate}[(1).]
-    \item
-    \ad{This part was here before my modification}\\
-    Documentation is said to be consistent when no subset of individual statements are in conflict with each other. That is, a specification of an item made at one place in the document should not contradict the specification of the same item at another location.
+\noindent \textbf{Proposed Definition} 
 
-    \item    A specification is consistent to the extent that its provisions do not conflict with each other or with governing specifications and objectives. Specifications require consistency in several ways.
-    \begin{itemize}
-        \item Internal consistency. Items within the specification do not conflict with each other.
-        \item External consistency. Items in the specification do not conflict with external specifications or entities.
-        \item Traceability. Items in the specification have clear antecedents in earlier specifications or statements of system objectives~\cite{Boehm1984}.
-    \end{itemize}
-    \item Consistency requires that no two or more requirements in a specification contradict each other. It is also often regarded as the case where words and terms have the same meaning throughout the requirements specifications (consistent use of terminology). These two views of consistency imply that mutually exclusive statements and clashes in terminology should be avoided~\cite{ZOWGHI2003}.
-    \item Consistency: 1. the degree of uniformity, standardization, and freedom from contradiction among the documents or parts of a system or component 2. software attributes that provide uniform design and implementation techniques and notations~\cite{ISO/IEC/IEEE24765}
-\end{enumerate}
+The first sentence of Definition \ref{CompletenessSelected}: A specification is
+complete to the extent that all of its parts are present and each part is fully
+developed.
 
-\subsection{Modifiability}
+\noindent \textbf{Reasoning}
+
+It is concise and measurable.
+
+\subsection{\notdone{Consistency} \ad{owner}}
+
+\begin{defn}
+\label{ConsistencySelected}
+A specification is consistent to the extent that its provisions do not conflict
+with each other or with governing specifications and objectives. Specifications
+require consistency in several ways \citep{Boehm1984}.
+\begin{itemize}
+\item Internal consistency. Items within the specification do not conflict with
+each other.
+\item External consistency. Items in the specification do not conflict with
+external specifications or entities.
+\item Traceability. Items in the specification have clear antecedents in earlier
+specifications or statements of system objectives.
+\end{itemize}
+\end{defn}
+\begin{defn}
+Consistency requires that no two or more requirements in a specification
+contradict each other. It is also often regarded as the case where words and
+terms have the same meaning throughout the requirements specifications
+(consistent use of terminology). These two views of consistency imply that
+mutually exclusive statements and clashes in terminology should be avoided
+\citep{ZOWGHI2003}.
+\end{defn}
+\begin{defn}
+Consistency: 1. the degree of uniformity, standardization, and freedom from
+contradiction among the documents or parts of a system or component 2. software
+attributes that provide uniform design and implementation techniques and
+notations \citep{ISO/IEC/IEEE24765}.
+\end{defn}
+
+\noindent \textbf{Proposed Definition} 
+
+The first sentence of Definition \ref{ConsistencySelected}: A specification is
+consistent to the extent that its provisions do not conflict with each other or
+with governing specifications and objectives.
+
+\noindent \textbf{Reasoning}
+
+It is concise and measurable.
+
+\subsection{\notdone{Modifiability} \jc{owner}}
 
 Here we do seem to have a simple, if somewhat uninformative, definition:
 
@@ -633,13 +972,17 @@ Modifiability is the degree of ease at which changes can be made to a system,
 and the flexibility with which the system adapts to such changes.
 \end{defn}
 
-IEEE Standard 610 seems to speak about this. (which is superceded?)
+IEEE Standard 610 seems to speak about this. (which is superseded?)
 
-\subsection{Traceability}
+\noindent \textbf{Reasoning}
 
-Here the Wikipedia page~\url{https://en.wikipedia.org/wiki/Traceability} is actually
-rather informative, especially as it also lists how this concept is used in other domains.
-A generic definition that is still quite useful is
+\wss{Needs to be completed}
+
+\subsection{\notdone{Traceability} \jc{owner}}
+
+Here the Wikipedia page~\url{https://en.wikipedia.org/wiki/Traceability} is
+actually rather informative, especially as it also lists how this concept is
+used in other domains.  A generic definition that is still quite useful is
 \begin{defn}
 The capability (and implementation) of keeping track of a given set or type of
 information to a given degree, or the ability to chronologically interrelate
@@ -667,7 +1010,15 @@ among two or more logical entities, such as requirements, system elements,
 verifications, or tasks.
 \end{enumerate}
 
-\subsection{Unambiguity}
+\noindent \textbf{Proposed Definition} 
+
+\wss{Needs to be completed.}
+
+\noindent \textbf{Reasoning}
+
+\wss{Needs to be completed}
+
+\subsection{\notdone{Unambiguity} \wss{owner}}
 
 A specification is unambiguous when it has a unique interpretation.  If there is
 a possibility that two readers will have two different interpretations, than the
@@ -677,7 +1028,15 @@ specification is ambiguous.  \wss{When I get the Ghezzi text back from Olu, I'll
 A Software Requirements Specification (SRS) is unambiguous if, and only if,
 every requirement stated therein has only one interpretation \citep{IEEE1998}.
 
-\subsection{Verifiability}
+\noindent \textbf{Proposed Definition} 
+
+\wss{Needs to be completed.}
+
+\noindent \textbf{Reasoning}
+
+\wss{Needs to be completed}
+
+\subsection{\notdone{Verifiability} \wss{owner}}
 
 \begin{itemize}
 
@@ -707,12 +1066,20 @@ not verifiable.'' \citep{IEEE1998}
 
 Verifiability is related to testability, which is defined by McCall et al.\ as
 ``The effort required to test a program to ensure that it performs its intended
-function'' \cite{VanVliet2000}.  
+function'' \citep{VanVliet2000}.  
 
 \wss{When I get the Ghezzi text back from Olu,
   I'll check to see if they have anything to add to this definition.}
 
-\subsection{Abstract}
+\noindent \textbf{Proposed Definition} 
+
+\wss{Needs to be completed}
+
+\noindent \textbf{Reasoning}
+
+\wss{Needs to be completed}
+
+\subsection{\notdone{Abstract} \wss{owner}}
 
 \begin{defn}
 Documented requirements are said to be abstract if they state what the software
@@ -723,13 +1090,13 @@ to be achieved \citep{GhezziEtAl2003}.
 \begin{defn}
 ``An abstraction for a software artifact is a succinct description that suppresses
 the details that are unimportant to a software developer and emphasizes the
-information that is important.'' \cite{Krueger1992}
+information that is important.'' \citep{Krueger1992}
 \end{defn}
 
 \begin{defn}
 ``Abstraction means that we concentrate on the essential features and ignore,
 abstract from, details that are not relevant at the level we are currently
-working.''  \cite[p.\ 296]{VanVliet2000}
+working.''  \citep[p.\ 296]{VanVliet2000}
 \end{defn}
 
 \begin{defn}
@@ -746,6 +1113,14 @@ Abstraction is related to reusability (and other qualities).
 
 \wss{When I get the Ghezzi text back from Olu, I'll check to see if they have
   anything to add to this definition.}
+
+\noindent \textbf{Proposed Definition} 
+
+\wss{Needs to be completed}
+
+\noindent \textbf{Reasoning}
+
+\wss{Needs to be completed}
 
 \newpage
 
