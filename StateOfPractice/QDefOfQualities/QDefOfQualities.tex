@@ -122,7 +122,10 @@ sustainability.
 
 \begin{defn}
   ``The capability of a software product to be installed in a specified
-  environment'' \citep{berander2005software}.
+  environment'' \citep{berander2005software}.  \wss{remove the quotation marks -
+    we are assuming all definitions are directly quoted from the source.  Please
+  remove quotes for all of the definitions that you ``own.''}
+
 \end{defn}
 
 \begin{defn} \label{InstallabilityDefnSelected1}
@@ -181,6 +184,11 @@ Installability refers to the cost or effort required for the installation, unins
   \citet{VanVliet2000}.)
 \end{defn}
 
+\begin{defn}
+``A program is functionally correct if it behaves according to its stated
+functional specifications'' \citep{ghezzi1991fundamentals}.
+\end{defn}
+
 \noindent \textbf{Proposed Definition}
 
 Definition~\ref{CorrectDefnSelected}
@@ -213,7 +221,8 @@ it tends to be reliable \citep{GhezziEtAl2003}.
 \begin{defn}
   The degree to which a system or component facilitates the establishment of
   test criteria and the performance of tests to determine whether those criteria
-  have been met \citep{IEEEStdGlossarySET1990}.
+  have been met \citep{IEEEStdGlossarySET1990}. \wss{The author needs to be
+    fixed so that this displays properly.}
 \end{defn}
 
 \begin{defn} \label{Defn_Verifiability1}
@@ -252,7 +261,7 @@ traceability, how the governing equations are transformed into code.
 
 \begin{defn}
   Validatability of a software is the degree of ease in validating (checking)
-  that software meets user needs.
+  that software meets user needs. \wss{Need a citation}
 \end{defn}
 
 \begin{defn}
@@ -313,6 +322,11 @@ required for experimental validation.
   \citet{VanVliet2000}.)
 \end{defn}
 
+\begin{defn}
+``Informally, software is reliable if the user can depend on it''
+\citep{ghezzi1991fundamentals}.
+\end{defn}
+
 \noindent \textbf{Proposed Definition}
 
 \wss{Needs to be completed.}
@@ -341,7 +355,7 @@ example measuring Mean Time to Fail (MTTF) can be a good measure of reliability
   unavailability of system resources, communication failures, invalid or
   stressful inputs, etc.) \citep{fernandez2005model}.
 \end{defn}
-\begin{defn}
+\begin{defn} \label{RobustnessPartialDefn}
   Code possesses the characteristic of robustness to the extent that it can
   continue to perform despite some violation of the assumptions in its
   specification \citep{boehm2007software}.
@@ -355,10 +369,13 @@ example measuring Mean Time to Fail (MTTF) can be a good measure of reliability
 
 \noindent \textbf{Proposed Definition}
 
-Definition \ref{RobustnessDefnSelected} rephrased: Software possesses the
-characteristic of robustness if it behaves ``reasonably'' in circumstances that
-were not anticipated in the requirements specification or are in violation of
-it.
+Definition \ref{RobustnessDefnSelected} rephrased \wss{Aren't you really
+  combining Definition~\ref{RobustnessDefnSelected} with
+  Definition~\ref{RobustnessPartialDefn}?} : Software possesses the
+characteristic of robustness if it behaves ``reasonably'' in two situations: i)
+when it encounters circumstances not anticipated in the requirements
+specification; and ii) when the assumptions in its requirements specification
+are violated.
 
 \noindent \textbf{Reasoning}
 
@@ -388,13 +405,17 @@ system is efficient if it uses computing resources economically
 
 \noindent \textbf{Proposed Definition}
 
-Combined definition \ref{PerformanceDefnSelected} and \ref{PerformanceDefnSelected2}: The degree to which a system or component accomplishes its designated functions within given constraints, such as speed
+Combined definition \ref{PerformanceDefnSelected} and
+\ref{PerformanceDefnSelected2}: The degree to which a system or component
+accomplishes its designated functions within given constraints, such as speed
 (database response times, for instance), throughput ( transactions per second),
-capacity (con-current usage loads), and timing (hard real-time demands).
+capacity (con-current usage loads), and timing (hard real-time
+demands). \wss{What is the difference between speed and timing?}
 
 \noindent \textbf{Reasoning}
 
-This definition includes all important categories of performance. 
+This definition includes all important categories of performance.  \wss{What are
+  the important categories?}
 
 \pmi{I think this is done.}
 
@@ -450,6 +471,11 @@ One core reference, for definitions and metrics, is
   \citet{VanVliet2000}.)
 \end{defn}
 
+\begin{defn}
+``A software is usable - or user fridendly - if its human users find it easy to
+use'' \citep{ghezzi1991fundamentals}.
+\end{defn}
+
 \noindent \textbf{Proposed Definition}
 
 \wss{Still needs to be completed}
@@ -464,11 +490,12 @@ One core reference, for definitions and metrics, is
 The ease with which a software system or component can be modified to correct
 faults, improve performance or other attributes, or adapt to a changed
 environment \citep{IEEEStdGlossarySET1990}. 
-\end{defn}\
+\end{defn}
 \begin{defn}
 ISO/IEC 25010 refers to maintainability as the degree of effectiveness and
 efficiency with which a product or system can be modified by the intended
-maintainers \citep{ISO/IEC25010}.
+maintainers \citep{ISO/IEC25010}. \wss{The author needs to be updated so that
+  this display properly.}
 \end{defn}
 \begin{defn}
 Effort required to locate and fix an error in a program
@@ -478,7 +505,7 @@ Effort required to locate and fix an error in a program
 A set of attributes that bear on the effort needed to make specified
 modifications (which may include corrections, improvements, or adaptations of
 software to environmental changes and changes in the requirements and functional
-specifications)\citep{pfleeger2006software}.
+specifications) \citep{pfleeger2006software}.
 \end{defn}
 \begin{defn}
 We will view maintainability as two separate qualities: repairability and
@@ -493,10 +520,12 @@ facilitates updating to satisfy new requirements or to correct deficiencies
 \end{defn}
 
 \begin{defn}
-  ``The effort required to locate and fix an error in an operational program''
+  The effort required to locate and fix an error in an operational program
   \citep{McCallEtAl1977}. (As summarized in \citet{VanVliet2000}.) \wss{It looks
     like \citet{pressman2005software} was using \citet{McCallEtAl1977} for their
-    definition.}
+    definition.} \wss{PM - can you please look into whether
+    \citet{pressman2005software} cite \citet{McCallEtAl1977}?  Do they give a
+    reason for dropping the word operational?}
 \end{defn}
 
 \noindent \textbf{Proposed Definition}
@@ -508,7 +537,10 @@ attributes, or satisfy new requirements.
 
 \noindent \textbf{Reasoning}
 
-This definition includes all potential reasons to modify the software. 
+This definition includes all potential reasons to modify the software.
+\wss{What are the potential reasons?  How do you know that we haven't missed
+  any?}  \wss{What are the other attributes?  What is an attribute?  Is it the
+  same as a quality?  We are calling performance a quality in this document.}
 
 \pmi{I think this is done.}
 
@@ -534,9 +566,14 @@ add new functionalities with slight or no modification \citep{sandhu2010survey}.
 \end{defn}
 
 \begin{defn}
-  ``The extent to which a program (or parts thereof) can be reused in other
-  applications'' \citep{McCallEtAl1977}. (As summarized in
+  The extent to which a program (or parts thereof) can be reused in other
+  applications \citep{McCallEtAl1977}. (As summarized in
   \citet{VanVliet2000}.)
+\end{defn}
+
+\begin{defn}
+A product is reusable if we can ``use the product - perhaps with minor changes -
+to build another product'' \citep{ghezzi1991fundamentals}.
 \end{defn}
 
 \noindent \textbf{Proposed Definition}
@@ -550,7 +587,7 @@ than the one for which it was originally developed.
 This definition highlights the possible but not necessary adaptation of the
 software component(s) being transferred.
 
-\pmi{I think this is done.}
+\pmi{I think this is done.} \wss{Looks good at this time.}
 
 \subsection{\notdone{Portability} \pmi{owner}}
 \begin{defn}
@@ -569,7 +606,7 @@ environment to another \citep{pressman2005software}.
 \begin{defn}
 A set of attributes that bear on the ability of software to be transferred from
 one environment to another (including the organizational, hardware, of software
-environment)\citep{pfleeger2006software}.
+environment) \citep{pfleeger2006software}.
 \end{defn}
 \begin{defn}
 Code possesses the characteristic of portability to the extent that it can be
@@ -591,7 +628,8 @@ platforms \citep{ghezzi1991fundamentals}.
 \noindent \textbf{Proposed Definition}
 
 Definition \ref{PortabilityDefnSelected} rephrased: Effort required to transfer
-a program between system environments.
+a program between system environments. \wss{Should we clarify what a system
+  environment is?  What is a system environment?  Hardware and OS?}
 
 \noindent \textbf{Reasoning}
 
@@ -619,6 +657,11 @@ indirectly that the reader's knowledge may be relevant, as well as the
 ``clarity of exposition'' of X.
 
 Section 11.2 of \citet{adams2015nonfunctional} does have a full definition.
+
+\begin{defn}
+The effort ``to uncover the logic of the application''
+\citep{ghezzi1991fundamentals}.
+\end{defn}
 
 \noindent \textbf{Proposed Definition}
 
@@ -654,7 +697,7 @@ The ability of a system to coexist and cooperate with other systems.
 The capability to communicate, execute programs, and transfer data among various
 functional units in a manner that requires the user to have little or no
 knowledge of the unique characteristics of those units
-\citep{ISO/IEC/IEEE24765}.
+\citep{ISO/IEC/IEEE24765}. \wss{We need to fix the author so that this displays properly}
 \end{defn}
 \begin{defn}Interoperability is a characteristic of a product or system, whose
 interfaces are completely understood, to work with other products or systems,
@@ -726,6 +769,10 @@ Definition \ref{VisibilitySelected} is the only one could be found. It is
 rephrased because the original one might refer to binary status - ``visible'' or
 ``unvisible''.
 
+\wss{Did you also look for transparency?  You should be able to find definitions
+  for transparency, especially if you look outside of a software context.  For
+  instance, \url{https://www.macmillandictionary.com/dictionary/british/transparent}}
+
 \subsection{\notdone{Reproducibility} \wss{owner}}
 
 Reproducibility is a required component of the scientific
@@ -780,12 +827,13 @@ is defining outputs. Here we find a defining delivered source instructions (DSI)
 or lines of code as the output of the software process is totally inadequate,
 and they argue that there are a number of deficiencies in using DSI. However,
 most organizations doing practical productivity measurement still use DSI as
-their primary metric \citep{Boehm1987}.
+their primary metric \citep{Boehm1987}. \wss{Is this a direct quote from
+  \citet{Boehm1987}?  The sentences seem incomplete?}
 \end{defn}
 \begin{defn}
 \label{ProductivitySelected}
 Productivity is the amount of output (what is produced) per unit of input
-used.If we can measure the size of the software product and the effort required
+used. If we can measure the size of the software product and the effort required
 to develop the product, we have:
 \begin{align}
 \text{productivity} = \text{size}/\text{effort}
@@ -805,7 +853,11 @@ amount of output (what is produced) per unit of input used.
 
 \noindent \textbf{Reasoning}
 
-It is concise and measurable.
+It is concise and measurable. \wss{What is the output?  What is the input?  I
+  think the definition needs to give more information on these.  In particular,
+  the above definitions focus on code as the output, but documentation, test
+  cases etc should also be part of the output.  If we are going to measure this,
+  we need a better idea of what we are measuring for outputs and inputs.}
 
 \subsection{\notdone{Sustainability} \wss{owner}}
 
@@ -923,6 +975,11 @@ delivered software but are not called for in the specification.
 \end{itemize}
 \end{defn}
 
+\wss{Were there any other definitions of completeness?  You could add the
+  definition of completeness from \citet[p.\ 5--6]{IEEE1998}.  This definition is for
+  requirements, but maybe there is something we can generalize from the
+  definition?  We could also look for definitions outside of software development.}
+
 \noindent \textbf{Proposed Definition} 
 
 The first sentence of Definition \ref{CompletenessSelected}: A specification is
@@ -963,6 +1020,10 @@ contradiction among the documents or parts of a system or component 2. software
 attributes that provide uniform design and implementation techniques and
 notations \citep{ISO/IEC/IEEE24765}.
 \end{defn}
+
+\wss{The definition from \citet{IEEE1998} might again be useful.  We could also
+  look for definitions outside of software development.  Even a dictionary
+  definition could be helpful.}
 
 \noindent \textbf{Proposed Definition} 
 
@@ -1062,10 +1123,10 @@ every requirement stated therein has only one interpretation \citep{IEEE1998}.
 \item 
     Software Verification: The process of evaluating software to determine
     whether the products of a given development phase satisfy the conditions
-    imposed at the start of that phase. [IEEE-STD-610]
+    imposed at the start of that phase. [IEEE-STD-610] \wss{Need a proper citation}
   \item Software Validation: The process of evaluating software during or at the
     end of the development process to determine whether it satisfies specified
-    requirements. [IEEE-STD-610] 
+    requirements. [IEEE-STD-610] \wss{Need a proper citation}
 \end{itemize}
 \end{itemize}
 
@@ -1081,6 +1142,11 @@ function'' \citep{VanVliet2000}.
 
 \wss{When I get the Ghezzi text back from Olu,
   I'll check to see if they have anything to add to this definition.}
+  
+\begin{defn}
+A software system is verifiable if its properties can be verified easily
+\citep{ghezzi1991fundamentals}.
+\end{defn}
 
 \noindent \textbf{Proposed Definition} 
 
