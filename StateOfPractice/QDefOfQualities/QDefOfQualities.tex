@@ -119,33 +119,22 @@ sustainability.
 \end{defn}
 
 \begin{defn}
-	Installability is related to the amount of human effort required to install a
-	software in a designated environment \citep{iso2001iec}
-		{ berander2005software}.
-\end{defn}
-
-\begin{defn}
 	The capability of a software product to be installed in a specified
-	environment \citep{berander2005software}.  \wss{remove the quotation marks -
-		we are assuming all definitions are directly quoted from the source.  Please
-		remove quotes for all of the definitions that you ``own.''} 
+	environment \citep{iso2001iec}. (As summarized in \citep{berander2005software}.)  \wss{remove the quotation marks -
+	we are assuming all definitions are directly quoted from the source. Please
+	remove quotes for all of the definitions that you ``own.''}
+    \oo{Done} 
 \end{defn}
 
-\begin{defn} \label{InstallabilityDefnSelected1}
-	``The efficacy of the installation, uninstallation or reinstallation process
-	of a software product in a specified environment'' \citep{iso201017043}
-\end{defn}
-
-\begin{defn}
+\begin{defn} \label{InstallabilityDefnSelected2}
 	The degree of effectiveness and efficiency with which a product or system can
 	be successfully installed and/or uninstalled in a specified environment
 	\citep{ISO/IEC25010}.
 \end{defn}
 
-\begin{defn} \label{InstallabilityDefnSelected2}
-	Installability refers to the cost or effort required for the installation of a
-	software or product, given an installation is possible to begin with
-	\citep{lenhard2013measuring}
+\begin{defn} \label{InstallabilityDefnSelected1}
+	Installability refers to the cost or effort required for the installation, given an installation is possible to begin with
+	\citep{lenhard2013measuring}.
 \end{defn}
 
 \noindent \textbf{Proposed Definition}
@@ -160,52 +149,50 @@ enviroment.  \wss{This definition does not allow for
 \noindent \textbf{Reasoning}
 
 \wss{The rationale is missing.  Please add.}
-\oo{The definition allows to measure the cost both from system and human view
-	points}
-
+The definition captures the cost or effort - human or machine, and considers not just the initial installation but uninstallation and re-installation which are all related to installation activities.
+\oo{Done installability}
 \subsection{\notdone{Correctness} \oo{owner}}
 
-\begin{defn}
-	The degree to which a software's specification is satisfied
-	\citep{berander2005software}.
-\end{defn}
-
-\begin{defn} \label{CorrectDefnSelected} 
-	A software is correct if it functions according to its specified functional
-	and non-functional specification \citep{GhezziEtAl2003}.  \wss{This is not how
+\begin{defn}  
+	A program is functionally correct if it behaves according to its stated
+   functional specifications \citep{GhezziEtAl2003}.  \wss{This is not how
 		\citet{GhezziEtAl2003} defines correctness.  They only require satisfaction
-		of the functional requirements.}
+		of the functional requirements.} \oo{Updated}
 	
 \end{defn}
 
 \begin{defn}
-	According to \citet{wilson2009quality}, ``the degree to which a system is free
+	According to \citet{wilson2009quality}, the degree to which a system is free
 	from defects in its specification, design, and implementation, is its
-	correctness.''
+	correctness.
 \end{defn}
 
 \begin{defn}
-	``The ability of software products to perform their exact tasks, as defined by
-	their specification'' \citep{meyer1988object}.
+	The ability of software products to perform their exact tasks, as defined by
+	their specification \citep{meyer1988object}.
 \end{defn}
 
-\begin{defn}
-	``The extent to which a program satisfies its specifications and fulfills the
-	user's mission objectives'' \citep{McCallEtAl1977}. (As summarized in
+\begin{defn} \label{CorrectnessSelected}
+	The extent to which a program satisfies its specifications and fulfills the
+	user's mission objectives \citep{McCallEtAl1977}. (As summarized in
 	\citet{VanVliet2000}.)
 \end{defn}
 
 \begin{defn}
-	``A program is functionally correct if it behaves according to its stated
-	functional specifications'' \citep{ghezzi1991fundamentals}.
+ The term correctness is often mentioned as a degree to which software meets the requirement specification \citep{IEEEStdGlossarySET1990}.
+\end{defn}
+
+\begin{defn}
+	Correctness from software engineering perspective can be defined as the adherence to the specifications that determine how users can interact with the software and how the software should behave when it is used correctly \citep{Tutorialspoint}.
 \end{defn}
 
 \noindent \textbf{Proposed Definition}
 
-Definition~\ref{CorrectDefnSelected}
+Definition~\ref{CorrectnessSelected} rephrased: The extent to which a software product satisfies its functional and non-functional specifications and fulfills the
+user's mission objectives.
 
 \noindent \textbf{Reasoning}
-
+To determine whether a program is correct, we must be able to refer to both its functional and non-functional requirements to understand the intended purpose and based on defined metrics, determine the extent to which this is met. Most definitions of correctness refers only to functional specifications but this is rephrased to include the non-functionals.
 There is no direct tool or method for measuring correctness. One way of building
 confidence in correctness is by reviewing to ensure that each requirement stated
 is one that the stakeholders and experts desire.  By maintaining traceability,
@@ -215,8 +202,7 @@ goal of reviewing for correctness easier.
 The quality of a software's operation is dependent on the degree of correctness
 \citep{berander2005software}. Correctness and reliability are said to have
 dependencies, such that if a system exhibits a high degree of correctness then
-it tends to be reliable \citep{GhezziEtAl2003}.
-
+it tends to be reliable \citep{GhezziEtAl2003}. \oo{Done Correctness}
 \subsection{\notdone{Verifiability} \oo{owner}}
 
 \begin{defn}
@@ -310,11 +296,11 @@ required for experimental validation.
 
 \begin{defn}
 	A set of attributes that relate to the capability of software to maintain its
-	level of performance under stated conditions for a stated period of time \citep{international2001iso}. (As summarized in \citep{berander2005software}.)
+	level of performance under stated conditions for a stated period of time \citep{iso2001iec}. (As summarized in \citet{berander2005software}.)
 \end{defn}
 
 \begin{defn} \label{reliabilitySelected1}
-	Probability of failure-free operation of a computer program in a specified environment for a specified time \citep{musa1987software}. (As stated in \citep{pressman2005software}.)
+	Probability of failure-free operation of a computer program in a specified environment for a specified time \citep{musa1987software}. (As stated in \citet{pressman2005software}.)
 \end{defn}
 
 \begin{defn}
@@ -331,6 +317,12 @@ required for experimental validation.
 	The extent to which a program can be expected to perform its intended
 	function with required precision \citep{McCallEtAl1977}. (As summarized in
     \citet{VanVliet2000}.)
+\end{defn}
+
+\begin{defn}
+	Informally, the reliability of a system is the probability, over a given
+	period of time, that the system will correctly deliver services as expected by
+	the user \citep{sommerville}
 \end{defn}
 
 \noindent \textbf{Proposed Definition}
