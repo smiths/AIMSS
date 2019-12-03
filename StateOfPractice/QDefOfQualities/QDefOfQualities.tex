@@ -126,21 +126,21 @@ sustainability.
     \oo{Done} 
 \end{defn}
 
-\begin{defn} \label{InstallabilityDefnSelected2}
+\begin{defn} \label{Installability_Selected2}
 	The degree of effectiveness and efficiency with which a product or system can
 	be successfully installed and/or uninstalled in a specified environment
 	\citep{ISO/IEC25010}.
 \end{defn}
 
-\begin{defn} \label{InstallabilityDefnSelected1}
+\begin{defn} \label{Installability_Selected1}
 	Installability refers to the cost or effort required for the installation, given an installation is possible to begin with
 	\citep{lenhard2013measuring}.
 \end{defn}
 
 \noindent \textbf{Proposed Definition}
 
-Definition~ Combined definitions \ref{InstallabilityDefnSelected1} and
-\ref{InstallabilityDefnSelected2} rephrased.
+Combined definitions \ref{Installability_Selected1} and
+\ref{Installability_Selected2} rephrased.
 Installability refers to the cost or effort required for the installation,
 uninstallation or reinstallation of a software or product in a specified
 enviroment.  \wss{This definition does not allow for
@@ -148,7 +148,7 @@ enviroment.  \wss{This definition does not allow for
 
 \noindent \textbf{Reasoning}
 
-\wss{The rationale is missing.  Please add.}
+\wss{The rationale is missing.  Please add.} \oo{Done}
 The definition captures the cost or effort - human or machine, and considers not just the initial installation but uninstallation and re-installation which are all related to installation activities.
 \oo{Done installability}
 \subsection{\notdone{Correctness} \oo{owner}}
@@ -172,14 +172,14 @@ The definition captures the cost or effort - human or machine, and considers not
 	their specification \citep{meyer1988object}.
 \end{defn}
 
-\begin{defn} \label{CorrectnessSelected}
+\begin{defn} 
 	The extent to which a program satisfies its specifications and fulfills the
 	user's mission objectives \citep{McCallEtAl1977}. (As summarized in
 	\citet{VanVliet2000}.)
 \end{defn}
 
-\begin{defn}
- The term correctness is often mentioned as a degree to which software meets the requirement specification \citep{IEEEStdGlossarySET1990}.
+\begin{defn} \label{Correctness_Selected}
+ The degree to which a system or component is free from faults in its specification, design and implementation \citep{IEEEComputerDictionary1991}.
 \end{defn}
 
 \begin{defn}
@@ -188,11 +188,11 @@ The definition captures the cost or effort - human or machine, and considers not
 
 \noindent \textbf{Proposed Definition}
 
-Definition~\ref{CorrectnessSelected} rephrased: The extent to which a software product satisfies its functional and non-functional specifications and fulfills the
-user's mission objectives.
+Definition~\ref{Correctness_Selected}: The degree to which a system or component is free from faults in its specification, design and implementation.
 
 \noindent \textbf{Reasoning}
-To determine whether a program is correct, we must be able to refer to both its functional and non-functional requirements to understand the intended purpose and based on defined metrics, determine the extent to which this is met. Most definitions of correctness refers only to functional specifications but this is rephrased to include the non-functionals.
+
+To determine whether a program is correct, we must be able to refer to both its its specification, design and implementation to understand the intended purpose and based on defined metrics, determine the extent to which this is met. Most definitions of correctness refers only to functional specifications but this definition is broad and is able to capture both functional and non-functional specification without explicitly specifying it.\oo{We could modify te definition to explicitly state functional and non-functional if we decide.}
 There is no direct tool or method for measuring correctness. One way of building
 confidence in correctness is by reviewing to ensure that each requirement stated
 is one that the stakeholders and experts desire.  By maintaining traceability,
@@ -203,55 +203,58 @@ The quality of a software's operation is dependent on the degree of correctness
 \citep{berander2005software}. Correctness and reliability are said to have
 dependencies, such that if a system exhibits a high degree of correctness then
 it tends to be reliable \citep{GhezziEtAl2003}. \oo{Done Correctness}
-\subsection{\notdone{Verifiability} \oo{owner}}
+
+\subsection{\notdone{Verifiability/Testability} \oo{owner}}
 
 \begin{defn}
-	A software is verifiable if its properties can be verified
+	A software is verifiable if its properties can be verified easily
 	\citep{GhezziEtAl2003}.
 \end{defn}
 
 \begin{defn}
-	Attributes of software that relate to the effort needed for validating the
-	modified software \citep{berander2005software}.
+	Attributes of software that relate to the effort needed for validating the modified software \citep{iso2001iec}.
 \end{defn}
 
 \begin{defn}
-	The degree to which a system or component facilitates the establishment of
-	test criteria and the performance of tests to determine whether those criteria
-	have been met \citep{IEEEStdGlossarySET1990}. \wss{The author needs to be
-		fixed so that this displays properly.}
+	Effort required to test a program to ensure that it performs its intended
+	function \citep{McCallEtAl1977}. (As summarized in \citet{pressman2005software})
+\end{defn}
+
+\begin{defn}
+    Testability is the degree to which a requirement is stated in terms that permits establishment of test criteria and performance of tests to determine whether those criteria have been met \citep{IEEEStdGlossarySET1990}
+\end{defn}
+\begin{defn}
+	Code possesses the characteristic testability to the extent that it facilitates the establishment of verification criteria and supports evaluation of its performance \citep{boehm1976quantitative}.
 \end{defn}
 
 \begin{defn} \label{Defn_Verifiability1}
-	The degree to which a requirement is stated in terms that permit establishment
-	of test criteria and performance \citep{IEEEStdGlossarySET1990}.
+	Testability is the degree to which a system or component facilitates the establishment of test criteria and the performance of tests to determine whether those criteria have been met \citep{ISO/IEC/IEEE24765}.
 \end{defn}
 
 \begin{defn} \label{Defn_Verifiability2}
-	Ease of performing testing on a software product or system
-	\citep{IEEEStdGlossarySET1990}.
+	Testability is the effort required to test a software \citep{ISO/IEC/IEEE24765}.
 \end{defn}
 
 \noindent \textbf{Proposed Definition}
 
-Combo of definitions~\ref{Defn_Verifiability1} and~\ref{Defn_Verifiability2} ?
+Combined definitions~\ref{Defn_Verifiability1} and~\ref{Defn_Verifiability2} rephrased: Testability or verifiability is the degree to which a system or component facilitates the establishment of test criteria and the performance of tests to determine whether those criteria have been met and the effort required to test.
 
 \noindent \textbf{Reasoning}
-
-Verifiability involves ``solving the equations right''
+Definition is concise and measurable.
+Verifiability involves solving the equations right
 \citep[p.~23]{Roache1998};
 it benefits from rational documentation that systematically shows, with explicit
 traceability, how the governing equations are transformed into code.
 \oo{Verifiability is sometimes referred to as testability, so I culled some
-	testability definitions here}  \wss{culled means removed - is that your
-	intention?}
+	testability definitions and added here}  \wss{culled means removed - is that your
+	intention?} \oo{culled could also mean  'to choose', so I meant, I choose from some definitions of testability and added to the list}
 
 \wss{In case we need it, here is a definition of testability.}
 
 \begin{defn}
-	``The effort required to test a program to ensure that it performs its
-	intended function'' \citep{McCallEtAl1977}. (As summarized in
-	\citet{VanVliet2000}.)
+	The effort required to test a program to ensure that it performs its
+	intended function \citep{McCallEtAl1977}. (As summarized in
+	\citet{VanVliet2000}.) \oo{similar to \citep{pressman2005software}, this}
 \end{defn}
 
 
@@ -324,6 +327,11 @@ required for experimental validation.
 	period of time, that the system will correctly deliver services as expected by
 	the user \citep{sommerville}
 \end{defn}
+	
+\begin{defn}
+	The ability of a system or component to to perform its required function under stated conditions for a specified period of time \citep{IEEEComputerDictionary1991}
+\end{defn}
+
 
 \noindent \textbf{Proposed Definition}
 Definition \ref{reliabilitySelected1} and \ref{reliabilitySelected2} rephrased : 	Probability of failure-free operation of a computer program in a specified environment for a specified time at a specified level of fault tolerance.
