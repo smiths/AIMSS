@@ -981,55 +981,91 @@ It would be worthwhile to look for some additional definitions.
 \subsection{\notdone{Productivity} \ad{owner}}
 
 \begin{defn}
-  A quality of the software production process, referring to its efficiency and
-  performance \citep{ghezzi1991fundamentals}.
+	A quality of the software production process, referring to its efficiency and
+	performance \citep{ghezzi1991fundamentals}.
 \end{defn}
-
 \begin{defn}
-  The best definition of the productivity of a process is
-  \[\text{Productivity} = \dfrac{\text{Outputs produced by the
-        process}}{\text{Inputs consumed by the process}}\] Defining inputs. For
-  the software process, providing a meaningful definition of inputs is a
-  nontrivial but generally workable problem. Inputs to the software process
-  generally comprise labor, computers, supplies, and other support facilities
-  and equipment. Defining outputs. The big problem in defining software
-  productivity is defining outputs. Here we find a defining delivered source
-  instructions (DSI) or lines of code as the output of the software process is
-  totally inadequate, and they argue that there are a number of deficiencies in
-  using DSI. However, most organizations doing practical productivity
-  measurement still use DSI as their primary metric \citep{Boehm1987}. \wss{Is
-    this a direct quote from \citet{Boehm1987}?  The sentences seem incomplete?}
+	The best definition of the productivity of a process is
+	\[\text{Productivity} = \dfrac{\text{Outputs produced by the
+			process}}{\text{Inputs consumed by the process}}\]
+
+Thus, we can improve the productivity of the software process by increasing its
+outputs, decreasing its inputs, or both. However, this means that we need to
+provide meaningful definitions of the inputs and outputs of the software
+process.
+
+\textbf{Defining inputs.} For the software process, providing a meaningful
+definition of inputs is a nontrivial but generally workable problem. Inputs to
+the software process generally comprise labor, computers, supplies, and other
+support facilities and equipment. However, one has to be careful which of
+various classes of items are to be counted as inputs. For example:
+\begin{itemize}
+\item Phases (just software development, or should we include system
+engineering, soft-ware requirements analysis, installation, or post development
+support?)
+\item Activities (to include documentation, project management, facilities
+management, conversion, training, database administration?)
+\item Personnel (to include secretaries, computer operators, business managers,
+contract administrators, line management?)
+\item Resources (to include facilities, equipment, communications, current
+versus future dollar payments?)
+\end{itemize}
+An organization can usually reach an agreement on which of the above are
+meaningful as inputs in their organizational context. Frequently, one can use
+present-value dollars as a uniform scale for various classes of resources.
+
+\textbf{Defining outputs.} The big problem in defining software productivity is
+defining outputs. Here we find a defining delivered source instructions (DSI) or
+lines of code as the output of the software process is totally inadequate, and
+they argue that there are a number of deficiencies in using DSI. However,
+	most organizations doing practical productivity measurement still use DSI as
+	their primary metric \citep{Boehm1987}. \wss{Is this a direct quote from
+		\citet{Boehm1987}?  The sentences seem incomplete?}
+\ad{I added some deleted parts, now it is a direct quote. After the ending of
+the quote, the following 2 pages discuss the flaws of DCI and a list of
+alternatives to DCI, so I ended the quote here.}
 \end{defn}
-
 \begin{defn}
-  \label{ProductivitySelected}
-  Productivity is the amount of output (what is produced) per unit of input
-  used. If we can measure the size of the software product and the effort
-  required to develop the product, we have:
-  \begin{align}
-    \text{productivity} = \text{size}/\text{effort}
-  \end{align}
-  Equation (1) assumes that size is the output of the software production
-  process and effort is the input to the process. This can be contrasted with
-  the viewpoint of software cost models where we use size as an independent
-  variable (i.e., an input) to predict effort which is treated as an
-  output. Equation (1) is simple to operationalize if we have a single dominant
-  size measure, for example, product size measured in lines of code
-  \citep{Kitchenham2004}.
+	\label{ProductivitySelected1}
+Productivity is the amount of output (what is produced) per unit of input used.
+In general, productivity is difficult to measure because outputs and inputs are
+typically quite diverse and are often themselves difficult to measure. In the
+context of software, productivity measurement is usually based on a simple ratio
+of product size to project effort. Thus,If we can measure the size of the
+software product and the effort required to develop the product, we have:
+	\begin{align}
+	\text{productivity} = \text{size}/\text{effort}
+	\end{align}
+Equation (1) assumes that size is the output of the software production process
+and effort is the input to the process. This can be contrasted with the
+	viewpoint of software cost models where we use size as an independent variable
+	(i.e., an input) to predict effort which is treated as an output. Equation (1)
+	is simple to operationalize if we have a single dominant size measure, for
+	example, product size measured in lines of code \citep{Kitchenham2004}.
+\end{defn}
+\begin{defn}
+	\label{ProductivitySelected2}
+The number of lines of new code developed per person-day (an imperfect measure
+of productivity but one that could be measured consistently)
+\citep{MacCormack2003}.
 \end{defn}
 
 \noindent \textbf{Proposed Definition} 
 
-The first sentence of Definition \ref{ProductivitySelected}: Productivity is the
-amount of output (what is produced) per unit of input used.
+The revision of the combination of Definition \ref{ProductivitySelected1} and
+Definition \ref{ProductivitySelected2}: Productivity is the
+amount of output per unit of input used, which can be measured by the summation
+of all output (such as the number of lines of new code, the number of pages of
+new documents and the number of new test cases) produced per person-day.
 
 \noindent \textbf{Reasoning}
 
 It is concise and measurable. \wss{What is the output?  What is the input?  I
-  think the definition needs to give more information on these.  In particular,
-  the above definitions focus on code as the output, but documentation, test
-  cases etc should also be part of the output.  If we are going to measure this,
-  we need a better idea of what we are measuring for outputs and inputs.}
+	think the definition needs to give more information on these.  In particular,
+	the above definitions focus on code as the output, but documentation, test
+	cases etc should also be part of the output.  If we are going to measure this,
+	we need a better idea of what we are measuring for outputs and inputs.}
+	\ad{I added another def and made it more measurable}
 
 \subsection{\notdone{Sustainability} \wss{owner}}
 
