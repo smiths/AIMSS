@@ -123,10 +123,12 @@ sustainability.
 
 \begin{defn}
   The capability of a software product to be installed in a specified
-  environment \citep{iso2001iec}. (As summarized in
+  environment \citep{ISO9126}. (As summarized in
   \citep{berander2005software}.)  \wss{remove the quotation marks - we are
     assuming all definitions are directly quoted from the source. Please remove
-    quotes for all of the definitions that you ``own.''}  \oo{Done}
+    quotes for all of the definitions that you ``own.''}  \oo{Done} \wss{I've
+    verified that this definition is correct.  We do not have to cite the
+    textbook anymore, since we have the original source.}
 \end{defn}
 
 \begin{defn} \label{Installability_Selected2}
@@ -261,6 +263,11 @@ it tends to be reliable \citep{GhezziEtAl2003}. \oo{Done Correctness}
   \citep{ISO/IEC/IEEE24765}.
 \end{defn}
 
+\begin{defn}
+Testability is the capability of the software product to enable modified
+software to be validated \cite{ISO9126}.
+\end{defn}
+
 \noindent \textbf{Proposed Definition}
 
 Combined definitions~\ref{Defn_Verifiability1} and~\ref{Defn_Verifiability2}
@@ -350,14 +357,17 @@ fail to address the user’s needs
 \subsection{\notdone{Reliability} \oo{owner}}
 
 \begin{defn}
-	The probability that the software will operate as expected over a specified
-	time interval \citep{GhezziEtAl2003}.
+  The probability that the software will operate as expected over a specified
+  time interval \citep{GhezziEtAl2003}.
 \end{defn}
 
 \begin{defn}
   A set of attributes that relate to the capability of software to maintain its
   level of performance under stated conditions for a stated period of time
   \citep{iso2001iec}. (As summarized in \citet{berander2005software}.)
+  \wss{This definition does not match the definition I found in the
+    \cite{ISO9126}.  @olu, can you please look into this?  My definition is
+    given below.  Also, I've added a pdf of the ISO standard to the pub repo.}
 \end{defn}
 
 \begin{defn} \label{reliabilitySelected1} Probability of failure-free operation
@@ -366,33 +376,40 @@ fail to address the user’s needs
 \end{defn}
 
 \begin{defn}
-	Code possesses the characteristic reliability to the extent that it can be
-	expected to perform its intended functions satisfactorily
-	\citep{boehm1976quantitative}.
+  Code possesses the characteristic reliability to the extent that it can be
+  expected to perform its intended functions satisfactorily
+  \citep{boehm1976quantitative}.
 \end{defn}
 
-\begin{defn} \label{reliabilitySelected2}
-   Reliability expresses the ability of the software to maintain a specified
-   level of fault tolerance, when used under specified condition \citep{singh2013different}.
-\end{defn}
-\begin{defn}
-	The extent to which a program can be expected to perform its intended
-	function with required precision \citep{McCallEtAl1977}. (As summarized in
-    \citet{VanVliet2000}.)
+\begin{defn} \label{reliabilitySelected2} 
+  Reliability expresses the ability of the software to maintain a specified
+  level of fault tolerance, when used under specified condition
+  \citep{singh2013different}.
 \end{defn}
 
 \begin{defn}
-	Informally, the reliability of a system is the probability, over a given
-	period of time, that the system will correctly deliver services as expected by
-	the user \citep{sommerville}
+  The extent to which a program can be expected to perform its intended function
+  with required precision \citep{McCallEtAl1977}. (As summarized in
+  \citet{VanVliet2000}.) \wss{When we have a copy of the McCall reference we can
+    verify this and simply cite the primary source.}
+\end{defn}
+
+\begin{defn}
+  Informally, the reliability of a system is the probability, over a given
+  period of time, that the system will correctly deliver services as expected by
+  the user \citep{sommerville}
 \end{defn}
 	
 \begin{defn}
-  The ability of a system or component to to perform its required function under
+  The ability of a system or component to perform its required function under
   stated conditions for a specified period of time
   \citep{IEEEComputerDictionary1991}
 \end{defn}
 
+\begin{defn}
+ The capability of the software to maintain the level of performance of the
+ system when used under specified conditions \cite{ISO9126}.
+\end{defn}
 
 \noindent \textbf{Proposed Definition}
 
@@ -405,7 +422,7 @@ environment for a specified time at a specified level of fault tolerance.
 \noindent \textbf{Reasoning}
 
 Reliability is defined in a way that the measurement metrics are visible - the
-specified enviroment, the specified time and the specified level of fault
+specified environment, the specified time and the specified level of fault
 tolerance. Reliability is a critical quality for scientific software, since the
 results of computations are meaningless, if they are not dependable.
 Reliability is closely tied to verifiability, since the key quality to verify is
@@ -498,9 +515,9 @@ timing.
 \subsection{\notdone{Usability} \jc{owner}} 
 
 \begin{defn}
-	The extent to which a product can be used by specified users to achieve
-	specified goals with effectiveness, efficiency, and satisfaction in a specified
-	context of use.
+  The extent to which a product can be used by specified users to achieve
+  specified goals with effectiveness, efficiency, and satisfaction in a
+  specified context of use.
 \end{defn}
 ISO defines usability as
 
@@ -508,23 +525,21 @@ Nielsen and (separately) Schneidermann have defined usability as part of
 usefulness and
 is composed of:
 \begin{itemize}
-	\item Learnability: How easy is it for users to accomplish basic tasks the
-	first time they encounter the design?
-	\item Efficiency: Once users have learned the design, how quickly can they
-	perform tasks?
-	\item Memorability: When users return to the design after a period of not using
-	it, how easily can they re-establish proficiency?
-	\item Errors: How many errors do users make, how severe are these errors, and
-	how easily can they recover from the errors?
-	\item Satisfaction: How pleasant is it to use the design?
+\item Learnability: How easy is it for users to accomplish basic tasks the first
+  time they encounter the design?
+\item Efficiency: Once users have learned the design, how quickly can they
+  perform tasks?
+\item Memorability: When users return to the design after a period of not using
+  it, how easily can they re-establish proficiency?
+\item Errors: How many errors do users make, how severe are these errors, and
+  how easily can they recover from the errors?
+\item Satisfaction: How pleasant is it to use the design?
 \end{itemize}
 In that context, it makes sense to separate \emph{usefulness} into
 \emph{usability} (purely an interface concern) and \emph{utility} (in the
-economics
-sense of the word).
+economics sense of the word).
 
 There are two ISO standards covering this, namely ISO/TR 16982:202 and ISO 9241.
-
 
 The Interaction Design Foundation
 \url{https://www.interaction-design.org/literature/topics/usability} further
@@ -557,6 +572,10 @@ One core reference, for definitions and metrics, is
   to use'' \citep{ghezzi1991fundamentals}.
 \end{defn}
 
+\begin{defn}
+  The capability of the software to be understood, learned, used and liked by
+  the user, when used under specified conditions \cite{ISO9126}.
+\end{defn}
 \noindent \textbf{Proposed Definition}
 
 \wss{Still needs to be completed}
@@ -616,6 +635,12 @@ One core reference, for definitions and metrics, is
     specifically dropping the word operational, they do indicate that their
     given definition ``is a very limited definition''. Perhaps their intent was
     breadth.}
+\end{defn}
+
+\begin{defn}
+  The capability of the software to be modified.  Modifications may include
+  corrections, improvements or adaptation of the software to changes in
+  environment, and in requirements and functional specifications. \cite{ISO9126}
 \end{defn}
 
 \noindent \textbf{Proposed Definition}
@@ -685,24 +710,29 @@ This definition highlights the possible but not necessary adaptation of the
 software component(s) being transferred.
 
 \subsection{\notdone{Portability} \pmi{owner}}
+
 \begin{defn}
   The ease with which a system or component can be transferred from one hardware
   or software environment to another \citep{IEEEStdGlossarySET1990}.
 \end{defn}
+
 \begin{defn}
   An application is portable across a class of environments to the degree that
   the effort required to transport and adapt it to a new environment in the
   class is less than the effort of redevelopment \citep{mooney1990strategies}.
 \end{defn}
+
 \begin{defn} \label{PortabilityDefnSelected} 
   Effort required to transfer the program from one hardware and/or software
   system environment to another \citep{pressman2005software}.
 \end{defn}
+
 \begin{defn}
   A set of attributes that bear on the ability of software to be transferred
   from one environment to another (including the organizational, hardware, of
   software environment) \citep{pfleeger2006software}.
 \end{defn}
+
 \begin{defn}
   Code possesses the characteristic of portability to the extent that it can be
   operated easily and well on computer configurations other than its current
@@ -711,16 +741,22 @@ software component(s) being transferred.
   subroutines are selected for universal applicability, and so on
   \citep{boehm2007software}.
 \end{defn}
+
 \begin{defn}
   Portability refers to the ability to run a system on different hardware
   platforms \citep{ghezzi1991fundamentals}.
 \end{defn}
+
 \begin{defn}
-	``The effort required to transfer a program from one hardware and/or software
-	environment to another'' \citep{McCallEtAl1977}. (As summarized in
-	\citet{VanVliet2000}.)
+  ``The effort required to transfer a program from one hardware and/or software
+  environment to another'' \citep{McCallEtAl1977}. (As summarized in
+  \citet{VanVliet2000}.)
 \end{defn}
 
+\begin{defn}
+  The capability of software to be transferred from one environment to another
+  \cite{ISO9126}.
+\end{defn}
 \noindent \textbf{Proposed Definition}
 
 Definition \ref{PortabilityDefnSelected} rephrased: Effort required to transfer
@@ -756,6 +792,12 @@ Section 11.2 of \citet{adams2015nonfunctional} does have a full definition.
 \begin{defn}
   The effort ``to uncover the logic of the application''
   \citep{ghezzi1991fundamentals}.
+\end{defn}
+
+\begin{defn}
+  The capability of the software product to enable the user to understand
+  whether the software is suitable, and how it can be used for particular tasks
+  and conditions of use \cite{ISO9126}.
 \end{defn}
 
 \noindent \textbf{Proposed Definition}
@@ -838,6 +880,10 @@ Section 11.2 of \citet{adams2015nonfunctional} does have a full definition.
   \end{itemize}
 \end{defn}
 
+\begin{defn}
+  The capability of the software to interact with one or more specified systems
+  \cite{ISO9126}.
+\end{defn}
 \noindent \textbf{Proposed Definition}
 
 Definition \ref{InteroperabilitySelected}.
@@ -1093,6 +1139,11 @@ on the qualities of documentation for SCS.
   \end{itemize}
 \end{defn}
 
+\begin{defn}
+  The degree to which a full implementation of the required functionality has
+  been achieved \citep{McCallEtAl1977}. (As summarized in \citet{VanVliet2000}.)
+\end{defn}
+
 \wss{Were there any other definitions of completeness?  You could add the
   definition of completeness from \citet[p.\ 5--6]{IEEE1998}.  This definition
   is for requirements, but maybe there is something we can generalize from the
@@ -1140,6 +1191,12 @@ It is concise and measurable.
   contradiction among the documents or parts of a system or component
   2. software attributes that provide uniform design and implementation
   techniques and notations \citep{ISO/IEC/IEEE24765}.
+\end{defn}
+
+\begin{defn}
+  The use of uniform design and implementation techniques and notations
+  throughout a project \citep{McCallEtAl1977}. (As summarized in
+  \citet{VanVliet2000}.)
 \end{defn}
 
 \wss{The definition from \citet{IEEE1998} might again be useful.  We could also
@@ -1195,13 +1252,18 @@ has a full definition, namely
   products of the development process, especially products having a
   predecessor-successor or master-subordinate relationship to one another;
 \item the identification and documentation of derivation paths (upward) and
-  allocation or flowdown paths (downward) of work products in the work product
+  allocation or flow-down paths (downward) of work products in the work product
   hierarchy;
 \item the degree to which each element in a software development product
   establishes its reason for existing; and discernible association among two or
   more logical entities, such as requirements, system elements, verifications,
   or tasks.
 \end{enumerate}
+
+\begin{defn}
+  The ability to link software components to requirements
+  \citep{McCallEtAl1977}. (As summarized in \citet{VanVliet2000}.)
+\end{defn}
 
 \noindent \textbf{Proposed Definition} 
 
