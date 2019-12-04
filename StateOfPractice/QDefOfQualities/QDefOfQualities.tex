@@ -81,11 +81,29 @@ The pattern in the presentation for each of the qualities is the same.  First we
 summarize all of the definitions that we could find in the literature.  To keep
 the clutter of quotation marks down, we have adopted the convention that each
 definition is given verbatim from the cited source, but without showing
-quotation marks.  After the summary of the existing definitions, we propose the
+quotation marks.  In cases where the definition has to be rephrased, quotation
+marks are used to show those portions that are taken verbatim for the original
+source.  After the summary of the existing definitions, we propose the
 definition that we would like to work with going forward.  This definition can
 either be our preference from the existing definitions, or a new definition,
 which is often found by combining existing definitions.  Following the proposed
 definition is an explanation for the reasoning that led to this choice.
+
+In determining our recommended definition for each quality, we used the
+following criteria:
+
+\begin{description}
+\item[Consistency] The final list of definitions should be consistent in the
+  terminology used.  For instance, we do not use synonyms for variety; we use
+  the same word to mean the same concept throughout the final list of
+  definitions.  This is why measurement is given by ``the effort required..''
+  and not the various synonyms for this that are seen in the literature. \wss{We
+    may change this phrase we use for measuring something.  I just wanted to put
+    this in here as a placeholder.}
+\item[Generality]
+\item[Measurability]
+\item[Etc.]
+\end{description}
 
 \section{Qualities of Software Products, Artifacts and
 	Processes} \label{SecQualities}
@@ -117,8 +135,13 @@ sustainability.
     I don't think so anymore.}  \oo{@smith you added the definition in here but
     I guess it's from here} \wss{@olu, I was hoping you would verify the source
     of the definition.  Can you please find a pdf of the McCall reference and
-    add it to our pub repo.  We should cite the primary source,
-    but we can't assume what it says.}
+    add it to our pub repo.  We should cite the primary source, but we can't
+    assume what it says.  The source is definitely NOT
+    \citep{smith2015comparing}.  By the way, you should use the BibTeX entries
+    from References.bib in the pub repo when they are available.  This will save
+    you time and make the citations more accurate. }  \wss{Olu, once we have the
+    McCall reference, please verify all of the definitions where it is used, and
+    remove the reference to the Van Vliet textbook.}
 \end{defn}
 
 \begin{defn}
@@ -128,7 +151,9 @@ sustainability.
     assuming all definitions are directly quoted from the source. Please remove
     quotes for all of the definitions that you ``own.''}  \oo{Done} \wss{I've
     verified that this definition is correct.  We do not have to cite the
-    textbook anymore, since we have the original source.}
+    textbook anymore, since we have the original source.  Olu, please remove the
+    \citep{berander2005software} in all instances where we have verified with
+    the original source.}
 \end{defn}
 
 \begin{defn} \label{Installability_Selected2}
@@ -144,12 +169,13 @@ sustainability.
 
 \noindent \textbf{Proposed Definition}
 
-Combined definitions \ref{Installability_Selected1} and
-\ref{Installability_Selected2} rephrased.
-Installability refers to the cost or effort required for the installation,
-uninstallation or reinstallation of a software or product in a specified
-enviroment.  \wss{This definition does not allow for
-	measuring the machine time.}
+Combined definitions \ref{Installability_Selected2} and
+\ref{Installability_Selected1} rephrased.  Installability refers to the cost or
+effort required for the installation, uninstallation or reinstallation of a
+software or product in a specified environment.  \wss{This definition does not
+  allow for measuring the machine time.  Do we want to distinguish between the
+  human effort required and the total time of installation?  I think the human
+  effort is the important metric here.}
 
 \noindent \textbf{Reasoning}
 
@@ -164,14 +190,18 @@ installation activities.  \oo{Done installability}
   A program is functionally correct if it behaves according to its stated
   functional specifications \citep{GhezziEtAl2003}.  \wss{This is not how
     \citet{GhezziEtAl2003} defines correctness.  They only require satisfaction
-    of the functional requirements.} \oo{Updated}
+    of the functional requirements.} \oo{Updated} \wss{Is this verbatim from the
+    original source?  If not, we should show those parts that are verbatim in
+    quotes, so that readers know the parts that were developed by us.}
 	
 \end{defn}
 
 \begin{defn}
   According to \citet{wilson2009quality}, the degree to which a system is free
   from defects in its specification, design, and implementation, is its
-  correctness.
+  correctness.  \wss{Olu, can you please rephrase this one to match how the
+    other definitions are presented.  That is, give the verbatim definition
+    followed by the citation.}
 \end{defn}
 
 \begin{defn}
@@ -200,20 +230,22 @@ installation activities.  \oo{Done installability}
 \noindent \textbf{Proposed Definition}
 
 Definition~\ref{Correctness_Selected}: The degree to which a system or component
-is free from faults in its specification, design and implementation.
+is free from faults in its specification, design and implementation.  \wss{I
+  think I prefer the Ghezzi definition, but with respect to all requirements
+  (not just functional).}
 
 \noindent \textbf{Reasoning}
 
 To determine whether a program is correct, we must be able to refer to both its
-its specification, design and implementation to understand the intended purpose
-and based on defined metrics, determine the extent to which this is met. Most
+specification, design and implementation to understand the intended purpose and
+based on defined metrics, determine the extent to which this is met. Most
 definitions of correctness refers only to functional specifications but this
 definition is broad and is able to capture both functional and non-functional
-specification without explicitly specifying it.\oo{We could modify te definition
-  to explicitly state functional and non-functional if we decide.}  There is no
-direct tool or method for measuring correctness. One way of building confidence
-in correctness is by reviewing to ensure that each requirement stated is one
-that the stakeholders and experts desire.  By maintaining traceability,
+specification without explicitly specifying it.\oo{We could modify the
+  definition to explicitly state functional and non-functional if we decide.}
+There is no direct tool or method for measuring correctness. One way of building
+confidence in correctness is by reviewing to ensure that each requirement stated
+is one that the stakeholders and experts desire.  By maintaining traceability,
 consistency and unambiguity, we can reduce the occurrence of errors and make the
 goal of reviewing for correctness easier.
 
@@ -222,11 +254,17 @@ The quality of a software's operation is dependent on the degree of correctness
 dependencies, such that if a system exhibits a high degree of correctness then
 it tends to be reliable \citep{GhezziEtAl2003}. \oo{Done Correctness}
 
+\wss{We probably do not need the extra bits about measuring correctness and the
+  dependency between correctness and other qualities.  We can discuss how to
+  measure correctness as the next exercise we are doing after concluding the
+  definitions exercise.  If the tradeoffs between qualities are important, we
+  should cover that in a more systematic way.}
+
 \subsection{\notdone{Verifiability/Testability} \oo{owner}}
 
 \begin{defn}
   A software is verifiable if its properties can be verified easily
-  \citep{GhezziEtAl2003}.
+  \citep{GhezziEtAl2003}.  \wss{Is this a direct quote?}
 \end{defn}
 
 \begin{defn}
@@ -238,6 +276,12 @@ it tends to be reliable \citep{GhezziEtAl2003}. \oo{Done Correctness}
   Effort required to test a program to ensure that it performs its intended
   function \citep{McCallEtAl1977}. (As summarized in
   \citet{pressman2005software})
+\end{defn}
+
+\begin{defn}
+	The effort required to test a program to ensure that it performs its
+	intended function \citep{McCallEtAl1977}. (As summarized in
+	\citet{VanVliet2000}.) \oo{similar to \citep{pressman2005software}, this}
 \end{defn}
 
 \begin{defn}
@@ -287,15 +331,6 @@ governing equations are transformed into code.  \oo{Verifiability is sometimes
   also mean 'to choose', so I meant, I choose from some definitions of
   testability and added to the list}
 
-\wss{In case we need it, here is a definition of testability.}
-
-\begin{defn}
-	The effort required to test a program to ensure that it performs its
-	intended function \citep{McCallEtAl1977}. (As summarized in
-	\citet{VanVliet2000}.) \oo{similar to \citep{pressman2005software}, this}
-\end{defn}
-
-
 \subsection{\notdone{Validatability} \oo{owner}}
 
 \begin{defn}
@@ -307,20 +342,22 @@ governing equations are transformed into code.  \oo{Verifiability is sometimes
 
 \begin{defn}
   Validatability means solving the right equations \citep[p.~23]{Roache1998}.
-  \oo{Validation?}
+  \oo{Validation?}  \wss{We should also have the definition for verification
+    about solving the equations right.}
 \end{defn}
 
 \begin{defn} \label{Validatability_Selected} 
   Validation is the process of evaluating software during or at the end of the
   development process to determine whether it satisfies specified business
-  requirements \citep{softwaretestingfundamentals}.
+  requirements \citep{softwaretestingfundamentals}.  \wss{Please use the
+    author's name for this citation.  If that isn't known, use the name of the
+    organization that published this material.}
 \end{defn}
 
 \begin{defn}
   Validation refers to a different set of tasks that ensure that the software
   that has been built is traceable to customer requirements.
 \end{defn}
-\noindent \textbf{Proposed Definition}
 
 \begin{defn}
   Requirements validation examines the specification to ensure that all software
@@ -336,7 +373,9 @@ governing equations are transformed into code.  \oo{Verifiability is sometimes
   requirements, not as specification artifacts or as needs of those who will
   operate the software only; but, as the needs of all the stakeholders (such as
   users, operators, administrators, managers, investors, etc.)
-  \citep{WikipediaVnV}
+  \citep{WikipediaVnV} \wss{This reference is not appearing in the Reference
+    list.  We also don't really want a Wikipedia citation in a scholarly paper.
+    Can you please find the source where this definition originally came from?}
 \end{defn}
 
 \noindent \textbf{Proposed Definition}
@@ -358,7 +397,8 @@ fail to address the user’s needs
 
 \begin{defn}
   The probability that the software will operate as expected over a specified
-  time interval \citep{GhezziEtAl2003}.
+  time interval \citep{GhezziEtAl2003}.  \wss{Is this verbatim from
+    \citet{GhezziEtAl2003}?}
 \end{defn}
 
 \begin{defn}
@@ -368,6 +408,11 @@ fail to address the user’s needs
   \wss{This definition does not match the definition I found in the
     \cite{ISO9126}.  @olu, can you please look into this?  My definition is
     given below.  Also, I've added a pdf of the ISO standard to the pub repo.}
+\end{defn}
+
+\begin{defn}
+ The capability of the software to maintain the level of performance of the
+ system when used under specified conditions \cite{ISO9126}.
 \end{defn}
 
 \begin{defn} \label{reliabilitySelected1} Probability of failure-free operation
@@ -406,10 +451,8 @@ fail to address the user’s needs
   \citep{IEEEComputerDictionary1991}
 \end{defn}
 
-\begin{defn}
- The capability of the software to maintain the level of performance of the
- system when used under specified conditions \cite{ISO9126}.
-\end{defn}
+\wss{Olu, have you looked at the later chapters of the \citet{GhezziEtAl2003}?
+  I believe there is a statistical definition of reliability there.}
 
 \noindent \textbf{Proposed Definition}
 
@@ -940,7 +983,7 @@ clearly.
 
 Definition \ref{VisibilitySelected} points out that documentation is the way to
 improve visibility. It is rephrased because the original one might refer to
-binary status - ``visible'' or ``unvisible''.
+binary status - ``visible'' or ``invisible''.
 
 \subsection{\notdone{Reproducibility} \wss{owner}}
 
