@@ -160,11 +160,9 @@ software or product in a specified environment.  \wss{I think the human
 
 \begin{defn}  
   A program is functionally correct if it behaves according to its stated
-  functional specifications \citep{GhezziEtAl2003}.  \wss{This is not how
-    \citet{GhezziEtAl2003} defines correctness.  They only require satisfaction
-    of the functional requirements.} \oo{Updated} \wss{Is this verbatim from the
-    original source?  If not, we should show those parts that are verbatim in
-    quotes, so that readers know the parts that were developed by us.}
+  functional specifications \citep{GhezziEtAl2003}.   \wss{Is this verbatim from the original source?  If not, we should show those parts that are verbatim in
+  quotes, so that readers know the parts that were developed by us.}
+  \oo{Yes, verbatim}
 	
 \end{defn}
 
@@ -339,9 +337,7 @@ fail to address the user’s needs
 \subsection{\notdone{Reliability} \oo{owner}}
 
 \begin{defn}
-  The probability that the software will operate as expected over a specified
-  time interval \citep{GhezziEtAl2003}.  \wss{Is this verbatim from
-    \citet{GhezziEtAl2003}?}
+  Informally, software is reliable if the user can depend on it \citep{GhezziEtAl2003}.
 \end{defn}
 
 \begin{defn}
@@ -368,52 +364,50 @@ fail to address the user’s needs
   \citep{boehm1976quantitative}.
 \end{defn}
 
-\begin{defn} \label{reliabilitySelected2} 
+\begin{defn}
   Reliability expresses the ability of the software to maintain a specified
   level of fault tolerance, when used under specified condition
   \citep{singh2013different}.
 \end{defn}
 
 \begin{defn}
-  The extent to which a program can be expected to perform its intended function
-  with required precision \citep{McCallEtAl1977}. \oo{Check definition with pdf}
+  Extent to which a program can be expected to perform its intended function
+  with required precision \citep{McCallEtAl1977}. \oo{Definition check pass}
 \end{defn}
 
 \begin{defn}
   Informally, the reliability of a system is the probability, over a given
   period of time, that the system will correctly deliver services as expected by
-  the user \citep{sommerville}
+  the user \citep{sommerville}.
 \end{defn}
 	
 \begin{defn}
   The ability of a system or component to perform its required function under
   stated conditions for a specified period of time
-  \citep{IEEEComputerDictionary1991}
+  \citep{IEEEComputerDictionary1991}.
 \end{defn}
 
-\wss{Olu, have you looked at the later chapters of the \citet{GhezziEtAl2003}?
-  I believe there is a statistical definition of reliability there.}
+\begin{defn}
+  The ability of a system to perform its required functions under stated conditions whenever required—having a long mean time between failures \citep{mcconnell2004code}.
+\end{defn}
+\begin{defn} \label{reliabilitySelected2} 
+	Reliability can be estimated as ``the average time interval between two faliures, also called the mean time to faliure (MTTF). Clearly, MTTF (t) = 1/FI (t)''. Where FI (t) is the faliure intensity - the number of faliures per unit time \citep{GhezziEtAl2003}.
+\end{defn}
+\oo{Statistical definition from  \citep{GhezziEtAl2003} added}
+  
 
 \noindent \textbf{Proposed Definition}
 
 Definition \ref{reliabilitySelected1} and \ref{reliabilitySelected2} rephrased:
 Probability of failure-free operation of a computer program in a specified
-environment for a specified time at a specified level of fault tolerance.
+environment for a specified time, i.e. the average time interval between two faliures also known as the mean time to failure (MTTF).
 
 \wss{Needs to be completed.}\oo{Done}
 
 \noindent \textbf{Reasoning}
 
-Reliability is defined in a way that the measurement metrics are visible - the
-specified environment, the specified time and the specified level of fault
-tolerance. Reliability is a critical quality for scientific software, since the
-results of computations are meaningless, if they are not dependable.
-Reliability is closely tied to verifiability, since the key quality to verify is
-reliability, while the act of verification itself improves reliability.
-
-Reliability models can be used to predict reliability of a software product. For
-example measuring Mean Time to Fail (MTTF) can be a good measure of reliability
-\citep{berander2005software}.
+Reliability is defined such that the measurement metrics are visible - the
+specified environment and time. 
 
 \subsection{{Robustness} \pmi{owner}}
 \begin{defn}
