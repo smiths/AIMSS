@@ -149,8 +149,7 @@ sustainability.
 Combined definitions \ref{Installability_Selected2} and
 \ref{Installability_Selected1} rephrased.  Installability refers to the
 effort required for the installation, uninstallation or reinstallation of a
-software or product in a specified environment.  \wss{I think the human
-  effort is the important metric here.}
+software or product in a specified environment.
 
 \noindent \textbf{Reasoning}
 
@@ -160,8 +159,9 @@ software or product in a specified environment.  \wss{I think the human
 
 \begin{defn} \label{Correctness_Selected}
   A program is functionally correct if it behaves according to its stated
-  functional specifications \citep{GhezziEtAl2003}.   \wss{Is this verbatim from the original source?  If not, we should show those parts that are verbatim in
-  quotes, so that readers know the parts that were developed by us.}
+  functional specifications \citep{GhezziEtAl2003}.  \wss{Is this verbatim from
+    the original source?  If not, we should show those parts that are verbatim
+    in quotes, so that readers know the parts that were developed by us.}
   \oo{Yes, verbatim}
 	
 \end{defn}
@@ -177,7 +177,8 @@ software or product in a specified environment.  \wss{I think the human
 
 \begin{defn} 
   The extent to which a program satisfies its specifications and fulfills the
-  user's mission objectives \citep{McCallEtAl1977}. \oo{definition is checked with pdf}
+  user's mission objectives \citep{McCallEtAl1977}. \oo{definition is checked with pdf} \wss{Great!  Did you add the Mccall paper to the pub repo?}
+\oo{I will}
 \end{defn}
 
 \begin{defn}  
@@ -217,6 +218,7 @@ this definition captures it all.
 Verifiability ``means that you should be able to write a set of tests that can demonstrate that the delivered system meets each specified requirement'' \citep{sommerville}.	
 \end{defn}
 
+
 \noindent \textbf{Proposed Definition}
 
 Definition~\ref{Defn_Verifiability1}:
@@ -251,7 +253,8 @@ equations right \citep[p.~23]{Roache1998}.
   requirements have been stated unambiguously; that inconsistencies, omissions,
   and errors have been detected and corrected; and that the work products
   conform to the standards established for the process, the project, and the
-  product \citep{pressman2005software}.
+  product \citep{pressman2005software}.  \wss{Olu, is this definition
+    originally from pressman, or should we track down the original source?}
 \end{defn}
 
 \begin{defn}
@@ -282,12 +285,12 @@ Definition~ \oo{need to discuss this quality, we might just define
 \end{defn}
 
 \begin{defn}
+<<<<<<< HEAD
  The capability of the software product to maintain a specified level of performance when used under specified conditions \cite{ISO9126}.
-\end{defn}
 
-\begin{defn} \label{reliabilitySelected1} 
-	It is the probability of failure-free operation of a computer program in a specified environment for a specified time
-    \citep{musa1987software}.
+\begin{defn} \label{reliabilitySelected1} It is the probability of failure-free
+  operation of a computer program in a specified environment for a specified
+  time \citep{musa1987software}.
 \end{defn} 
     
 \begin{defn}
@@ -320,10 +323,14 @@ Definition~ \oo{need to discuss this quality, we might just define
 \end{defn}
 
 \begin{defn}
-  The ability of a system to perform its required functions under stated conditions whenever required—having a long mean time between failures \citep{mcconnell2004code}.
+  The ability of a system to perform its required functions under stated
+  conditions whenever required—having a long mean time between failures
+  \citep{mcconnell2004code}.
 \end{defn}
-\begin{defn} \label{reliabilitySelected2} 
-	Reliability can be estimated as ``the average time interval between two faliures, also called the mean time to faliure (MTTF). Clearly, MTTF (t) = 1/FI (t)''. Where FI (t) is the faliure intensity - the number of faliures per unit time \citep{GhezziEtAl2003}.
+\begin{defn} \label{reliabilitySelected2} Reliability can be estimated as ``the
+  average time interval between two faliures, also called the mean time to
+  faliure (MTTF). Clearly, MTTF (t) = 1/FI (t)''. Where FI (t) is the faliure
+  intensity - the number of faliures per unit time \citep{GhezziEtAl2003}.
 \end{defn}
 \oo{Statistical definition from  \citep{GhezziEtAl2003} added}
   
@@ -332,7 +339,8 @@ Definition~ \oo{need to discuss this quality, we might just define
 
 Definition \ref{reliabilitySelected1} and \ref{reliabilitySelected2} rephrased:
 Probability of failure-free operation of a computer program in a specified
-environment for a specified time, i.e. the average time interval between two faliures also known as the mean time to failure (MTTF).
+environment for a specified time, i.e. the average time interval between two
+faliures also known as the mean time to failure (MTTF).
 
 \wss{Needs to be completed.}\oo{Done}
 
@@ -406,7 +414,7 @@ correctness (both within and outside of it).
 Combined definition \ref{PerformanceDefnSelected} and
 \ref{PerformanceDefnSelected2}: The degree to which a system or component
 accomplishes its designated functions within given constraints, such as speed
-(database response times, for instance), throughput ( transactions per second),
+(database response times, for instance), throughput (transactions per second),
 capacity (con-current usage loads), and timing (hard real-time
 demands). \wss{What is the difference between speed and timing?}
 
@@ -420,6 +428,8 @@ timing.
 \pmi{Wiegers did not discuss this difference.}
 \pmi{Speed - change over time; timing - related to specification: when something
 	should happen in relation to something else - state transitions}
+\wss{If we need both speed and timing, we should define them.  We aren't
+  including accuracy from the IEEE definition.  Is that on purpose?}
 
 \subsection{\notdone{Usability} \jc{owner}} 
 
@@ -473,11 +483,12 @@ One core reference, for definitions and metrics, is
 \begin{defn}
   ``The effort required to learn, operate, prepare input, and interpret output
   of a program'' \citep{McCallEtAl1977}. (As summarized in
-  \citet{VanVliet2000}.)
+  \citet{VanVliet2000}.)  \wss{Once we have verified McCall said this, we can
+    remove the VanVliet reference.}
 \end{defn}
 
 \begin{defn}
-  ``A software is usable - or user fridendly - if its human users find it easy
+  ``A software is usable - or user friendly - if its human users find it easy
   to use'' \citep{ghezzi1991fundamentals}.
 \end{defn}
 
@@ -509,7 +520,9 @@ One core reference, for definitions and metrics, is
 
 \begin{defn}
   Effort required to locate and fix an error in a program
-  \citep{pressman2005software}.
+  \citep{pressman2005software}. \wss{Peter, if this is from
+    McCall, we should just cite the primary source and remove the pressman
+    reference.}
 \end{defn}
 
 \begin{defn}
@@ -543,7 +556,10 @@ One core reference, for definitions and metrics, is
     with \citet{McCallEtAl1977}. While they do not give a reason for
     specifically dropping the word operational, they do indicate that their
     given definition ``is a very limited definition''. Perhaps their intent was
-    breadth.}
+    breadth.} \wss{Peter, please verify the McCall reference definition, and
+    then just cite that.  Olu has found the McCall reference, so you shouldn't
+    have to search for it.  We can remove both the VanVliet and Pressman
+    reference in  preference of the McCall definition.}
 \end{defn}
 
 \begin{defn}
@@ -557,7 +573,9 @@ One core reference, for definitions and metrics, is
 Combined Definition \ref{MaintainabilityDefnSelected1} and Definition
 \ref{MaintainabilityDefnSelected2}: The ease with which a software system or
 component can be modified to correct faults, improve performance or other
-attributes, or satisfy new requirements.
+attributes, or satisfy new requirements. \wss{We didn't agree as a group in the
+  last meeting on our ``measurement'' term, but I think ease is difficult to
+  measure.  Maybe we should rephrase to measuring the effort required?}
 
 \noindent \textbf{Reasoning}
 
@@ -584,7 +602,9 @@ or satisfying new requirements.
 \begin{defn}
   Extent to which a program [or parts of a program] can be reused in other
   applications - related to the packaging and scope of the functions that the
-  program performs \citep{pressman2005software}.
+  program performs \citep{pressman2005software}. \wss{Peter, if this is from
+    McCall, we should just cite the primary source and remove the pressman
+    reference.}
 \end{defn}
 \begin{defn} \label{ReusabilityDefnSelected} 
   The extent to which a software component can be used with or without
@@ -600,6 +620,8 @@ or satisfying new requirements.
 \begin{defn}
   The extent to which a program (or parts thereof) can be reused in other
   applications \citep{McCallEtAl1977}. (As summarized in \citet{VanVliet2000}.)
+  \wss{Peter, if this is from McCall, we should just cite the primary source and
+    remove the VanVliet reference.}
 \end{defn}
 
 \begin{defn}
@@ -631,9 +653,10 @@ software component(s) being transferred.
   class is less than the effort of redevelopment \citep{mooney1990strategies}.
 \end{defn}
 
-\begin{defn} \label{PortabilityDefnSelected} 
-  Effort required to transfer the program from one hardware and/or software
-  system environment to another \citep{pressman2005software}.
+\begin{defn} \label{PortabilityDefnSelected} Effort required to transfer the
+  program from one hardware and/or software system environment to another
+  \citep{pressman2005software}.  \wss{Peter, if this is from McCall, we should
+    just cite the primary source and remove the pressman reference.}
 \end{defn}
 
 \begin{defn}
@@ -659,7 +682,8 @@ software component(s) being transferred.
 \begin{defn}
   ``The effort required to transfer a program from one hardware and/or software
   environment to another'' \citep{McCallEtAl1977}. (As summarized in
-  \citet{VanVliet2000}.)
+  \citet{VanVliet2000}.)  \wss{Peter, if this is from McCall, we should just
+    cite the primary source and remove the VanVliet reference.}
 \end{defn}
 
 \begin{defn}
@@ -721,7 +745,9 @@ Section 11.2 of \citet{adams2015nonfunctional} does have a full definition.
 
 \begin{defn}
   ``The effort required to couple one system with another''
-  \citep{McCallEtAl1977}. (As summarized in \citet{VanVliet2000}.)
+  \citep{McCallEtAl1977}. (As summarized in \citet{VanVliet2000}.)  \wss{Ao, if
+    this is from McCall, we should just cite the primary source and remove the
+    Van Vliet reference.}
 \end{defn}
 
 \begin{defn}
@@ -842,8 +868,11 @@ The degree to which something is seen or known about
 \noindent \textbf{Proposed Definition} 
 
 Definition \ref{VisibilitySelected} rephrased: The extent to which all of the
-steps and the current status of a software development process are documented
-clearly.
+steps \wss{What are all the steps?} and the current status of a software
+development process are documented clearly. \wss{I wonder if rather than
+  ``documented clearly'', we should be more abstract and talk about how these
+  things can be easily determined.  Documentation is probably how the
+  information will be conveyed, but it doesn't have to be how it is done.}
 
 \noindent \textbf{Reasoning}
 
@@ -1024,11 +1053,25 @@ SCS specific definitions:
   programming, distribution, installation, usage and disposal \citep{Heine2017}.
 \end{defn}
 
+Software Sustainability Institute proposal:
+
+\begin{defn}
+Capacity of the software to endure
+\end{defn}
+
+\citet{Katz2016} builds on this definition.
+
 \begin{defn}
   \noindent The capacity of the software to endure. In other words,
   sustainability means that the software will continue to be available in the
   future, on new platforms, meeting new needs \citep{Katz2016}.
 \end{defn}
+
+\href{https://collegeville.github.io/CW3S19/WorkshopResources/Presentations/4-5-Katz_data-driven-software-sustainability.pdf}
+{Katz Presentation}
+
+\href{https://www.software.ac.uk/blog/2019-09-12-making-open-source-research-software-visible-path-better-sustainability}
+{Neil's blog}
 
 Definition from Neil Chue Hong:
 \begin{defn}
@@ -1040,11 +1083,35 @@ Definition from Neil Chue Hong:
 	Legal, Environmental) \citep{Katz2016}.
 \end{defn}
 
-Paper critical of a lack of a definition \citep{VentersEtAl2014}.
+\begin{defn}
+Sustainability encompasses cost efficient maintainability and evolvability \citep{SehestedtEtAl2014}.
+\end{defn}
+
+\citet{SehestedtEtAl2014} goes on to say that sustainability can be observed by
+evaluating the four criteria of the architectural model: completeness,
+consistency, correctness and clarity.
+
+Definitions for sustainability are often built by combining other definitions.
+\href{https://collegeville.github.io/CW3S19/WorkshopResources/Presentations/1-4-2019CollegevilleWorkshopWillenbring.pdf}
+{Willenbring.pdf}
+lists sustainability factors: extensible, interoperable, maintainable, portable,
+reusable, scalable and usable.  \wss{Sounds like they are listing almost all
+  software qualities.  It seems that sustainability is at least in part achieved
+  by having high quality software.}
+
+From
+\href{https://figshare.com/articles/Defining_Sustainability_through_Developers_Eyes_Recommendations_from_an_Interview_Study/1111925/1}
+{Rosado de Souza, et al.} there are two categories of software sustainability:
+
+\begin{description}
+\item[Intrinsic] Pertaining to characteristics of the software
+\item[Extrinsic] Pertaining to the software development environment
+\end{description}
+Find paper that combines nonfunctional qualities into sustainability.
 
 Sounds like definition of maintainability.
 
-Find paper that combines nonfunctional qualities into sustainability.
+Paper critical of a lack of a definition \citep{VentersEtAl2014}.
 
 Sustainability depends on the software artifacts AND the software team AND the
 development process.
@@ -1095,6 +1162,8 @@ on the qualities of documentation for SCS.
 \begin{defn}
   The degree to which a full implementation of the required functionality has
   been achieved \citep{McCallEtAl1977}. (As summarized in \citet{VanVliet2000}.)
+  \wss{Ao, if this is from McCall, we should just cite the primary source and
+    remove the Van Vliet reference.}
 \end{defn}
 
 \begin{defn}
@@ -1173,7 +1242,8 @@ It is concise and measurable.
 \begin{defn}
   The use of uniform design and implementation techniques and notations
   throughout a project \citep{McCallEtAl1977}. (As summarized in
-  \citet{VanVliet2000}.)
+  \citet{VanVliet2000}.)  \wss{Ao, if this is from McCall, we should just cite
+    the primary source and remove the Van Vliet reference.}
 \end{defn}
 
 \begin{defn}
@@ -1278,7 +1348,8 @@ has a full definition, namely
 \begin{defn}
   The ability to link software components to requirements
   \citep{McCallEtAl1977}. (As summarized in \citet{VanVliet2000}.)
-\end{defn}
+\end{defn} \wss{Once we have verified McCall, we can remove the Van Vliet
+  reference.}
 
 \noindent \textbf{Proposed Definition} 
 
@@ -1337,7 +1408,8 @@ not verifiable.'' \citep{IEEE1998}
 
 Verifiability is related to testability, which is defined by McCall et al.\ as
 ``The effort required to test a program to ensure that it performs its intended
-function'' \citep{VanVliet2000}.
+function'' \citep{VanVliet2000}. \wss{Need to verify McCall reference, then
+  delete VanVliet.}
 
 \wss{When I get the Ghezzi text back from Olu, I'll check to see if they have
   anything to add to this definition.}
