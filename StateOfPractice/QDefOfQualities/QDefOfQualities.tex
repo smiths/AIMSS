@@ -399,12 +399,11 @@ correctness (both within and outside of it).
 \begin{defn} \label{PerformanceDefnSelected2}
 	How well or how rapidly the system must perform specific functions. Performance
 	requirements encompass speed (database response times, for instance), throughput
-	( transactions per second), capacity (con-current usage loads), and timing (hard
+	(transactions per second), capacity (concurrent usage loads), and timing (hard
 	real-time demands) \citep{wiegers2003softreq}.
 \end{defn}
 \begin{defn}
-	In software engineering we often equate performance with efficiency. A software
-	system is efficient if it uses computing resources economically
+	In software engineering we often equate performance with efficiency. A software system is efficient if it uses computing resources economically
 	\citep{ghezzi1991fundamentals}.
 \end{defn}
 
@@ -414,7 +413,7 @@ Combined definition \ref{PerformanceDefnSelected} and
 \ref{PerformanceDefnSelected2}: The degree to which a system or component
 accomplishes its designated functions within given constraints, such as speed
 (database response times, for instance), throughput (transactions per second),
-capacity (con-current usage loads), and timing (hard real-time
+capacity (concurrent usage loads), and timing (hard real-time
 demands). \wss{What is the difference between speed and timing?}
 
 \noindent \textbf{Reasoning}
@@ -429,6 +428,7 @@ timing.
 	should happen in relation to something else - state transitions}
 \wss{If we need both speed and timing, we should define them.  We aren't
   including accuracy from the IEEE definition.  Is that on purpose?}
+\pmi{We have decided not to include accuracy. SS will find difference b/w speed and timing from a colleague.}
 
 \subsection{\notdone{Usability} \jc{owner}} 
 
@@ -482,7 +482,7 @@ One core reference, for definitions and metrics, is
   ``The effort required to learn, operate, prepare input, and interpret output
   of a program'' \citep{McCallEtAl1977}. (As summarized in
   \citet{VanVliet2000}.)  \wss{Once we have verified McCall said this, we can
-    remove the VanVliet reference.}
+    remove the VanVliet reference.} \pmi{Yes this is almost exactly from McCall, except he did not have the word "The" at the beginning.}
 \end{defn}
 
 \begin{defn}
@@ -517,13 +517,6 @@ One core reference, for definitions and metrics, is
 \end{defn}
 
 \begin{defn}
-  Effort required to locate and fix an error in a program
-  \citep{pressman2005software}. \wss{Peter, if this is from
-    McCall, we should just cite the primary source and remove the pressman
-    reference.}
-\end{defn}
-
-\begin{defn}
   A set of attributes that bear on the effort needed to make specified
   modifications (which may include corrections, improvements, or adaptations of
   software to environmental changes and changes in the requirements and
@@ -544,8 +537,8 @@ One core reference, for definitions and metrics, is
 \end{defn}
 
 \begin{defn}
-  The effort required to locate and fix an error in an operational program
-  \citep{McCallEtAl1977}. (As summarized in \citet{VanVliet2000}.) \wss{It looks
+  Effort required to locate and fix an error in an operational program
+  \citep{McCallEtAl1977}. \wss{It looks
     like \citet{pressman2005software} was using \citet{McCallEtAl1977} for their
     definition.} \wss{PM - can you please look into whether
     \citet{pressman2005software} cite \citet{McCallEtAl1977}?  Do they give a
@@ -558,6 +551,7 @@ One core reference, for definitions and metrics, is
     then just cite that.  Olu has found the McCall reference, so you shouldn't
     have to search for it.  We can remove both the VanVliet and Pressman
     reference in  preference of the McCall definition.}
+\pmi{I have verified the McCall definition and removed the Pressman and van Vliet references above. I will leave these comments until all similar definitions in this document have been edited.}
 \end{defn}
 
 \begin{defn}
@@ -568,12 +562,17 @@ One core reference, for definitions and metrics, is
 
 \noindent \textbf{Proposed Definition}
 
-Combined Definition \ref{MaintainabilityDefnSelected1} and Definition
-\ref{MaintainabilityDefnSelected2}: The ease with which a software system or
-component can be modified to correct faults, improve performance or other
-attributes, or satisfy new requirements. \wss{We didn't agree as a group in the
-  last meeting on our ``measurement'' term, but I think ease is difficult to
-  measure.  Maybe we should rephrase to measuring the effort required?}
+Combined altered Definition \ref{MaintainabilityDefnSelected1} and Definition
+\ref{MaintainabilityDefnSelected2}: The effort with which a software system or
+component can be modified to:
+
+
+\begin{enumerate}
+	\item correct faults
+	\item improve performance or other
+	attributes
+	\item satisfy new requirements
+\end{enumerate}
 
 \noindent \textbf{Reasoning}
 
@@ -598,11 +597,7 @@ or satisfying new requirements.
   more than one software system \citep{IEEEStdGlossarySET1990}.
 \end{defn}
 \begin{defn}
-  Extent to which a program [or parts of a program] can be reused in other
-  applications - related to the packaging and scope of the functions that the
-  program performs \citep{pressman2005software}. \wss{Peter, if this is from
-    McCall, we should just cite the primary source and remove the pressman
-    reference.}
+  Extent to which a program can be used in other applications - related to the packaging and scope of the functions that programs perform \citep{McCallEtAl1977}. 
 \end{defn}
 \begin{defn} \label{ReusabilityDefnSelected} 
   The extent to which a software component can be used with or without
@@ -613,13 +608,6 @@ or satisfying new requirements.
   Reusability is the likelihood a segment of source code that can be used again
   to add new functionalities with slight or no modification
   \citep{sandhu2010survey}.
-\end{defn}
-
-\begin{defn}
-  The extent to which a program (or parts thereof) can be reused in other
-  applications \citep{McCallEtAl1977}. (As summarized in \citet{VanVliet2000}.)
-  \wss{Peter, if this is from McCall, we should just cite the primary source and
-    remove the VanVliet reference.}
 \end{defn}
 
 \begin{defn}
@@ -638,7 +626,7 @@ than the one for which it was originally developed.
 This definition highlights the possible but not necessary adaptation of the
 software component(s) being transferred.
 
-\subsection{\notdone{Portability} \pmi{owner}}
+\subsection{{Portability} \pmi{owner}}
 
 \begin{defn}
   The ease with which a system or component can be transferred from one hardware
@@ -651,10 +639,7 @@ software component(s) being transferred.
   class is less than the effort of redevelopment \citep{mooney1990strategies}.
 \end{defn}
 
-\begin{defn} \label{PortabilityDefnSelected} Effort required to transfer the
-  program from one hardware and/or software system environment to another
-  \citep{pressman2005software}.  \wss{Peter, if this is from McCall, we should
-    just cite the primary source and remove the pressman reference.}
+\begin{defn} \label{PortabilityDefnSelected} Effort required to transfer a program from one hardware configuration and/or software system environment to another \citep{McCallEtAl1977}.
 \end{defn}
 
 \begin{defn}
@@ -678,13 +663,6 @@ software component(s) being transferred.
 \end{defn}
 
 \begin{defn}
-  ``The effort required to transfer a program from one hardware and/or software
-  environment to another'' \citep{McCallEtAl1977}. (As summarized in
-  \citet{VanVliet2000}.)  \wss{Peter, if this is from McCall, we should just
-    cite the primary source and remove the VanVliet reference.}
-\end{defn}
-
-\begin{defn}
   The capability of software to be transferred from one environment to another
   \cite{ISO9126}.
 \end{defn}
@@ -697,7 +675,7 @@ a program between system environments (including hardware and software).
 
 This is measurable and succinct. 
 
-\pmi{I think this is done.}
+
 
 \subsection{\notdone{Understandability} \jc{owner}}
 
@@ -745,7 +723,7 @@ Section 11.2 of \citet{adams2015nonfunctional} does have a full definition.
   ``The effort required to couple one system with another''
   \citep{McCallEtAl1977}. (As summarized in \citet{VanVliet2000}.)  \wss{Ao, if
     this is from McCall, we should just cite the primary source and remove the
-    Van Vliet reference.}
+    Van Vliet reference.} \pmi{Yes this is almost exactly from McCall, except he did not have the word "The" at the beginning.}
 \end{defn}
 
 \begin{defn}
@@ -1162,7 +1140,7 @@ on the qualities of documentation for SCS.
   The degree to which a full implementation of the required functionality has
   been achieved \citep{McCallEtAl1977}. (As summarized in \citet{VanVliet2000}.)
   \wss{Ao, if this is from McCall, we should just cite the primary source and
-    remove the Van Vliet reference.}
+    remove the Van Vliet reference.} \pmi{McCall's definition verbatim: Those attributes of the software that provide full implementation of the functions required.}
 \end{defn}
 
 \begin{defn}
@@ -1242,7 +1220,7 @@ It is concise and measurable.
   The use of uniform design and implementation techniques and notations
   throughout a project \citep{McCallEtAl1977}. (As summarized in
   \citet{VanVliet2000}.)  \wss{Ao, if this is from McCall, we should just cite
-    the primary source and remove the Van Vliet reference.}
+    the primary source and remove the Van Vliet reference.} \pmi{McCall's definition verbatim: Those attributes of the software that provide uniform design and implementation techniques and notation.}
 \end{defn}
 
 \begin{defn}
@@ -1348,7 +1326,7 @@ has a full definition, namely
   The ability to link software components to requirements
   \citep{McCallEtAl1977}. (As summarized in \citet{VanVliet2000}.)
 \end{defn} \wss{Once we have verified McCall, we can remove the Van Vliet
-  reference.}
+  reference.}  \pmi{McCall's definition verbatim: Those attributes of the software that provide a thread from the requirements to the implementation with respect to the specific development and operational environment.}
 
 \noindent \textbf{Proposed Definition} 
 
@@ -1408,7 +1386,7 @@ not verifiable.'' \citep{IEEE1998}
 Verifiability is related to testability, which is defined by McCall et al.\ as
 ``The effort required to test a program to ensure that it performs its intended
 function'' \citep{VanVliet2000}. \wss{Need to verify McCall reference, then
-  delete VanVliet.}
+  delete VanVliet.} \pmi{McCall's definition verbatim: Effort required to test a program to insure it performs its intended function.}
 
 \wss{When I get the Ghezzi text back from Olu, I'll check to see if they have
   anything to add to this definition.}
