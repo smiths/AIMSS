@@ -1,0 +1,145 @@
+\documentclass[letterpaper,cleveref]{lipics-v2019}
+
+\usepackage{natbib}
+\usepackage{booktabs}
+\usepackage{amsmath,amsthm}
+
+\usepackage{hyperref}
+\hypersetup{
+colorlinks=true,       % false: boxed links; true: colored links
+linkcolor=red,          % color of internal links (change box color with
+%linkbordercolor)
+citecolor=blue,       % color of links to bibliography
+filecolor=magenta,   % color of file links
+urlcolor=cyan           % color of external links
+}
+
+%% Comments
+\newif\ifcomments\commentstrue
+
+\ifcomments
+\newcommand{\authornote}[3]{\textcolor{#1}{[#3 ---#2]}}
+\newcommand{\todo}[1]{\textcolor{red}{[TODO: #1]}}
+\else
+\newcommand{\authornote}[3]{}
+\newcommand{\todo}[1]{}
+\fi
+
+\newcommand{\wss}[1]{\authornote{blue}{SS}{#1}} %Spencer Smith
+\newcommand{\jc}[1]{\authornote{red}{JC}{#1}} %Jacques Carette
+\newcommand{\oo}[1]{\authornote{magenta}{OO}{#1}} %Olu Owojaiye
+\newcommand{\pmi}[1]{\authornote{green}{PM}{#1}} %Peter Michalski
+\newcommand{\ad}[1]{\authornote{cyan}{AD}{#1}} %Ao Dong
+
+\newcommand{\notdone}[1]{\textcolor{red}{#1}}
+\newcommand{\done}[1]{\textcolor{black}{#1}}
+
+%\oddsidemargin 0mm
+%\evensidemargin 0mm
+%\textwidth 160mm
+%\textheight 200mm
+
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}
+
+\title{Methodology for Assessing the State of the Practice for Domain X} 
+\author{Spencer Smith}{McMaster University, Canada}{smiths@mcmaster.ca}{}{}
+\author{Jacques Carette}{McMaster University, Canada}{carette@mcmaster.ca}{}{}
+\author{Olu Owojaiye}{McMaster University, Canada}{owojaiyo@mcmaster.ca}{}{}
+\author{Peter Michalski}{McMaster University, Canada}{michap@mcmaster.ca}{}{}
+\author{Ao Dong}{McMaster University, Canada}{}{}{}
+
+\authorrunning{Smith et al.}  \Copyright{Spencer Smith and Jacques Carette and
+Olu Owojaiye and Peter Michalski and Ao Dong}
+
+\date{\today}
+
+\hideLIPIcs
+\nolinenumbers
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+	...
+\end{abstract}
+
+\tableofcontents
+
+\section{Introduction} \label{SecIntroduction}
+
+Purpose and scope of the document.  \wss{Needs to be filled in.  Should
+	reference the overall research proposal, and the ``state of the practice''
+	exercise in particular.}
+
+
+\section{Domain Analysis} \label{SecDomainAnalysis}
+
+Commonality analysis.  Follow as for mesh generator (likely with less detail).
+
+\section{Quality Measures}
+
+Go through each quality and describe how it will be measured.
+
+Start with decided upon definition.  (If discussion is on-going, please select
+the ``best'' definition, but include a warning that it may change.)
+
+\subsection{\notdone{Installability} \oo{owner}}
+
+
+\subsection{\notdone{Correctness} \oo{owner}}
+
+\subsection{\notdone{Verifiability/Testability} \oo{owner}}
+
+\subsection{\notdone{Validatability} \oo{owner}}
+
+\subsection{\notdone{Reliability} \oo{owner}}
+
+\subsection{\notdone{Robustness} \pmi{owner}}
+
+\subsection{\notdone{Performance} \pmi{owner}}
+
+\subsection{\notdone{Usability} \jc{owner}} 
+
+\subsection{\notdone{Maintainability} \pmi{owner}}
+
+\subsection{\notdone{Reusability} \pmi{owner}}
+
+\subsection{\notdone{Portability} \pmi{owner}}
+
+\subsection{\notdone{Understandability} \jc{owner}}
+
+\subsection{\notdone{Interoperability} \ad{owner}}
+
+\subsection{\notdone{Visibility/Transparency} \ad{owner}}
+
+\subsection{\notdone{Reproducibility} \wss{owner}}
+
+\subsection{\notdone{Productivity} \ad{owner}}
+
+\subsection{\notdone{Sustainability} \wss{owner}}
+
+\subsection{\notdone{Completeness} \ad{owner}}
+
+\subsection{\notdone{Consistency} \ad{owner}}
+
+\subsection{\notdone{Modifiability} \jc{owner}}
+
+\subsection{\notdone{Traceability} \jc{owner}}
+
+\subsection{\notdone{Unambiguity} \wss{owner}}
+
+\subsection{\notdone{Verifiability} \wss{owner}}
+
+\subsection{\notdone{Abstract} \wss{owner}}
+
+\section{Using Data to Rank Family Members}
+
+Describe AHP process (or similar).
+
+\newpage
+
+\bibliographystyle {plainnat}
+\bibliography {../../CommonFiles/ResearchProposal}
+
+\end{document}
