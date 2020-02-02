@@ -287,11 +287,91 @@ The robustness failures are typically classified according to the CRASH criteria
 \end{enumerate}
 
 \subsection{Maintainability}
-How much time it takes to add a new function (requirement)\\ 
+How much time it takes to add a new function (requirement)\\
+How many open and closed issues on git\\
+How quickly are issues closed\\
+Update frequency\\ 
 
-Metrics for Assessing a Software System's Maintainability (Oman, Hagemeister)\\ 
+Metrics for Assessing a Software System's Maintainability (Oman, Hagemeister):\\
+Software system metrics:\\
+1. server maturity attributes (age since release, size, stability, maintenance intensity, defect intensity, reliability, reuse, subjective product appraisals)\\
+size = thousands of non commented source statements (KNCSS)\\
+stability = 1 - change factor\\
+defect intensity = defects reported / KNCSS --check full equation\\
+reuse = the percentage of lines of code reused from other systems\\
 
-Software Metrics for Predicting Maintainability (Frappier, Matwin, Mili) 
+
+2. source code (control structure, information structure, typography and naming and commenting) - each of these is broken into system and component subcategories\\
+
+system control structure: modularity, complexity, consistency, nesting, control coupling, encapsulation, module reuse, control flow consistency\\
+
+component control structure: complexity, use of structured constructs, use of unconditional branching, nesting, span of control structures, cohesion\\
+
+system information structure: global data types, global data structures, system coupling, data flow consistency, data type consistency, nesting, I/O complexity, I/O integrity\\
+
+component information structure: local data types, local data structures, data coupling, initialization integrity, span of data \\
+
+system typography, naming and commenting: overall program formatting, overall program commenting, module separation, naming, symbols and case\\
+
+component typography, naming and commenting: statement formatting, vertical spacing, horizontal spacing, intramodule commenting\\
+
+3. supporting documentation (abstraction, physical attributes)\\
+ 
+supporting documentation abstraction: descriptiveness appraisals, completeness appraisals, correctness appraisals\\
+
+supporting documentation physical attributes: readability appraisals, modifiability appraisals\\
+
+We can then sum up weighted attributes of each dimension, and then further sum up weighted dimensions\\
+
+\noindent Software Metrics for Predicting Maintainability (Frappier, Matwin, Mili): \\
+
+Documentation criterion (metrics): readability, traceability (NR, UR), coupling (M-MC, HK-IF, R-IF, KPL-IF, IF4, CA-DC), cohesion (M-MS, HK-IF, R-IF, KPL-IF, IF4, CA-DC), size\\
+
+Source code criterion (metrics): traceability(NR, UR), control structure(v(g), knots, RLC), independence, readability(Vcd, Vcs, Ls), size (LOC, E, RLC), doc accuracy (DAR), consistency (SCC)\\
+
+UR - Unreferenced Requirements - The  number  of  original  requirements  not  referenced  by  a  lower  document  in  the  documentation hierarchy (Formula: UR = number of R1 not referenced by a R2, where..)\\
+
+NR - Non-referenced requirements - The number of items not referencing an original requirement.(NR = number of R2 not referencing any R1, where..)\\
+
+Module Coupling (M-MC) - A measure of the strength of the relationships between modules. (Formula: Myers defines six levels of coupling which are, in order of decreasing strength: coupling, common, external, control, stamp, data)\\
+
+Module Strength (M-MS) - A measure of how strongly related are the elements within a module.(Formula: Module  strength  is  a  subjective  metric.    Myers  defines  seven  levels  of  strength  which are, in order of increasing strength: coincidental, logical, classical, procedural, communicational, informational, functional)\\
+
+Information Flow (HK-IF) -A measure of the control flow and data flow between modules. (Formula: IFm = (fan-inm*fan-outm)2*int-compm)\\
+
+Integrated Information Flow of Rombach (R-IF) - A  measure  of  intermodule  and  intramodule  complexity  based  on  information  flow. \\
+
+ Information Flow by Kitchenham et al (KPL-IF) - A   measure   of   intermodule   complexity   inspired   from   Henry   and   Kafura's   information flow metric.  Since Kitchenham et al experienced some difficulties in understanding   the   definition   of   flows   provided   by   Henry   and   Kafura,   they   formulated a new set of definitions.\\
+ 
+  IF4 -  A measure of intermodule complexity based on information flow.\\
+
+Design Complexity of Card and Agresti (CA-DC) - A  measure  of  intermodule  and  intramodule  complexity  of  a  system  based  on  fan-out, number of modules and input/output variables \\
+
+Cocomo Inspired Metric (COCO) - A selection of appropriate adjustment factors of the intermediate Cocomo metric. \\
+
+Cyclomatic Complexity Number (v(G)) -   The number of independent basic paths in a program. \\
+
+Knots Description -  The  number  of  crossing  lines  (unstructured  goto  statements)  in  a  control  flow  graph\\
+
+Relative Logical Complexity (RLC) -  The number of binary decisions divided by the number of statements \\
+
+Comments Volume of Declarations (Vcd) -  Total number of characters found in the comments of the declaration section of a module.  The declaration section comprises comments before the module heading up to the first executable statement of the module body. \\
+
+ Comments Volume of Structures (Vcs) Description:    Total number of characters in the comments found anywhere in the module except in  the  declaration  section.    The  declaration  section  comprises  comments  before  the module heading up to the first executable statement of the module body.\\
+ 
+ Average Length of Variable Names (Ls) Description:     Mean  number  of  characters  of  all  variables  used  in  a  module.    Unused  declared  variables are not included. \\
+ 
+  Lines of  Code (LOC) Description: The number of lines in the source code excluding blank lines or comment lines.\\
+  
+  Software Science Effort (E) Description:    An  estimation  of  programming  effort  based  on  the  number  of  operators  and  operands.  It is a combination of other Software Science metrics.\\
+  
+  Documentation Accuracy Ratio (DAR) Description:     A  verification  of  the  accuracy  of  the  CEI Spec, RS and SDD with respect to the source code.\\
+  
+  Source Code Consistency (SCC) Description:     The  extent  to  which  the  source  code  contains uniform notation, terminology and symbology within itself. \\
+  
+  
+
+
 
 \subsection{Reusability}
 Measuring Software Reusability (Poulin)\\  
