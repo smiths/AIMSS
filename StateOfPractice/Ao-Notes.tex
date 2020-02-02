@@ -1,0 +1,112 @@
+\documentclass{article}
+
+\usepackage{natbib}
+\usepackage{booktabs}
+\usepackage{amsmath,amsthm}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{longtable}
+
+\hypersetup{
+colorlinks=true,       % false: boxed links; true: colored links
+linkcolor=red,          % color of internal links (change box color with
+%linkbordercolor)
+citecolor=blue,       % color of links to bibliography
+filecolor=magenta,   % color of file links
+urlcolor=cyan           % color of external links
+}
+
+\title{Ao's Notes on Medical Imaging Software}
+
+\author{Ao Dong}
+
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{table}[hp]
+\caption{Revision History} \label{TblRevisionHistory}
+\begin{tabularx}{\textwidth}{llX}
+\toprule
+\textbf{Date} & \textbf{Author(s)} & \textbf{Change}\\
+\midrule
+Jan/30/2020 & Ao Dong & Initial draft\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section*{Software List}
+PACS: Picture Archiving and Communication System\\
+TK: Tool kit\\
+V: Visualization\\
+A: Analysis\\
+C: Convertion
+
+\begin{longtable}{|l|l|l|l|l|l|}
+\hline
+Functions & Sftwr Name & \begin{tabular}[c]{@{}l@{}}Latest\\ Release\end{tabular} & Link & Source \& reference & Notes \\ \hline
+TK & VTK & 2019 & \href{https://vtk.org/}{link} & \citep{Samala2014} &  \\ \hline
+TK & ITK & 2019 & \href{https://itk.org/}{link} & \citep{Samala2014} &  \\ \hline
+TK & DCMTK & 2019 & \href{https://www.dcmtk.org/dcmtk.php.en}{link} & \begin{tabular}[c]{@{}l@{}}\citep{Hasan2020}\\ \citep{Mu2019}\end{tabular} &  \\ \hline
+TK & dcm4che & 2020 & \href{https://www.dcm4che.org/}{link} & \begin{tabular}[c]{@{}l@{}}\citep{Emms2019}\\ \citep{Bjorn2017}\\ \citep{Hasan2020}\end{tabular} &  \\ \hline
+PACS & orthanc & 2019 & \href{https://www.orthanc-server.com/index.php}{link} & \begin{tabular}[c]{@{}l@{}}\citep{Bjorn2017}\\ \citep{Hasan2020}\end{tabular} &  \\ \hline
+\begin{tabular}[c]{@{}l@{}}PACS\\ V\end{tabular} & ClearCanvas & 2015 & \href{http://clearcanvas.github.io/}{link} & \citep{Bjorn2017} &  \\ \hline
+PACS & Conquest & 2020 & \href{https://ingenium.home.xs4all.nl/dicom.html}{link} & \citep{Bjorn2017} &  \\ \hline
+V & Aliza & 2020 & \href{https://www.aliza-dicom-viewer.com/}{link} & \begin{tabular}[c]{@{}l@{}}\citep{Emms2019}\\ \citep{Mu2019}\end{tabular} & Maybe not open source \\ \hline
+V & 3D Slicer & 2019 & \href{https://www.slicer.org/}{link} & \begin{tabular}[c]{@{}l@{}}\citep{Emms2019}\\ \citep{Hasan2020}\\ \citep{Samala2014}\\ \citep{Haak2015}\end{tabular} &  \\ \hline
+V & Mango & 2019 & \href{http://ric.uthscsa.edu/mango/}{link} & \begin{tabular}[c]{@{}l@{}}\citep{Emms2019}\\ \citep{Hasan2020}\\ \citep{Mu2019}\end{tabular} & \begin{tabular}[c]{@{}l@{}}Only open source for\\ iPad and web app version\end{tabular} \\ \hline
+V & Ginkgo CADx & 2019 & \href{http://ginkgo-cadx.com/en/}{link} & \begin{tabular}[c]{@{}l@{}}\citep{Emms2019}\\ \citep{Bjorn2017}\\ \citep{Hasan2020}\\ \citep{Bruhschwein2019}\\ \citep{Mu2019}\\ \citep{Haak2015}\end{tabular} &  \\ \hline
+V & XMedCon & 2019 & \href{https://xmedcon.sourceforge.io/Main/HomePage}{link} & \begin{tabular}[c]{@{}l@{}}\citep{Emms2019}\\ \citep{Hasan2020}\\ \citep{Mu2019}\\ \citep{Haak2015}\end{tabular} &  \\ \hline
+V & WEASIS & 2019 & \href{https://nroduit.github.io/en/}{link} & \begin{tabular}[c]{@{}l@{}}\citep{Emms2019}\\ \citep{Hasan2020}\\ \citep{Mu2019}\\ \citep{Haak2015}\end{tabular} &  \\ \hline
+V & MRIcroGL & 2019 & \begin{tabular}[c]{@{}l@{}}\href{https://www.nitrc.org/projects/mricrogl/}{link1}\\ \href{https://www.mccauslandcenter.sc.edu/mricrogl/home}{link2}\end{tabular} & \begin{tabular}[c]{@{}l@{}}\citep{Emms2019}\\ \citep{Hasan2020}\\ \citep{Samala2014}\\ \citep{Haak2015}\end{tabular} &  \\ \hline
+V & Amide & 2017 & \href{http://amide.sourceforge.net/}{link} & \begin{tabular}[c]{@{}l@{}}\citep{Emms2019}\\ \citep{Hasan2020}\\ \citep{Mu2019}\end{tabular} &  \\ \hline
+V & SMILI & 2019 & \href{https://smili-project.sourceforge.io/}{link} & \begin{tabular}[c]{@{}l@{}}\citep{Emms2019}\\ \citep{Hasan2020}\\ \citep{Mu2019}\end{tabular} &  \\ \hline
+V & ImageJ & 2019 & \href{https://imagej.nih.gov/ij/index.html}{link} & \begin{tabular}[c]{@{}l@{}}\citep{Emms2019}\\ \citep{Hasan2020}\\ \citep{Samala2014}\\ \citep{Haak2015}\end{tabular} &  \\ \hline
+V & DicomBrowser & 2016 & \href{https://wiki.xnat.org/xnat-tools/dicombrowser}{link} & \begin{tabular}[c]{@{}l@{}}\citep{Emms2019}\\ \citep{Hasan2020}\end{tabular} &  \\ \hline
+V & 3DimViewer & 2019 & \href{https://bitbucket.org/3dimlab/3dimviewer/src/master/}{link} & \begin{tabular}[c]{@{}l@{}}\citep{Bjorn2017}\\ \citep{Hasan2020}\\ \citep{Mu2019}\end{tabular} &  \\ \hline
+V & MicroDicom & 2020 & \href{http://www.microdicom.com/}{link} & \begin{tabular}[c]{@{}l@{}}\citep{Mu2019}\\ \citep{Bjorn2017}\end{tabular} & Maybe not open source \\ \hline
+V & Horos & 2019 & \href{https://github.com/horosproject/horos}{link} & \begin{tabular}[c]{@{}l@{}}\citep{Bjorn2017}\\ \citep{Bruhschwein2019}\end{tabular} &  \\ \hline
+V & Osimis & 2020 & \href{https://bitbucket.org/osimis/osimis-webviewer-plugin/src/master/}{link} & \citep{Bjorn2017} &  \\ \hline
+V & OsiriX Lite & 2013 & \href{https://github.com/pixmeo/osirix}{link} & \begin{tabular}[c]{@{}l@{}}\citep{Bjorn2017}\\ \citep{Bruhschwein2019}\\ \\ \citep{Haak2015}\end{tabular} &  \\ \hline
+V & jivex & 2019 & \href{https://www.visus.com/en/downloads/jivex-dicom-viewer.html}{link} & \begin{tabular}[c]{@{}l@{}}\citep{Mu2019}\\ \citep{Haak2015}\end{tabular} & Maybe not open source \\ \hline
+V & Open Dicom Viewer & 2015 & \href{https://sourceforge.net/projects/opendicomviewer/}{link} & \begin{tabular}[c]{@{}l@{}}\citep{Mu2019}\\ \citep{Haak2015}\end{tabular} &  \\ \hline
+V & dwv & 2019 & \href{https://ivmartel.github.io/dwv/}{link} & \citep{Bjorn2017} &  \\ \hline
+V & OHIF & 2020 & \href{http://ohif.org/}{link} & \citep{Bjorn2017} &  \\ \hline
+V & vv & 2019 & \href{https://github.com/open-vv/vv}{link} & \citep{Bjorn2017} &  \\ \hline
+V & drishti & 2018 & \href{https://github.com/nci/drishti}{link} & \citep{Bjorn2017} &  \\ \hline
+V & BioImage Suite & 2020 & \href{https://bioimagesuiteweb.github.io/webapp/}{link} & \citep{Haak2015} &  \\ \hline
+V & cornerstone & 2018 & \href{https://github.com/cornerstonejs/cornerstone/releases}{link} & \citep{Haak2015} &  \\ \hline
+V & dwv & 2019 & \href{https://ivmartel.github.io/dwv/}{link} & \citep{Haak2015} &  \\ \hline
+V & Oviyam & 2018 & \href{http://oviyam.raster.in/index.html}{link} & \citep{Haak2015} & Maybe not open source \\ \hline
+V & MicroView & 2015 & \href{http://microview.sourceforge.net/}{link} & \citep{Haak2015} &  \\ \hline
+V & MIPAV & 2019 & \href{https://mipav.cit.nih.gov/}{link} & \citep{Haak2015} &  \\ \hline
+V & Slice:Drop & 2019 & \href{https://github.com/slicedrop/slicedrop.github.com}{link} & \citep{Haak2015} &  \\ \hline
+V & Fiji & 2018 & \href{http://fiji.sc/}{link} & \citep{Samala2014} & Distribution of ImageJ \\ \hline
+V & GATE & 2019 & \href{http://www.opengatecollaboration.org/}{link} & \citep{Emms2019} &  \\ \hline
+V & ITK-SNAP & 2019 & \href{http://www.itksnap.org/pmwiki/pmwiki.php}{link} & \citep{Samala2014} &  \\ \hline
+V & ParaView & 2019 & \href{https://github.com/Kitware/ParaView}{link} & \citep{Samala2014} &  \\ \hline
+V & MeVisLab & 2018 & \href{https://www.mevislab.de/}{link} & \citep{Samala2014} &  \\ \hline
+V & MatrixUser & 2018 & \href{https://sourceforge.net/projects/matrixuser/}{link} & \citep{Hasan2020} &  \\ \hline
+V & NextCloud & 2019 & \href{https://github.com/ayselafsar/dicomviewer}{link} & \citep{Hasan2020} &  \\ \hline
+C & dcm2niix & 2019 & \href{https://www.nitrc.org/plugins/mwiki/index.php/dcm2nii:MainPage#Download}{link} & \citep{Hasan2020} &  \\ \hline
+V & INVESALIUS 3 & 2019 & \href{https://invesalius.github.io/}{link} & \citep{Hasan2020} &  \\ \hline
+V & Trimage & 2019 & \href{https://trimage.org/}{link} & \citep{Hasan2020} &  \\ \hline
+V & Gwyddion & 2020 & \href{http://gwyddion.net/}{link} & \citep{Hasan2020} &  \\ \hline
+ &  &  &  &  &  \\ \hline
+V & dicompyler & 2016 & \href{http://www.dicompyler.com/}{link} & \citep{Mu2019} &  \\ \hline
+ &  &  &  &  &  \\ \hline
+V & \begin{tabular}[c]{@{}l@{}}Sante DICOM\\ Viewer Lite\end{tabular} & 2019 & \href{https://www.santesoft.com/win/sante-dicom-viewer-lite/sante-dicom-viewer-lite.html}{link} & \citep{Mu2019} & Maybe not open source \\ \hline
+V & \begin{tabular}[c]{@{}l@{}}Navegatium DICOM\\ Viewer\end{tabular} & 2014? & \href{http://navegatium.com/en-us/dicom-viewer}{link} & \citep{Mu2019} &  \\ \hline
+\end{longtable}
+
+\section*{Quality Measurements}
+
+\newpage
+
+\bibliographystyle {plainnat}
+\bibliography {../CommonFiles/ResearchProposal}
+
+\end{document}
