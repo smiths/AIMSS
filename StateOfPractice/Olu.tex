@@ -1,0 +1,94 @@
+\documentclass{article}
+\usepackage{natbib}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{amsmath,amsthm}
+
+\title{Quality measure notes}
+
+\author{Olu O}
+
+\date{}
+
+
+\begin{document}
+
+\maketitle
+
+~\newpage
+\section{Quality Measurement}
+\subsection{Installability}
+
+It depends on a lot of factors:
+\begin{itemize}
+	\item How experienced is the installer?
+	\item How fast the destination computer?
+	\item What is the medium from which the software is being installed (Internet download, local network, CD/DVD)?
+	\item Are there any manual steps needed during the installation?
+\end{itemize}
+\subsubitem\citep{SmithEtAl2018}
+\begin{itemize} 
+
+	\item Are there installation instructions?
+	\item Are the installation instructions linear?
+	\item Is there something in place to automate the installation?
+	\item Is there a means given to validate the installation?
+	\item How many steps were involved in the installation?
+	\item How many software packages need to be installed?
+	\item Run uninstall, if available. Any obvious problems?
+
+
+\subsubitem
+ \url{www.testingstandards.co.uk/installability_guidelines.htm}
+\begin{itemize}
+	\item Can an untrained user successfully perform an initial installation of the application in an average of 10 minutes?
+	\item When installing an upgraded version of the application, are all customizations in the user’s profile retained and converted to the new version’s data format if needed?
+	\item Does installation program verify the correctness of the download before beginning the installation process???
+	\item Following successful installation, does the installation program delete all temporary, backup, obsolete, and unneeded files associated with the application.
+	\item What is the maximum number of installation steps
+	\item Time that the installation process takes compared to the expected time it takes
+	\item Install instructions available?
+	\item Uninstall instructions available?
+	\item Does the system handle an incomplete installation, such as one interrupted by a power failure or aborted by the user?
+	\item Do applications need to be shut down before performing the installation?
+	\item Does the user need the capability to install, uninstall, reinstall, or repair just selected portions of the application if required? (Can this be performed?)
+	\item Is the user aware of successful, or unsuccessful, installation?
+\end{itemize}
+
+\end{itemize}
+Installability addresses the following activities:
+\begin{itemize}
+
+\item Initial installation
+\item Recovery from an incomplete, incorrect, or user-aborted installation
+\item Reinstallation of the same version
+\item Installation of a new version
+\item Reverting to a previous version
+\item Installation of additional components or updates
+\item Uninstallation
+\end{itemize}
+
+\subsection{Verifiability}
+
+\citep{SmithEtAl2018}
+This was for Correctness and Verifiability
+\begin{itemize}
+	\item Are external libraries used? 
+	\item Does the community have confidence in this library? 
+	\item Any reference to the requirements specifications of the program?
+	\item What tools or techniques are used to build confidence of correctness? (string)
+	\item Is there a getting started tutorial, if yes, is the output as expected?
+\end{itemize}
+\citep{wiegers2003softreq}
+\begin{itemize}
+	\item What reference reports or other outputs can we use to verify that the system is producing its outputs correctly?
+	\item Is the maximum cyclomatic complexity of a module more than 20?
+	\item Are there any portions of the system that do not yield deterministic outputs, such that it could be difficult to determine if they were working correctly?
+	\item Is it possible to come up with test data sets that have a high probability of revealing any errors in the requirements or in their implementation?
+\end{itemize}
+
+
+\bibliographystyle {plainnat}
+\bibliography {../CommonFiles/ResearchProposal}
+\end{document}
