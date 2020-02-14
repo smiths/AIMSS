@@ -61,11 +61,22 @@ Software possesses the characteristic of robustness if it behaves ``reasonably''
 \subsubsection{Metrics}
 Using CRASH criteria: (DOI: 10.1007/978-3-642-29032-9\_16)
 \begin{enumerate}
-	\item inject random input at interface (automated testing (selenium?) - generate list of valid input and observe if CRASH)
-	\item use invalid input at interface (testing - generate list of invalid input and observe if CRASH)
-	\item not provide necessary libraries (find if external libraries are needed, not provide, observe if CRASH)
-	\item removing directories (mutation) (for example removal of output directory - find directories for mutation, remove, observe if CRASH)
-	\item using OS and hardware outside of those in the reqs: (find req OS and hardware, make list outside of reqs, attempt to run the software and observe if CRASH)
+	\item How does the system react when random but valid input is provided?\\
+	
+	Inject random input at interface (automated testing (selenium?) - generate list of valid input and observe if CRASH)
+	\item How does the system react when invalid input is provided?\\
+	
+	Use invalid input at interface (testing - generate list of invalid input and observe if CRASH)
+	\item How does the system react when required libraries are not provided?\\
+	
+	Not provide necessary libraries (find if external libraries are needed, not provide, observe if CRASH)
+	\item How does the system react when directories and/or files are mutated?\\
+	
+	Removing directories (mutation) (for example removal of output directory - find directories for mutation, remove, observe if CRASH)
+	
+	\item How does the system react when run on OS and/or hardware that is outside of the requirement specification?\\
+	
+	Using OS and hardware outside of those in the reqs: (find req OS and hardware, make list outside of reqs, attempt to run the software and observe if CRASH)
 \end{enumerate}
 \subsubsection{Notes}
 DOI: 10.1007/978-3-642-29032-9\_16:\\ 
@@ -80,12 +91,24 @@ The degree to which a system or component accomplishes its designated functions 
 \subsubsection{Metrics}
 
 \begin{enumerate}
-	\item CPU usage (find a tool to monitor the applications use of CPU), calculate average over the run of tests. Compare CPU usage between solutions - keep in mind the solutions vary significantly.
-	\item Memory usage
-	\item Concurrent usage loads
-	\item Timing
-	\item Run-time errors
-	\item errors in solution
+	\item How does the application compare in CPU utilization compared to other solutions running on the same hardware?\\
+	
+	Measure average CPU utilization of each application using the same hardware.
+	\item What is the average memory usage of the application?\\
+	
+	Measure the average memory usage of the application using the same hardware.
+	\item How many concurrent usage loads can the system handle?\\
+	
+	Run multiple instances of the application. 
+	\item What is the average amount of time that the system needs to provide a solution?\\
+	
+	Measure the average amount of time that each application takes to provide a solution.
+	\item How many errors does the system experience in X hours of run-time?\\
+	
+	Run automated tests and count the number of run-time errors.
+	\item How accurate, on average, are the results of the solution?\\
+	
+	Measure the average error of the solution when compared to a pseudo oracle.
 \end{enumerate}
 
 \subsubsection{Notes}
@@ -105,39 +128,94 @@ The effort with which a software system or component can be modified to:
 
 \subsubsection{Metrics}
 \begin{enumerate}
-	\item Open and closed issues on Git
-	\item Time to close issue avg
-	\item Update frequency
-	\item Number of maintainers
+	\item Open and closed issues on Git\\
+	
+	Count the ratio of open to closed issues on Git
+	\item Average time to close issues\\
+	
+	Calculate the average time taken to close an issue on Git
+	\item Update frequency\\
+	
+	Count average number of days between major update releases?
+	\item Number of maintainers\\
+	
+	Count how many maintainers have worked on this project.\\
 \end{enumerate}
 
 Metrics for Assessing a Software System's Maintainability (Oman, Hagemeister):
 \begin{enumerate}
-\item Age - since release in months
-\item Size - thousands of non commented source statements (TNCSS)
-\item Stability = 1 - Change Factor -> CF is ( e$\land$number of months * average percentage change of lines of code in number of months)
-\item Defect Intensity =  e$\land$number of months * average percentage of defective lines of code per month
-\item Subjective Product Appraisals = 5 point (very low to very high) for language complexity, application complexity, requirements volatility, product dependencies, complexity of build, installation complexity, intensity of product use, efficiency of the software system
-\item modularity: number of modules, average module size
-\item consistency: std deviation of module size (TNCSS)
-\item cyclomatic complexity
-\item global data types: the number of global data types divided by the total number of defined data types
-\item global data structures: the number of global data structures divided by the total number of defined data structures
-\item Data type consistency = 1 - percentage of data structures that undergo type conversion during assignment operations
-\item I/O complexity = the number of lines of code devoted to I/O divided by TNCSS
-\item Local data types = the number of local data types divided by the total number of defined data types averaged over all modules
-\item Local data types = the number of local data types divided by the total number of defined data types averaged over all modules
-\item Local data structures = the number of local data structures divided by the total number of defined data structures averaged over all modules
-\item Initialization integrity = percentage of variables initilaized prior to use averaged over all modules
-\item Overall Formatting =  percentage of blank lines in the whole program, percentage of modules with blank lines
-\item Commenting =  percentage of comment lines in program, percentage of modules with header comments
-\item Statement formatting =  percentage of uncrowded statements (no more than one statement per line) per module averaged over all modules
-\item intramodule commenting = percentage lines of comments in module, averaged over all modules
-\item subjective evaluation of document descriptiveness = accuracy, consistency, unambiguous
-\item subjective evaluation of document completeness = extent of document set, contents
-\item subjective evaluation of document correctness = traceability, verifiability
-\item subjective evaluation of document readability = organization, accessibility via indices and table of contents, consistency of the writing style, typography, and comprehensibility
-\item subjective evaluation of document modifiability = document set redundancies
+\item Age\\
+
+Count number of months since release.
+\item Size\\
+
+Count thousands of non commented source statements (TNCSS)
+\item Stability 
+
+Calculate: Stability = 1 - Change Factor when CF is ( e$\land$number of months * average percentage change of lines of code in number of months)
+\item Defect Intensity\\
+
+Calculate: Defect intensity =  e$\land$number of months * average percentage of defective lines of code per month
+\item Subjective Product Appraisals\\
+
+Measure: Subjective Product Appraisal = 5 point (very low to very high) for language complexity, application complexity, requirements volatility, product dependencies, complexity of build, installation complexity, intensity of product use, efficiency of the software system
+\item Modularity\\
+
+Measure: number of modules, average module size
+\item Consistency\\
+
+Measure: std deviation of module size (TNCSS)
+\item Global Data Types\\
+
+Measure: the number of global data types divided by the total number of defined data types
+\item Global Data Structures\\
+
+Measure: the number of global data structures divided by the total number of defined data structures
+\item Data Type Consistency\\
+
+Calculate: 1 - percentage of data structures that undergo type conversion during assignment operations
+\item I/O Complexity\\
+
+Measure: the number of lines of code devoted to I/O divided by TNCSS
+\item Local Data Types\\
+
+Calculate: the number of local data types divided by the total number of defined data types averaged over all modules
+\item Local Data Types\\
+
+Calculate: the number of local data types divided by the total number of defined data types averaged over all modules
+\item Local Data Structures\\
+
+Calculate: the number of local data structures divided by the total number of defined data structures averaged over all modules
+\item Initialization Integrity\\
+
+Calculate: percentage of variables initialized prior to use averaged over all modules
+\item Overall Formatting\\
+
+Calculate: percentage of blank lines in the whole program, percentage of modules with blank lines
+\item Commenting\\
+
+Calculate: percentage of comment lines in program, percentage of modules with header comments
+\item Statement Formatting\\
+
+Calculate: percentage of uncrowded statements (no more than one statement per line) per module averaged over all modules
+\item Intramodule Commenting\\ 
+
+Calculate: percentage lines of comments in module, averaged over all modules
+\item Subjective Evaluation of Document Descriptiveness\\
+
+Categorize based on accuracy, consistency, unambiguous
+\item Subjective Evaluation of Document Completeness\\ 
+
+Categorize based on extent of document set, contents
+\item Subjective Evaluation of Document Correctness\\ 
+
+Categorize based on traceability, verifiability
+\item Subjective Evaluation of Document Readability\\
+
+Categorize based on organization, accessibility via indices and table of contents, consistency of the writing style, typography, and comprehensibility
+\item Subjective Evaluation of Document Modifiability\\
+
+Categorize based on document set redundancies
 \end{enumerate}
 \subsubsection{Notes}
 
@@ -167,53 +245,6 @@ supporting documentation abstraction: descriptiveness appraisals, completeness a
 
 supporting documentation physical attributes: readability appraisals, modifiability appraisals\\
 
-
-
-\noindent Software Metrics for Predicting Maintainability (Frappier, Matwin, Mili): \\
-
-Documentation criterion (metrics): readability, traceability (NR, UR), coupling (M-MC, HK-IF, R-IF, KPL-IF, IF4, CA-DC), cohesion (M-MS, HK-IF, R-IF, KPL-IF, IF4, CA-DC), size\\
-
-Source code criterion (metrics): traceability(NR, UR), control structure(v(g), knots, RLC), independence, readability(Vcd, Vcs, Ls), size (LOC, E, RLC), doc accuracy (DAR), consistency (SCC)\\
-
-UR - Unreferenced Requirements - The  number  of  original  requirements  not  referenced  by  a  lower  document  in  the  documentation hierarchy (Formula: UR = number of R1 not referenced by a R2, where..)\\
-
-NR - Non-referenced requirements - The number of items not referencing an original requirement.(NR = number of R2 not referencing any R1, where..)\\
-
-Module Coupling (M-MC) - A measure of the strength of the relationships between modules. (Formula: Myers defines six levels of coupling which are, in order of decreasing strength: coupling, common, external, control, stamp, data)\\
-
-Module Strength (M-MS) - A measure of how strongly related are the elements within a module.(Formula: Module  strength  is  a  subjective  metric.    Myers  defines  seven  levels  of  strength  which are, in order of increasing strength: coincidental, logical, classical, procedural, communicational, informational, functional)\\
-
-Information Flow (HK-IF) -A measure of the control flow and data flow between modules. (Formula: IFm = (fan-inm*fan-outm)2*int-compm)\\
-
-Integrated Information Flow of Rombach (R-IF) - A  measure  of  intermodule  and  intramodule  complexity  based  on  information  flow. \\
-
- Information Flow by Kitchenham et al (KPL-IF) - A   measure   of   intermodule   complexity   inspired   from   Henry   and   Kafura's   information flow metric.  Since Kitchenham et al experienced some difficulties in understanding   the   definition   of   flows   provided   by   Henry   and   Kafura,   they   formulated a new set of definitions.\\
- 
-  IF4 -  A measure of intermodule complexity based on information flow.\\
-
-Design Complexity of Card and Agresti (CA-DC) - A  measure  of  intermodule  and  intramodule  complexity  of  a  system  based  on  fan-out, number of modules and input/output variables \\
-
-Cocomo Inspired Metric (COCO) - A selection of appropriate adjustment factors of the intermediate Cocomo metric. \\
-
-Cyclomatic Complexity Number (v(G)) -   The number of independent basic paths in a program. \\
-
-Knots Description -  The  number  of  crossing  lines  (unstructured  goto  statements)  in  a  control  flow  graph\\
-
-Relative Logical Complexity (RLC) -  The number of binary decisions divided by the number of statements \\
-
-Comments Volume of Declarations (Vcd) -  Total number of characters found in the comments of the declaration section of a module.  The declaration section comprises comments before the module heading up to the first executable statement of the module body. \\
-
- Comments Volume of Structures (Vcs) Description:    Total number of characters in the comments found anywhere in the module except in  the  declaration  section.    The  declaration  section  comprises  comments  before  the module heading up to the first executable statement of the module body.\\
- 
- Average Length of Variable Names (Ls) Description:     Mean  number  of  characters  of  all  variables  used  in  a  module.    Unused  declared  variables are not included. \\
- 
-  Lines of  Code (LOC) Description: The number of lines in the source code excluding blank lines or comment lines.\\
-  
-  Software Science Effort (E) Description:    An  estimation  of  programming  effort  based  on  the  number  of  operators  and  operands.  It is a combination of other Software Science metrics.\\
-  
-  Documentation Accuracy Ratio (DAR) Description:     A  verification  of  the  accuracy  of  the  CEI Spec, RS and SDD with respect to the source code.\\
-  
-  Source Code Consistency (SCC) Description:     The  extent  to  which  the  source  code  contains uniform notation, terminology and symbology within itself. \\
   
 ~\newpage
 
