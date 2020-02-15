@@ -253,96 +253,137 @@ supporting documentation physical attributes: readability appraisals, modifiabil
 The extent to which a software component can be used with or without adaptation in a problem solution other than the one for which it was originally developed.
 
 \subsubsection{Metrics}
+\noindent Poulin (non-direct source):
+\begin{enumerate}
+	\item Size\\
+	
+	Count lines of source code.
+	\item Structure\\
+	
+	Count links to other modules.
+	\item Documentation\\
+	
+	Subjective rating on a scale of 1 to 10.
+	\item Language\\
+	
+	Subjective rating based on how common the language is.
+	\item Simple interfaces\\
+	
+	Count the average number of passed variables to modules.
+	\item Few calls to other modules\\
+	
+	Count the average number of calls to other modules.
+	\item Cyclomatic complexity\\
+	
+	Measure cyclomatic complexity
+	\item Self descriptiveness\\
+	
+	Measure average percentage of comment lines in module
+	\item Number of problem reports\\
+	
+	Measure average number of outstanding defects in the module.
+\end{enumerate}
+
+\noindent Chidamber and Kemerer:
+\begin{enumerate}
+	\item Methods per class\\
+	
+	Measure the average number of methods defined in each class (want to keep low).
+	\item Number of children\\
+	
+	Measure the number of immediate child classes derived from a base class (wan this to be high). 
+	\item Coupling between object classes\\
+	
+	Measure the average number of methods or variables per class that are used by other classes (want to keep this low).
+\end{enumerate}
+
+\noindent Software reusability metrics estimation: Algorithms, models and optimization techniques (Padhy):\\ 
+\begin{enumerate}
+	\item Methods per class (WMC)\\
+	
+	Measure the number of methods per class.
+	\item Depth of inheritance tree (DIT)\\
+	
+	Measure the highest length from the rood to the node.
+	\item Number of children (NOC)\\
+	
+	Measure the average total number of total number of sub-classes.
+
+	\item Method complexity (MC)\\
+	
+	Measure the average total number of methods present in a class.
+\end{enumerate}
+
+\noindent A new reusability metric for object-oriented software (Barnard):\\ 
+\begin{enumerate}
+	\item Coupling (calls to foreign classes)
+	\item Number of methods
+	\item Number of attributes
+	\item Meaningful name
+	\item Documentation
+	\item Lines of code
+	\item Comment lines
+	\item Depth of inheritance
+	\item Number of children
+	\item Cohesion 
+	\item Class variables
+	\item Complexity of data structure
+	\item Interface parameters
+	\item Calls to foreign classes
+	\item Calls to library classes
+	\item Access (public, protected, private)
+\end{enumerate}
+
+\noindent Reusability Index: A Measure for Assessing Software Assets Reusability (Ampatzoglou):\\ 
+\begin{enumerate}
+	\item Number of classes in a module
+	\item Number of properties
+	\item Interface complexity
+	\item Documentation quality
+	\item Number of open bugs
+\end{enumerate}
+
+
 \subsubsection{Notes}
-Measuring Software Reusability (Poulin)\\  
+\noindent Measuring Software Reusability (Poulin)\\  
 
-Taxonomy of reusability mctrics
-1. Empirical methods
--
--
-Module oriented
-- Complexity based
-- Size based
-- Reliability based
-Component oriented
+Taxonomy of reusability metrics:\\
+1. Empirical methods:\\
+Module oriented (complexity based, size based, reliability based), 
+Component oriented\\
 
- 2.Qualitative methods
--
--Module oriented
-- Style guidelines
-Component oriented
-- Certification guidelines
-- Quality guidelines\\
+2.Qualitative methods:\\
+Module oriented (style guidelines), Component oriented (certification guidelines, quality guidelines)\\
 
-3.1 Prieto-Diaz and Freeman:
-Their process model encourages
-white-box reuse and consists of finding candidate
-reusable modules, evaluating each, deciding which
-module the programmer can modify the easiest, then
-adapting the module. In this model they identify
-four module-oricntcd metrics and a fifth metric used
-to modify the fust four.
+\noindent Chidamber and Kemerer object-oriented metrics (https://www.aivosto.com/project/help/pm-oo-ck.html):\\
+The Chidamber and Kemerer metrics suite originally consists of 6 metrics calculated for each class: WMC, DIT, NOC, CBO, RFC and LCOM1. The original suite has later been amended by RFC´, LCOM2, LCOM3 and LCOM4 by other authors.\\ 
 
-Program size. Reuse depends on a small module
-size, as indicated by lines of source code.
-Program structure. Reuse depends o n a simple
-program structure as indicated by fewer links to
-other modules (low coupling) and low
-cyclomatic complexity.
-Program documentation.
-Reuse depends on
-excellent documentation as indicated by a sub-
-jective overall rating o n a scale of 1 to 10.
-Programming language. Reuse depends on pro-
-gamming language to the extent that it helps to
-reuse a module written in the same programming
-language. If a reusable module in the same lan-
-guage does not exist, the degree of similarity
-between the target language and the one used in
-the module affects the difficulty of modifying the
-module to meet the new requirement.
-Reuse experience. The experience of the reuser
-in the programming language and in the appliea-
-tion domain affects the previous metrics because
-every programmer views a module from their
-own perspective. For example, programmers
-wtll have diffcrent views of what makes a
-“small” module, depending on their background.
-?’lis fifth metric serves to modify the values of
-the other mctrics.
+\noindent Software reusability metrics estimation: Algorithms, models and optimization techniques (Padhy)\\ 
 
+\noindent A new reusability metric for object-oriented software (Barnard)\\ 
 
------
-
-Chidamber and Kemerer object-oriented metrics:\\ 
-
-https://www.aivosto.com/project/help/pm-oo-ck.html:\\ 
-
-eg weighted methods per class, number of children, coupling per class\\ 
-
-Software reusability metrics estimation: Algorithms, models and optimization techniques (Padhy)\\ 
-
-Cyclomatic complexity: independent paths through source code\\ 
-
-Software Reuse and Reusability Metrics and Models (Frakes, Terry)\\ 
-
-A new reusability metric for object-oriented software (Barnard)\\ 
-
-A metrics suite for measuring reusability of software components (Washizaki)\\ 
-
-Reusability Index: A Measure for Assessing Software Assets Reusability (Ampatzoglou) 
+\noindent Reusability Index: A Measure for Assessing Software Assets Reusability (Ampatzoglou) 
 
 ~\newpage
 \subsection{Portability}
 \subsubsection{Definition}
 Effort required to transfer a program between system environments (including hardware and software).\\
 \subsubsection{Metrics}
+Same as installability?
+\begin{enumerate}
+	\item Time to port
+	\item OS platforms
+	\item OS versions
+	\item Hardware platforms
+	\item Number of external libraries needed
+\end{enumerate}
+
 \subsubsection{Notes}
 compare effort to port to effort to redevelop\\ 
 
 determine if the system can be ported: ram, processor, resolution, OS, browser\\ 
 
-Issues in the Specification and Measurement of Software Portability (Mooney):\\
+\noindent Issues in the Specification and Measurement of Software Portability (Mooney):\\
 The term portability
  refers to the ability of a software
  unit to be ported (to a given environment).
@@ -374,16 +415,12 @@ The term portability
  suggests that the metric can be badly skewed by secondary
  elements such as inadequate documentation for the existing
  software.\\
-   
+  
+  The principal types of portability usually considered are binary portability (porting the executable form) and source portability (porting the source language representation). Binary portability offers several advantages, but is possible only across strongly similar environments.Source portability assumes availability of source code, but provides opportunities to adapt a software unit to a wide range of environments.  In this paper we consider only source portability.The porting process has two principal components which we call transportation and adaptation.  Transportation is physical movement;  this may not be trivial since compatible media must be used and various types of representation conversion may be required.  Adaptation is any modification that must be performed on the original version;  we take this to mean both mechanical translation such as by language processors, and manual modification by humans\\ 
 
-Designing a Measurement Method for the Portability Non-functional Requirement (Talib):\\
- EffortNew is the total effort needed in working hours units
- to develop the software functionalities on a new
- environment\\
+\noindent Designing a Measurement Method for the Portability Non-functional Requirement (Talib):\\
  
- 
------------\\
-https://www.softwaretestinghelp.com/what-is-portability-testing/:\\
+\noindent https://www.softwaretestinghelp.com/what-is-portability-testing/:\\
 
 ISO 9126 breaks down portability testing: installability, compatability, adapatability, and replaceability.\\ 
 
