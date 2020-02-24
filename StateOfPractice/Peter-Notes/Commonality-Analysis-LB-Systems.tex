@@ -1,0 +1,850 @@
+\documentclass[12pt]{article}
+
+\usepackage{titling}
+\usepackage{blindtext}
+\usepackage{fullpage}
+\usepackage[round]{natbib}
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{siunitx}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=blue,
+    filecolor=black,
+    linkcolor=red,
+    urlcolor=blue
+}
+\newcommand{\colAwidth}{0.24\textwidth}
+\newcommand{\colBwidth}{0.76\textwidth}
+
+\newcommand{\colCwidth}{0.28\textwidth}
+\newcommand{\colDwidth}{0.72\textwidth}
+
+\newcommand{\colEwidth}{0.33\textwidth}
+\newcommand{\colFwidth}{0.67\textwidth}
+
+\newcounter{comnum} %Commonality Number
+\newcommand{\cthecomnum}{C\thecomnum}
+\newcommand{\cref}[1]{C\ref{#1}}
+
+\newcounter{varnum} %Variability Number
+\newcommand{\vthevarnum}{V\thevarnum}
+\newcommand{\vref}[1]{V\ref{#1}}
+
+\newcounter{parnum} %Parameter of Variation Number
+\newcommand{\ptheparnum}{P\theparnum}
+\newcommand{\pref}[1]{P\ref{#1}}
+
+\newif\ifcomments\commentstrue
+
+\ifcomments
+\newcommand{\authornote}[3]{\textcolor{#1}{[#3 ---#2]}}
+\newcommand{\todo}[1]{\textcolor{red}{[TODO: #1]}}
+\else
+\newcommand{\authornote}[3]{}
+\newcommand{\todo}[1]{}
+\fi
+
+\newcommand{\wss}[1]{\authornote{blue}{SS}{#1}} %Spencer Smith
+\newcommand{\jc}[1]{\authornote{red}{JC}{#1}} %Jacques Carette
+\newcommand{\oo}[1]{\authornote{magenta}{OO}{#1}} %Olu Owojaiye
+\newcommand{\pmi}[1]{\authornote{green}{PM}{#1}} %Peter Michalski
+\newcommand{\ad}[1]{\authornote{cyan}{AD}{#1}} %Ao Dong
+
+\begin{document}
+
+\title{\bf{Commonality Analysis for Lattice Boltzmann Systems}} 
+\author{Peter Michalski, \\Department of Computing and Software\\McMaster University}
+\date{\today}
+
+\begin{titlepage}
+	\clearpage\maketitle
+	\thispagestyle{empty}
+	\begin{abstract}
+		This report presents a commonality analysis for Lattice Boltzmann systems. The document reviews both the methodology of commonality analysis and the details of Lattice Boltzmann systems. The commonality analysis itself consists of the following:
+		i) terminology and definitions; ii) commonalities, or features that are common to all potential family members; iii) variabilities, or features and characteristics that may vary among family members; and, iv) parameters of variation, or the potential values that can be assigned to the variabilities. 
+		The documentation of the above items for Lattice Boltzmann systems is clarified by decomposing each item into subsections on Lattice Boltzmann methods, input, output, nonfunctional
+		requirements, and, where appropriate, system constraints.\\
+		
+		\noindent\textbf{Keywords:} Commonality analysis, Lattice Boltzmann methods, program family.
+		
+	\end{abstract}
+\end{titlepage}
+
+\pagenumbering{roman}
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\pagenumbering{arabic}
+
+\section{Introduction}
+Mesh generating systems are well suited to development as a program family because they
+fit Parnas’s definition of a program family: “a set of programs whose common properties
+are so extensive that it is advantageous to study the common properties of the programs
+before analyzing individual members” (Parnas, 1976). Developing mesh generating sys-
+tems as a program family is advantageous because mesh generators share many common
+features, or commonalities. Furthermore, when there are differences between systems, the
+variabilities between them can be systematically considered. The purpose of this document
+is to record these commonalities and variabilities and show the relationships between them,
+and thus facilitate the specification and development of mesh generator program family
+members. This document will be valuable in all future phases of system development and
+analysis. For instance, the requirements documentation for any mesh generator will use
+the commonality analysis, since the requirements should refine the commonalities, which
+are shared requirements of all mesh generators. Moreover, the design of any future system
+will use this documentation to facilitate consideration of the variabilities, so that likely
+changes can be made to the system with a minimal amount of work.
+The scope of the commonality analysis presented here can be considered both from the
+point of view of mesh generating systems and from the point of view of software engineering
+methodologies. From the mesh generator perspective, the starting point for the current
+document is the commonality analysis conducted by Chen (2003). However, the scope of
+the current document is broader than that of Chen (2003), which was restricted to two-
+dimensional meshes and did not consider non-conformal, hybrid or mixed meshes. The
+current commonality analysis is intended to cover all mesh generators that are targeted
+at finite element applications. Meshes for cartography or other uses are not explicitly
+considered, although much of the information in this document does overlap with other
+mesh uses. With respect to software engineering methodologies, the scope of the current
+report is restricted to informal methods, with the intention that the informal requirements
+will form a starting point for later development and refinement by formal methods.
+The first section below provides an overview of the program family of mesh generators,
+by reviewing what is involved in a commonality analysis and the basics of mesh generating
+systems. After this, the basic terminology and definitions necessary for understanding the
+remainder of the document are provided. The definitions include terms used in describing
+a commonality analysis and terms that are used in defining the characteristics and prop-
+erties of meshes. The next three sections consist of the lists of commonalities, variabilities
+and parameters of variation, respectively. These three sections form the heart of the docu-
+mentation and include an extensive set of cross-references to demonstrate the relationships
+between the different items. The final section provides information on unresolved issues.
+
+\newpage
+\section{Overview}
+This section provides both an overview of the process of commonality analysis and of mesh
+generation. The subsection on commonality analysis briefly introduces this topic, along
+with references that can be searched for further information. The subsection on mesh
+generators outlines the following: i) the basics of mesh generation, ii) the scope of the
+current analysis, iii) the overall philosophy that has been adopted for the commonality
+analysis, and iv) the arguments in favour of the development of mesh generators as a
+program family.
+
+\subsection{Commonality Analysis}
+In some situations it is advantageous to develop a collection of related software products
+as a program family. The idea is that if the software products are similar enough, then
+it should be possible to predict what the products have in common, what differs between
+them and then reuse the common aspects and thus support rapid development of the
+family members. The idea of program families was introduced by Dijkstra (1972) and later
+investigated by Parnas (Parnas, 1976, 1979). More recently, Weiss (Weiss, 1997, 1998;
+Ardis and Weiss, 1997) has considered the concept of a program family in the context of
+what he terms Family oriented Abstraction, Specification and Translation (FAST) (Cuka
+and Weiss, 1997; Weiss and Lai, 1999).
+In the approach advocated by Weiss, the first step is a commonality analysis. This
+analysis consists of systematically identifying and documenting the commonalities that all
+program family members share, the variabilities between family members and the termi-
+nology used in describing the family. A commonality analysis provides a systematic way of
+gaining confidence that a family is worth building and of deciding what the family members
+will be. A commonality analysis document provides the following benefits (Weiss, 1997,
+1998):
+1. A starting point for the design of a domain specific languages (DSL): Once a DSL,
+or application modelling language, is developed the program family members can be
+rapidly generated by specifying a given family member using the language.
+2. A basis for a common design for all family members: When the software engineers
+come to designing the individual family members, they can take advantage of the
+commonalities to reuse code. Moreover, the variabilities can be considered in the
+design so that they can be easily accommodated. One approach to the design may
+be to decompose the system into components that can each be customized by speci-
+fication of values for its various parameters, where the parameters correspond to the
+parameters of variation identified in the commonality analysis document.
+3. A historical reference: This document records the important issues concerning the
+scope and the nature of the family (as well as some unsolved issues) to facilitate the
+involvement of the participants in maintaining and evolving the family.
+CAS-04-10-SS
+4
+4. A basis for reengineering a domain: Existing projects may not have been developed
+using software engineering methodologies. The projects can be systematically reor-
+ganized and redesigned with the aid of a commonality analysis to unify the existing
+products.
+5. A basic training reference for new software developers: This document provides the
+necessary basic information for a new team-member to understand the family.
+The next section will show that the above uses of the commonality analysis document
+will be beneficial for the development of a program family of mesh generators. The com-
+monality analysis will benefit all subsequent stages in the software development process.
+For instance, as mentioned in the introduction, the commonalities will act as requirements
+that will be the starting point for writing a software requirements specification. The com-
+monalities will be refined into specific requirements by fixing the value of their associated
+variabilities. The change in the values of the variabilities then corresponds to the change
+from one program family member to another.
+As commonalities and variabilities are requirements, they should express “What” func-
+tionalities and qualities the system should have, and not mention “How” these requirements
+are to be accomplished. That is, the commonalities and variabilities should not involve
+design decisions. The design decisions will be made after the requirements for a family
+member have been specified. The one exception to this is system constraints, which are
+requirements that explicitly make design decisions.
+Besides the “What” versus “How” test, there are other tests that can be used to review
+commonalities and variabilities, as proposed by Weiss (1997). One such test is the “what
+is ruled out” test. This test determines if a commonality or variability actually makes a
+decision because if no alternatives are ruled out then no decision has really been made.
+Another test is the “negation” test. If the negation of a decision represents a position
+that someone might argue for, then the original decision is likely to be meaningful. For
+instance, the statement that “the software should be reliable” has a negation that no one
+would likely argue for and thus the statement does not represent a good characterization
+of a goal for the system.
+In Weiss (1997) the stages of a commonality analysis are described in a systematic way.
+The stages include the following: prepare, plan, analyze, quantify and review. The stages
+are completed through the aid of a moderator and a series of meeting and preliminary
+documents and documentation reviews. Although the systematic approach advocated by
+Weiss has its advantages, for the case of writing a commonality analysis document for mesh
+generating systems it was decided that a less structured approach is feasible. Mesh genera-
+tors are simpler than other software systems in the sense that they have fewer interactions
+with the environment. Also, the theory of mesh generation has a solid mathematical ba-
+sis that can be used to remove some of the ambiguity that Weiss’s approach is aimed
+at reducing. Therefore, the approach adopted here is to revise the original commonality
+analysis document produced by Chen (2003) and then make the new document available
+to others for review. The new document will be maintained in a concurrent versioning
+CAS-04-10-SS
+5
+system repository so that multiple authors can work on it, and more importantly, so that
+the documentation’s revision history can be tracked and the documentation can be rolled
+back to an earlier version if necessary.
+
+
+\subsection{Lattice Boltzmann Systems}
+\newpage
+\section{Terminology and Definitions}
+This section is divided into two subsections. The first discusses the terminology that comes
+from the software engineering field, while the second presents the definitions used in mesh
+generation. Common acronyms are also listed in this section. The lists are not intended
+to be read sequentially, but rather to be consulted for reference purposes; therefore, the
+terms are ordered alphabetically, with the consequence that some terms that appear early
+in the list depend on the definitions of later terms.
+
+\subsection{Software Engineering Related Definitions and Acronyms}
+Commonality: A requirement or goal common to all family members.
+Goal: “Goals capture, at different levels of abstraction, the various objectives the system
+under consideration should achieve.” van Lamsweerde (2001)
+Program Family: A set of programs that are analyzed and designed together starting
+from the initial stages of the software development life-cycle.
+Requirements: A software requirement is: i) a condition or capability needed by a user
+to solve a problem or achieve an objective; ii) a condition or capability that must be
+met or possessed by a system or system component to satisfy a contract, standard,
+specification, or other formally imposed document; or, iii) a documented represen-
+CAS-04-10-SS
+10
+tation of a condition or capability as in the above two definitions.
+Dorfman, 2000)
+Variability: A requirement or goal that varies between family members.
+\subsection{Lattice Boltzmann Related Definitions and Acronyms}
+\newpage
+\section{Commonalities}
+\subsection{Lattice Boltzmann Method Solvers}
+\noindent
+\begin{minipage}{\textwidth}
+	\renewcommand*{\arraystretch}{1.5}
+	\begin{tabular}{| p{\colAwidth} | p{\colBwidth}|}
+		\hline
+		\bf Item Number& C\refstepcounter{comnum}\thecomnum \\
+		\hline
+	\end{tabular}\\
+	
+	\begin{tabular}{| p{\colAwidth} | p{\colBwidth}|}		
+		\hline
+		\bf Description & \\
+		\hline
+		\bf Related Variability & \vref{}\\
+		\hline
+		\bf History & \\
+		\hline
+	\end{tabular}
+\end{minipage}\\
+~\newline\\
+~\newline
+\noindent
+\begin{minipage}{\textwidth}
+	\renewcommand*{\arraystretch}{1.5}
+	\begin{tabular}{| p{\colAwidth} | p{\colBwidth}|}
+		\hline
+		\bf Item Number& C\refstepcounter{comnum}\thecomnum \\
+		\hline
+	\end{tabular}\\
+	
+	\begin{tabular}{| p{\colAwidth} | p{\colBwidth}|}		
+		\hline
+		\bf Description & \\
+		\hline
+		\bf Related Variability & \vref{}\\
+		\hline
+		\bf History & \\
+		\hline
+	\end{tabular}
+\end{minipage}\\
+\subsection{Input}
+\noindent
+\begin{minipage}{\textwidth}
+	\renewcommand*{\arraystretch}{1.5}
+	\begin{tabular}{| p{\colAwidth} | p{\colBwidth}|}
+		\hline
+		\bf Item Number& C\refstepcounter{comnum}\thecomnum \\
+		\hline
+	\end{tabular}\\	
+
+	\begin{tabular}{| p{\colAwidth} | p{\colBwidth}|}		
+		\hline
+		\bf Description & \\
+		\hline
+		\bf Related Variability & \vref{}\\
+		\hline
+		\bf History & \\
+		\hline
+	\end{tabular}
+\end{minipage}\\
+~\newline\\
+~\newline
+\noindent
+\begin{minipage}{\textwidth}
+	\renewcommand*{\arraystretch}{1.5}
+	\begin{tabular}{| p{\colAwidth} | p{\colBwidth}|}
+		\hline
+		\bf Item Number& C\refstepcounter{comnum}\thecomnum \\
+		\hline
+	\end{tabular}\\
+
+	\begin{tabular}{| p{\colAwidth} | p{\colBwidth}|}		
+		\hline
+		\bf Description & \\
+		\hline
+		\bf Related Variability & \vref{}\\
+		\hline
+		\bf History & \\
+		\hline
+	\end{tabular}
+\end{minipage}\\
+\subsection{Output}
+\noindent
+\begin{minipage}{\textwidth}
+	\renewcommand*{\arraystretch}{1.5}
+	\begin{tabular}{| p{\colAwidth} | p{\colBwidth}|}
+		\hline
+		\bf Item Number& C\refstepcounter{comnum}\thecomnum \\
+		\hline
+	\end{tabular}\\
+	
+	\begin{tabular}{| p{\colAwidth} | p{\colBwidth}|}		
+		\hline
+		\bf Description & \\
+		\hline
+		\bf Related Variability & \vref{}\\
+		\hline
+		\bf History & \\
+		\hline
+	\end{tabular}
+\end{minipage}\\
+~\newline\\
+~\newline
+\noindent
+\begin{minipage}{\textwidth}
+	\renewcommand*{\arraystretch}{1.5}
+	\begin{tabular}{| p{\colAwidth} | p{\colBwidth}|}
+		\hline
+		\bf Item Number& C\refstepcounter{comnum}\thecomnum \\
+		\hline
+	\end{tabular}\\
+	
+	\begin{tabular}{| p{\colAwidth} | p{\colBwidth}|}		
+		\hline
+		\bf Description & \\
+		\hline
+		\bf Related Variability & \vref{}\\
+		\hline
+		\bf History & \\
+		\hline
+	\end{tabular}
+\end{minipage}\\
+\subsection{Nonfunctional Requirements}
+\noindent
+\begin{minipage}{\textwidth}
+	\renewcommand*{\arraystretch}{1.5}
+	\begin{tabular}{| p{\colAwidth} | p{\colBwidth}|}
+		\hline
+		\bf Item Number& C\refstepcounter{comnum}\thecomnum \\
+		\hline
+	\end{tabular}\\
+	
+	\begin{tabular}{| p{\colAwidth} | p{\colBwidth}|}		
+		\hline
+		\bf Description & \\
+		\hline
+		\bf Related Variability & \vref{}\\
+		\hline
+		\bf History & \\
+		\hline
+	\end{tabular}
+\end{minipage}\\
+~\newline\\
+~\newline
+
+\noindent
+\begin{minipage}{\textwidth}
+	\renewcommand*{\arraystretch}{1.5}
+	\begin{tabular}{| p{\colAwidth} | p{\colBwidth}|}
+		\hline
+		\bf Item Number& C\refstepcounter{comnum}\thecomnum \\
+		\hline
+	\end{tabular}\\
+	
+	\begin{tabular}{| p{\colAwidth} | p{\colBwidth}|}		
+		\hline
+		\bf Description & \\
+		\hline
+		\bf Related Variability & \vref{}\\
+		\hline
+		\bf History & \\
+		\hline
+	\end{tabular}
+\end{minipage}\\
+\newpage
+\section{Variabilities}
+\subsection{Lattice Boltzmann Method Solvers}
+\noindent
+\begin{minipage}{\textwidth}
+	\renewcommand*{\arraystretch}{1.5}
+	\begin{tabular}{| p{\colCwidth} | p{\colDwidth}|}
+		\hline
+		\bf Item Number& V\refstepcounter{varnum}\thevarnum \\
+		\hline
+	\end{tabular}\\
+	
+	\begin{tabular}{| p{\colCwidth} | p{\colDwidth}|}		
+		\hline
+		\bf Description & \\
+		\hline
+		\bf Related Commonality & \cref{}\\
+		\hline
+		\bf Related Parameter & \pref{}\\
+		\hline
+		\bf History & \\
+		\hline
+	\end{tabular}
+\end{minipage}\\
+~\newline\\
+~\newline
+\noindent
+\begin{minipage}{\textwidth}
+	\renewcommand*{\arraystretch}{1.5}
+	\begin{tabular}{| p{\colCwidth} | p{\colDwidth}|}
+		\hline
+		\bf Item Number& V\refstepcounter{varnum}\thevarnum \\
+		\hline
+	\end{tabular}\\
+	
+	\begin{tabular}{| p{\colCwidth} | p{\colDwidth}|}		
+		\hline
+		\bf Description & \\
+		\hline
+		\bf Related Commonality & \cref{}\\
+		\hline
+		\bf Related Parameter & \pref{}\\
+		\hline
+		\bf History & \\
+		\hline
+	\end{tabular}
+\end{minipage}\\
+\subsection{Input}
+\noindent
+\begin{minipage}{\textwidth}
+	\renewcommand*{\arraystretch}{1.5}
+	\begin{tabular}{| p{\colCwidth} | p{\colDwidth}|}
+		\hline
+		\bf Item Number& V\refstepcounter{varnum}\thevarnum \\
+		\hline
+	\end{tabular}\\
+	
+	\begin{tabular}{| p{\colCwidth} | p{\colDwidth}|}		
+		\hline
+		\bf Description & \\
+		\hline
+		\bf Related Commonality & \cref{}\\
+		\hline
+		\bf Related Parameter & \pref{}\\
+		\hline
+		\bf History & \\
+		\hline
+	\end{tabular}
+\end{minipage}\\
+~\newline\\
+~\newline
+\noindent
+\begin{minipage}{\textwidth}
+	\renewcommand*{\arraystretch}{1.5}
+	\begin{tabular}{| p{\colCwidth} | p{\colDwidth}|}
+		\hline
+		\bf Item Number& V\refstepcounter{varnum}\thevarnum \\
+		\hline
+	\end{tabular}\\
+	
+	\begin{tabular}{| p{\colCwidth} | p{\colDwidth}|}		
+		\hline
+		\bf Description & \\
+		\hline
+		\bf Related Commonality & \cref{}\\
+		\hline
+		\bf Related Parameter & \pref{}\\
+		\hline
+		\bf History & \\
+		\hline
+	\end{tabular}
+\end{minipage}\\
+\subsection{Output}
+\noindent
+\begin{minipage}{\textwidth}
+	\renewcommand*{\arraystretch}{1.5}
+	\begin{tabular}{| p{\colCwidth} | p{\colDwidth}|}
+		\hline
+		\bf Item Number& V\refstepcounter{varnum}\thevarnum \\
+		\hline
+	\end{tabular}\\
+	
+	\begin{tabular}{| p{\colCwidth} | p{\colDwidth}|}		
+		\hline
+		\bf Description & \\
+		\hline
+		\bf Related Commonality & \cref{}\\
+		\hline
+		\bf Related Parameter & \pref{}\\
+		\hline
+		\bf History & \\
+		\hline
+	\end{tabular}
+\end{minipage}\\
+~\newline\\
+~\newline
+\noindent
+\begin{minipage}{\textwidth}
+	\renewcommand*{\arraystretch}{1.5}
+	\begin{tabular}{| p{\colCwidth} | p{\colDwidth}|}
+		\hline
+		\bf Item Number& V\refstepcounter{varnum}\thevarnum \\
+		\hline
+	\end{tabular}\\
+	
+	\begin{tabular}{| p{\colCwidth} | p{\colDwidth}|}		
+		\hline
+		\bf Description & \\
+		\hline
+		\bf Related Commonality & \cref{}\\
+		\hline
+		\bf Related Parameter & \pref{}\\
+		\hline
+		\bf History & \\
+		\hline
+	\end{tabular}
+\end{minipage}\\
+\subsection{System Constraints}
+\noindent
+\begin{minipage}{\textwidth}
+	\renewcommand*{\arraystretch}{1.5}
+	\begin{tabular}{| p{\colCwidth} | p{\colDwidth}|}
+		\hline
+		\bf Item Number& V\refstepcounter{varnum}\thevarnum \\
+		\hline
+	\end{tabular}\\
+	
+	\begin{tabular}{| p{\colCwidth} | p{\colDwidth}|}		
+		\hline
+		\bf Description & \\
+		\hline
+		\bf Related Commonality & \cref{}\\
+		\hline
+		\bf Related Parameter & \pref{}\\
+		\hline
+		\bf History & \\
+		\hline
+	\end{tabular}
+\end{minipage}\\
+~\newline\\
+~\newline
+\noindent
+\begin{minipage}{\textwidth}
+	\renewcommand*{\arraystretch}{1.5}
+	\begin{tabular}{| p{\colCwidth} | p{\colDwidth}|}
+		\hline
+		\bf Item Number& V\refstepcounter{varnum}\thevarnum \\
+		\hline
+	\end{tabular}\\
+	
+	\begin{tabular}{| p{\colCwidth} | p{\colDwidth}|}		
+		\hline
+		\bf Description & \\
+		\hline
+		\bf Related Commonality & \cref{}\\
+		\hline
+		\bf Related Parameter & \pref{}\\
+		\hline
+		\bf History & \\
+		\hline
+	\end{tabular}
+\end{minipage}\\
+\subsection{Nonfunctional Requirements}
+\noindent
+\begin{minipage}{\textwidth}
+	\renewcommand*{\arraystretch}{1.5}
+	\begin{tabular}{| p{\colCwidth} | p{\colDwidth}|}
+		\hline
+		\bf Item Number& V\refstepcounter{varnum}\thevarnum \\
+		\hline
+	\end{tabular}\\
+	
+	\begin{tabular}{| p{\colCwidth} | p{\colDwidth}|}		
+		\hline
+		\bf Description & \\
+		\hline
+		\bf Related Commonality & \cref{}\\
+		\hline
+		\bf Related Parameter & \pref{}\\
+		\hline
+		\bf History & \\
+		\hline
+	\end{tabular}
+\end{minipage}\\
+~\newline\\
+~\newline
+\noindent
+\begin{minipage}{\textwidth}
+	\renewcommand*{\arraystretch}{1.5}
+	\begin{tabular}{| p{\colCwidth} | p{\colDwidth}|}
+		\hline
+		\bf Item Number& V\refstepcounter{varnum}\thevarnum \\
+		\hline
+	\end{tabular}\\
+	
+	\begin{tabular}{| p{\colCwidth} | p{\colDwidth}|}		
+		\hline
+		\bf Description & \\
+		\hline
+		\bf Related Commonality & \cref{}\\
+		\hline
+		\bf Related Parameter & \pref{}\\
+		\hline
+		\bf History & \\
+		\hline
+	\end{tabular}
+\end{minipage}\\
+\newpage
+\section{Parameters of Variation}
+\subsection{Lattice Boltzmann Method Solvers}
+\noindent
+\begin{minipage}{\textwidth}
+	\renewcommand*{\arraystretch}{1.5}
+	\begin{tabular}{| p{\colEwidth} | p{\colFwidth}|}
+		\hline
+		\bf Item Number& P\refstepcounter{parnum}\theparnum \\
+		\hline
+	\end{tabular}\\
+	
+	\begin{tabular}{| p{\colEwidth} | p{\colFwidth}|}		
+		\hline
+		\bf Corresponding Variability & \vref{}\\
+		\hline
+		\bf Range of Parameters & \\
+		\hline
+		\bf Binding Time & \\
+		\hline
+	\end{tabular}
+\end{minipage}\\
+~\newline\\
+~\newline
+\noindent
+\begin{minipage}{\textwidth}
+	\renewcommand*{\arraystretch}{1.5}
+	\begin{tabular}{| p{\colEwidth} | p{\colFwidth}|}
+		\hline
+		\bf Item Number& P\refstepcounter{parnum}\theparnum \\
+		\hline
+	\end{tabular}\\
+	
+	\begin{tabular}{| p{\colEwidth} | p{\colFwidth}|}		
+		\hline
+		\bf Corresponding Variability & \vref{}\\
+		\hline
+		\bf Range of Parameters & \\
+		\hline
+		\bf Binding Time & \\
+		\hline
+	\end{tabular}
+\end{minipage}\\
+\subsection{Input}
+\noindent
+\begin{minipage}{\textwidth}
+	\renewcommand*{\arraystretch}{1.5}
+	\begin{tabular}{| p{\colEwidth} | p{\colFwidth}|}
+		\hline
+		\bf Item Number& P\refstepcounter{parnum}\theparnum \\
+		\hline
+	\end{tabular}\\
+	
+	\begin{tabular}{| p{\colEwidth} | p{\colFwidth}|}		
+		\hline
+		\bf Corresponding Variability & \vref{}\\
+		\hline
+		\bf Range of Parameters & \\
+		\hline
+		\bf Binding Time & \\
+		\hline
+	\end{tabular}
+\end{minipage}\\
+~\newline\\
+~\newline
+\noindent
+\begin{minipage}{\textwidth}
+	\renewcommand*{\arraystretch}{1.5}
+	\begin{tabular}{| p{\colEwidth} | p{\colFwidth}|}
+		\hline
+		\bf Item Number& P\refstepcounter{parnum}\theparnum \\
+		\hline
+	\end{tabular}\\
+	
+	\begin{tabular}{| p{\colEwidth} | p{\colFwidth}|}		
+		\hline
+		\bf Corresponding Variability & \vref{}\\
+		\hline
+		\bf Range of Parameters & \\
+		\hline
+		\bf Binding Time & \\
+		\hline
+	\end{tabular}
+\end{minipage}\\
+\subsection{Output}
+\noindent
+\begin{minipage}{\textwidth}
+	\renewcommand*{\arraystretch}{1.5}
+	\begin{tabular}{| p{\colEwidth} | p{\colFwidth}|}
+		\hline
+		\bf Item Number& P\refstepcounter{parnum}\theparnum \\
+		\hline
+	\end{tabular}\\
+	
+	\begin{tabular}{| p{\colEwidth} | p{\colFwidth}|}		
+		\hline
+		\bf Corresponding Variability & \vref{}\\
+		\hline
+		\bf Range of Parameters & \\
+		\hline
+		\bf Binding Time & \\
+		\hline
+	\end{tabular}
+\end{minipage}\\
+~\newline\\
+~\newline
+\noindent
+\begin{minipage}{\textwidth}
+	\renewcommand*{\arraystretch}{1.5}
+	\begin{tabular}{| p{\colEwidth} | p{\colFwidth}|}
+		\hline
+		\bf Item Number& P\refstepcounter{parnum}\theparnum \\
+		\hline
+	\end{tabular}\\
+	
+	\begin{tabular}{| p{\colEwidth} | p{\colFwidth}|}		
+		\hline
+		\bf Corresponding Variability & \vref{}\\
+		\hline
+		\bf Range of Parameters & \\
+		\hline
+		\bf Binding Time & \\
+		\hline
+	\end{tabular}
+\end{minipage}\\
+\subsection{System Constraints}
+\noindent
+\begin{minipage}{\textwidth}
+	\renewcommand*{\arraystretch}{1.5}
+	\begin{tabular}{| p{\colEwidth} | p{\colFwidth}|}
+		\hline
+		\bf Item Number& P\refstepcounter{parnum}\theparnum \\
+		\hline
+	\end{tabular}\\
+	
+	\begin{tabular}{| p{\colEwidth} | p{\colFwidth}|}		
+		\hline
+		\bf Corresponding Variability & \vref{}\\
+		\hline
+		\bf Range of Parameters & \\
+		\hline
+		\bf Binding Time & \\
+		\hline
+	\end{tabular}
+\end{minipage}\\
+~\newline\\
+~\newline
+\noindent
+\begin{minipage}{\textwidth}
+	\renewcommand*{\arraystretch}{1.5}
+	\begin{tabular}{| p{\colEwidth} | p{\colFwidth}|}
+		\hline
+		\bf Item Number& P\refstepcounter{parnum}\theparnum \\
+		\hline
+	\end{tabular}\\
+	
+	\begin{tabular}{| p{\colEwidth} | p{\colFwidth}|}		
+		\hline
+		\bf Corresponding Variability & \vref{}\\
+		\hline
+		\bf Range of Parameters & \\
+		\hline
+		\bf Binding Time & \\
+		\hline
+	\end{tabular}
+\end{minipage}\\
+\subsection{Nonfunctional Requirements}
+\noindent
+\begin{minipage}{\textwidth}
+	\renewcommand*{\arraystretch}{1.5}
+	\begin{tabular}{| p{\colEwidth} | p{\colFwidth}|}
+		\hline
+		\bf Item Number& P\refstepcounter{parnum}\theparnum \\
+		\hline
+	\end{tabular}\\
+	
+	\begin{tabular}{| p{\colEwidth} | p{\colFwidth}|}		
+		\hline
+		\bf Corresponding Variability & \vref{}\\
+		\hline
+		\bf Range of Parameters & \\
+		\hline
+		\bf Binding Time & \\
+		\hline
+	\end{tabular}
+\end{minipage}\\
+~\newline\\
+~\newline
+\noindent
+\begin{minipage}{\textwidth}
+	\renewcommand*{\arraystretch}{1.5}
+	\begin{tabular}{| p{\colEwidth} | p{\colFwidth}|}
+		\hline
+		\bf Item Number& P\refstepcounter{parnum}\theparnum \\
+		\hline
+	\end{tabular}\\
+	
+	\begin{tabular}{| p{\colEwidth} | p{\colFwidth}|}		
+		\hline
+		\bf Corresponding Variability & \vref{}\\
+		\hline
+		\bf Range of Parameters & \\
+		\hline
+		\bf Binding Time & \\
+		\hline
+	\end{tabular}
+\end{minipage}\\
+\newpage
+\section{Issues}
+\newpage
+\bibliographystyle {plainnat}
+\bibliography {../../CommonFiles/ResearchProposal}
+\newpage
+\section{Appendix}
+\end{document}
