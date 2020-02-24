@@ -1,0 +1,95 @@
+\documentclass[12pt]{article}
+
+\usepackage{titling}
+\usepackage{blindtext}
+\usepackage{fullpage}
+\usepackage[round]{natbib}
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=blue,
+    filecolor=black,
+    linkcolor=red,
+    urlcolor=blue
+}
+
+\newif\ifcomments\commentstrue
+
+\ifcomments
+\newcommand{\authornote}[3]{\textcolor{#1}{[#3 ---#2]}}
+\newcommand{\todo}[1]{\textcolor{red}{[TODO: #1]}}
+\else
+\newcommand{\authornote}[3]{}
+\newcommand{\todo}[1]{}
+\fi
+
+\newcommand{\wss}[1]{\authornote{blue}{SS}{#1}} %Spencer Smith
+\newcommand{\jc}[1]{\authornote{red}{JC}{#1}} %Jacques Carette
+\newcommand{\oo}[1]{\authornote{magenta}{OO}{#1}} %Olu Owojaiye
+\newcommand{\pmi}[1]{\authornote{green}{PM}{#1}} %Peter Michalski
+\newcommand{\ad}[1]{\authornote{cyan}{AD}{#1}} %Ao Dong
+
+\begin{document}
+
+\title{Commonality Analysis for Lattice Boltzmann Method Solvers} 
+\author{P. Michalski and}
+\date{\today}
+
+\begin{titlepage}
+	\maketitle
+	\begin{abstract}
+		This report presents a commonality analysis for..
+	\end{abstract}
+\end{titlepage}
+
+\pagenumbering{roman}
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\pagenumbering{arabic}
+
+\section{Introduction}
+\newpage
+\section{Overview}
+\subsection{Commonality Analysis}
+\subsection{Lattice Boltzmann Method Solvers}
+\newpage
+\section{Terminology and Definitions}
+\subsection{Software Engineering Related Definitions and Acronyms}
+\newpage
+\section{Commonalities}
+\subsection{Lattice Boltzmann Method Solvers}
+\subsection{Input}
+\subsection{Output}
+\subsection{Nonfunctional Requirements}
+\newpage
+\section{Variabilities}
+\subsection{Lattice Boltzmann Method Solvers}
+\subsection{Input}
+\subsection{Output}
+\subsection{System Constraints}
+\subsection{Nonfunctional Requirements}
+\newpage
+\section{Parameters of Variation}
+\subsection{Lattice Boltzmann Method Solvers}
+\subsection{Input}
+\subsection{Output}
+\subsection{System Constraints}
+\subsection{Nonfunctional Requirements}
+\newpage
+\section{Issues}
+\newpage
+\bibliographystyle {plainnat}
+\bibliography {../../CommonFiles/ResearchProposal}
+\newpage
+\section{Appendix}
+\end{document}
