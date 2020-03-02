@@ -7,6 +7,8 @@
 \usepackage{booktabs}
 \usepackage{hyperref}
 \usepackage{longtable}
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}
 
 \hypersetup{
 colorlinks=true,       % false: boxed links; true: colored links
@@ -36,95 +38,182 @@ urlcolor=cyan           % color of external links
 Jan/30/2020 & Ao Dong & Initial draft\\
 Feb/02/2020 & Ao Dong & Update\\
 Feb/08/2020 & Ao Dong & Changed table to a spreadsheet link\\
+Mar/01/2020 & Ao Dong & Updated quality measurements\\
 \bottomrule
 \end{tabularx}
 \end{table}
 
 \section{Software List}
 
-The link to the software list (Google Sheet): \href{https://docs.google.com/spreadsheets/d/122wU0v3ZtvDcqy8C4zKJ89kU-8fXAbo3Mzn6vcVXOi0/edit?usp=sharing}{LINK}
+The link to the software list (Google Sheet):
+\href{https://docs.google.com/spreadsheets/d/122wU0v3ZtvDcqy8C4zKJ89kU-8fXAbo3Mzn6vcVXOi0/edit?usp=sharing}{LINK}
 
 \noindent There are 50 packages in the list.
 
 \subsection{Sources}
 
-The above list is built based on 7 sources - 3 academical papers, 3 blog articles, and 1 online forum discussion. All of the sources are recorded on the second sheet in the list.
+The above list is built based on 7 sources - 3 academical papers, 3 blog
+articles, and 1 online forum discussion. All of the sources are recorded on the
+second sheet in the list.
 
 \subsection{Orders}
 
-The software packages are put in the list roughly by the order of how many times they are mentioned in the above sources.
+The software packages are put in the list roughly by the order of how many times
+they are mentioned in the above sources.
 
 \subsection{Selection}
 
-A few software packages mentioned in the sources are excluded, since they are in the following cases:
+A few software packages mentioned in the sources are excluded, since they are in
+the following cases:
 \begin{itemize}
-    \item Commercialized. Some software are not free any more. For example, PacsOne Premium, JVS-DiComPlus, RadiAnt, Synedra, TurtleSeg, AlgoM, Athena.
-    \item No recent updates. A few software without recent release are excluded, such as PacsOne Basic (2005), K-PACS (developed for Windows XP or Windows VISTA), JVS-DiCom (2012), MITO-DICOM Viewer (2015), Aeskulap (2007), Fusionviewer (2008), Kradview (2013), Mayam (2013), Eviewbox (2015), EzDICOM (2013), Agnosco (2011), ONIS Free Version (2016 and not open-source), DICOMscope (2001).
+\item Commercialized. Some software are not free any more. For example, PacsOne
+Premium, JVS-DiComPlus, RadiAnt, Synedra, TurtleSeg, AlgoM, Athena.
+\item No recent updates. A few software without recent release are excluded,
+such as PacsOne Basic (2005), K-PACS (developed for Windows XP or Windows
+VISTA), JVS-DiCom (2012), MITO-DICOM Viewer (2015), Aeskulap (2007),
+Fusionviewer (2008), Kradview (2013), Mayam (2013), Eviewbox (2015), EzDICOM
+(2013), Agnosco (2011), ONIS Free Version (2016 and not open-source), DICOMscope
+(2001).
 \end{itemize}
 
 \subsection{Categories}
 
-The software packages are roughly divided into 3 major categories - Tool Kit, PACS, and Viewer.
+The software packages are roughly divided into 3 major categories - Tool Kit,
+PACS, and Viewer.
 \begin{itemize}
-    \item Tool Kits are usually used by developers to create new software, and there are only a few of them in the list. 
-    \item PACS stands for Picture Archiving and Communications System, which can be regarded as a type of server. There are also only several of them in the list, since most PACS solutions are commercial nowadays.
-    \item  Most software in the list are in the Viewer category, and many of these ones also provide other functions such as analysis, conversion, segmentation, etc.
+\item Tool Kits are usually used by developers to create new software, and there
+are only a few of them in the list.
+\item PACS stands for Picture Archiving and Communications System, which can be
+regarded as a type of server. There are also only several of them in the list,
+since most PACS solutions are commercial nowadays.
+\item Most software in the list are in the Viewer category, and many of these
+ones also provide other functions such as analysis, conversion, segmentation,
+etc.
 \end{itemize}
 
 \section{Quality Measurements}
 
 \subsection{Interoperability}
+\begin{defn}
+The degree to which two or more systems, products or components can exchange
+information and use the information that has been exchanged.
+\end{defn}
+  
 There are not many measuring methods in papers, and most of them are very
 complicated.
 \begin{itemize}
-\item Can the workstation software (for visualization, analysis, etc.) connect
-with the PACS (server)?
-    \item Does the software use output from or provide input to other software?
-    \item Can the software work with customized plug-ins? 
+\item Does the software use any API to transfer information?
+\item Does the software generate output files with uncommon formats or
+extensions that can only be used by itself?
+\item Can the output be used by other software as input?
+\item Can it take output from other software as input?
+\item Can the software work with customized plug-ins? 
 \end{itemize}
 
 \noindent Measuring aspects from \citep{SmithEtAl2018}:
 \begin{itemize}
-    \item Does the software interoperate with external systems? ({yes*, no})
-    \item Is there a workflow that uses other softwares? ({yes*, no})
+\item Does the software interoperate with external systems? ({yes*, no})
+\item Is there a workflow that uses other softwares? ({yes*, no})
 \item If there are external interactions, is the API clearly defined? ({yes*,
 no, n/a})
 \end{itemize}
 
 \subsection{Visibility/Transparency}
+\begin{defn}
+The extent to which all of the steps of a software development process and the
+current status of it are conveyed clearly.
+\end{defn}
+The ones with a * mark might be hard to know.
 \begin{itemize}
 \item Does the software use any version and issue tracking system, such as
-Github, Gitlab for development?
+Github, Gitlab, JIRA, Rally, VersionOne, etc.?
+\item The percentage of (open) issues assigned to specific developers.
 \item Does the software have documents recording the development process and
 status?
 \item Does the software have clear release log with essential information, such
 as release date, bug fixed and new features?
+\item *Are there weekly or monthly status reports for the development process?
+\item *Are there any project management tools used?
+\item *Are there any project indicators used, such as burndown charts,
+cumulative flow diagrams, and other metrics?
 \end{itemize}
 
 \noindent Measuring aspects from \citep{SmithEtAl2018}:
 \begin{itemize}
 \item Is the development process defined? If yes, what process is used. ({yes*,
 no, n/a})
-\item Ease of external examination relative to other products considered? ({1 ..
-10})
+\item Ease of external examination relative to other products considered? ({1 ..10})
 \end{itemize}
 
 \subsection{Productivity}
-Can be measured by the summation of all output (such as the number of lines of
-new code, the number of pages of new documents and the number of new test cases)
+\begin{defn}
+Productivity is the amount of output per unit of input used, which can be
+measured by the summation of all output (such as the number of lines of new
+code, the number of pages of new documents and the number of new test cases)
 produced per person-day.
+\end{defn}
 
-However, it is hard for a third party to carry out the above method without
-knowing the exact number of developers or how much time they spent on the
-project.
+It can be hard for a third party to know how many days the developers worked on
+the project.
+
+\begin{itemize}
+\item The lines of new code produced per person-day.
+\item The pages of new documents produced per person-day.
+\item The number of new test cases finished per person-day.
+\item The number of issues closed per person-day.
+\end{itemize}
 
 \subsection{Completeness}
+\begin{defn}
+A specification is complete to the extent that all of its parts are present and
+each part is fully developed.
+\end{defn}
+
+Are there the following documents?
+\begin{itemize}
+\item SRS
+\item VnV plan \& reports
+\item MG \& MIS
+\item Readme
+\item User manual (including tutorials installation instructions) 
+\item Release log
+\end{itemize}
+Inspired by \citep{Boehm1984}:
+\begin{itemize}
+\item Is there anything left to be determined?
+\item Is there any references in the specification to functions, inputs, or
+outputs (including databases) not defined in the specification?
+\item Is there any specification items missing?
+\item Is there any functions missing?
+\item For multi-products software package, is there any products missing?
+\end{itemize}
 
 \subsection{Consistency}
+\begin{defn}
+A specification is consistent to the extent that its provisions do not conflict
+with each other or with governing specifications and objectives.
+\end{defn}
+
+Are the following items of documents consistent?
+\begin{itemize}
+\item Language
+\item File format (pdf, html)
+\item Location (GitHub wiki, offline)
+\item Wording format
+\item Syntax
+\item Abbreviations and Acronyms
+\end{itemize}
+
+Inspired by \citep{Boehm1984}:
+\begin{itemize}
+\item Is there any specification items conflicting with each other in one
+document?
+\item Is there any conflicts between different documents?
+\end{itemize}
 
 \newpage
 
 \bibliographystyle {plainnat}
-\bibliography {../CommonFiles/ResearchProposal}
+\bibliography {../../CommonFiles/ResearchProposal}
 
 \end{document}
