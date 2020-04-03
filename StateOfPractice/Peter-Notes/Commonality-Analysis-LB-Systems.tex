@@ -172,9 +172,9 @@ Each commonality below uses the same structure. All of the commonalities are ass
 	
 	\begin{tabular}{| p{\colAwidth} | p{\colBwidth}|}		
 		\hline
-		\bf Description & A lattice discretizes a computational domain into a finite number of points. All LBS discretize the computational domain using a regular, evenly spaced grid.\\
+		\bf Description & A lattice discretizes a computational domain into a finite number of points. All LBS discretize the computational domain using a regular, evenly spaced grid within a boundary.\\
 		\hline
-		\bf Related Variability & \vref{numveldir} \vref{varcolop}\\
+		\bf Related Variability & \vref{numveldir} \vref{varcolop} \vref{varboundary}\\
 		\hline
 		\bf History & Created April 1, 2020 \\
 		\hline
@@ -195,7 +195,7 @@ Each commonality below uses the same structure. All of the commonalities are ass
 		\hline
 		\bf Description & All Lattice Boltzmann versions use a collision operator which concerns collisions between particles.\\
 		\hline
-		\bf Related Variability & \vref{numveldir} \vref{varcolop}\\
+		\bf Related Variability & \vref{dimensions} \vref{numveldir}\\
 		\hline
 		\bf History & Created April 1, 2020\\
 		\hline
@@ -222,51 +222,6 @@ Each commonality below uses the same structure. All of the commonalities are ass
 		\hline
 	\end{tabular}
 \end{minipage}\\
-~\newline\\
-~\newline
-\noindent
-\begin{minipage}{\textwidth}
-	\renewcommand*{\arraystretch}{1.5}
-	\begin{tabular}{| p{\colAwidth} | p{\colBwidth}|}
-		\hline
-		\bf Item Number& C\refstepcounter{comnum}\thecomnum\label{discretizevelocity} \\
-		\hline
-	\end{tabular}\\
-	
-	\begin{tabular}{| p{\colAwidth} | p{\colBwidth}|}		
-		\hline
-		\bf Description & All Lattice Boltzmann versions discretize velocity into a finite number of directions.\\
-		\hline
-		\bf Related Variability & \vref{numveldir}\\
-		\hline
-		\bf History & Created April 1, 2020\\
-		\hline
-	\end{tabular}
-\end{minipage}\\
-~\newline\\
-~\newline
-\noindent
-\begin{minipage}{\textwidth}
-	\renewcommand*{\arraystretch}{1.5}
-	\begin{tabular}{| p{\colAwidth} | p{\colBwidth}|}
-		\hline
-		\bf Item Number& C\refstepcounter{comnum}\thecomnum\label{relaxationupdate} \\
-		\hline
-	\end{tabular}\\
-	
-	\begin{tabular}{| p{\colAwidth} | p{\colBwidth}|}		
-		\hline
-		\bf Description & All Lattice Boltzmann versions update the velocity distribution during each LBM iteration.\\
-		\hline
-		\bf Related Variability & \vref{varrelaxops}\\
-		\hline
-		\bf History & Created April 1, 2020\\
-		\hline
-	\end{tabular}
-\end{minipage}\\
-~\newline\\
-~\newline
-\noindent
 \begin{minipage}{\textwidth}
 	\renewcommand*{\arraystretch}{1.5}
 	\begin{tabular}{| p{\colAwidth} | p{\colBwidth}|}
@@ -279,7 +234,7 @@ Each commonality below uses the same structure. All of the commonalities are ass
 		\hline
 		\bf Description & Every Lattice Boltzmann version uses an equilibrium distribution function to capture the probability distribution of particles.\\
 		\hline
-		\bf Related Variability & \vref{varedf} \vref{edfstorage}\\
+		\bf Related Variability & \vref{varedf} \vref{edfstorage} \vref{edfcoeff}\\
 		\hline
 		\bf History & Created April 1, 2020\\
 		\hline
@@ -320,7 +275,7 @@ Each commonality below uses the same structure. All of the commonalities are ass
 		\hline
 		\bf Description & The LBS require fluid, model, and boundary information for the problem.\\
 		\hline
-		\bf Related Variability & \vref{interface} \vref{numberoffluids} \vref{typefluidparm}\\
+		\bf Related Variability & \vref{interface}\\
 		\hline
 		\bf History & Created April 1, 2020\\
 		\hline
@@ -466,29 +421,6 @@ As for the commonalities, each variability is labelled with a unique item number
 	\renewcommand*{\arraystretch}{1.5}
 	\begin{tabular}{| p{\colCwidth} | p{\colDwidth}|}
 		\hline
-		\bf Item Number& V\refstepcounter{varnum}\thevarnum\label{varrelaxops} \\
-		\hline
-	\end{tabular}\\
-	
-	\begin{tabular}{| p{\colCwidth} | p{\colDwidth}|}		
-		\hline
-		\bf Description & Different relaxation times are used to update the velocity distribution.\\
-		\hline
-		\bf Related Commonality & \cref{relaxationupdate}\\
-		\hline
-		\bf Related Parameter & \pref{parrelax}\\
-		\hline
-		\bf History & Created April 1, 2020\\
-		\hline
-	\end{tabular}
-\end{minipage}\\
-~\newline\\
-~\newline
-\noindent
-\begin{minipage}{\textwidth}
-	\renewcommand*{\arraystretch}{1.5}
-	\begin{tabular}{| p{\colCwidth} | p{\colDwidth}|}
-		\hline
 		\bf Item Number& V\refstepcounter{varnum}\thevarnum\label{parallel} \\
 		\hline
 	\end{tabular}\\
@@ -556,6 +488,29 @@ As for the commonalities, each variability is labelled with a unique item number
 	\renewcommand*{\arraystretch}{1.5}
 	\begin{tabular}{| p{\colCwidth} | p{\colDwidth}|}
 		\hline
+		\bf Item Number& V\refstepcounter{varnum}\thevarnum\label{edfcoeff} \\
+		\hline
+	\end{tabular}\\
+	
+	\begin{tabular}{| p{\colCwidth} | p{\colDwidth}|}		
+		\hline
+		\bf Description & Coefficients for distribution function can vary.\\
+		\hline
+		\bf Related Commonality & \cref{equildistfunc}\\
+		\hline
+		\bf Related Parameter & \pref{paredfcoeff}\\
+		\hline
+		\bf History & Created April 1, 2020\\
+		\hline
+	\end{tabular}
+\end{minipage}\\
+~\newline\\
+~\newline
+\noindent
+\begin{minipage}{\textwidth}
+	\renewcommand*{\arraystretch}{1.5}
+	\begin{tabular}{| p{\colCwidth} | p{\colDwidth}|}
+		\hline
 		\bf Item Number& V\refstepcounter{varnum}\thevarnum\label{dimensions} \\
 		\hline
 	\end{tabular}\\
@@ -564,7 +519,7 @@ As for the commonalities, each variability is labelled with a unique item number
 		\hline
 		\bf Description & The number of dimensions in the lattice of the model can vary.\\
 		\hline
-		\bf Related Commonality & \cref{probabilitydensityfunc}\\
+		\bf Related Commonality & \cref{lattice} \cref{probabilitydensityfunc}\\
 		\hline
 		\bf Related Parameter & \pref{pardimensions}\\
 		\hline
@@ -587,7 +542,7 @@ As for the commonalities, each variability is labelled with a unique item number
 		\hline 
 		\bf Description & The number of velocity directions in the lattice of the model can vary.\\
 		\hline
-		\bf Related Commonality & \cref{lattice} \cref{collisionoperator} \cref{discretizevelocity}\\
+		\bf Related Commonality & \cref{lattice} \cref{collisionoperator}\\
 		\hline
 		\bf Related Parameter & \pref{parveldir}\\
 		\hline
@@ -641,28 +596,6 @@ As for the commonalities, each variability is labelled with a unique item number
 		\hline
 	\end{tabular}
 \end{minipage}\\
-\subsection{Input}
-\noindent
-\begin{minipage}{\textwidth}
-	\renewcommand*{\arraystretch}{1.5}
-	\begin{tabular}{| p{\colCwidth} | p{\colDwidth}|}
-		\hline
-		\bf Item Number& V\refstepcounter{varnum}\thevarnum\label{interface} \\
-		\hline
-	\end{tabular}\\
-	
-	\begin{tabular}{| p{\colCwidth} | p{\colDwidth}|}		
-		\hline
-		\bf Description & The input interface can vary between LBS.\\
-		\hline
-		\bf Related Commonality & \cref{fluidandboundaryinfo}\\
-		\hline
-		\bf Related Parameter & \pref{parinterface}\\
-		\hline
-		\bf History & Created April 1, 2020\\
-		\hline
-	\end{tabular}
-\end{minipage}\\
 ~\newline\\
 ~\newline
 \noindent
@@ -670,7 +603,7 @@ As for the commonalities, each variability is labelled with a unique item number
 	\renewcommand*{\arraystretch}{1.5}
 	\begin{tabular}{| p{\colCwidth} | p{\colDwidth}|}
 		\hline
-		\bf Item Number& V\refstepcounter{varnum}\thevarnum\label{numberoffluids} \\
+		\bf Item Number&  V\refstepcounter{varnum}\thevarnum\label{numberoffluids} \\
 		\hline
 	\end{tabular}\\
 	
@@ -693,7 +626,7 @@ As for the commonalities, each variability is labelled with a unique item number
 	\renewcommand*{\arraystretch}{1.5}
 	\begin{tabular}{| p{\colCwidth} | p{\colDwidth}|}
 		\hline
-		\bf Item Number& V\refstepcounter{varnum}\thevarnum\label{typefluidparm} \\
+		\bf Item Number&  V\refstepcounter{varnum}\thevarnum\label{typefluidparm} \\
 		\hline
 	\end{tabular}\\
 	
@@ -704,6 +637,51 @@ As for the commonalities, each variability is labelled with a unique item number
 		\bf Related Commonality & \cref{fluidandboundaryinfo}\\
 		\hline
 		\bf Related Parameter & \pref{partypeparm}\\
+		\hline
+		\bf History & Created April 1, 2020\\
+		\hline
+	\end{tabular}
+\end{minipage}\\
+~\newline\\
+~\newline
+\noindent
+\begin{minipage}{\textwidth}
+	\renewcommand*{\arraystretch}{1.5}
+	\begin{tabular}{| p{\colCwidth} | p{\colDwidth}|}
+		\hline
+		\bf Item Number&  V\refstepcounter{varnum}\thevarnum\label{varboundary} \\
+		\hline
+	\end{tabular}\\
+	
+	\begin{tabular}{| p{\colCwidth} | p{\colDwidth}|}		
+		\hline
+		\bf Description & The boundary of the lattice can have varied conditions.\\
+		\hline
+		\bf Related Commonality & \cref{lattice}\\
+		\hline
+		\bf Related Parameter & \pref{parboundary}\\
+		\hline
+		\bf History & Created April 1, 2020\\
+		\hline
+	\end{tabular}
+\end{minipage}\\
+\subsection{Input}
+\noindent
+\begin{minipage}{\textwidth}
+	\renewcommand*{\arraystretch}{1.5}
+	\begin{tabular}{| p{\colCwidth} | p{\colDwidth}|}
+		\hline
+		\bf Item Number& V\refstepcounter{varnum}\thevarnum\label{interface} \\
+		\hline
+	\end{tabular}\\
+	
+	\begin{tabular}{| p{\colCwidth} | p{\colDwidth}|}		
+		\hline
+		\bf Description & The input interface can vary between LBS.\\
+		\hline
+		\bf Related Commonality & \cref{fluidandboundaryinfo}\\
+		\hline
+		\bf Related Parameter & \pref{parinterface}\\
 		\hline
 		\bf History & Created April 1, 2020\\
 		\hline
@@ -949,27 +927,6 @@ of the system (compile time), or during execution of the system (run time). It i
 	\renewcommand*{\arraystretch}{1.5}
 	\begin{tabular}{| p{\colEwidth} | p{\colFwidth}|}
 		\hline
-		\bf Item Number& P\refstepcounter{parnum}\theparnum\label{parrelax} \\
-		\hline
-	\end{tabular}\\
-	
-	\begin{tabular}{| p{\colEwidth} | p{\colFwidth}|}		
-		\hline
-		\bf Corresponding Variability & \vref{varrelaxops}\\
-		\hline
-		\bf Range of Parameters & Single relaxation rate, two relaxation-time methods, multi-relaxation -time can be used.\\
-		\hline
-		\bf Binding Time & Build Time\\
-		\hline
-	\end{tabular}
-\end{minipage}\\
-~\newline\\
-~\newline
-\noindent
-\begin{minipage}{\textwidth}
-	\renewcommand*{\arraystretch}{1.5}
-	\begin{tabular}{| p{\colEwidth} | p{\colFwidth}|}
-		\hline
 		\bf Item Number& P\refstepcounter{parnum}\theparnum\label{parparallel} \\
 		\hline
 	\end{tabular}\\
@@ -1033,6 +990,27 @@ of the system (compile time), or during execution of the system (run time). It i
 	\renewcommand*{\arraystretch}{1.5}
 	\begin{tabular}{| p{\colEwidth} | p{\colFwidth}|}
 		\hline
+		\bf Item Number& P\refstepcounter{parnum}\theparnum\label{paredfcoeff} \\
+		\hline
+	\end{tabular}\\
+	
+	\begin{tabular}{| p{\colEwidth} | p{\colFwidth}|}		
+		\hline
+		\bf Corresponding Variability & \vref{edfcoeff}\\
+		\hline
+		\bf Range of Parameters & Numerous coefficients for equilibrium distribution function based on number of velocity directions. \\
+		\hline
+		\bf Binding Time & Build Time\\
+		\hline
+	\end{tabular}
+\end{minipage}\\
+~\newline\\
+~\newline
+\noindent
+\begin{minipage}{\textwidth}
+	\renewcommand*{\arraystretch}{1.5}
+	\begin{tabular}{| p{\colEwidth} | p{\colFwidth}|}
+		\hline
 		\bf Item Number& P\refstepcounter{parnum}\theparnum\label{pardimensions} \\
 		\hline
 	\end{tabular}\\
@@ -1083,7 +1061,7 @@ of the system (compile time), or during execution of the system (run time). It i
 		\hline
 		\bf Corresponding Variability & \vref{varcolop}\\
 		\hline
-		\bf Range of Parameters & SRT, TRT, BGK collision operators.\\
+		\bf Range of Parameters & SRT, TRT, MRT, BGK collision operators.\\
 		\hline
 		\bf Binding Time & Build Time\\
 		\hline
@@ -1105,26 +1083,6 @@ of the system (compile time), or during execution of the system (run time). It i
 		\bf Corresponding Variability & \vref{vartraneq}\\
 		\hline
 		\bf Range of Parameters & Collision and collision free transport equations.\\
-		\hline
-		\bf Binding Time & Build Time\\
-		\hline
-	\end{tabular}
-\end{minipage}\\
-\subsection{Input}
-\noindent
-\begin{minipage}{\textwidth}
-	\renewcommand*{\arraystretch}{1.5}
-	\begin{tabular}{| p{\colEwidth} | p{\colFwidth}|}
-		\hline
-		\bf Item Number& P\refstepcounter{parnum}\theparnum\label{parinterface} \\
-		\hline
-	\end{tabular}\\
-	
-	\begin{tabular}{| p{\colEwidth} | p{\colFwidth}|}		
-		\hline
-		\bf Corresponding Variability & \vref{interface}\\
-		\hline
-		\bf Range of Parameters & Input can be graphical, text or file.\\
 		\hline
 		\bf Binding Time & Build Time\\
 		\hline
@@ -1167,6 +1125,47 @@ of the system (compile time), or during execution of the system (run time). It i
 		\bf Corresponding Variability & \vref{typefluidparm}\\
 		\hline
 		\bf Range of Parameters & LBS fluid parameters include Reynolds Number, density, viscosity, time, pressure, force, direction, relaxation rate, turbulence.\\
+		\hline
+		\bf Binding Time & Build Time\\
+		\hline
+	\end{tabular}
+\end{minipage}\\
+~\newline\\
+~\newline
+\noindent
+\begin{minipage}{\textwidth}
+	\renewcommand*{\arraystretch}{1.5}
+	\begin{tabular}{| p{\colEwidth} | p{\colFwidth}|}
+		\hline
+		\bf Item Number& P\refstepcounter{parnum}\theparnum\label{parboundary} \\
+		\hline
+	\end{tabular}\\
+	
+	\begin{tabular}{| p{\colEwidth} | p{\colFwidth}|}		
+		\hline
+		\bf Corresponding Variability & \vref{varboundary}\\
+		\hline
+		\bf Range of Parameters & Lattice boundary can have reflective or non-reflective conditions.\\
+		\hline
+		\bf Binding Time & Build Time\\
+		\hline
+	\end{tabular}
+\end{minipage}\\
+\subsection{Input}
+\noindent
+\begin{minipage}{\textwidth}
+	\renewcommand*{\arraystretch}{1.5}
+	\begin{tabular}{| p{\colEwidth} | p{\colFwidth}|}
+		\hline
+		\bf Item Number& P\refstepcounter{parnum}\theparnum\label{parinterface} \\
+		\hline
+	\end{tabular}\\
+	
+	\begin{tabular}{| p{\colEwidth} | p{\colFwidth}|}		
+		\hline
+		\bf Corresponding Variability & \vref{interface}\\
+		\hline
+		\bf Range of Parameters & Input can be graphical, text or file.\\
 		\hline
 		\bf Binding Time & Build Time\\
 		\hline
