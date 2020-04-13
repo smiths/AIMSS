@@ -3,7 +3,6 @@
 \usepackage{natbib}
 \usepackage{booktabs}
 \usepackage{amsmath,amsthm}
-\usepackage{hyperref}
 
 \usepackage{hyperref}
 \hypersetup{
@@ -82,27 +81,9 @@ Purpose and scope of the document.  \wss{Needs to be filled in.  Should
 
 \section{Identify Candidate Software}
 
-\begin{enumerate}
-	\item Must be open source.
-	\item Must have GitHub repository.
-\end{enumerate}
-
 \section{Domain Analysis} \label{SecDomainAnalysis}
 
 Commonality analysis.  Follow as for mesh generator (likely with less detail).
-
-Commonality analysis document Steps:
-\begin{enumerate}
-	\item Introduction
-	\item Overview of Domain
-	\item Add Commonalities - Split into simulation, input, output, and nonfunctional requirements
-	\item Add Variabilites - Split into simulation, input, output, system constraints, and nonfunctional requirements
-	\item Add Parameters of Variation - Split into simulation, input, output, system constraints, and nonfunctional requirements
-	\item Add Terminology, Definitions, Acronyms
-\end{enumerate}
-
-
-Commonality analysis for Lattice Boltzmann Solvers can be found \href{run:../Peter-Notes/Commonality-Analysis-LB-Systems.pdf}{here}.
 
 \section{Empirical Measures}
 
@@ -125,6 +106,11 @@ Measures that can be extracted from on-line repos.
 \item number of total/open/closed issues with assignees
 \end{itemize}
 
+Instead of only focus on the current status of the above numbers, we may find
+the time history of them to be more valuable. For example, the number of
+contributors over time, the number of lines of code over time, the number of
+open issues over time, etc.
+
 \subsection{Processed Data}
 Metrics that can be calculated from the raw data.
 
@@ -132,12 +118,14 @@ Metrics that can be calculated from the raw data.
 \begin{itemize}
 \item percentage of total/open/closed issues with assignees -
 Visibility/Transparency
-\item lines of new code produced per person-day - Productivity
-\item lines/pages of new documents produced per person-day - Productivity
-\item number of issues closed per person-day - Productivity
+\item lines of new code produced per person-month - Productivity
+\item lines/pages of new documents produced per person-month - Productivity
+\item number of issues closed per person-month - Productivity
 \item percentage of comment lines in the code - maintainability \ad{Not Ao's
 qualities}
 \end{itemize}
+
+In the above calculations, a month can be determined to be 30 days.
 
 \subsection{Tool Tests}
 \ad{This section is currently a note of unorganized contents. Most parts will beremoved or relocated.}
