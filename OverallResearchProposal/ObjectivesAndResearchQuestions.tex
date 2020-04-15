@@ -1,0 +1,262 @@
+\documentclass[12pt]{article}
+
+\usepackage[round]{natbib}
+\usepackage{booktabs}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,       % false: boxed links; true: colored links
+    linkcolor=red,          % color of internal links (change box color with linkbordercolor)
+    citecolor=blue,       % color of links to bibliography
+    filecolor=magenta,   % color of file links
+    urlcolor=cyan           % color of external links
+}
+
+%% Comments
+\newif\ifcomments\commentstrue
+
+\ifcomments
+\newcommand{\authornote}[3]{\textcolor{#1}{[#3 ---#2]}}
+\newcommand{\todo}[1]{\textcolor{red}{[TODO: #1]}}
+\else
+\newcommand{\authornote}[3]{}
+\newcommand{\todo}[1]{}
+\fi
+
+\newcommand{\wss}[1]{\authornote{blue}{SS}{#1}} %Spencer Smith
+\newcommand{\jc}[1]{\authornote{red}{JC}{#1}} %Jacques Carette
+\newcommand{\oo}[1]{\authornote{magenta}{OO}{#1}} %Olu Owojaiye
+\newcommand{\pmi}[1]{\authornote{green}{PM}{#1}} %Peter Michalski
+\newcommand{\ad}[1]{\authornote{cyan}{AD}{#1}} %Ao Dong
+
+%\oddsidemargin 0mm
+%\evensidemargin 0mm
+%\textwidth 160mm
+%\textheight 200mm
+
+\begin{document}
+
+\title{Empirical Study of Scientific Computer Software: Objectives and Research Questions} 
+\author{Spencer Smith}
+\date{\today}
+	
+%\maketitle
+
+\subsection* {Overall Objective}
+
+\textbf{What knowledge needs to be captured and what principles, processes and
+  methodologies followed to produce sustainable \{software + artifacts\} with
+  a reasonable amount of time and energy?}\\
+
+In the above definition, software is considered to be an application (app)
+and/or a library.  The outcome of the development process is not just software.
+It is \{software + artifacts\}.  \wss{softwartifacts?} The artifacts consist of
+such work products as documentation, build scripts, code, test cases,
+contributor's guides, etc.  The quality of sustainability cannot be assessed by
+looking at the software alone, or the code alone; it depends on everything,
+including the processes and methodologies used.  Further information on the
+relevant definitions and context is given in the next section.
+
+The notion of ``reasonable amount of time and energy'' is part of the objective,
+but reasonable is not defined in the objective.  What is reasonable is going to
+depend on the context.  Problems that are large, complex and/or critical are
+going to have a greater ``budget'' of time and energy.  When comparing different
+alternatives for processes and methodologies, preference would be given to the
+alternative that costs less time and energy, assuming that this alternative
+achieves the same level of sustainability as its competition.  The assumptions
+listed in the next section outline the typical space of problems where it makes
+sense to aim for sustainable \{software + artifacts\}.
+
+In the statement of the objective, principles, processes and methodologies are
+listed, but not tools.  Tools are needed to support methodologies, but tools
+change rapidly.  Our goal is to be more general.  If the right principles,
+processes and methodologies are found, the tools will adapt to match.  However,
+understanding the current state of the practice will involve looking at tools,
+as shown in the later list of research questions.
+
+The objective is not phrased to target a specific software domain, but one of
+the research assumptions is that we will focus on Scientific Computing Software
+(SCS) examples and applications.  This focus is because creating sustainable
+software+artifacts is more feasible when the software domain is well understood,
+which is the case for SCS.  Moreover, SCS is an important, often neglected,
+domain of software.
+
+\subsection*{Context, Definitions and Assumptions}
+
+The overall objective is too ambiguous as given.  It requires additional
+information/interpretation.  Therefore this section provides definitions of the
+relevant terms and a list of the assumptions that define the potential contexts
+where sustainable software+artifact development is reasonable.
+
+\subsubsection*{Definitions}
+
+\begin{description}
+\item[Knowledge] Facts, definitions, theories, assumptions, etc. \wss{needs a
+    proper definition, with citation(s)}
+\item[Process] Organization of the software development activities.  \wss{needs a
+    proper definition, with citation(s)}
+\item[Principles] Principles are ``general and abstract statements describing
+  desirable properties of software processes and products.''  \citep[p.\
+  41]{GhezziEtAl2003}
+\item[Methods] ``Methods are general guidelines that govern the execution of some activity;
+  they are rigorous, systematic, and disciplined approaches.''  \citep[p.\
+  41]{GhezziEtAl2003}
+\item[Techniques] ``Techniques are more technical and mechanical than methods.''
+  \cite[p.\ 41]{GhezziEtAl2003}
+\item[Methodology] Combination of methods and techniques.  \citep[p.\
+  41]{GhezziEtAl2003}
+\item[Tools] ``Tools ... are developed to support the application of techniques,
+  method and methodologies.'' \cite[p.\ 41]{GhezziEtAl2003}
+
+\item[Scientific Computing] the use of computational tools to analyze or
+  simulate (continuous) mathematical models of real world systems of engineering
+  or scientific importance so that we can better understand and (potentially)
+  predict the system's behaviour. \citep{SmithAndLai2005}
+\item[Sustainable] We start with the general definition:
+
+``Sustainable development is development that meets the needs
+  of the present without compromising the ability of future generations to meet
+  their own needs.'' \citep{Brundtland1987}
+
+  This definition is general; it is not specific to software and it is silent on
+  the specific needs of the present and the future.  The definition can be made
+  less abstract by introducing the context of software+artifacts and thinking
+  separately about the needs of the present and the future.  For the needs of
+  the present, the software should be correct, reliable and usable. For the
+  needs of the future, given uncertainty, this means supporting change from
+  relevant concerns (political, economic, social, technical, legal and
+  environmental) should be possible with a reasonable level of resources.
+  Supporting the future then means producing software+artifacts that are
+  maintainable, portable, reusable and reproducible.  
+
+  Summarizing the above, the proposed definition for sustainability is:
+
+  \emph{Sustainable software means software+artifacts that are correct,
+    reliable, and usable (for the present) and maintainable, portable, reusable
+    and reproducible (for the future).}
+
+This definition has brought in several other qualities.  These qualities are
+defined in the ``Quality  Definitions of Qualities'' document.
+\wss{Reproducibility above might be changed to replicability, or possibly both
+  terms should be included?}
+\wss{Should performance be included in the list of qualities?}
+
+\item[Software] Application and/or library.
+\item[Application (App)] An executable program. \wss{needs a
+    proper definition, with citation(s)}
+\item[Library] Services that are available to other programs, but not an
+  executable program itself. \wss{needs a
+    proper definition, with citation(s)}
+\item[Artifacts] Work products generated during the process of creating
+  software.  The work products include requirements documentation, design
+  documentation, verification and validation plans, verification and validation
+  reports, contributor's guides, user guides, build scripts, code, test cases,
+  etc.
+\end{description}
+
+\subsubsection*{Assumptions}
+
+Producing sustainable software+artifacts is not a trivial undertaking.  Not
+every project needs to aim for sustainability.  Our position is that the time
+and energy is justified when one or more of the following assumptions applies.
+
+\begin{itemize}
+\item The software project is going to be long lived, where long life means at
+  least 10 years.
+\item The software+artifacts should interest multiple stakeholders (not just the
+  original developer), with different interests and backgrounds.
+\item The software is safety relevant, such as software for nuclear safety,
+  medical imaging or computational medicine.
+\item The software explicitly, or implicitly, is part of a program family of
+  related software.  When the program family assumption means that there are
+  related programs that are less effort to design and build together than to
+  design and build as separate projects.  Program family development depends on
+  satisfying three hypotheses \citep{Weiss1997}:
+\begin{itemize}
+\item Redevelopment hypothesis – most software development involved in producing
+  an individual family members should be redevelopment because the family
+  members have so much in common.
+\item Oracle Hypothesis – the changes that are likely to occur during the soft-
+  ware’s lifetime are predictable.
+\item Organizational Hypothesis – designers can organize the software and the
+  development effort so that predicted changes can be made independently.
+\end{itemize}
+\item The project recognizes that software artifacts other than the code are
+  relevant.
+\item The domain of the software project is well understood.  This assumption is
+  related to the oracle hypothesis.
+\end{itemize}
+
+Although this study is not specifically restricted to open-source software, for
+practical reasons (especially the lack of access to the code), commercial
+software will not be strongly emphasized.
+
+\subsubsection*{Current State of the Practice Research Questions}
+
+A good starting point for understanding how to develop sustainable SCS software+artifacts is
+to look at how SCS is currently developed.  By measuring relevant qualities and
+relating them to development practices, we can form an idea of what is currently
+working well.
+
+Following the key points of the overall objective, the research questions are
+based on investigating the following: i) knowledge, ii) principles, processes
+and methodologies, iii) software qualities and iv) the necessary investment of
+time and energy.  The scope of the research questions are not trying to cover
+everything, but rather to focus on the most important aspects for SCS.
+
+\begin{enumerate}
+\item What knowledge is currently captured in the artifacts generated by
+  existing open source SCS projects?
+\item What principles, processes, methodologies and tools are used by existing
+  open source SCS projects?
+\item What are the ``pain points'' for developers working on SCS projects?  What
+  aspects of the existing processes, methodologies and tools do they consider
+  could potentially be improved?
+\item For a given software product (software+artifacts), how can we produce a
+  reasonable measure of the software qualities (correctness, reliability,
+  usability etc.) with a few hours of effort?
+\item For a given software product (software+artifacts), how can we produce a
+  meaningful measure of usability with a few days worth of effort?
+\item For a given software product (software+artifacts), how can we produce a
+  meaningful measure of maintainability (with respect to likely changes) with a
+  few days worth of effort?
+\item For a given software product (software+artifacts), how can we produce a
+  meaningful measure of reproducibility/replicability with a few days worth of
+  effort?
+\item With a reasonable effort and time, how can we compare the productivity
+  between different processes, methodologies and tools?
+\item Can a correlation be identified between software projects that use best
+  practices for the development process and methodologies and improvement in the
+  qualities of usability, performance and reproducibility/replicability?
+\end{enumerate}
+
+\subsubsection*{Ideal Process}
+
+Some empirical research studies of SCS stop at the previous step.  They aim to
+identify what is currently working well, and then implicitly assume that the
+identified process/methodologies/tools provide the best guidelines for others to
+follow.  However, identifying the best current approach to developing SCS does
+not imply that the best possible approach has been found.  Our instinct is that
+there is plenty of room for improvement with SCS development.  The following
+research questions explore this possibility.
+
+\begin{enumerate}
+\item Ignoring the time and effort required, what knowledge is necessary to
+  capture for sustainable SCS?  How can this knowledge best be documented in
+  software artifacts?
+\item How can Model Driven Engineering and Code Generation be fit in the
+  development process for SCS to remove as many repetitive, tedious and error
+  prone tasks as possible?  We will call this the ``ideal process.''
+\item How well do existing modelling and code generation tools do at
+  implementing the ``ideal process''?  Candidates for comparison include Drasil
+  and Epsilon.
+\item How well does a model driven approach to compared to a traditional
+  approach for usability, productivity and sustainability?
+\item What are the attitudes and preferences of typical users towards
+  an implementation of the ``ideal process''?
+\end{enumerate}
+
+\bibliographystyle{plainnat}
+\bibliography {../CommonFiles/ResearchProposal}
+
+\end{document}
