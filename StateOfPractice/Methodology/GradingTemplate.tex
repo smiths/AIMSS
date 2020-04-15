@@ -23,7 +23,7 @@ reviewer should note what problems were caused.
   URL? (url)\\
   Educational institution (string)\\
   Software purpose (string)\\
-  Number of developers (number)\\
+  Number of developers (number)\ad{It might be hard to decide. For example 3D Slicer has 171 people with commits to its repo, but on its website, 18 contributors(including people who are not developers) are acknowledged.}\\
   How is the project funded (string)\\
   Number of downloads for current version (number)\\
   Release date (date)\\
@@ -47,10 +47,10 @@ reviewer should note what problems were caused.
   Are there installation instructions? (\{yes, no\})\\
   Are the installation instructions linear? (\{yes, no, n/a\})\\
   Is there something in place to automate the installation? (\{yes$^*$, no\})\\
-  Is there a specified way to validate the installation, such as a test suite? (\{yes$^*$, no\})\\
-  How many steps were involved in the installation? (number)\\
+  Is there a specified way to validate the installation, such as a test suite? \ad{What's the difference between this one and the getting started tutorial?} (\{yes$^*$, no\})\\
+  How many steps were involved in the installation? (number) \ad{what if the installation has different steps on different OS?}\\
   How many software packages need to be installed before or during installation?
-  (number)\\
+  (number) \ad{should it be 0 if no packages needed? I saw some answers with "no" or "none"}\\
   Run uninstall, if available. Were any obvious problems caused? (\{unavail, yes$^*$, no\})\\
   Overall impression? (\{1 .. 10\})\\
 
@@ -61,8 +61,8 @@ reviewer should note what problems were caused.
   Are external libraries used? (\{yes$^*$, no, unclear\})\\
   Does the community have confidence in this library? (\{yes, no, unclear\})\\
   Any reference to the requirements specifications of the program?
-  (\{yes$^*$, no, unclear\})\\
-  What tools or techniques are used to build confidence of correctness? (string)\\
+  (\{yes$^*$, no, unclear\})\ad{Seems like a good question to put in the questionnaire}\\
+  What tools or techniques are used to build confidence of correctness? (string)\ad{Seems like a good question to put in the questionnaire}\\
   If there is a getting started tutorial, is the output as expected? (\{yes, no$^*$, n/a\})\\
   Overall impression? (\{1 .. 10\})\\
 
@@ -78,7 +78,7 @@ reviewer should note what problems were caused.
   \textbf{Surface Robustness}\\
   \midrule
 
-  Does the software handle garbage input reasonably? (\{yes, no$^*$\})\\
+  Does the software handle garbage input reasonably? (\{yes, no$^*$\}) \ad{How do we prepare garbage input?}\\
   For any plain text input files, if all new lines are replaced with new lines
   and carriage returns, will the software handle this gracefully? (\{yes,
   no$^*$, n/a\})\\
@@ -102,7 +102,7 @@ reviewer should note what problems were caused.
   on? (\{yes, no$^*$\})\\
   Are there any features that show a lack of visibility? (\{yes, no$^*$\})\\
   Are expected user characteristics documented? (\{yes, no\})\\
-  What is the user support model? (string)\\
+  What is the user support model? (string)\ad{Can GitHub be one? Many users directly ask questions there by open new issues.}\\
   Overall impression? (\{1 .. 10\})\\
 
   \midrule
@@ -115,19 +115,20 @@ reviewer should note what problems were caused.
   Is there a changelog?  (\{yes, no\})\\
   What is the maintenance type? (set of \{corrective, adaptive, perfective, unclear\})\\
   What issue tracking tool is employed? (set of \{Trac, JIRA, Redmine, e-mail,
-  discussion board, sourceforge, google code, git, none, unclear\})\\
-  Are the majority of identified bugs fixed? (\{yes, no$^*$, unclear\})\\
+  discussion board, sourceforge, google code, git, none, unclear\}) \ad{Does git mean GitHub and GitLab? Should we add BitBucket here?}\\
+  Are the majority of identified bugs fixed? (\{yes, no$^*$, unclear\})\ad{It might be better to record a number here}\\
+  What is the percentage of identified issues that are closed? (percentage)\ad{an example}\\
   Which version control system is in use? (\{svn, cvs, git, github, unclear\})\\
   Is there evidence that maintainability was considered in the design?
   (\{yes$^*$, no\})\\
-  Are there code clones? (\{yes$^*$, no, unclear\})\\
+  Are there code clones? (\{yes$^*$, no, unclear\})\ad{Might need to test some static analyzer.}\\
   Overall impression? (\{1 .. 10\})\\
 
   \midrule
   \textbf{Reusability}\\
   \midrule
 
-  Are any portions of the software used by another package? (\{yes$^*$, no\})\\
+  Are any portions of the software used by another package? (\{yes$^*$, no\})\ad{It seems hard to find an answer for some software.}\\
   Is there evidence that reusability was considered in the design? (API
   documented, web service, command line tools, ...) (\{yes$^*$, no, unclear\})\\
   Overall impression? (\{1 .. 10\})\\
