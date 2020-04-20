@@ -1,0 +1,64 @@
+\documentclass[12pt]{article}
+
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{xspace}
+\usepackage{fullpage}
+\usepackage{hyperref}
+
+\hypersetup{
+colorlinks=true,       % false: boxed links; true: colored links
+linkcolor=red,          % color of internal links (change box color with
+%linkbordercolor)
+citecolor=blue,       % color of links to bibliography
+filecolor=magenta,   % color of file links
+urlcolor=cyan           % color of external links
+}
+
+%% Comments
+\newif\ifcomments\commentstrue
+
+\ifcomments
+\newcommand{\authornote}[3]{\textcolor{#1}{[#3 ---#2]}}
+\newcommand{\todo}[1]{\textcolor{red}{[TODO: #1]}}
+\else
+\newcommand{\authornote}[3]{}
+\newcommand{\todo}[1]{}
+\fi
+
+\newcommand{\wss}[1]{\authornote{blue}{SS}{#1}} %Spencer Smith
+\newcommand{\jc}[1]{\authornote{red}{JC}{#1}} %Jacques Carette
+\newcommand{\oo}[1]{\authornote{magenta}{OO}{#1}} %Olu Owojaiye
+\newcommand{\pmi}[1]{\authornote{green}{PM}{#1}} %Peter Michalski
+\newcommand{\ad}[1]{\authornote{cyan}{AD}{#1}} %Ao Dong
+
+\title{Questionnaire to Developers} 
+\author{Ao Dong}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{enumerate}
+\item \ad{Visibility/Transparency} Is there a certain type of development methodologies used during the development? (\{Waterfall, Scrum, Kanban, else\})
+\item \ad{Visibility/Transparency} Is there a clearly defined development process? If yes, what is it. (\{yes$^*$, no\})
+\item \ad{Visibility/Transparency} Are there any project management tools used during the development? If yes, what are they. (\{yes$^*$, no\})
+\item \ad{Correctness and Verifiability} During the process of development, what tools or techniques are used to build confidence of correctness? (string)
+\item \ad{Correctness and Verifiability} Is there any document about the requirements specifications of the program? If yes, what is it. (\{yes$^*$, no\})
+\item \ad{Portability} Do you think that portability has been achieved? If yes, how? (\{yes$^*$, no\})
+\item \ad{Maintainability} How was maintainability considered in the design? (string)
+\item \ad{Maintainability} What is the maintenance type? (set of \{corrective, adaptive, perfective,
+unclear\})
+\item \ad{Reusability} How was reusability considered in the design? (string)
+\item \ad{Reusability} Are any portions of the software used by another package? If yes, how they are used. ({yes$^*$, no})
+\item \ad{Completeness} Is any of the following documents used during the development? ({yes$^*$, no})
+\begin{itemize}
+\item Module Guide
+\item Module Interface Specification
+\item System Verification and Validation Plan
+\item Unit Verification and Validation Plan
+\end{itemize}
+\end{enumerate}
+
+\end{document}
