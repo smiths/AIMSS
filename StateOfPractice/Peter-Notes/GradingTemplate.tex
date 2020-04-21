@@ -44,7 +44,7 @@ Number of developers (number)\\
   \midrule
   \textbf{Installability} (Measured via installation on a virtual machine.)\\
   \midrule
- \pmi{Are required (known to work) operating system versions listed?}\\
+ \pmi{Are required (known to work) operating system versions listed? (\{yes, no\})}\\
   Are there installation instructions? (\{yes, no\})\\
   Are the installation instructions linear? (\{yes, no, n/a\})\\
   Is there something in place to automate the installation? (\{yes$^*$, no\})\\
@@ -53,12 +53,12 @@ Is there a specified way to validate the installation, such as a test suite?
 How many steps were involved in the installation? (number) \\
 How many software packages need to be installed before or during
 installation?(number) \\
-\pmi{are specific versions of required packages listed?}\\
-\pmi{are there links to or instructions for the installation of required packages?}\\
+\pmi{are specific versions of required packages listed? (\{yes, no, n/a\})}\\
+\pmi{are there links to or instructions for the installation of required packages? (\{yes, no, n/a\})}\\
 Run uninstall, if available. Were any obvious problems caused? (\{unavail,
 yes$^*$, no\})\\
-\pmi{In your opinion could a non-developer of the software effectively install this software by verbatim following the instructions}\\
-\pmi{Was troubleshooting the instructions necessary to install the system?}
+\pmi{In your opinion could a non-developer of the software effectively install this software by verbatim following the instructions (\{yes, no, n/a\})}\\
+\pmi{Was troubleshooting the instructions necessary to install the system? (\{yes, no, n/a\})}
   Overall impression? (\{1 .. 10\})\\
 
   \midrule
@@ -66,8 +66,7 @@ yes$^*$, no\})\\
   \midrule
 
   Are external libraries used? (\{yes$^*$, no, unclear\})\\
-  \pmi{are versions of external libraries specified?}\\
-  \pmi{are instructions for finding/installing the external libraries specified?}\\
+  \pmi{are versions of external libraries specified? (\{yes, no, n/a\})}\\
   Does the community have confidence in this library? (\{yes, no, unclear\})\\
   Any reference to the requirements specifications of the program?
 (\{yes$^*$, no, unclear\})\\
@@ -75,7 +74,7 @@ What tools or techniques are used to build confidence of correctness?
 (string)\\
 If there is a getting started tutorial, is the output as expected? (\{yes,
 no$^*$, n/a\})\\
-\pmi{Does the getting started tutorial provide an answer to verify against?}\\
+\pmi{Does the getting started tutorial provide an answer to verify against? (\{yes, no, n/a\})}\\
   Overall impression? (\{1 .. 10\})\\
 
   \midrule
@@ -83,12 +82,12 @@ no$^*$, n/a\})\\
   \midrule
 
   Did the software ``break'' during installation? (\{yes$^*$, no\})\\
-  \pmi{was a helpful error message provided?}
-    \pmi{was the installation recoverable?}
+  \pmi{was a helpful error message provided? (\{yes, no, n/a\})}
+    \pmi{was the installation recoverable? (\{yes, no, n/a\})}
 Did the software ``break'' during the initial tutorial testing? (\{yes$^*$, no,
 n/a\})\\
-  \pmi{was a helpful error message provided?}\\
-  \pmi{was the testing recoverable?}\\
+  \pmi{was a helpful error message provided? (\{yes, no, n/a\})}\\
+  \pmi{was the testing recoverable? (\{yes, no, n/a\})}\\
   Overall impression? (\{1 .. 10\})\\
 
   \midrule
@@ -99,7 +98,6 @@ Does the software handle garbage input reasonably? (\{yes, no$^*$\}) \\
   For any plain text input files, if all new lines are replaced with new lines
   and carriage returns, will the software handle this gracefully? (\{yes,
   no$^*$, n/a\})\\
-  \pmi{Does the system react gracefully when required libraries or input files are not provided? Descriptive message?}
   Overall impression? (\{1 .. 10\})\\
 
   \midrule
@@ -107,7 +105,7 @@ Does the software handle garbage input reasonably? (\{yes, no$^*$\}) \\
   \midrule
 
   Is there evidence that performance was considered? (\{yes$^*$, no\})\\
-  \pmi{Does the software (optionally) use GPU for processing?}\\
+  \pmi{Does the software (optionally) use GPU for processing? (\{yes, no, unclear\})}\\
   Overall impression? (\{1 .. 10\})\\
 
   \midrule
@@ -116,11 +114,10 @@ Does the software handle garbage input reasonably? (\{yes, no$^*$\}) \\
 
   Is there a getting started tutorial? (\{yes, no\})\\
   Is there a standard example that is explained? (\{yes, no\})\\
-  \pmi{Is a solution provided?}\\
+  \pmi{Is a solution provided? (\{yes, no, n/a\})}\\
   Is there a user manual? (\{yes, no\})\\
   Does the application have the usual ``look and feel'' for the platform it is
   on? (\{yes, no$^*$\})\\
-  \pmi{this question is vague to me}\\
   Are there any features that show a lack of visibility? (\{yes, no$^*$\})\\
   Are expected user characteristics documented? (\{yes, no\})\\
 What is the user support model? (string)\\
@@ -135,6 +132,7 @@ unclear\})\\
   Is there any information on how code is reviewed, or how to contribute?
   (\{yes$^*$, no\})\\
   Is there a changelog?  (\{yes, no\})\\
+ \pmi{Is technical documentation (requirements, architecture, code, algorithms, interfaces, APIs) provided? (\{yes, no, unclear\})}\\ 
 What is the maintenance type? (set of \{corrective, adaptive, perfective,
 unclear\})\\
   What issue tracking tool is employed? (set of \{Trac, JIRA, Redmine, e-mail,
@@ -142,9 +140,8 @@ discussion board, sourceforge, google code, git, none, unclear\})\\
 Are the majority of identified bugs fixed? (\{yes, no$^*$, unclear\})\\
 What is the percentage of identified issues that are closed?
 (percentage)\\
-\pmi{is there a way to measure average time to close issues?}\\
-\pmi{are files well commented? - percentage?}\\
-\pmi{comment on module / file size}\\
+\pmi{Are files well commented? (\{yes, no, unclear\})}\\
+\pmi{Are files of reasonable length? (\{yes, no, unclear\})}\\
 Which version control system is in use? (\{svn, cvs, git, github, unclear\})\\
 Is there evidence that maintainability was considered in the design?
   (\{yes$^*$, no\})\\
@@ -159,9 +156,9 @@ Are any portions of the software used by another package? (\{yes$^*$,
 no\})\\
   Is there evidence that reusability was considered in the design? (API
 documented, web service, command line tools, ...) (\{yes$^*$, no, unclear\})\\
-\pmi{Are module interfaces clearly defined?}\\
-\pmi{Are modules described in the user guide?}\\
-\pmi{Is the system modularized?}\\
+\pmi{Is the system modularized? (\{yes, no, unclear\})}\\
+\pmi{Are module interfaces clearly defined? (\{yes, no, n/a\})}\\
+\pmi{Are modules described in the user guide? (\{yes, no, n/a\})}\\
 Overall impression? (\{1 .. 10\})\\
 
   \midrule
@@ -170,8 +167,9 @@ Overall impression? (\{1 .. 10\})\\
 
   What platforms is the software advertised to work on?
   (set of \{Windows, Linux, OS X, Android, Other OS\})\\
-  \pmi{What versions of these platforms is the software advertised to work on?}\\
-  \pmi{How many external libraries are needed?}\\
+  \pmi{Are versions of these platforms specified? (\{yes,
+  	no\})}\\
+  \pmi{How many external libraries are needed to be manually installed? (\{int, unclear\})}\\
   Are special steps taken in the source code to handle portability? (\{yes$^*$,
   no, n/a\}) \\
   Is portability explicitly identified as NOT being important? (\{yes, no\})\\
