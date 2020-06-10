@@ -1,0 +1,88 @@
+\documentclass[12pt]{article}
+
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{xspace}
+\usepackage{fullpage}
+\usepackage{hyperref}
+
+\hypersetup{
+colorlinks=true,       % false: boxed links; true: colored links
+linkcolor=red,          % color of internal links (change box color with
+%linkbordercolor)
+citecolor=blue,       % color of links to bibliography
+filecolor=magenta,   % color of file links
+urlcolor=cyan           % color of external links
+}
+
+%% Comments
+\newif\ifcomments\commentstrue
+
+\ifcomments
+\newcommand{\authornote}[3]{\textcolor{#1}{[#3 ---#2]}}
+\newcommand{\todo}[1]{\textcolor{red}{[TODO: #1]}}
+\else
+\newcommand{\authornote}[3]{}
+\newcommand{\todo}[1]{}
+\fi
+
+\newcommand{\wss}[1]{\authornote{blue}{SS}{#1}} %Spencer Smith
+\newcommand{\jc}[1]{\authornote{red}{JC}{#1}} %Jacques Carette
+\newcommand{\oo}[1]{\authornote{magenta}{OO}{#1}} %Olu Owojaiye
+\newcommand{\pmi}[1]{\authornote{green}{PM}{#1}} %Peter Michalski
+\newcommand{\ad}[1]{\authornote{cyan}{AD}{#1}} %Ao Dong
+
+\def\CC{{C\nolinebreak[4]\hspace{-.05em}\raisebox{.4ex}{\tiny\bf ++}}\xspace}
+
+\begin{document}
+
+\title{Empirical Measures Template} 
+\author{Ao Dong}
+\date{\today}
+	
+\maketitle
+
+The tools for Empirical Measures:
+\begin{itemize}
+\item \href{https://github.com/tomgi/git_stats}{git\_stats}
+\item \href{https://github.com/boyter/scc}{scc}
+\end{itemize}
+
+\ad{For now it only contains raw metrics. We'll have to consider how to use them to calculate more meaningful metrics.}
+
+\begin{longtable}{p{16cm}}
+  \caption{Grading Template}   \label{table:TemplateFull}\\
+  \toprule
+  \textbf{Raw Metrics} (Measured via git\_stats)\\
+  \midrule
+  Number of text-based files. (number)\\
+  Number of binary files. (number)\\
+  Number of total lines in text-based files. (number)\\
+  Number of total lines added to text-based files. (number)\\
+  Number of total lines deleted from text-based files. (number)\\
+  Number of total commits. (number)\\
+Numbers of commits by year in the last 5 years. (Count from as early as possible
+if the project is younger than 5 years.) (list of numbers)\\
+  Numbers of commits by month in the last 12 months. (list of numbers)\\
+  
+  \midrule
+  \textbf{Raw Metrics} (Measured via scc)\\
+  \midrule
+  Number of text-based files. (number)\\
+  Number of total lines in text-based files. (number)\\
+  Number of code lines in text-based files. (number)\\
+  Number of comment lines in text-based files. (number)\\
+  Number of blank lines in text-based files. (number)\\
+
+  \midrule
+  \textbf{Raw Metrics} (Measured via GitHub API)\\
+  \midrule
+Numbers of commits, added lines, and deleted lines by author by week.
+(2-dimensional list of numbers) \ad{I know we're not likely to measure this.
+Just a note that we can get this data. It's only available for GitHub repos, and
+I have to test tools for parsing JSON data (e.g. to Excel table).}\\
+  \bottomrule
+
+\end{longtable}
+
+\end{document}
