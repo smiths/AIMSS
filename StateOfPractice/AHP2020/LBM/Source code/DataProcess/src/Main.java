@@ -15,9 +15,9 @@ public class Main {
 	public static void main(String[] args)
     {
 		int numberQualities = 9;
-		int numberSolvers = 23; //also need to change rownum below
-		Cell[][] table=new Cell[numberQualities][numberSolvers];
-		Double[][][] ahpTable= new Double[numberQualities][numberSolvers][numberSolvers-1];
+		int numberSoftwarePackages = 23; //also need to change rownum below
+		Cell[][] table=new Cell[numberQualities][numberSoftwarePackages];
+		Double[][][] ahpTable= new Double[numberQualities][numberSoftwarePackages][numberSoftwarePackages-1];
         try
         {
             FileInputStream file = new FileInputStream(new File("AHP_Template.xlsx"));
@@ -66,9 +66,9 @@ public class Main {
             }
             double x=0;
             double y=0;
-            for(int i=0;i<numberSolvers;i++)
+            for(int i=0;i<numberSoftwarePackages;i++)
             {
-            	for(int j=i;j<numberSolvers-1;j++)
+            	for(int j=i;j<numberSoftwarePackages-1;j++)
             	{   
             		for(int k=0;k<numberQualities;k++)
             		{
@@ -105,7 +105,7 @@ public class Main {
      		int cellstart=cellnum;
      		Row[] row=new Row[numberQualities];     		 		
      		
-            for (int i=0;i<numberSolvers;i++)
+            for (int i=0;i<numberSoftwarePackages;i++)
             {                
                 cellnum=cellstart++;
                 for(int k=0;k<numberQualities;k++){
@@ -113,7 +113,7 @@ public class Main {
          			rownum[k]++;
          		}
                 
-                for (int j=i;j<numberSolvers-1;j++)
+                for (int j=i;j<numberSoftwarePackages-1;j++)
                 {
                 	for(int l=0;l<numberQualities;l++)
                 	{
