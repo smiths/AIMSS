@@ -26,7 +26,7 @@ public class Main {
             XSSFWorkbook workbook = new XSSFWorkbook(file);
  
             //Get second sheet from the workbook
-            XSSFSheet sheet = workbook.getSheetAt(1);
+            XSSFSheet sheet = workbook.getSheet("SensitivityScores");
  
             //Iterate through each rows one by one
             Iterator<Row> rowIterator = sheet.iterator();            
