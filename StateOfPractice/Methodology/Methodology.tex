@@ -73,7 +73,7 @@ Purpose and scope of the document.  \wss{Needs to be filled in.  Should
 	reference the overall research proposal, and the ``state of the practice''
 	exercise in particular.  Reference questions we are trying to answer.}
 
-\section{Research Questions}
+\section{Research Questions}\label{ResearchQuestions}
 
 In general questions:
 
@@ -106,30 +106,29 @@ measurements are intended to force scrutiny, from different perspectives.
 \section{Overview of Steps in Assessing Quality of the Domain Software}
 
 \begin{enumerate}
-\item Start with state of practice research questions.\pmi{add link to above section}
-\item Identify the domain.  (Provide criteria on a candidate domain.) \pmi{as an example what criteria? Do we need to add a section below explaining this?}
-\item \emph{Domain Expert}: Create a top ten list of software packages in the domain. \pmi{The details of this will be specified in the Meeting Agenda, so link to that section}
-\item Brief the Domain Expert on the overall objective, research proposal, research questions, measurement template, survey for short list projects, usability tests, performance benchmarks, maintainability experiments.\pmi{Link this to Meeting Agenda, and create a small summary below; Reword or remove anything from this sentence?}
+\item Start with state of practice research questions. (Section~\ref{ResearchQuestions}) \pmi{To be completed}
+\item Identify the domain. (Section~\ref{SecIdentifyDomain}) \pmi{To be completed}
+\item \emph{Domain Experts}: Create a top ten list of software packages in the domain. (\href{run:Meeting Agenda with Domain Experts.pdf}{Meeting Agenda with Domain Experts})
+\item Brief the Domain Experts on the overall objective, research proposal, research questions, measurement template, survey for short list projects, usability tests, performance benchmarks, maintainability experiments. (\href{run:Meeting Agenda with Domain Experts.pdf}{Meeting Agenda with Domain Experts})
 \item Identify broad list of candidate software packages in the domain. (Section~\ref{SecIdentifyCandSoft}) \pmi{To be completed}
-\item Preliminary filter of software packages list. \pmi{Add section below; Judge on professionalism, available documentation, status, availability of source code}
-\item \emph{Domain Expert}: Review domain software list. \pmi{any comments on this? Does this need a section below? Link to appropriate section of Meeting Agenda?}
+\item Preliminary filter of software packages list. (Section~\ref{SecInitialFilter}) \pmi{To be completed}
+\item \emph{Domain Experts}: Review domain software list. (\href{run:Meeting Agenda with Domain Experts.pdf}{Meeting Agenda with Domain Experts})
 \item Domain Analysis. (Section~\ref{SecDomainAnalysis})\pmi{To be completed}
-\item \emph{Domain Expert}: Vet domain analysis.\pmi{This is currently not listed in Meeting Agenda and was part of the original Steps in Assessing Quality list. We need to add it to the Meeting Agenda and link it from here}
+\item \emph{Domain Experts}: Vet domain analysis. (\href{run:Meeting Agenda with Domain Experts.pdf}{Meeting Agenda with Domain Experts}) \pmi{This was part of the original Steps in Assessing Quality list. We need to add it to the Meeting Agenda}
 \item Gather source code and documentation for each prospective software package.
-\item Collect Empirical measures. \pmi{To do: Link to below and edit the section}
-\item Measure using ``shallow'' measurement template. \pmi{Add section below and link to actual template}
-\item Use AHP process to rank the software packages. \pmi{Link to below section (which needs to be edited) outlining the tool we used, and link the below section to the AHP README file}
-\item Identify a short list of five software packages for deeper exploration according to the AHP rankings of the shallow measurements.
-\item \emph{Domain Expert}: vet AHP ranking and short list.\pmi{Currently not listed in Meeting Agenda, add it and link to it? ...or is this redundant considering they have made a top ten list and have already vetted the original prospective list (both of these latter Domain Expert actions are listed in the Meeting Agenda)?}
+\item Collect empirical measures. (Section~\ref{SecEmpiricalMeasures}) \pmi{To be completed}
+\item Measure using ``shallow'' measurement template. (Section~\ref{SecShallowMeasure}) \pmi{To be completed}
+\item Use AHP process to rank the software packages. (Section~\ref{SecAHP}) \pmi{To be completed}
+\item Identify a short list of top software packages, typically four to six, for deeper exploration according to the AHP rankings of the shallow measurements.
+\item \emph{Domain Experts}: Vet AHP ranking and short list. (\href{run:Meeting Agenda with Domain Experts.pdf}{Meeting Agenda with Domain Experts}) \pmi{This was part of the original Steps in Assessing Quality list. We need to add it to the Meeting Agenda}
 \item With short list:
 \begin{enumerate}
-\item Survey developers \pmi{To do: Link to survey; Add brief below?}
-\item Usability experiments \pmi{Link to section below; link to any other document?}
+\item Survey developers \pmi{To do: Link to survey}
+\item Usability experiments \pmi{Move the below usability section to a new doc, and link to it.}
 \item Performance benchmarks\pmi{note: this is still in consideration}
 \item Maintainability experiments\pmi{note: this is still in consideration}
 \end{enumerate}
-\item Rank short list using pairwise comparison of shortlist results.\pmi{Add section below? Link to another doc?}
-\item Compare shallow and deep measures and ranking.\pmi{Add section below? Link to another doc? Anything specific to consider when comparing?}
+\item Rank short list. (Section~\ref{SecRankShortList}) \pmi{To be completed}
 \item Document answers for research questions.
 \end{enumerate}
 
@@ -138,11 +137,32 @@ measurements are intended to force scrutiny, from different perspectives.
   significant time to the project.  We need to quickly get to the point.  Maybe
   something around task based inspection?  Directed interview?}
 
+
+\section{How to Identify the Domain} \label{SecIdentifyDomain}
+\begin{enumerate}
+	\item Needs to be "a community of"/many people using and studying this domain
+	\item There needs to be "many" software solutions
+	\item There needs to be a user community using these solutions
+	\item Must be in the research software scope
+	\item Specific enough scope
+	\item Must be a well understood domain / mature
+\end{enumerate}
+
+
 \section{How to Identify Candidate Software} \label{SecIdentifyCandSoft}
 \pmi{outline here how to find such a list}
 \begin{enumerate}
 \item Must have viewable source code.
 \item Ideally have a git repository. \pmi{Not all of mine had this..}
+\end{enumerate}
+
+\section{How to Initially Filter the Software List} \label{SecInitialFilter}
+The person doing this must keep track of both the initial and filtered lists. The reasons for this is traceability bc..
+\begin{enumerate}
+	\item Professionalism..
+	\item Available documentation..
+	\item Status..
+	\item Availability of source code..
 \end{enumerate}
 
 \section{Domain Analysis} \label{SecDomainAnalysis}
@@ -167,7 +187,7 @@ Commonality analysis document Steps:
 Commonality analysis for Lattice Boltzmann Solvers can be found
 \href{run:../Peter-Notes/Commonality-Analysis-LB-Systems.pdf}{here}.
 
-\section{Empirical Measures}
+\section{Empirical Measures} \label{SecEmpiricalMeasures}
 
 \subsection{Raw Data}
 Measures that can be extracted from on-line repos.
@@ -281,6 +301,13 @@ well on some other repos.
 
 Test results: it doesn't work well. Instead of creating output results, it
 prints the results directly in the console.
+
+\section{Measure Using Shallow Measurement Template} \label{SecShallowMeasure}
+This step...
+The measurement template can be found \href{run:Combined_MeasurementTemplate_EmpiricalMeasures.xlsx}{here}.
+\begin{enumerate}
+	\item Step 1..
+\end{enumerate}
 
 \section{User Experiments}
 \subsection{Usability Experimental Procedure}
@@ -418,8 +445,8 @@ prints the results directly in the console.
 %\end{enumerate}
 
 \subsection{Task selection criteria}
-**The task selection will be determined with the aid of the domain expert attached to any of the selected projects.\\ 
-**The domain expert will be asked to consider the below criteria when defining a task. \\
+**The task selection will be determined with the aid of the domain experts attached to any of the selected projects.\\ 
+**The domain experts will be asked to consider the below criteria when defining a task. \\
 **Domain experts will also be asked to identify what background knowledge is necessary for the suggested tasks - Novice, Intermediate, Advanced
 \begin {enumerate}
 \item Collectively all tasks should not take no more than 2 hours.
@@ -436,9 +463,16 @@ Two sources of standardized usability questionnaire we could use.
 - \url{https://uiuxtrend.com/pssuq-post-study-system-usability-questionnaire/} - PSSUQ
 
 
-\section{Analytic Hierarchy Process}
+\section{Analytic Hierarchy Process} \label{SecAHP}
 
-Describe process.  Domain expert review.
+Describe process. Domain experts review. Outline the tool we used. The README file of the tool can be found \href{run:../AHP2020/LBM/README.txt}{here}.
+
+\section{Rank Short List} \label{SecRankShortList}
+Rank using pairwise comparison of short list results.
+\begin{enumerate}
+	\item Compare with respect to usability
+	\item ...
+\end{enumerate}
 
 \section{Quality Specific Measures}
 
