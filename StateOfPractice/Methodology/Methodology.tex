@@ -117,7 +117,7 @@ measurements are intended to force scrutiny, from different perspectives.
 \item \emph{Domain Experts}: Vet domain analysis. (\href{run:Meeting Agenda with Domain Experts.pdf}{Meeting Agenda with Domain Experts}) \pmi{This was part of the original Steps in Assessing Quality list. We need to add it to the Meeting Agenda}
 \item Gather source code and documentation for each prospective software package.
 \item Collect empirical measures. (Section~\ref{SecEmpiricalMeasures}) \pmi{To be completed - go over how to clean this up in meeting, or through an issue}
-\item Measure using ``shallow'' measurement template. (Section~\ref{SecShallowMeasure}) \pmi{To be completed}
+\item Measure using ``shallow'' measurement template. (Section~\ref{SecShallowMeasure}) \pmi{To be reviewed}
 \item Use AHP process to rank the software packages. (Section~\ref{SecAHP}) \pmi{To be completed}
 \item Identify a short list of top software packages, typically four to six, for deeper exploration according to the AHP rankings of the shallow measurements.
 \item \emph{Domain Experts}: Vet AHP ranking and short list. (\href{run:Meeting Agenda with Domain Experts.pdf}{Meeting Agenda with Domain Experts}) \pmi{This was part of the original Steps in Assessing Quality list. We need to add it to the Meeting Agenda}
@@ -242,13 +242,18 @@ doesn't work with 0 citations}
 Most tests were done targeting to the repo of 3D Slicer
 \href{https://github.com/tomgi/git_stats}{GitHub repo}
 
-\subsubsection{git-stats}
+\subsubsection{git-stats}\label{gitstats}
 \href{https://github.com/tomgi/git_stats}{GitHub repo}
 
 Test results:
 \href{http://git-stats-slicer.ao9.io/}{http://git-stats-slicer.ao9.io/} the
 results are output as webpages, so I hosted for you to check. Data can be
 downloaded as spreadsheets.
+
+
+\subsubsection{git-stats}\label{scc}
+\href{https://github.com/boyter/scc}{GitHub repo}
+
 
 \subsubsection{git-of-theseus}
 \href{https://github.com/erikbern/git-of-theseus}{GitHub repo}
@@ -306,10 +311,22 @@ Test results: it doesn't work well. Instead of creating output results, it
 prints the results directly in the console.
 
 \section{Measure Using Shallow Measurement Template} \label{SecShallowMeasure}
-This step...
-The measurement template can be found \href{run:Combined_MeasurementTemplate_EmpiricalMeasures.xlsx}{here}.
+For each software package fill out one column in the \href{run:Combined_MeasurementTemplate_EmpiricalMeasures.xlsx}{Measurement Template} following these steps:
 \begin{enumerate}
-	\item Step 1..
+	\item Gather the summary information for rows 3 to 20
+	\item Using the GitStats tool found in Section \ref{gitstats} gather the measurements for rows 105 to 112
+	\item Using the SCC tool found in Section \ref{scc} gather the measurements for rows 114 to 118
+	\item If the software package is found on git, gather the measurements for rows 120 to 124
+	\item Review installation documentation and attempt to install the software package
+	\item Gather the measurements for rows 22 to 37
+	\item Gather the measurements for correctness and verifiability in rows 39 to 48
+	\item Gather the measurements for surface reliability in rows 50 to 56
+	\item Gather the measurements for surface robustness in rows 58 to 61
+	\item Gather the measurements for surface usability in rows 63 to 68
+	\item Gather the measurements for maintainability in rows 70 to 78
+	\item Gather the measurements for reusability in rows 80 to 83
+	\item Gather the measurements for surface understandability in rows 85 to 94
+	\item Gather the measurements for visibility and transparency in rows 96 to 101
 \end{enumerate}
 
 \section{Analytic Hierarchy Process} \label{SecAHP}
