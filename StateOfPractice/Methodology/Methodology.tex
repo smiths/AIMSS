@@ -187,122 +187,51 @@ A sample commonality analysis for Lattice Boltzmann Solvers can be found
 \section{Empirical Measures} \label{SecEmpiricalMeasures}
 
 \subsection{Raw Data}
-Measures that can be extracted from on-line repos.
+The following raw data measures are extracted from repositories:
 
-\ad{Still at brainstorm stage.}
 \begin{itemize}
-\item number of contributors
-\item number of watches
-\item number of stars
-\item number of forks
-\item number of clones
-\item number of commits
-\item number of total/code/document files
-\item lines of total/logical/comment code
-\item lines/pages of documents (can pdf be extracted?)
-\item number of total/open/closed/merged pull requests
-\item number of total/open/closed issues
-\item number of total/open/closed issues with assignees
+\item Number of stars.
+\item Number of forks.
+\item Number of people watching the repository.
+\item Number of open pull requests.
+\item Number of closed pull requests.	
+\item Number of developers.	
+\item Number of open issues.
+\item Number of closed issues.
+\item Initial release date.
+\item Last commit date.
+\item Programming languages used.
+\item Number of text-based files.
+\item Number of total lines in text-based files.
+\item Number of code lines in text-based files.
+\item Number of comment lines in text-based files.
+\item Number of blank lines in text-based files.
+\item Number of binary files.  
+\item Number of total lines added to text-based files.
+\item Number of total lines deleted from text-based files.
+\item Number of total commits.
+\item Numbers of commits by year in the last 5 years. (Count from as early as possible if the project is younger than 5 years.) 
+\item Numbers of commits by month in the last 12 months.
 \end{itemize}
 
-Instead of only focus on the current status of the above numbers, we may find
-the time history of them to be more valuable. For example, the number of
-contributors over time, the number of lines of code over time, the number of
-open issues over time, etc.
 
 \subsection{Processed Data}
-Metrics that can be calculated from the raw data.
+The following measures are calculated from the raw data:
 
-\ad{Still at brainstorm stage.}
 \begin{itemize}
-\item percentage of total/open/closed issues with assignees -
-Visibility/Transparency
-\item lines of new code produced per person-month - Productivity
-\item lines/pages of new documents produced per person-month - Productivity
-\item number of issues closed per person-month - Productivity
-\item percentage of comment lines in the code - maintainability \ad{Not Ao's
-qualities}
+\item Status of software package (dead or alive).
+\item Percentage of identified issues that are closed.
+\item Percentage of code that is comments.
 \end{itemize}
 
-In the above calculations, a month can be determined to be 30 days.
-
 \subsection{Tool Tests}
-\ad{This section is currently a note of unorganized contents. Most parts will beremoved or relocated.}
-
-\ad{This citation needs to be deleted later. It's here because my compiler
-doesn't work with 0 citations}
-\cite{Emms2019}
-
-Most tests were done targeting to the repo of 3D Slicer
-\href{https://github.com/tomgi/git_stats}{GitHub repo}
+The following tools are used to gather some of the raw data from the repositories:
 
 \subsubsection{git-stats}\label{gitstats}
 \href{https://github.com/tomgi/git_stats}{GitHub repo}
 
-Test results:
-\href{http://git-stats-slicer.ao9.io/}{http://git-stats-slicer.ao9.io/} the
-results are output as webpages, so I hosted for you to check. Data can be
-downloaded as spreadsheets.
-
-
-\subsubsection{git-stats}\label{scc}
+\subsubsection{scc}\label{scc}
 \href{https://github.com/boyter/scc}{GitHub repo}
-
-
-\subsubsection{git-of-theseus}
-\href{https://github.com/erikbern/git-of-theseus}{GitHub repo}
-
-Test results: It took about 100 minutes for one repo on a 8 core 16G ram Linux
-machine. It only outputs graphs.
-
-\subsubsection{hercules}
-\href{https://github.com/src-d/hercules}{GitHub repo}
-
-Test results: this one seems to be promising, but the installation is
-complicated with various errors.
-
-\subsubsection{git-repo-analysis}
-\href{https://github.com/larsxschneider/git-repo-analysis}{GitHub repo}
-
-\subsubsection{HubListener}
-\href{https://github.com/pjmc-oliveira/HubListener}{GitHub repo}
-
-The data that HubListener can extract.
-
-Raw:
-\begin{itemize}
-\item Number of Files
-\item Number of Lines
-\item Number of Logical Lines
-\item Number of Comments
-\end{itemize}
-
-Cyclomatic:
-\href{https://www.geeksforgeeks.org/cyclomatic-complexity/}{Intro}
-\begin{itemize}
-\item Cyclomatic Complexity
-\end{itemize}
- 
-Halstead:
-\href{https://www.geeksforgeeks.org/software-engineering-halsteads-software-metrics/}{Intro}
-\begin{itemize}
-\item Halstead Effort
-\item Halstead Bugs
-\item Halstead Length
-\item Halstead Difficulty
-\item Halstead Time
-\item Halstead Vocabulary
-\item Halstead Volume
-\end{itemize}
-
-Test results: HubListener works well on the repo of itself, but it did not work
-well on some other repos.
-
-\subsubsection{gitinspector}
-\href{https://github.com/ejwa/gitinspector}{GitHub repo}
-
-Test results: it doesn't work well. Instead of creating output results, it
-prints the results directly in the console.
 
 \section{Measure Using Shallow Measurement Template} \label{SecShallowMeasure}
 For each software package fill out one column in the \href{run:Combined_MeasurementTemplate_EmpiricalMeasures.xlsx}{Measurement Template} following these steps:
@@ -486,7 +415,7 @@ In the above calculations, a month can be determined to be 30 days.
 Most tests were done targeting to the repo of 3D Slicer
 \href{https://github.com/tomgi/git_stats}{GitHub repo}
 
-\subsubsection{git-stats}\label{gitstats}
+\subsubsection{git-stats}
 \href{https://github.com/tomgi/git_stats}{GitHub repo}
 
 Test results:
@@ -495,7 +424,7 @@ results are output as webpages, so I hosted for you to check. Data can be
 downloaded as spreadsheets.
 
 
-\subsubsection{git-stats}\label{scc}
+\subsubsection{scc}
 \href{https://github.com/boyter/scc}{GitHub repo}
 
 
