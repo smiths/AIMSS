@@ -4,8 +4,8 @@
 \usepackage{booktabs}
 \usepackage{amsmath,amsthm}
 \usepackage{hyperref}
+\usepackage{xcolor}
 
-\usepackage{hyperref}
 \hypersetup{
 colorlinks=true,       % false: boxed links; true: colored links
 linkcolor=red,          % color of internal links (change box color with
@@ -30,7 +30,7 @@ urlcolor=cyan           % color of external links
 \newcommand{\jc}[1]{\authornote{red}{JC}{#1}} %Jacques Carette
 \newcommand{\oo}[1]{\authornote{magenta}{OO}{#1}} %Olu Owojaiye
 \newcommand{\pmi}[1]{\authornote{green}{PM}{#1}} %Peter Michalski
-\newcommand{\ad}[1]{\authornote{cyan}{AD}{#1}} %Ao Dong
+\newcommand{\ad}[1]{\authornote{brown}{AD}{#1}} %Ao Dong
 
 \newcommand{\notdone}[1]{\textcolor{red}{#1}}
 \newcommand{\done}[1]{\textcolor{black}{#1}}
@@ -155,6 +155,7 @@ The candidate software can be found through search engine queries and domain rel
 	\item Major function(s) must fall within the identified domain.
 	\item Must have viewable source code.
 	\item Ideally have a git repository or ability to gather emprical measures found in Section \ref{SecEmpiricalMeasures}.
+	\item \ad{``Ideally have the latest release or source code commit within the last 5 years.'' How about this one? Do we care about the ``vintage'' software?}
 \end{enumerate}
 
 \section{How to Initially Filter the Software List} \label{SecInitialFilter}
@@ -162,7 +163,10 @@ The initial list of candidate software should be filtered using the following pr
 \begin{enumerate}
 	\item Organization - The software and any related documentation should appear to be easy to gather and understand.
 	\item Available documentation - The purpose of the software and the installation and usage procedures should appear to be moderately clear or easy to find.
+	\ad{What if installation or usage procedures are unavailable? I think we're measuring that if the software have installation instructions and user manuals,
+	so perhaps they should be kept even if these docs are missing.}
 	\item Status - The software cannot be marked as incomplete or in an initial development phase.
+	\item \ad{What if there are still more candidates than we need? Should we also filter out the ``older'' or ``less popular'' ones if needed? }
 \end{enumerate}
 
 
@@ -235,14 +239,17 @@ The following tools are used to gather some of the raw data from the repositorie
 
 \section{Measure Using Shallow Measurement Template} \label{SecShallowMeasure}
 For each software package fill out one column in the \href{run:Combined_MeasurementTemplate_EmpiricalMeasures.xlsx}{Measurement Template} following these steps:
+\ad{Maybe a one or two sentences introduction to the template?}
 \begin{enumerate}
 	\item Gather the summary information for rows 3 to 20
 	\item Using the GitStats tool found in Section \ref{gitstats} gather the measurements for rows 105 to 112
+	\ad{Will it be easier to use the section names instead of row numbers? Otherwise it can be hard to maintain.}
 	\item Using the SCC tool found in Section \ref{scc} gather the measurements for rows 114 to 118
 	\item If the software package is found on git, gather the measurements for rows 120 to 124
 	\item Review installation documentation and attempt to install the software package
 	\item Gather the measurements for rows 22 to 37
 	\item Gather the measurements for correctness and verifiability in rows 39 to 48
+	\ad{for 7 to 14, maybe we can put them together, to something like "measurements for the followings sections..."}
 	\item Gather the measurements for surface reliability in rows 50 to 56
 	\item Gather the measurements for surface robustness in rows 58 to 61
 	\item Gather the measurements for surface usability in rows 63 to 68
