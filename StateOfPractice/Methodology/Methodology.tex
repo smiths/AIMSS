@@ -260,26 +260,33 @@ The following tools are used to gather some of the raw data from the repositorie
 \href{https://github.com/boyter/scc}{GitHub repo}
 
 \section{Measure Using Measurement Template} \label{SecShallowMeasure}
-For each software package fill out one column in the \href{run:Combined_MeasurementTemplate_EmpiricalMeasures.xlsx}{Measurement Template} following these steps:
-\ad{Maybe a one or two sentences introduction to the template?}
-\begin{enumerate}
-	\item Gather the summary information for rows 3 to 20
-	\item Using the GitStats tool found in Section \ref{gitstats} gather the measurements for rows 105 to 112
-	\ad{Will it be easier to use the section names instead of row numbers? Otherwise it can be hard to maintain.}
-	\item Using the SCC tool found in Section \ref{scc} gather the measurements for rows 114 to 118
-	\item If the software package is found on git, gather the measurements for rows 120 to 124
-	\item Review installation documentation and attempt to install the software package
-	\item Gather the measurements for rows 22 to 37
-	\item Gather the measurements for correctness and verifiability in rows 39 to 48
-	\ad{for 7 to 14, maybe we can put them together, to something like "measurements for the followings sections..."}
-	\item Gather the measurements for surface reliability in rows 50 to 56
-	\item Gather the measurements for surface robustness in rows 58 to 61
-	\item Gather the measurements for surface usability in rows 63 to 68
-	\item Gather the measurements for maintainability in rows 70 to 78
-	\item Gather the measurements for reusability in rows 80 to 83
-	\item Gather the measurements for surface understandability in rows 85 to 94
-	\item Gather the measurements for visibility and transparency in rows 96 to 101
+For each software package fill out one column of the \href{run:Combined_MeasurementTemplate_EmpiricalMeasures.xlsx}{Measurement Template} spreadsheet found in our repository. Follow these steps:
+\ad{Maybe a one or two sentences introduction to the template?} \pmi{SS:"A screenshot of a portion of the template would be very helpful here"}
+
+\pmi{SS:"please add an estimate of how long each measurement typically takes"}
+
+\pmi{SS:"explain any tricky parts with interpreting the parameters of variation for measuring a particular indicator. A few example would help."}
+
+
+\begin{enumerate} 
+	\item Gather the summary information into the top section of the document
+	\item Using the GitStats tool found in Section \ref{gitstats} gather the measurements for the Repo Metrics - GitStats section found near the bottom of the document
+	\item Using the SCC tool found in Section \ref{scc} gather the measurements for the Repo Metrics - SCC section found near the bottom of the document
+	\item If the software package is found on git, gather the measurements for the Repo Metrics - GitHub section found near the bottom of the document
+	\item Review installation documentation and attempt to install the software package on a virtual machine
+	\item Gather the measurements for installability
+	\pmi{SS:"we should mention that the project owners will be contacted for help with installation, if necessary, but that there is a cap on the amount of time spent on installation"}
+	\item Gather the measurements for correctness and verifiability
+	\item Gather the measurements for surface reliability
+	\item Gather the measurements for surface robustness
+	\item Gather the measurements for surface usability
+	\item Gather the measurements for maintainability
+	\item Gather the measurements for reusability
+	\item Gather the measurements for surface understandability
+	\item Gather the measurements for visibility and transparency
+	\item Assign a score out of ten for each quality \pmi{SS:"add some text about how the measure out of 10 is assigned for each quality", link to scoring document}
 \end{enumerate}
+\pmi{SS:"add something about the sensitivity analysis tool and its purpose", explain what the tool is and its purpose, indicate that it will be used in the next section to verify rankings, add it to the next section}
 
 \section{Analytic Hierarchy Process} \label{SecAHP}
 The Analytical Hierarchy Process (AHP) is a decision-making technique that can be used when comparing multiple options by multiple criteria. In our work AHP is used for comparing and ranking the software packages of a domain using the quality scores that are gathered in the \href{run:Combined_MeasurementTemplate_EmpiricalMeasures.xlsx}{Measurement Template}. AHP performs a pairwise analysis between each of the quality options using a matrix which is then used to generate an overall score for each software package for the given criteria. \cite{SmithEtAl2016} shows how AHP is applied to ranking software based on quality measures. We have developed a tool for conducting this process. The tool includes an AHP JAR script and a sensitivity analysis JAR script that is used to ensure that the software package rankings are appropriate with respect to the uncertainty of the quality scores. The README file of the tool is found \href{run:../AHP2020/LBM/README.txt}{here}. This file outlines the requirements for, and configuration and usage of, the JAR scripts. The JAR scripts, source code, and required libraries are located in the same folder as the README file.
