@@ -73,7 +73,7 @@ Purpose and scope of the document.  \wss{Needs to be filled in.  Should
 	reference the overall research proposal, and the ``state of the practice''
 	exercise in particular.  Reference questions we are trying to answer.}
 
-Note the following formatting conventions of this document. Red text denotes a link to information within the document. Purple text denotes a link to supplementary information that is external to this document.\pmi{needs to be added to intro to explain convention} 
+Note the following formatting conventions of this document. Red text denotes a link to information within the document. Purple text denotes a link to supplementary information that is external to this document. Blue text denotes a URL link.\pmi{needs to be added to intro to explain convention} 
 
 \section{Research Questions}\label{ResearchQuestions}
 	\begin{enumerate} 
@@ -212,10 +212,11 @@ A sample commonality analysis for Lattice Boltzmann Solvers can be found
 \href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/Peter-Notes/Commonality-Analysis-LB-Systems.pdf}{here}.
 
 \section{Empirical Measures} \label{SecEmpiricalMeasures}
+\pmi{Add introduction.  We should orient the reader on the purpose of this section, and provide a brief roadmap of the subsections.}
 
 \subsection{Raw Data}
 The following raw data measures are extracted from repositories:
-
+\pmi{SS:"we should say why we are collecting this data. It is okay to say that we are collecting data that is reasonably easy to collect. We will then put the data together and analyze it. However, we should also relate the measures we are collecting to questions we want to answer. Ideally, we will relate the data to our research questions. For instance, we are collecting some of the data to see how large a project is. More files, more lines of code, etc, means a larger project. The number of developers is another measure of size. Other measures are intended to ascertain a project's popularity, like the number of stars and forks. Other measures are intended to see how active the project is, like the measures related to the history of commits."}
 \begin{itemize}
 \item Number of stars.
 \item Number of forks.
@@ -246,19 +247,13 @@ The following raw data measures are extracted from repositories:
 The following measures are calculated from the raw data:
 
 \begin{itemize}
-\item Status of software package (dead or alive).
+\item Status of software package (dead or alive). Alive is defined as the presence of repository commits or software package version releases in the last 18 months.
 \item Percentage of identified issues that are closed.
 \item Percentage of code that is comments.
 \end{itemize}
 
-\subsection{Tool Tests}
-The following tools are used to gather some of the raw data from the repositories:
-
-\subsubsection{git-stats}\label{gitstats}
-\href{https://github.com/tomgi/git_stats}{GitHub repo}
-
-\subsubsection{scc}\label{scc}
-\href{https://github.com/boyter/scc}{GitHub repo}
+\subsection{Tools}
+\href{https://github.com/tomgi/git_stats}{GitStats} is used to measure the number of binary files as well as the number of added and deleted lines in a repository. The tool is also used to measuring the number of commits over different intervals of time. \href{https://github.com/boyter/scc}{Sloc Cloc and Code (scc)} is used to measure the number of text based files as well as the number of total, code, comment, and blank lines in a repository. These tools were selected due to their installability, usability, and ability to gather the above empirical measures. A guide for installing and running them can be found \href{run:A Guide to Empirical Measures.pdf}{here}.
 
 \section{Measure Using Measurement Template} \label{SecShallowMeasure}
 For each software package fill out one column of the \href{run:Combined_MeasurementTemplate_EmpiricalMeasures.xlsx}{Measurement Template} spreadsheet found in our repository. Follow these steps:
