@@ -245,11 +245,13 @@ A sample commonality analysis for Lattice Boltzmann Solvers can be found
 \href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/Peter-Notes/Commonality-Analysis-LB-Systems.pdf}{here}.
 
 \section{Empirical Measures} \label{SecEmpiricalMeasures}
-\pmi{Add introduction.  We should orient the reader on the purpose of this section, and provide a brief roadmap of the subsections.}
+Some quality measurements rely on the gathering of raw and processed empirical data. We focus on data that is reasonably easy to collect, which we combine and analyze for this assessment. The measures that are collected relate to the research questions that we want to answer. For instance, we collect some of the data to see how large a project is. Other measures intend to ascertain a project’s popularity, or how active the project is.
+Section \ref{rawdata} will orient the reader as to what raw data is collected. 
+Some of this data can be observed from Git repository metrics. The rest can be collected using freeware tools. \href{https://github.com/tomgi/git_stats}{GitStats} is used to measure the number of binary files as well as the number of added and deleted lines in a repository. The tool is also used to measure the number of commits over different intervals of time. \href{https://github.com/boyter/scc}{Sloc Cloc and Code (scc)} is used to measure the number of text based files as well as the number of total, code, comment, and blank lines in a repository. These tools were selected due to their installability, usability, and ability to gather the empirical measures listed below. A guide for installing and running them can be found \href{run:A Guide to Empirical Measures.pdf}{here}. Section \ref{processeddata} introduces the required processed data, which is calculated using the raw data.
 
-\subsection{Raw Data}
+\subsection{Raw Data}\label{rawdata}
 The following raw data measures are extracted from repositories:
-\pmi{SS:"we should say why we are collecting this data. It is okay to say that we are collecting data that is reasonably easy to collect. We will then put the data together and analyze it. However, we should also relate the measures we are collecting to questions we want to answer. Ideally, we will relate the data to our research questions. For instance, we are collecting some of the data to see how large a project is. More files, more lines of code, etc, means a larger project. The number of developers is another measure of size. Other measures are intended to ascertain a project's popularity, like the number of stars and forks. Other measures are intended to see how active the project is, like the measures related to the history of commits."}
+
 \begin{itemize}
 \item Number of stars.
 \item Number of forks.
@@ -276,7 +278,7 @@ The following raw data measures are extracted from repositories:
 \end{itemize}
 
 
-\subsection{Processed Data}
+\subsection{Processed Data}\label{processeddata}
 The following measures are calculated from the raw data:
 
 \begin{itemize}
@@ -285,16 +287,14 @@ The following measures are calculated from the raw data:
 \item Percentage of code that is comments.
 \end{itemize}
 
-\subsection{Tools}
-\href{https://github.com/tomgi/git_stats}{GitStats} is used to measure the number of binary files as well as the number of added and deleted lines in a repository. The tool is also used to measuring the number of commits over different intervals of time. \href{https://github.com/boyter/scc}{Sloc Cloc and Code (scc)} is used to measure the number of text based files as well as the number of total, code, comment, and blank lines in a repository. These tools were selected due to their installability, usability, and ability to gather the above empirical measures. A guide for installing and running them can be found \href{run:A Guide to Empirical Measures.pdf}{here}.
-
 \section{Measure Using Measurement Template} \label{SecShallowMeasure}
 
 \begin{figure}[h!]
 	\begin{center}
 		\includegraphics[width=1.0\textwidth]{measurement_template}
 		\caption{Top of Measurement Template}
-		\label{measurement_template_image}
+		\label{measurement_template_image}
+
 	\end{center}
 \end{figure}
 
