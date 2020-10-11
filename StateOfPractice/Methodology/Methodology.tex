@@ -143,23 +143,23 @@ Questions from Overall Research Project folder:
 \begin{enumerate}
 \item Start with state of practice research questions. (Section~\ref{ResearchQuestions}) \pmi{To be completed}
 \item Identify the domain. (Section~\ref{SecIdentifyDomain}) \pmi{To be completed based on suggestions}
-\item \emph{Domain Experts}: Create a top ten list of software packages in the domain. (\href{run:Meeting Agenda with Domain Experts.pdf}{Meeting Agenda with Domain Experts})
-\item Brief the Domain Experts on the overall objective, research proposal, research questions, measurement template, survey for short list projects, usability tests, performance benchmarks, maintainability experiments. (\href{run:Meeting Agenda with Domain Experts.pdf}{Meeting Agenda with Domain Experts})
+\item \emph{Domain Experts}: Create a top ten list of software packages in the domain. (\href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/Methodology/Meeting Agenda withmDomainmExperts.pdf}{Meeting Agenda with Domain Experts})
+\item Brief the Domain Experts on the overall objective, research proposal, research questions, measurement template, survey for short list projects, usability tests, performance benchmarks, maintainability experiments. (\href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/Methodology/Meeting Agenda withmDomainmExperts.pdf}{Meeting Agenda with Domain Experts})
 \item Identify broad list of candidate software packages in the domain. (Section~\ref{SecIdentifyCandSoft}) \pmi{To be reviewed}
 \item Preliminary filter of software packages list. (Section~\ref{SecInitialFilter}) \pmi{To be reviewed}
-\item \emph{Domain Experts}: Review domain software list. (\href{run:Meeting Agenda with Domain Experts.pdf}{Meeting Agenda with Domain Experts})
+\item \emph{Domain Experts}: Review domain software list. (\href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/Methodology/Meeting Agenda withmDomainmExperts.pdf}{Meeting Agenda with Domain Experts})
 \item Domain Analysis. (Section~\ref{SecDomainAnalysis})\pmi{To be reviewed}
-\item \emph{Domain Experts}: Vet domain analysis. (\href{run:Meeting Agenda with Domain Experts.pdf}{Meeting Agenda with Domain Experts}) \pmi{This was part of the original Steps in Assessing Quality list. We need to add it to the Meeting Agenda}
+\item \emph{Domain Experts}: Vet domain analysis. (\href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/Methodology/Meeting Agenda withmDomainmExperts.pdf}{Meeting Agenda with Domain Experts}) \pmi{This was part of the original Steps in Assessing Quality list. We need to add it to the Meeting Agenda}
 \item Gather source code and documentation for each prospective software package.
 \item Collect empirical measures. (Section~\ref{SecEmpiricalMeasures}) \pmi{To be completed - go over how to clean this up in meeting, or through an issue}
 \item Measure using measurement template. (Section~\ref{SecShallowMeasure}) \pmi{To be reviewed}
 \item Use AHP process to rank the software packages. (Section~\ref{SecAHP}) \pmi{To be reviewed}
 \item Identify a short list of top software packages, typically four to six, for deeper exploration according to the AHP rankings of the measurements.
-\item \emph{Domain Experts}: Vet AHP ranking and short list. (\href{run:Meeting Agenda with Domain Experts.pdf}{Meeting Agenda with Domain Experts})
+\item \emph{Domain Experts}: Vet AHP ranking and short list. (\href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/Methodology/Meeting Agenda withmDomainmExperts.pdf}{Meeting Agenda with Domain Experts})
 \item With short list:
 \begin{enumerate}
-\item Survey developers (\href{run:Questions to Developers.pdf}{Questions to Developers})
-\item Usability experiments (\href{run:User Experiments.pdf}{User Experiments})
+\item Survey developers (\href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/Methodology/Questions to Developers.pdf}{Questions to Developers})
+\item Usability experiments (\href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/Methodology/User Experiments.pdf}{User Experiments})
 \item Performance benchmarks\pmi{note: this is still in consideration}
 \item Maintainability experiments\pmi{note: these experiments need to be completed - to be discussed at next meeting}
 \end{enumerate}
@@ -286,7 +286,7 @@ The following measures are calculated from the raw data:
 	\end{center}
 \end{figure}
 
-The \href{run:Combined_MeasurementTemplate_EmpiricalMeasures.xlsx}{Measurement Template} is used to track measurements and quality scores for all of the software packages in the domain. For each software package, fill out one column of the template. This process can take between 2 to 5 hours for each package.
+The \href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/Methodology/Combined_MeasurementTemplate_EmpiricalMeasures.xlsx}{Measurement Template} is used to track measurements and quality scores for all of the software packages in the domain. For each software package, fill out one column of the template. This process can take between 2 to 5 hours for each package.
 Project developers can be contacted for help regarding installation, if necessary, but a cap of about 2 hours should be imposed on the entire installation process. For completing the template, please follow these steps:
 
 \pmi{SS:"explain any tricky parts with interpreting the parameters of variation for measuring a particular indicator. A few example would help."}\pmi{Ask Ao for input}
@@ -306,11 +306,11 @@ Project developers can be contacted for help regarding installation, if necessar
 	\item Gather the measurements for reusability
 	\item Gather the measurements for surface understandability
 	\item Gather the measurements for visibility and transparency
-	\item Assign a score out of ten for each quality. The score can be measured using the \href{run:MeasurementTemplate_ImpressionCalculator.xlsx}{Measurement Template Impression Calculator}. For each quality measurement, the file indicates the appropriate score to assign the measurement based on possible measurement values.
+	\item Assign a score out of ten for each quality. The score can be measured using the \href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/Methodology/MeasurementTemplate_ImpressionCalculator.xlsx}{Measurement Template Impression Calculator}. For each quality measurement, the file indicates the appropriate score to assign the measurement based on possible measurement values.
 \end{enumerate}
 
 \section{Analytic Hierarchy Process} \label{SecAHP}
-The Analytical Hierarchy Process (AHP) is a decision-making technique that can be used when comparing multiple options by multiple criteria. In our work AHP is used for comparing and ranking the software packages of a domain using the quality scores that are gathered in the \href{run:Combined_MeasurementTemplate_EmpiricalMeasures.xlsx}{Measurement Template}. AHP performs a pairwise analysis between each of the quality options using a matrix which is then used to generate an overall score for each software package for the given criteria. \cite{SmithEtAl2016} shows how AHP is applied to ranking software based on quality measures. We have developed a tool for conducting this process. The tool includes an AHP JAR script and a sensitivity analysis JAR script that is used to ensure that the software package rankings are appropriate with respect to the uncertainty of the quality scores. The README file of the tool is found \href{run:../AHP2020/LBM/README.txt}{here}. This file outlines the requirements for, and configuration and usage of, the JAR scripts. The JAR scripts, source code, and required libraries are located in the same folder as the README file.
+The Analytical Hierarchy Process (AHP) is a decision-making technique that can be used when comparing multiple options by multiple criteria. In our work AHP is used for comparing and ranking the software packages of a domain using the quality scores that are gathered in the \href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/Methodology/Combined_MeasurementTemplate_EmpiricalMeasures.xlsx}{Measurement Template}. AHP performs a pairwise analysis between each of the quality options using a matrix which is then used to generate an overall score for each software package for the given criteria. \cite{SmithEtAl2016} shows how AHP is applied to ranking software based on quality measures. We have developed a tool for conducting this process. The tool includes an AHP JAR script and a sensitivity analysis JAR script that is used to ensure that the software package rankings are appropriate with respect to the uncertainty of the quality scores. The README file of the tool is found \href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/AHP2020/LBM/README.txt}{here}. This file outlines the requirements for, and configuration and usage of, the JAR scripts. The JAR scripts, source code, and required libraries are located in the same folder as the README file.
 
 \section{Rank Short List} \label{SecRankShortList}
 Rank using pairwise comparison of short list software packages with respect to usability survey results.
