@@ -68,15 +68,10 @@ Olu Owojaiye and Peter Michalski and Ao Dong}
 \tableofcontents
 
 \section{Introduction} \label{SecIntroduction}
+The scope of this document is to conduct a current state of practice analysis of software in a scientific computing domain for the purpose of understanding quality and assisting in future development. The methodology presented here is part of an overall assessment of the impact of model driven engineering and code generation on the sustainability of scientific computing software. The research proposal for this assessment, which contains a more detailed description of this state of practice exercise, can be found \href{https://github.com/smiths/AIMSS/blob/master/OverallResearchProposal/ResearchProposal.pdf}{here}. The research questions that this exercise will answer are found in Section \ref{ResearchQuestions}. Section \ref{StepsAQDS} outlines the steps to be taken. 
+ 
+ Note the following formatting conventions of this document. \textcolor{red}{Red} text denotes a link to information within this document. \textcolor{cyan}{Cyan} text denotes a URL link.
 
-Purpose and scope of the document.  \wss{Needs to be filled in.  Should
-  reference the overall research proposal, and the ``state of the practice''
-  exercise in particular.  Reference questions we are trying to answer.}
-
-Note the following formatting conventions of this document. Red text denotes a
-link to information within the document. Purple text denotes a link to
-supplementary information that is external to this document. Blue text denotes a
-URL link.\pmi{needs to be added to intro to explain convention}
 
 \section{Research Questions}\label{ResearchQuestions}
 
@@ -139,9 +134,9 @@ The following are research questions that we want to answer to assess the state 
 \item \emph{Domain Experts}: Create a top ten list of software packages in the domain. (\href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/Methodology/Meeting Agenda withmDomainmExperts.pdf}{Meeting Agenda with Domain Experts})
 \item Brief the Domain Experts on the overall objective, research proposal, research questions, measurement template, survey for short list projects, usability tests, performance benchmarks, maintainability experiments. (\href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/Methodology/Meeting Agenda withmDomainmExperts.pdf}{Meeting Agenda with Domain Experts})
 \item Identify broad list of candidate software packages in the domain. (Section~\ref{SecIdentifyCandSoft})
-\item Preliminary filter of software packages list. (Section~\ref{SecInitialFilter}) \pmi{To be edited based on feedback}
+\item Preliminary filter of software packages list. (Section~\ref{SecInitialFilter}) \pmi{in final review}
 \item \emph{Domain Experts}: Review domain software list. (\href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/Methodology/Meeting Agenda withmDomainmExperts.pdf}{Meeting Agenda with Domain Experts})
-\item Domain Analysis. (Section~\ref{SecDomainAnalysis})\pmi{To be edited - add intro}
+\item Domain Analysis. (Section~\ref{SecDomainAnalysis})
 \item \emph{Domain Experts}: Vet domain analysis. (\href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/Methodology/Meeting Agenda withmDomainmExperts.pdf}{Meeting Agenda with Domain Experts}) 
 \item Gather source code and documentation for each prospective software package.
 \item Collect empirical measures. (Section~\ref{SecEmpiricalMeasures})
@@ -297,9 +292,9 @@ Project developers can be contacted for help regarding installation, if necessar
 The Analytical Hierarchy Process (AHP) is a decision-making technique that can be used when comparing multiple options by multiple criteria. In our work AHP is used for comparing and ranking the software packages of a domain using the quality scores that are gathered in the \href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/Methodology/Combined_MeasurementTemplate_EmpiricalMeasures.xlsx}{Measurement Template}. AHP performs a pairwise analysis between each of the quality options using a matrix which is then used to generate an overall score for each software package for the given criteria. \cite{SmithEtAl2016} shows how AHP is applied to ranking software based on quality measures. We have developed a tool for conducting this process. The tool includes an AHP JAR script and a sensitivity analysis JAR script that is used to ensure that the software package rankings are appropriate with respect to the uncertainty of the quality scores. The README file of the tool is found \href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/AHP2020/LBM/README.txt}{here}. This file outlines the requirements for, and configuration and usage of, the JAR scripts. The JAR scripts, source code, and required libraries are located in the same folder as the README file.
 
 \section{Rank Short List} \label{SecRankShortList}
-Rank using pairwise comparison of short list software packages with respect to usability survey results.
-
-\pmi{SS: let's ask the people that do the usability/performance/maintainability experiments to do an AHP pair-wise comparison between the short-list software packages}
+An AHP pairwise comparison between the short list packages with respect to usability and modifiability survey results, as well as performance benchmarks, is conducted by the domain expert. The tool can be found here. The usability and modifiability survey can be found \href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/Methodology/Experiments.pdf}{here}. Performance benchmarks can be found here.
+\pmi{are we adding a tool for this?}
+\pmi{performance benchmarks will be domain specific, how to proceed with providing a resource/guidance?}
 
 \section{Quality Specific Measures}
 
