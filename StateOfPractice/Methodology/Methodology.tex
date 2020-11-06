@@ -143,7 +143,7 @@ The following are research questions that we want to answer to assess the state 
 \item \emph{Domain Experts}: Vet domain analysis. (\href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/Methodology/Meeting Agenda withmDomainmExperts.pdf}{Meeting Agenda with Domain Experts}) 
 \item Gather source code and documentation for each prospective software package.
 \item Collect empirical measures. (Section~\ref{SecEmpiricalMeasures})
-\item Measure using measurement template. (Section~\ref{SecShallowMeasure}) \pmi{To be edited based on feedback}
+\item Measure using measurement template. (Section~\ref{SecShallowMeasure}) \pmi{To be reviewed}
 \item Use AHP process to rank the software packages. (Section~\ref{SecAHP})
 \item Identify a short list of top software packages, typically four to six, for deeper exploration according to the AHP rankings of the measurements.
 \item \emph{Domain Experts}: Vet AHP ranking and short list. (\href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/Methodology/Meeting Agenda withmDomainmExperts.pdf}{Meeting Agenda with Domain Experts})
@@ -153,7 +153,7 @@ The following are research questions that we want to answer to assess the state 
 \item Usability experiments (\href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/Methodology/Experiments.pdf}{Experiments})
 \item Modifiability experiments (\href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/Methodology/Experiments.pdf}{Experiments})
 \end{enumerate}
-\item Rank short list. (Section~\ref{SecRankShortList}) \pmi{To be completed}
+\item Rank short list. (Section~\ref{SecRankShortList}) \pmi{To be completed - add pairwise comparison tool}
 \item Document answers for research questions.
 \end{enumerate}
 
@@ -266,44 +266,23 @@ The following measures are calculated from the raw data:
 \end{figure}
 
 The \href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/Methodology/Combined_MeasurementTemplate_EmpiricalMeasures.xlsx}{Measurement Template} is used to track measurements and quality scores for all of the software packages in the domain. For each software package, fill out one column of the template. This process can take between 2 to 5 hours for each package.
-Project developers can be contacted for help regarding installation, if necessary, but a cap of about 2 hours should be imposed on the entire installation process. For completing the template, please follow these steps:
+Project developers can be contacted for help regarding installation, if necessary, but a cap of about 2 hours should be imposed on the entire installation process. 
 
-\pmi{SS:"explain any tricky parts with interpreting the parameters of variation for measuring a particular indicator. A few example would help."}\pmi{Ask Ao for input}
+Some guidance on applying sections of the template:
 
-\pmi{first pass for `tricky parts'; under summary information:
-	``Publications about the software''
-	list of publications can be found on some software websites, for others you may use google scholar or similar indexes,
-``Is there evidence that performance was considered?'' Look for mention of any
-items, broad scope to answer yes but must include explanatory text: speed,
-storage, throughput consideration as well as comments on performance
-optimization/development, GPU processing, parallelism, multicore processing, or
-similar considerations} \ad{For ``performance'', the powerful search function
-from Github can help. What I did is searching ``performance'' in the repo on
-github.com, and usually I can get some author's comments regarding it. For
-projects not hosting on github (e.g. on SourceForge), I just upload it as my own
-repo, then to the search.}
-
-\ad{Tricky parts: (1). I second ``Publications'' - it's really hard to search by
-the software name sometimes. For example, I have software with names such as
-``DICOM Viewer'' and ``GATE''. (2). ``Initial release date'' - it's very hard to
-find the exact date, so for most of them, I used the release year. (3).
-``continuous integration'' - sometimes it's hard to find out from the repo if
-the authors don't mention it in any document. (4). ``getting started tutorial''
-vs ``user manual'' - many projects don't have a clear distinction between these
-two.}
-
-\ad{Tricky parts: (1). I second ``Publications'' - it's really hard to search by
-the software name sometimes. For example, I have software with names such as
-``DICOM Viewer'' and ``GATE''. (2). ``Initial release date'' - it's very hard to
-find the exact date, so for most of them, I used the release year. (3).
-``continuous integration'' - sometimes it's hard to find out from the repo if
-the authors don't mention it in any document. (4). ``getting started tutorial''
-vs ``user manual'' - many projects don't have a clear distinction between these
-two.}
+\begin{enumerate}
+	\item Publications about the software: A list of publications can be found directly on the website of some software packages. For others use Google Scholar or a similar index.
+	\item Initial release date: Mark the release year if an exact date is not available.
+	\item Continuous integration: Search the software artifacts for any mention of continuous integration. The search function on GitHub can help. 
+	\item Is there evidence that performance was considered?: Search the software artifacts for any mention of speed, storage, throughput, performance optimization, parallelism, multi-core processing, or similar considerations. The search function on GitHub can help.
+	\item Getting started tutorial: Sometimes this is found within another artifact, like the user manual.
+\end{enumerate}
 
 \ad{Might need improvements: ``Are constants (other than 0 and 1) hard coded
-into the program? (\{yes, no* , unclear\})''. Why we need extra comments if the
-answer is ``no''?}
+	into the program? (\{yes, no* , unclear\})''. Why we need extra comments if the	answer is ``no''?}\pmi{good question, to be brought up at meeting}
+
+
+For completing the template, please follow these steps:
 
 \begin{enumerate} 
 	\item Gather the summary information into the top section of the document (Figure \ref{measurement_template_image})
