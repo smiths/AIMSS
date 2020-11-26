@@ -1,6 +1,6 @@
 \documentclass[letterpaper,cleveref]{lipics-v2019}
 
-\usepackage{natbib}
+\usepackage[round]{natbib}
 \usepackage{booktabs}
 \usepackage{amsmath,amsthm}
 \usepackage{hyperref}
@@ -87,7 +87,7 @@ Note the following formatting conventions of this document. \textcolor{red}{Red}
 text denotes a link to sections of this document. \textcolor{cyan}{Cyan}
 text denotes a URL link. \textcolor{blue}{Blue} text denotes a citation.
 
-\section{Research Questions}\label{ResearchQuestions}
+\section{Research Questions} \label{ResearchQuestions}
 
 The following are the research questions that we wish to answer for each of our
 selected domains.  In addition to answering the questions for each domain, we
@@ -277,20 +277,32 @@ Copies of both the initial and filtered lists should be kept for traceability pu
 
 \section{Domain Analysis} \label{SecDomainAnalysis}
 
-The domain analysis consists of a commonality analysis of the family of software
-packages. Its purpose is to show the relationships between these packages, and
-to facilitate an understanding of the informal specification and development of
-them. \cite{weiss1997defining} defines commonality analysis as an approach to
-defining a family by identifying commonalities, variabilities, and common
-terminology for the family. Commonalities are goals, theories, models,
-definitions and assumptions that are common between family members. Likewise,
-variabilities are goals, theories, models, definitions and assumptions that are
-different between family members. The final result of the domain analysis will
-be tables of commonalities, variabilities, and parameters of variation of a
-program family, which \cite{parnas1976design} defines as ``a set of programs
-whose common properties are so extensive that it is advantageous to study the
-common properties of the programs before analyzing individual
-members''. \cite{smith2008commonality} present a template for conducting a
+Since each domain we will study will have a reasonably small scope, we
+will be able to view the software as constituting a program
+family.  The concept of a program family is defined by \citet{parnas1976design}
+as ``a set of programs whose common properties are so extensive that it is
+advantageous to study the common properties of the programs before analyzing
+individual members''.  Studying the common properties within a family of related
+programs is termed a domain analysis.
+
+The domain analysis consists of a commonality analysis of
+the family of software packages. Its purpose is to show the relationships
+between these packages, and to facilitate an understanding of the informal
+specification and development of them. \cite{weiss1997defining} defines
+commonality analysis as an approach to defining a family by identifying
+commonalities, variabilities, and common terminology for the
+family. Commonalities are goals, theories, models, definitions and assumptions
+that are common between family members.  Variabilities are goals, theories,
+models, definitions and assumptions that differ between family
+members. Associated with each variability are its parameters of variation, which
+summarize the possible values for that variability, along with their potential
+binding time.  The binding time is when the value of the variability is set.  It
+could be set as specification time, build time (when the program is being
+compiled) or run time (when the code is executing).
+
+The final result of the domain analysis will be
+tables of commonalities, variabilities, and parameters of variation of a program
+family.   \cite{smith2008commonality} present a template for conducting a
 commonality analysis, which was referred to when conducting this
 work. \cite{weiss1998commonality} describes another commonality analysis
 technique for deciding the members of a program family which readers are
@@ -309,29 +321,31 @@ respectively. The steps to produce a commonality analysis are:
 \end{enumerate}
 
 A sample commonality analysis for Lattice Boltzmann Solvers can be found
-\href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/Peter-Notes/Commonality-Analysis-LB-Systems.pdf}{here}.
+\href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/Peter-Notes/Commonality-Analysis-LB-Systems.pdf}
+{here}.
 
 \section{Empirical Measures} \label{SecEmpiricalMeasures}
 
 Some quality measurements rely on the gathering of raw and processed empirical
 data. We focus on data that is reasonably easy to collect, which we combine and
 analyze for this assessment. The measures that are collected relate to the
-research questions that we want to answer. For instance, we collect some of the
+research questions (Section~\ref{ResearchQuestions}). For instance, we collect some of the
 data to see how large a project is. Other measures intend to ascertain a
-project’s popularity, or how active the project is.  Section \ref{rawdata} will
-orient the reader as to what raw data is collected.  Some of this data can be
+project’s popularity, or how active the project is.  
+
+Section \ref{rawdata} orients the reader on what raw data is collected.  Some of this data can be
 observed from Git repository metrics. The rest can be collected using freeware
 tools. \href{https://github.com/tomgi/git_stats}{GitStats} is used to measure
 the number of binary files as well as the number of added and deleted lines in a
-repository. The tool is also used to measure the number of commits over
+repository. This tool is also used to measure the number of commits over
 different intervals of time. \href{https://github.com/boyter/scc}{Sloc Cloc and
   Code (scc)} is used to measure the number of text based files as well as the
 number of total, code, comment, and blank lines in a repository. These tools
 were selected due to their installability, usability, and ability to gather the
-empirical measures listed below. A guide for installing and running them can be
-found
+empirical measures listed below. Details on installing and running the tools can
+be found in our 
 \href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/Methodology/A
-  Guide to Empirical Measures.pdf} {here}. Section \ref{processeddata}
+  Guide to Empirical Measures.pdf} {Guide to Empirical Measures}. Section \ref{processeddata}
 introduces the required processed data, which is calculated using the raw data.
 
 \subsection{Raw Data}\label{rawdata}
@@ -359,7 +373,8 @@ The following raw data measures are extracted from repositories:
 \item Number of total lines added to text-based files.
 \item Number of total lines deleted from text-based files.
 \item Number of total commits.
-\item Numbers of commits by year in the last 5 years. (Count from as early as possible if the project is younger than 5 years.) 
+\item Numbers of commits by year in the last 5 years. (Count from as early as
+  possible if the project is younger than 5 years.)
 \item Numbers of commits by month in the last 12 months.
 \end{itemize}
 
@@ -388,13 +403,15 @@ The following measures are calculated from the raw data:
 The
 \href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/Methodology/Combined_MeasurementTemplate_EmpiricalMeasures.xlsx}
 {Measurement Template} is used to track measurements and quality scores for all
-of the software packages in the domain. For each software package, fill out one
+of the software packages in the domain. For each software package, we fill out one
 column of the template. This process can take between 2 to 5 hours for each
 package.  Project developers can be contacted for help regarding installation,
 if necessary, but a cap of about 2 hours should be imposed on the entire
-installation process.
+installation process, to keep the overall measurement time feasible.
 
-Some guidance on applying sections of the template:
+Most of the data to be collected should be straightforward from reviewing the
+measurement template.  However, in some cases some extra guidance is necessary
+to eliminate ambiguity, as follows:
 
 \begin{enumerate}
 \item Initial release date: Mark the release year if an exact date is not
@@ -412,7 +429,7 @@ Some guidance on applying sections of the template:
   continuous integration. The search function on GitHub can help.
 \end{enumerate}
 
-For completing the template, please follow these steps:
+For completing the template, the following steps should be followed:
 
 \begin{enumerate}
 \item Gather the summary information into the top section of the document
@@ -471,12 +488,14 @@ usability and modifiability survey results is conducted by the domain
 expert. The tool can be found here. The usability and modifiability survey can
 be found
 \href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/Methodology/Experiments.pdf}
-{here}. This step is intended to start a conversation about the features of
-specific software packages.
+{here}. This step is intended to start a conversation about the relative quality of
+short-listed software packages.
 
 \section{Using Data to Rank Family Members}
 
 Describe AHP process (or similar).
+
+\newpage
 
 \appendix
 
