@@ -1,0 +1,149 @@
+\documentclass[letterpaper,cleveref]{lipics-v2019}
+
+\usepackage[round]{natbib}
+\usepackage{booktabs}
+\usepackage{amsmath,amsthm}
+\usepackage{hyperref}
+\usepackage{xcolor}
+
+\hypersetup{
+colorlinks=true,       % false: boxed links; true: colored links
+linkcolor=red,          % color of internal links (change box color with
+%linkbordercolor)
+citecolor=blue,       % color of links to bibliography
+filecolor=magenta,   % color of file links
+urlcolor=cyan           % color of external links
+}
+
+%% Comments
+\newif\ifcomments\commentstrue
+
+\ifcomments
+\newcommand{\authornote}[3]{\textcolor{#1}{[#3 ---#2]}}
+\newcommand{\todo}[1]{\textcolor{red}{[TODO: #1]}}
+\else
+\newcommand{\authornote}[3]{}
+\newcommand{\todo}[1]{}
+\fi
+
+\newcommand{\wss}[1]{\authornote{blue}{SS}{#1}} %Spencer Smith
+\newcommand{\jc}[1]{\authornote{red}{JC}{#1}} %Jacques Carette
+\newcommand{\oo}[1]{\authornote{magenta}{OO}{#1}} %Olu Owojaiye
+\newcommand{\pmi}[1]{\authornote{green}{PM}{#1}} %Peter Michalski
+\newcommand{\ad}[1]{\authornote{brown}{AD}{#1}} %Ao Dong
+
+\newcommand{\notdone}[1]{\textcolor{red}{#1}}
+\newcommand{\done}[1]{\textcolor{black}{#1}}
+
+%\oddsidemargin 0mm
+%\evensidemargin 0mm
+%\textwidth 160mm
+%\textheight 200mm
+
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}
+
+\title{Methodology Document Traceability} 
+\author{Spencer Smith}{McMaster University, Canada}{smiths@mcmaster.ca}{}{}
+\author{Jacques Carette}{McMaster University, Canada}{carette@mcmaster.ca}{}{}
+\author{Olu Owojaiye}{McMaster University, Canada}{owojaiyo@mcmaster.ca}{}{}
+\author{Peter Michalski}{McMaster University, Canada}{michap@mcmaster.ca}{}{}
+\author{Ao Dong}{McMaster University, Canada}{donga9@mcmaster.ca}{}{}
+
+\authorrunning{Smith et al.}  \Copyright{Spencer Smith and Jacques Carette and
+Olu Owojaiye and Peter Michalski and Ao Dong}
+
+\date{\today}
+
+\hideLIPIcs
+\nolinenumbers
+
+\begin{document}
+\maketitle
+\newpage
+\section{Empirical Measurement}
+
+\subsection{Empirical Measures Considerations - Tool Tests}
+
+The following tools were considered when selecting a tool for taking empirical measurements of repositories. 
+
+Most tests were done targeting to the repo of 3D Slicer
+\href{https://github.com/tomgi/git_stats}{GitHub repo}
+
+\subsubsection{git-stats}
+
+\href{https://github.com/tomgi/git_stats}{GitHub repo}
+
+Test results:
+\href{http://git-stats-slicer.ao9.io/}{http://git-stats-slicer.ao9.io/} the
+results are output as webpages, so I hosted for you to check. Data can be
+downloaded as spreadsheets.
+
+\subsubsection{scc}
+
+\href{https://github.com/boyter/scc}{GitHub repo}
+
+\subsubsection{git-of-theseus}
+
+\href{https://github.com/erikbern/git-of-theseus}{GitHub repo}
+
+Test results: It took about 100 minutes for one repo on a 8 core 16G ram Linux
+machine. It only outputs graphs.
+
+\subsubsection{hercules}
+
+\href{https://github.com/src-d/hercules}{GitHub repo}
+
+Test results: this one seems to be promising, but the installation is
+complicated with various errors.
+
+\subsubsection{git-repo-analysis}
+\href{https://github.com/larsxschneider/git-repo-analysis}{GitHub repo}
+
+\subsubsection{HubListener}
+\href{https://github.com/pjmc-oliveira/HubListener}{GitHub repo}
+
+The data that HubListener can extract.
+
+Raw:
+\begin{itemize}
+\item Number of Files
+\item Number of Lines
+\item Number of Logical Lines
+\item Number of Comments
+\end{itemize}
+
+Cyclomatic:
+\href{https://www.geeksforgeeks.org/cyclomatic-complexity/}{Intro}
+\begin{itemize}
+\item Cyclomatic Complexity
+\end{itemize}
+
+Halstead:
+\href{https://www.geeksforgeeks.org/software-engineering-halsteads-software-metrics/}{Intro}
+\begin{itemize}
+\item Halstead Effort
+\item Halstead Bugs
+\item Halstead Length
+\item Halstead Difficulty
+\item Halstead Time
+\item Halstead Vocabulary
+\item Halstead Volume
+\end{itemize}
+
+Test results: HubListener works well on the repo of itself, but it did not work
+well on some other repos.
+
+\subsubsection{gitinspector}
+
+\href{https://github.com/ejwa/gitinspector}{GitHub repo}
+
+Test results: it doesn't work well. Instead of creating output results, it
+prints the results directly in the console.
+
+\newpage
+
+\bibliographystyle {plainnat}
+\bibliography {../../CommonFiles/ResearchProposal}
+
+\end{document}
