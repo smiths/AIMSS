@@ -81,26 +81,98 @@ Olu Owojaiye and Peter Michalski and Ao Dong}
 
 \section{Introduction} \label{SecIntroduction}
 
-Research software involves using scientific computing tools to simulate
-mathematical models of real world systems so that we can better understand and
-predict the system's behaviour.  A small sample of some important examples of
-research software include the following: designing new automotive parts,
-analysing the flow of blood in the body, and determining the concentration of a
-pollutant released into the groundwater.  As these examples illustrate, research
-software can be used for tackling problems that impact such areas as
-manufacturing, financial planning, environmental policy, and the health, welfare
-and safety of communities.
+Research software uses computing to simulate mathematical models of real world
+systems so that we can better understand and predict the system's behaviour.  A
+small sample of some important examples of research software include the
+following: designing new automotive parts, analysing the flow of blood in the
+body, and determining the concentration of a pollutant released into the
+groundwater.  As these examples illustrate, research software can be used for
+tackling important problems that impact such areas as manufacturing, financial
+planning, environmental policy, and the health, welfare and safety of
+communities.
 
-The challenging.  Room for improvement.  SEI, BME.  Problem in that current
-state-of-the-practice for research software does not incorporate
-state-of-the-art SE tools and methods \citep{JohansonAndHasselbring2018}.  The
-lack of SE tools and methods is viewed as contributing to sustainability and
-reliability problems \citep{FaulkEtAl2009}.  Embarrassing failures have
-occurred, like a retraction of derived molecular protein structures
-\citep{Miller2006} and fixing and then reintroducing the same error in a large
-code base three times in 20 year \citep{MilewiczAndRaybourn2018}.  To improve
-this situation, we need to more fully understand the current state of the
-practice for research software.
+Given the importance of research software, scientists and engineers are pushing
+for sustainable development practices.  This is evident from the existence of
+such groups as SEI, BME.  Groups promoting sustainable practices are necessary
+because the current state-of-the-practice for research software does not
+incorporate state-of-the-art SE tools and methods
+\citep{JohansonAndHasselbring2018}.  The lack of SE tools and methods
+contributes to sustainability and reliability problems \citep{FaulkEtAl2009}.
+Problems with the current state of the practice are evident from embarrassing
+failures, like a retraction of derived molecular protein structures
+\citep{Miller2006}, false reproduction of sonoluminescent fusion
+\citep{PostAndVotta2005}, and fixing and then reintroducing the same error in a
+large code base three times in 20 year \citep{MilewiczAndRaybourn2018}.  To
+improve this situation, we need to more fully understand the current state of
+the practice for research software.
+
+To understand the current quality of SCS and to assist in developing methods for
+measuring qualities, we will identify several domains within SCS and endeavour
+to summarize the current state of the practice within those domains.  This
+``state of the practice'' exercise will build off of prior work on
+measuring/assessing the state of software development practice in several SCS
+domains.  We will update the work that was done previously for domains such as
+Geographic Information Systems \citep{SmithEtAl2018_arXivGIS}, Mesh Generators
+\citep{SmithEtAl2016}, Seismology software \citep{SmithEtAl2018}, and
+Statistical software for psychology \citep{SmithEtAl2018_StatSoft}.  We may
+return to these domains and/or introduce new domains.  Potential
+domains/collaborators are listed in the subsections below.
+
+In the previous project, we measured 30 software projects for each domain, but
+the measures were relatively shallow.  With the re-boot we will refine the llist
+into a short list of the best projects for more detailed measurement.
+
+In the previous state of the practice assessing exercise
+\citep{SmithEtAl2018_arXivGIS}, a series of questions and simple metrics was
+devised to measure the quality of the documentation and adherence to best
+software development practices.  The previous set of questions is provided
+\href{https://github.com/adamlazz/DomainX/blob/master/TemplateToGradeSCSoft.pdf}
+{here}. As described below, the new project critically assess the previous set of questions and
+revises as necessary.  In addition, the following data is also collected for each domain:
+
+\begin{itemize}
+\item Characterization of the functionality provided by the software in the
+  domain.  What services does each member of the domain provide?  This
+  information would be summarized in a commonality analysis document.
+\item Usability testing of each software in the domain.
+\item Collect empirical software engineering related data, such as the number of
+  files, number of lines of code, number of open issues,
+  number of closed issues, the number of lines of documentation (?). 
+\end{itemize}
+
+One of the guidelines for successfully on-boarding new developers is to
+  ``Keep knowledge up to date and findable'' \citep{ShollerEtAl2019}.  The
+  selected measurements should be able to assist with judging whether a project
+  succeeds on this front.
+
+The above data will be combined to rank the software in the domain.  The
+specifics are yet to be determined, but in the past the Analytic Hierarchy
+Process (AHP) \citep{Saaty1980} proved helpful in this.  In the past the AHP
+results were calculated by a grade out of 10 from each student evaluator for
+each quality for each measured product.  A better approach may be to have a
+group of people familiar with the software do a pairwise comparison between each
+product to come up with a number.  The number would be based on the data
+collected, but not in a numerical way.  The data collected would serve the same
+role as a decision support system.  It would provided insight, but human beings
+would do the final pairwise comparisons, and thus the final ranking.
+
+Key to the success of this exercise will be to involve and engage a partner for
+each state of practice project.  In the previous effort we did not involve domain
+experts with the rationale of excluding potential bias, but this advantage is
+not worth not being able to evaluate the functionality/usability of the software.
+Moreover, not having an expert makes publication more difficult, since there is
+no one to advice on how best to approach journals and publishers.  The domain
+expert will be asked to help in the following ways:
+
+GitHub will be used to coordinate the work of the large team of people that will
+be involved in this project.  In addition to the project record left on GitHub,
+the final data will be exported to Mendeley (as was done for the previous
+quality measurement exercise, for instance the grades for GIS software are
+summarized at \href{https://data.mendeley.com/datasets/6kprpvv7r7/1}
+{https://data.mendeley.com/datasets/6kprpvv7r7/1}.)
+
+The data for each of the different subdomains within SCS will be standardized to
+facilitate a meta-analysis that combines all of the data.
 
 The scope of this document is to conduct a current state of practice analysis of
 software in a scientific computing domain for the purpose of understanding
