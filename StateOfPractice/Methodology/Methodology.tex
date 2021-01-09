@@ -184,10 +184,7 @@ for research software in general.
 
 \begin{enumerate}
 \item What artifacts are present in current software packages? 
-\item What tools are used by current software packages?
-\ad{The ``tools'' here seems ambiguous. Does it mean the tools used by
-developers for developing and maintaining the packages, or the dependencies
-(such as libraries) used by software?}
+\item What tools (development, dependencies, project management) are used by current software packages?
 \item What principles, processes, and methodologies are used in the development
   of current software packages?
 \item What are the pain points for developers working on research software
@@ -273,6 +270,9 @@ measurement:
   package.
 \item Collect empirical measures. (Section~\ref{SecEmpiricalMeasures})
 \item Measure using measurement template. (Section~\ref{SecShallowMeasure})
+\item Survey developers
+(\href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/Methodology/Questions
+	to Developers.pdf}{Questions to Developers})
 \item Use AHP process to rank the software packages. (Section~\ref{SecAHP})
 \item Identify a short list of top software packages, typically four to six, for
   deeper exploration according to the AHP rankings of the measurements.
@@ -280,14 +280,7 @@ measurement:
   list. (\href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/Methodology/Meeting
     Agenda withmDomainmExperts.pdf}{Meeting Agenda with Domain Experts})
 \item With short list:
-\ad{From my understanding, we'll have two short lists. One is for the top
-software packages for deeper AHP ranking, the other contains the software
-packages whose developers are willing to take the survey. Should we separate
-them here?}
 \begin{enumerate}
-\item Survey developers
-  (\href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/Methodology/Questions
-    to Developers.pdf}{Questions to Developers})
 \item Usability experiments
   (\href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/Methodology/Experiments.pdf}{Experiments})
 \item Modifiability experiments
@@ -345,11 +338,7 @@ properties should be considered:
 \item The software functionality must fall within the identified domain.
 \item The source code must be viewable.
 \item The empirical measures listed in Section \ref{SecEmpiricalMeasures} should
-  ideally be available, which implies a preference for GitHub repositories.
-\ad{For empirical measures, even if it's not a GitHub repo, a git repo is better
-than a Mercurial or Subversion one. Should we describe our preference in such
-order - GitHub > other git repos (in GitLab, BitBucket, SourceForge, etc.) >
-other repos?}
+  ideally be available, which implies a preference for GitHub-style repositories.
 \item The software cannot be marked as incomplete or in an initial development
   phase.
 \end{enumerate}
@@ -432,11 +421,7 @@ research questions (Section~\ref{ResearchQuestions}). For instance, we collect s
 data to see how large a project is. Other measures intend to ascertain a
 project’s popularity, or how active the project is.  
 
-Section \ref{rawdata} orients the reader on what raw data is collected.  Some of this data can be
-observed from Git\ad{It's better to be ``GitHub'' here. GitLab, BitBucket and
-SourceForge also mainly have git repos, but not providing all the metrics.}
-repository metrics. The rest can be collected using freeware
-tools. \href{https://github.com/tomgi/git_stats}{GitStats} is used to measure
+Section \ref{rawdata} orients the reader on what raw data is collected.  Some of this data can be observed from GitHub repository metrics. The rest can be collected using freeware tools. \href{https://github.com/tomgi/git_stats}{GitStats} is used to measure
 the number of binary files as well as the number of added and deleted lines in a
 repository. This tool is also used to measure the number of commits over
 different intervals of time. \href{https://github.com/boyter/scc}{Sloc Cloc and
@@ -585,8 +570,7 @@ same folder as the README file.
 \section{Rank Short List} \label{SecRankShortList}
 
 An AHP pairwise comparison between the short list packages with respect to
-usability and modifiability survey results is conducted, and then reviewed by
-the domain expert. The tool can be found here. The usability and modifiability
+usability and modifiability experiment results is conducted, and then reviewed by the domain expert. The tool can be found here. The usability and modifiability
 survey can be found
 \href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/Methodology/Experiments.pdf}
 {here}. This step is intended to start a conversation about the relative quality
