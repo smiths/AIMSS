@@ -1,0 +1,222 @@
+%\documentclass[handout]{beamer} 
+\documentclass[t,12pt,numbers,fleqn]{beamer}
+%\documentclass[ignorenonframetext]{beamer}
+
+\newif\ifquestions
+%\questionstrue
+\questionsfalse
+
+\usepackage{pgfpages} 
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,
+    linkcolor=blue,
+    citecolor=blue,
+    filecolor=blue,
+    urlcolor=blue,
+    unicode=false}
+\urlstyle{same}
+
+\usepackage{booktabs}
+\usepackage{bibentry}
+\usepackage[round, authoryear]{natbib}
+\bibliographystyle{plainnat}
+
+%\usetheme{Iimenau}
+
+\useoutertheme{split} %so the footline can be seen, without needing pgfpages
+
+%\pgfpagesuselayout{resize to}[letterpaper,border shrink=5mm,landscape]  %if this is uncommented, the hyperref links do not work
+
+\mode<presentation>{}
+
+\input{./def-beamer}
+
+\newcommand{\topic}{Introductory Meeting}
+
+\input{./titlepage}
+
+\begin{document}
+
+%\nobibliography{../../../CommonFiles/ResearchProposal}
+
+\input{./footline}
+
+%% Comments
+\newif\ifcomments\commentstrue
+
+\ifcomments
+\newcommand{\authornote}[3]{\textcolor{#1}{[#3 ---#2]}}
+\newcommand{\todo}[1]{\textcolor{red}{[TODO: #1]}}
+\else
+\newcommand{\authornote}[3]{}
+\newcommand{\todo}[1]{}
+\fi
+
+\newcommand{\wss}[1]{\authornote{blue}{SS}{#1}} %Spencer Smith
+\newcommand{\jc}[1]{\authornote{red}{JC}{#1}} %Jacques Carette
+\newcommand{\oo}[1]{\authornote{magenta}{OO}{#1}} %Olu Owojaiye
+\newcommand{\pmi}[1]{\authornote{green}{PM}{#1}} %Peter Michalski
+\newcommand{\ad}[1]{\authornote{brown}{AD}{#1}} %Ao Dong
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Interactions with Domain Experts}
+
+\bi
+\item Introductory Meeting
+\item Measuring
+\item Concluding Meeting
+\ei
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{About this Meeting}
+
+\bi
+\item Introductory Meeting
+\bi
+\item Overall Objective
+\item Research Proposal
+\item Research Questions
+\item Vetting the List of Candidate Software
+\item Publication
+\item Schedule \& Team
+\item Introducing the Next Steps
+\ei
+\item Measuring
+\item Concluding Meeting
+\ei
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Overall Objective}
+
+``What is needed to produce \{software + artifacts\} sustainably?''
+
+\href{https://github.com/smiths/AIMSS/blob/master/OverallResearchProposal/ObjectivesAndResearchQuestions.pdf}{Objectives
+And Research Questions}
+
+\bi
+\item Definitions
+\bi
+\item software
+\item artifacts
+\item \{software + artifacts\} - softifacts
+\item sustainable softifacts
+\ei
+\item What softifacts, in addition to the code, are needed?
+\item What software engineering principles, processes and methodologies should be employed?
+\ei
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Research Proposal}
+
+\href{https://github.com/smiths/AIMSS/blob/master/OverallResearchProposal/ResearchProposal.pdf}{Research
+Proposal}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Research Questions}
+
+\href{https://github.com/smiths/AIMSS/blob/master/OverallResearchProposal/ObjectivesAndResearchQuestions.pdf}{Objectives
+And Research Questions}
+
+\bi
+\item To investigate
+\bi
+\item knowledge
+\item principles, processes and methodologies
+\item software qualities
+\item the necessary investment of time and energy
+\ei
+\item What are the ``pain points'' for
+developers working on SCS projects?
+\item What aspects of the existing processes, methodologies and tools do they consider could potentially be improved?
+\ei
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Vetting the List of Candidate Software}
+
+\href{https://docs.google.com/spreadsheets/d/122wU0v3ZtvDcqy8C4zKJ89kU-8fXAbo3Mzn6vcVXOi0/edit?usp=sharing}{Medical Imaging Software List}
+
+Task:
+\bi
+\item What do you think of the list of the selected software?
+\item Is there any software you would like to remove from or add to the list?
+\ei
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Publication}
+
+\bi
+\item Where should we publish this paper?
+\item Who are our targeted readers?
+\ei
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Schedule \& Team}
+
+\bi
+\item Project timeline
+\item Schedule for concluding meeting
+\item ... extra members from your team, each working ... hours per week for ...
+weeks.
+\item Any other experts?
+\ei
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Introducing the Next Steps} 
+
+\bi
+\item Introductory Meeting
+\item Measuring
+\bi
+\item Vetting the Domain Analysis
+\item Measurement Template
+\item Survey for Short List Projects
+\item Usability Tests
+\item Modifiability Experiment
+\ei
+\item Concluding Meeting
+\bi
+\item First AHP Ranking
+\item Final AHP Ranking
+\ei
+\ei
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
