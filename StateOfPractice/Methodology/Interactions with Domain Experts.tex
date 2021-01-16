@@ -1,0 +1,380 @@
+\documentclass[12pt]{article}
+
+\usepackage{natbib}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{xspace}
+\usepackage{xcolor}
+\usepackage{fullpage}
+\usepackage{hyperref}
+
+\hypersetup{
+colorlinks=true,       % false: boxed links; true: colored links
+linkcolor=red,          % color of internal links (change box color with
+%linkbordercolor)
+citecolor=blue,       % color of links to bibliography
+filecolor=magenta,   % color of file links
+urlcolor=cyan           % color of external links
+}
+
+%% Comments
+\newif\ifcomments\commentstrue
+
+\ifcomments
+\newcommand{\authornote}[3]{\textcolor{#1}{[#3 ---#2]}}
+\newcommand{\todo}[1]{\textcolor{red}{[TODO: #1]}}
+\else
+\newcommand{\authornote}[3]{}
+\newcommand{\todo}[1]{}
+\fi
+
+\newcommand{\wss}[1]{\authornote{blue}{SS}{#1}} %Spencer Smith
+\newcommand{\jc}[1]{\authornote{red}{JC}{#1}} %Jacques Carette
+\newcommand{\oo}[1]{\authornote{magenta}{OO}{#1}} %Olu Owojaiye
+\newcommand{\pmi}[1]{\authornote{green}{PM}{#1}} %Peter Michalski
+\newcommand{\ad}[1]{\authornote{brown}{AD}{#1}} %Ao Dong
+
+%% Global noindent
+% \setlength\parindent{0pt}
+
+\title{Interactions with Domain Experts} 
+\author{Ao Dong}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+The purpose of the document is to describe the interactions with the domain
+experts, which will be through 3 steps as follows,
+\begin{itemize}
+\item Step 1 - Introductory Meeting in Section \ref{introductory_meeting}. In
+this meeting, we will be focusing on introducing the background and objectives
+of the project and vetting some details and plans.
+\item Step 2 - Measuring in Section \ref{qualities_measurements}. Vetting the
+Domain Analysis, usability experiments, modifiability experiments, and
+developer interviews are included in this step.
+\item Step 3 - Concluding Meeting in Section \ref{concluding_meeting}. Our
+second and the last meeting, aiming to be
+one hour in duration. Results of ranking will be discussed.
+\end{itemize}
+
+\section{Introductory Meeting}
+\label{introductory_meeting}
+
+\subsection{Prerequisites}
+This section contains the tasks of preparing for the introductory meeting. These
+tasks need to be finished before the meeting.
+
+\subsubsection{Top 10 Software List}
+\label{top_10_list}
+
+The domain experts need to prepare the top 10 software packages of their choice.
+Feedback can be provided in Task \ref{task_top_10_list}.
+
+\subsection{About this Meeting}
+Presenter: \ad{TBD}
+
+The meeting will be roughly one hour. We will go
+through all the steps in Section \ref{introductory_meeting}.
+
+In the interest of time, some topics will only be discussed briefly during this
+meeting, and tasks will be assigned to domain experts to finish later. For
+example, Task \ref{task_usability_tests} in Section \ref{usability_tests}.
+
+We will create issues on GitHub to track the progress of the tasks. Details can
+be found in Appendix \ref{proj_mgmt_tools}. The tasks can also be found in
+Appendix \ref{tasks_domain_experts}.
+
+\subsection{Overall Objective}
+\label{overall_objective}
+Presenter: Dr.\ Spencer Smith and Dr.\ Jacques Carette \ad{TBD}
+
+As described in the document 
+\href{https://github.com/smiths/AIMSS/blob/master/OverallResearchProposal/ObjectivesAndResearchQuestions.pdf}{Objectives
+And Research Questions}, the overall objective asks ``What is needed to produce
+\{software + artifacts\} sustainably?'' The definitions of \emph{software},
+\emph{artifacts} and \emph{sustainably} can be found in the same document. The
+term \emph{softifacts} will be used to refer the combination of software and
+artifacts.
+
+According to the above document, to answer the above question, we will need to
+find answers for these two questions,
+\begin{enumerate}
+\item ``What softifacts, in addition to the code, are needed?''
+\item ``What software engineering principles, processes and methodologies should
+be employed?''
+\end{enumerate}
+
+\subsection{Research Proposal}
+\label{research_proposal}
+Presenter: Dr.\ Spencer Smith \ad{TBD}
+
+The research proposal is documented in
+\href{https://github.com/smiths/AIMSS/blob/master/OverallResearchProposal/ResearchProposal.pdf}{Research
+Proposal}.
+
+A brief introduction. \ad{To be written}
+
+\subsection{Research Questions}
+\label{research_questions}
+Presenter: Dr.\ Spencer Smith \ad{TBD}
+
+The research questions are documented in the section Current State of the
+Practice Research Questions of
+\href{https://github.com/smiths/AIMSS/blob/master/OverallResearchProposal/ObjectivesAndResearchQuestions.pdf}{Objectives
+And Research Questions}. Guided by overall objective in Section
+\ref{overall_objective}, these questions focus on researching on ``i) knowledge,
+ii) principles, processes
+and methodologies, iii) software qualities and iv) the necessary investment of
+time and energy''.
+
+Do you have any thoughts on one of the questions - What are the ``pain points''
+for developers working on SCS projects? What aspects of the existing processes,
+methodologies and tools do they consider could potentially be improved?
+
+\subsection{Vetting the List of Candidate Software}
+\label{software_list}
+
+The software list is
+\href{https://docs.google.com/spreadsheets/d/122wU0v3ZtvDcqy8C4zKJ89kU-8fXAbo3Mzn6vcVXOi0/edit?usp=sharing}{Medical
+	Imaging Software List} or Lattice Boltzmann Solver List. \ad{TBD}
+
+What do you think of the list of the selected software?
+
+Is there any software you would like to remove from or add to the list?
+
+Feedback can be provided later in Task \ref{task_software_list}.
+
+\subsection{Publication}
+Presenter: Dr.\ Spencer Smith and Dr.\ Jacques Carette \ad{TBD}
+
+\begin{itemize}
+\item Where should we publish this paper?
+\item Who are our targeted readers?
+\end{itemize}
+
+\subsection{Schedule \& Team}
+Presenter: \ad{TBD}
+
+\begin{itemize}
+\item We propose to start this project from ... and finish it before ... . What
+do you think?
+\item Our meeting schedule is ... does it fit your plan?
+\item We need ... extra members from your team, each working ... hours per week
+for ... weeks. What do you think?
+\item Are there any other experts you think we should keep them involved?
+\end{itemize}
+
+\subsection{Introducing the Next Steps}
+
+\section{Qualities \& Measurements}
+\label{qualities_measurements}
+
+\subsection{Vetting the Domain Analysis}
+\label{domain_analysis}
+Task leader: Ao and Peter
+
+The domain analysis can be found in Section 3.2 of
+\href{https://github.com/Ao99/MISEG/blob/master/docs/SRS/SRS.pdf}{SRS for
+Medical Imaging Software} or
+\href{https://github.com/peter-michalski/LatticeBoltzmannSolvers/blob/master/docs/SRS/CA.pdf}{CA
+of Lattice Boltzmann Solvers}.
+
+Please review the Figure 1 in \href{https://github.com/Ao99/MISEG/blob/master/docs/SRS/SRS.pdf}{SRS for
+Medical Imaging Software} or Figure/Table ? \ad{TBD. It can be a summary of the
+commonalities, variabilities and parameters of variation in tables, or possibly
+graphs.} in
+\href{https://github.com/peter-michalski/LatticeBoltzmannSolvers/blob/master/docs/SRS/CA.pdf}{CA
+of Lattice Boltzmann Solvers}.
+What do you think of our analysis for the scope of the family, commonalities, and variabilities  for this domain?
+
+Our preference is to have feedback from several graduate students. Feedback can be provided in Task \ref{task_domain_analysis}.
+
+\subsection{Measurement Template}
+\label{measurement_template}
+Task leader: Ao or Peter
+
+The template for software quality measurements can be found at
+\href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/Combined_MeasurementTemplate_EmpiricalMeasures.xlsx}{Measurement
+	Template}.
+
+As described in Task \ref{task_measurement_template}, domain experts are
+expected to take a look at this template. Feedback are welcome but not required.
+
+\subsection{Survey for Short List Projects}
+\label{survey_short_list_projects}
+Task leader: Ao or Peter
+
+After the first round of measurement, we would like to select a short list of
+projects (about 5 to 10 of them for each domain) and directly ask questions to the
+developers.
+
+Considering the fact that some development teams may ignore our requests for
+this interview, We would like to send invitations to all of the teams developing
+the software packages in the list. We estimate that there will be a smaller
+proportion of them accepting our request. What do you think of
+this process? Feedback can be provided in Task \ref{task_review_short_list}.
+
+The survey questions to the developers can be found at
+\href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/Methodology/Questions%20to%20Developers.pdf}{Questions
+	to Developers}.
+
+We also would like to ask the domain experts a modified version of the above
+questions. The purpose will be to learn how our domain experts and their
+students create software. If we time it right, the interview with the domain
+experts is also a chance to do a dry run with our questions. We can use Task
+\ref{task_short_list_survey} to manage the progress of the survey with domain
+experts.
+
+\subsection{Usability Tests}
+\label{usability_tests}
+Task leader: Olu
+
+A brief introduction. \ad{To be written}
+
+The usability test can be found at ... \ad{TBD}
+
+Feedback can be provided later in Task
+\ref{task_usability_tests}. We can also use the same task to manage the progress of the tests.
+
+\subsection{Modifiability Experiment}
+\label{modifiability_experiment}
+Task leader: \ad{TBD}
+
+A brief introduction. \ad{To be written} 
+
+The modifiability experiment can be found at.. \ad{TBD}
+
+Feedback can be provided later in Task
+\ref{task_modifiability_experiment}. We can also use the same task to manage the
+progress of the tests.
+
+\section{Concluding Meeting}
+\label{concluding_meeting}
+
+\subsection{First AHP Ranking}
+\label{first_AHP}
+Presenter: \ad{TBD}
+
+A brief introduction about the ranking results.
+
+Do you have any feedback? Feedback can be provided in Task \ref{task_first_ranking}.
+
+\subsection{Final AHP Ranking}
+\label{final_AHP}
+Presenter: \ad{TBD}
+
+A brief introduction about the ranking results for the short list software packages.
+
+Do you have any feedback? Feedback can be provided in Task \ref{task_final_ranking}.
+
+\appendix
+\section{Project Management Tools}
+\label{proj_mgmt_tools}
+We would like to use GitHub for task tracking and document version control. The
+repository for this project is
+\href{https://github.com/smiths/AIMSS}{https://github.com/smiths/AIMSS}.
+
+Tasks will be created as issues on the repository and assigned to individual
+stakeholders. An open issue usually means a task to be fulfilled, and it can be
+closed once it is finished. Here is an example of an issue
+\href{https://github.com/smiths/AIMSS/issues/19}{https://github.com/smiths/AIMSS/issues/19}.
+
+\newpage
+
+\section{Tasks for Domain Experts}
+\label{tasks_domain_experts}
+
+\subsection{Create a Top 10 List}
+\label{task_top_10_list}
+GitHub Issue:
+\href{https://github.com/smiths/AIMSS/issues}{https://github.com/smiths/AIMSS/issues}
+\ad{To be created}
+
+\noindent Refer to Section \ref{top_10_list}
+
+\subsection{Vet the Software List}
+\label{task_software_list}
+GitHub Issue:
+\href{https://github.com/smiths/AIMSS/issues}{https://github.com/smiths/AIMSS/issues}
+\ad{To be created}
+
+\noindent Refer to Section \ref{software_list}
+
+\subsection{Vet the Domain Analysis}
+\label{task_domain_analysis}
+GitHub Issue:
+\href{https://github.com/smiths/AIMSS/issues}{https://github.com/smiths/AIMSS/issues}
+\pmi{To be created}
+
+\noindent Refer to Section \ref{domain_analysis}
+
+\subsection{Read the Measurement Template}
+\label{task_measurement_template}
+GitHub Issue:
+\href{https://github.com/smiths/AIMSS/issues}{https://github.com/smiths/AIMSS/issues}
+\ad{To be created}
+
+\noindent Refer to Section \ref{measurement_template}
+
+\subsection{Review the Process of Creating a Short List}
+\label{task_review_short_list}
+GitHub Issue:
+\href{https://github.com/smiths/AIMSS/issues}{https://github.com/smiths/AIMSS/issues}
+\ad{To be created}
+
+\noindent Refer to Section \ref{survey_short_list_projects}
+
+\subsection{Take the Survey for the Short List Projects}
+\label{task_short_list_survey}
+GitHub Issue:
+\href{https://github.com/smiths/AIMSS/issues}{https://github.com/smiths/AIMSS/issues}
+\ad{To be created}
+
+\noindent Refer to Section \ref{survey_short_list_projects}
+
+\subsection{Participate in the Usability Tests}
+\label{task_usability_tests}
+GitHub Issue:
+\href{https://github.com/smiths/AIMSS/issues}{https://github.com/smiths/AIMSS/issues}
+\ad{To be created}
+
+\noindent Refer to Section \ref{usability_tests}
+
+\subsection{Participate in the Modifiability Experiment}
+\label{task_modifiability_experiment}
+GitHub Issue:
+\href{https://github.com/smiths/AIMSS/issues}{https://github.com/smiths/AIMSS/issues}
+\ad{To be created}
+
+\noindent Refer to Section \ref{modifiability_experiment}
+
+\subsection{Review the First AHP Ranking}
+\label{task_first_ranking}
+GitHub Issue:
+\href{https://github.com/smiths/AIMSS/issues}{https://github.com/smiths/AIMSS/issues}
+\pmi{To be created}
+
+\noindent Refer to Section \ref{first_AHP}
+
+\subsection{Review the Final Short List Ranking}
+\label{task_final_ranking}
+GitHub Issue:
+\href{https://github.com/smiths/AIMSS/issues}{https://github.com/smiths/AIMSS/issues}
+\pmi{To be created}
+
+\noindent Refer to Section \ref{final_AHP}
+
+%
+%\section{Deleted Notes}
+%\subsection{Selecting Process}
+%The process of creating and shortening the list of software packages is
+%documented in
+%\href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/Ao-Notes/Ao-N%otes.pdf}{Ao's
+%	Notes} or Peter's Notes \ad{TBD}
+%
+%What do you think of our process of selecting software candidates?
+%
+
+\end{document}
