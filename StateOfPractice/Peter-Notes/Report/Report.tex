@@ -89,7 +89,7 @@
 \usepackage{fullpage}
 \usepackage{setspace}
 \doublespacing
-\title{Title} 
+\title{State of the Practice of Lattice Boltzmann Method Software Development} 
 \author{Peter Michalski}
 \date{\today}
 
@@ -97,7 +97,8 @@
 	\maketitle
 	\begin{singlespace}
 	\begin{abstract}
-		Abstract here ...
+		This project analyzed the state of the practice for software development in the Lattice Boltzmann Method 
+		domain by quantitatively and qualitatively measuring 23 software packages along quality attributes...
 	\end{abstract}
 
 
@@ -163,47 +164,38 @@
 
 \end{singlespace}
 \newpage
-\section{Introduction}
+\section{Introduction - DONE SECTION 1st DRAFT}
 
-- comment on scs?
-- comment previous state of the practice projects
-- what was done then and how things were done now (methodology)
--Red text denotes a linked sections of this document. Cyan text denotes a URL link. Blue text denotes a citation.
+This report analyzes the development of software packages that use Lattice Boltzmann Methods (LBM), a class of computational fluid dynamics methods, for fluid simulation. The analysis involves taking qualitative and qualitative measures along quality attributes. The goal is to analyze the current state of development of Scientific Computing Software (SCS) in this domain to provide insight into its best practices and offer guidance for future development. 
+
+In this report red text denotes a linked sections of this document. Cyan text denotes a URL link. Blue text denotes a citation.
 
 \subsection{Purpose of Report}
 
 This document constitutes the author's M.Eng. report in partial fulfillment of the the degree of Master of Engineering. It is to be submitted to the Department of Computing and Software in McMaster University's Faculty of Engineer and is intended for review by the examination committee. In this context the purposes of the report are the following:
 
 \begin{itemize}
-	\item Describe the State of Practice of SCS project origin, motivations, and goals
+	\item Describe the state of the practice of SCS project origin, motivations, and goals
 	\item Describe LBM software structure and goals
 	\item Report on the measure of a subset of LBM software packages along quality metrics
-	\item Evaluate the state of practice of LBM software development along quality metrics
+	\item Evaluate the state of the practice of LBM software development along quality metrics
 	\item Suggest future work for improving LBM software along quality metrics
-	\item Suggest future work for improving State of Practice of SCS assessments
+	\item Suggest future work for improving state of the practice of SCS assessments
 \end{itemize}
 
 \subsection{Motivation of Report}
 
-simple about SCS ....
+The purpose of state of the practice assessments is to understand how software quality is impacted by software development choices, including principles, processes, and tools, within SCS communities. This knowledge can be used to guide future development of SCS, specifically along quality attributes, and reduce software quality failures. This work reports on the state of the practice of LBM software development and makes suggestions on improving the quality of software in this domain.
 
+This assessment of the state of the practice of LBM software development builds off of prior work on assessing the state of research software development. The previous state of the practice assessments include domains such as Geographic Information Systems \citep{SmithEtAl2018_arXivGIS}, Mesh Generators \citep{SmithEtAl2016}, Oceanographic Software \citep{smith2015state}, Seismology software \citep{SmithEtAl2018}, and statistical software for psychology \citep{SmithEtAl2018_StatSoft}. 
 
-
-
--provide an example that demonstrates the value of se methods and technologies for SCS
--understand how software quality is impacted by the software development principles, processes and tools currently used within research software communities
-- list what the purpose of SOP evaluation of LBM is for
--describe LBM in the contect of SCS
--report on the SOP of LBM software development
--evaluate the development process and software qualities
--suggest improvements to LBM SCS in the context of software development and qualities
-- scs shows room for improvement in terms of quality, link papers, also why is this, link more papers
+In the course of this assessment we updated the methodology that was used during previous assessments. Details of the new methodology are found \href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/Methodology/Methodology.pdf}{here}. The previous set of research questions were critically assessed and modified. The updated questions are listed in Section \ref{researchquestions}. In this re-boot we collected more quantitative and qualitative data, focused on software quality attributes, by adding more measures, including collecting empirical data and interviewing developers. We have also added a domain analysis to better characterize the functionality provided by the software, and have leveraged the expertise of a domain expert. As in past assessments, the collected data was combined to rank the software using the Analytic Hierarchy Process (AHP). The domain expert was consulted to verify the ordering.
 
 \subsection{Scope of Report}
--measured 23 software projects (remove this)
-- other limitations about the study
-- addresses what was done
-- notes how things can be improved
+
+This report analyzes a filtered set of LBM software packages along quantitatively and qualitatively measures. Many of these measures are captured using surface measurements, which can be categorized as initial and easy to capture measurements, of the underlying quality and they may not represent the true quality of the software. These surface measurements are taken due to the desire to apply the same measurement, with reasonable effort, along all software packages despite technical and functional variabilities in the set of software packages. The measures are used to answer the research questions found in Section \ref{researchquestions}. The measured software packages are open source, and it is recommended to keep this in mind when considering the recommendations of this report. Practices surrounding close source software development may differ.
+
+The report addresses what was done during the development of the software packages to address the quality attributes listed in Section \ref{softwarequalities}. It then provides general guidance on how to improve these qualities when developing LBM software. It does not make suggestions on what should have been done or should be done for any one specific package. Best practices may at times differ among software packages. 
 
 \subsection{Organization of Report}
 
@@ -215,10 +207,10 @@ The rest of core of the report is organized as follows:
 	\item \textbf{Introduction} to the report, including its purpose, motivation, scope, and organization.
 	\item \textbf{Background} of Scientific Computing Software, including software qualities and software families.
 	\item LBM software \textbf{Domain Analysis}.
-	\item \textbf{Methodology} of this State of the Practice Assessment, including the steps of the methodology, definitions of software qualities and how they are applied in this assessment, and an overview of candidate software selection, empirical measures, and the analytical hierarchy process. 
+	\item \textbf{Methodology} of this state of the practice assessment, including the steps of the methodology, definitions of software qualities and how they are applied in this assessment, and an overview of candidate software selection, empirical measures, and the analytical hierarchy process. 
 	\item Quantitative and qualitative \textbf{Results}. 
 	\item An analysis of the results and \textbf{Answers To Research Questions}.
-	\item \textbf{Conclusion} to the report including comments on future State of Practice assessments.
+	\item \textbf{Conclusion} to the report including comments on future state of the practice assessments.
 	\item \textbf{Appendix}: This section includes our Research Questions, the Measurement Template, Grading Template, Ethics Approval, and Developer Interview Questions.
 \end{itemize}
 
@@ -227,8 +219,6 @@ The rest of core of the report is organized as follows:
 
 this is about scs background
 
-must update images from pylbm to pyLBM
-
 
 this is theoretical
 -define SCS in more detail than introduction
@@ -236,6 +226,22 @@ this is theoretical
 - ensuring the quality can take time
 -define software family (defined more/further in domain analysis)
 -background of LBM and what they are used for, link to domain analysis section for further detail
+
+" Scientific Computing (SC) is the subdomain of
+computer science that uses computers to simulate and analyze continuous mathematical
+models of physical systems. "
+" As SmithEtAl2016 [8] shows, SC developers value documentation, but
+they cannot see themselves meeting the required time constraints. Maintaining the doc-
+umentation when some requirements change during development process makes the time
+commitment even more difficult [2]. "
+"The current approach to documentation
+is largely a manual exercise, thus the quality is influenced by the author’s SC abilities. "
+
+"The problems with writing high-quality maintainable SC software documentation mo-
+tivated the creation of the Drasil Framework [7]. Drasil consists of a collection of Domain
+Specific Language (DSL) for capturing scientific documents, structures, and computing
+knowledge, and then transforming this knowledge into relevant software artifacts, such as
+requirement documentation, design documentation, and the code for test cases."
 
 \newpage
 
@@ -1441,7 +1447,7 @@ This section begins with the steps of the overall process we used to select, mea
 
 \subsection{Software Qualities}\label{softwarequalities}
 
-Software quality attributes facilitate the measurement and comparison of software packages in this state of the practice assessment. In this report we adopt software quality definitions from various researchers and subject matter expert entities. The quality measurement results are found in Section \ref{qualityresults} of this report. Section \ref{qualityrecommentations} lists recommendations to address software qualities in LBM software packages. The following are the software quality definitions used in this state of practice exercise, along with comments regarding their quantitative and qualitative measurement.
+Software quality attributes facilitate the measurement and comparison of software packages in this state of the practice assessment. In this report we adopt software quality definitions from various researchers and subject matter expert entities. The quality measurement results are found in Section \ref{qualityresults} of this report. Section \ref{qualityrecommentations} lists recommendations to address software qualities in LBM software packages. The following are the software quality definitions used in this state of the practice exercise, along with comments regarding their quantitative and qualitative measurement.
 
 \subsubsection{Installability} 
 
@@ -1476,37 +1482,37 @@ Usability is measured by the extent to which a software product can be used by s
 \subsubsection{Maintainability}
 
 A measure of maintainability is the effort with which a software
-system or component can be modified to correct faults, improve performance or other attributes, and satisfy new requirements \citep{IEEEStdGlossarySET1990} \citep{boehm2007software}. In this state of practice analysis maintainability is measured by the quality of documentation artifacts, and the presence of version control and issue tracking. These qualities can greatly decrease the effort needed to modify software. There are many documentation artifacts that can improve maintainability, including user and developer manuals, specifications, README files, change logs, release notes, publications, forums, and instructional websites. 
+system or component can be modified to correct faults, improve performance or other attributes, and satisfy new requirements \citep{IEEEStdGlossarySET1990} \citep{boehm2007software}. In this state of the practice analysis maintainability is measured by the quality of documentation artifacts, and the presence of version control and issue tracking. These qualities can greatly decrease the effort needed to modify software. There are many documentation artifacts that can improve maintainability, including user and developer manuals, specifications, README files, change logs, release notes, publications, forums, and instructional websites. 
 
 \subsubsection{Modifiability}
 
 Modifiability refers to the ease with which stable changes can be made to a system and the flexibility of the system to adopt such changes \citep{8016712}.
-This state of practice assessment did not quantitatively measure modifiability. Developers were asked in interviews if they considered the ease of future changes when developing the software packages, specifically changes to the structure of the system, modules and code blocks. A follow up question asked if any measures had been taken.
+This state of the practice assessment did not quantitatively measure modifiability. Developers were asked in interviews if they considered the ease of future changes when developing the software packages, specifically changes to the structure of the system, modules and code blocks. A follow up question asked if any measures had been taken.
 
 \subsubsection{Reusability}
 
-Reusability refers to the extent to which components of a software package can be used with or without adaptation in other software packages \citep{kalagiakos2003non}. A good measure of reusability results from a large number of easily reusable components. Increased software modularization, smaller components with well defined interfaces, is important. For this state of practice assessment, a good measure of reusablity correlates with an increased number of code files, and the availability of API documentation.
+Reusability refers to the extent to which components of a software package can be used with or without adaptation in other software packages \citep{kalagiakos2003non}. A good measure of reusability results from a large number of easily reusable components. Increased software modularization, smaller components with well defined interfaces, is important. For this state of the practice assessment, a good measure of reusablity correlates with an increased number of code files, and the availability of API documentation.
 
 \subsubsection{Understandability}
 
 Understandability is measured by the capability of the software package to enable the user to understand its suitability and function \citep{ISO9126}.
-It is an artifact-dependent quality. Understandability is different for the user-interface, source code, documentation. In this state of practice analysis understandability focuses on the source code. It is measured by the consistency of a formatting style, the extend of modularization, the explicit identification of coding standards, the presence of meaningful identifiers, and clarity of comments. 
+It is an artifact-dependent quality. Understandability is different for the user-interface, source code, documentation. In this state of the practice analysis understandability focuses on the source code. It is measured by the consistency of a formatting style, the extend of modularization, the explicit identification of coding standards, the presence of meaningful identifiers, and clarity of comments. 
 
 \subsubsection{Traceability}
 
-Traceability refers to the ability to link the software implementation and the software artifacts, especially the requirement specification \citep{McCallEtAl1977}. Similar to the quality of correctness, this requires some form of specification to be available. The quality refers to keeping track of information as it changes forms or relates between artifacts. This state of practice assessment did not quantitatively measure traceability. Developers were asked in interviews how documentation fits into their development process.
+Traceability refers to the ability to link the software implementation and the software artifacts, especially the requirement specification \citep{McCallEtAl1977}. Similar to the quality of correctness, this requires some form of specification to be available. The quality refers to keeping track of information as it changes forms or relates between artifacts. This state of the practice assessment did not quantitatively measure traceability. Developers were asked in interviews how documentation fits into their development process.
 
 \subsubsection{Visibility and Transparency}
 
-Visibility and transparency refer to the extent to which all of the steps of a software development process, and the current status of it, are conveyed clearly \citep{ghezzi1991fundamentals}. In this state of practice assessment a good measure of visibility and transparency correlates with a well defined development process, the presence of development process and environment documentation, and software package version release notes. 
+Visibility and transparency refer to the extent to which all of the steps of a software development process, and the current status of it, are conveyed clearly \citep{ghezzi1991fundamentals}. In this state of the practice assessment a good measure of visibility and transparency correlates with a well defined development process, the presence of development process and environment documentation, and software package version release notes. 
 
 \subsubsection{Reproducibility}
 
-Software achieves reproducibility if another developer can take the requirements documentation and re-obtain the same software artifacts \citep{BenureauAndRougier2017}. In this context, reproducibility refers to the similarity between artifacts. Reproducibility can also refer to the output of the software, irrespective of the artifacts, where the scientific results are compared between software implementations, or between software and manual implementations. This state of practice assessment did not quantitatively measure reproducibility. Developers were asked in interviews if they have any concern that their computational results won’t be reproducible in the future, and if they have taken any steps to ensure reproducibility.
+Software achieves reproducibility if another developer can take the requirements documentation and re-obtain the same software artifacts \citep{BenureauAndRougier2017}. In this context, reproducibility refers to the similarity between artifacts. Reproducibility can also refer to the output of the software, irrespective of the artifacts, where the scientific results are compared between software implementations, or between software and manual implementations. This state of the practice assessment did not quantitatively measure reproducibility. Developers were asked in interviews if they have any concern that their computational results won’t be reproducible in the future, and if they have taken any steps to ensure reproducibility.
 
 \subsubsection{Unambiguity}
 
-Unambiguity refers to the extent to which two readers have similar interpretations when reading software artifacts. In other words, artifacts are unambiguous if, and only if, they only have one interpretation \citep{IEEE1998}. This state of practice assessment did not quantitatively measure unambiguity. Developers were asked in interviews if they think that the current documentation can clearly convey all necessary knowledge to the users, and how they achieved this or what improvements are needed ot achieve it.
+Unambiguity refers to the extent to which two readers have similar interpretations when reading software artifacts. In other words, artifacts are unambiguous if, and only if, they only have one interpretation \citep{IEEE1998}. This state of the practice assessment did not quantitatively measure unambiguity. Developers were asked in interviews if they think that the current documentation can clearly convey all necessary knowledge to the users, and how they achieved this or what improvements are needed ot achieve it.
 
 \subsection{Identify Candidate Software}\label{identifysoftware}
 
@@ -1903,7 +1909,7 @@ How does software designated as high quality by this methodology compare	with to
 \section{Conclusion}
 
 - key findings restated
-- comment on future work in State of Practice SCS
+- comment on future work in state of the practice SCS
 
 \newpage
 \section{Appendix}
