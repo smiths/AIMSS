@@ -216,41 +216,15 @@ The rest of core of the report is organized as follows:
 \end{itemize}
 
 \newpage
-\section{Background}
+\section{Background - DONE SECTION 1st Draft}
 
-this section is about scs background and software quality background, separate definitions of those and relationship between, also define software family
-
--define SCS in more detail than introduction
--uses computers to simulate and analyze continuous mathematical
-models of physical system[add citation from prev paper]
-- look at other related papers and cite
--look at other sources and cite
-
-- importance of qualities in SCS
-- add citations
-- ensuring the quality can take time blurb
--" As SmithEtAl2016 [8] shows, SC developers value documentation, but
-they cannot see themselves meeting the required time constraints. Maintaining the doc-
-umentation when some requirements change during development process makes the time
-commitment even more difficult [2]." paraphrase and cite
-"The current approach to documentation
-is largely a manual exercise, thus the quality is influenced by the author’s SC abilities. " paraphrase /cite
-- add blurb about Drasil, like below
--define software family, add citation 
-- examples?
-
-
-
-
-"The problems with writing high-quality maintainable SC software documentation mo-
-tivated the creation of the Drasil Framework [7]. Drasil consists of a collection of Domain
-Specific Language (DSL) for capturing scientific documents, structures, and computing
-knowledge, and then transforming this knowledge into relevant software artifacts, such as
-requirement documentation, design documentation, and the code for test cases."
+Scientific computing software (SCS) is defined as the use of computer tools to analyze or simulate mathematical models of real world systems \citep{smith2006systematic}. Given the importance of such software, scientists and engineers desire methods and tools to sustainably develop high quality software, which has led to the formation of groups like the Software Sustainability Institute (\href{https://www.software.ac.uk/}{SEI}) and Better Scientific Software (\href{https://bssw.io/}{BSS}). The purpose of this state of the practice assessment is to understand how software quality in the LBM SCS family is impacted by software development choices, including principles, processes, and tools. A software family is defined
+by \cite{parnas1976design} as “a set of programs whose common properties are so extensive that it is advantageous to study the common properties of the programs before analyzing individual members”. The common properties of the LBM family of related programs are listed in the a domain analysis in Section \ref{domainanalysis}. The software qualities that are assessed in this report are listed in Section \ref{softwarequalities}. Ensuring these qualities can take significant time, but as \cite{SmithEtAl2016} shows, SCS developers often cannot see themselves meeting the required time constraints to better develop some of the artifacts that improve software quality, like detailed documentation. Inability to develop such documentation due to time constraints could be mitigated by the use of automatic document generation tools like Drasil. The Drasil Framework consists of a collection of Domain Specific Languages (DSL) for capturing scientific documents, structures, and computing
+knowledge, and then transforming this knowledge into relevant software artifacts without having to manually duplicate knowledge into multiple artifacts \citep{zhao2018}.
 
 \newpage
 
-\section{Domain Analysis - DONE SECTION 1st DRAFT}
+\section{Domain Analysis - DONE SECTION 1st DRAFT}\label{domainanalysis}
 
 \subsection{Lattice Boltzmann Systems}
 
@@ -1450,6 +1424,8 @@ This section begins with the steps of the overall process we used to select, mea
 	\item Analyze the results and answer the research questions. The answers can be found in section \ref{answersquestions}.
 \end{enumerate}
 
+These steps are further detailed in the Methodology for Assessing the State of the Practice for Domain X document found \href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/Methodology/Methodology.pdf}{here}. 
+
 \subsection{Software Qualities}\label{softwarequalities}
 
 Software quality attributes facilitate the measurement and comparison of software packages in this state of the practice assessment. In this report we adopt software quality definitions from various researchers and subject matter expert entities. The quality measurement results are found in Section \ref{qualityresults} of this report. Section \ref{qualityrecommentations} lists recommendations to address software qualities in LBM software packages. The following are the software quality definitions used in this state of the practice exercise, along with comments regarding their quantitative and qualitative measurement.
@@ -2012,9 +1988,46 @@ Many of the software packages that were assessed were developed by teams of two 
 Collaboration tools are noted to have been used when developing the software projects. Most often email and video conferencing is used. Project management software was not explicitly mentioned, but it is possible that some of the project use such software. Many of the projects are located on GitHub, and it's developers use the platform to help manage their projects, especially bug related issues. Most of the projects appear to use change tracking and version control tools. They often use GitHub for this, and a few use Git or CVS. Document generation tools are mentioned in the artifacts of 12 of the projects. Tools such as Sphinx and Doxygen are explicitly used in this capacity. Drasil could be considered as an alternative to generate artifacts since it is geared specifically towards research software domains like LBM software. 
 
 
-\subsection{Principles, Processes, and Methodologies}
+\subsection{Principles, Processes, and Methodologies - DONE 1st DRAFT}
+
+Most of the assessed software packages do not explicitly state in their artifacts the motivations or design principles that were considered when developing the software. One package, Sailfish, indicates that shortening development time was considered in early stages of design, with the developers opting for using Python and CUDA/OpenCL to achieve this without sacrificing any computational performance. The goals of that project are explicitly listed as performance, scalability, agility and extendability, maintenance, and ease of use. The project scored well in these listed categories during our assessment, for the categories that were measured. 
+
+Processes, like methods, are ways of doing things, especially in an orderly way; while methodologies are defined as systems of methods \citep{ghezzi1991fundamentals}. It is not explicitly indicated in the artifacts of most of these packages that development involved following any specific model, like a waterfall of agile development model. One developer noted that while no formal model is used, their development model is something similar to a combination of agile and waterfall development models. The developers teams of the LBM packages are fairly small and easily organized without the need for such methodologies. 
+
+Seven of the software packages contain artifacts outlining the general development process, like basic instructions on how to contribute. Most of the development teams accept outside contributors, but generally the teams are tight-knit, often working at the same institution. 
+
+The developers that were interviewed all noted similar project management processes. In teams of only a couple of developers, the addition of new features or major changes are discussed with the entire team. Projects with more than a couple of developers have lead developer roles. These lead developers review potential additions to the software. One of the developers noted in their interview that a peer review process is used to review major changes and additions.
+
+The software packages frequently use GitHub for managing the project. Typically there are several development branches and changes from these branches are merged into the master branch. 
+
+Documentation was also noted as playing a significant role in the development process, specifically with on-boarding new developers. An intention is to lower the entry barrier for these new contributors. The documentation provides information on how to get started, orients the user to artifacts and the source code, and explains how the system works, including the so-called simulation engine and interface. The use of document generation tools is mentioned in the artifacts of 12 software packages, and was noted during interviews with developers. The mentioned document generation tools are Sphinx and Doxygen. 
+
+Two types of software changes were noted during interviews. One is feature additions, which arise from a scientific or functional need. The development of these changes was noted to involve more formal discussions within the development team and the execution involves lead developers. The other change type is code refactoring, which only sometimes involves formal discussions with the development team. New developers were noted to play an increased role in these changes compared to the former changes. Software bugs are typically addressed in a similar fashion as code refactoring, and issue trackers are commonly used to manage these changes. 
+
+Interviews with the developers of software packages also revealed a more frequent use of both unit testing and continuous integration in the development process than was found by only examining the artifacts. The use of automatic installation processes is also common. Most often this involved a Make script.
+
 
 \subsection{Pain Points}
+
+
+"Developers were asked to comment on the obstacles in their development process. One
+developer noted that a lot of their source code had been written with a specific application in
+mind, and that there is too much coupling between components. Addressing this issue would
+help with code modifiability and reusability. Updating the development process would help
+resolve this issues and prevent such issues in the future. Improving the visibility of software
+changes and the peer review process would also help. Improving the software engineering
+education or experience of developers is also an idea that was brought up by several devel-
+opers. Specifically, developers should always write code that is decoupled and modular, and
+should keep in mind the visibility of their contributions by better updating documentation
+and ensuring that their contributions are transparent to the rest of the developers. This
+would help catch issues in the code contributions, and improve source code maintenance.
+According to one developer, some obstacles to the development processes of their package
+had been overcome by the introduction of continuous integration practices, and a peer review
+process for contributions. These practices decrease development and maintenance times.
+Another developer mentioned that their package had two sets of code, for executing the
+models on the CPU and GPU, and that maintenance was decreased by introducing macros,
+the use of which is now part of the development process.
+"
 
 - bringing on new developers
 
@@ -2025,6 +2038,29 @@ Collaboration tools are noted to have been used when developing the software pro
 -look at template and interviews
 
 - others
+
+9. Currently, what are the most significant obstacles in your development process?
+
+12. In the past, is there any major obstacle to your development process that has been
+solved? How did you solve it?
+
+15. Was it hard to ensure the correctness of the software? If there were any obstacles, what
+methods have been considered or practiced to improve the situation? If practiced, did
+it work?
+16. When designing the software, did you consider the ease of future changes? For example,
+will it be hard to change the structure of the system, modules or code blocks? What
+measures have been taken to ensure the ease of future changes and maintains?
+
+17. Provide instances where users have misunderstood the software. What, if any, actions
+were taken to address understandability issues?
+18. What, if any, actions were taken to address usability issues?
+19. Do you think the current documentation can clearly convey all necessary knowledge to
+the users? If yes, how did you successfully achieve it? If no, what improvements are
+needed?
+20. Do you have any concern that your computational results wont be reproducible in the
+future? Have you taken any steps to ensure reproducibility?
+
+
 
 \subsection{Quality Recommendations}\label{qualityrecommentations}
 
@@ -2371,6 +2407,14 @@ The table below lists how each quality measure of the measurement template is us
 \newpage
 
 \subsection{Ethics Approval}
+This project received ethics clearance from the McMaster Research Ethics Board on February 20, 2021.\newline
+
+
+Project Title: AIMSS - State of the Practice\newline
+
+
+MREB\#: 5219
+
 \newpage
 
 \subsection{Developer Interview Questions}\label{interviewquestions}
