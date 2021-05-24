@@ -1,12 +1,62 @@
 \chapter{Background}
 \label{ch_background}
 
-\section{Categories and Status}
+\section{Software Categories}
+In this section, we discuss three common software categories that are mentioned in Section \ref{sec_software_selection}, and also SC software. 
 
-Briefly discuss open source, freeware and commercial software.
+\subsection{Open Source Software}
+\label{sec_open_source_software}
+For Open Source software (OSS), its source code is openly accessible, and users have the right to study, change and distribute it under a license granted by the copyright holder. For many OSS projects, the development process is based on the collaboration of different contributors worldwide \cite{Corbly2014}. 
+
+\subsection{Freeware}
+Freeware is software that can be used free of charge. Unlike with OSS, the authors of freeware typically do not allow users to access or modify the source code of the software \cite{LINFO2006}. The term \textit{freeware} should not be confused with \textit{free software}, which is similar to OSS but with a few differences.
+
+\subsection{Commercial Software}
+``Commercial software is software developed by a business as part of its business'' \cite{GNU2019}.
+Typically speaking, the users are required to pay to access all of the features of commercial software, excluding access to the source code. However, some commercial software is also free of charge \cite{GNU2019}.
+
+\subsection{Scientific Computing Software}
+Software development in Scientific Computing (SC) depends on the knowledge of three areas - the knowledge of a specific engineering or science domain, the ability to mathematically build models and applying algorithms, and the capability to implement theoretical models and algorithms with computational tools. SC software is built with mathematical and computational tools to serve the purpose of solving scientific problems in a domain \cite{Mehta2015}.
 
 \section{Software Quality Definitions}
 
-Refer to the Quality Definitions of Qualities created by us
+The definitions of software qualities are from Smith et al. \cite{SmithEtAl2020}. The order of the qualities follows the grading template in Appendix \ref{ap_grading}.
+
+\begin{itemize}
+\item \textbf{Installability} The effort required for the installation, uninstallation, or reinstallation of a software or product in a specified environment.
+\item \textbf{Correctness \& Verifiability} A program is correct if it behaves according to its stated. Verifiability is the extent to which a set of tests can be written and executed, to demonstrate that the delivered system meets the specification.
+\item \textbf{Reliability} The probability of failure-free operation of a computer program in a specified environment for a specified time, i.e. the average time interval between two failures also known as the mean time to failure (MTTF).
+\item \textbf{Robustness} Software possesses the characteristic of robustness if it behaves ``reasonably'' in two situations: i) when it encounters circumstances not anticipated in the requirements specification, and ii) when the assumptions in its requirements specification are violated.
+\item \textbf{Usability} The extent to which a product can be used by specified users to achieve specified goals with effectiveness, efficiency, and satisfaction in a specified context of use.
+\item \textbf{Maintainability} The effort with which a software system or component can be modified to i) correct faults; ii) improve performance or other attributes; iii) satisfy new requirements.
+\item \textbf{Reusability} The extent to which a software component can be used with or without adaptation in a problem solution other than the one for which it was originally developed.
+\item \textbf{Understandability} (To be completed)
+\item \textbf{Visibility \& Transparency} The extent to which all of the steps of a software development process and the current status of it are conveyed clearly.
+\end{itemize}
 
 \section{Analytic Hierarchy Process}
+The Analytic Hierarchy Process (AHP) was developed by Thomas L. Saaty, and it has been widely used to make and analyze multiple criteria decisions \cite{VaidyaEtAl2006}. The AHP organizes multiple criteria factors in a hierarchical structure and pairwise compares the alternatives to calculate relative ratios \cite{Saaty1990}.
+
+For a project with $ m $ criteria, we can use a  $m\times m$ matrix $A$ to record the relative importance between factors. By pairwise compare criterion $i$ and criterion $j$, the value of $A_{ij}$ is decided as follows, and the value of $A_{ji}$ is $1/A_{ij}$ \cite{Saaty1990},
+\begin{itemize}
+\item $A_{ij} = 1$ if criterion $i$ and criterion $j$ are equally important;
+\item $A_{ij} = 9$ if criterion $i$ is extremely more important than criterion $j$;
+\item $A_{ij}$ equals to an integer value between 1 and 9 according the the relative importance of criterion $i$ and criterion $j$.
+\end{itemize}
+
+The above process assumes that criterion $i$ is not less important than criterion $j$, otherwise, we need to reverse $i$ and $j$ and determine $A_{ji}$ first, then $A_{ij} = 1/A_{ji}$.
+
+The priority vecotr $w$ can be calculated by solving the following equation \cite{Saaty1990}, \begin{equation}
+Aw = \lambda_{max}w,
+\end{equation}
+where $\lambda_{max}$ is the maximal eigenvalue of $A$.
+
+In this project, $w$ is approximated with the approach classic \textit{mean of normalized values}  \cite{AlessioEtAl2006},
+
+\begin{equation}
+w_i = \frac{1}{m}\sum_{j=1}^{m}\frac{A_{ij}}{\sum_{k=1}^{m}A_{kj}}
+\end{equation}
+
+Suppose there are $n$ alternatives, for criterion $i = 1, 2, ... , m$, we can create an $n\times n$ matrix $B_i$ to record the relative preferences between these choices. The way of generating $B_i$ is similar to the one for $A$. However, unlike comparing the importance between criteria, we pairwise decide how much one alternative is more favored than the other. The same method is used to calculate the local priority vector for each $B_i$.
+
+In this project, the 9 software qualities mentioned above are the criteria ($m = 9$), while 29 software packages ($n = 29$) are compared. The software are evaluated with the grading template in Appendix \ref{ap_grading} and a subjective score is given for each quality. For a pair of qualities or software, $i$ and $j$, such that $i$ is not less significant than $j$, the pairwise comparison result of $i$ versus $j$ is converted from $min((score_i - score_j) + 1, 9)$.
