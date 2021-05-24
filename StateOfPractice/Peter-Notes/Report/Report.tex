@@ -2007,59 +2007,29 @@ Two types of software changes were noted during interviews. One is feature addit
 Interviews with the developers of software packages also revealed a more frequent use of both unit testing and continuous integration in the development process than was found by only examining the artifacts. The use of automatic installation processes is also common. Most often this involved a Make script.
 
 
-\subsection{Pain Points}
+\subsection{Pain Points - DONE 1st Draft}
 
+Developers were asked to comment on obstacles in their development process, obstacles encountered by user, and potential future obstacles with the software packages. 
 
-"Developers were asked to comment on the obstacles in their development process. One
-developer noted that a lot of their source code had been written with a specific application in
-mind, and that there is too much coupling between components. Addressing this issue would
-help with code modifiability and reusability. Updating the development process would help
-resolve this issues and prevent such issues in the future. Improving the visibility of software
-changes and the peer review process would also help. Improving the software engineering
-education or experience of developers is also an idea that was brought up by several devel-
-opers. Specifically, developers should always write code that is decoupled and modular, and
-should keep in mind the visibility of their contributions by better updating documentation
-and ensuring that their contributions are transparent to the rest of the developers. This
-would help catch issues in the code contributions, and improve source code maintenance.
-According to one developer, some obstacles to the development processes of their package
-had been overcome by the introduction of continuous integration practices, and a peer review
-process for contributions. These practices decrease development and maintenance times.
-Another developer mentioned that their package had two sets of code, for executing the
-models on the CPU and GPU, and that maintenance was decreased by introducing macros,
-the use of which is now part of the development process.
-"
+Several development process obstacles were noted. One developer noted that their small development team, common in LBM software packages, has a lack of time to implement new features.  Team members are almost always part of the same institute or already know each other from other projects. External contributions are rare despite many of the projects accepting them.
 
-- bringing on new developers
+A lack of software development experience was noted by the developer of a third package where many of the team members on the project are domain experts. There is a steep learning curve to get these team members to contribute good quality source code. This has been somewhat addressed as the code is now generally written in a way that the developer thinks makes it as easy as possible for contributions. 
 
-- communication of software functionality
+The developer also noted that there is a lack of incentive and funding in academia for developing good scientific software that people end up using. There are no journals that publish such source code. There is no place for the development of good quality software. Scientific software is often developed by the researchers that temporarily use it in their own research and keep the development and use in-house. This software often does not meet the standards that would be required by external users. Sometimes the software is commercialized but it is not open source. 
 
-- time/funding for documentation 
+Documentation is important, but it's quality could be improved. There is often no time or funding for maintaining quality documentation for software that is rarely used externally. Furthermore, documentation generally does not teach the underlying metaphysics. It sometimes provides an introduction to these topics. Users would need to already be familiar with these topics or spend time referencing suitable textbooks. The documentation generally focuses on explaining how to use the software. It is not feasible for package documentation to address the underlying metaphysics topics in detail. Sometimes frequently asked questions on the underlying theory are answered in the documentation, or pointers to answers are noted.
 
--look at template and interviews
+Technically, setting up parallelization was also noted as a pain point for one of the developers, and the introduction of continuous integration by another. Software development knowledge could mitigate some pain points. As already noted, many of the developers are domain experts and not professional software developers. An interviewed developer with more extensive software development experience noted that eliminating equivalent statements using macros had helped improve the quality of their source code, specifically helping with extending code to run on both the CPU and GPU. 
 
-- others
+Difficulties with ensuring correctness were also noted by several developers. They indicated that tests are run on new additions,on  both the individual modules and on the entire system to verify continued system correctness. These tests compare the package output to known correct output using test cases. A developer commented that the amount of testing data that is needed for some cases is a problem, as free services do not offer capabilities to store and frequently process such large amounts of data and in-house testing solutions needed to be created.
 
-9. Currently, what are the most significant obstacles in your development process?
+A few obstacles related to users were found. Several developers noted that users sometimes try to combine LBM methods with cases incorrectly, and that this is not theoretically sound. Some users think that the packages will work out of the box to solve their cases, while the packages require a good understanding of computational fluid dynamics and significant effort in setting up each case. These packages are not like more commercial software packages, they are generally set up to solve specific research problems. While they are modifiable to solve similar problems, these modifications are not trivial. So far this has been addressed by updating the documentation to better inform users of the underlying LBM theory and package requirements. Similar issues with LBM parameters were noted by another developer. Updating the user interface to better explain explain theoretical principles, as well as test user input, was the implemented solution. As noted above, sometimes frequently asked questions on the underlying theory and on how to use the software are answered in the documentation.
 
-12. In the past, is there any major obstacle to your development process that has been
-solved? How did you solve it?
+One developer commented that parts of their source code had been refactored to Python partially to address usability. Python was perceived as a much more usable language that would be easy for future users and developers to learn and understand. According to this developer this was one of the biggest steps in terms of addressing usability.
 
-15. Was it hard to ensure the correctness of the software? If there were any obstacles, what
-methods have been considered or practiced to improve the situation? If practiced, did
-it work?
-16. When designing the software, did you consider the ease of future changes? For example,
-will it be hard to change the structure of the system, modules or code blocks? What
-measures have been taken to ensure the ease of future changes and maintains?
+A few potential future obstacles were noted. One developer said that their source code had been written with a specific application in mind and that there was too much coupling between components. This would have an impact on future modifiability and reusability when trying to extend the software. The effected code would need to be refactored.
 
-17. Provide instances where users have misunderstood the software. What, if any, actions
-were taken to address understandability issues?
-18. What, if any, actions were taken to address usability issues?
-19. Do you think the current documentation can clearly convey all necessary knowledge to
-the users? If yes, how did you successfully achieve it? If no, what improvements are
-needed?
-20. Do you have any concern that your computational results wont be reproducible in the
-future? Have you taken any steps to ensure reproducibility?
-
+As noted above, difficulties with ensuring future correctness could also arise. As new methods and functionality is added into the software, new test cases and test data will need to be developed and provided.
 
 
 \subsection{Quality Recommendations}\label{qualityrecommentations}
