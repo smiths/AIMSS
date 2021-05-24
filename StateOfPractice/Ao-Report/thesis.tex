@@ -1,17 +1,32 @@
 \documentclass[letterpaper,12pt]{report}
 \usepackage{thesis}
-
-\usepackage{amsmath}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
-
 \usepackage{hyperref}
+\usepackage{xcolor}
+
+%% Comments
+\newif\ifcomments\commentstrue
+
+\ifcomments
+\newcommand{\authornote}[3]{\textcolor{#1}{[#3 ---#2]}}
+\newcommand{\todo}[1]{\textcolor{red}{[TODO: #1]}}
+\else
+\newcommand{\authornote}[3]{}
+\newcommand{\todo}[1]{}
+\fi
+
+\newcommand{\wss}[1]{\authornote{blue}{SS}{#1}} %Spencer Smith
+\newcommand{\jc}[1]{\authornote{red}{JC}{#1}} %Jacques Carette
+\newcommand{\oo}[1]{\authornote{magenta}{OO}{#1}} %Olu Owojaiye
+\newcommand{\pmi}[1]{\authornote{green}{PM}{#1}} %Peter Michalski
+\newcommand{\ad}[1]{\authornote{brown}{AD}{#1}} %Ao Dong
 
 %\textwidth 5in
 
 \newcommand{\shorttitle}{State of Practice for Medical Imaging Software}
-\newcommand{\fulltitle}{Assessing the Current State of the Practice for Medical Imaging Domain within Scientific Computing Software}
+\newcommand{\fulltitle}{Assessing the Current State of the Practice for Medical Imaging Software}
 \newcommand{\authorname}{Ao Dong}
 
 \begin{document}
@@ -46,11 +61,12 @@
 
 \include{11Introduction}
 \include{12Background}
-\include{13MeasurementMethods}
+\include{13Methods}
 \include{14MeasurementResults}
 \include{15InterviewsWithDevelopers}
-\include{16Recommendations}
-\include{17Conclusion}
+\include{16ThreatToValidity}
+\include{17Recommendations}
+\include{18Conclusion}
 
 \include{21bib}
 
