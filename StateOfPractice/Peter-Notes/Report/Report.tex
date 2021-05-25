@@ -1865,7 +1865,7 @@ Section \ref{qualityrecommentations} further analyzes these findings and offers 
 
 \section{Answers To Research Questions}\label{answersquestions}
 
-\subsection{Artifacts Present - DONE 1st DRAFT}
+\subsection{Artifacts Present - DONE 1st DRAFT}\label{artifacts}
 
 The software packages were examined for artifacts. Below we have grouped these into common, less common, and rare artifacts. Common artifacts were found in 16 to 23 of the software packages. Less common artifacts were found in 8 to 15 of the software packages. Rare artifacts were found in 1 to 27 of the software packages. 
 
@@ -2032,11 +2032,170 @@ A few potential future obstacles were noted. One developer said that their sourc
 As noted above, difficulties with ensuring future correctness could also arise. As new methods and functionality is added into the software, new test cases and test data will need to be developed and provided.
 
 
-\subsection{Quality Recommendations}\label{qualityrecommentations}
+\subsection{Quality Recommendations - DONE 1st Draft}\label{qualityrecommentations}
 
-create section for each quality?
+The following points should be considered to improve LBM software quality.
 
-consider what worked for some of the packages
+\subsubsection{Installability}
+
+\begin{itemize}
+	\item Include OS compatibility, including versions.
+	\item Include complete installation instructions.
+	\item Include all dependencies in the installation instructions, required versions, and how to install them.
+	\item If possible, automate the installation of dependencies.
+	\item Installation instructions should be written as if the user does not have any dependencies installed and is installing on a clean OS.
+	\item Limit installation instruction location to one location.
+	\item Automate the installation process as much as possible.
+	\item Include descriptive error messages for errors encountered during installation.
+	\item Include a way to validate the installation.
+	\item Include instructions for uninstalling the software.
+\end{itemize}
+
+\subsubsection{Surface Correctness and Verifiability}
+
+\begin{itemize}
+	\item Use a requirements specification document.
+	\item Make public the requirements specification document, or explicitly reference the domain theory that the software is designed from.
+	\item Ensure the above information is easy to find. Consider adding it to the user manual. 
+	\item Development teams should include both domain experts and experiences software developers.
+	\item Use and make public detailed documentation. Consider using automatic document generation tools.
+	\item Include detailed tutorials with expected output.
+	\item Use unit testing during development. Make public the facilities for unit testing.
+	\item Modularize the source code.
+	\item Use continuous integration tools and processes during development.
+\end{itemize}
+
+\subsubsection{Surface Reliability}
+
+\begin{itemize}
+	\item Include descriptive error messages where appropriate.
+	\item In case automatic installation of dependencies fails, the system should indicate to the user what dependencies are needed and the installation procedure should be able to skip installing the dependencies after they have been manually installed.
+	\item The packages should include detailed tutorials, including dependencies, expected output, and supplementary documentation.
+\end{itemize}
+
+\subsubsection{Surface Robustness}
+
+\begin{itemize}
+	\item Include descriptive error messages for cases of unexpected input  including incorrect data types, empty input, and missing files or links.
+\end{itemize}
+
+\subsubsection{Surface Performance}
+
+\begin{itemize}
+	\item Implement using parallelization tools. Consider GPU processing, CUDA, and MPI. 
+	\item The user should be able to process the models on either the CPU or GPU.
+\end{itemize}
+
+\subsubsection{Surface Usability}
+
+\begin{itemize}
+	\item Include user hardware and software requirements.
+	\item Include a user tutorial with expected output.
+	\item Include a detailed user manual. Identify elements of user interfaces.
+	\item Explicitly state the boundaries of the software, and intended applications.
+	\item Identify appropriate fluid dynamics problems that can be solved by the software.
+	\item Provide background domain information or a reference to it.
+	\item Explicitly state the requirements and commitments required of the user to properly model their problem.
+	\item Document expected user characteristics.
+	\item Keep documentation in one location.
+	\item Maintain a user support model (Git, email, forum, FAQ)
+	\item If possible, consider using user-friendly scripting languages like Python. Especially in parts of the software that are likely to be modified or reviewed by users.
+\end{itemize}
+
+\subsubsection{Maintainability}
+
+\begin{itemize}
+	\item Include high quality artifacts. Ideally most of the common and less common artifacts listed in Section \ref{artifacts}.
+	\item Include version numbers and release notes for all major releases. 
+	\item Have a defined process for accepting contributions.
+	\item Include documentation for making contributions to the project. 
+	\item Use an issue tracker (Git, email, SourceForge, other) to manage bugs and changes. Issues should be closed regularly. 
+	\item Use a version control system (GitHib, CVS).
+	\item Source code needs to be well commented.
+	\item Ensure source code is modular.
+	\item Eliminate code duplication.
+	\item If possible, develop using languages that are easy to read and quick to learn.
+\end{itemize}
+
+\subsubsection{Modifiability}
+
+\begin{itemize}
+	\item Ensure a high degree of code modularity and abstraction.
+	\item If possible, develop using languages that are easy to read and quick to learn.
+	\item Consider future modifiabilility in the design stage prior to any development.
+	\item Consider flexibility of data structures and data storage in the design stage.
+	\item Make public validation benchmarks.
+\end{itemize}
+
+\subsubsection{Reusability}
+
+\begin{itemize}
+	\item Modularize the source code.
+	\item Document module interfaces.
+	\item Provide API documentation, if applicable.
+\end{itemize}
+
+\subsubsection{Surface Understandability}
+
+\begin{itemize}
+	\item Maintain consistent formatting style across source code files.
+	\item Identify a coding standard, if one is used during development.
+	\item Use consistent, distinctive, and meaningful code identifiers. Identify algorithms that are used.
+	\item Hard code domain constants.
+	\item Add meaningful comments. They should indicate what is being done in each section of source code.
+	\item Modularize the source code.
+	\item Include user guides and usage requirements.
+	\item In the documentation identify the limits of the software. 
+	\item Identify the cases that the software can be applied to.
+	\item Note the requirements of the user in order to set up their case. Identify what parameters are needed. 
+	\item Consider adding a FAQ section to the documentation. 
+\end{itemize}
+
+\subsubsection{Traceability}
+
+\begin{itemize}
+	\item Update all relevant documentation when a change to the software is made.
+	\item Use automatic document generation tools to limit the time spent on updating documentation.
+	\item Include documentation aimed at developers, like a developers guide.
+	\item Provide documentation that orients users and developers to artifacts, the source code, and system architecture.
+	\item Highlight new system features between artifact versions. 
+\end{itemize}
+
+\subsubsection{Visibility and Transparency}
+
+\begin{itemize}
+	\item Identify the development model that was used, if one was used.
+	\item Identify the development environment.
+	\item Identify the development process and how to contribute. 
+	\item Include notes with all releases.
+	\item Write modular code.
+	\item Communicate all contributions and changes to the entire development team.
+	\item Use continuous integration processes and tools.
+	\item Consider peer review processes for contributions. 
+	\item Decrease code duplication.
+	\item Maintain updated developer documentation.
+	\item Make use of project management software.
+\end{itemize}
+
+\subsubsection{Reproducibility}
+
+\begin{itemize}
+	\item Compare results of methods against manually calculated or known correct results.
+	\item Automate the above comparison. Run the comparison after code changes.
+	\item Consider peer reviews for code contributions.
+	\item Maintain detailed and up to date design documentation.
+\end{itemize}
+
+\subsubsection{Unambiguity}
+
+\begin{itemize}
+	\item Documentation must include all technical requirements and dependencies for using the software. 
+	\item Documentation should detail how to properly use the software.
+	\item Documentation should outline correct and incorrect use cases of the software.
+	\item Documentation should either explain underlying CFD theories or reference appropriate resources.
+	\item Consider asking users for feedback on the documentation.
+\end{itemize}
+
 
 \subsection{Designation Comparison}
 
