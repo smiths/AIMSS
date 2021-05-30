@@ -3,13 +3,13 @@
 
 \ad{Where to include the domain experts? I plan to include them in  Domain Selection and Software Product Selection, and also mention that they'll participate in interviews.} 
 
-In this project, we aim to study and research the SC software within scientific domains. However, we try to design the whole process of this project in a more general way, with the hope that it should not be limited to only one or several specific software categories.
+In this project, we aimed to study and research the SC software within scientific domains. However, we tried to design the whole process of this project in a more general way, with the hope that it should not be limited to only one or several specific software categories.
 
-The way how we choose a domain is listed in Section \ref{sec_domain_selection}. Within a specific domain, we use the process documented in Section \ref{sec_software_selection} to collect and filter the software packages for our study. Then, all the software is measured by using the grading template in Section \ref{sec_grading_template} and the empirical measurement method in Section \label{sec_empirical_measurements}. Section \ref{sec_measuring_qualities} presents more details about how we apply the above process.
+The way how we chose a domain is listed in Section \ref{sec_domain_selection}. Within a specific domain, we used the process documented in Section \ref{sec_software_selection} to collect and filter the software packages for our study. Then, all the software products were measured by using the grading template in Section \ref{sec_grading_template} and the empirical measurement method in Section \label{sec_empirical_measurements}. Section \ref{sec_measuring_qualities} presents more details about how we applied the above process.
 
 \section{Domain Selection}
 \label{sec_domain_selection}
-Although the methods of this project may not have such limitations, we limit our selection within scientific domains to fulfill the objective of our research.
+Although the methods designed by us may not have such limitations, we limited our selection of a domain within scientific domains to fulfill the objective of our research.
 
 One major factor in properly choosing a candidate domain for the study is the ease to select software packages within it. As described in Section \ref{sec_software_selection}, the software product selection process is most likely to have a screening step, and the quantity of final-decision packages may not meet our initial expectation if we do not have enough software candidates to choose from. Section \ref{sec_software_selection} also explains why our process prioritize the OSS. Consequently, a scientific domain with a large number of active OSS is proffered. This also often indicates that the domain has an active community developing and using SC software, making it easier to conduct interviews mentioned in Section \ref{sec_interview_methods}.
 
@@ -17,7 +17,7 @@ Even if we can find an adequate number of software packages in a domain, we may 
 
 Another aspect to consider is the team carrying out the research, more specifically, the domain experts - if there is any - in the team. In our team, the projects are often led by researchers in the software engineering field and supported by experts working in other scientific domains. Having domain experts in the team provides significant benefits in selecting software packages and designing interview questions.
 
-In this project, Medical Imaging (MI) domain is selected. Numerous software products can be found in this domain, and a great number of domain experts use - and even develop - such software. We decide to focus on MI software with the viewing function, and more details about this filtering are in Section \ref{sec_software_selection}. Being able to include MI domain experts in our team also makes this domain more preferred.
+In this project, Medical Imaging (MI) domain was selected. Numerous software products can be found in this domain and a great number of professionals working in this domain use and/or develop such software. We decided to focus on MI software with the viewing function, and more details about this filtering are in Section \ref{sec_software_selection}. Being able to include MI domain experts in our team also made this domain more preferred.
 
 \section{Software Product Selection}
 \label{sec_software_selection}
@@ -25,51 +25,85 @@ In this project, Medical Imaging (MI) domain is selected. Numerous software prod
 The process of selecting software packages contains two steps: i) identify software candidates in the chosen domain, ii) filter the list according to needs \cite{SmithEtAl2021}.
 
 \subsection{Identify Software Candidates}
-The candidate software can be found from publications in the domain. Another source is to search various websites, such as \hyperlink{https://github.com/}{GitHub}, \hyperlink{https://swmath.org/}{swMATH} and the Google search results for software recommendation articles. Meanwhile, we should also include the suggested ones from domain experts \cite{SmithEtAl2021}.
+\label{sec_identify_software_candidates}
+The candidate software can be found in publications in the domain. Another source is to search various websites, such as \hyperlink{https://github.com/}{GitHub}, \hyperlink{https://swmath.org/}{swMATH} and the Google search results for software recommendation articles. Meanwhile, we should also include the suggested ones from domain experts \cite{SmithEtAl2021}.
 
-As for this project, 48 MI software projects are identified as the candidates, and they are found from publications \cite{Bjorn2017} \cite{Bruhschwein2019} \cite{Haak2015}, online articles related to the domain \cite{Emms2019} \cite{Hasan2020} \cite{Mu2019}, forum discussions related to the domain \cite{Samala2014}, etc.
+As for this project, 48 MI software projects were identified as the candidates, and they were found from publications \cite{Bjorn2017} \cite{Bruhschwein2019} \cite{Haak2015}, online articles related to the domain \cite{Emms2019} \cite{Hasan2020} \cite{Mu2019}, forum discussions related to the domain \cite{Samala2014}, etc.
 
 \subsection{Filter the Software List}
 The goal is to build a software list with a length of about 30 \cite{SmithEtAl2021}.
 
-The only mandatory requirement is that the software must be open source, as defined in Section \ref{sec_open_source_software}. This is due to the grading process defined int Section \ref{sec_grading_template}. In order to evaluate all aspects of some software qualities, the source code must be accessible.
+The only ``mandatory'' requirement is that the software must be OSS, as defined in Section \ref{sec_open_source_software}. This is due to the grading process defined int Section \ref{sec_grading_template}. To evaluate all aspects of some software qualities, the source code should be accessible. 
 
 The other factors to filter the list can be optional and should be considered according to the number of software candidates and the objectives of a research project.
 
 One of the factors is the functions and purposes of the software. For example, we can choose a group of software with similar functions, so that the cross-comparison is between each individual of them. On the other hand, if our objective is comparing sub-categories in the domain, we should select from candidates in each of the categories.
 
-The empirical measurement tools listed in Section \ref{sec_empirical_measurements} are limited to projects using \hyperlink{https://git-scm.com/}{Git} as the version control tool, so software with Git is preferred. Some manual steps in empirical measurement depend on a few metrics of GitHub, which makes projects hold on GitHub more favored \cite{SmithEtAl2021}.
+The empirical measurement tools listed in Section \ref{sec_empirical_measurements} are limited to projects using \hyperlink{https://git-scm.com/}{Git} as the version control tool, so software with Git is preferred. Some manual steps in empirical measurement depend on a few metrics of GitHub, which makes projects held on GitHub more favored \cite{SmithEtAl2021}.
 
 Some of the OSS projects may experience a lack of recent maintenance. So packages that have not been updated for a long time can be eliminated, unless they are still popular and highly recommended by the users in the domain \cite{SmithEtAl2021}.
 
-In this project, we focus on the MI software providing imaging viewing function. \ad{TBC}
+No matter what standards are set to filter the packages, with domain experts in the team, their opinion should be valued. For example, if a software package is not OSS and has not been updated for a long while, the domain experts may still identify it as a popular and widely used product. In this case, perhaps it is valuable to keep this software on the list.
+
+In this project, among the 48 software packages identified in Section \ref{sec_identify_software_candidates}, there were several ones that we could not find their source code, such as MicroDicom, Aliza, and jivex, etc. So these packages are likely to be freeware defined in Section \ref{sec_freeware} and were removed from the list since they might not be OSS.
+
+We focused on the MI software that could work as a MI viewer. Some of the software on the list were tool kits or libraries for other software to use as dependencies but not for end-users to view medical images, such as VTK, ITK, and dcm4che, etc. These were also eliminated from the list.
+
+After the above two steps, there were 29 software products left on the list. We still preferred projects using git and GitHub and being updated recently, but no other filtering was needed since the number of packages was already below 30. However, 27 out of the 29 software packages on the final list used git, and 24 of which were held on GitHub. Furthermore, 27 packages had the latest updates after the year 2018, and 23 after 2020.
 
 \section{Grading Template}
 \label{sec_grading_template}
+The full grading template can be found in Appendix \ref{ap_grading_template}. The template contains 101 questions that we used for grading software products.
 
-\ad{The grading template for manual measurements}
+In the first section of the template, some general information about the software is collected, such as the name, purpose, platform, programming language, publications about the software, the first release and the most recent change date, website, and source code repository of the product, etc. Information in this section helps us to understand the projects better and may be useful for further analysis, but it does not directly affect the grading scores for the packages.
+
+The next 9 sections in the template are designed for the 9 software qualities mentioned in Section \ref{sec_software_quality}. For each quality, several questions are asked and the typical choices of answers are ``yes'', ``no'', ``n/a'', ``unclear'', a number, a string, a date, a set of strings, etc. The last question of each quality is asking for an overall score between 1 and 10, which is based on all the previous questions of this section. This score is also the grading score for this quality. For some qualities, this grading score is also affected by the empirical measurement sections on the template.
+
+All the last 3 sections on the template are related to the empirical measurements. Two command-line software tools git\_stats and scc are used to extract information about the source code from the project repositories. For projects held on GitHub, additional metrics are collected manually, such as the stars of the GitHub repository, and the numbers of open and closed pull requests. Details of how these empirical measurements affect software quality grading scores are presented in Section \ref{sec_empirical_measurements}.
 
 \section{Empirical Measurements}
 \label{sec_empirical_measurements}
 
-\ad{Explain the empirical tools and how they affect the scores.}
+Two command-line tools were used for the empirical measurements in this project. One is GitStats that generates statistics for git repositories and display outputs in the format of web pages \cite{Gieniusz2019}; the other one is Sloc Cloc and Code (abbreviated as scc by the author) \cite{Boyter2021}, aiming to count the lines of code, comments, etc.
+
+Both tools can measure the number of text-based files in a git repository, as well as lines of text in these files. Based on our experience, most text-based files in a software project repository contain programming source code and are used to compile and build software products, and a minority of these files are instructions and other documents. So the lines of text in text-based files are roughly regarded as lines of programming code. The two tools usually generate similar but not indentical results as for the above measurements. From our understanding, this minor difference is because of the different techniques they use to detect if a file is a text-based or binary file.
+
+Additionally, we also manually collected some information for projects held on GitHub, such as the numbers of stars, forks, people watching this repository, open pull request, and closed pull request.
+
+These empirical measurements helped us from two aspects. Firstly, with more statistical details, we could get an overview of a project faster and more accurately. For example, the number of commits over the last 12 months shows how active this project has been during this period, and the number of stars and forks may be related to the popularity of it. Secondly, the results were factors to consider when we determined the grading scores for some software qualities. For example, if the percentage of comment lines is low, we might want to double-check the understandability of the code, and if the ratio of open versus closed pull requests is high, perhaps we should pay more attention to the maintainability of the project.
 
 \section{Measuring Qualities}
 \label{sec_measuring_qualities}
+27 out of the 29 software packages can be installed on two or three different operating systems such as Windows, macOS, and Linux, and 5 of them are browser-based, making them platform-independent. However, in the interest of time, we only performed the measurements for each project by installing it on one of the platforms, most likely Windows.
 
-\ad{e.g. virtual machines, time spent per software, where to look for docs, etc.}
+In order to test the software on a ``clean'' system, we created a new virtual machine (VM) for each software and only installed the necessary dependencies before measuring. All the 29 VM were created on the same computer. We only started the measuring of the next software after finishing a current one, and after grading each software, the VM was destroyed.
+
+Generally speaking, about two hours were spent on grading one software, unless there were technical issues and more time was need to resolve them. For most of the situation, all the measurements for one software were finished on the same day.
+
+The results were filled into the grading template alongside measuring a software in a VM. The sequence of measuring also followed the grading template.
 
 \section{Interview Methods}
 \label{sec_interview_methods}
 
 \subsection{Interviewee Selection}
 
-\ad{Generally speaking, ask all the teams which we can find contacts, and continue with the ones who are willing to participate.}
+For a software list with a length of roughly 30, we aim to interview about 10 development teams of these projects. Interviewing multiple individuals from each team should give us more comprehensive information about a project, but due to the difficulties of finding willing participants, a single engineer well knowing the project can also be sufficient.
+
+Ideally, we select projects after the grading measurements are done and prefer the projects with higher overall scores. However, if not enough participants are found, we should also contact all teams on the list.
+
+For MI domain, we started with the teams with higher score on our list, and eventually contacted all of them. There are developers/architects from 8 teams having participated our interviews so far.
+
+The contacts of the the teams were found on the websites related to the software. For example, the official web pages, repository websites, publication websites, and bio pages of the teams' institutions. For each candidate, we sent at most two emails asking for their support and participating before receiving any replies.
 
 \subsection{Interview Question Selection}
 
-\ad{The aspects we focused on.}
+We have a list of 20 questions to guide our interviews with the development teams, which can be found in Appendix \ref{ap_interview}.
+
+Some of the questions are about the background of the software, the development teams, the interviewees, and the way they organize the projects. We also ask about their understandings to the users. Another part of the interview questions focuses on the major difficulties the team experience currently or in the past, and the solutions that they have found or will try in the future. We also discuss with interviewees the importance of documents to their projects and the current situations of these documents. One more proportion of the questions are about several specific software qualities, such as maintainability, understandability, usability, and reproducibility.
+
+The interviews are supposed to be semi-structured based on the question list and follow-up questions can be asked. Based on our experience, the interviewees usually bring up some interesting topics not expected by us and we found it valuable to continue on these topics and ask for a few more details.
 
 \subsection{Interview Methods}
+Before contacting any interviewee candidate, the study had been reviewed by the McMaster University Research Ethics Board and received ethics clearance.
 
-\ad{The ethics approvals, the way to ask questions, the way to transcript answers, and the technologies used.}
+The members of the development teams are based around the world, so we organized these interviews as virtual meetings online. \hyperlink{https://zoom.us/}{Zoom} was used for the meetings. After receiving consents from the interviewees, we also recorded our discussions to better transcribe them.
