@@ -1,23 +1,27 @@
 \chapter{Background}
 \label{ch_background}
 
+This chapter introduces several different categories of software, based on which we designed the processes to select the software domain and software candidates in Chapter \ref{ch_methods}. It also covers the software quality definitions used in the grading template in Appendix \ref{ap_grading_template} and an overview of Analytic Hierarchy Process (AHP), a tool we used to compare and grading software products.
+
 \section{Software Categories}
-In this section, we discuss three common software categories that are mentioned in Section \ref{sec_software_selection}, and also SC software. 
+To narrow down the scopes when selecting software domains and software packages, we usually target specific software categories. In this section, we discuss three common software categories that are mentioned in Section \ref{sec_software_selection}, and also SC software. Section \ref{sec_domain_selection} and Section \ref{sec_software_selection} present more details about why we prefer some of these categories.
 
 \subsection{Open Source Software}
 \label{sec_open_source_software}
-For Open Source software (OSS), its source code is openly accessible, and users have the right to study, change and distribute it under a license granted by the copyright holder. For many OSS projects, the development process is based on the collaboration of different contributors worldwide \cite{Corbly2014}. 
+For Open Source software (OSS), its source code is openly accessible, and users have the right to study, change and distribute it under a license granted by the copyright holder. For many OSS projects, the development process is based on the collaboration of different contributors worldwide \cite{Corbly2014}. Accessible source code usually expose more ``secrets'' of a software project, such as the underlying logic of software functions, the styles that how the developers achieve their works, and the flaws and potential risks in the final product. Thus, it brings much more convenience to the researches analyzing the qualities of the project.
 
 \subsection{Freeware}
 \label{sec_freeware}
-Freeware is software that can be used free of charge. Unlike with OSS, the authors of freeware typically do not allow users to access or modify the source code of the software \cite{LINFO2006}. The term \textit{freeware} should not be confused with \textit{free software}, which is similar to OSS but with a few differences.
+Freeware is software that can be used free of charge. Unlike with OSS, the authors of freeware typically do not allow users to access or modify the source code of the software \cite{LINFO2006}. The term \textit{freeware} should not be confused with \textit{free software}, which is similar to OSS but with a few differences. To the end-users, the differences between freeware and OSS often do not bother them. The fact that these products are free of charge is likely to make them popular to a large base of users. However, software developers, end-users who wish to modify the source code, and researchers looking for inner characteristics of it may find the inaccessible source code to be a problem. 
 
 \subsection{Commercial Software}
 ``Commercial software is software developed by a business as part of its business'' \cite{GNU2019}.
-Typically speaking, the users are required to pay to access all of the features of commercial software, excluding access to the source code. However, some commercial software is also free of charge \cite{GNU2019}.
+Typically speaking, the users are required to pay to access all of the features of commercial software, excluding access to the source code. However, some commercial software is also free of charge \cite{GNU2019}. Based on our experience, most commercial software products are not OSS.
+
+For some specific software, the backgrounds of commercial software developers often differ from the ones of non-commercial OSS. In such a case, the former is usually developed by software engineers, and the latter is likely to have developers who work in the domain of the software and are also end-users of the products. One example is software in Scientific Computing (SC), since the developers need to utilize their domain-specific during the development process \cite{WilsonEtAl2014}.
 
 \subsection{Scientific Computing Software}
-Software development in Scientific Computing (SC) depends on the knowledge of three areas - the knowledge of a specific engineering or science domain, the ability to mathematically build models and applying algorithms, and the capability to implement theoretical models and algorithms with computational tools. SC software is built with mathematical and computational tools to serve the purpose of solving scientific problems in a domain \cite{Mehta2015}.
+Software development in SC depends on the knowledge of three areas - the knowledge of a specific engineering or science domain, the ability to mathematically build models and applying algorithms, and the capability to implement theoretical models and algorithms with computational tools. SC software is built with mathematical and computational tools to serve the purpose of solving scientific problems in a domain \cite{Mehta2015}. The majority of scientists developing their own software are self-taught programmers \cite{WilsonEtAl2014}, so there may be a bigger Room for software quality improvement in SC domains.
 
 \section{Software Quality Definitions}
 \label{sec_software_quality}
@@ -25,19 +29,28 @@ Software development in Scientific Computing (SC) depends on the knowledge of th
 The definitions of software qualities are from Smith et al. \cite{SmithEtAl2020}. The order of the qualities follows the grading template in Appendix \ref{ap_grading_template}.
 
 \begin{itemize}
+\label{def_installability}
 \item \textbf{Installability} The effort required for the installation, uninstallation, or reinstallation of a software or product in a specified environment.
+\label{def_correctness_verifiability}
 \item \textbf{Correctness \& Verifiability} A program is correct if it behaves according to its stated. Verifiability is the extent to which a set of tests can be written and executed, to demonstrate that the delivered system meets the specification.
+\label{def_reliability}
 \item \textbf{Reliability} The probability of failure-free operation of a computer program in a specified environment for a specified time, i.e. the average time interval between two failures also known as the mean time to failure (MTTF).
+\label{def_robustness}
 \item \textbf{Robustness} Software possesses the characteristic of robustness if it behaves ``reasonably'' in two situations: i) when it encounters circumstances not anticipated in the requirements specification, and ii) when the assumptions in its requirements specification are violated.
+\label{def_usability}
 \item \textbf{Usability} The extent to which a product can be used by specified users to achieve specified goals with effectiveness, efficiency, and satisfaction in a specified context of use.
+\label{def_maintainability}
 \item \textbf{Maintainability} The effort with which a software system or component can be modified to i) correct faults; ii) improve performance or other attributes; iii) satisfy new requirements.
+\label{def_reusability}
 \item \textbf{Reusability} The extent to which a software component can be used with or without adaptation in a problem solution other than the one for which it was originally developed.
+\label{def_understandability}
 \item \textbf{Understandability} (To be completed)
+\label{def_visibility_transparency}
 \item \textbf{Visibility \& Transparency} The extent to which all of the steps of a software development process and the current status of it are conveyed clearly.
 \end{itemize}
 
 \section{Analytic Hierarchy Process}
-The Analytic Hierarchy Process (AHP) was developed by Thomas L. Saaty, and it has been widely used to make and analyze multiple criteria decisions \cite{VaidyaEtAl2006}. The AHP organizes multiple criteria factors in a hierarchical structure and pairwise compares the alternatives to calculate relative ratios \cite{Saaty1990}.
+To generate grading scores for a group of software packages, we use the AHP to pairwise compare them. This tool was developed by Thomas L. Saaty, and it has been widely used to make and analyze multiple criteria decisions \cite{VaidyaEtAl2006}. The AHP organizes multiple criteria factors in a hierarchical structure and pairwise compares the alternatives to calculate relative ratios \cite{Saaty1990}.
 
 For a project with $ m $ criteria, we can use a  $m\times m$ matrix $A$ to record the relative importance between factors. By pairwise compare criterion $i$ and criterion $j$, the value of $A_{ij}$ is decided as follows, and the value of $A_{ji}$ is $1/A_{ij}$ \cite{Saaty1990},
 \begin{itemize}
