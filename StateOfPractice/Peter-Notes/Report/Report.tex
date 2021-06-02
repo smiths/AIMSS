@@ -1415,15 +1415,15 @@ This section begins by describing the steps of the overall process we used to se
 
 \subsection{Process}
 
- An overview of the assessment process is given in the following steps: 
+ The following steps provide an overview of how the assessment was conducted: 
 
 \begin{enumerate}
-	\item Identify a broad list of candidate software packages in the domain. This is discussed in Section \ref{identifysoftware}.
+	\item List candidate software packages for the domain. This is discussed in Section \ref{identifysoftware}.
 	\item Filter the software package list. This is discussed in Section \ref{filtersoftware}.
 	\item Gather the source code and documentation for each software package.
 	\item Collect empirical measures. This is discussed in Section \ref{empiricalmeasures}.
-	\item Measure using the measurement template. This is discussed in Section \ref{empiricalmeasures}. The measurement template can be found in Section \ref{measurementtemplate}.
-	\item Survey the developers. The developers of each software package of the filtered software list were contacted for voluntary interviews. Four interviews were conducted in total. The interview questions can be found in Section \ref{interviewquestions}.
+	\item Measure using the measurement template. This is discussed in Section \ref{empiricalmeasures}. The measurement template can be found in Section \ref{measurementtemplate2}.
+	\item Survey the developers. The developers of each software package in the filtered software list were contacted for voluntary interviews. Four interviews were conducted in total. The interview questions can be found in Section \ref{interviewquestions}.
 	\item Use AHP to rank the software packages. This is discussed in Section \ref{AHP}.
 	\item Analyze the results and answer the research questions. The answers can be found in section \ref{answersquestions}.
 \end{enumerate}
@@ -1432,12 +1432,12 @@ These steps are further detailed in the Methodology for Assessing the State of t
 
 \subsection{Software Qualities}\label{softwarequalities}
 
-Software quality attributes facilitate the measurement and comparison of software packages in this state of the practice assessment. In this report we adopt software quality definitions from various researchers and subject matter expert entities. The quality measurement results are found in Section \ref{qualityresults} of this report. Section \ref{qualityrecommentations} lists recommendations to address software qualities in LBM software packages. The following are the software quality definitions used in this state of the practice exercise, along with comments regarding their quantitative and qualitative measurement.
+Software quality attributes facilitate the measurement and comparison of software packages in this state of the practice assessment. In this report we adopt software quality definitions from various researchers and subject matter expert entities. Some of the definitions are from \cite{Smithetal2020}. The quality measurement results are found in Section \ref{qualityresults} of this report. Section \ref{qualityrecommentations} lists recommendations to address software qualities in LBM software packages. The following are the software quality definitions used in this state of the practice exercise, along with comments regarding their quantitative and qualitative measurement.
 
 \subsubsection{Installability} 
 
 Installability is measured by the effort required for the installation, uninstallation or reinstallation of a software product in a specified
-environment \citep{ISO/IEC25010} \citep{lenhard2013measuring}. A good measure of installability correlates with scenarios when low or moderate effort is required to gather and prepare software for its general use on a system for which it was designed. In this case effort includes the time spent finding and understanding the installation instructions, the man-time and resources spent performing the installation procedure, and the absence or ease of overcoming system compatibility issues. The ability to reasonably validate the installation procedure can also have a positive effect on the measure of installability. Similarly, the ease of uninstallation has an affect on the measure of installability. 
+environment \citep{ISO/IEC25010} \citep{lenhard2013measuring}. A good measure of installability correlates with scenarios when low or moderate effort is required to gather and prepare software for its general use on a system for which it was designed. In this case effort includes the time spent finding and understanding the installation instructions, the man-time and resources spent performing the installation procedure, and the absence or ease of overcoming system compatibility issues. The ability to reasonably validate the installation procedure also has a positive effect on the measure of installability. Similarly, the ease of uninstallation has an affect on the measure of installability. 
 
 \subsubsection{Correctness}
 
@@ -1446,28 +1446,28 @@ specifications \citep{GhezziEtAl2003}. This requires that the specification is a
 
 \subsubsection{Verifiability}
 
-Verifiability is measured by the extent to which a set of tests can be written and executed, to demonstrate that the delivered system meets the specification \citep{sommerville}. Similarly to correctness, verifiability is positively correlated with the availability of a specification and with reference to domain knowledge. A good measure of verifiability is further positively correlated with the availability of well written tutorials that include expected output, with software unit testing documentation, and with evidence of continuous integration during the development process. 
+Verifiability is measured by the extent to which a set of tests can be written and executed to demonstrate that the delivered system meets the specification \citep{sommerville}. Similarly to correctness, verifiability is correlated with the availability of a specification and with reference to domain knowledge. A good measure of verifiability is further correlated with the availability of well written tutorials that include expected output, with software unit testing documentation, and with evidence of continuous integration during the development process. 
 
 \subsubsection{Reliability}
 
-Reliability is measured by the probability of failure-free operation of a computer program in a specified environment for a specified time, i.e. the average time interval between two failures also known as the mean time to failure (MTTF) \citep{GhezziEtAl2003} \citep{musa1987software}. Reliability is thus positively correlated with the absence of errors during installation and use. Recoverability from errors also improves the measure of reliability. In turn the presence of descriptive error messages and logs increases the ability to recover the system.
+Reliability is measured by the probability of failure-free operation of a computer program in a specified environment for a specified time, i.e. the average time interval between two failures also known as the mean time to failure (MTTF) \citep{GhezziEtAl2003} \citep{musa1987software}. Reliability is thus positively correlated with the absence of errors during installation and use. Recoverability from errors also improves reliability. In turn the presence of descriptive error messages and logs increases the ability to recover the system.
 
 \subsubsection{Robustness}
 
-Software possesses the characteristic of robustness if it behaves “reasonably” in two situations: i) when it encounters circumstances not anticipated in the requirements specification; and ii) when the assumptions in its requirements specification are violated \citep{boehm2007software} \citep{ghezzi1991fundamentals}. A good measure of robustness correlates with a reasonable reaction to unexpected input like data of the wrong type, empty input, or missing files or links. A reasonable reaction includes an appropriate error message and the ability to recover the system.
+Software possesses the characteristic of robustness if it behaves “reasonably” in two situations: i) when it encounters circumstances not anticipated in the requirements specification; and ii) when the assumptions in its requirements specification are violated \citep{boehm2007software} \citep{ghezzi1991fundamentals}. A good measure of robustness correlates with a reasonable reaction to unexpected input, including data of the wrong type, empty input, or missing files or links. A reasonable reaction includes an appropriate error message and the ability to recover the system.
 
 \subsubsection{Performance}
 
-Performance is measured by the degree to which a system or component accomplishes its designated functions within given constraints, such as speed (database response times, for instance), throughput (transactions per second), capacity (concurrent usage loads), and timing (hard real-time demands) \citep{IEEEStdGlossarySET1990} \citep{wiegers2003softreq}. In this state of the practice assessment performance was not quantitatively measured. Instead the documentation of each software package was scanned for information that alludes to a consideration of performance, such as parallelization tools. 
+Performance is measured by the degree to which a system or component accomplishes its designated functions within given constraints, such as speed (database response times, for instance), throughput (transactions per second), capacity (concurrent usage loads), and timing (hard real-time demands) \citep{IEEEStdGlossarySET1990} \citep{wiegers2003softreq}. In this state of the practice assessment performance was not quantitatively measured. Instead the documentation of each software package was observed for information that alludes to a consideration of performance, such as parallelization tools. 
 
 \subsubsection{Usability}
 
-Usability is measured by the extent to which a software product can be used by specified users to achieve specified goals with effectiveness, efficiency, and satisfaction in a specified context of use \citep{nielsonusability}. A good measure of usability correlates with the presence of documentation, specifically tutorials, manuals, and defined user characteristics, and user support. Preferably the user support model has avenues to contact developers and report issues.
+Usability is measured by the extent to which a software product can be used by specified users to achieve specified goals with effectiveness, efficiency, and satisfaction in a specified context of use \citep{nielsonusability}. A good measure of usability correlates with the presence of documentation, including tutorials, manuals, and defined user characteristics, and user support. Preferably the user support model has avenues to contact developers and report issues.
 
 \subsubsection{Maintainability}
 
 A measure of maintainability is the effort with which a software
-system or component can be modified to correct faults, improve performance or other attributes, and satisfy new requirements \citep{IEEEStdGlossarySET1990} \citep{boehm2007software}. In this state of the practice analysis maintainability is measured by the quality of documentation artifacts, and the presence of version control and issue tracking. These qualities can greatly decrease the effort needed to modify software. There are many documentation artifacts that can improve maintainability, including user and developer manuals, specifications, README files, change logs, release notes, publications, forums, and instructional websites. 
+system or component can be modified to correct faults, improve performance or other attributes, and satisfy new requirements \citep{IEEEStdGlossarySET1990} \citep{boehm2007software}. In this state of the practice analysis maintainability is measured by the quality of documentation artifacts, and the presence of version control and issue tracking. These artifacts can greatly decrease the effort needed to modify software. There are many documentation artifacts that can improve maintainability, including user and developer manuals, specifications, README files, change logs, release notes, publications, forums, and instructional websites. 
 
 \subsubsection{Modifiability}
 
@@ -1476,7 +1476,7 @@ This state of the practice assessment did not quantitatively measure modifiabili
 
 \subsubsection{Reusability}
 
-Reusability refers to the extent to which components of a software package can be used with or without adaptation in other software packages \citep{kalagiakos2003non}. A good measure of reusability results from a large number of easily reusable components. Increased software modularization, smaller components with well defined interfaces, is important. For this state of the practice assessment, a good measure of reusablity correlates with an increased number of code files, and the availability of API documentation.
+Reusability refers to the extent to which components of a software package can be used with or without adaptation in other software packages \citep{kalagiakos2003non}. A good measure of reusability results from a large number of easily reusable components. Increased software modularization, defined as the presence of smaller components with well defined interfaces, is important. For this state of the practice assessment, a good measure of reusablity correlates with an increased number of code files, and the availability of API documentation.
 
 \subsubsection{Understandability}
 
@@ -1493,7 +1493,7 @@ Visibility and transparency refer to the extent to which all of the steps of a s
 
 \subsubsection{Reproducibility}
 
-Software achieves reproducibility if another developer can take the requirements documentation and re-obtain the same software artifacts \citep{BenureauAndRougier2017}. In this context, reproducibility refers to the similarity between artifacts. Reproducibility can also refer to the output of the software, irrespective of the artifacts, where the scientific results are compared between software implementations, or between software and manual implementations. This state of the practice assessment did not quantitatively measure reproducibility. Developers were asked in interviews if they have any concern that their computational results won’t be reproducible in the future, and if they have taken any steps to ensure reproducibility.
+Software achieves reproducibility if another developer can take the requirements documentation and re-obtain the same software artifacts \citep{BenureauAndRougier2017}. In this context, reproducibility refers to the similarity between artifacts. Reproducibility can also refer to the output of the software, irrespective of the artifacts, where the scientific results are compared between software implementations, or between software implementations and manually calculated results. This state of the practice assessment did not quantitatively measure reproducibility. Developers were asked in interviews if they have any concern that their computational results won’t be reproducible in the future, and if they have taken any steps to ensure reproducibility.
 
 \subsubsection{Unambiguity}
 
@@ -1503,25 +1503,25 @@ Unambiguity refers to the extent to which two readers have similar interpretatio
 
 The candidate software was found through search engine queries targeting authoritative lists of software. We found LBM software listed on the websites GitHub and swMATH, as well as through articles found in scholarly journals and databases. 
 
-When forming the list and reviewing the candidate software the following properties were considered:
+The following properties were considered when creating the list and reviewing the candidate software:
 
 \begin{enumerate}
 	\item The software functionality must fall within the identified domain.
 	\item The source code must be viewable.
-	\item The empirical measures listed in Section 8 should ideally be available, which implies a preference for GitHub-style repositories.
+	\item The empirical measures should be available, which implies a preference for GitHub-style repositories.
 	\item The software cannot be marked as incomplete or in an initial development phase.
 \end{enumerate}
 
-The initial list had 46 packages, including a few packages that were later found to not have publicly available source code, or to be incomplete. 
+The initial list had 46 packages, including a few packages that were later found to not have publicly available source code, or to be in an incomplete state of development. 
 
 \subsection{Filter the Software List}\label{filtersoftware}
 
-In order to reduce the number of members of the candidate software list, the following filters were applied. The filters were applied in the priority order listed.
+In order to reduce the number of members in the candidate software list, the following filters were applied. The filters were applied in the priority order listed.
 
 \begin{enumerate}
 	\item Scope: Software is removed by narrowing what functionality is considered to be within the scope of the domain.
 	\item Usage: Software packages were eliminated if their installation procedure was missing or not clear and easy to follow.
-	\item Age: The older software packages (age being measured by the last date when a change was made) are eliminated, except in the cases where an older software package appears to be highly recommended and currently in use. 
+	\item Age: The older software packages (age being measured by the last date when a change was made) were eliminated, except in the cases where an older software package appears to be highly recommended and currently in use. 
 \end{enumerate}
 
 For the third item in the above filter, software packages were characterized as `alive' if their related documentation had been updated within
@@ -1551,8 +1551,8 @@ the last 18 month. Packages were categorized as `dead' if the last update of thi
 	\captionof{table}{Alive Software Packages}\label{alivepackages}
 \end{center}
 
-While the initial list had 46 packages, filtering by scope, usage, and age, decreased the size of the list to 23 packages. Many of the 23 packages that were removed could not be tested as there was no installation guide, they were incomplete, source code was not publicly available, a license was needed, and the project was out of scope or not up to a standard that would support incorporating them into this study. Of the remaining 23 packages that were studied, some were kept on the list despite being marked as dead due to their prevalence on authoritative lists on LBM software and their surface excellence, specifically the clearly considerable time that was put into these projects.  
-The final list of software that was analyzed in this project can be found in the following two tables. Table \ref{alivepackages} lists packages that fell into the `alive' category as of mid 2020, and Table \ref{deadpackages} lists packages that were `dead' at that time. \\
+While the initial list had 46 packages, filtering by scope, usage, and age decreased the size of the list to 23 packages. Many of the 23 packages that were removed could not be tested as there was no installation guide, they were incomplete, source code was not publicly available, a license was needed, or the project was out of scope or not up to a standard that would support incorporating them into this study. Of the remaining 23 packages that were studied, some were kept on the list despite being marked as dead due to their prevalence on authoritative lists on LBM software and due to their surface excellence, specifically the considerable time that was put into these projects.  
+The final list of software packages that were analyzed in this project can be found in the following two tables. Table \ref{alivepackages} lists packages that fell into the `alive' category as of mid 2020, and Table \ref{deadpackages} lists packages that were `dead' at that time. \\
 
 \begin{center}
 	\begin{tabular}{ p{4cm}p{3cm}p{3cm} }
@@ -1573,13 +1573,13 @@ The final list of software that was analyzed in this project can be found in the
 	\captionof{table}{Dead Software Packages}\label{deadpackages}
 \end{center}
 
-There is considerable variation among these software packages, including their intended purpose, size, user interfaces, and their base programming languages. For example, the OpenLB software package is predominantly a C++ package that makes use of hybrid parallelization and was designed to address a range of computational fluid dynamics problems \citep{heuveline2009towards}. The software package pyLBM is an all-in-one Python language package for numerical simulations \citep{graille2017pylbm}. ESPResSo is an extensible simulation package that is specifically for research on soft matter, and is written in C++ and Python \citep{weik2019espresso}. The HemeLB is used for efficient simulation of fluid flow in several medical domains, and is written predominantly in C, C++, and Python \citep{mazzeo2008hemelb}. 
+There is considerable variation among these software packages, including their intended purpose, size, user interfaces, and software languages used. For example, the OpenLB software package is predominantly a C++ package that makes use of hybrid parallelization and was designed to address a range of computational fluid dynamics problems \citep{heuveline2009towards}. The software package pyLBM is an all-in-one Python language package for numerical simulations \citep{graille2017pylbm}. ESPResSo is an extensible simulation package that is specifically for research on soft matter, and is written in C++ and Python \citep{weik2019espresso}. The HemeLB package is used for efficient simulation of fluid flow in several medical domains, and is written predominantly in C, C++, and Python \citep{mazzeo2008hemelb}. 
 
 \subsection{Empirical Measures}\label{empiricalmeasures}
 
 The quality measurements in this assessment rely on the gathering and analyzing of raw and processed empirical data related to the research questions listed in Section \ref{researchquestions}. 
 
-All of the quality measurements that are part of the AHP analysis are in this category, while qualitative data gathered during interviews with developers is not. This part of the assessment focuses on data that is reasonably easy to collect. Much of the data was gathered by manually reviewing the artifacts of each software package, while some was gathered using freeware tools listed in Section \ref{tools}. The data that was gathered is listed in the measurement template found in Section \ref{measurementtemplate}. Some of the data required processing other data within the template, including the status of the software package which relied on the last commit date, the percentage of issues that are closed which relied on the number of open and closed issues, and the percentage of code that is comments which relied on the number of total lines and comment lines in text-based files. The complete measurement template data was then analyzed using the grading template found in Section \ref{gradingtemplate}, the output of which was analyzed using the AHP described in Section \ref{AHP}.
+All of the quality measurements that are part of the AHP analysis are in this category, while qualitative data gathered during interviews with developers is not. This part of the assessment focuses on data that is reasonably easy to collect. Much of the data was gathered by manually reviewing the artifacts of each software package, while some was gathered using freeware tools listed in Section \ref{tools}. The data that was gathered is listed in the measurement template found in Section \ref{measurementtemplate2}. Some of the data required processing other data within the template, including the status of the software package which relied on the last commit date, the percentage of issues that are closed which relied on the number of open and closed issues, and the percentage of code that is comments which relied on the number of total lines and comment lines in text-based files. The complete measurement template data was then analyzed using the grading template found in Section \ref{gradingtemplate2}, the output of which was analyzed using the AHP described in Section \ref{AHP}.
 
 \subsubsection{Software Tools}\label{tools}
 
@@ -1588,7 +1588,7 @@ Most of the measurement template data was gathered by observing GitHub repositor
 
 \subsection{Analytical Hierarchy Process}\label{AHP}
 
-The Analytical Hierarchy Process (AHP) is a decision-making technique that is used to compare multiple options by multiple criteria. In our work AHP was used for comparing and ranking the LBM software packages using the overall impression quality scores that were gathered in the measurement template found in Section \ref{measurementtemplate} using the grading template found in Section \ref{gradingtemplate}. AHP performs a pairwise analysis using a matrix and generates an overall score as well as quality scores for each software package. \cite{SmithEtAl2016} shows how AHP is applied to ranking software based on quality measures. 
+The Analytical Hierarchy Process (AHP) is a decision-making technique that is used to compare multiple options by multiple criteria. In our work AHP was used for comparing and ranking the LBM software packages using the overall impression quality scores that were gathered in the measurement template found in Section \ref{measurementtemplate2} using the grading template found in Section \ref{gradingtemplate2}. AHP performs a pairwise analysis using a matrix and generates an overall score as well as individual quality scores for each software package. \cite{SmithEtAl2016} shows how AHP is applied to ranking software based on quality measures. 
 
 This project used a tool for conducting this process. The tool includes a sensitivity analysis that was used to ensure that the software package rankings are appropriate with respect to the uncertainty of the quality scores. The README file of the tool, which includes requirements and usage information, is found \href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/AHP2020/LBM/README.txt}{here}. 
 
@@ -2254,7 +2254,7 @@ How does software designated as high quality by this methodology compare	with to
 
 \newpage
 
-\subsection{Measurement Template}
+\subsection{Measurement Template}\label{measurementtemplate2}
 The table below lists the set of measures that are used to assess each software product. The first set identifies summary information, followed by 9 sets for software qualities and 3 sets for raw metrics. Each measure is followed by the type for a valid result. A superscript ∗ indicate that a response of this type needs to be accompanied by explanatory text. 
 
 \captionof{table}{Measurement Template}\label{measurementtemplate}
@@ -2437,7 +2437,7 @@ The table below lists the set of measures that are used to assess each software 
 
 \newpage
 
-\subsection{Grading Template}
+\subsection{Grading Template}\label{gradingtemplate2}
 The table below lists how each quality measure of the measurement template is used to calculate an overall impression in each software quality set.\newline
 
 \captionof{table}{Grading Template}\label{gradingtemplate}
