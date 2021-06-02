@@ -133,6 +133,8 @@
 
 \noindent\textbf{Requirements}: A software requirement is: \textit{i}) a condition or capability needed by a user to solve a problem or achieve an objective; \textit{ii}) a condition or capability that must be met or possessed by a system or system component to satisfy a contract, standard, specification, or other formally imposed document; or, \textit{iii}) a documented representation of a condition or capability as in the above two definitions. \citep{thayer2000ieee}\\
 
+\noindent\textbf{SCS}: Scientific Computing Software\\
+
 \noindent\textbf{Variability}: A requirement or goal that varies between family members.
 
 \newpage
@@ -169,7 +171,7 @@
 
 This report analyzes the development of software packages that use Lattice Boltzmann Methods (LBM), a class of computational fluid dynamics methods, for fluid simulation. The analysis involves taking qualitative and qualitative measures along quality attributes. The goal is to analyze the current state of development of Scientific Computing Software (SCS) in this domain to provide insight into its best practices and offer guidance for future development. 
 
-In this report red text denotes a linked sections of this document. Cyan text denotes a URL link. Blue text denotes a citation.
+In this report red text denotes internally linked sections of this document. Cyan text denotes an external URL link. Green text denotes a link to the bibliography.
 
 \subsection{Purpose of Report}
 
@@ -180,8 +182,8 @@ This document constitutes the author's M.Eng. report in partial fulfillment of t
 	\item Describe LBM software structure and goals
 	\item Report on the measure of a subset of LBM software packages along quality metrics
 	\item Evaluate the state of the practice of LBM software development along quality metrics
-	\item Suggest future work for improving LBM software along quality metrics
-	\item Suggest future work for improving state of the practice of SCS assessments
+	\item Make suggestions for improving LBM software along quality metrics
+	\item Make suggestions for improving state of the practice of SCS assessments
 \end{itemize}
 
 \subsection{Motivation of Report}
@@ -190,17 +192,17 @@ The purpose of state of the practice assessments is to understand how software q
 
 This assessment of the state of the practice of LBM software development builds off of prior work on assessing the state of research software development. The previous state of the practice assessments include domains such as Geographic Information Systems \citep{SmithEtAl2018_arXivGIS}, Mesh Generators \citep{SmithEtAl2016}, Oceanographic Software \citep{smith2015state}, Seismology software \citep{SmithEtAl2018}, and statistical software for psychology \citep{SmithEtAl2018_StatSoft}. 
 
-In the course of this assessment we updated the methodology that was used during previous assessments. Details of the new methodology are found \href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/Methodology/Methodology.pdf}{here}. The previous set of research questions were critically assessed and modified. The updated questions are listed in Section \ref{researchquestions}. In this re-boot we collected more quantitative and qualitative data, focused on software quality attributes, by adding more measures, including collecting empirical data and interviewing developers. We have also added a domain analysis to better characterize the functionality provided by the software, and have leveraged the expertise of a domain expert. As in past assessments, the collected data was combined to rank the software using the Analytic Hierarchy Process (AHP). The domain expert was consulted to verify the ordering.
+In the course of this assessment we updated the methodology that was used during previous assessments. Details of the new methodology are found \href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/Methodology/Methodology.pdf}{here}. The previous set of research questions were critically assessed and modified. The updated questions are listed in Section \ref{researchquestions}. In this re-boot we collected more quantitative and qualitative data, focused on software quality attributes, and added more measures, including collecting empirical data and interviewing developers. We have also added a domain analysis to better characterize the functionality provided by the software, and have leveraged the expertise of a domain expert. As in past assessments, the collected data was combined to rank the software using the Analytic Hierarchy Process (AHP). The domain expert was consulted to verify the ordering.
 
 \subsection{Scope of Report}
 
-This report analyzes a filtered set of LBM software packages along quantitatively and qualitatively measures. Many of these measures are captured using surface measurements, which can be categorized as initial and easy to capture measurements, of the underlying quality and they may not represent the true quality of the software. These surface measurements are taken due to the desire to apply the same measurement, with reasonable effort, along all software packages despite technical and functional variabilities in the set of software packages. The measures are used to answer the research questions found in Section \ref{researchquestions}. The measured software packages are open source, and it is recommended to keep this in mind when considering the recommendations of this report. Practices surrounding close source software development may differ.
+This report analyzes a filtered set of LBM software packages along quantitative and qualitative measures. Many of these measures are captured using surface measurements, which can be categorized as initial and easy to capture measurements, of the underlying quality and they may not represent the true quality of the software. Surface measurements are taken as they allow us to apply the same measurement, with reasonable effort, along all software packages despite technical and functional variabilities among the set of software packages. The measures are used to answer the research questions found in Section \ref{researchquestions}. The measured software packages are open source, and it is recommended to keep this in mind when considering the recommendations of this report. Some recommendations may not apply to closed-source software. Practices surrounding close source software development may differ.
 
-The report addresses what was done during the development of the software packages to address the quality attributes listed in Section \ref{softwarequalities}. It then provides general guidance on how to improve these qualities when developing LBM software. It does not make suggestions on what should have been done or should be done for any one specific package. Best practices may at times differ among software packages. 
+The report addresses what was done during the development of the software packages to address the quality attributes listed in Section \ref{softwarequalities}. It then provides general guidance on how to improve these qualities when developing LBM software. It does not make suggestions on what should have been done or should be done for any one specific package. Best practices may differ among software packages due to their inherent organizational and technical differences. 
 
 \subsection{Organization of Report}
 
-The first part of this document includes the Table of Contents, List of Figures, and List of Tables. This is followed by Reference Material including a subsections outlining Software Engineering Related Definitions and Acronyms and Lattice Boltzmann Related Definitions and Acronyms.
+The first part of this document includes the Table of Contents, List of Figures, and List of Tables. This is followed by Reference Material including subsections outlining Software Engineering Related Definitions and Acronyms and Lattice Boltzmann Related Definitions and Acronyms.
 
 The rest of core of the report is organized as follows:
 
@@ -208,10 +210,10 @@ The rest of core of the report is organized as follows:
 	\item \textbf{Introduction} to the report, including its purpose, motivation, scope, and organization.
 	\item \textbf{Background} of Scientific Computing Software, including software qualities and software families.
 	\item LBM software \textbf{Domain Analysis}.
-	\item \textbf{Methodology} of this state of the practice assessment, including the steps of the methodology, definitions of software qualities and how they are applied in this assessment, and an overview of candidate software selection, empirical measures, and the analytical hierarchy process. 
+	\item \textbf{Methodology} of this state of the practice assessment, including the steps of the methodology, software quality definitions and how these qualities are assessed in this report, an overview of candidate software selection, empirical measures gathered, and the analytical hierarchy process. 
 	\item Quantitative and qualitative \textbf{Results}. 
 	\item An analysis of the results and \textbf{Answers To Research Questions}.
-	\item \textbf{Conclusion} to the report including comments on future state of the practice assessments.
+	\item \textbf{Conclusion} to the report including comments on suggestions for future state of the practice assessments.
 	\item \textbf{Appendix}: This section includes our Research Questions, the Measurement Template, Grading Template, Ethics Approval, and Developer Interview Questions.
 \end{itemize}
 
