@@ -123,11 +123,13 @@
 
 \subsection{Software Engineering Related Definitions and Acronyms}
 
-\noindent\textbf{AHP} Analytical Hierarchy Process\\
+\noindent\textbf{AHP}: Analytical Hierarchy Process\\
 
 \noindent\textbf{Commonality}: A requirement or goal common to all family members.\\
 
 \noindent\textbf{Goal}: “Goals capture, at different levels of abstraction, the various objectives the system under consideration should achieve.” \citep{van2001goal}\\
+
+\noindent\textbf{OTS}: Off-The-Shelf\\
 
 \noindent\textbf{Program Family}: A set of programs that are analyzed and designed together starting from the initial stages of the software development life-cycle.\\
 
@@ -148,15 +150,15 @@
 
 \noindent\textbf{BGK}: Bhatnagar-Gross-Krook\\
 
-\noindent\textbf{CPU}: central processing unit\\
+\noindent\textbf{CPU}: Central Processing Unit\\
 
-\noindent\textbf{GPU}: graphics processing unit\\
+\noindent\textbf{GPU}: Graphics Processing Unit\\
 
-\noindent\textbf{MRT}: multi-relaxation-time\\
+\noindent\textbf{MRT}: Multi-Relaxation-Time\\
 
-\noindent\textbf{SRT}: single-relaxation-time\\
+\noindent\textbf{SRT}: Single-Relaxation-Time\\
 
-\noindent\textbf{TRT}: two-relaxation-time\\
+\noindent\textbf{TRT}: Two-Relaxation-Time\\
 
 \noindent\textbf{LBM}: Lattice Boltzmann Methods\\
 
@@ -230,11 +232,11 @@ knowledge, and then transforming this knowledge into relevant software artifacts
 
 \subsection{Lattice Boltzmann Systems}
 
-Lattice Boltzmann Methods (LBM) are a family of fluid dynamics algorithms for simulating single-phase and multiphase fluid flows, often incorporating additional physical complexities \citep{chen1998lattice}. They consider the behaviours of a collection of particles as a single unit at the mesoscopic scale. These methods predict the positional probability of a collection of particles moving through a lattice structure. Off the shelf (OTS) Lattice Boltzmann Solvers (LBS) allow for a range of fluid and physical model input parameters, computational parameters, and output parameters.
+LBM are a family of fluid dynamics algorithms for simulating single-phase and multiphase fluid flows, often incorporating additional physical complexities \citep{chen1998lattice}. They consider the behaviours of a collection of particles as a single unit at the mesoscopic scale. These methods predict the positional probability of a collection of particles moving through a lattice structure. Off-the-shelf (OTS) Lattice Boltzmann Solvers (LBS) allow for a range of fluid and physical model input parameters, computational parameters, and output parameters.
 
 As LBS model fluid dynamics within a boundary using a predefined lattice structure, the methods rely on a two step calculation process. The first process is streaming, where the particles move along the lattice via links. The second process is collision, where energy and momentum is transferred among particles that collide \citep{bao2011lattice}.
 There are many standardized lattice models - individual solvers within the family might only use a subset of them.
-The LBM uses the initial parameters of the fluid to find the probability of where along the lattice linkages a group of particles are most likely to travel. It then moves the particles into the next node, and transfers the energy and momentum if a collision occurs. Then the process repeats for the duration of the modeling instance.
+LBM use the initial parameters of the fluid to find the probability of where along the lattice linkages a group of particles are most likely to travel. It then moves the particles into the next node, and transfers the energy and momentum if a collision occurs. Then the process repeats for the duration of the modeling instance.
 
 \begin{figure}[h!]
 	\begin{center}
@@ -246,9 +248,9 @@ The LBM uses the initial parameters of the fluid to find the probability of wher
 
 \subsection{Commonalities}\label{comm_sec}
 
-This section lists all the common features among all the potential family members. The commonalities are organized using the following abstraction of the system, which can be used to describe all Lattice Boltzmann systems: input information, then generate the simulation and finally output the results. Section \ref{comm_lbm} describes the commonalities for the simulation step. Section \ref{comm_in} highlights the input information that is required for all Lattice Boltzmann systems. The next section, Section \ref{comm_out}, shows the common features for the output of Lattice Boltzmann systems, such as the requirement that mesh information be written to files. (Although the output information could simply be written to the computer’s memory, in all practical applications it is desirable to have a persistent record of the output that was created.) The final section covers qualities of the system that cannot be classified as input, simulation generation or output. These commonalities are termed nonfunctional requirements of the system. For instance, all systems will have the goal that the response time to a user’s request is small enough to allow the user to focus on his/her problem and to maintain his/her train of thought, without being distracted by excessive waiting time. The commonality in this case is refined by a later variability because the specific requirement on the response time will depend on the intended usage of the mesh generating system. 
+This section lists common features among potential family members. The commonalities are organized using the following abstraction of the system, which can be used to describe all Lattice Boltzmann systems: input information, generate the simulation, output the results. Section \ref{comm_lbm} describes the commonalities for the simulation step. Section \ref{comm_in} highlights the input information that is required for Lattice Boltzmann systems. The next section, Section \ref{comm_out}, shows the common features for the output of Lattice Boltzmann systems, such as the requirement that mesh information be written to files. Although the output information could simply be written to the computer’s memory, in all practical applications it is desirable to have a persistent record of the output that was created. The final section covers qualities of the system that cannot be classified as input, simulation generation or output. These commonalities are termed nonfunctional requirements of the system. For instance, all systems will have the goal that the response time to a user’s request is small enough to allow the user to focus on his/her problem and to maintain his/her train of thought, without being distracted by excessive waiting time. The commonality in this case is refined by a later variability because the specific requirement on the response time will depend on the intended usage of the mesh generating system. 
 
-Each commonality below uses the same structure. All of the commonalities are assigned a unique item number, which takes the form of a natural number with the prefix ``C''. Following this, a description of the commonality is provided along with a list of related variabilities, which are given as hyperlinks that allow navigation of the document to the text describing the variability. Finally, each commonality ends with a summary of the history, including the date of creation and any dates of modification, along with a brief description of the modification. If necessary, a previous version of the document can be obtained by using the concurrent versioning system where the files are stored. 
+Each commonality below uses the same structure. All of the commonalities are assigned a unique item number, which takes the form of a natural number with the prefix ``C''. Following this, a description of the commonality is provided along with a list of related variabilities, which are given as hyperlinks that allow navigation of the document to the text describing the variability.  
 
 \subsubsection{Lattice Boltzmann Method Solvers}\label{comm_lbm}
 \noindent
@@ -300,7 +302,7 @@ Each commonality below uses the same structure. All of the commonalities are ass
 	
 	\begin{tabular}{| p{\colAwidth} | p{\colBwidth}|}		
 		\hline
-		\bf Description & All Lattice Boltzmann versions user a probability density function to give the probability that fluid has moved into a specific domain.\\
+		\bf Description & All Lattice Boltzmann versions use a probability density function to give the probability that fluid has moved into a specific domain.\\
 		\hline
 		\bf Related Variability & \vref{dimensions}\\
 		\hline
@@ -392,7 +394,7 @@ Each commonality below uses the same structure. All of the commonalities are ass
 	
 	\begin{tabular}{| p{\colAwidth} | p{\colBwidth}|}		
 		\hline
-		\bf Description & LBS provides the precision required for the particular problems it is intended to solve.\\
+		\bf Description & LBS provide the precision required for the particular problems it is intended to solve.\\
 		\hline
 		\bf Related Variability & \vref{varprecise}\\
 		\hline
@@ -411,7 +413,7 @@ Each commonality below uses the same structure. All of the commonalities are ass
 	
 	\begin{tabular}{| p{\colAwidth} | p{\colBwidth}|}		
 		\hline
-		\bf Description & LBS provides the accuracy required for the particular problems it is intended to solve.\\
+		\bf Description & LBS provide the accuracy required for the particular problems it is intended to solve.\\
 		\hline
 		\bf Related Variability & \vref{varaccuracy}\\
 		\hline
@@ -478,7 +480,7 @@ Each commonality below uses the same structure. All of the commonalities are ass
 \subsection{Variabilities}\label{var_sec}
 This section provides a list of characteristics that may vary among family members. As in Section \ref{comm_sec}, the first three subsections on variabilities are organized into the following sublists: Mesh Generation, Input and Output. The final two subsections list variabilities that can be characterized as system constraints and as nonfunctional requirements. 
 
-As for the commonalities, each variability is labelled with a unique item number. In this case the numbers are prepended with the letter ``V''. The other four headings provided for each variability are: Description, Related Commonality, Related Parameter and History. The related commonalities and parameters are given as a set of identifiers that respectively refer back to the previous section on commonalities or refer forward to the next section on parameters of variation.
+As for the commonalities, each variability is labelled with a unique item number. In this case the numbers are prepended with the letter ``V''. The other three headings provided for each variability are: Description, Related Commonality, and Related Parameter. The related commonalities and parameters are given as a set of identifiers that respectively refer back to the previous section on commonalities or refer forward to the next section on parameters of variation.
 
 \subsubsection{Lattice Boltzmann Method Solvers}
 \noindent
@@ -700,7 +702,7 @@ As for the commonalities, each variability is labelled with a unique item number
 	
 	\begin{tabular}{| p{\colCwidth} | p{\colDwidth}|}		
 		\hline
-		\bf Description & The boundary of the lattice can have varied conditions.\\
+		\bf Description & The boundary of the lattice can have various conditions.\\
 		\hline
 		\bf Related Commonality & \cref{lattice}\\
 		\hline
@@ -781,7 +783,7 @@ As for the commonalities, each variability is labelled with a unique item number
 	
 	\begin{tabular}{| p{\colCwidth} | p{\colDwidth}|}		
 		\hline
-		\bf Description & Hardware which processes the calculations\\
+		\bf Description & Hardware that processes the calculations\\
 		\hline
 		\bf Related Commonality & None \\
 		\hline
@@ -802,7 +804,7 @@ As for the commonalities, each variability is labelled with a unique item number
 	
 	\begin{tabular}{| p{\colCwidth} | p{\colDwidth}|}		
 		\hline
-		\bf Description & Operating systems on which LBS runs.\\
+		\bf Description & Operating systems on which LBS run.\\
 		\hline
 		\bf Related Commonality & None \\
 		\hline
@@ -940,7 +942,7 @@ As for the commonalities, each variability is labelled with a unique item number
 This section specifies the parameters of variation for the variabilities listed in Section \ref{var_sec}. They are organized into the same five subcategories as employed previously: Mesh Generation, Input, Output, System Constraints, Nonfunctional Requirements. 
 
 Each parameter of variation is given a unique identifier of the form “P” followed by a natural number. The corresponding variability is listed and a hyperlink is provided that allows navigation back to the appropriate item in Section \ref{var_sec}. The final entry for each parameter of variation is the binding time, which is the time in the software lifecycle when the variability is fixed. The binding time could be during specification, or during building
-of the system (compile time), or during execution of the system (run time). It is possible to have a mixture of binding times. For instance, a parameter of variation could have a binding time of “specification or building” to represent that the parameter could be set at specification time, or it could be postponed until the given family member is built. The choice of postponing the decision until the build would be associated with the presence of a domain specific language that would allow postponing decisions on the values of the parameter of variation.
+of the system (compile time), or during execution of the system (run time). It is possible to have a mixture of binding times. For instance, a parameter of variation could have a binding time of “specification or building” to represent that the parameter could be set at specification time, or it could be postponed until the given family member is built. The choice of postponing the decision until the build could be associated with the presence of a domain specific language that would allow postponing decisions on the values of the parameter of variation.
 
 \subsubsection{Lattice Boltzmann Method Solvers}
 \noindent
@@ -956,7 +958,7 @@ of the system (compile time), or during execution of the system (run time). It i
 		\hline
 		\bf Corresponding Variability & \vref{parallel}\\
 		\hline
-		\bf Range of Parameters & OpenMP, OpenCL, CUDA, or MPI are used if LBS is parallel.\\
+		\bf Range of Parameters & OpenMP, OpenCL, CUDA, MPI are used if the execution of the LBS is parallelized.\\
 		\hline
 		\bf Binding Time & Build Time\\
 		\hline
@@ -1289,7 +1291,7 @@ of the system (compile time), or during execution of the system (run time). It i
 		\hline
 		\bf Corresponding Variability & \vref{storage}\\
 		\hline
-		\bf Range of Parameters & The amount of memory and storage varies between LBS. LBS sizes begin in the low gigabytes. \\
+		\bf Range of Parameters & The amount of memory and storage varies between LBS.\\
 		\hline
 		\bf Binding Time & Build Time\\
 		\hline
@@ -1309,7 +1311,7 @@ of the system (compile time), or during execution of the system (run time). It i
 		\hline
 		\bf Corresponding Variability & \vref{varprecise}\\
 		\hline
-		\bf Range of Parameters & Each input and each output will have a specified the precision with which the real number is stored and/or calculated.\\
+		\bf Range of Parameters & Each input and each output will have specified the precision with which the real number is stored and/or calculated.\\
 		\hline
 		\bf Binding Time & Build Time or Run Time\\
 		\hline
