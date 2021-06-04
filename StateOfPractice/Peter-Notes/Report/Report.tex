@@ -131,6 +131,8 @@
 
 \noindent\textbf{OTS}: Off-The-Shelf\\
 
+\noindent\textbf{OS}: Operating System\\
+
 \noindent\textbf{Program Family}: A set of programs that are analyzed and designed together starting from the initial stages of the software development life-cycle.\\
 
 \noindent\textbf{Requirements}: A software requirement is: \textit{i}) a condition or capability needed by a user to solve a problem or achieve an objective; \textit{ii}) a condition or capability that must be met or possessed by a system or system component to satisfy a contract, standard, specification, or other formally imposed document; or, \textit{iii}) a documented representation of a condition or capability as in the above two definitions. \citep{thayer2000ieee}\\
@@ -1995,21 +1997,21 @@ Collaboration tools are noted as being used when developing the software project
 
 \subsection{Principles, Processes, and Methodologies - DONE 1st DRAFT}
 
-Most of the assessed software packages do not explicitly state in their artifacts the motivations or design principles that were considered when developing the software. One package, Sailfish, indicates that shortening development time was considered in early stages of design, with the developers opting for using Python and CUDA/OpenCL to achieve this without sacrificing any computational performance. The goals of that project are explicitly listed as performance, scalability, agility and extendability, maintenance, and ease of use. The project scored well in these listed categories during our assessment, for the categories that were measured. 
+Most of the software packages do not explicitly state in their artifacts the motivations or design principles that were considered when developing the software. One package, Sailfish, indicates that shortening the development time was considered in early stages of design, with the developers opting for using Python and CUDA/OpenCL to achieve this without sacrificing any computational performance. The goals of that project are explicitly listed as performance, scalability, agility and extendability, maintenance, and ease of use. The project scored well in these categories during our assessment.
 
-Processes, like methods, are ways of doing things, especially in an orderly way; while methodologies are defined as systems of methods \citep{ghezzi1991fundamentals}. It is not explicitly indicated in the artifacts of most of these packages that development involved following any specific model, like a waterfall of agile development model. One developer noted that while no formal model is used, their development model is something similar to a combination of agile and waterfall development models. The developers teams of the LBM packages are fairly small and easily organized without the need for such methodologies. 
+Processes, like methods, are ways of doing things, especially in an orderly way; while methodologies are defined as systems of methods \citep{ghezzi1991fundamentals}. It is not explicitly indicated in the artifacts of most of the packages that development involved following any specific model, like a waterfall or agile development model. One developer noted that while no formal model is used, their development model is something similar to a combination of agile and waterfall development models. The developer teams of the LBM packages are fairly small and easily organized without the need for such models. 
 
-Seven of the software packages contain artifacts outlining the general development process, like basic instructions on how to contribute. Most of the development teams accept outside contributors, but generally the teams are tight-knit, often working at the same institution. 
+Seven of the software packages contain artifacts outlining the general development process, like basic instructions on how to contribute. Most of the development teams accept outside contributors, but generally the teams are centralized, often working at the same institution. 
 
-The developers that were interviewed all noted similar project management processes. In teams of only a couple of developers, the addition of new features or major changes are discussed with the entire team. Projects with more than a couple of developers have lead developer roles. These lead developers review potential additions to the software. One of the developers noted in their interview that a peer review process is used to review major changes and additions.
+The developers that were interviewed all noted similar project management processes. In teams of only a couple of developers, additions of new features or major changes are discussed with the entire team. Projects with more than a couple developers have lead developer roles. These lead developers review potential additions to the software. One of the developers that was interviewed noted that a peer review process is used to assess major changes and additions.
 
-The software packages frequently use GitHub for managing the project. Typically there are several development branches and changes from these branches are merged into the master branch. 
+Many software packages use GitHub for managing the project. Typically there are several simultaneous development branches.
 
-Documentation was also noted as playing a significant role in the development process, specifically with on-boarding new developers. An intention is to lower the entry barrier for these new contributors. The documentation provides information on how to get started, orients the user to artifacts and the source code, and explains how the system works, including the so-called simulation engine and interface. The use of document generation tools is mentioned in the artifacts of 12 software packages, and was noted during interviews with developers. The mentioned document generation tools are Sphinx and Doxygen. 
+Documentation was also noted as playing a significant role in the development process, specifically with on-boarding new developers. A goal of documentation is to lower the entry barrier for these new contributors. The documentation provides information on how to get started, orients the user to artifacts and the source code, and explains how the system works, including the so-called simulation engine and interface. The use of document generation tools is mentioned in the artifacts of 12 software packages, and was noted during interviews with developers. Document generation tools that were mentioned include Sphinx and Doxygen. 
 
-Two types of software changes were noted during interviews. One is feature additions, which arise from a scientific or functional need. The development of these changes was noted to involve more formal discussions within the development team and the execution involves lead developers. The other change type is code refactoring, which only sometimes involves formal discussions with the development team. New developers were noted to play an increased role in these changes compared to the former changes. Software bugs are typically addressed in a similar fashion as code refactoring, and issue trackers are commonly used to manage these changes. 
+Two types of software changes were discussed during interviews with developers. One is feature additions, which arise from a scientific or functional need. The development of such changes was noted to involve more formal discussions within the development team and the addition of them into the main software branch involves lead developers. The other change type is code refactoring, which only sometimes involves formal discussions with the development team. New developers were noted to play an increased role in these changes compared to the former changes. Software bugs are typically addressed in a similar fashion as code refactoring, and issue tracking is commonly used to manage these changes. 
 
-Interviews with the developers of software packages also revealed a more frequent use of both unit testing and continuous integration in the development process than was found by only examining the artifacts. The use of automatic installation processes is also common. Most often this involved a Make script.
+Interviews with the developers of software packages also revealed a more frequent use of both unit testing and continuous integration in the development process than was found by only assessing the artifacts. The use of automatic installation processes is also common. Most often this involved a Make script.
 
 
 \subsection{Pain Points - DONE 1st Draft}
@@ -2039,18 +2041,18 @@ As noted above, difficulties with ensuring future correctness could also arise. 
 
 \subsection{Quality Recommendations - DONE 1st Draft}\label{qualityrecommentations}
 
-The following points should be considered to improve LBM software quality.
+The following points should be considered when developing high quality LBM software.
 
 \subsubsection{Installability}
 
 \begin{itemize}
-	\item Include OS compatibility, including versions.
+	\item Include OS compatibility, including specific OS versions.
 	\item Include complete installation instructions.
-	\item Include all dependencies in the installation instructions, required versions, and how to install them.
-	\item If possible, automate the installation of dependencies.
 	\item Installation instructions should be written as if the user does not have any dependencies installed and is installing on a clean OS.
-	\item Limit installation instruction location to one location.
+	\item List all dependencies in the installation instructions, dependency versions, and how to install them.
+	\item If possible, automate the installation of dependencies.
 	\item Automate the installation process as much as possible.
+	\item The installation instruction should only be in one location.
 	\item Include descriptive error messages for errors encountered during installation.
 	\item Include a way to validate the installation.
 	\item Include instructions for uninstalling the software.
@@ -2062,10 +2064,10 @@ The following points should be considered to improve LBM software quality.
 	\item Use a requirements specification document.
 	\item Make public the requirements specification document, or explicitly reference the domain theory that the software is designed from.
 	\item Ensure the above information is easy to find. Consider adding it to the user manual. 
-	\item Development teams should include both domain experts and experiences software developers.
+	\item Development teams should include both domain experts and experienced software developers.
 	\item Use and make public detailed documentation. Consider using automatic document generation tools.
-	\item Include detailed tutorials with expected output.
-	\item Use unit testing during development. Make public the facilities for unit testing.
+	\item Include detailed tutorials that include expected output.
+	\item Use unit testing during development and make them public.
 	\item Modularize the source code.
 	\item Use continuous integration tools and processes during development.
 \end{itemize}
