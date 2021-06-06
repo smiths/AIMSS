@@ -2039,7 +2039,7 @@ As noted above, difficulties with ensuring future correctness could also arise. 
 
 \subsection{Quality Recommendations - DONE 1st Draft}\label{qualityrecommentations}
 
-The following points should be considered when developing high quality LBM software.
+The following points regarding software quality should be considered when developing LBM software packages.
 
 \subsubsection{Installability}
 
@@ -2074,69 +2074,69 @@ The following points should be considered when developing high quality LBM softw
 
 \begin{itemize}
 	\item Include descriptive error messages where appropriate.
-	\item In case automatic installation of dependencies fails, the system should indicate to the user what dependencies are needed and the installation procedure should be able to skip installing the dependencies after they have been manually installed.
-	\item The packages should include detailed tutorials, including dependencies, expected output, and supplementary documentation.
+	\item In case automatic installation of dependencies fails, the system should indicate to the user what dependencies need to be installed manually.
+	\item The packages should include detailed tutorials, including dependencies, expected output, and any additional supplementary documentation that may be required.
 \end{itemize}
 
 \subsubsection{Surface Robustness}
 
 \begin{itemize}
-	\item Include descriptive error messages for cases of unexpected input  including incorrect data types, empty input, and missing files or links.
+	\item The system must provide descriptive error messages when it encounters unexpected input, including incorrect data types, empty input, and missing files or links.
 \end{itemize}
 
 \subsubsection{Surface Performance}
 
 \begin{itemize}
-	\item Implement using parallelization tools. Consider GPU processing, CUDA, and MPI. 
-	\item The user should be able to process the models on either the CPU or GPU.
+	\item Integrate parallelization tools and techniques in order to reduce processing time. Consider GPU processing, CUDA, and MPI. 
+	\item The user should be able to choose to process their model on either the CPU or GPU.
 \end{itemize}
 
 \subsubsection{Surface Usability}
 
 \begin{itemize}
-	\item Include user hardware and software requirements.
-	\item Include a user tutorial with expected output.
-	\item Include a detailed user manual. Identify elements of user interfaces.
-	\item Explicitly state the boundaries of the software, and intended applications.
-	\item Identify appropriate fluid dynamics problems that can be solved by the software.
-	\item Provide background domain information or a reference to it.
-	\item Explicitly state the requirements and commitments required of the user to properly model their problem.
-	\item Document expected user characteristics.
-	\item Keep documentation in one location.
+	\item Include user hardware and software requirements documentation.
+	\item Include a user tutorial that indicates the expected output.
+	\item Include a detailed user manual. It should identify elements of user interfaces, and identify all requirements to model a system.	
+	\item State appropriate fluid dynamics problems that the software is designed to model in the documentation, and explicitly state the limits of the software. 
+	\item Provide documentation that details the background theory information, or provide a reference to such information.
+	\item Identify expected user characteristics.
+	\item Keep all documentation in one location.
+	\item Do not duplicate artifact information.
 	\item Maintain a user support model (Git, email, forum, FAQ)
-	\item If possible, consider using user-friendly scripting languages like Python. Especially in parts of the software that are likely to be modified or reviewed by users.
+	\item If possible, consider using popular user-friendly software languages like Python. Especially consider this for parts of the source code that is likely to be modified or reviewed by users.
 \end{itemize}
 
 \subsubsection{Maintainability}
 
 \begin{itemize}
-	\item Include high quality artifacts. Ideally most of the common and less common artifacts listed in Section \ref{artifacts}.
-	\item Include version numbers and release notes for all major releases. 
+	\item Keep artifacts updated.
+	\item Ideally include most of the common and less common artifacts listed in Section \ref{artifacts}.
+	\item Include version numbers and release notes for all major source code and artifact releases. 
 	\item Have a defined process for accepting contributions.
 	\item Include documentation for making contributions to the project. 
-	\item Use an issue tracker (Git, email, SourceForge, other) to manage bugs and changes. Issues should be closed regularly. 
+	\item Use an issue tracker (Git, email, SourceForge, other) to manage bugs and changes. Issues should be regularly reviewed and closed. 
 	\item Use a version control system (GitHib, CVS).
-	\item Source code needs to be well commented.
-	\item Ensure source code is modular.
+	\item Source code needs to be well commented. Typically, more than ten percent of LBM package source code is comments. 
+	\item Ensure source code is modular. Generally, this means that source code is split into files along functionality.
 	\item Eliminate code duplication.
-	\item If possible, develop using languages that are easy to read and quick to learn.
+	\item If possible, consider using popular user-friendly software languages like Python. Especially consider this for parts of the source code that is likely to be modified or reviewed by users.
 \end{itemize}
 
 \subsubsection{Modifiability}
 
 \begin{itemize}
 	\item Ensure a high degree of code modularity and abstraction.
-	\item If possible, develop using languages that are easy to read and quick to learn.
-	\item Consider future modifiabilility in the design stage prior to any development.
+	\item If possible, consider using popular user-friendly software languages like Python. Especially consider this for parts of the source code that is likely to be modified or reviewed by users.
+	\item Consider future source code modifiabilility as early as the design stage of development.
 	\item Consider flexibility of data structures and data storage in the design stage.
-	\item Make public validation benchmarks.
+	\item Provide validation benchmark tools and data to the public.
 \end{itemize}
 
 \subsubsection{Reusability}
 
 \begin{itemize}
-	\item Modularize the source code.
-	\item Document module interfaces.
+	\item Ensure a high degree of code modularity and abstraction.
+	\item Document module interfaces in design and developer documentation.
 	\item Provide API documentation, if applicable.
 \end{itemize}
 
@@ -2144,15 +2144,14 @@ The following points should be considered when developing high quality LBM softw
 
 \begin{itemize}
 	\item Maintain consistent formatting style across source code files.
-	\item Identify a coding standard, if one is used during development.
-	\item Use consistent, distinctive, and meaningful code identifiers. Identify algorithms that are used.
+	\item Identify a coding standard in the documentation, if a coding standard is used during development.
+	\item Use consistent, distinctive, and meaningful code identifiers. 
+	\item Identify algorithms that are used.
 	\item Hard code domain constants.
 	\item Add meaningful comments. They should indicate what is being done in each section of source code.
-	\item Modularize the source code.
-	\item Include user guides and usage requirements.
-	\item In the documentation identify the limits of the software. 
-	\item Identify the cases that the software can be applied to.
-	\item Note the requirements of the user in order to set up their case. Identify what parameters are needed. 
+	\item Ensure a high degree of code modularity and abstraction.
+	\item Include user guides, and state technical and problem modeling requirements.
+	\item State problem cases that the software is designed to model in the documentation, and explicitly state the limits of the software. 
 	\item Consider adding a FAQ section to the documentation. 
 \end{itemize}
 
@@ -2161,9 +2160,9 @@ The following points should be considered when developing high quality LBM softw
 \begin{itemize}
 	\item Update all relevant documentation when a change to the software is made.
 	\item Use automatic document generation tools to limit the time spent on updating documentation.
-	\item Include documentation aimed at developers, like a developers guide.
-	\item Provide documentation that orients users and developers to artifacts, the source code, and system architecture.
-	\item Highlight new system features between artifact versions. 
+	\item Provide a developers guide.
+	\item Provide a resource that helps orient users and developers to the artifacts, source code, and system architecture.
+	\item Highlight new features and changes between artifact versions. 
 \end{itemize}
 
 \subsubsection{Visibility and Transparency}
@@ -2171,34 +2170,34 @@ The following points should be considered when developing high quality LBM softw
 \begin{itemize}
 	\item Identify the development model that was used, if one was used.
 	\item Identify the development environment.
-	\item Identify the development process and how to contribute. 
+	\item Identify the development process and how new users can contribute. 
 	\item Include notes with all releases.
-	\item Write modular code.
-	\item Communicate all contributions and changes to the entire development team.
+	\item Ensure a high degree of code modularity and abstraction.
+	\item Communicate all changes to the development team.
 	\item Use continuous integration processes and tools.
-	\item Consider peer review processes for contributions. 
-	\item Decrease code duplication.
-	\item Maintain updated developer documentation.
-	\item Make use of project management software.
+	\item Consider peer review processes to assess contributions. 
+	\item Eliminate code duplication.
+	\item Update all relevant developer documentation when a change to the software is made.
+	\item Use project management software.
 \end{itemize}
 
 \subsubsection{Reproducibility}
 
 \begin{itemize}
-	\item Compare results of methods against manually calculated or known correct results.
-	\item Automate the above comparison. Run the comparison after code changes.
-	\item Consider peer reviews for code contributions.
-	\item Maintain detailed and up to date design documentation.
+	\item Test output against manually calculated or known correct results.
+	\item Automate the testing of output. Run tests after all code changes.
+	\item Consider peer review processes to assess contributions. 
+	\item Update all relevant design documentation when a change to the software is made.
 \end{itemize}
 
 \subsubsection{Unambiguity}
 
 \begin{itemize}
-	\item Documentation must include all technical requirements and dependencies for using the software. 
-	\item Documentation should detail how to properly use the software.
-	\item Documentation should outline correct and incorrect use cases of the software.
-	\item Documentation should either explain underlying CFD theories or reference appropriate resources.
-	\item Consider asking users for feedback on the documentation.
+	\item Documentation must state all technical requirements and software dependencies. 
+	\item A user guide must be provided.
+	\item State appropriate fluid dynamics problems that the software is designed to model in the documentation, and explicitly state the limits of the software. 
+	\item The documentation should either explain the underlying CFD theories or provide a reference to appropriate resources.
+	\item Consider asking users for feedback on the documentation, specifically if it clearly conveys all necessary information to the users.
 \end{itemize}
 
 
