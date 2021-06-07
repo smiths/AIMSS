@@ -27,7 +27,7 @@ public class Main {
 
     public static void main(String[] args) {
         // To use the original assigned scores, change this variable to false;
-        boolean SHOULD_APPLY_SENSITIVITY_ANALYSIS = true;
+        boolean SHOULD_APPLY_SENSITIVITY_ANALYSIS = false;
 
         try {
             FileInputStream file = new FileInputStream(new File("AHP_Template.xlsx"));
