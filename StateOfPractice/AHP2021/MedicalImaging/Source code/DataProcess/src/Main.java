@@ -27,7 +27,7 @@ public class Main {
 
     public static void main(String[] args) {
         // To use the original assigned scores, change this variable to false;
-        boolean SHOULD_APPLY_SENSITIVITY_ANALYSIS = false;
+        boolean SHOULD_APPLY_SENSITIVITY_ANALYSIS = true;
 
         try {
             FileInputStream file = new FileInputStream(new File("AHP_Template.xlsx"));
@@ -145,8 +145,8 @@ public class Main {
 
     private static void applySensitivityAnalysis(XSSFWorkbook workbook) {
         // Set the lower and upper bound of the random numbers according to needs
-        double LOWER_BOUND = -1;
-        double UPPER_BOUND = 1;
+        double LOWER_BOUND = -0.5;
+        double UPPER_BOUND = 0.5;
 
         // Adjust scores with random numbers
         for (int i = 0; i < numberQualities; i++) {
