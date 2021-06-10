@@ -20,7 +20,7 @@
 \usepackage{multicol}
 \usepackage{indentfirst}
 
-\usepackage[round]{natbib}
+\usepackage[]{natbib}
 
 %\usepackage{refcheck}
 
@@ -89,24 +89,34 @@
 
 \usepackage{fullpage}
 \usepackage{setspace}
+\usepackage{thesis}
+
 \doublespacing
-\title{State of the Practice of Lattice Boltzmann Method Software Development} 
-\author{Peter Michalski}
-\date{\today}
+
+\newcommand{\fulltitle}{State of the Practice for Lattice Boltzmann Method Software}
+\newcommand{\authorname}{Peter Michalski}
 
 \begin{document}
-	\maketitle
-	\begin{singlespace}
-	\begin{abstract}
-		This project analyzed the state of the practice for software development in the Lattice Boltzmann Method 
-		domain by quantitatively and qualitatively measuring 23 software packages along quality attributes...
-	\end{abstract}
+\begin{singlespace}
 
+\thesistitle
+	{\MakeUppercase{\fulltitle}}
+	{\MakeUppercase{\authorname}.}
+	{Master of Engineering in Computing and Software}
+	{\copyright \ Copyright by \authorname, July 2021}
 
 \newpage
+\thispagestyle{empty}
+\begin{center}
+	\textbf{\large Abstract}
+\end{center}
 
+This project analyzes the state of the practice for software development in the Lattice Boltzmann Method domain by quantitatively and qualitatively measuring 23 software packages along quality attributes...
+
+\newpage
+\pagenumbering{roman}
 \tableofcontents
-\addtocontents{toc}{\protect\thispagestyle{empty}}
+\addtocontents{toc}{}
 
 ~\newpage
 
@@ -115,34 +125,32 @@
 \listoftables
 
 ~\newpage
-\pagenumbering{gobble}
-\pagenumbering{arabic}
 
 \clearpage
-\section{Reference Material}
+\section*{Reference Material}
 
-\subsection{Software Engineering Related Definitions and Acronyms}
+\subsection*{Software Engineering Related Definitions and Acronyms}
 
 \noindent\textbf{AHP}: Analytical Hierarchy Process\\
 
 \noindent\textbf{Commonality}: A requirement or goal common to all family members.\\
 
-\noindent\textbf{Goal}: “Goals capture, at different levels of abstraction, the various objectives the system under consideration should achieve.” \citep{van2001goal}\\
+\noindent\textbf{Goal}: Goals capture, at different levels of abstraction, the various objectives the system under consideration should achieve \citep{van2001goal}.\\
 
 \noindent\textbf{OTS}: Off-The-Shelf\\
 
 \noindent\textbf{OS}: Operating System\\
 
-\noindent\textbf{Program Family}: A set of programs that are analyzed and designed together starting from the initial stages of the software development life-cycle.\\
-
-\noindent\textbf{Requirements}: A software requirement is: \textit{i}) a condition or capability needed by a user to solve a problem or achieve an objective; \textit{ii}) a condition or capability that must be met or possessed by a system or system component to satisfy a contract, standard, specification, or other formally imposed document; or, \textit{iii}) a documented representation of a condition or capability as in the above two definitions. \citep{thayer2000ieee}\\
+\noindent\textbf{Requirements}: A software requirement is: \textit{i}) a condition or capability needed by a user to solve a problem or achieve an objective; \textit{ii}) a condition or capability that must be met or possessed by a system or system component to satisfy a contract, standard, specification, or other formally imposed document; or, \textit{iii}) a documented representation of a condition or capability as in the above two definitions \citep{thayer2000ieee}.\\
 
 \noindent\textbf{SCS}: Scientific Computing Software\\
+
+\noindent\textbf{Software Family}: A set of programs with an extensive amount of common properties \cite{parnas1976design}.\\
 
 \noindent\textbf{Variability}: A requirement or goal that varies between family members.
 
 \newpage
-\subsection{Lattice Boltzmann Related Definitions and Acronyms}
+\subsection*{Lattice Boltzmann Related Definitions and Acronyms}
 
 \noindent\textbf{1D} 1-Dimensional\\
 
@@ -150,7 +158,7 @@
 
 \noindent\textbf{3D}: 3-Dimensional\\
 
-\noindent\textbf{BGK}: Bhatnagar-Gross-Krook\\
+\noindent\textbf{BGK}: Bhatnagar-Gross-Krook \citep{bhatnagar1954model}\\
 
 \noindent\textbf{CPU}: Central Processing Unit\\
 
@@ -171,50 +179,52 @@
 
 \end{singlespace}
 \newpage
+\pagenumbering{arabic}
 \section{Introduction - DONE SECTION 1st DRAFT}
 
-This report analyzes the development of software packages that use Lattice Boltzmann Methods (LBM), a class of computational fluid dynamics methods, for fluid simulation. The analysis involves taking qualitative and qualitative measures along quality attributes. The goal is to analyze the current state of development of Scientific Computing Software (SCS) in this domain to provide insight into its best practices and offer guidance for future development. 
+This report analyzes the development of software packages that use Lattice Boltzmann Methods (LBM), a class of computational fluid dynamics methods, for fluid simulation. These LBM algorithms consider the behaviours of a collection of particles as a single unit of an intermediate size, and predict their positional probability as they move through a lattice structure. LBM are further detailed in Section \ref{domainanalysis}. 
+
+Scientific Computing Software (SCS) is defined as the use of computer tools to analyze or simulate mathematical models of real world systems \citep{smith2006systematic}. Given the importance of such software, scientists and engineers desire methods and tools to sustainably develop it with high quality. This has led to the formation of groups like the Software Sustainability Institute (\href{https://www.software.ac.uk/}{SEI}) and Better Scientific Software (\href{https://bssw.io/}{BSS}). 
+
+The goal of this report is to analyze the current state of development of LBM SCS to provide insight into its best practices and to offer guidance for future development. We want to understand how software quality in the LBM SCS family is impacted by software development choices, including principles, processes, and tools.
 
 In this report red text denotes internally linked sections of this document. Cyan text denotes an external URL link. Green text denotes a link to the bibliography.
 
-\subsection{Purpose of Report}
+\subsection{Purpose}
 
-This document constitutes the author's M.Eng. report in partial fulfillment of the the degree of Master of Engineering. It is to be submitted to the Department of Computing and Software in McMaster University's Faculty of Engineer and is intended for review by the examination committee. In this context the purposes of the report are the following:
+The LBM software packages are assessed for a given set of quality attributes, using quantitative and qualitative data, in order to answer the research questions found in Section \ref{researchquestions}. The qualities are defined in Section \ref{softwarequalities}. Qualitative data is gathered from interviews with software package developers. The interview questions are listed in Section \ref{interviewquestions}. Quantitative data is measured using the quality metrics listed in Section \ref{measurementtemplate2}. In this context the purposes of the report are as follows:
 
 \begin{itemize}
-	\item Describe the state of the practice of SCS project origin, motivations, and goals
-	\item Describe LBM software structure and goals
+	\item Develop and test an updated methodology for assessing the state of the practice of SCS projects
+	\item Describe the specific example of LBM software structure and goals
 	\item Report on the measure of a subset of LBM software packages along quality metrics
-	\item Evaluate the state of the practice of LBM software development along quality metrics
-	\item Make suggestions for improving LBM software along quality metrics
+	\item Evaluate the state of the practice of LBM software development along quality attributes
+	\item Make suggestions for improving LBM software along quality attributes
 	\item Make suggestions for improving state of the practice of SCS assessments
 \end{itemize}
 
-\subsection{Motivation of Report}
+\subsection{Motivation}
 
 The purpose of state of the practice assessments is to understand how software quality is impacted by software development choices, including principles, processes, and tools, within SCS communities. This knowledge can be used to guide future development of SCS, specifically along quality attributes, and reduce software quality failures. This work reports on the state of the practice of LBM software development and makes suggestions on improving the quality of software in this domain.
 
 This assessment of the state of the practice of LBM software development builds off of prior work on assessing the state of research software development. The previous state of the practice assessments include domains such as Geographic Information Systems \citep{SmithEtAl2018_arXivGIS}, Mesh Generators \citep{SmithEtAl2016}, Oceanographic Software \citep{smith2015state}, Seismology software \citep{SmithEtAl2018}, and statistical software for psychology \citep{SmithEtAl2018_StatSoft}. 
 
-In the course of this assessment we updated the methodology that was used during previous assessments. Details of the new methodology are found \href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/Methodology/Methodology.pdf}{here}. The previous set of research questions were critically assessed and modified. The updated questions are listed in Section \ref{researchquestions}. In this re-boot we collected more quantitative and qualitative data, focused on software quality attributes, and added more measures, including collecting empirical data and interviewing developers. We have also added a domain analysis to better characterize the functionality provided by the software, and have leveraged the expertise of a domain expert. As in past assessments, the collected data was combined to rank the software using the Analytic Hierarchy Process (AHP). The domain expert was consulted to verify the ordering.
+In the course of this assessment we updated the methodology that was used during previous assessments. Details of the new methodology are in \citep{methodology2020}. The previous set of research questions were critically assessed and modified. The updated questions are listed in Section \ref{researchquestions}. In this re-boot we collected more quantitative and qualitative data, focused on software quality attributes, and added more measures, including collecting empirical data and interviewing developers. We have also added a domain analysis to better characterize the functionality provided by the software, and have leveraged the expertise of a domain expert. As in past assessments, the collected data was combined to rank the software using the Analytic Hierarchy Process (AHP). The domain expert was consulted to verify the ordering.
 
-\subsection{Scope of Report}
+\subsection{Scope}
 
-This report analyzes a filtered set of LBM software packages along quantitative and qualitative measures. Many of these measures are captured using surface measurements, which can be categorized as initial and easy to capture measurements, of the underlying quality and they may not represent the true quality of the software. Surface measurements are taken as they allow us to apply the same measurement, with reasonable effort, along all software packages despite technical and functional variabilities among the set of software packages. The measures are used to answer the research questions found in Section \ref{researchquestions}. The measured software packages are open source, and it is recommended to keep this in mind when considering the recommendations of this report. Some recommendations may not apply to closed-source software. Practices surrounding close source software development may differ.
+This report analyzes a filtered set of LBM software packages along quantitative and qualitative measures. Many of these measures are captured using surface measurements, which can be categorized as initial and easy to capture measurements, of the underlying quality; they may not represent the true quality of the software. Surface measurements are taken as they allow us to apply the same measurement, with reasonable effort, along all software packages despite technical and functional variabilities among the set of software packages. The measured software packages are open source, and it is recommended to keep this in mind when considering the recommendations of this report. Some recommendations may not apply to closed-source software. Practices surrounding close source software development may differ.
 
 The report addresses what was done during the development of the software packages to address the quality attributes listed in Section \ref{softwarequalities}. It then provides general guidance on how to improve these qualities when developing LBM software. It does not make suggestions on what should have been done or should be done for any one specific package. Best practices may differ among software packages due to their inherent organizational and technical differences. 
 
-\subsection{Organization of Report}
+\subsection{Organization}
 
-The first part of this document includes the Table of Contents, List of Figures, and List of Tables. This is followed by Reference Material including subsections outlining Software Engineering Related Definitions and Acronyms and Lattice Boltzmann Related Definitions and Acronyms.
-
-The rest of core of the report is organized as follows:
+The report is organized as follows:
 
 \begin{itemize}
 	\item \textbf{Introduction} to the report, including its purpose, motivation, scope, and organization.
-	\item \textbf{Background} of Scientific Computing Software, including software qualities and software families.
-	\item LBM software \textbf{Domain Analysis}.
-	\item \textbf{Methodology} of this state of the practice assessment, including the steps of the methodology, software quality definitions and how these qualities are assessed in this report, an overview of candidate software selection, empirical measures gathered, and the analytical hierarchy process. 
+	\item LBM software \textbf{Domain Analysis}. A domain analysis consists of systematically identifying and documenting the commonalities, variabilities, and terminology of a software family \citep{Weiss1997}.
+	\item \textbf{Methodology} of this state of the practice assessment, including the steps of the methodology, software quality definitions and how these qualities are assessed in this report, an overview of candidate software selection, empirical measures gathered, and the analytical hierarchy process. This follows a general methodology for assessing the state of the practice for SCS domains.
 	\item Quantitative and qualitative \textbf{Results}. 
 	\item An analysis of the results and \textbf{Answers To Research Questions}.
 	\item \textbf{Conclusion} to the report including comments on suggestions for future state of the practice assessments.
@@ -222,15 +232,10 @@ The rest of core of the report is organized as follows:
 \end{itemize}
 
 \newpage
-\section{Background - DONE SECTION 1st Draft}
-
-SCS is defined as the use of computer tools to analyze or simulate mathematical models of real world systems \citep{smith2006systematic}. Given the importance of such software, scientists and engineers desire methods and tools to sustainably develop it with high quality. This has led to the formation of groups like the Software Sustainability Institute (\href{https://www.software.ac.uk/}{SEI}) and Better Scientific Software (\href{https://bssw.io/}{BSS}). The purpose of this state of the practice assessment is to understand how software quality in the LBM SCS family is impacted by software development choices, including principles, processes, and tools. A software family is defined
-by \cite{parnas1976design} as “a set of programs whose common properties are so extensive that it is advantageous to study the common properties of the programs before analyzing individual members”. The common properties of the LBM family of related programs are listed as part of the domain analysis in Section \ref{domainanalysis}. The software qualities that are assessed in this report are listed in Section \ref{softwarequalities}. Ensuring software quality can take significant time, but as \cite{SmithEtAl2016} shows, SCS developers often cannot see themselves meeting the required time constraints to better develop some of the artifacts that improve qualities, like detailed documentation. An inability to develop such documentation due to time constraints could be mitigated by the use of automatic document generation tools like Drasil. The Drasil Framework consists of a collection of Domain Specific Languages (DSL) for capturing scientific documents, structures, and computing
-knowledge, and then transforming this knowledge into relevant software artifacts without having to manually duplicate knowledge into multiple artifacts \citep{zhao2018}.
-
-\newpage
 
 \section{Domain Analysis - DONE SECTION 1st DRAFT}\label{domainanalysis}
+
+A software family is defined by \cite{parnas1976design} as “a set of programs whose common properties are so extensive that it is advantageous to study the common properties of the programs before analyzing individual members”. The common properties of the LBM family of related programs are listed as part of the domain analysis in Section \ref{domainanalysis}.
 
 \subsection{Lattice Boltzmann Systems}
 
@@ -1409,7 +1414,7 @@ of the system (compile time), or during execution of the system (run time). It i
 
 In this project we set out to answer the research questions found in Section \ref{researchquestions} for the LBM SCS domain. The process involved systematically measuring and analyzing members of this software family along the quality attributes found in Section \ref{softwarequalities}. This included gathering quantitative and qualitative measurements. A goal of the project was to produce a hierarchical quality assessment for LBM software packages.  
 
-We collected quantitative data using the measures found in the measurement template of Section \ref{measurementtemplate}. Some of this was empirical software engineering related data, such as the number of files, number of lines of code, percentage of issues that are closed. Most of the data was gathered by manually observing the software, its source code, and its artifacts, while some was gathered using the tools listed in Section \ref{tools}.
+We collected quantitative data using the measures found in the measurement template of Section \ref{measurementtemplate}. Some of this was empirical software engineering related data, such as the number of files, number of lines of code, percentage of issues that are closed. Most of the data was gathered by manually observing the software, its source code, and its artifacts, while some was gathered using the tools discussed in Section \ref{empiricalmeasures}.
 
 We also collected qualitative data by interviewing the software package developers and asking them the questions found in Section \ref{interviewquestions}. Furthermore, we solicited the assistance of domain experts to better assess each software package by leveraging their experience to assess the functional and non-functional requirements for the software domain. 
 
@@ -1581,9 +1586,7 @@ There is considerable variation among these software packages, including their i
 
 The quality measurements in this assessment rely on the gathering and analyzing of raw and processed empirical data related to the research questions listed in Section \ref{researchquestions}. 
 
-All of the quality measurements that are part of the AHP analysis are in this category, while qualitative data gathered during interviews with developers is not. This part of the assessment focuses on data that is reasonably easy to collect. Much of the data was gathered by manually reviewing the artifacts of each software package, while some was gathered using freeware tools listed in Section \ref{tools}. The data that was gathered is listed in the measurement template found in Section \ref{measurementtemplate2}. Some of the data required processing other data within the template, including the status of the software package which relied on the last commit date, the percentage of issues that are closed which relied on the number of open and closed issues, and the percentage of code that is comments which relied on the number of total lines and comment lines in text-based files. The complete measurement template data was then analyzed using the grading template found in Section \ref{gradingtemplate2}, the output of which was analyzed using the AHP described in Section \ref{AHP}.
-
-\subsubsection{Software Tools}\label{tools}
+All of the quality measurements that are part of the AHP analysis are in this category, while qualitative data gathered during interviews with developers is not. This part of the assessment focuses on data that is reasonably easy to collect. Much of the data was gathered by manually reviewing the artifacts of each software package, while some was gathered using the freeware tools discussed below. The data that was gathered is listed in the measurement template found in Section \ref{measurementtemplate2}. Some of the data required processing other data within the template, including the status of the software package which relied on the last commit date, the percentage of issues that are closed which relied on the number of open and closed issues, and the percentage of code that is comments which relied on the number of total lines and comment lines in text-based files. The complete measurement template data was then analyzed using the grading template found in Section \ref{gradingtemplate2}, the output of which was analyzed using the AHP described in Section \ref{AHP}.
 
 Most of the measurement template data was gathered by observing GitHub repository metrics and software package artifacts, or by processing data gathered using freeware tools. Data in the final three sets of the measurement template was collected using these tools. The tool \href{https://github.com/tomgi/git_stats}{GitStats} was used to measure each software package's GitHub repository for the number of binary files, the number of added and deleted lines, and the number of commits over varying time intervals. The tool \href{https://github.com/boyter/scc}{Sloc Cloc and Code (scc)} was used to measure the number of text based files as well as the number of total, code, comment, and blank lines in each GitHub repository. Details on installing and running these tools can be found in the \href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/Methodology/A
 	Guide to Empirical Measures.pdf} {Guide to Empirical Measures} file in the AIMSS repository. 
@@ -1927,7 +1930,7 @@ The following artifacts were rarely found in the 23 software packages that were 
 	\begin{multicols}{2}	
 		\begin{itemize}
 			\item API Documentation
-			\item Developer/Contributing Manual/Guide
+			\item Developer/Contributor Manual/Guide
 			\item FAQ / Forum
 			\item Verification and Validation Plan/Notes
 			\item Video Guide (including YouTube)
@@ -2213,6 +2216,11 @@ How does software designated as high quality by this methodology compare	with to
 
 - key findings restated
 - comment on future work in state of the practice SCS
+
+the following was moved from the former background section, may need edits as part of conclusion:
+
+  The software qualities that are assessed in this report are listed in Section \ref{softwarequalities}. Ensuring software quality can take significant time, but as \cite{SmithEtAl2016} shows, SCS developers often cannot see themselves meeting the required time constraints to better develop some of the artifacts that improve qualities, like detailed documentation. An inability to develop such documentation due to time constraints could be mitigated by the use of automatic document generation tools like Drasil. The Drasil Framework consists of a collection of Domain Specific Languages (DSL) for capturing scientific documents, structures, and computing
+knowledge, and then transforming this knowledge into relevant software artifacts without having to manually duplicate knowledge into multiple artifacts \citep{zhao2018}.
 
 \newpage
 \section{Appendix}
