@@ -235,27 +235,19 @@ The report is organized as follows:
 
 \section{Domain Analysis - DONE SECTION 1st DRAFT}\label{domainanalysis}
 
-A software family is defined by \cite{parnas1976design} as “a set of programs whose common properties are so extensive that it is advantageous to study the common properties of the programs before analyzing individual members”. The common properties of the LBM family of related programs are listed as part of the domain analysis in Section \ref{domainanalysis}.
+A domain analysis consists of systematically identifying and documenting the commonalities, variabilities, and parameters of variation of a software family \citep{Weiss1997}. A software family is defined by \cite{parnas1976design} as “a set of programs whose common properties are so extensive that it is advantageous to study the common properties of the programs before analyzing individual members”. This domain analysis of the LBM SCS family is organized into the four subsection located below. The first subsection reviews the basics of Lattice Boltzmann systems. The next three subsections consist of lists of commonalities, variabilities, and parameters of variation, respectively. These three sections form the heart of the domain analysis and include an extensive set of cross-references to demonstrate the relationships between the different items.
 
 \subsection{Lattice Boltzmann Systems}
 
-LBM are a family of fluid dynamics algorithms for simulating single-phase and multiphase fluid flows, often incorporating additional physical complexities \citep{chen1998lattice}. They consider the behaviours of a collection of particles as a single unit at the mesoscopic scale. These methods predict the positional probability of a collection of particles moving through a lattice structure. Off-the-shelf (OTS) Lattice Boltzmann Solvers (LBS) allow for a range of fluid and physical model input parameters, computational parameters, and output parameters.
+LBM are a family of fluid dynamics algorithms for simulating single-phase and multiphase fluid flows, often incorporating additional physical complexities \citep{chen1998lattice}. They consider the behaviours of a collection of particles as a single unit at the mesoscopic scale, between the nanoscopic and microscopic scales. These methods predict the positional probability of a collection of particles moving through a lattice structure. Off-the-shelf (OTS) Lattice Boltzmann Solvers (LBS) allow for a range of fluid and physical model input parameters, computational parameters, and output parameters.
 
-As LBS model fluid dynamics within a boundary using a predefined lattice structure, the methods rely on a two step calculation process. The first process is streaming, where the particles move along the lattice via links. The second process is collision, where energy and momentum is transferred among particles that collide \citep{bao2011lattice}.
+LBS model fluid dynamics within a boundary using a predefined lattice structure and a two step calculation process. The first process is streaming, where the particles move along the lattice via links. The second process is collision, where energy and momentum is transferred among particles that collide \citep{bao2011lattice}.
 There are many standardized lattice models - individual solvers within the family might only use a subset of them.
 LBM use the initial parameters of the fluid to find the probability of where along the lattice linkages a group of particles are most likely to travel. It then moves the particles into the next node, and transfers the energy and momentum if a collision occurs. Then the process repeats for the duration of the modeling instance.
 
-\begin{figure}[h!]
-	\begin{center}
-		\includegraphics[width=0.5\textwidth]{FeatureDiagramLBS}
-		\caption{LBS Model Feature Diagram}
-		\label{LBSFeatureDiagram}
-	\end{center}
-\end{figure} 
-
 \subsection{Commonalities}\label{comm_sec}
 
-This section lists common features among potential family members. The commonalities are organized using the following abstraction of the system, which can be used to describe all Lattice Boltzmann systems: input information, generate the simulation, output the results. Section \ref{comm_lbm} describes the commonalities for the simulation step. Section \ref{comm_in} highlights the input information that is required for Lattice Boltzmann systems. The next section, Section \ref{comm_out}, shows the common features for the output of Lattice Boltzmann systems, such as the requirement that mesh information be written to files. Although the output information could simply be written to the computer’s memory, in all practical applications it is desirable to have a persistent record of the output that was created. The final section covers qualities of the system that cannot be classified as input, simulation generation or output. These commonalities are termed nonfunctional requirements of the system. For instance, all systems will have the goal that the response time to a user’s request is small enough to allow the user to focus on his/her problem and to maintain his/her train of thought, without being distracted by excessive waiting time. The commonality in this case is refined by a later variability because the specific requirement on the response time will depend on the intended usage of the mesh generating system. 
+This section lists common features among potential family members. The commonalities are organized using the following abstraction of the system, which can be used to describe all Lattice Boltzmann systems: input information, generate the simulation, output the results. Section \ref{comm_lbm} describes the commonalities for the simulation step. Section \ref{comm_in} highlights the input information that is required for Lattice Boltzmann systems. The next section, Section \ref{comm_out}, shows the common features for the output of Lattice Boltzmann systems, such as the requirement that mesh information be written to files. Although the output information could simply be written to the computer’s memory, in all practical applications it is desirable to have a persistent record of the output that was created. The final section covers nonfunctional requirements of the system. For instance, all systems will have the goal that the response time to a user’s request is small enough to allow the user to focus on his/her problem and to maintain his/her train of thought, without excessive waiting time. The commonality in this case is refined by a later variability because the specific requirement on the response time will depend on the individual software packages, their simulation models, inputs, and outputs.
 
 Each commonality below uses the same structure. All of the commonalities are assigned a unique item number, which takes the form of a natural number with the prefix ``C''. Following this, a description of the commonality is provided along with a list of related variabilities, which are given as hyperlinks that allow navigation of the document to the text describing the variability.  
 
@@ -290,7 +282,7 @@ Each commonality below uses the same structure. All of the commonalities are ass
 	
 	\begin{tabular}{| p{\colAwidth} | p{\colBwidth}|}		
 		\hline
-		\bf Description & All Lattice Boltzmann versions use a collision operator which concerns collisions between particles.\\
+		\bf Description & All Lattice Boltzmann versions use a collision operator which concerns collisions between particles. Collision operators map collisions of particles within the lattice space. The Bhatnagar-Gross-Krook Collision Operator is a common LBM collision operator that preserves continuity for a discretized model, for each velocity direction $i$. Its equation is $\mathrm{\Omega_i} = \frac{1}{\tau}(f_{i}^{eq}-f_{i})$, where $\tau$ is the relaxation rate towards equilibrium, $f^{eq}$ is the equilibrium particle probability distribution function, and $f$ is the particle probability distribution function.\\
 		\hline
 		\bf Related Variability & \vref{dimensions} \vref{numveldir}\\
 		\hline
@@ -347,7 +339,7 @@ Each commonality below uses the same structure. All of the commonalities are ass
 	
 	\begin{tabular}{| p{\colAwidth} | p{\colBwidth}|}		
 		\hline
-		\bf Description & Every Lattice Boltzmann version uses a Boltzmann transport equation to describe the statistical behaviour of a system that does not have collisions.\\
+		\bf Description & Every Lattice Boltzmann version uses a Boltzmann transport equation to describe the statistical behaviour of a system that does not have collisions. The equation is $(\frac{d}{dt} + \mathrm{e} \cdot \nabla_\mathrm{x} + \frac{F}{m} \cdot \nabla_\mathrm{e})f = \Omega(t)$, where $\mathrm{e}$ is the velocity, $\nabla_\mathrm{x}$ is the position vector gradient, $\nabla_\mathrm{e}$ is the velocity gradient, and $\Omega(t)$ is the collision operator as a function of time.\\
 		\hline
 		\bf Related Variability & \vref{vartraneq}\\
 		\hline
@@ -365,7 +357,7 @@ Each commonality below uses the same structure. All of the commonalities are ass
 	
 	\begin{tabular}{| p{\colAwidth} | p{\colBwidth}|}		
 		\hline
-		\bf Description & The LBS require fluid, model, and boundary information for the problem.\\
+		\bf Description & The LBS require fluid, model, and boundary information for the problem. This includes, but is not limited to, fluid acceleration rate, velocity, and viscosity, as well as the number of dimensions in the lattice model, and the number of velocity directions in the lattice.\\
 		\hline
 		\bf Related Variability & \vref{interface}\\
 		\hline
@@ -383,7 +375,7 @@ Each commonality below uses the same structure. All of the commonalities are ass
 	
 	\begin{tabular}{| p{\colAwidth} | p{\colBwidth}|}		
 		\hline
-		\bf Description & LBS write fluid parameter predictions to memory.\\
+		\bf Description & LBS write fluid predictions, such as the output of the transport equation, to memory.\\
 		\hline
 		\bf Related Variability & \vref{varvisual} \vref{formatoutput} \\
 		\hline
@@ -477,7 +469,7 @@ Each commonality below uses the same structure. All of the commonalities are ass
 	
 	\begin{tabular}{| p{\colAwidth} | p{\colBwidth}|}		
 		\hline
-		\bf Description & The use of LBS is easy and efficient.\\
+		\bf Description & The LBS is fairly easy to use. The system should have a good degree of usability, as defined in Section \ref{softwarequalities}.\\
 		\hline
 		\bf Related Variability & \vref{varusability}\\
 		\hline
@@ -485,7 +477,7 @@ Each commonality below uses the same structure. All of the commonalities are ass
 \end{minipage}\\
 
 \subsection{Variabilities}\label{var_sec}
-This section provides a list of characteristics that may vary among family members. As in Section \ref{comm_sec}, the first three subsections on variabilities are organized into the following sublists: Mesh Generation, Input and Output. The final two subsections list variabilities that can be characterized as system constraints and as nonfunctional requirements. 
+This section provides a list of characteristics that may vary among family members. As in Section \ref{comm_sec}, the first three subsections on variabilities are organized into the following sublists: Simulation Models, Input and Output. The final two subsections list variabilities that can be characterized as system constraints and as nonfunctional requirements. 
 
 As for the commonalities, each variability is labelled with a unique item number. In this case the numbers are prepended with the letter ``V''. The other three headings provided for each variability are: Description, Related Commonality, and Related Parameter. The related commonalities and parameters are given as a set of identifiers that respectively refer back to the previous section on commonalities or refer forward to the next section on parameters of variation.
 
@@ -562,7 +554,7 @@ As for the commonalities, each variability is labelled with a unique item number
 	
 	\begin{tabular}{| p{\colCwidth} | p{\colDwidth}|}		
 		\hline
-		\bf Description & Coefficients for distribution function can vary.\\
+		\bf Description & Coefficients used with the distribution function can vary. These are based on the number of velocity directions in the model.\\
 		\hline
 		\bf Related Commonality & \cref{equildistfunc}\\
 		\hline
@@ -894,7 +886,7 @@ As for the commonalities, each variability is labelled with a unique item number
 	
 	\begin{tabular}{| p{\colCwidth} | p{\colDwidth}|}		
 		\hline
-		\bf Description & The response time required for user interaction with the system varies.\\
+		\bf Description & Usability varies between systems and between models within systems.\\
 		\hline
 		\bf Related Commonality & \cref{performance}\\
 		\hline
@@ -946,7 +938,7 @@ As for the commonalities, each variability is labelled with a unique item number
 \end{minipage}\\
 \newpage
 \subsection{Parameters of Variation}
-This section specifies the parameters of variation for the variabilities listed in Section \ref{var_sec}. They are organized into the same five subcategories as employed previously: Mesh Generation, Input, Output, System Constraints, Nonfunctional Requirements. 
+This section specifies the parameters of variation for the variabilities listed in Section \ref{var_sec}. They are organized into the same five subcategories as employed previously: Simulation Models, Input, Output, System Constraints, Nonfunctional Requirements. 
 
 Each parameter of variation is given a unique identifier of the form “P” followed by a natural number. The corresponding variability is listed and a hyperlink is provided that allows navigation back to the appropriate item in Section \ref{var_sec}. The final entry for each parameter of variation is the binding time, which is the time in the software lifecycle when the variability is fixed. The binding time could be during specification, or during building
 of the system (compile time), or during execution of the system (run time). It is possible to have a mixture of binding times. For instance, a parameter of variation could have a binding time of “specification or building” to represent that the parameter could be set at specification time, or it could be postponed until the given family member is built. The choice of postponing the decision until the build could be associated with the presence of a domain specific language that would allow postponing decisions on the values of the parameter of variation.
@@ -984,9 +976,9 @@ of the system (compile time), or during execution of the system (run time). It i
 	
 	\begin{tabular}{| p{\colEwidth} | p{\colFwidth}|}		
 		\hline
-		\bf Corresponding Variability & \vref{parallel}\\
+		\bf Corresponding Variability & \vref{varedf}\\
 		\hline
-		\bf Range of Parameters & Equilibrium can be approximated up to different orders in incompressible or compressible versions.\\
+		\bf Range of Parameters & Equilibrium approximation varies between incompressible or compressible models.\\		
 		\hline
 		\bf Binding Time & Build Time\\
 		\hline
@@ -1007,7 +999,7 @@ of the system (compile time), or during execution of the system (run time). It i
 		\hline
 		\bf Corresponding Variability & \vref{edfstorage}\\
 		\hline
-		\bf Range of Parameters & Single and multiple array storage patterns can be used.\\
+		\bf Range of Parameters & Various data structures can be used to store function output, including single and multi-dimensional arrays, depending on the problem model and developer preferences.\\
 		\hline
 		\bf Binding Time & Build Time\\
 		\hline
@@ -1028,7 +1020,7 @@ of the system (compile time), or during execution of the system (run time). It i
 		\hline
 		\bf Corresponding Variability & \vref{edfcoeff}\\
 		\hline
-		\bf Range of Parameters & Numerous coefficients for equilibrium distribution function based on number of velocity directions. \\
+		\bf Range of Parameters & Numerous coefficients for equilibrium distribution function based on number of velocity directions. The number of velocity directions is typically 2, 3, 5, 9, 13, 15, 19, or 27.\\
 		\hline
 		\bf Binding Time & Build Time\\
 		\hline
@@ -1049,7 +1041,7 @@ of the system (compile time), or during execution of the system (run time). It i
 		\hline
 		\bf Corresponding Variability & \vref{dimensions}\\
 		\hline
-		\bf Range of Parameters & LBS models can have up to 3 dimensions.\\
+		\bf Range of Parameters & LBS model has 1, 2, or 3 dimensions.\\
 		\hline
 		\bf Binding Time & Build Time or Run Time\\
 		\hline
@@ -1070,13 +1062,22 @@ of the system (compile time), or during execution of the system (run time). It i
 		\hline
 		\bf Corresponding Variability & \vref{numveldir}\\
 		\hline
-		\bf Range of Parameters & One dimensional models include options of 2, 3, and 5 velocity directions. Two dimensional models include options of 9, 13, and 15 velocity directions. Three dimensional models include options of 15, 19, and 27 velocity directions. \\
+		\bf Range of Parameters & One dimensional models include options of 2, 3, and 5 velocity directions. Two dimensional models include options of 9, 13, and 15 velocity directions. Three dimensional models include options of 15, 19, and 27 velocity directions. Figure \ref{dimension_model} from \citep{thurey2009stable} illustrates two commonly used LBM models in two and three dimensions.\\
 		\hline
 		\bf Binding Time & Build Time or Run Time\\
 		\hline
 	\end{tabular}
 \end{minipage}
 ~\newline
+
+\begin{figure}[h!]
+	\begin{center}
+		\includegraphics[width=0.7\textwidth]{dimension_model}
+		\caption{Commonly used LBM models in two and three dimensions}
+		\label{dimension_model}
+	\end{center}
+\end{figure}
+
 ~\newline
 \noindent
 \begin{minipage}{\textwidth}
@@ -1112,7 +1113,7 @@ of the system (compile time), or during execution of the system (run time). It i
 		\hline
 		\bf Corresponding Variability & \vref{vartraneq}\\
 		\hline
-		\bf Range of Parameters & Collision and collision free transport equations.\\
+		\bf Range of Parameters & Collision and collision free transport equations. LBS sometimes use one or the other, often the collision transport equation. A Boolean parameter could be used to select between these equations in systems that can apply either equation.\\
 		\hline
 		\bf Binding Time & Build Time\\
 		\hline
@@ -1133,7 +1134,7 @@ of the system (compile time), or during execution of the system (run time). It i
 		\hline
 		\bf Corresponding Variability & \vref{numberoffluids}\\
 		\hline
-		\bf Range of Parameters & LBS can model one or more fluids.\\
+		\bf Range of Parameters & LBS can model a natural number of fluids.\\
 		\hline
 		\bf Binding Time & Build Time\\
 		\hline
@@ -1154,7 +1155,7 @@ of the system (compile time), or during execution of the system (run time). It i
 		\hline
 		\bf Corresponding Variability & \vref{typefluidparm}\\
 		\hline
-		\bf Range of Parameters & LBS fluid parameters include Reynolds Number, density, viscosity, time, pressure, force, direction, relaxation rate, turbulence.\\
+		\bf Range of Parameters & LBS fluid parameters include Reynolds Number, density, viscosity, time, pressure, force, direction, relaxation rate, turbulence. All of these parameters have the type of real number.\\
 		\hline
 		\bf Binding Time & Build Time\\
 		\hline
@@ -1175,7 +1176,7 @@ of the system (compile time), or during execution of the system (run time). It i
 		\hline
 		\bf Corresponding Variability & \vref{varboundary}\\
 		\hline
-		\bf Range of Parameters & Lattice boundary can have reflective or non-reflective conditions.\\
+		\bf Range of Parameters & Lattice boundary can have reflective or non-reflective conditions. Some LBS will only model reflective or non-reflective conditions. If there is a choice then this can be indicated by a Boolean parameter.\\
 		\hline
 		\bf Binding Time & Build Time\\
 		\hline
@@ -1300,7 +1301,7 @@ of the system (compile time), or during execution of the system (run time). It i
 		\hline
 		\bf Range of Parameters & The amount of memory and storage varies between LBS.\\
 		\hline
-		\bf Binding Time & Build Time\\
+		\bf Binding Time & Run Time\\
 		\hline
 	\end{tabular}
 \end{minipage}\\
@@ -1360,7 +1361,7 @@ of the system (compile time), or during execution of the system (run time). It i
 		\hline
 		\bf Corresponding Variability & \vref{varresponsetime}\\
 		\hline
-		\bf Range of Parameters & The maximum amount of time that the user is expected to wait for the system to produce a result ranges between systems and models from near instantaneous to several minutes or longer.\\
+		\bf Range of Parameters & The usability of LBS varies. For example, the maximum amount of time that the user is expected to wait for the system to produce a result ranges between systems and models from near instantaneous to several minutes or longer.\\
 		\hline
 		\bf Binding Time & Specification\\
 		\hline
@@ -1381,7 +1382,7 @@ of the system (compile time), or during execution of the system (run time). It i
 		\hline
 		\bf Corresponding Variability & \vref{varportability}\\
 		\hline
-		\bf Range of Parameters & The ease with which LBS can run on Windows, MacOS, and Linux system varies. Some LBS can run on all three, while some can run on multiple or only one operating system.\\
+		\bf Range of Parameters & LBS can run on Windows, MacOS, and/or Linux systems. Some LBS can run on all three, while some can run on multiple or only one operating system.\\
 		\hline
 		\bf Binding Time & Specification\\
 		\hline
@@ -1402,7 +1403,7 @@ of the system (compile time), or during execution of the system (run time). It i
 		\hline
 		\bf Corresponding Variability & \vref{varusability}\\
 		\hline
-		\bf Range of Parameters & Some LBS require programming skills and domain expert knowledge while some LBS can be run without such skills.\\
+		\bf Range of Parameters & Some LBS require significant time to set up models, while some LBS can be run with relatively less user labour.\\
 		\hline
 		\bf Binding Time & Specification\\
 		\hline
