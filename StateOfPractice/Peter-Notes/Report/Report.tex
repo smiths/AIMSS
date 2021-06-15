@@ -182,7 +182,17 @@ This project analyzes the state of the practice for software development in the 
 \pagenumbering{arabic}
 \section{Introduction - DONE SECTION 1st DRAFT}
 
-This report analyzes the development of software packages that use Lattice Boltzmann Methods (LBM), a class of computational fluid dynamics methods, for fluid simulation. These LBM algorithms consider the behaviours of a collection of particles as a single unit of an intermediate size, and predict their positional probability as they move through a lattice structure. LBM are further detailed in Section \ref{domainanalysis}. 
+This report analyzes the development of software packages that use Lattice Boltzmann Methods (LBM), a class of computational fluid dynamics (CFD) methods, for fluid simulation. These LBM algorithms consider the behaviours of a collection of particles as a single unit of an intermediate size, and predict their positional probability as they move through a lattice structure. Figure \ref{circularflow} from \citep{chen2021phase} presents the streamlines of converged flow past a stationary circular cylinder with varied Raynolds number, a common task of LBM.
+
+\begin{figure}[h!]
+	\begin{center}
+		\includegraphics[width=0.7\textwidth]{circularflow}
+		\caption{Streamlines of the flow past a stationary circular cylinder at Re = 10, 20, and 40}
+		\label{circularflow}
+	\end{center}
+\end{figure}
+
+LBM have several advantages over conventional CFD methods, including a simple calculation procedure, improved parallelization, and robust handling of complex geometries \citep{ganji2015application}. LBM are further detailed in Section \ref{domainanalysis}. 
 
 Scientific Computing Software (SCS) is defined as the use of computer tools to analyze or simulate mathematical models of real world systems \citep{smith2006systematic}. Given the importance of such software, scientists and engineers desire methods and tools to sustainably develop it with high quality. This has led to the formation of groups like the Software Sustainability Institute (\href{https://www.software.ac.uk/}{SEI}) and Better Scientific Software (\href{https://bssw.io/}{BSS}). 
 
@@ -224,6 +234,7 @@ The report is organized as follows:
 \begin{itemize}
 	\item \textbf{Introduction} to the report, including its purpose, motivation, scope, and organization.
 	\item LBM software \textbf{Domain Analysis}. A domain analysis consists of systematically identifying and documenting the commonalities, variabilities, and terminology of a software family \citep{Weiss1997}.
+	The purpose of this analysis in this state of the practice assessment is to better classify the different software products based on their functionality.
 	\item \textbf{Methodology} of this state of the practice assessment, including the steps of the methodology, software quality definitions and how these qualities are assessed in this report, an overview of candidate software selection, empirical measures gathered, and the analytical hierarchy process. This follows a general methodology for assessing the state of the practice for SCS domains.
 	\item Quantitative and qualitative \textbf{Results}. 
 	\item An analysis of the results and \textbf{Answers To Research Questions}.
@@ -235,7 +246,11 @@ The report is organized as follows:
 
 \section{Domain Analysis - DONE SECTION 1st DRAFT}\label{domainanalysis}
 
-A domain analysis consists of systematically identifying and documenting the commonalities, variabilities, and parameters of variation of a software family \citep{Weiss1997}. A software family is defined by \cite{parnas1976design} as “a set of programs whose common properties are so extensive that it is advantageous to study the common properties of the programs before analyzing individual members”. This domain analysis of the LBM SCS family is organized into the four subsection located below. The first subsection reviews the basics of Lattice Boltzmann systems. The next three subsections consist of lists of commonalities, variabilities, and parameters of variation, respectively. These three sections form the heart of the domain analysis and include an extensive set of cross-references to demonstrate the relationships between the different items.
+A domain analysis consists of systematically identifying and documenting the commonalities, variabilities, and parameters of variation of a software family \citep{Weiss1997}. A software family is defined by \cite{parnas1976design} as “a set of programs whose common properties are so extensive that it is advantageous to study the common properties of the programs before analyzing individual members”. 
+
+We added this domain commonality and variability analysis to our original methodology because the first time we did the State of the Practice exercise we found we weren't comparing "apples to apples". Software packages can have considerable variation, even when the packages appear to be in the same software family. Viewing the ranking exercise as a means for selecting the right tool for a job, functionality is important. A 2D Lattice Boltzmann solver is not a substitute for a 3D Lattice Boltzmann solver when the latter is required. Therefore, this exercise seeks to classify the different software products based on their functionality. Nonfunctional qualities are assessed through other means in our process. For instance, through usability experiments as noted in the \href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/Methodology/Methodology.pdf}{Methodology for Assessing the State of the Practice for Domain X} document. 
+
+This domain analysis of the LBM SCS family is organized into the four subsection located below. The first subsection reviews the basics of Lattice Boltzmann systems. The next three subsections consist of lists of commonalities, variabilities, and parameters of variation, respectively. These three sections form the heart of the domain analysis and include an extensive set of cross-references to demonstrate the relationships between the different items.
 
 \subsection{Lattice Boltzmann Systems}
 
@@ -381,101 +396,6 @@ Each commonality below uses the same structure. All of the commonalities are ass
 		\hline
 	\end{tabular}
 \end{minipage}\\
-\subsubsection{Nonfunctional Requirements}\label{comm_nfr}
-\noindent
-\begin{minipage}{\textwidth}
-	\renewcommand*{\arraystretch}{1.5}
-	\begin{tabular}{| p{\colAwidth} | p{\colBwidth}|}
-		\hline
-		\bf Item Number& C\refstepcounter{comnum}\thecomnum\label{precision} \\
-		\hline
-	\end{tabular}\\
-	
-	\begin{tabular}{| p{\colAwidth} | p{\colBwidth}|}		
-		\hline
-		\bf Description & LBS provide the precision required for the particular problems it is intended to solve.\\
-		\hline
-		\bf Related Variability & \vref{varprecise}\\
-		\hline
-	\end{tabular}
-\end{minipage}
-~\newline
-~\newline
-\noindent
-\begin{minipage}{\textwidth}
-	\renewcommand*{\arraystretch}{1.5}
-	\begin{tabular}{| p{\colAwidth} | p{\colBwidth}|}
-		\hline
-		\bf Item Number& C\refstepcounter{comnum}\thecomnum\label{accuracy} \\
-		\hline
-	\end{tabular}\\
-	
-	\begin{tabular}{| p{\colAwidth} | p{\colBwidth}|}		
-		\hline
-		\bf Description & LBS provide the accuracy required for the particular problems it is intended to solve.\\
-		\hline
-		\bf Related Variability & \vref{varaccuracy}\\
-		\hline
-	\end{tabular}
-\end{minipage}
-~\newline
-~\newline
-\noindent
-\begin{minipage}{\textwidth}
-	\renewcommand*{\arraystretch}{1.5}
-	\begin{tabular}{| p{\colAwidth} | p{\colBwidth}|}
-		\hline
-		\bf Item Number& C\refstepcounter{comnum}\thecomnum\label{performance} \\
-		\hline
-	\end{tabular}\\
-	
-	\begin{tabular}{| p{\colAwidth} | p{\colBwidth}|}		
-		\hline
-		\bf Description & The response time is small enough to allow the user to focus on their problem without being distracted by excessive waiting times.\\
-		\hline
-		\bf Related Variability & \vref{varresponsetime}\\
-		\hline
-	\end{tabular}
-\end{minipage}
-~\newline
-~\newline
-\noindent
-\begin{minipage}{\textwidth}
-	\renewcommand*{\arraystretch}{1.5}
-	\begin{tabular}{| p{\colAwidth} | p{\colBwidth}|}
-		\hline
-		\bf Item Number& C\refstepcounter{comnum}\thecomnum\label{portability} \\
-		\hline
-	\end{tabular}\\
-	
-	\begin{tabular}{| p{\colAwidth} | p{\colBwidth}|}		
-		\hline
-		\bf Description & LBS will be as portable to other operating systems as required by the users.\\
-		\hline
-		\bf Related Variability & \vref{varportability}\\
-		\hline
-	\end{tabular}
-\end{minipage}
-~\newline
-~\newline
-\noindent
-\begin{minipage}{\textwidth}
-	\renewcommand*{\arraystretch}{1.5}
-	\begin{tabular}{| p{\colAwidth} | p{\colBwidth}|}
-		\hline
-		\bf Item Number& C\refstepcounter{comnum}\thecomnum\label{usability} \\
-		\hline
-	\end{tabular}\\
-	
-	\begin{tabular}{| p{\colAwidth} | p{\colBwidth}|}		
-		\hline
-		\bf Description & The LBS is fairly easy to use. The system should have a good degree of usability, as defined in Section \ref{softwarequalities}.\\
-		\hline
-		\bf Related Variability & \vref{varusability}\\
-		\hline
-	\end{tabular}
-\end{minipage}\\
-
 \subsection{Variabilities}\label{var_sec}
 This section provides a list of characteristics that may vary among family members. As in Section \ref{comm_sec}, the first three subsections on variabilities are organized into the following sublists: Simulation Models, Input and Output. The final two subsections list variabilities that can be characterized as system constraints and as nonfunctional requirements. 
 
@@ -829,110 +749,6 @@ As for the commonalities, each variability is labelled with a unique item number
 		\bf Related Commonality & None \\
 		\hline
 		\bf Related Parameter & \pref{parstorageconst}\\
-		\hline
-	\end{tabular}
-\end{minipage}\\
-\subsubsection{Nonfunctional Requirements}
-\noindent
-\begin{minipage}{\textwidth}
-	\renewcommand*{\arraystretch}{1.5}
-	\begin{tabular}{| p{\colCwidth} | p{\colDwidth}|}
-		\hline
-		\bf Item Number& V\refstepcounter{varnum}\thevarnum\label{varprecise} \\
-		\hline
-	\end{tabular}\\
-	
-	\begin{tabular}{| p{\colCwidth} | p{\colDwidth}|}		
-		\hline
-		\bf Description & The precision needed for each input and output.\\
-		\hline
-		\bf Related Commonality & \cref{precision}\\
-		\hline
-		\bf Related Parameter & \pref{parprecise}\\
-		\hline
-	\end{tabular}
-\end{minipage}
-~\newline
-~\newline
-\noindent
-\begin{minipage}{\textwidth}
-	\renewcommand*{\arraystretch}{1.5}
-	\begin{tabular}{| p{\colCwidth} | p{\colDwidth}|}
-		\hline
-		\bf Item Number& V\refstepcounter{varnum}\thevarnum\label{varaccuracy} \\
-		\hline
-	\end{tabular}\\
-	
-	\begin{tabular}{| p{\colCwidth} | p{\colDwidth}|}		
-		\hline
-		\bf Description & The required accuracy for the output.\\
-		\hline
-		\bf Related Commonality & \cref{accuracy}\\
-		\hline
-		\bf Related Parameter & \pref{paraccuracy}\\
-		\hline
-	\end{tabular}
-\end{minipage}
-~\newline
-~\newline
-\noindent
-\begin{minipage}{\textwidth}
-	\renewcommand*{\arraystretch}{1.5}
-	\begin{tabular}{| p{\colCwidth} | p{\colDwidth}|}
-		\hline
-		\bf Item Number& V\refstepcounter{varnum}\thevarnum\label{varresponsetime} \\
-		\hline
-	\end{tabular}\\
-	
-	\begin{tabular}{| p{\colCwidth} | p{\colDwidth}|}		
-		\hline
-		\bf Description & Usability varies between systems and between models within systems.\\
-		\hline
-		\bf Related Commonality & \cref{performance}\\
-		\hline
-		\bf Related Parameter & \pref{parresponse}\\
-		\hline
-	\end{tabular}
-\end{minipage}
-~\newline
-~\newline
-\noindent
-\begin{minipage}{\textwidth}
-	\renewcommand*{\arraystretch}{1.5}
-	\begin{tabular}{| p{\colCwidth} | p{\colDwidth}|}
-		\hline
-		\bf Item Number& V\refstepcounter{varnum}\thevarnum\label{varportability} \\
-		\hline
-	\end{tabular}\\
-	
-	\begin{tabular}{| p{\colCwidth} | p{\colDwidth}|}		
-		\hline
-		\bf Description & The operating systems on which a LBS can run.\\
-		\hline
-		\bf Related Commonality & \cref{portability}\\
-		\hline
-		\bf Related Parameter & \pref{parportability}\\
-		\hline
-	\end{tabular}
-\end{minipage}
-~\newline
-~\newline
-\noindent
-\begin{minipage}{\textwidth}
-	\renewcommand*{\arraystretch}{1.5}
-	\begin{tabular}{| p{\colCwidth} | p{\colDwidth}|}
-		\hline
-		\bf Item Number& V\refstepcounter{varnum}\thevarnum\label{varusability} \\
-		\hline
-	\end{tabular}\\
-	
-	\begin{tabular}{| p{\colCwidth} | p{\colDwidth}|}		
-		\hline
-		\bf Description & The ease with which LBS can effectively be run varies.\\
-		\hline
-		\bf Related Commonality & \cref{usability}\\
-		\hline
-		\bf Related Parameter & \pref{parusability}\\
 		\hline
 	\end{tabular}
 \end{minipage}\\
@@ -1305,110 +1121,6 @@ of the system (compile time), or during execution of the system (run time). It i
 		\hline
 	\end{tabular}
 \end{minipage}\\
-\subsubsection{Nonfunctional Requirements}
-\noindent
-\begin{minipage}{\textwidth}
-	\renewcommand*{\arraystretch}{1.5}
-	\begin{tabular}{| p{\colEwidth} | p{\colFwidth}|}
-		\hline
-		\bf Item Number& P\refstepcounter{parnum}\theparnum\label{parprecise} \\
-		\hline
-	\end{tabular}\\
-	
-	\begin{tabular}{| p{\colEwidth} | p{\colFwidth}|}		
-		\hline
-		\bf Corresponding Variability & \vref{varprecise}\\
-		\hline
-		\bf Range of Parameters & Each input and each output will have specified the precision with which the real number is stored and/or calculated.\\
-		\hline
-		\bf Binding Time & Build Time or Run Time\\
-		\hline
-	\end{tabular}
-\end{minipage}
-~\newline
-~\newline
-\noindent
-\begin{minipage}{\textwidth}
-	\renewcommand*{\arraystretch}{1.5}
-	\begin{tabular}{| p{\colEwidth} | p{\colFwidth}|}
-		\hline
-		\bf Item Number& P\refstepcounter{parnum}\theparnum\label{paraccuracy} \\
-		\hline
-	\end{tabular}\\
-	
-	\begin{tabular}{| p{\colEwidth} | p{\colFwidth}|}		
-		\hline
-		\bf Corresponding Variability & \vref{varaccuracy}\\
-		\hline
-		\bf Range of Parameters & The tolerance allowed for each output produced by the system so that the system produces usable results. \\
-		\hline
-		\bf Binding Time & Build Time or Run Time\\
-		\hline
-	\end{tabular}
-\end{minipage}
-~\newline
-~\newline
-\noindent
-\begin{minipage}{\textwidth}
-	\renewcommand*{\arraystretch}{1.5}
-	\begin{tabular}{| p{\colEwidth} | p{\colFwidth}|}
-		\hline
-		\bf Item Number& P\refstepcounter{parnum}\theparnum\label{parresponse} \\
-		\hline
-	\end{tabular}\\
-	
-	\begin{tabular}{| p{\colEwidth} | p{\colFwidth}|}		
-		\hline
-		\bf Corresponding Variability & \vref{varresponsetime}\\
-		\hline
-		\bf Range of Parameters & The usability of LBS varies. For example, the maximum amount of time that the user is expected to wait for the system to produce a result ranges between systems and models from near instantaneous to several minutes or longer.\\
-		\hline
-		\bf Binding Time & Specification\\
-		\hline
-	\end{tabular}
-\end{minipage}
-~\newline
-~\newline
-\noindent
-\begin{minipage}{\textwidth}
-	\renewcommand*{\arraystretch}{1.5}
-	\begin{tabular}{| p{\colEwidth} | p{\colFwidth}|}
-		\hline
-		\bf Item Number& P\refstepcounter{parnum}\theparnum\label{parportability} \\
-		\hline
-	\end{tabular}\\
-	
-	\begin{tabular}{| p{\colEwidth} | p{\colFwidth}|}		
-		\hline
-		\bf Corresponding Variability & \vref{varportability}\\
-		\hline
-		\bf Range of Parameters & LBS can run on Windows, MacOS, and/or Linux systems. Some LBS can run on all three, while some can run on multiple or only one operating system.\\
-		\hline
-		\bf Binding Time & Specification\\
-		\hline
-	\end{tabular}
-\end{minipage}
-~\newline
-~\newline
-\noindent
-\begin{minipage}{\textwidth}
-	\renewcommand*{\arraystretch}{1.5}
-	\begin{tabular}{| p{\colEwidth} | p{\colFwidth}|}
-		\hline
-		\bf Item Number& P\refstepcounter{parnum}\theparnum\label{parusability} \\
-		\hline
-	\end{tabular}\\
-	
-	\begin{tabular}{| p{\colEwidth} | p{\colFwidth}|}		
-		\hline
-		\bf Corresponding Variability & \vref{varusability}\\
-		\hline
-		\bf Range of Parameters & Some LBS require significant time to set up models, while some LBS can be run with relatively less user labour.\\
-		\hline
-		\bf Binding Time & Specification\\
-		\hline
-	\end{tabular}
-\end{minipage}
 
 \newpage
 \section{Methodology - DONE SECTION 1st DRAFT}
