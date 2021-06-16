@@ -200,9 +200,42 @@ The goal of this report is to analyze the current state of development of LBM SC
 
 In this report red text denotes internally linked sections of this document. Cyan text denotes an external URL link. Green text denotes a link to the bibliography.
 
-\subsection{Purpose}
+\subsection{Purpose}\label{purpose}
 
-The LBM software packages are assessed in order to answer the research questions found in the Appendix in \ref{researchquestions}. They are assessed for a given set of quality attributes using quantitative and qualitative data. The qualities are defined in Section \ref{softwarequalities}. Qualitative data is gathered from interviews with software package developers. The interview questions are listed in the Appendix in \ref{interviewquestions}. Quantitative data is measured using the quality metrics listed in the Appendix in \ref{measurementtemplate2}. In this context the purposes of the report are as follows:
+The LBM software packages are assessed in order to answer the following research questions:
+
+\begin{enumerate}
+	\item What artifacts are present in current software packages? 
+	\item What tools (development, dependencies, project management) are used by current software packages?
+	\item What principles, processes, and methodologies are used in the development
+	of current software packages?
+	\item What are the pain points for developers working on research software
+	projects?  What aspects of the existing processes, methodologies and tools do
+	they consider as potentially needing improvement?  How should processes,
+	methodologies and tools be changed to improve software development and
+	software quality?
+	\item For research software developers, what specific actions are taken to
+	address the following:
+	\begin{enumerate}
+		\item installability
+		\item correctness and verifiability
+		\item reliability
+		\item robustness
+		\item performance
+		\item usability
+		\item maintainability
+		\item modifiability
+		\item reusability
+		\item understandability
+		\item traceability
+		\item visibility and transparency
+		\item reproducibility
+		\item unambiguity
+	\end{enumerate} 
+	\item How does software designated as high quality by this methodology compare	with top rated software by the community?
+\end{enumerate}
+
+The packages are assessed for a given set of quality attributes using quantitative and qualitative data. The qualities are defined in Section \ref{softwarequalities}. Qualitative data is gathered from interviews with software package developers. The interview questions are listed in the Appendix in \ref{interviewquestions}. Quantitative data is measured using the quality metrics listed in the Appendix in \ref{measurementtemplate2}. In this context the purposes of the report are as follows:
 
 \begin{itemize}
 	\item Develop and test an updated methodology for assessing the state of the practice of SCS projects
@@ -219,7 +252,7 @@ The purpose of state of the practice assessments is to understand how software q
 
 This assessment of the state of the practice of LBM software development builds off of prior work on assessing the state of research software development. The previous state of the practice assessments include domains such as Geographic Information Systems \citep{SmithEtAl2018_arXivGIS}, Mesh Generators \citep{SmithEtAl2016}, Oceanographic Software \citep{smith2015state}, Seismology software \citep{SmithEtAl2018}, and statistical software for psychology \citep{SmithEtAl2018_StatSoft}. 
 
-In the course of this assessment we updated the methodology that was used during previous assessments. Details of the new methodology are in \citep{methodology2020}. The previous set of research questions were critically assessed and modified. The updated questions are listed in the Appendix in \ref{researchquestions}. In this re-boot we collected more quantitative and qualitative data, focused on software quality attributes, and added more measures, including collecting empirical data and interviewing developers. We have also added a domain analysis to better characterize the functionality provided by the software, and have leveraged the expertise of a domain expert. As in past assessments, the collected data was combined to rank the software using the Analytic Hierarchy Process (AHP). The domain expert was consulted to verify the ordering.
+In the course of this assessment we updated the methodology that was used during previous assessments. Details of the new methodology are in \citep{methodology2020}. The previous set of research questions were critically assessed and modified. The updated questions are listed in Section \ref{purpose}. In this re-boot we collected more quantitative and qualitative data, focused on software quality attributes, and added more measures, including collecting empirical data and interviewing developers. We have also added a domain analysis to better characterize the functionality provided by the software, and have leveraged the expertise of a domain expert. As in past assessments, the collected data was combined to rank the software using the Analytic Hierarchy Process (AHP). The domain expert was consulted to verify the ordering.
 
 \subsection{Scope}
 
@@ -1125,7 +1158,7 @@ of the system (compile time), or during execution of the system (run time). It i
 \newpage
 \section{Methodology - DONE SECTION 1st DRAFT}
 
-In this project we set out to answer the research questions found in the Appendix in \ref{researchquestions} for the LBM SCS domain. The process involved systematically measuring and analyzing members of this software family along the quality attributes found in Section \ref{softwarequalities}. This included gathering quantitative and qualitative measurements. A goal of the project was to produce a quality assessment for LBM software packages.  
+In this project we set out to answer the research questions listed in Section \ref{purpose} for the LBM SCS domain. The process involved systematically measuring and analyzing members of this software family along the quality attributes found in Section \ref{softwarequalities}. This included gathering quantitative and qualitative measurements. A goal of the project was to produce a quality assessment for LBM software packages.  
 
 The methodology used in this LBM software assessment is a general state of the practice methodology that can be applied to any SCS domain. It was developed as an update to previous state of the practice exercises. This general methodology is linked in the next subsection.
 
@@ -1300,7 +1333,7 @@ There is considerable variation among these software packages, including their i
 
 \subsection{Empirical Measures}\label{empiricalmeasures}
 
-The quality measurements in this assessment rely on the gathering and analyzing of raw and processed empirical data related to the research questions listed in the Appendix in \ref{researchquestions}. 
+The quality measurements in this assessment rely on the gathering and analyzing of raw and processed empirical data related to the research questions listed in Section \ref{purpose}. 
 
 All of the quality measurements that are part of the AHP analysis are empirical measurements. Qualitative data gathered during interviews with developers is not part of the AHP analysis. This part of the assessment focuses on data that is reasonably easy to collect. Much of the data was gathered by manually reviewing the artifacts of each software package, while some was gathered using the freeware tools discussed below. The data that was gathered is listed in the measurement template found in the Appendix in \ref{measurementtemplate2}. Some of the data required processing other data within the template, including the status of the software package, which relied on the last commit date; the percentage of issues that are closed, which relied on the number of open and closed issues; and the percentage of code that is comments, which relied on the number of total lines and comment lines in text-based files. The complete measurement template data was then analyzed using the grading template found in the Appendix in \ref{gradingtemplate2}, the output of which was analyzed using the AHP described in Section \ref{AHP}.
 
@@ -1940,43 +1973,7 @@ knowledge, and then transforming this knowledge into relevant software artifacts
 
 \newpage
 \section{Appendix}
-\begin{singlespace}
-	
-\subsection{Research Questions}\label{researchquestions}
-	The following are the research questions that are considered. 
-	
-	\begin{enumerate}
-		\item What artifacts are present in current software packages? 
-		\item What tools (development, dependencies, project management) are used by current software packages?
-		\item What principles, processes, and methodologies are used in the development
-		of current software packages?
-		\item What are the pain points for developers working on research software
-		projects?  What aspects of the existing processes, methodologies and tools do
-		they consider as potentially needing improvement?  How should processes,
-		methodologies and tools be changed to improve software development and
-		software quality?
-		\item For research software developers, what specific actions are taken to
-		address the following:
-		\begin{enumerate}
-			\item installability
-			\item correctness and verifiability
-			\item reliability
-			\item robustness
-			\item performance
-			\item usability
-			\item maintainability
-			\item modifiability
-			\item reusability
-			\item understandability
-			\item traceability
-			\item visibility and transparency
-			\item reproducibility
-			\item unambiguity
-		\end{enumerate} 
-		\item How does software designated as high quality by this methodology compare	with top rated software by the community?
-	\end{enumerate}
-
-\newpage
+\begin{singlespace}	
 
 \subsection{Developer Interview Questions}\label{interviewquestions}
 
