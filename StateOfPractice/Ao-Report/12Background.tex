@@ -1,27 +1,27 @@
 \chapter{Background}
 \label{ch_background}
 
-This chapter introduces several different categories of software, based on which we designed the processes to select the software domain and software candidates in Chapter \ref{ch_methods}. It also covers the software quality definitions used in the grading template in Appendix \ref{ap_grading_template} and an overview of Analytic Hierarchy Process (AHP), a tool we used to compare and grading software products.
+This chapter introduces several different categories of software, based on which we designed the processes to select the software domain and software candidates in Chapter \ref{ch_methods}. It also covers the software quality definitions used in the grading template in Appendix \ref{ap_grading_template} and an overview of the Analytic Hierarchy Process (AHP), a tool we used to compare and grade software products.
 
 \section{Software Categories}
-To narrow down the scopes when selecting software domains and software packages, we usually target specific software categories. In this section, we discuss three common software categories that are mentioned in Section \ref{sec_software_selection}, and also SC software. Section \ref{sec_domain_selection} and Section \ref{sec_software_selection} present more details about why we prefer some of these categories.
+We usually target specific software categories to narrow down the scopes when selecting software domains and software packages. In this section, we discuss three common software categories that are mentioned in Section \ref{sec_software_selection}, and also SC software. Section \ref{sec_domain_selection} and Section \ref{sec_software_selection} present more details about why we prefer some of these categories.
 
 \subsection{Open Source Software}
 \label{sec_open_source_software}
-For Open Source software (OSS), its source code is openly accessible, and users have the right to study, change and distribute it under a license granted by the copyright holder. For many OSS projects, the development process is based on the collaboration of different contributors worldwide \cite{Corbly2014}. Accessible source code usually expose more ``secrets'' of a software project, such as the underlying logic of software functions, the styles that how the developers achieve their works, and the flaws and potential risks in the final product. Thus, it brings much more convenience to the researches analyzing the qualities of the project.
+For Open Source software (OSS), its source code is openly accessible, and users have the right to study, change and distribute it under a license granted by the copyright holder. For many OSS projects, the development process relies on the collaboration of different contributors worldwide \cite{Corbly2014}. Accessible source code usually exposes more ``secrets'' of a software project, such as the underlying logic of software functions, how developers achieve their works, and the flaws and potential risks in the final product. Thus, it brings much more convenience to the researchers analyzing the qualities of the project.
 
 \subsection{Freeware}
 \label{sec_freeware}
-Freeware is software that can be used free of charge. Unlike with OSS, the authors of freeware typically do not allow users to access or modify the source code of the software \cite{LINFO2006}. The term \textit{freeware} should not be confused with \textit{free software}, which is similar to OSS but with a few differences. To the end-users, the differences between freeware and OSS often do not bother them. The fact that these products are free of charge is likely to make them popular to a large base of users. However, software developers, end-users who wish to modify the source code, and researchers looking for inner characteristics of it may find the inaccessible source code to be a problem. 
+Freeware is software that can be used free of charge. Unlike with OSS, the authors of freeware typically do not allow users to access or modify the source code of the software \cite{LINFO2006}. The term \textit{freeware} should not be confused with \textit{free software}, which is similar to OSS but with a few differences. To the end-users, the differences between freeware and OSS often do not bother them. The fact that these products are free of charge is likely to make them popular with many users. However, software developers, end-users who wish to modify the source code, and researchers looking for inner characteristics may find the inaccessible source code to be a problem. 
 
 \subsection{Commercial Software}
 ``Commercial software is software developed by a business as part of its business'' \cite{GNU2019}.
 Typically speaking, the users are required to pay to access all of the features of commercial software, excluding access to the source code. However, some commercial software is also free of charge \cite{GNU2019}. Based on our experience, most commercial software products are not OSS.
 
-For some specific software, the backgrounds of commercial software developers often differ from the ones of non-commercial OSS. In such a case, the former is usually developed by software engineers, and the latter is likely to have developers who work in the domain of the software and are also end-users of the products. One example is software in Scientific Computing (SC), since the developers need to utilize their domain-specific during the development process \cite{WilsonEtAl2014}.
+For some specific software, the backgrounds of commercial software developers often differ from the ones of non-commercial OSS. In such a case, the former is usually the product of software engineers, and the latter is likely to have developers who work in the domain and are also end-users of the products. One example is software in Scientific Computing (SC), since the developers need to utilize their domain-specific during the development process \cite{WilsonEtAl2014}.
 
 \subsection{Scientific Computing Software}
-Software development in SC depends on the knowledge of three areas - the knowledge of a specific engineering or science domain, the ability to mathematically build models and applying algorithms, and the capability to implement theoretical models and algorithms with computational tools. SC software is built with mathematical and computational tools to serve the purpose of solving scientific problems in a domain \cite{Mehta2015}. The majority of scientists developing their own software are self-taught programmers \cite{WilsonEtAl2014}, so there may be a bigger Room for software quality improvement in SC domains.
+Software development in SC depends on the knowledge of three areas - the inside of a specific engineering or science domain, the ability to mathematically build models and apply algorithms, and to implement theoretical models and algorithms with computational tools. SC software is built with mathematical and computational tools to serve the purpose of solving scientific problems in a domain \cite{Mehta2015}. However, the majority of scientists developing their software are self-taught programmers \cite{WilsonEtAl2014}, so there may be a bigger Room for software quality improvement in SC domains.
 
 \section{Software Quality Definitions}
 \label{sec_software_quality}
@@ -46,11 +46,12 @@ The definitions of software qualities are from Smith et al. \cite{SmithEtAl2020}
 \label{def_understandability}
 \item \textbf{Understandability} (To be completed)
 \label{def_visibility_transparency}
-\item \textbf{Visibility \& Transparency} The extent to which all of the steps of a software development process and the current status of it are conveyed clearly.
+\item \textbf{Visibility/Transparency} The extent to which all of the steps of a software development process and the current status of it are conveyed clearly.
 \end{itemize}
 
 \section{Analytic Hierarchy Process}
-To generate grading scores for a group of software packages, we use the AHP to pairwise compare them. This tool was developed by Thomas L. Saaty, and it has been widely used to make and analyze multiple criteria decisions \cite{VaidyaEtAl2006}. The AHP organizes multiple criteria factors in a hierarchical structure and pairwise compares the alternatives to calculate relative ratios \cite{Saaty1990}.
+\label{sec_AHP}
+To generate grading scores for a group of software packages, we use the AHP to pairwise compare them. Thomas L. Saaty developed this tool, and people widely used it to make and analyze multiple criteria decisions \cite{VaidyaEtAl2006}. The AHP organizes multiple criteria factors in a hierarchical structure and pairwise compares the alternatives to calculate relative ratios \cite{Saaty1990}.
 
 For a project with $ m $ criteria, we can use a  $m\times m$ matrix $A$ to record the relative importance between factors. By pairwise compare criterion $i$ and criterion $j$, the value of $A_{ij}$ is decided as follows, and the value of $A_{ji}$ is $1/A_{ij}$ \cite{Saaty1990},
 \begin{itemize}
@@ -72,6 +73,6 @@ In this project, $w$ is approximated with the approach classic \textit{mean of n
 w_i = \frac{1}{m}\sum_{j=1}^{m}\frac{A_{ij}}{\sum_{k=1}^{m}A_{kj}}
 \end{equation}
 
-Suppose there are $n$ alternatives, for criterion $i = 1, 2, ... , m$, we can create an $n\times n$ matrix $B_i$ to record the relative preferences between these choices. The way of generating $B_i$ is similar to the one for $A$. However, unlike comparing the importance between criteria, we pairwise decide how much one alternative is more favored than the other. The same method is used to calculate the local priority vector for each $B_i$.
+Suppose there are $n$ alternatives, for criterion $i = 1, 2, ... , m$, we can create an $n\times n$ matrix $B_i$ to record the relative preferences between these choices. The way of generating $B_i$ is similar to the one for $A$. However, unlike comparing the importance between criteria, we pairwise decide how much we favor one alternative over the other. We use the same method to calculate the local priority vector for each $B_i$.
 
 In this project, the 9 software qualities mentioned above are the criteria ($m = 9$), while 29 software packages ($n = 29$) are compared. The software are evaluated with the grading template in Appendix \ref{ap_grading_template} and a subjective score is given for each quality. For a pair of qualities or software, $i$ and $j$, such that $i$ is not less significant than $j$, the pairwise comparison result of $i$ versus $j$ is converted from $min((score_i - score_j) + 1, 9)$.
