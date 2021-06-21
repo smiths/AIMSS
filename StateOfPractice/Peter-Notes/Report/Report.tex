@@ -186,7 +186,7 @@ This project analyzes the state of the practice for software development in the 
 \pagenumbering{arabic}
 \section{Introduction - DONE SECTION 1st DRAFT}
 
-This report analyzes the development of software packages that use Lattice Boltzmann Methods (LBM), a class of computational fluid dynamics (CFD) methods, for fluid simulation. These LBM algorithms consider the behaviours of a collection of particles as a single unit of an intermediate size, and predict their positional probability as they move through a lattice structure. Figure \ref{circularflow} from \citep{chen2021phase} presents the streamlines of converged flow past a stationary circular cylinder with varied Raynolds number, a common task of LBM.
+We analyze the development of software packages that use Lattice Boltzmann Methods (LBM), a class of computational fluid dynamics (CFD) methods, for fluid simulation. These LBM algorithms consider the behaviours of a collection of particles as a single unit of an intermediate size, and predict their positional probability as they move through a lattice structure. Figure \ref{circularflow} from \citep{chen2021phase} presents the streamlines of converged flow past a stationary circular cylinder with varied Reynolds number, a common task of LBM.
 
 \begin{figure}[h!]
 	\begin{center}
@@ -260,7 +260,7 @@ In the course of this assessment we updated the methodology that was used during
 
 \subsection{Scope}
 
-This report analyzes a filtered set of LBM software packages along quantitative and qualitative measures. Many of these measures are captured using surface measurements, which can be categorized as initial and easy to capture measurements, of the underlying quality; they may not represent the true quality of the software. Surface measurements are taken as they allow us to apply the same measurement, with reasonable effort, along all software packages despite technical and functional variabilities among the set of software packages. Not all qualities are quantitatively measured. For example, performance is not measured by running the code. A surface investigation of the documentation of each software package for performance information is conducted instead. The measured software packages are open source, and it is recommended to keep this in mind when considering the recommendations of this report. Some recommendations may not apply to closed-source software. Practices surrounding close source software development may differ.
+We analyze a filtered set of LBM software packages along quantitative and qualitative measures. Many of these measures are captured using surface measurements, which can be categorized as initial and easy to capture measurements, of the underlying quality; they may not represent the true quality of the software. Surface measurements are taken as they allow us to apply the same measurement, with reasonable effort, along all software packages despite technical and functional variabilities among the set of software packages. Not all qualities are quantitatively measured. For example, performance is not measured by running the code. A surface investigation of the documentation of each software package for performance information is conducted instead. The measured software packages are open source, and it is recommended to keep this in mind when considering the recommendations of this report. Some recommendations may not apply to closed-source software. Practices surrounding close source software development may differ.
 
 The report addresses what was done during the development of the software packages to address the quality attributes listed in Section \ref{softwarequalities}. It then provides general guidance on how to improve these qualities when developing LBM software. It does not make suggestions on what should have been done or should be done for any one specific package. Best practices may differ among software packages due to their inherent organizational and technical differences. 
 
@@ -1634,7 +1634,7 @@ This subsection presents the qualitative findings from data that was gathered du
 
 Interviews with developers confirmed that these software packages are developed by domain experts with backgrounds in physics, mathematics and mechanical engineering. It was noted in these interviews that some of the developers do not have formal software engineering education. Some of the development teams include computer scientists. Despite a lack of visible domain documentation and a resulting lower surface correctness and verifiability score, it is clear that some of the software packages were developed by teams with significant domain knowledge on account of the academic backgrounds of their developers. 
 
-Interviews suggested a more frequent use of both unit testing and continuous integration in the development processes than what was observed from the artifact survey. For example, OpenLB, pyLBM, and TCLB use such methods during development despite this not being explicitly clear from an analysis of the material available online. The correctness and verificablity of such packages is not measured well using surface analysis.
+Interviews suggested a more frequent use of both unit testing and continuous integration in the development processes than what was observed from the initial survey. For example, OpenLB, pyLBM, and TCLB use such methods during development despite this not being explicitly clear from an analysis of the material available online. The correctness and verificablity of such packages is not measured well using surface analysis.
 
 Several interviewed developers alluded to difficulty with testing the correctness of large numbers of features, and some even manually tested program output. The use of well defined unit testing tools could decrease the time spent testing some feature.
 
@@ -2290,44 +2290,6 @@ The table below lists the set of measures that are used to assess each software 
 
 \newpage
 
-\subsection{Eliminated Software Packages}\label{eliminatedpackagessection}
-
-The table below lists the software packages that were filtered out of the candidate software list. 
-
-\begin{center}
-	\begin{tabular}{ p{4cm}p{4cm}}
-		\hline
-		Name & Reason(s) For Removal\\
-		\hline
-		ch4-project&Scope \& Usage\\
-		CUDA-LBM-simulator&Scope \& Age\\
-		elbe&Scope \& Usage\\
-		eLBM&Usage\\
-		firesim&Scope \& Usage \& Age\\
-		fvLBM&Scope \& Usage \& Age\\
-		JFlowSim&Scope \& Usage \& Age\\
-		LatticeBoltzmann&Scope \& Usage\\
-		LBM&Scope \& Usage \& Age\\
-		LBM-Cplusplus&Scope \& Usage\\
-		LBM-EP&Usage\\
-		LBM\_MATLAB&Scope \& Usage \& Age\\
-		LBSim&Scope \& Usage \& Age\\
-		listLBM&Scope \& Usage \& Age\\
-		loliverhennigh&Scope \& Usage \& Age\\
-		openLBMflow&Scope \& Usage \& Age\\
-		ParallelLbmCranfield&Usage \& Age\\
-		PowerFLOW&Usage\\
-		ProLB&Usage\\
-		Taxila-LBM&Usage \& Age\\
-		turbulent\_lbm\_multigpu&Usage \& Age\\
-		wlb&Scope \& Usage \& Age\\
-		\hline
-	\end{tabular}
-	\captionof{table}{Eliminated Software Packages}\label{eliminatedpackages}
-\end{center}
-
-\newpage
-
 \subsection{Grading Template}\label{gradingtemplate2}
 The table below lists how each quality measure of the measurement template is used to calculate an overall impression in each software quality set.\newline
 
@@ -2428,6 +2390,44 @@ The table below lists how each quality measure of the measurement template is us
 	Are there release notes? ({yes∗=2, no=0})\\
 	\hline
 \end{tabular}
+\newpage
+
+\subsection{Eliminated Software Packages}\label{eliminatedpackagessection}
+
+The table below lists the software packages that were filtered out of the candidate software list. 
+
+\begin{center}
+	\begin{tabular}{ p{4cm}p{4cm}}
+		\hline
+		Name & Reason(s) For Removal\\
+		\hline
+		ch4-project&Scope \& Usage\\
+		CUDA-LBM-simulator&Scope \& Age\\
+		elbe&Scope \& Usage\\
+		eLBM&Usage\\
+		firesim&Scope \& Usage \& Age\\
+		fvLBM&Scope \& Usage \& Age\\
+		JFlowSim&Scope \& Usage \& Age\\
+		LatticeBoltzmann&Scope \& Usage\\
+		LBM&Scope \& Usage \& Age\\
+		LBM-Cplusplus&Scope \& Usage\\
+		LBM-EP&Usage\\
+		LBM\_MATLAB&Scope \& Usage \& Age\\
+		LBSim&Scope \& Usage \& Age\\
+		listLBM&Scope \& Usage \& Age\\
+		loliverhennigh&Scope \& Usage \& Age\\
+		openLBMflow&Scope \& Usage \& Age\\
+		ParallelLbmCranfield&Usage \& Age\\
+		PowerFLOW&Usage\\
+		ProLB&Usage\\
+		Taxila-LBM&Usage \& Age\\
+		turbulent\_lbm\_multigpu&Usage \& Age\\
+		wlb&Scope \& Usage \& Age\\
+		\hline
+	\end{tabular}
+	\captionof{table}{Eliminated Software Packages}\label{eliminatedpackages}
+\end{center}
+
 \newpage
 
 \subsection{Ethics Approval}
