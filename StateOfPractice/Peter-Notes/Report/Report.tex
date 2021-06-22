@@ -204,7 +204,7 @@ The goal of this report is to analyze the current state of development of LBM SC
 
 In this report red text denotes internally linked sections of this document. Cyan text denotes an external URL link. Green text denotes a link to the bibliography.
 
-\subsection{Purpose}\label{purpose}
+\subsection{Research Questions}\label{purpose}
 
 The LBM software packages are assessed to answer the following research questions:
 
@@ -1325,10 +1325,10 @@ The final list of software packages that were analyzed in this project can be fo
 		HemeLB & 2007 Jun & 2018 Aug\\
 		laboetie & 2014 Nov & 2018 Aug\\		
 		LatBo.jl & 2014 Aug & 2017 Feb\\
-		LIMBES & 2010 Nov & 2014 Dec\\
-		LB3D & unclear & 2012 Mar\\
 		LB2D-Prime & 2005 & 2012 Apr\\
+		LB3D & unclear & 2012 Mar\\
 		LB3D-Prime & 2005 & 2011 Oct\\
+		LIMBES & 2010 Nov & 2014 Dec\\
 		MP-LABS & 2008 Jun & 2014 Oct\\
 		SunlightLB & 2005 Sep & 2012 Nov\\
 		\hline
@@ -1393,7 +1393,7 @@ Uninstallation instructions were found for only one of the software packages, py
 	\end{center}
 \end{figure}
 
-Figure \ref{Fig_Installability} shows the installability ranking of the software packages using AHP. Software packages with a higher score (MechSys, Palabos, ESPResSo, OpenLB) tend to have one set of linear installation instructions that are written as if the person doing the installation has none of the dependencies installed. The instructions often list compatible operating system versions and include instructions for the installation of dependencies. The top ranked packages often incorporate some sort of automation of the installation process and have fewer manual installation steps. The number of dependencies a package has does not correlate with a higher score. The ability to validate the installation process, often through tutorials or test examples that include expected output, is correlated with a higher score.
+Figure \ref{Fig_Installability} shows the installability ranking of the software packages using AHP. Software packages with a higher score (MechSys, Palabos, ESPResSo, OpenLB) tend to have one set of linear installation instructions that are written as if the person doing the installation has none of the dependencies installed. The instructions often list compatible operating system versions and include instructions for the installation of dependencies. The top ranked packages often incorporate some sort of automation of the installation process and have fewer manual installation steps. The number of dependencies a package has does not correlate with a higher score. The ability to validate the installation process, often through tutorials or test examples that include expected output, is correlated with a higher score. Furthermore, the top six ranked packages are noted as being alive. 
 
 Many software packages would benefit from a rewrite or reorganization of installation instructions. A single location for installation instructions would improve their maintainability and correctness. Listing compatible operating system and dependency versions would decrease installation time and errors, as would adding instructions on installing dependencies. Installation process errors should prompt the system to display detailed messages. Once a software package is installed, either an automatic validation needs to be performed or the user needs to be able to perform a manual validation using test examples that include expected output. Finally, uninstallation instructions should be included in the documentation. 
  
@@ -1417,7 +1417,7 @@ The use of continuous integration tools and techniques alludes to a more refined
 	\end{center}
 \end{figure}
 
-Figure \ref{Fig_CorrectnessVerifiability} shows the surface correctness and verifiability ranking of the software packages using AHP. Software packages with a higher score tend to have a visible requirements specification or references to theory documentation. They also explicitly use at least one document generation tool that builds confidence of correctness. The top ranked software packages all include an easy to follow getting started tutorial, and most of these include expected output. Only the top ranked package, Ludwig, provided unit testing. It and the second ranked package, ESPResSo, explicitly incorporated continuous integration in the development process.
+Figure \ref{Fig_CorrectnessVerifiability} shows the surface correctness and verifiability ranking of the software packages using AHP. Software packages with a higher score tend to have a visible requirements specification or references to theory documentation. They also explicitly use at least one document generation tool that builds confidence of correctness. The top ranked software packages all include an easy to follow getting started tutorial, and most of these include expected output. Only the top ranked package, Ludwig, provided unit testing. It and the second ranked package, ESPResSo, explicitly incorporated continuous integration in the development process. Furthermore, eight of the top 10 ranked packages are noted as being alive.
 
 The inclusion of requirements specification and theory documentation greatly benefits the correctness and verifiability of software packages. The use of document generation tools can help build confidence in correctness. The addition of easy to follow tutorials further helps users verify the software and have confidence in its correctness. Unit testing documentation and capability, as well as the use of continuous integration tools and techniques such as Bamboo, Jenkins, and Travis CI, help verify correctness.
 
@@ -1435,7 +1435,7 @@ Of the 13 software packages that installed correctly and also have tutorials, fo
 	\end{center}
 \end{figure}
 
-Figure \ref{Fig_Reliability} shows the surface reliability ranking of the software packages using AHP. Software packages with a high score either did not break during installation, or the broken installation was recoverable. All of the top five ranked packages have tutorials. One of these packages, pyLBM, broke during tutorial testing, but a descriptive error message helped in recovery.
+Figure \ref{Fig_Reliability} shows the surface reliability ranking of the software packages using AHP. Software packages with a high score either did not break during installation, or the broken installation was recoverable. All of the top five ranked packages have tutorials. One of these packages, pyLBM, broke during tutorial testing, but a descriptive error message helped in recovery. Furthermore, nine of the top 10 ranked packages are noted as being alive. 
 
 Overall, lower ranked software packages are lacking clear documentation, testing or tutorial examples, and descriptive error messages, and have broken dependencies. Thus, regarding surface reliability, software packages would benefit from clear up-to-date documentation that specifies all dependencies, the inclusion of testing and tutorial examples, and the assurance of descriptive error messages during fault conditions.
 
@@ -1451,7 +1451,7 @@ The software packages were tested for handling unexpected input, including incor
 	\end{center}
 \end{figure}
 
-Figure \ref{Fig_Robustness} shows the surface robustness ranking of the software packages using AHP. Software packages with a high score behaved reasonably in response to unexpected input as described above. All of the software packages that installed correctly passed this test. They output descriptive error messages or did not crash. Software packages with a lower surface robustness score had not installed correctly, so their robustness score may not be a true reflection of runtime robustness. Similarly, all software packages that installed correctly and require plain text input files correctly handled an unexpected change to these input files, including a replacement of new lines with carriage returns. 
+Figure \ref{Fig_Robustness} shows the surface robustness ranking of the software packages using AHP. Software packages with a high score behaved reasonably in response to unexpected input as described above. All of the software packages that installed correctly passed this test. They output descriptive error messages or did not crash. Software packages with a lower surface robustness score had not installed correctly, so their robustness score may not be a true reflection of runtime robustness. Similarly, all software packages that installed correctly and require plain text input files correctly handled an unexpected change to these input files, including a replacement of new lines with carriage returns. Furthermore, nine of the top 10 ranked packages are noted as being alive. 
 
 \subsubsection{Surface Performance}
 
@@ -1469,52 +1469,52 @@ Software package artifacts were reviewed for the presence of a tutorial, a user 
 	\end{center}
 \end{figure}
 
-Figure \ref{Fig_Usability} shows the surface usability ranking of the software packages using AHP. Software packages with a high score have a tutorial and user manual, sometimes have documented user characteristics, and have at least one user support model. Many packages have several user support models. 
+Figure \ref{Fig_Usability} shows the surface usability ranking of the software packages using AHP. Software packages with a high score have a tutorial and user manual, sometimes have documented user characteristics, and have at least one user support model. Many packages have several user support models. Furthermore, four of the top five ranked packages are noted as being alive. 
 
 \subsubsection{Maintainability}
 
-Software packages were reviewed for the presence of artifacts. Every type of artifact or file that is not a code file was recorded. The software packages were also reviewed for software release and documentation version numbers. This information could be used to better troubleshoot issues and organize documentation. All but three software packages (LatBo.jl, LB3D-Prime, MechSys) have source code release and documentation version numbers.\\ 
+Software packages were reviewed for the presence of artifacts. Every type of artifact or file that is not a code file was recorded. The software packages were also reviewed for software release and documentation version numbers. This information could be used to better troubleshoot issues and organize documentation. All but three software packages (LatBo.jl, LB3D-Prime, MechSys) have source code release and documentation version numbers.
+
+Information on how code is reviewed, or how to contribute to the project was also noted. In total, 11 software packages have this information, which was found in various artifacts, including in developer guides, contributor guides, user guides, developer web-pages, and README files. 
+
+Issue tracking is used in 22 software packages, 15 of which use Git, six use email, and one (SunlightLB) uses SourceForge. Most software packages that use Git have most of their issues closed, and only three (laboetie, lettuce, Sailfish) have less than 50 percent of their issues closed. Alive packages (11 use Git issue tracking) have 64\% of their issues closed, while dead packages (3 use Git issue tracking) have 71\% of their issues closed. This information is presented in Table \ref{gitrepodata}. Furthermore, 13 packages that use Git for issue tracking use GitHub as a version control system, while two (Palabos, waLBerla) use GitLab. Of the other packages, one package (SunlightLB) uses CVS for issue tracking, and seven packages do not appear to use any issue tracking system.
+
+Software package code files were further measured for the percentage of code that is comments. The findings are presented in Table \ref{gitrepodata}. Packages with a higher percentage of comments were designated as more maintainable. Comments represent more than 10 percent of code files in 15 packages, and the average percentage of code comments is about 14.\\ 
 
 \begin{onehalfspacing}
 \begin{center}
-	\begin{tabular}{ p{4cm}p{4cm}p{4cm} }
+	\begin{tabular}{ p{3.5cm}p{3.5cm}p{3.5cm}p{2.5cm} }
 		\hline
-		Name & $\%$ Issues Closed & $\%$ Code Comments\\
+		Name & $\%$ Issues Closed & $\%$ Code Comments& Status\\
 		\hline
-		DL\_MESO (LBE) & Not Git & 8.06\\
-		ESPResSo & 89.26 & 21.78\\
-		ESPResSo++ & 66.28 & 17.10\\
-		HemeLB & No Issues & 16.68\\
-		laboetie & 18.75 & 2.47\\		
-		LatBo.jl & 93.33 & 0.40\\
-		LB2D-Prime & Not Git & 13.61\\
-		LB3D & Not Git & 13.76\\
-		LB3D-Prime & Not Git & 14.34\\
-		lbmpy& 58.33  & 2.03  \\
-		lettuce & 33.33 & 8.19\\
-		LIMBES & Not Git & 17.39\\
-		Ludwig& 60.00 & 20.70\\
-		LUMA& 85.71   & 0.20\\
-		MechSys & Not Git & 15.11\\
-		MP-LABS & 100.00 & 26.67\\
-		OpenLB & Not Git & 22.43\\
-		Palabos & 89.47 & 17.76\\
-		pyLBM & 66.67& 16.12\\
-		Sailfish & 22.22 & 9.26\\
-		SunlightLB & Not Git & 17.67\\
-		TCLB & 60.32 & 6.02\\
-		waLBerla & 72.90 & 22.62\\
+		DL\_MESO (LBE) & Not Git & 8.06&Alive\\
+		ESPResSo & 89.26 & 21.78&Alive\\
+		ESPResSo++ & 66.28 & 17.10&Alive\\
+		HemeLB & No Issues & 16.68&Dead\\
+		laboetie & 18.75 & 2.47&Dead\\		
+		LatBo.jl & 93.33 & 0.40&Dead\\
+		LB2D-Prime & Not Git & 13.61&Dead\\
+		LB3D & Not Git & 13.76&Dead\\
+		LB3D-Prime & Not Git & 14.34&Dead\\
+		lbmpy& 58.33  & 2.03  &Alive\\
+		lettuce & 33.33 & 8.19&Alive\\
+		LIMBES & Not Git & 17.39&Dead\\
+		Ludwig& 60.00 & 20.70&Alive\\
+		LUMA& 85.71   & 0.20&Alive\\
+		MechSys & Not Git & 15.11&Alive\\
+		MP-LABS & 100.00 & 26.67&Dead\\
+		OpenLB & Not Git & 22.43&Alive\\
+		Palabos & 89.47 & 17.76&Alive\\
+		pyLBM & 66.67& 16.12&Alive\\
+		Sailfish & 22.22 & 9.26&Alive\\
+		SunlightLB & Not Git & 17.67&Dead\\
+		TCLB & 60.32 & 6.02&Alive\\
+		waLBerla & 72.90 & 22.62&Alive\\
 		\hline
 	\end{tabular}
 	\captionof{table}{Git Repository Data}\label{gitrepodata}
 \end{center}
 \end{onehalfspacing}
-
-Information on how code is reviewed, or how to contribute to the project was also noted. In total, 11 software packages have this information, which was found in various artifacts, including in developer guides, contributor guides, user guides, developer web-pages, and README files. 
-
-Issue tracking is used in 22 software packages, 15 of which use Git, six use email, and one (SunlightLB) uses SourceForge. Most software packages that use Git have most of their issues closed, and only three (laboetie, lettuce, Sailfish) have less than 50 percent of their issues closed. This information is presented in Table \ref{gitrepodata}. Furthermore, 13 packages that use Git for issue tracking use GitHub as a version control system, while two (Palabos, waLBerla) use GitLab. Of the other packages, one package (SunlightLB) uses CVS for issue tracking, and seven packages do not appear to use any issue tracking system.
-
-Software package code files were further measured for the percentage of code that is comments. The findings are presented in Table \ref{gitrepodata}. Packages with a higher percentage of comments were designated as more maintainable. Comments represent more than 10 percent of code files in 15 packages, and the average percentage of code comments is about 14.
 
 \begin{figure}[h!]
 	\begin{center}
@@ -1524,7 +1524,7 @@ Software package code files were further measured for the percentage of code tha
 	\end{center}
 \end{figure}
 
-Figure \ref{Fig_Maintainability} shows the maintainability ranking of the software packages using AHP. Software packages with a high score provide version numbers on documents and source code releases, have an abundance of high quality artifacts, and use an issue tracking tool and version control system. These packages also appear to reasonably handle tracked issues, having most of their issues closed. Their code files are well commented with more than 10 percent of the code being comments. 
+Figure \ref{Fig_Maintainability} shows the maintainability ranking of the software packages using AHP. Software packages with a high score provide version numbers on documents and source code releases, have an abundance of high quality artifacts, and use an issue tracking tool and version control system. These packages also appear to reasonably handle tracked issues, having most of their issues closed. Their code files are well commented with more than 10 percent of the code being comments. Furthermore, nine of the top 10 ranked packages are noted as being alive. 
 
 \subsubsection{Reusability}\label{reusabilityresults}
 
@@ -1538,7 +1538,7 @@ Each software package was measured for the total number of source code files. A 
 	\end{center}
 \end{figure}
 
-Figure \ref{Fig_Reusabilty} shows the reusability ranking of the software packages using AHP. Software packages with a high score have thousands of source code files and API documentation. The highest scoring packages, ESPResSo and waLBerla, have extensive functionality, including graphical visualizations as well as modeling that does not use LBM. For this reason a comparison with other software packages is not on a level field. However, these packages do have an abundance of reusable components.
+Figure \ref{Fig_Reusabilty} shows the reusability ranking of the software packages using AHP. Software packages with a high score have thousands of source code files and API documentation. The highest scoring packages, ESPResSo and waLBerla, have extensive functionality, including graphical visualizations as well as modeling that does not use LBM. For this reason a comparison with other software packages is not on a level field. However, these packages do have an abundance of reusable components. Furthermore, nine of the top 10 ranked packages are noted as being alive.
 
 Table \ref{moduledata} shows file and line of code data of the software packages. Packages with a high reusability score do not have many LOC per text file, generally having a few hundred lines or less. This suggests that the source code of these packages is likely functionally modularized, and modules could be reused in other projects.  
 
@@ -1593,7 +1593,7 @@ All of the packages appear to have a consistent indentation and formatting style
 	\end{center}
 \end{figure}
 
-Figure \ref{Fig_Understandability} shows the surface understandability ranking of the software packages using AHP. Software packages with a high score have a consistent indentation and formatting style, and consistent, distinctive, and meaningful code identifiers. They also have hard coded constants, and explicitly identify mathematical and LBM algorithms. Their comments are clear and indicate what is being done in the source code. The source code is well modularized and structured.  
+Figure \ref{Fig_Understandability} shows the surface understandability ranking of the software packages using AHP. Software packages with a high score have a consistent indentation and formatting style, and consistent, distinctive, and meaningful code identifiers. They also have hard coded constants, and explicitly identify mathematical and LBM algorithms. Their comments are clear and indicate what is being done in the source code. The source code is well modularized and structured. Furthermore, four of the top five ranked packages are noted as being alive.
 
 \subsubsection{Visibility and Transparency}
 
@@ -1608,7 +1608,7 @@ Software package artifacts were reviewed for the identification of a specific de
 \end{figure}
 
 Figure \ref{Fig_VisibilityTransparency} shows the visibility and transparency ranking of the software packages using AHP. Software packages with a high score have an explicit development model and defined development process. They also 
-had detailed and easy to access notes accompanying software releases. 
+had detailed and easy to access notes accompanying software releases. Furthermore, four of the top five ranked packages are noted as being alive.
 
 \subsubsection{Overall Quality}
 
@@ -1725,40 +1725,45 @@ The developer of pyLBM also noted that their documentation was in reasonable sha
 
 \section{Answers To Research Questions}\label{answersquestions}
 
+This section answers the research questions listed in Section \ref{purpose} using the quantitative and qualitative data presented in Section \ref{qualityresults}, additional data from software package repositories and artifacts, and domain expert feedback. Each subsection answers one of the research questions. Software package artifacts are examined in Section \ref{artifacts}, tools are listed in Section \ref{tools}, development principles, processes, and methodologies are discussed in Section \ref{prinprocmeth}, development pain points are explored in Section \ref{painpoints}, and our recommendations for improving software qualities are presented in Section \ref{qualityrecommentations}. A comparison between our designations of the software packages to community rankings is made in Section \ref{comparison}. Finally, threats to the validity of this assessment are noted in Section \ref{threats}.
+
 \subsection{Artifacts Present - DONE 1st DRAFT}\label{artifacts}
 
-The software packages were examined for the presence of artifacts, which were then categorized by frequency. Below we have grouped them into common, less common, and rare artifacts. Common artifacts were found in 16 to 23 of the software packages. Less common artifacts were found in 8 to 15 of the software packages. Rare artifacts were found in 1 to 7 of the software packages. 
+This subsection answers the research question: What artifacts are present in current software packages?
+
+The software packages were examined for the presence of artifacts, which were then categorized by frequency. Below we have grouped them into common, less common, and rare artifacts. Common artifacts were found in 16 to 23 ($>$70\%) of the software packages. Less common artifacts were found in 8 to 15 (35-70\%) of the software packages. Rare artifacts were found in 1 to 7 ($<$35\%) of the software packages. 
 
 \subsubsection{Common Artifacts}
-The following artifacts were commonly found in the 23 software packages that were tested. All of the top four AHP ranked packages, ESPREsSo, Ludwig, Palabos, and OpenLB have each of these artifacts, except for a requirements specification or theory notes. Only three of the top four ranked packages were found to have such an artifact. 
+The following artifacts were commonly found in the 23 software packages that were tested. All of the top four AHP ranked packages, ESPREsSo, Ludwig, OpenLB, and Palabos, have each of these artifacts, except only three of them have a requirements specification or theory notes. Palabos is the only one of these four packages that does not have an artifact from this category.
 
-\begin{singlespace}
 \begin{multicols}{2}	
 \begin{itemize}
-	\item Authors/Developers List
-	\item Bug Tracker
-	\item Dependency Notes 
-	\item Installation Guide/Instructions 
-	\item License
-	\item List of Related Articles/Publications 
-	\item Makefile / Build File 
-	\item README File 
-	\item Requirements Specification / Theory Notes
-	\item Tutorial
+	\begin{singlespace}
+		\item Authors/Developers List
+		\item Bug Tracker
+		\item Dependency Notes 
+		\item Installation Guide/Instructions 
+		\item License
+		\item List of Related Articles/Publications 
+		\item Makefile / Build File 
+		\item README File 
+		\item Requirements Specification / Theory Notes
+		\item Tutorial
+	\end{singlespace}
 \end{itemize}
 \end{multicols}
-\end{singlespace}
+
 
 These common artifacts contribute to the quality of the software in the following ways. A list of authors and developers helps potential users and contributors contact project members to answer questions affecting many software qualities. A bug tracker helps with organizing improvements to the software. Dependency notes help users install the software, as does an installation guide. Makefiles or other automated build files decrease human error in the installation process. Licenses promote usage of the software. Requirements specifications, linked theory notes, and related articles and publications help make the software more understandable, decrease ambiguity, and help with verifying its correctness. README files also help with understandability. The tutorials help users become familiar with using the software.
 
 
 \subsubsection{Less Common Artifacts}
 The following artifacts were less commonly found in the 23 software packages that were tested. The top four AHP ranked packages have most of these artifacts.
-Only one of those four packages does not have a user manual or guide, but it does have a detailed and informative website. Another one of the top four packages does not appear to have publicly visible design documentation. A third package from the list does not appear to use a version control system. It is possible that such a system is used by the package since its website notes package version numbers, but the artifacts do not explicitly state the use of such a system.
+At the time of data collection, only one (Palabos) of the four packages did not have a user manual or guide, but there was a broken link on the package website indicating that such an artifact might exist. This broken link was later fixed, but this is not reflected in our data. Despite the broken link, Palabos does have a detailed and informative website. Another one (Ludwig) of the top four packages does not appear to have publicly visible design documentation. A third package (OpenLB) from the list does not appear to use a version control system. It is possible that such a system is used by the package since its website notes package version numbers, but the artifacts do not explicitly state the use of such a system.
 
-\begin{singlespace}
 	\begin{multicols}{2}	
 		\begin{itemize}
+			\begin{singlespace}
 			\item Change Log / Release Notes
 			\item Design Documentation
 			\item Functional Specification/Notes	
@@ -1766,40 +1771,43 @@ Only one of those four packages does not have a user manual or guide, but it doe
 			\item Test Plan/Report/Script/Data/Cases
 			\item User Manual/Guide
 			\item Version Control
+		\end{singlespace}
 		\end{itemize}
 	\end{multicols}
-\end{singlespace}
 
 These artifacts also contribute to software quality. A change log or release notes improve traceability of the software. Design documentation helps with maintaining, modifying, and reusing the software. Version control also helps to improve these qualities, as well as with traceability. Functional specifications and notes clarify the software, contributing to usability and understandability. A user manual also helps with those qualities and with installability, and correctness and verificability. Performance notes suggest that performance was considered when developing the software. Test plans, scripts, and cases, help verify correctness. 
 
 
 \subsubsection{Rare Artifacts}
-The following artifacts were rarely found in the 23 software packages that were assessed. It is not common for the top four AHP ranked packages to have many of these artifacts. None of the top four packages have any explicit API documentation. Three of these packages have information on contributing to the project. Two of them have a FAQ section or forum. One has verification and validation notes, and a video guide explaining how to use the software. 
+The following artifacts were rarely found in the 23 software packages that were assessed. It is not common for the top four AHP ranked packages to have many of these artifacts. None of the top four packages have any explicit API documentation. Three of these packages (ESPREsSo, Ludwig, Palabos) have information on contributing to the project. Two of them (OpenLB, Palabos) have a FAQ section or forum. One (OpenLB) has verification and validation notes, and a video guide of the software. 
 
-\begin{singlespace}
 	\begin{multicols}{2}	
 		\begin{itemize}
-			\item API Documentation
-			\item Developer/Contributor Manual/Guide
-			\item FAQ / Forum
-			\item Verification and Validation Plan/Notes
-			\item Video Guide (including YouTube)
+			\begin{singlespace}
+				\item API Documentation
+				\item Developer/Contributor Manual/Guide
+				\item FAQ / Forum
+				\item Verification and Validation Plan/Notes
+				\item Video Guide (including YouTube)
+			\end{singlespace}
 		\end{itemize}
 	\end{multicols}
-\end{singlespace}
 
 Although these artifacts were rarely found in our set of LBM software, they also contribute to software quality. API documentation helps with reusing the software. Developer and contributor manuals and guides help with maintainability, visibility and transparency. FAQs and forums improve usability of software. Verification and validation notes can be used to help check if a system meets specifications. Video guides can contribute to many software qualities, depending on the content of the video. 
 
-\subsection{Tools Used - DONE 1st Draft}
+\subsection{Tools Used - DONE 1st Draft}\label{tools}
+
+This subsection answers the research question: What tools (development, dependencies, project management) are used by current software packages?
+
 Software tools are used to support the development, verification, maintenance, and evolution of software, software processes, and artifacts \citep{ghezzi1991fundamentals}. Many tools are used by LBM software packages. The tools noted here are subdivided into development tools, dependencies, and project management tools.
 
 \subsubsection{Development Tools}
 
-These tools support the development of end products but do not become part of them, unlike dependencies that remain in the application once it is released \citep{ghezzi1991fundamentals}. The following type of development tools were explicitly noted in the artifacts or web-pages of the 23 LBM packages that were assessed. It is likely that other tools, such as debuggers, were used but are not specified here.
+Development tools support the development of end products but do not become part of them, unlike dependencies that remain in the application once it is released \citep{ghezzi1991fundamentals}. The following type of development tools were explicitly noted in the artifacts or web-pages of the 23 LBM packages that were assessed. It is likely that other tools, such as debuggers, were used but are not specified in our sources.
 
-\begin{singlespace}
 	\begin{multicols}{2}	
 		\begin{itemize}
+			\begin{singlespace}
 			\item Continuous Integration Tools
 			\item Code Editors
 			\item Development Environment
@@ -1807,67 +1815,75 @@ These tools support the development of end products but do not become part of th
 			\item Compilers
 			\item Unit Testing Tools
 			\item Correctness Verification Tools
+			\end{singlespace}
 		\end{itemize}
 	\end{multicols}
-\end{singlespace}
 
-The above tools can verify the correctness of software during its development. Only two of the software packages that were assessed mentioned using continuous integration tools like Travis CI. Code editors and compilers were explicitly noted to have been used by several packages, and were likely used by all of them. One of the packages explicitly noted the use of unit testing, but did not specify the tool that was used. Likewise, the use of a tool for verifying the correctness of output was noted by one of the developers. It is likely that similar tools were used when developing other software packages. 
+
+The above tools can verify the correctness of software during its development. Only two (ESPResSo, Ludwig) of the software packages that were assessed mentioned using continuous integration tools, like Travis CI. Code editors and compilers were explicitly noted to have been used by several packages, and were likely used by all of them. One of the packages (Ludwig) explicitly noted the use of proprietary unit testing code written in C. Likewise, the use of proprietary code for verifying the correctness of output was noted by one (pyLBM) of the developers. It is likely that similar tools were used when developing other software packages. 
 
 \subsubsection{Dependencies}
 
 The following types of dependencies were explicitly noted in the artifacts or web-pages of the 23 LBM packages that were assessed. It is possible that other types of dependencies are part of these software packages but are not clearly specified in their artifacts or web sites and because of that they are not listed here.
 
-\begin{singlespace}
 	\begin{multicols}{2}	
 		\begin{itemize}
+			\begin{singlespace}
 			\item Build Automation Tools
 			\item Technical Libraries
 			\item Domain Specific Libraries
+		\end{singlespace}
 		\end{itemize}
 	\end{multicols}
-\end{singlespace}
 
-Most of the software packages use some sort of build automation tools, most commonly Make. They also all use various technical and domain specific libraries. Technical libraries include visualization, data analysis, and message passing libraries. Domain specific libraries are scientific computing libraries. Libraries that are explicitly stated in artifact, and were not noted during our observations, may fall outside of these categories. 
+
+Most of the software packages use some sort of build automation tools, most commonly Make. They also all use various technical and domain specific libraries. Technical libraries include visualization (e.g. Matplotlib, ParaView, Pygame, VTK), data analysis (e.g. Anaconda, Torch), and message passing libraries (e.g. MPICH, Open MPI, PyZMQ). Domain specific libraries are scientific computing libraries (e.g. SciPy). Libraries that are explicitly stated in artifacts, and were not noted during our observations, may fall outside of these categories. 
 
 \subsubsection{Project Management Tools}
 
 Many of the software packages that were assessed were developed by teams of two or more people. Their work needed to be coordinated and managed. The following types of project management tools were explicitly noted in the artifacts, web-pages, or interviews with the developers of the 23 LBM packages that were assessed. As with development tools and dependencies, it is possible that other types of project management tools were used to coordinate and manage the projects but are not specified and because of that they are not listed here.
 
-\begin{singlespace}
 	\begin{multicols}{2}	
 		\begin{itemize}
+			\begin{singlespace}
 			\item Collaboration Tools
 			\item Email
 			\item Change Tracking Tools
 			\item Version Control Tools
 			\item Document Generation Tools
+		\end{singlespace}
 		\end{itemize}
 	\end{multicols}
-\end{singlespace}
-
-Collaboration tools are noted as being used when developing the software projects. Most often email and video conferencing is used. Project management software was not explicitly mentioned, but it is possible that some of the projects use such software. Many of the projects are located on GitHub, and its developers use the platform to help manage their projects, especially bug related issues. Most of the projects appear to use change tracking and version control tools. They often use GitHub for this, and a few use Git or CVS. Document generation tools are mentioned in the artifacts of 12 of the projects. Tools such as Sphinx and Doxygen are explicitly used in this capacity. Drasil could be considered as an alternative to generate artifacts since it is geared specifically towards research software domains like LBM software. 
 
 
-\subsection{Principles, Processes, and Methodologies - DONE 1st DRAFT}
+Collaboration tools are noted as being used when developing the software projects. Most often email and video conferencing is used. Project management software was not explicitly mentioned, but it is possible that some of the projects use such software. Many of the projects are located on GitHub, and its developers use the platform to help manage their projects, especially bug related issues. Most of the projects appear to use change tracking and version control tools. They often use GitHub for this. One package (lbmpy) uses Git, and another (SunlightLB) uses CVS. Document generation tools are mentioned in the artifacts of 12 of the projects. The tools Sphinx and Doxygen are explicitly used in this capacity. 
 
-Most of the software packages do not explicitly state in their artifacts the motivations or design principles that were considered when developing the software. One package, Sailfish, indicates that shortening the development time was considered in early stages of design, with the developers opting for using Python and CUDA/OpenCL to achieve this without sacrificing any computational performance. The goals of that project are explicitly listed as performance, scalability, agility and extendability, maintenance, and ease of use. The project scored well in these categories during our assessment.
+\subsection{Principles, Processes, and Methodologies - DONE 1st DRAFT}\label{prinprocmeth}
 
-Processes, like methods, are ways of doing things, especially in an orderly way; while methodologies are defined as systems of methods \citep{ghezzi1991fundamentals}. It is not explicitly indicated in the artifacts of most of the packages that development involved following any specific model, like a waterfall or agile development model. One developer noted that while no formal model is used, their development model is something similar to a combination of agile and waterfall development models. The developer teams of the LBM packages are fairly small and easily organized without the need for such models. 
+This subsection answers the research question: What principles, processes, and methodologies are used in the development of current software packages?
 
-Seven of the software packages contain artifacts outlining the general development process, like basic instructions on how to contribute. Most of the development teams accept outside contributors, but generally the teams are centralized, often working at the same institution. 
+The points and conclusions in this subsection come from developer interviews and reviews of software package artifacts.
 
-The developers that were interviewed all noted similar project management processes. In teams of only a couple of developers, additions of new features or major changes are discussed with the entire team. Projects with more than a couple developers have lead developer roles. These lead developers review potential additions to the software. One of the developers that was interviewed noted that a peer review process is used to assess major changes and additions.
+Most of the software packages do not explicitly state in their artifacts the motivations or design principles that were considered when developing the software. One package, Sailfish, indicates in its artifacts that shortening the development time was considered in early stages of design, with the developers opting for using Python and CUDA/OpenCL to achieve this without sacrificing any computational performance. The goals of that project are explicitly listed as performance, scalability, agility and extendability, maintenance, and ease of use. The project scored well in these categories during our assessment.
 
-Many software packages use GitHub for managing the project. Typically there are several simultaneous development branches.
+Processes, like methods, are ways of doing things, especially in an orderly way; while methodologies are defined as systems of methods \citep{ghezzi1991fundamentals}. It is not explicitly indicated in the artifacts of most of the packages that development involved following any specific model, like a waterfall or agile development model. One developer (ESPResSo) noted that while no formal model is used, their development model is something similar to a combination of agile and waterfall development models. The developer teams of the LBM packages are fairly small, so it is feasible for them to be organized without the need for such models. 
 
-Documentation was also noted as playing a significant role in the development process, specifically with on-boarding new developers. A goal of documentation is to lower the entry barrier for these new contributors. The documentation provides information on how to get started, orients the user to artifacts and the source code, and explains how the system works, including the so-called simulation engine and interface. The use of document generation tools is mentioned in the artifacts of 12 software packages, and was noted during interviews with developers. Document generation tools that were mentioned include Sphinx and Doxygen. 
+Seven of the software packages contain artifacts outlining the general development process, like basic instructions on how to contribute. Eleven of the packages explicitly convey that they would accept outside contributors, but generally the teams are centralized, often working at the same institution. 
+
+The developers that were interviewed all noted similar project management processes. In teams of only a couple of developers, additions of new features or major changes are discussed with the entire team. Projects with more than a couple developers have lead developer roles. These lead developers review potential additions to the software. One of the developers (ESPResSo) that was interviewed noted that an ad hoc peer review process is used to assess major changes and additions.
+
+Thirteen (57\%) of the 23 software packages use GitHub for managing the project, including nine (64\%) of the 14 alive packages, and four of the nine (44\%) dead packages. This could be indicative of a transition to such software development and version control tools for SCS. Typically there are several simultaneous development branches in these projects.
+
+Documentation was also noted as playing a significant role in the development process, specifically with on-boarding new developers. A goal of documentation is to lower the entry barrier for these new contributors. The documentation provides information on how to get started, orients the user to artifacts and the source code, and explains how the system works, including the so-called simulation engine and interface. The use of document generation tools is mentioned in the artifacts of 12 software packages, and was noted during interviews with developers. Sphinx and Doxygen are the tools that were mentioned. 
 
 Two types of software changes were discussed during interviews with developers. One is feature additions, which arise from a scientific or functional need. The development of such changes was noted to involve more formal discussions within the development team and the addition of them into the main software branch involves lead developers. The other change type is code refactoring, which only sometimes involves formal discussions with the development team. New developers were noted to play an increased role in these changes compared to the former changes. Software bugs are typically addressed in a similar fashion as code refactoring, and issue tracking is commonly used to manage these changes. 
 
 Interviews with the developers of software packages also revealed a more frequent use of both unit testing and continuous integration in the development process than was found by only assessing the artifacts. The use of automatic installation processes is also common. Most often this involved a Make script.
 
 
-\subsection{Pain Points - DONE 1st Draft}
+\subsection{Pain Points - DONE 1st Draft}\label{painpoints}
+
+This subsection answers the research question: What are the pain points for developers working on research software projects? What aspects of the existing processes, methodologies and tools do they consider as potentially needing improvement? How should processes, methodologies and tools be changed to improve software development and software quality?
 
 Developers were asked to comment on obstacles in their development process, obstacles encountered by users, and potential future obstacles. 
 
@@ -1891,6 +1907,8 @@ As noted above, difficulties with ensuring future correctness could also arise. 
 
 
 \subsection{Quality Recommendations - DONE 1st Draft}\label{qualityrecommentations}
+
+This subsection answers the research question: For research software developers, what specific actions are taken to address software qualities?
 
 The following points regarding software quality should be considered when developing LBM software packages.
 
@@ -2054,11 +2072,21 @@ The following points regarding software quality should be considered when develo
 \end{itemize}
 
 
-\subsection{Designation Comparison}
+\subsection{Designation Comparison}\label{comparison}
+
+This subsection answers the research question: How does software designated as high quality by this methodology compare with top rated software by the community?
+
 
 answers last question of research questions:
 
 How does software designated as high quality by this methodology compare	with top rated software by the community?
+
+
+\subsection{Threats To Validity}\label{threats}
+
+This section will point to potential threats to the validity in the measurement section of data collection, for example from above:
+
+Interviews with the developers of software packages also revealed a more frequent use of both unit testing and continuous integration in the development process than was found by only assessing the artifacts. The use of automatic installation processes is also common. Most often this involved a Make script.
 
 
 \newpage
@@ -2071,6 +2099,19 @@ the following was moved from the former background section, may need edits as pa
 
   The software qualities that are assessed in this report are listed in Section \ref{softwarequalities}. Ensuring software quality can take significant time, but as \cite{SmithEtAl2016} shows, SCS developers often cannot see themselves meeting the required time constraints to better develop some of the artifacts that improve qualities, like detailed documentation. An inability to develop such documentation due to time constraints could be mitigated by the use of automatic document generation tools like Drasil. The Drasil Framework consists of a collection of Domain Specific Languages (DSL) for capturing scientific documents, structures, and computing
 knowledge, and then transforming this knowledge into relevant software artifacts without having to manually duplicate knowledge into multiple artifacts \citep{zhao2018}.
+
+
+The following was moved from Tools Used subsection (consider adding future work subsection within conclusion, also consider subsection for ideas for future SOP such as asking the developers):
+
+Drasil could be considered as an alternative to generate artifacts since it is geared specifically towards research software domains like LBM software. 
+
+future sop idea (from Results section):
+
+Developers were not asked to com-
+ment on the reproducibility of their source code from their requirements specifications and
+design documentation. This question should be considered in the next iteration of state of
+the practice assessments.
+
 
 \newpage
 \section{Appendix}
