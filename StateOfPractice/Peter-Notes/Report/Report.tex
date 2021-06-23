@@ -1583,7 +1583,7 @@ There was a strong focus on modularity when designing the waLBerla framework to 
 
 Ten random source code files of each software package were reviewed for several measures. This assessment of surface understandability may not perfectly reflect each package due to the limitation of only testing 10 files. 
 
-All of the packages appear to have a consistent indentation and formatting style. Only LUMA and HemeLB explicitly identify coding standards that are used during development. Generally, the software packages use consistent, distinctive, and meaningful code identifiers. Only four packages (LB2D-Prime, LB3D-Prime, LIMBES, MP-LABS) appear to use vague identifiers, such as single letters for variables. Hard coded constants were observed in the source code of 12 packages. The constants are used for various parameters, mathematical constants, and matrix definitions. All of the packages are well commented and the comments clearly indicate what is being done. Domain algorithms are noted in the source code of 11 packages. Table \ref{moduledata} suggests that the software packages are modularized to various degrees. When observing the source code files, it was found that 13 of the packages have a consistent style and order of function parameters.
+All of the packages appear to have a consistent indentation and formatting style. Only LUMA and HemeLB explicitly identify coding standards that are used during development. Generally, the software packages use consistent, distinctive, and meaningful code identifiers. Only four packages (LB2D-Prime, LB3D-Prime, LIMBES, MP-LABS) appear to use vague identifiers, such as single letters for variables. Hard coded symbolic constants were observed in the source code of 12 packages. The constants are used for various parameters, mathematical constants, and matrix definitions. All of the packages are well commented and the comments clearly indicate what is being done. Domain algorithms are noted in the source code of 11 packages. Table \ref{moduledata} suggests that the software packages are modularized to various degrees. When observing the source code files, it was found that 13 of the packages have a consistent style and order of function parameters.
 
 \begin{figure}[h!]
 	\begin{center}
@@ -1654,7 +1654,7 @@ Contributions are made through GitHub, and are then reviewed and pulled by lead 
 
 Some developers noted that their software package does not have well defined contributing guide in the repository, but it might be a good idea to add one in the near future. They would be happy to see contribution from outside of their organization, but currently this does not happen.
 
-Furthermore, maintainability has been addressed by increasing source code modularity, reducing duplicate information, and improving abstraction by developing well-defined interfaces. This was noted by the developers of ESPResSo and pyLBM. Several software packages have had sections of their code base redeveloped with languages that the developers felt are more understandable and readable, and that are better supported, such as Python. Data structures have also been redeveloped and storage has been improved. A developer of pyLBM mentioned that the geometries and models of their system had been ``decoupled'', using abstraction and modularization of the source code, to make it ``very easy to add [new] features''.
+Furthermore, maintainability has been addressed by increasing source code modularity, reducing duplicate information, and improving abstraction by developing well defined interfaces. This was noted by the developers of ESPResSo and pyLBM. Several software packages have had sections of their code base redeveloped with languages that the developers felt are more understandable and readable, and that are better supported, such as Python. Data structures have also been redeveloped and storage has been improved. A developer of pyLBM mentioned that the geometries and models of their system had been ``decoupled'', using abstraction and modularization of the source code, to make it ``very easy to add [new] features''.
 
 \subsubsection{Modifiability}
 
@@ -1663,7 +1663,7 @@ In this project we asked developers to comment on modifiability when we intervie
 All of the developers that were interviewed noted that the ease of future changes was considered and that measures to ensure it had been taken, including
 requiring the separation of software components in the source code architecture.
 
-A high degree of code modularity and abstraction, ensured by separating components and hiding information behind well-define interfaces, was noted by developers as a measure to ensure the ease of future changes. The developer of ESPResSo also noted that some of the code base was transitioned from C to C++, which could ease modifiability of that software package. The developer of TCLB noted that their software package was designed to allow for the addition of some LBM features, but changes to major aspects of the system would be difficult. For example, ``implementing a new model will be an easy contribution'', but changes to the ``Cartesian mesh...will be a nightmare''. Furthermore, the package was designed with flexible data structures and storage in mind. 
+A high degree of code modularity and abstraction, ensured by separating components and hiding information behind well defined interfaces, was noted by developers as a measure to ensure the ease of future changes. The developer of ESPResSo also noted that some of the code base was transitioned from C to C++, which could ease modifiability of that software package. The developer of TCLB noted that their software package was designed to allow for the addition of some LBM features, but changes to major aspects of the system would be difficult. For example, ``implementing a new model will be an easy contribution'', but changes to the ``Cartesian mesh...will be a nightmare''. Furthermore, the package was designed with flexible data structures and storage in mind. 
 
 Some software packages, like Palabos, provide validation benchmarks for their core fundamental algorithmic ingredients \citep{latt2021palabos}. The stated intent of these benchmarks is to showcase the validity and usefulness of the package to stimulate the development of third-user extensions. The Palabos package identifies as a development framework for modeling problems in various CFD areas. 
 
@@ -1909,77 +1909,77 @@ A few potential future obstacles were noted. The developer of ESPResSo noted tha
 
 As noted above, difficulties with ensuring future correctness could also arise. As new methods and functionality is added into the software, new test cases and test data will need to be developed.
 
-The developer comments have emphasized an importance on source code, while documentation seems to be of secondary importance. It must be stressed that improved management of documentation could improve package source code and help eliminate some of the developer concerns that were raised.  
+The developer comments have emphasized an importance on source code, while documentation seems to be of secondary importance. It must be stressed that improved management of documentation could benefit development and help eliminate some of the developer concerns that were raised. The use of automatic document generation tools that capture scientific and computing knowledge, and transform it into software artifacts, is advised. Drasil is an automatic document generation tool that is further discussed in Section \ref{conclusion}.
 
 \subsection{Quality Recommendations - DONE 1st Draft}\label{qualityrecommentations}
 
 This subsection answers the research question: For research software developers, what specific actions are taken to address software qualities?
 
-The following points regarding software quality should be considered when developing LBM software packages.
+The following points regarding software quality should be considered when developing LBM software packages. These points are based on developer interviews, SCS literature, what was found to have worked for packages that were designated as high quality in this assessment.
 
 \subsubsection{Installability}
 
 \begin{itemize}
 	\item Include OS compatibility, including specific OS versions.
 	\item Include complete installation instructions.
-	\item Installation instructions should be written as if the user does not have any dependencies installed and is installing on a clean OS.
+	\item Installation instructions should be written as if the user does not have any dependencies installed and is installing on a clean OS. This can be tested on a clean environment using a virtual machine.
 	\item List all dependencies in the installation instructions, dependency versions, and how to install them.
-	\item If possible, automate the installation of dependencies.
-	\item Automate the installation process as much as possible.
+	\item If possible, automate the installation of dependencies. Use tools such as Make. 
+	\item Automate the installation process as much as possible. Use tools such as Make.
 	\item The installation instruction should only be in one location.
-	\item Include descriptive error messages for errors encountered during installation.
-	\item Include a way to validate the installation.
-	\item Include instructions for uninstalling the software.
+	\item Include descriptive error messages for errors encountered during installation. This was done by several top ranked packages, including Ludwig and LUMA
+	\item Include a way to validate the installation. This can be done using a custom script, or a test case that specifies expected output. This was done by several top ranked packages, including OpenLB, Ludwig, LUMA, and Palabos.
+	\item Include instructions for uninstalling the software. These were included with pyLBM.
 \end{itemize}
 
 \subsubsection{Surface Correctness and Verifiability}
 
 \begin{itemize}
-	\item Use a requirements specification document.
-	\item Make public the requirements specification document, or explicitly reference the domain theory that the software is designed from.
+	\item Use a requirements specification document. A template 
+	\item Make public (on package website or GitHub) the requirements specification document, or explicitly reference the domain theory that the software is designed from.
 	\item Ensure the above information is easy to find. Consider adding it to the user manual. 
 	\item Development teams should include both domain experts and experienced software developers.
-	\item Use and make public detailed documentation. Consider using automatic document generation tools.
-	\item Include detailed tutorials that include expected output.
-	\item Use unit testing during development and make them public.
-	\item Modularize the source code.
-	\item Use continuous integration tools and processes during development.
+	\item Use and make public (on package website or GitHub) detailed documentation. Consider using automatic document generation tools like Doxygen, Drasil, or Sphinx.
+	\item Include detailed tutorials that include expected output, like the \href{https://www.walberla.net/doxygen/index.html}{waLBerla tutorials}.
+	\item Use unit tests during development and make them public (on package website or GitHub). This was available for Ludwig.
+	\item Modularize the source code, separate components, hide information  behind well defined interfaces.
+	\item Use continuous integration tools and processes (Bamboo, Jenkins, and Travis CI) during development. This was done by top ranked packages ESPResSo and Ludwig.
 \end{itemize}
 
 \subsubsection{Surface Reliability}
 
 \begin{itemize}
-	\item Include descriptive error messages where appropriate.
-	\item In case automatic installation of dependencies fails, the system should indicate to the user what dependencies need to be installed manually.
-	\item The packages should include detailed tutorials, including dependencies, expected output, and any additional supplementary documentation that may be required.
+	\item Include descriptive error messages where appropriate. This was done by most packages that encountered a fault.
+	\item In case automatic installation of dependencies fails, the system should indicate to the user what dependencies need to be installed manually. This was done by many packages, including ESPResSo++, Ludwig, LUMA, pyLBM, TCLB.
+	\item The packages should include detailed tutorials, including dependencies, expected output, and any additional supplementary documentation that may be required. This was done by many packages, including waLBerla, Palabos, MechSys, LUMA, pyLBM.
 \end{itemize}
 
 \subsubsection{Surface Robustness}
 
 \begin{itemize}
-	\item The system must provide descriptive error messages when it encounters unexpected input, including incorrect data types, empty input, and missing files or links.
+	\item The system must provide descriptive error messages when it encounters unexpected input, including incorrect data types, empty input, and missing files or links. Eighteen of the software packages behaved in such reasonable fashion when tested with unexpected input.
 \end{itemize}
 
 \subsubsection{Surface Performance}
 
 \begin{itemize}
-	\item Integrate parallelization tools and techniques to reduce processing time. Consider GPU processing, CUDA, and MPI. 
-	\item The user should be able to choose to process their model on either the CPU or GPU.
+	\item Integrate parallelization tools and techniques to reduce processing time. Consider GPU processing, CUDA, and MPI. Seventeen software packages mentioned parallelization in their artifacts.
+	\item The user should be able to choose to process their model on either the CPU or GPU. ESPResSo, lbmpy, lettuce, pyLBM, and TCLB allow for either CPU or GPU processing.
 \end{itemize}
 
 \subsubsection{Surface Usability}
 
 \begin{itemize}
-	\item Include user hardware and software requirements documentation.
-	\item Include a user tutorial that indicates the expected output.
-	\item Include a detailed user manual. It should identify elements of user interfaces, and identify all requirements to model a system.	
-	\item State appropriate fluid dynamics problems that the software is designed to model in the documentation, and explicitly state the limits of the software. 
+	\item Include user hardware and software requirements documentation. Hardware requirements are rarely listed in the software packages that were assessed. Only those offering GPU processing (ESPResSo, lbmpy, lettuce, pyLBM, Sailfish, TCLB) mentioned any hardware requirements. On the other hand, some sort of software requirements were available for all packages, even if only some dependencies or a compatible operating system.
+	\item Include a user tutorial that indicates the expected output. This was done by many packages, including waLBerla, Palabos, MechSys, LUMA, pyLBM.
+	\item Provide a detailed user manual. It should identify elements of user interfaces, and identify all requirements to model a system. Thirteen packages have a user manual. ESPResSo has a well detailed manual.
+	\item State appropriate fluid dynamics problems that the software is designed to model in the documentation, and explicitly state the limits of the software. This is done in the ESPResSo user guide.
 	\item Provide documentation that details the background theory information, or provide a reference to such information.
-	\item Identify expected user characteristics.
+	\item Identify expected user characteristics. LIMBES, Ludwig, laboetie, and Palabos did this. The importance of specifying user characteristics is discussed in \citep{smith2007requirements}.
 	\item Keep all documentation in one location.
 	\item Do not duplicate artifact information.
 	\item Maintain a user support model (Git, email, forum, FAQ)
-	\item If possible, consider using popular user-friendly software languages like Python. Especially consider this for parts of the source code that is likely to be modified or reviewed by users.
+	\item If possible, consider using popular user-friendly software languages like Python. Especially consider this for parts of the source code that is likely to be modified or reviewed by users. ESPResSo and Sailfish use Python to shorted development time and improve usability.
 \end{itemize}
 
 \subsubsection{Maintainability}
@@ -1987,93 +1987,89 @@ The following points regarding software quality should be considered when develo
 \begin{itemize}
 	\item Keep artifacts updated.
 	\item Ideally include most of the common and less common artifacts listed in Section \ref{artifacts}.
-	\item Include version numbers and release notes for all major source code and artifact releases. 
-	\item Have a defined process for accepting contributions.
+	\item Include version numbers and release notes for all major source code and artifact releases. The top five ranked software packages include release notes.
+	\item Have a defined process for accepting contributions. The top five ranked software packages include information on how to contribute.
 	\item Include documentation for making contributions to the project. 
-	\item Use an issue tracker (Git, email, SourceForge, other) to manage bugs and changes. Issues should be regularly reviewed and closed. 
-	\item Use a version control system (GitHib, CVS).
-	\item Source code needs to be well commented. Typically, more than 10 percent of LBM package source code is comments. 
-	\item Ensure source code is modular. Generally, this means that source code is split into files along functionality.
+	\item Use an issue tracker (Git, email, SourceForge, other) to manage bugs and changes. Issues should be regularly reviewed and closed. All but three (laboetie, lettuce, Sailfish) of the software packages that use Git have most of their issues closed.
+	\item Use a version control system (GitHib, CVS). Four (ESPREsSo, Ludwig, LUMA, Palabos) of the top five ranked packages use a version control system.
+	\item Source code needs to be well commented. Typically, more than 10 percent of LBM package source code is comments, as presented in Table \ref{gitrepodata}.
+	\item Modularize the source code, separate components, hide information behind well defined interfaces.
 	\item Eliminate code duplication.
-	\item If possible, consider using popular user-friendly software languages like Python. Especially consider this for parts of the source code that is likely to be modified or reviewed by users.
+	\item If possible, consider using popular user-friendly software languages like Python. Especially consider this for parts of the source code that is likely to be modified or reviewed by users. ESPResSo and Sailfish use Python to address several software qualities, including maintainability.
+	\item Consider the recommended points for addressing traceability.
 \end{itemize}
 
 \subsubsection{Modifiability}
 
 \begin{itemize}
-	\item Ensure a high degree of code modularity and abstraction.
-	\item If possible, consider using popular user-friendly software languages like Python. Especially consider this for parts of the source code that is likely to be modified or reviewed by users.
-	\item Consider future source code modifiabilility as early as the design stage of development.
-	\item Consider flexibility of data structures and data storage in the design stage.
-	\item Provide validation benchmark tools and data to the public.
+	\item Modularize the source code, separate components, hide information behind well defined interfaces.
+	\item If possible, consider using popular user-friendly software languages like Python. Especially consider this for parts of the source code that is likely to be modified or reviewed by users. ESPResSo and Sailfish use Python to address several software qualities, including modifiability.
+	\item Consider future source code modifiability as early as the design stage of development.
+	\item Consider flexibility of data structures and data storage in the design stage. The package pyLBM redeveloped data structures to ease future changes.
 \end{itemize}
 
 \subsubsection{Reusability}
 
 \begin{itemize}
-	\item Ensure a high degree of code modularity and abstraction.
-	\item Document module interfaces in design and developer documentation.
-	\item Provide API documentation, if applicable.
+	\item Modularize the source code, separate components, hide information behind well defined interfaces.
+	\item Document module interfaces in design and developer documentation. 
+	\item Provide API documentation, if applicable. Only one (ESPResSo) of the top five ranked packages provided API documentation.
 \end{itemize}
 
 \subsubsection{Surface Understandability}
 
 \begin{itemize}
-	\item Maintain consistent formatting style across source code files.
-	\item Identify a coding standard in the documentation, if a coding standard is used during development.
-	\item Use consistent, distinctive, and meaningful code identifiers. 
-	\item Identify algorithms that are used.
-	\item Hard code domain constants.
-	\item Add meaningful comments. They should indicate what is being done in each section of source code.
-	\item Ensure a high degree of code modularity and abstraction.
-	\item Include user guides, and state technical and problem modeling requirements.
-	\item State problem cases that the software is designed to model in the documentation, and explicitly state the limits of the software. 
-	\item Consider adding a FAQ section to the documentation. 
+	\item Adopt a coding standard and document it in artifacts, including some examples. A coding standard needs to be part of continuous integration. Only
+	LUMA and HemeLB explicitly identify coding standards. 
+	\item Use consistent, distinctive, and meaningful code identifiers. Nineteen of the 23 software packages use such code identifiers.
+	\item Use symbolic constants. Twelve of the 23 software packages use such constants.
+	\item Identify algorithms that are used in source code comments. Document them in the artifacts. Cite relevant external sources if needed. Domain algorithms are noted in the source code of 11 packages.
+	\item Add meaningful comments. Indicate what is being done in each section of source code.
+	\item Modularize the source code, separate components, hide information behind well defined interfaces.
+	\item Include user manuals that identify all technical and problem modeling requirements. Thirteen software packages have a user manual.
+	\item State appropriate fluid dynamics problems that the software is designed to model in the documentation, and explicitly state the limits of the software. This is done in the ESPResSo user guide. 
+	\item Consider adding a FAQ section to the documentation. This helped resolve some usability issues for OpenLB.
 \end{itemize}
 
 \subsubsection{Traceability}
 
 \begin{itemize}
 	\item Update all relevant documentation when a change to the software is made.
-	\item Use automatic document generation tools to limit the time spent on updating documentation.
-	\item Provide a developers guide.
-	\item Provide a resource that helps orient users and developers to the artifacts, source code, and system architecture.
-	\item Highlight new features and changes between artifact versions. 
+	\item Use automatic document generation tools (Doxygen, Drasil, Sphinx) to limit the time spent on updating documentation.
+	\item Provide a resource, like a developer's guide, that helps orient developers to the artifacts, source code, and system architecture so that they can better document changes.  
 \end{itemize}
 
 \subsubsection{Visibility and Transparency}
 
 \begin{itemize}
-	\item Identify the development model that was used, if one was used.
-	\item Identify the development environment.
-	\item Identify the development process and how new users can contribute. 
-	\item Include notes with all releases.
-	\item Ensure a high degree of code modularity and abstraction.
-	\item Communicate all changes to the development team.
-	\item Use continuous integration processes and tools.
-	\item Consider peer review processes to assess contributions. 
-	\item Eliminate code duplication.
-	\item Update all relevant developer documentation when a change to the software is made.
-	\item Use project management software.
+	\item Summarize the development process that is used. Provide information on how new users can contribute. Identify the development model by name (waterfall, agile, etc.), if appropriate.
+	\item Identify the development environment. Eight of the 23 software packages identify the development environment.
+	\item Update all relevant documentation when a change to the software is made.
+	\item Include notes with all releases. Nine of the packages include release notes.
+	\item Communicate all changes within the development team.
+	\item Use continuous integration processes and tools (Bamboo, Jenkins, and Travis CI). This was done by top ranked packages ESPResSo and Ludwig.
+	\item Consider peer review processes to assess contributions and ensure the tracking of information. High ranked package ESPResSo uses a peer review process for contributions. 
+	\item Use project management tools, including change and version control tools (GitHub, GitLab, CVS), collaboration tools (GitHub, GitLab), and document generation tools (Doxygen, Drasil, Sphinx).
 \end{itemize}
 
 \subsubsection{Reproducibility}
 
 \begin{itemize}
-	\item Test output against manually calculated or known correct results.
-	\item Automate the testing of output. Run tests after all code changes.
-	\item Consider peer review processes to assess contributions. 
+	\item Test output against automatically calculated or known correct results. High ranked package ESPResSo does this.
+	\item Automate the testing of output. Run tests after all code changes. High ranked package ESPResSo does this.
+	\item Consider peer review processes and task based inspection to assess contributions. High ranked package ESPResSo does this.
 	\item Update all relevant design documentation when a change to the software is made.
 \end{itemize}
 
 \subsubsection{Unambiguity}
 
 \begin{itemize}
-	\item Documentation must state all technical requirements and software dependencies. 
-	\item A user guide must be provided.
-	\item State appropriate fluid dynamics problems that the software is designed to model in the documentation, and explicitly state the limits of the software. 
+	\item Documentation must state all technical requirements and software dependencies. A missing dependency was a frequent cause of fault conditions during this assessment.
+	\item Provide a detailed user manual. Thirteen packages have a user manual. ESPResSo has a well detailed manual.
+	\item Provide a table of symbols in the developer guide that map to names used in the course code.
+	\item State appropriate fluid dynamics problems that the software is designed to model in the documentation, and explicitly state the limits of the software. This is done in the ESPResSo user guide.
 	\item The documentation should either explain the underlying CFD theories or provide a reference to appropriate resources.
-	\item Consider asking users for feedback on the documentation, specifically if it clearly conveys all necessary information to the users.
+	\item Consider asking users for feedback on the documentation. The developer of pyLBM noted that such feedback would be appreciated.
 \end{itemize}
 
 
@@ -2095,7 +2091,7 @@ Interviews with the developers of software packages also revealed a more frequen
 
 
 \newpage
-\section{Conclusion}
+\section{Conclusion}\label{conclusion}
 
 - key findings restated
 - comment on future work in state of the practice SCS
@@ -2117,6 +2113,9 @@ ment on the reproducibility of their source code from their requirements specifi
 design documentation. This question should be considered in the next iteration of state of
 the practice assessments.
 
+
+On page 86 of the ReportChapt5Feedback pdf SS commented that some of the adivuce from the quality recommendations section would be difficult to do for less mature projects. "We should add some getting started advice for the biggest ROI changes". 
+In this section I should add a subsection for recommendations, I should highlight the quality recommendations that are pervasive for multiple qualities, like modularization and using software languages that are considered user friendly (Python), etc.
 
 \newpage
 \section{Appendix}
