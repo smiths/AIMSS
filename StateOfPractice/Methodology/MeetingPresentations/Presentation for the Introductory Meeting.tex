@@ -31,7 +31,7 @@
 
 \input{./def-beamer}
 
-\newcommand{\topic}{Introductory Meeting}
+\newcommand{\topic}{State of the Practice for Lattice Boltzmann Solvers}
 
 \input{./titlepage}
 
@@ -41,33 +41,33 @@
 
 \input{./footline}
 
-%% Comments
-\newif\ifcomments\commentstrue
-
-\ifcomments
-\newcommand{\authornote}[3]{\textcolor{#1}{[#3 ---#2]}}
-\newcommand{\todo}[1]{\textcolor{red}{[TODO: #1]}}
-\else
-\newcommand{\authornote}[3]{}
-\newcommand{\todo}[1]{}
-\fi
-
-\newcommand{\wss}[1]{\authornote{blue}{SS}{#1}} %Spencer Smith
-\newcommand{\jc}[1]{\authornote{red}{JC}{#1}} %Jacques Carette
-\newcommand{\oo}[1]{\authornote{magenta}{OO}{#1}} %Olu Owojaiye
-\newcommand{\pmi}[1]{\authornote{green}{PM}{#1}} %Peter Michalski
-\newcommand{\ad}[1]{\authornote{brown}{AD}{#1}} %Ao Dong
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
-\frametitle{Interactions with Domain Experts}
+\frametitle{Overview}
 
 \bi
-\item Introductory Meeting
-\item Measuring
-\item Concluding Meeting
+\item Goals
+  \bi
+  \item Understand the state of the software development practices for
+    LBM Software
+  \item Make recommendations for improvements
+  \item A publication that is useful to the community
+  \ei  
+\item We have developed a standard methdology for assessing SOP for Domain X
+\item The methodology requires a \textbf{domain expert} to:
+  \bi
+  \item Vet the preliminary results
+  \item Assess the feasibility of the recommendations
+  \item Navigate the publication process
+  \item Answer \textbf{developer} interview questions on pain points  
+  \ei
+\item Today's meeting
+  \bi
+\item Informal
+\item Questions do not have to be answered in real time, or by domain expert
+  \ei
 \ei
 
 \end{frame}
@@ -75,21 +75,86 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
-\frametitle{About this Meeting}
+\frametitle{Overall Process}
+
+\begin{enumerate}
+%\item Identify the domain
+\item \emph{Domain Expert}: Create a top ten list
+\item Brief \emph{Domain Expert}
+\item Initial list of candidate software packages
+\item \emph{Domain Expert}: Vet domain software list
+\item Domain Analysis
+\item \emph{Domain Expert}: Vet domain analysis
+%\item Gather source code and documentation for software
+\item Collect empirical measures
+\item Measure using measurement template
+\item Interview developers
+\item Use AHP process to rank the software packages
+\item \emph{Domain Expert}: Vet AHP ranking
+\item \emph{Domain Expert}: Review recommendations
+\end{enumerate}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Scope}
+
+[Ao put your scope figure here.  Peter, you can delete this slide.]
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Vet Software List}
 
 \bi
-\item Introductory Meeting
-\bi
-\item Overall Objective
-\item Research Proposal
-\item Research Questions
-\item Vetting the List of Candidate Software
-\item Publication
-\item Schedule \& Team
-\item Introducing the Next Steps
+\item How does our list compare to the domain expert's list?
+\item Is any software missing?
+\item Is there software that should be included?
+\item Any other questions/comments or concerns?  
 \ei
-\item Measuring
-\item Concluding Meeting
+  
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Software List}
+
+[Peter and Ao, please put your list here, with hyperlinks if possible.  You can use
+columns to make it all fit on one slide.]
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Domain Expert Software List}
+
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Domain Analysis}
+
+\bi
+\item So users can pick the right software for their task
+\item Think of the software as a family of related software products, like:
+\bi
+\item Family of automobiles
+\item Computer hardware
+\item ...
+\ei
+\item Commonalities
+\item Variabilities
+\item Parameters of variation
+\item Do the following slides capture the commonalities and variabilities?
+\item We can follow up over e-mail, if that is easier
 \ei
 
 \end{frame}
@@ -97,84 +162,74 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
-\frametitle{Overall Objective}
+\frametitle{Commonalities}
 
-``What is needed to produce \{software + artifacts\} sustainably?''
-
-\href{https://github.com/smiths/AIMSS/blob/master/OverallResearchProposal/ObjectivesAndResearchQuestions.pdf}{Objectives
-And Research Questions}
-
-\bi
-\item Definitions
-\bi
-\item software
-\item artifacts
-\item \{software + artifacts\} - softifacts
-\item sustainable softifacts
-\ei
-\item What softifacts, in addition to the code, are needed?
-\item What software engineering principles, processes and methodologies should be employed?
-\ei
+[Peter, please list your commonalities here; Ao, we'll use a scope slide
+instead]
 
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
-\frametitle{Research Proposal}
+\frametitle{Variabilities}
 
-\href{https://github.com/smiths/AIMSS/blob/master/OverallResearchProposal/ResearchProposal.pdf}{Research
-Proposal}
+[Peter, please list your variabilities, with their associated parameters of
+variation here; Ao, you can delete this slide]
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Summary of Measures}
 
 \bi
-\item State of the Practice
-\bi
-\item Domain analysis
-\item Software list
+\item Empirical measures
+  \bi
+  \item Examples
+  \ei
 \item Measurement template
-\item Usability Tests
-\item Modifiability Experiment
-\item AHP
+  \bi
+  \item qualities
+  \ei
+\item Interview questions
+  \bi
+  \item Examples
+  \ei
+  \item AHP Process with pairwise comparisons
 \ei
-\item Impact of MDE on the Sustainability of SCS
-\ei
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Thoughts on Overall Ranking?}
+
+[Peter and Ao, give the overall ranking graphic for your domain]
 
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
-\frametitle{Research Questions}
-
-\href{https://github.com/smiths/AIMSS/blob/master/OverallResearchProposal/ObjectivesAndResearchQuestions.pdf}{Objectives
-And Research Questions}
+\frametitle{Ranking Follow-Up}
 
 \bi
-\item To investigate
-\bi
-\item knowledge
-\item principles, processes and methodologies
-\item software qualities
-\item the necessary investment of time and energy
-\ei
-\item What are the ``pain points'' for
-developers working on SCS projects?
-\item What aspects of the existing processes, methodologies and tools do they consider could potentially be improved?
-\ei
+\item We would like feedback on the ranking for each of the qualities
+\item Is it feasible to review all 10 graphs, and the associated write-up?
+\item Maybe there is a grad student that can review the rankings?
+ \ei
 
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
-\frametitle{Vetting the List of Candidate Software}
+\frametitle{Discuss Recommendations}
 
-\href{https://docs.google.com/spreadsheets/d/122wU0v3ZtvDcqy8C4zKJ89kU-8fXAbo3Mzn6vcVXOi0/edit?usp=sharing}{Medical Imaging Software List}
-
-Task:
 \bi
-\item What do you think of the list of the selected software?
-\item Is there any software you would like to remove from or add to the list?
+\item 
 \ei
 
 \end{frame}
@@ -186,7 +241,7 @@ Task:
 
 \bi
 \item Where should we publish this paper?
-\item Who are our targeted readers?
+\item Who do you see as the targeted readers?
 \ei
 
 \end{frame}
@@ -194,38 +249,10 @@ Task:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
-\frametitle{Schedule \& Team}
+\frametitle{Developer Questions (for next time)}
 
 \bi
-\item Project timeline
-\item Schedule for concluding meeting
-\item ... extra members from your team, each working ... hours per week for ...
-weeks.
-\item Any other experts?
-\ei
-
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-\frametitle{Introducing the Next Steps} 
-
-\bi
-\item Introductory Meeting
-\item Measuring
-\bi
-\item Vetting the Domain Analysis
-\item Measurement Template
-\item Survey for Short List Projects
-\item Usability Tests
-\item Modifiability Experiment
-\ei
-\item Concluding Meeting
-\bi
-\item First AHP Ranking
-\item Final AHP Ranking
-\ei
+\item 
 \ei
 
 \end{frame}
