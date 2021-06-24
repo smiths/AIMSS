@@ -16,6 +16,7 @@
     unicode=false}
 \urlstyle{same}
 
+\usepackage{multicol}
 \usepackage{booktabs}
 \usepackage{bibentry}
 \usepackage[round, authoryear]{natbib}
@@ -115,8 +116,34 @@
 \begin{frame}
 \frametitle{Software List}
 
-[Peter and Ao, please put your list here, with hyperlinks if possible.  You can use
-columns to make it all fit on one slide.]
+\begin{multicols}{2}	
+	\bi
+			\item \href{https://ludwig.epcc.ed.ac.uk/}{Ludwig}
+			\item \href{http://espressomd.org/wordpress/}{ESPResSo}
+			\item \href{https://palabos.unige.ch/}{Palabos}
+			\item \href{https://www.openlb.net/}{OpenLB}
+			\item \href{https://github.com/aharwood2/LUMA/}{LUMA}
+			\item \href{https://pypi.org/project/pylbm/}{pyLBM}
+			\item \href{https://www.scd.stfc.ac.uk/Pages/DL_MESO.aspx}{DL\_MESO (LBE)}
+			\item \href{https://www.walberla.net}{waLBerla}
+			\item \href{http://sailfish.us.edu.pl/}{Sailfish}
+			\item \href{https://github.com/maxlevesque/laboetie}{laboetie}
+			\item \href{https://docs.tclb.io/}{TCLB}
+			\item \href{http://mechsys.nongnu.org/}{MechSys}
+			\item \href{https://github.com/Olllom/lettuce}{lettuce}
+			\item \href{https://github.com/espressopp/espressopp}{ESPResSo++} 
+			\item \href{https://github.com/carlosrosales/mplabs}{MP-LABS}		
+			\item \href{http://sunlightlb.sourceforge.net/}{SunlightLB}
+			\item \href{http://ccs.chem.ucl.ac.uk/lb3d}{LB3D} - 			
+			\href{https://www.sciencedirect.com/science/article/pii/S0010465517301017}{paper}
+			\item \href{https://code.google.com/archive/p/limbes/}{LIMBES}
+			\item \href{http://faculty.fiu.edu/~sukopm/LBnD_Prime/LBnD_Prime.html}{LB2D-Prime}	
+			\item \href{https://github.com/UCL/hemelb}{HemeLB} 
+			\item \href{https://pypi.org/project/lbmpy/}{lbmpy}	
+			\item \href{http://faculty.fiu.edu/~sukopm/LBnD_Prime/LBnD_Prime.html}{LB3D-Prime}	
+			\item \href{https://github.com/UCL/LatBo.jl}{LatBo.jl}
+	\ei
+\end{multicols}
 
 \end{frame}
 
@@ -155,8 +182,13 @@ columns to make it all fit on one slide.]
 \begin{frame}
 \frametitle{Commonalities}
 
-[Peter, please list your commonalities here; Ao, we'll use a scope slide
-instead]
+\bi
+	\item Lattice - discretized domain within a boundary
+	\item Collision operator (The Bhatnagar-Gross-Krook Collision Operator is common)
+	\item Probability density function
+	\item Equilibrium distribution function
+	\item Boltzmann transport equation
+\ei
 
 \end{frame}
 
@@ -165,8 +197,18 @@ instead]
 \begin{frame}
 \frametitle{Variabilities}
 
-[Peter, please list your variabilities, with their associated parameters of
-variation here; Ao, you can delete this slide]
+\bi
+\item May use parallel processing
+\item Different equilibrium distribution functions
+\item Coefficients for equilibrium distribution function (based on velocity directions)
+\item Lattice dimensions (1D, 2D, 3D)
+\item Varied velocity directions, partially based on dimensions 
+\item Collision operators (SRT, TRT, MRT, BGK)
+\item Collision vs collision-free transport equations
+\item Number of fluid that can be modeled simultaneously
+\item Fluid parameters (Reynolds Num., density, viscosity, etc.)
+\item Lattice boundary (reflective or non-reflective)
+\ei
 
 \end{frame}
 
