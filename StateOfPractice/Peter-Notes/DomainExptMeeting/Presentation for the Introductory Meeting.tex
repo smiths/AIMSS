@@ -51,12 +51,11 @@
 \bi
 \item Goals
   \bi
-  \item Understand the state of the software development practices for
-    LBM Software
+  \item Understand state of software development practice
   \item Make recommendations for improvements
   \item A publication that is useful to the community
   \ei  
-\item We have developed a standard methdology for assessing SOP for Domain X
+\item We have developed a standard methdology% for assessing SOP for Domain X
 \item The methodology requires a \textbf{domain expert} to:
   \bi
   \item Vet the preliminary results
@@ -67,7 +66,7 @@
 \item Today's meeting
   \bi
 \item Informal
-\item Questions do not have to be answered in real time, or by domain expert
+\item Questions do not have to be answered in real time%, or by domain expert
   \ei
 \ei
 
@@ -81,18 +80,18 @@
 \begin{enumerate}
 %\item Identify the domain
 \item \emph{Domain Expert}: Create a top ten list
-\item Brief \emph{Domain Expert}
+%\item Brief \emph{Domain Expert}
 \item Initial list of candidate software packages
 \item \emph{Domain Expert}: Vet domain software list
-\item Domain Analysis
-\item \emph{Domain Expert}: Vet domain analysis
+\item Domain Analysis, Software Features
+\item \emph{Domain Expert}: Vet domain analysis / features
 %\item Gather source code and documentation for software
-\item Collect empirical measures
+\item Collect empirical measures (stars, forks, lines of code, etc.)
 \item Measure using measurement template
-\item Interview developers
+\item Interview developers (pain points)
 \item Use AHP process to rank the software packages
 \item \emph{Domain Expert}: Vet AHP ranking
-\item \emph{Domain Expert}: Review recommendations
+\item \emph{Domain Expert}: Review recommendations %$\Leftarrow$
 \end{enumerate}
 
 \end{frame}
@@ -150,7 +149,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
-\frametitle{Common With Domain Expert List}
+\frametitle{Domain Expert List (Common in Blue)}
 
 \begin{multicols}{2}	
   \bi
@@ -167,6 +166,13 @@
 \item  \href{https://www.scd.stfc.ac.uk/Pages/DL_MESO.aspx}{DL\_MESO (LBE)}
 \item \href{https://code.google.com/archive/p/limbes/}{LIMBES}
 \item \href{https://docs.tclb.io/}{TCLB} (also called CudneLB)
+  \item ASL 
+\item ch4-project
+\item Open FSI
+\item LIFE
+\item LBSIM
+\item Taxila LBM                    
+
 \ei
 \end{multicols}
 
@@ -220,30 +226,30 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}
-\frametitle{Domain Analysis}
+% \begin{frame}
+% \frametitle{Domain Analysis}
 
-\bi
-\item So users can pick the right software for their task
-\item Think of the software as a family of related software products, like:
-\bi
-\item Family of automobiles
-\item Computer hardware
-\item etc.
-\ei
-\item Commonalities
-\item Variabilities
-\item Parameters of variation
-\item \structure{Do the following slides capture the commonalities and variabilities?}
-\item We can follow up over e-mail, if that is easier
-\ei
+% \bi
+% \item So users can pick the right software for their task
+% \item Think of the software as a family of related software products, like:
+% \bi
+% \item Family of automobiles
+% \item Computer hardware
+% \item etc.
+% \ei
+% \item Commonalities
+% \item Variabilities
+% \item Parameters of variation
+% \item \structure{Do the following slides capture the commonalities and variabilities?}
+% \item We can follow up over e-mail, if that is easier
+% \ei
 
-\end{frame}
+% \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
-\frametitle{Commonalities}
+\frametitle{SOP Common Features}
 
 \bi
 	\item Lattice - discretized domain within a boundary
@@ -258,7 +264,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
-\frametitle{SOP Variabilities}
+\frametitle{SOP Features}
 
 \bi
 \item May use parallel processing (May use varied tools for this - MPI, CUDA..)
@@ -280,7 +286,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
-\frametitle{Domain Expert Variabilities}
+\frametitle{Domain Expert Features}
 
 \bi
 \item May use parallel processing (MPI, CUDA, OpenMP, ...)
@@ -297,68 +303,82 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
-\frametitle{Summary of Measures}
+\frametitle{Potential Next Steps}
 
 \bi
-\item Empirical measures (number of stars, forks, pull requests, lines of code, etc)
-\item Measurement template
+\item \structure{Can we work together on completing the following for the
+    paper?}
   \bi
+\item Domain analysis
+\item Combined list of features
+\item Matrix of software related to features \ei \ei
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Measurements Made}
+
+\be
 \item Installability
 \item Correctness and verifiability
 \item Surface reliability
 \item Surface robustness
 \item Surface usability
 \item Maintainability
-\item Surface Understandability
-  \item Visibility and transparency
-  \ei
-\item Developer interviews (looking for pain points)
-\item AHP Process with pairwise comparisons
-  \ei
+\item Reusability
+\item Surface understandability
+\item Visibility and transparency
+ \ee
+  
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
-\frametitle{Thoughts on Overall Ranking?}
+\frametitle{Maintainability Measurement}
 
 \bigskip
 
-    \includegraphics[width=1.0\textwidth]{finalscore_chart.png}
+    \includegraphics[width=1.0\textwidth]{maintainability_chart.png}
+
+    %\bigskip
+
+    \structure{Does anything stand out?}
+    
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Domain Expert: Ranking Follow-Up}
+
+\bi
+\item \structure{Can you review the full ranking measurements?}
+\bi
+\item There are 9 measurements
+\item The write up is about 10 pages long \ei \ei
 
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
-\frametitle{Ranking Follow-Up}
+\frametitle{From Developer Interviews: Pain Points}
 
-\bi
-\item \structure{We would like feedback on the ranking for each of the qualities}
-\item \structure{Is it feasible to review all 10 graphs, and the associated write-up?}
-\item \structure{Maybe there is a grad student that can review the rankings?}
-\ei
-
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-\frametitle{Pain Points from Developer Interviews}
-
-\structure{Do these fit with your experience?}
-\bi
-\item Lack of time to implement new features
+\begin{enumerate}
+\item Lack of time to implement new features \label{LackOfTime}
 \item Team members lack software development experience
 \item Lack of funding for software development
-\item No organizations to help with developing high quality software
+\item Lack of credit for developing software \label{LackOfCredit}
+\item No organizations to help with developing high quality software \label{NoOrg}
 \item Documentation could be improved, only has shallow overview of the theory
 \item Setting up parallelization is challenging
 \item Setting up continuous integration is challenging
 \item Difficulties in ensuring correctness because of size of test cases
 \item Users sometimes use tools inappropriately
 \item Technical debt due to coupling between components
-  \ei
+\end{enumerate}
 
 \end{frame}
 
@@ -369,13 +389,13 @@
 
 \structure{Do these seem feasible?  What other ideas do we have?}
 \bi
-\item Consult with software development organization
+\item Consult with software development organization (P\ref{NoOrg})
   \bi
 \item Better Scientific Software (BSSw)
 \item Software Sustainability Institute
 \item Software Carpentry
   \ei
-\item Citations for software (Katz project)
+\item Citations for software (Katz project) (P\ref{LackOfCredit})
   \item Redefine productivity to include time working on tasks like testing, continuous
     integration and documentation
 \ei
@@ -391,6 +411,81 @@
 \item \structure{Who do you see as the targeted readers?}
 \item \structure{Where should we publish this paper?}
 \ei
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Developer Questions}
+
+\bi
+\item \structure{What experience do you, or your students, have with developing
+    software?}
+\item \structure{How big would the development group be?}
+\item \structure{What is the typical background of a developer?}
+\item \structure{How many users would you software typically have?}
+\item \structure{What is the typical background of a user?}
+\item \structure{Currently, what are the most significant obstacles in your
+    development process?}
+\item \structure{How might you change your development process to remove or
+    reduce these obstacles?}
+\item \structure{How does documentation fit into your development process? Would improved
+  documentation help with the obstacles you typically face?}      
+\ei
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Developer Questions Continued}
+
+\bi
+\item \structure{In the past, is there any major obstacle to your development process that
+  has been solved? How did you solve it?}
+\item \structure{What is your software development model? For example, waterfall, agile,
+  etc.}
+\item \structure{What is your project management process? Do you think improving this
+  process can tackle the current problem? Were any project management tools
+  used?}
+\item \structure{Was it hard to ensure the correctness of the software? If there
+    were any obstacles, what methods have been considered or practiced to
+    improve the situation? If practiced, did it work?}
+\ei
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Developer Questions Continued}
+
+\bi
+\item \structure{When designing the software, did you consider the ease of
+    future changes? For example, will it be hard to change the structure of
+    the system, modules or code blocks? What measures have been taken to ensure
+    the ease of future changes and maintainance?}
+\item \structure{Provide instances where users have misunderstood the
+    software. What, if any, actions were taken to address understandability
+    issues?}
+\item \structure{What, if any, actions were taken to address usability issues?}
+\item \structure{Do you think the current documentation can clearly convey all
+    necessary knowledge to the users? If yes, how did you successfully achieve
+    it? If no, what improvements are needed?}
+\ei
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Developer Questions Continued}
+
+\bi
+\item \structure{Do you have any concern that your computational results won't
+    be reproducible in the future? Have you taken any steps to ensure
+    reproducibility?}  \ei
 
 \end{frame}
 
