@@ -16,10 +16,33 @@
     unicode=false}
 \urlstyle{same}
 
+\usepackage{multicol}
 \usepackage{booktabs}
 \usepackage{bibentry}
 \usepackage[round, authoryear]{natbib}
 \bibliographystyle{plainnat}
+
+\usepackage{tikz}
+\usetikzlibrary{mindmap}
+%tikstyle commands
+% Define block styles
+\tikzstyle{context} = [rectangle, rounded corners, text width=2.5cm, minimum
+size=2.5cm,text centered, draw=black, fill=white!30]
+\tikzstyle{strategy} = [trapezium, trapezium left angle=70, trapezium right
+angle=110, text width=3cm, minimum height=1cm, text centered, draw=black,
+fill=white!30]
+\tikzstyle{subclaim} = [rectangle, text width=3cm, minimum height=1cm, text
+centered, draw=black, fill=white!30]
+\tikzstyle{goal} = [rectangle, text width=5cm, minimum height=1cm, text
+centered, draw=black, fill=white!30]
+\tikzstyle{assumption} = [ellipse, text width=3cm, minimum height=1cm, text
+centered, draw=black, fill=white!30]
+\tikzstyle{evidence} = [circle, text width=2cm, minimum size=2cm, text
+centered,draw=black, fill=white!30]
+\tikzstyle{arrow} = [thick,->,>=stealth]
+
+\newcommand{\famname}{MIA}
+\newcommand{\progname}{MISEG}
 
 %\usetheme{Iimenau}
 
@@ -31,7 +54,7 @@
 
 \input{./def-beamer}
 
-\newcommand{\topic}{State of the Practice for Lattice Boltzmann Solvers}
+\newcommand{\topic}{State of the Practice for Medical Imaging Software}
 
 \input{./titlepage}
 
@@ -40,7 +63,6 @@
 %\nobibliography{../../../CommonFiles/ResearchProposal}
 
 \input{./footline}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -51,7 +73,7 @@
 \item Goals
   \bi
   \item Understand the state of the software development practices for
-    LBM Software
+    medical imaging Software
   \item Make recommendations for improvements
   \item A publication that is useful to the community
   \ei  
@@ -69,6 +91,40 @@
 \item Questions do not have to be answered in real time, or by domain expert
   \ei
 \ei
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[plain, fragile]
+\frametitle{Scope}
+
+\scalebox{0.64}
+{
+\begin{tikzpicture}[mindmap, grow cyclic, every node/.style=concept, concept
+color=orange!40,
+	level 1/.append style={level distance=5cm,sibling angle=90},
+	level 2/.append style={level distance=3cm,sibling angle=90},
+	level 3/.style={level distance=3cm,sibling angle=60}]
+\node{\famname}
+	child[concept color=teal!40] { node {Enhancement}}
+	child[concept color=teal!40] { node {Analysis}
+    	child[concept color=blue!30] { node {Registration}}
+	    child[concept color=purple!50,] { node {Segmentation}}
+	    child[concept color=blue!30] { node {Statistical Analysis}
+	        child { node {Feature Extraction}}
+	        child { node {Classification}}
+	        child { node {Interpretation}}
+	}}
+	child[concept color=teal!40] { node {Simulation/\\Modeling}}
+    child[concept color=teal!40] { node {Visualization}
+	    child[concept color=blue!30] { node {2D Display}}
+	    child[concept color=blue!30] { node {3D Rendering}}
+	    child[concept color=blue!30] { node {Reformatted Views}}
+    	}
+;
+\end{tikzpicture}
+}
 
 \end{frame}
 
@@ -99,41 +155,93 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
-\frametitle{Scope}
-
-[Ao put your scope figure here.  Peter, you can delete this slide.]
-
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
 \frametitle{Vet Software List}
 
 \bi
-\item How does our list compare to the domain expert's list?
-\item Is any software missing?
-\item Is there software that should be included?
-\item Any other questions/comments or concerns?  
+\item \structure{How does our list compare to the domain expert's list?}
+\item \structure{Is any software missing?}
+\item \structure{Is there software that should be included?}
+\item \structure{Any other questions/comments or concerns?}
 \ei
   
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}
-\frametitle{Software List}
+\begin{frame}[plain]
+%\frametitle{SOP Software List}
 
-[Peter and Ao, please put your list here, with hyperlinks if possible.  You can use
-columns to make it all fit on one slide.]
+\begin{multicols}{2}	
+	\bi
+      \item 3D Slicer
+      \item  Ginkgo CADx
+      \item XMedCon
+      \item Weasis
+      \item MRIcroGL
+      \item SMILI
+      \item ImageJ
+      \item Fiji
+      \item DicomBrowser
+        \item 3DimViewer
+        \item Horos
+        \item OsiriX Lite
+        \item dwv
+        \item Drishti
+        \item BioImage Suite Web
+        \item OHIF Viewer
+          \item Slice:Drop
+          \item GATE
+          \item ITK-SNAP
+          \item ParaView
+          \item MatrixUser
+          \item DICOM Viewer
+          \item INVESALIUS 3
+            \item medInria
+            \item dicompyler
+            \item MicroView
+            \item Papaya
+            \item AMIDE
+            \item Gwyddion \ei
+\end{multicols}
 
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
-\frametitle{Domain Expert Software List}
+\frametitle{Common With Domain Expert List}
 
+\begin{multicols}{2}	
+  \bi
+\item 
+\ei
+\end{multicols}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Only on Domain Expert List}
+
+%\begin{multicols}{2}	
+  \bi
+\item 
+	\ei
+%\end{multicols}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Only on SOP List}
+
+\begin{multicols}{2}	
+  \bi
+			\item 
+	\ei
+\end{multicols}
 
 \end{frame}
 
@@ -143,20 +251,21 @@ columns to make it all fit on one slide.]
 \frametitle{Summary of Measures}
 
 \bi
-\item Empirical measures
-  \bi
-  \item Examples
-  \ei
+\item Empirical measures (number of stars, forks, pull requests, lines of code, etc)
 \item Measurement template
   \bi
-  \item qualities
+\item Installability
+\item Correctness and verifiability
+\item Surface reliability
+\item Surface robustness
+\item Surface usability
+\item Maintainability
+\item Surface Understandability
+  \item Visibility and transparency
   \ei
-\item Interview questions
-  \bi
-  \item Examples
+\item Developer interviews (looking for pain points)
+\item AHP Process with pairwise comparisons
   \ei
-  \item AHP Process with pairwise comparisons
-\ei
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -164,7 +273,9 @@ columns to make it all fit on one slide.]
 \begin{frame}
 \frametitle{Thoughts on Overall Ranking?}
 
-[Peter and Ao, give the overall ranking graphic for your domain]
+\bigskip
+
+    \includegraphics[width=1.0\textwidth]{overall_scores.png}
 
 \end{frame}
 
@@ -174,20 +285,45 @@ columns to make it all fit on one slide.]
 \frametitle{Ranking Follow-Up}
 
 \bi
-\item We would like feedback on the ranking for each of the qualities
-\item Is it feasible to review all 10 graphs, and the associated write-up?
-\item Maybe there is a grad student that can review the rankings?
- \ei
+\item \structure{We would like feedback on the ranking for each of the qualities}
+\item \structure{Is it feasible to review all 10 graphs, and the associated write-up?}
+\item \structure{Maybe there is a grad student that can review the rankings?}
+\ei
 
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
-\frametitle{Discuss Recommendations}
+\frametitle{Pain Points from Developer Interviews}
 
+\structure{Do these fit with your experience?}
 \bi
-\item 
+\item Lack of time to implement new features
+\item Team members lack software development experience
+\item Lack of funding for software development
+\item No organizations to help with developing high quality software
+\item Difficulty to get test data
+  \ei
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Recommendations}
+
+\structure{Do these seem feasible?  What other ideas do we have?}
+\bi
+\item Consult with software development organization
+  \bi
+\item Better Scientific Software (BSSw)
+\item Software Sustainability Institute
+\item Software Carpentry
+  \ei
+\item Citations for software (Katz project)
+  \item Redefine productivity to include time working on tasks like testing, continuous
+    integration and documentation
 \ei
 
 \end{frame}
@@ -198,8 +334,8 @@ columns to make it all fit on one slide.]
 \frametitle{Publication}
 
 \bi
-\item Where should we publish this paper?
-\item Who do you see as the targeted readers?
+\item \structure{Who do you see as the targeted readers?}
+\item \structure{Where should we publish this paper?}
 \ei
 
 \end{frame}
@@ -207,11 +343,28 @@ columns to make it all fit on one slide.]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
-\frametitle{Developer Questions (for next time)}
+\frametitle{Developer Questions}
 
 \bi
-\item 
-\ei
+\item \structure{What experience do you, or your students, have with developing
+    software?}
+\item \structure{How big would the development group be?}
+\item \structure{What is the typical background of a developer?}
+\item \structure{How many users would you software typically have?}
+\item \structure{What is the typical background of a user}
+\item \structure{Currently, what are the most significant obstacles in your
+    development process?}
+\item \structure{How might you change your development process to remove or
+    reduce these obstacles?}
+\item \structure{How does documentation fit into your development process? Would improved
+  docu- mentation help with the obstacles you typically face?}      
+\item \structure{In the past, is there any major obstacle to your development process that
+  has been solved? How did you solve it?}
+\item \structure{What is your software development model? For example, waterfall, agile,
+  etc.}
+\item \structure{What is your project management process? Do you think improving this
+  process can tackle the current problem? Were any project management tools
+  used?}  \ei
 
 \end{frame}
 
