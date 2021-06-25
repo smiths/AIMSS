@@ -103,10 +103,10 @@
 \frametitle{Vet Software List}
 
 \bi
-\item How does our list compare to the domain expert's list?
-\item Is any software missing?
-\item Is there software that should be included?
-\item Any other questions/comments or concerns?  
+\item \structure{How does our list compare to the domain expert's list?}
+\item \structure{Is any software missing?}
+\item \structure{Is there software that should be included?}
+\item \structure{Any other questions/comments or concerns?}
 \ei
   
 \end{frame}
@@ -166,8 +166,8 @@
 \item \href{https://pypi.org/project/pylbm/}{pyLBM}
 \item  \href{https://www.scd.stfc.ac.uk/Pages/DL_MESO.aspx}{DL\_MESO (LBE)}
 \item \href{https://code.google.com/archive/p/limbes/}{LIMBES}
-                          
-	\ei
+\item \href{https://docs.tclb.io/}{TCLB} (also called CudneLB)
+\ei
 \end{multicols}
 
 \end{frame}
@@ -177,18 +177,17 @@
 \begin{frame}
 \frametitle{Only on Domain Expert List}
 
-\begin{multicols}{2}	
+%\begin{multicols}{2}	
   \bi
-                        \item ASL
-                        \item ch4-project
-                        \item Open FSI
-                        \item LIFE
-                        \item LBSIM
-                        \item CudneLB
-                        \item Taxila LBM
-                    
+\item ASL (general purpose tool for PDEs, LBM a small part)
+\item ch4-project (no docs, no installation guide)
+\item Open FSI (uses Palabos for LBM, new project)
+\item LIFE (small and new project)
+\item LBSIM (dead project)
+\item Taxila LBM (dead project, could not install, broken links in
+  documentation)                    
 	\ei
-\end{multicols}
+%\end{multicols}
 
 \end{frame}
 
@@ -203,7 +202,6 @@
 			\item \href{http://espressomd.org/wordpress/}{ESPResSo}
 
 			\item \href{https://github.com/maxlevesque/laboetie}{laboetie}
-			\item \href{https://docs.tclb.io/}{TCLB}
 			\item \href{http://mechsys.nongnu.org/}{MechSys}
 			\item \href{https://github.com/Olllom/lettuce}{lettuce}
 			\item \href{https://github.com/espressopp/espressopp}{ESPResSo++} 
@@ -216,7 +214,7 @@
 	\ei
 \end{multicols}
 
-Why is pylbm on the domain expert list twice, should one by lbmpy?
+\structure{Why is pylbm on the domain expert list twice, should one be lbmpy?}
 
 \end{frame}
 
@@ -231,12 +229,12 @@ Why is pylbm on the domain expert list twice, should one by lbmpy?
 \bi
 \item Family of automobiles
 \item Computer hardware
-\item ...
+\item etc.
 \ei
 \item Commonalities
 \item Variabilities
 \item Parameters of variation
-\item Do the following slides capture the commonalities and variabilities?
+\item \structure{Do the following slides capture the commonalities and variabilities?}
 \item We can follow up over e-mail, if that is easier
 \ei
 
@@ -260,19 +258,38 @@ Why is pylbm on the domain expert list twice, should one by lbmpy?
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
-\frametitle{Variabilities}
+\frametitle{SOP Variabilities}
 
 \bi
 \item May use parallel processing (May use varied tools for this - MPI, CUDA..)
 \item Different equilibrium distribution functions (compressible and incompressible)
-\item Coefficients for equilibrium distribution function (based on velocity directions - 2,3,5,9,13,15,19,27)
+\item Coefficients for equilibrium distribution function (based on velocity
+  directions - 2, 3, 5, 9, 13, 15, 19, 27)
 \item Lattice dimensions (1D, 2D, 3D)
-\item Varied velocity directions, partially based on dimensions (2,3,5,9,13,15,19,27)
+\item Varied velocity directions, partially based on dimensions (2, 3, 5, 9, 13,
+  15, 19, 27)
 \item Collision operators (SRT, TRT, MRT, BGK)
 \item Collision vs collision-free transport equations
 \item Number of fluids that can be modeled simultaneously
-\item Fluid parameters (Reynolds Num., density, viscosity, etc.)
+\item Fluid parameters (Reynolds num., density, viscosity, etc.)
 \item Lattice boundary (reflective or non-reflective)
+\ei
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Domain Expert Variabilities}
+
+\bi
+\item May use parallel processing (MPI, CUDA, OpenMP, ...)
+\item Lattice dimensions (1D, 2D, 3D)
+\item Turbulent (Yes, No)
+\item FSI (Fluid Structure Interaction)
+\item Complex Geometry
+\item Non-Newtonian Fluids
+\item Programming Language (C++, Python, etc)
 \ei
 
 \end{frame}
@@ -283,20 +300,21 @@ Why is pylbm on the domain expert list twice, should one by lbmpy?
 \frametitle{Summary of Measures}
 
 \bi
-\item Empirical measures
-  \bi
-  \item Examples
-  \ei
+\item Empirical measures (number of stars, forks, pull requests, lines of code, etc)
 \item Measurement template
   \bi
-  \item qualities
+\item Installability
+\item Correctness and verifiability
+\item Surface reliability
+\item Surface robustness
+\item Surface usability
+\item Maintainability
+\item Surface Understandability
+  \item Visibility and transparency
   \ei
-\item Interview questions
-  \bi
-  \item Examples
+\item Developer interviews (looking for pain points)
+\item AHP Process with pairwise comparisons
   \ei
-  \item AHP Process with pairwise comparisons
-\ei
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -304,7 +322,9 @@ Why is pylbm on the domain expert list twice, should one by lbmpy?
 \begin{frame}
 \frametitle{Thoughts on Overall Ranking?}
 
-[Peter and Ao, give the overall ranking graphic for your domain]
+\bigskip
+
+    \includegraphics[width=1.0\textwidth]{finalscore_chart.png}
 
 \end{frame}
 
@@ -314,20 +334,50 @@ Why is pylbm on the domain expert list twice, should one by lbmpy?
 \frametitle{Ranking Follow-Up}
 
 \bi
-\item We would like feedback on the ranking for each of the qualities
-\item Is it feasible to review all 10 graphs, and the associated write-up?
-\item Maybe there is a grad student that can review the rankings?
- \ei
+\item \structure{We would like feedback on the ranking for each of the qualities}
+\item \structure{Is it feasible to review all 10 graphs, and the associated write-up?}
+\item \structure{Maybe there is a grad student that can review the rankings?}
+\ei
 
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
-\frametitle{Discuss Recommendations}
+\frametitle{Pain Points from Developer Interviews}
 
+\structure{Do these fit with your experience?}
 \bi
-\item 
+\item Lack of time to implement new features
+\item Team members lack software development experience
+\item Lack of funding for software development
+\item No organizations to help with developing high quality software
+\item Documentation could be improved, only has shallow overview of the theory
+\item Setting up parallelization is challenging
+\item Setting up continuous integration is challenging
+\item Difficulties in ensuring correctness because of size of test cases
+\item Users sometimes use tools inappropriately
+\item Technical debt due to coupling between components
+  \ei
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Recommendations}
+
+\structure{Do these seem feasible?  What other ideas do we have?}
+\bi
+\item Consult with software development organization
+  \bi
+\item Better Scientific Software (BSSw)
+\item Software Sustainability Institute
+\item Software Carpentry
+  \ei
+\item Citations for software (Katz project)
+  \item Redefine productivity to include time working on tasks like testing, continuous
+    integration and documentation
 \ei
 
 \end{frame}
@@ -338,19 +388,8 @@ Why is pylbm on the domain expert list twice, should one by lbmpy?
 \frametitle{Publication}
 
 \bi
-\item Where should we publish this paper?
-\item Who do you see as the targeted readers?
-\ei
-
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-\frametitle{Developer Questions (for next time)}
-
-\bi
-\item 
+\item \structure{Who do you see as the targeted readers?}
+\item \structure{Where should we publish this paper?}
 \ei
 
 \end{frame}
