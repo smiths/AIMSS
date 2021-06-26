@@ -111,7 +111,10 @@
 	\textbf{\large Abstract}
 \end{center}
 
-This project analyzes the state of the practice for software development in the Lattice Boltzmann Method domain by quantitatively and qualitatively measuring 23 software packages along quality attributes...
+We analyze the state of the practice of software development of Lattice Boltzmann Methods software domain by quantitatively and qualitatively measuring, and comparing, 23 software packages along quality attributes. A methodology for assessing the state of the practice of software development in scientific computing software domains is presented. A domain analysis of the Lattice Boltzmann Methods software family is made, and a candidate software package list is identified and curated. The packages are assessed to answer software development related research questions to understand how software quality is impacted by software development choices, including principles, processes, and tools. Software developers are interviewed to identify development pain points, and to identify how software quality is ensured. Quantitative data is used to rank the software packages using an analytical hierarchy process. The ranking designations are compared with rankings from the software development community. Recommendations for improving software along quality metrics are made. This knowledge can be used to guide future development of scientific computing software, specifically along quality attributes, and to reduce software quality failures.\\ 
+
+\noindent\textbf{Keywords}: Lattice Boltzmann Methods, Scientific Computing, Software Engineering, Software Family, Software Quality 
+
 
 \newpage
 \pagenumbering{roman}
@@ -252,7 +255,7 @@ The packages are assessed for a given set of quality attributes using quantitati
 
 \subsection{Motivation}
 
-The purpose of state of the practice assessments is to understand how software quality is impacted by software development choices, including principles, processes, and tools, within SCS communities. This knowledge can be used to guide future development of SCS, specifically along quality attributes, and reduce software quality failures. This work reports on the state of the practice of LBM software development and makes suggestions on improving the quality of software in this domain.
+The purpose of state of the practice assessments is to understand how software quality is impacted by software development choices, including principles, processes, and tools, within SCS communities. This knowledge can be used to guide future development of SCS, specifically along quality attributes, and to reduce software quality failures. This work reports on the state of the practice of LBM software development and makes suggestions on improving the quality of software in this domain.
 
 This assessment of the state of the practice of LBM software development builds off of prior work on assessing the state of research software development. The previous state of the practice assessments include domains such as Geographic Information Systems \citep{SmithEtAl2018_arXivGIS}, Mesh Generators \citep{SmithEtAl2016}, Oceanographic Software \citep{smith2015state}, Seismology software \citep{SmithEtAl2018}, and statistical software for psychology \citep{SmithEtAl2018_StatSoft}. 
 
@@ -1908,7 +1911,7 @@ A few potential future obstacles were noted. The developer of ESPResSo noted tha
 
 As noted above, difficulties with ensuring future correctness could also arise. As new methods and functionality is added into the software, new test cases and test data will need to be developed.
 
-The developer comments have emphasized an importance on source code, while documentation seems to be of secondary importance. It must be stressed that improving documentation could benefit development and help eliminate some of the developer concerns that were raised. The use of automatic document generation tools that capture scientific and computing knowledge, and transform it into software artifacts, is advised. Drasil is an automatic document generation tool that is further discussed in Section \ref{conclusion}.
+The developer comments have emphasized an importance on source code, while documentation seems to be of secondary importance. It must be stressed that improving documentation could benefit development and help eliminate some of the developer concerns that were raised. The use of automatic document generation tools that capture scientific and computing knowledge, and transform it into software artifacts, is advised. Drasil is an automatic document generation tool that is further discussed in Section \ref{highlightedrecommendations}.
 
 \subsection{Quality Recommendations}\label{qualityrecommentations}
 
@@ -2163,29 +2166,40 @@ Furthermore, design documentation was measured to be a ``less common'' artifact 
 \newpage
 \section{Conclusion}\label{conclusion}
 
-- key findings restated
-- comment on future work in state of the practice SCS
+We analyzed the state of the practice of software development of Lattice Boltzmann Methods software domain by quantitatively and qualitatively measuring, and comparing, 23 software packages along quality attributes. The software qualities that were assessed in this report are listed in Section \ref{softwarequalities}. A methodology for assessing the state of the practice of software development in scientific computing software domains was presented. Domain packages were assessed to answer the software development related research questions listed in Section \ref{purpose} to understand how software quality is impacted by software development choices, including principles, processes, and tools. Software developers were interviewed to identify development pain points, and to identify how software quality is ensured. Quantitative data was used to rank the software packages using an analytical hierarchy process. The ranking designations were compared with rankings from the software development community, and we found that many of our top 10 ranked packages are ranked highly by a domain expert. Recommendations for improving software along quality metrics were made, and highlights are presented in Section \ref{highlightedrecommendations} of this conclusion. The findings of this report can be used to guide future development of scientific computing software, specifically along quality attributes, and to reduce software quality failures.
 
-the following was moved from the former background section, may need edits as part of conclusion:
+We understand that software packages vary in goals, developers, funding, and other aspects. Our goal was to highlight software quality successes through an evaluation of the entire domain software family. Furthermore, threats to the validity of the findings are highlighted in Section \ref{threats}. 
 
-  The software qualities that are assessed in this report are listed in Section \ref{softwarequalities}. Ensuring software quality can take significant time, but as \cite{SmithEtAl2016} shows, SCS developers often cannot see themselves meeting the required time constraints to better develop some of the artifacts that improve qualities, like detailed documentation. An inability to develop such documentation due to time constraints could be mitigated by the use of automatic document generation tools like Drasil. The Drasil Framework consists of a collection of Domain Specific Languages (DSL) for capturing scientific documents, structures, and computing
-knowledge, and then transforming this knowledge into relevant software artifacts without having to manually duplicate knowledge into multiple artifacts \citep{zhao2018}.
+Recommendations for future state of the practice assessments are made in Section \ref{futuresop}.
 
+\subsection{Highlighted Recommendations}\label{highlightedrecommendations}
 
-The following was moved from Tools Used subsection (consider adding future work subsection within conclusion, also consider subsection for ideas for future SOP such as asking the developers):
+The following recommendations improve software quality along multiple attributes, and provide the greatest return on investment:
 
-Drasil could be considered as an alternative to generate artifacts since it is geared specifically towards research software domains like LBM software. 
+\begin{itemize}
+	\item Provide a detailed user manual. It should identify elements of user interfaces, and identify all requirements to model a system.
+	\item State appropriate fluid dynamics problems that the software is designed to model in the documentation, and explicitly state the limits of the software. 
+	\item Include detailed tutorials, including dependencies, expected
+	output, and any additional supplementary documentation that may be required.
+	\item Keep all documentation in one location.
+	\item If possible, consider using popular user-friendly software languages like Python. Especially consider this for parts of the source code that is likely to be modified or reviewed by users. 
+	\item Modularize the source code, separate components, hide information behind well defined interfaces.
+	\item Include descriptive error messages where appropriate.
+	\item Summarize the development process that is used. Provide information on how new users can contribute. 
+	\item Consider peer review processes and task based inspection to assess contributions.	
+	\item Use continuous integration tools (Bamboo, Jenkins, and Travis CI) and processes during development. 
+	\item Use project management tools, including change and version control tools (GitHub, GitLab, CVS), collaboration tools (GitHub, GitLab), and document generation tools (Doxygen, Drasil, Sphinx).
+\end{itemize}
 
-future sop idea (from Results section):
+Ensuring software quality can take significant time. An inability to develop high quality documentation due to time constraints could be mitigated by the use of automatic document generation tools like Drasil. The Drasil Framework consists of a collection of Domain Specific Languages (DSL) for capturing scientific documents, structures, and computing knowledge, and then transforming this knowledge into relevant software artifacts without having to manually duplicate knowledge into multiple artifacts \citep{zhao2018}.
 
-Developers were not asked to com-
-ment on the reproducibility of their source code from their requirements specifications and
-design documentation. This question should be considered in the next iteration of state of
-the practice assessments.
+\subsection{Future State Of The Practice Assessments}\label{futuresop}
 
+This section notes recommendations for future state of the practice assessments.  
 
-On page 86 of the ReportChapt5Feedback pdf SS commented that some of the adivuce from the quality recommendations section would be difficult to do for less mature projects. "We should add some getting started advice for the biggest ROI changes". 
-In this section I should add a subsection for recommendations, I should highlight the quality recommendations that are pervasive for multiple qualities, like modularization and using software languages that are considered user friendly (Python), etc.
+As mentioned in Section \ref{threats}, the measures listed in our measurement template may not be broad enough to accurately capture some qualities. Adding or extending measures is worth considering. 
+
+Section \ref{interviewresults} noted that developers were not asked to comment on the reproducibility of their source code from their requirements specifications and design documentation. Adding this question to the interview guide should be considered in the next iteration of state of the practice assessments. Furthermore, as mentioned in Section \ref{threats}, it was found that some pertinent information was not specified in public artifacts. The use of unit testing and continuous integration by several packages (OpenLB, pyLBM, TCLB) was only discovered during interviews with developers. Adding further questions to the interview guide regarding the measures that are on the measurement template could reduce instances of incorrect data being collected. This additional interview data could be analyzed and incorporated into the AHP ranking, ensuring quality designations more accurate represent the true quality of the software packages.
 
 \newpage
 \section{Appendix}
