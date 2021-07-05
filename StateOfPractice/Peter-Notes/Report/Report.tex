@@ -19,6 +19,7 @@
 \usepackage{blindtext}
 \usepackage{multicol}
 \usepackage{indentfirst}
+\usepackage[toc,page]{appendix}
 
 \usepackage[]{natbib}
 
@@ -111,7 +112,7 @@
 	\textbf{\large Abstract}
 \end{center}
 
-We analyze the state of the practice of software development of Lattice Boltzmann Methods software domain by quantitatively and qualitatively measuring, and comparing, 23 software packages along quality attributes. A methodology for assessing the state of the practice of software development in scientific computing software domains is presented. A domain analysis of the Lattice Boltzmann Methods software family is made, and a candidate software package list is identified and curated. The packages are assessed to answer software development related research questions to understand how software quality is impacted by software development choices, including principles, processes, and tools. Software developers are interviewed to identify development pain points, and to identify how software quality is ensured. Quantitative data is used to rank the software packages using an analytical hierarchy process. The ranking designations are compared with rankings from the software development community. Recommendations for improving software along quality metrics are made. This knowledge can be used to guide future development of scientific computing software, specifically along quality attributes, and to reduce software quality failures.\\ 
+We analyze the state of the practice of software development of Lattice Boltzmann Methods software domain by quantitatively and qualitatively measuring, and comparing, 23 software packages. A general methodology for assessing the state of the practice of software development in scientific computing software domains is presented. A domain analysis of the Lattice Boltzmann Methods software family is made, and candidate software packages are identified and curated. The packages are assessed to answer software development related research questions to understand how software quality is impacted by software development choices, including principles, processes, and tools. Software developers are interviewed to identify development pain points, and to identify how software quality is ensured. Quantitative data is used to rank the software packages using the Analytical Hierarchy Process. The packages Ludwig, ESPResSo, and Palabos are ranked as the top three packages. Each of them scored high in at least several of the individual qualities that were quantitatively measured. The ranking designations are compared with rankings from the software development community. Recommendations for improving software along quality metrics are made. These include providing a detailed user manual and tutorials, explicitly stating the limits of the software, using user-friendly software languages, considering a peer review process, communicating development and contribution information, and using continuous integration and project management tools. This knowledge can be used to guide future development of scientific computing software along quality attributes to reduce software quality failures.\\ 
 
 \noindent\textbf{Keywords}: Lattice Boltzmann Methods, Scientific Computing, Software Engineering, Software Family, Software Quality 
 
@@ -189,12 +190,12 @@ We analyze the state of the practice of software development of Lattice Boltzman
 \pagenumbering{arabic}
 \section{Introduction}
 
-We analyze the development of software packages that use Lattice Boltzmann Methods (LBM), a class of computational fluid dynamics (CFD) methods, for fluid simulation. These LBM algorithms consider the behaviours of a collection of particles as a single unit of an intermediate size, and predict their positional probability as they move through a lattice structure. Figure \ref{circularflow} from \citep{chen2021phase} presents the streamlines of converged flow past a stationary circular cylinder with varied Reynolds number, a common task of LBM.
+We analyze the development of Computational Fluid Dynamics (CFD) software packages that use Lattice Boltzmann Methods (LBM). These LBM algorithms consider the behaviours of a collection of particles as a single unit of an intermediate size, and predict their positional probability as they move through a lattice structure. Figure \ref{circularflow} presents the streamlines of converged flow past a stationary circular cylinder with varied Reynolds number, a common task of LBM.
 
 \begin{figure}[h!]
 	\begin{center}
 		\includegraphics[width=0.7\textwidth]{circularflow}
-		\caption{Streamlines of the flow past a stationary circular cylinder at Re = 10, 20, and 40}
+		\caption{Streamlines of flow past a stationary circular cylinder at Re = 10, 20, and 40 \citep{chen2021phase}}
 		\label{circularflow}
 	\end{center}
 \end{figure}
@@ -242,7 +243,7 @@ The LBM software packages are assessed to answer the following research question
 	\item How does software designated as high quality by this methodology compare	with top rated software by the community?
 \end{enumerate}
 
-The packages are assessed for a given set of quality attributes using quantitative and qualitative data. The qualities are defined in Section \ref{softwarequalities}. Qualitative data is gathered from interviews with software package developers. The interview questions are listed in the Appendix in \ref{interviewquestions}. Quantitative data is measured using the quality metrics listed in the Appendix in \ref{measurementtemplate2}. In this context the purposes of the report are as follows:
+The packages are assessed for a given set of quality attributes using quantitative and qualitative data. The qualities are defined in Section \ref{softwarequalities}. Quantitative data is measured using quality metrics. The findings are presented in Section \ref{AHPresults}. Qualitative data is gathered from interviews with software package developers. The interview findings are presented in Section \ref{interviewresults}. In this context the purposes of the report are as follows:
 
 \begin{itemize}
 	\item Develop and test an updated methodology for assessing the state of the practice of SCS projects
@@ -259,11 +260,11 @@ The purpose of state of the practice assessments is to understand how software q
 
 This assessment of the state of the practice of LBM software development builds off of prior work on assessing the state of research software development. The previous state of the practice assessments include domains such as Geographic Information Systems \citep{SmithEtAl2018_arXivGIS}, Mesh Generators \citep{SmithEtAl2016}, Oceanographic Software \citep{smith2015state}, Seismology software \citep{SmithEtAl2018}, and statistical software for psychology \citep{SmithEtAl2018_StatSoft}. 
 
-In the course of this assessment we updated the methodology that was used during previous assessments. Details of the new methodology are in \citep{methodology2020}. The previous set of research questions were critically assessed and modified. The updated questions are listed in Section \ref{purpose}. In this re-boot we collected more quantitative and qualitative data, focused on software quality attributes, and added more measures, including collecting empirical data and interviewing developers. We have also added a domain analysis to better characterize the functionality provided by the software, and have leveraged the expertise of a domain expert. As in past assessments, the collected data was combined to rank the software using the Analytic Hierarchy Process (AHP). The domain expert was consulted to verify the ordering.
+In the course of this assessment we updated the methodology that was used during previous assessments. Details of the new methodology are in \citep{methodology2020}. The previous set of research questions were critically assessed and modified. The updated questions are listed in Section \ref{purpose}. In this re-boot we collected more quantitative and qualitative data, focused on software quality attributes, and added more measures, including collecting empirical data and interviewing developers. We have also added a domain analysis to better characterize the functionality provided by the software, and have leveraged the expertise of a domain expert. As in past assessments, the collected data was combined to rank the software using the Analytical Hierarchy Process (AHP). The domain expert was consulted to verify the ordering.
 
 \subsection{Scope}
 
-We analyze a filtered set of LBM software packages along quantitative and qualitative measures. Many of these measures are captured using surface measurements, which can be categorized as initial and easy to capture measurements, of the underlying quality; they may not represent the true quality of the software. Surface measurements are taken as they allow us to apply the same measurement, with reasonable effort, along all software packages despite technical and functional variabilities among the set of software packages. Not all qualities are quantitatively measured. For example, performance is not measured by running the code. A surface investigation of the documentation of each software package for performance information is conducted instead. The measured software packages are open source, and it is recommended to keep this in mind when considering the recommendations of this report. Some recommendations may not apply to closed-source software. Practices surrounding close source software development may differ.
+We analyze a filtered set of LBM software packages along quantitative and qualitative measures. Many of these measures are captured using surface measurements, which can be categorized as initial and easy to capture measurements, of the underlying quality; they may not represent the true quality of the software. Surface measurements are taken as they allow us to apply the same measurement, with reasonable effort, along all software packages despite technical and functional variabilities among the set of software packages. Not all qualities are quantitatively measured. For example, performance is not measured by running the code. A surface investigation of the documentation of each software package for performance information is conducted instead. The measured software packages are open source. Some recommendations may not apply to closed-source software. Practices surrounding close source software development may differ.
 
 The report addresses what was done during the development of the software packages to address the quality attributes listed in Section \ref{softwarequalities}. It then provides general guidance on how to improve these qualities when developing LBM software. It does not make suggestions on what should have been done or should be done for any one specific package. Best practices may differ among software packages due to their inherent organizational and technical differences. 
 
@@ -275,7 +276,7 @@ The report is organized as follows:
 	\item \textbf{Introduction} to the report, including its purpose, motivation, scope, and organization.
 	\item LBM software \textbf{Domain Analysis}. A domain analysis consists of systematically identifying and documenting the commonalities, variabilities, and terminology of a software family \citep{Weiss1997}.
 	The purpose of this analysis in this state of the practice assessment is to better classify the different software products based on their functionality.
-	\item \textbf{Methodology} of this state of the practice assessment, including the steps of the methodology, software quality definitions and how these qualities are assessed in this report, an overview of candidate software selection, empirical measures gathered, and the analytical hierarchy process. This follows a general methodology for assessing the state of the practice for SCS domains.
+	\item \textbf{Methodology} of this state of the practice assessment, including the steps of the methodology, software quality definitions and how these qualities are assessed in this report, an overview of candidate software selection, empirical measures gathered, and the AHP. This follows a general methodology for assessing the state of the practice for SCS domains.
 	\item Quantitative and qualitative \textbf{Results}. 
 	\item An analysis of the results and \textbf{Answers To Research Questions}.
 	\item \textbf{Conclusion} to the report including comments on suggestions for future state of the practice assessments.
@@ -288,13 +289,13 @@ The report is organized as follows:
 
 A domain analysis consists of systematically identifying and documenting the commonalities, variabilities, and parameters of variation of a software family \citep{Weiss1997}. A software family is defined by \cite{parnas1976design} as “a set of programs whose common properties are so extensive that it is advantageous to study the common properties of the programs before analyzing individual members”. 
 
-We added this domain commonality and variability analysis to our original methodology because the first time we did the State of the Practice exercise we found we weren't comparing "apples to apples". Software packages can have considerable variation, even when the packages appear to be in the same software family. Viewing the ranking exercise as a means for selecting the right tool for a job, functionality is important. A 2D Lattice Boltzmann solver is not a substitute for a 3D Lattice Boltzmann solver when the latter is required. Therefore, this exercise seeks to classify the different software products based on their functionality. Nonfunctional qualities are assessed through other means in our process. For instance, through usability experiments as noted in the \href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/Methodology/Methodology.pdf}{Methodology for Assessing the State of the Practice for Domain X} document. 
+We added this domain commonality and variability analysis to our original methodology because the first time we did the State of the Practice exercise we found we weren't comparing ``apples to apples". Software packages can have considerable variation, even when the packages appear to be in the same software family. Viewing the ranking exercise as a means for selecting the right tool for a job, functionality is important. A 2D Lattice Boltzmann solver is not a substitute for a 3D Lattice Boltzmann solver when the latter is required. Therefore, this exercise seeks to classify the different software products based on their functionality. Nonfunctional qualities are assessed through other means in our process. For instance, through usability experiments as noted in the \href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/Methodology/Methodology.pdf}{Methodology for Assessing the State of the Practice for Domain X} document. 
 
 This domain analysis of the LBM SCS family is organized into the four subsection located below. The first subsection reviews the basics of Lattice Boltzmann systems. The next three subsections consist of lists of commonalities, variabilities, and parameters of variation, respectively. These three sections form the heart of the domain analysis and include an extensive set of cross-references to demonstrate the relationships between the different items.
 
 \subsection{Lattice Boltzmann Systems}
 
-LBM are a family of fluid dynamics algorithms for simulating single-phase and multiphase fluid flows, often incorporating additional physical complexities \citep{chen1998lattice}. They consider the behaviours of a collection of particles as a single unit at the mesoscopic scale, between the nanoscopic and microscopic scales. These methods predict the positional probability of a collection of particles moving through a lattice structure. Off-the-shelf (OTS) Lattice Boltzmann Solvers (LBS) allow for a range of fluid and physical model input parameters, computational parameters, and output parameters.
+LBM are a family of fluid dynamics algorithms for simulating single-phase and multiphase fluid flows, often incorporating additional physical complexities \citep{chen1998lattice} such as reflective and non-reflective boundaries. They consider the behaviours of a collection of particles as a single unit at the mesoscopic scale, between the nanoscopic and microscopic scales. These methods predict the positional probability of a collection of particles moving through a lattice structure. Off-the-shelf (OTS) Lattice Boltzmann Solvers (LBS) allow for a range of fluid and physical model input parameters, computational parameters, and output parameters.
 
 LBS model fluid dynamics within a boundary using a predefined lattice structure and a two step calculation process. The first process is streaming, where the particles move along the lattice via links. The second process is collision, where energy and momentum is transferred among particles that collide \citep{bao2011lattice}.
 There are many standardized lattice models - individual solvers within the family might only use a subset of them.
@@ -302,7 +303,7 @@ LBM use the initial parameters of the fluid to find the probability of where alo
 
 \subsection{Commonalities}\label{comm_sec}
 
-This section lists common features among potential family members. The commonalities are organized using the following abstraction of the system, which can be used to describe all Lattice Boltzmann systems: input information, generate the simulation, output the results. Section \ref{comm_lbm} describes the commonalities for the simulation step. Section \ref{comm_in} highlights the input information that is required for Lattice Boltzmann systems. The next section, Section \ref{comm_out}, shows the common features for the output of Lattice Boltzmann systems, such as the requirement that mesh information be written to files. Although the output information could simply be written to the computer’s memory, in all practical applications it is desirable to have a persistent record of the output that was created. The final section covers nonfunctional requirements of the system. For instance, all systems will have the goal that the response time to a user’s request is small enough to allow the user to focus on his/her problem and to maintain his/her train of thought, without excessive waiting time. The commonality in this case is refined by a later variability because the specific requirement on the response time will depend on the individual software packages, their simulation models, inputs, and outputs.
+This section lists common features among potential family members. The commonalities are organized using the following abstraction of the system, which can be used to describe all Lattice Boltzmann systems: input information, generate the simulation, output the results. Section \ref{comm_lbm} describes the commonalities for the simulation step. Section \ref{comm_in} highlights the input information that is required for Lattice Boltzmann systems. The next section, Section \ref{comm_out}, shows the common features for the output of Lattice Boltzmann systems, such as the requirement that mesh information be written to files. Although the output information could simply be written to the computer’s memory, in all practical applications it is desirable to have a persistent record of the output that was created.
 
 Each commonality below uses the same structure. All of the commonalities are assigned a unique item number, which takes the form of a natural number with the prefix ``C''. Following this, a description of the commonality is provided along with a list of related variabilities, which are given as hyperlinks that allow navigation of the document to the text describing the variability.  
 
@@ -394,7 +395,7 @@ Each commonality below uses the same structure. All of the commonalities are ass
 	
 	\begin{tabular}{| p{\colAwidth} | p{\colBwidth}|}		
 		\hline
-		\bf Description & Every Lattice Boltzmann version uses a Boltzmann transport equation to describe the statistical behaviour of a system that does not have collisions. The equation is $(\frac{d}{dt} + \mathrm{e} \cdot \nabla_\mathrm{x} + \frac{F}{m} \cdot \nabla_\mathrm{e})f = \Omega(t)$, where $\mathrm{e}$ is the velocity, $\nabla_\mathrm{x}$ is the position vector gradient, $\nabla_\mathrm{e}$ is the velocity gradient, and $\Omega(t)$ is the collision operator as a function of time.\\
+		\bf Description & Every Lattice Boltzmann version uses a Boltzmann transport equation to describe the statistical behaviour of a system that does not have collisions. The equation is $(\frac{d}{dt} + \mathrm{e} \cdot \nabla_\mathrm{x} + \frac{F}{m} \cdot \nabla_\mathrm{e})f = \Omega(t)$, where $\mathrm{e}$ is the velocity, $\nabla_\mathrm{x}$ is the position vector gradient, $F$ is the force of the fluid, $m$ is the mass, $\nabla_\mathrm{e}$ is the velocity gradient, $f$ indicates the probability density function, and $\Omega(t)$ is the collision operator as a function of time.\\
 		\hline
 		\bf Related Variability & \vref{vartraneq}\\
 		\hline
@@ -437,7 +438,7 @@ Each commonality below uses the same structure. All of the commonalities are ass
 	\end{tabular}
 \end{minipage}\\
 \subsection{Variabilities}\label{var_sec}
-This section provides a list of characteristics that may vary among family members. As in Section \ref{comm_sec}, the first three subsections on variabilities are organized into the following sublists: Simulation Models, Input and Output. The final two subsections list variabilities that can be characterized as system constraints and as nonfunctional requirements. 
+This section provides a list of characteristics that may vary among family members. As in Section \ref{comm_sec}, the first three subsections on variabilities are organized into the following sublists: Simulation Models, Input and Output. The final subsection lists variabilities that can be characterized as system constraints. 
 
 As for the commonalities, each variability is labelled with a unique item number. In this case the numbers are prepended with the letter ``V''. The other three headings provided for each variability are: Description, Related Commonality, and Related Parameter. The related commonalities and parameters are given as a set of identifiers that respectively refer back to the previous section on commonalities or refer forward to the next section on parameters of variation.
 
@@ -619,7 +620,7 @@ As for the commonalities, each variability is labelled with a unique item number
 	
 	\begin{tabular}{| p{\colCwidth} | p{\colDwidth}|}		
 		\hline
-		\bf Description & The number of fluids allowed in the LBS.\\
+		\bf Description & The number of fluids allowed in a multifluid simulation.\\
 		\hline
 		\bf Related Commonality & \cref{fluidandboundaryinfo}\\
 		\hline
@@ -794,10 +795,10 @@ As for the commonalities, each variability is labelled with a unique item number
 \end{minipage}\\
 \newpage
 \subsection{Parameters of Variation}
-This section specifies the parameters of variation for the variabilities listed in Section \ref{var_sec}. They are organized into the same five subcategories as employed previously: Simulation Models, Input, Output, System Constraints, Nonfunctional Requirements. 
+This section specifies the parameters of variation for the variabilities listed in Section \ref{var_sec}. They are organized into the same five subcategories as employed previously: Simulation Models, Input, Output, and System Constraints. 
 
 Each parameter of variation is given a unique identifier of the form “P” followed by a natural number. The corresponding variability is listed and a hyperlink is provided that allows navigation back to the appropriate item in Section \ref{var_sec}. The final entry for each parameter of variation is the binding time, which is the time in the software lifecycle when the variability is fixed. The binding time could be during specification, or during building
-of the system (compile time), or during execution of the system (run time). It is possible to have a mixture of binding times. For instance, a parameter of variation could have a binding time of “specification or building” to represent that the parameter could be set at specification time, or it could be postponed until the given family member is built. The choice of postponing the decision until the build could be associated with the presence of a domain specific language that would allow postponing decisions on the values of the parameter of variation.
+of the system (build time), or during execution of the system (run time). It is possible to have a mixture of binding times. For instance, a parameter of variation could have a binding time of “specification or building” to represent that the parameter could be set at specification time, or it could be postponed until the given family member is built. The choice of postponing the decision until the build could be associated with the presence of a domain specific language that would allow postponing decisions on the values of the parameter of variation.
 
 \subsubsection{Lattice Boltzmann Method Solvers}
 \noindent
@@ -1165,15 +1166,15 @@ of the system (compile time), or during execution of the system (run time). It i
 \newpage
 \section{Methodology}
 
-In this project we set out to answer the research questions listed in Section \ref{purpose} for the LBM SCS domain. The process involved systematically measuring and analyzing members of this software family along the quality attributes found in Section \ref{softwarequalities}. This included gathering quantitative and qualitative measurements. A goal of the project was to produce a quality assessment for LBM software packages.  
+In this project we set out to answer the research questions listed in Section \ref{purpose} for the LBM SCS domain. The process involved systematically measuring and analyzing members of this software family along the quality attributes listed in the research questions and described in Section \ref{softwarequalities}. The methodology includes gathering quantitative and qualitative measurements. A goal of the project is to produce a quality assessment for LBM software packages.  
 
-The methodology used in this LBM software assessment is a general state of the practice methodology that can be applied to any SCS domain. It was developed as an update to previous state of the practice exercises. This general methodology is linked in the next subsection.
+The methodology used in this LBM software assessment is a general state of the practice methodology that can be applied to any SCS domain. It was developed as an update to previous state of the practice exercises. 
 
-We collected quantitative data using the measures found in the measurement template of Section \ref{measurementtemplate}. Some of this was empirical software engineering related data, such as the number of files, number of lines of code (LOC), percentage of issues that are closed, etc. Most of the data was gathered by manually investigating the software, its source code, and its artifacts, while some was gathered using the empirical measurement tools discussed in Section \ref{empiricalmeasures}.
+We collected quantitative data using the measures found in the measurement template in Appendix \ref{measurementtemplate2}. Some of this was empirical software engineering related data, such as the number of files, number of lines of code (LOC), percentage of issues that are closed, etc. Most of the data was gathered by manually investigating the software, its source code, and its artifacts, while some was gathered using the empirical measurement tools discussed in Section \ref{empiricalmeasures}.
 
-We also collected qualitative data by interviewing the software package developers and asking them the questions found in the Appendix in \ref{interviewquestions}. Furthermore, we solicited the assistance of domain experts to better assess each software package by leveraging their experience to assess the functional and non-functional requirements for the software domain. 
+We also collected qualitative data by interviewing the software package developers and asking them the questions found in Appendix \ref{interviewquestions}. Ethics clearance information can be found in Appendix \ref{ethicsapproval}. Furthermore, we solicited the assistance of domain experts to better assess each software package by leveraging their experience to assess the functional and non-functional requirements for the software domain. 
 
-This section begins by describing the steps of the overall process we used to select, measure and compare LBM software. This is followed by quality definitions and how these qualities were assessed in our project. The rest of the section provides an overview of how candidate software packages were selected and filtered, the empirical measurements and software tools that were used, and the analytic hierarchy process (AHP). 
+This section begins by describing the steps of the overall process we used to select, measure and compare LBM software. This is followed by quality definitions and how these qualities were assessed in our project. The rest of the section provides an overview of how candidate software packages were selected and filtered, the empirical measurements and software tools that were used, and the AHP. 
 
 \subsection{Process}
 
@@ -1184,8 +1185,8 @@ This section begins by describing the steps of the overall process we used to se
 	\item Filter the software package list. This is discussed in Section \ref{filtersoftware}.
 	\item Gather the source code and documentation for each software package.
 	\item Collect empirical measures. This is discussed in Section \ref{empiricalmeasures}.
-	\item Measure using the measurement template. This is discussed in Section \ref{empiricalmeasures}. The measurement template can be found in the Appendix in \ref{measurementtemplate2}.
-	\item Survey the developers. The developers of each software package in the filtered software list were contacted for voluntary interviews. The interview questions can be found in the Appendix in \ref{interviewquestions}.
+	\item Measure using the measurement template. This is discussed in Section \ref{empiricalmeasures}. The measurement template can be found in Appendix \ref{measurementtemplate2}.
+	\item Survey the developers. The developers of each software package in the filtered software list were contacted for voluntary interviews. The interview questions can be found in Appendix \ref{interviewquestions}.
 	\item Use AHP to rank the software packages. This is discussed in Section \ref{AHP}.
 	\item Analyze the results and answer the research questions. The answers can be found in Section \ref{answersquestions}.
 \end{enumerate}
@@ -1346,14 +1347,14 @@ There is considerable variation among these software packages, including their i
 
 The quality measurements in this assessment rely on the gathering and analyzing of raw and processed empirical data related to the research questions listed in Section \ref{purpose}. 
 
-All of the quality measurements that are part of the AHP analysis are empirical measurements. Qualitative data gathered during interviews with developers is not part of the AHP analysis. This part of the assessment focuses on data that is reasonably easy to collect. Much of the data was gathered by manually reviewing the artifacts of each software package, while some was gathered using the freeware tools discussed below. The data that was gathered is listed in the measurement template found in the Appendix in \ref{measurementtemplate2}. Some of the data required processing other data within the template, including the status of the software package, which relied on the last commit date; the percentage of issues that are closed, which relied on the number of open and closed issues; and the percentage of code that is comments, which relied on the number of total lines and comment lines in text-based files. The complete measurement template data was then analyzed using the grading template found in the Appendix in \ref{gradingtemplate2}, the output of which was analyzed using the AHP described in Section \ref{AHP}.
+All of the quality measurements that are part of the AHP analysis are empirical measurements. Qualitative data gathered during interviews with developers is not part of the AHP analysis. This part of the assessment focuses on data that is reasonably easy to collect. Much of the data was gathered by manually reviewing the artifacts of each software package, while some was gathered using the freeware tools discussed below. The data that was gathered is listed in the measurement template found in Appendix \ref{measurementtemplate2}. Some of the data required processing other data within the template, including the status of the software package, which relied on the last commit date; the percentage of issues that are closed, which relied on the number of open and closed issues; and the percentage of code that is comments, which relied on the number of total lines and comment lines in text-based files. The complete measurement template data was then analyzed using the grading template found in Appendix \ref{gradingtemplate2}, the output of which was analyzed using the AHP described in Section \ref{AHP}.
 
 Most of the measurement template data was gathered by observing GitHub repository metrics and software package artifacts, or by processing data gathered using freeware tools. Data in the final three sets of the measurement template was collected using these tools. The tool \href{https://github.com/tomgi/git_stats}{GitStats} was used to measure each software package's GitHub repository for the number of binary files, the number of added and deleted lines, and the number of commits over varying time intervals. The tool \href{https://github.com/boyter/scc}{Sloc Cloc and Code (scc)} was used to measure the number of text based files as well as the number of total, code, comment, and blank lines in each GitHub repository. Details on installing and running these tools can be found in the \href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/Methodology/A
 	Guide to Empirical Measures.pdf} {Guide to Empirical Measures} file in the AIMSS repository. 
 
 \subsection{Analytical Hierarchy Process}\label{AHP}
 
-The Analytical Hierarchy Process (AHP) is a decision-making technique that is used to compare multiple options by multiple criteria. In our work AHP was used for comparing and ranking the LBM software packages using the overall impression quality scores that were gathered in the measurement template found in the Appendix in \ref{measurementtemplate2} using the grading template found in the Appendix in \ref{gradingtemplate2}. AHP performs a pairwise analysis using a matrix and generates an overall score as well as individual quality scores for each software package. \cite{SmithEtAl2016} shows how AHP is applied to ranking software based on quality measures. 
+The Analytical Hierarchy Process (AHP) is a decision-making technique that is used to compare multiple options by multiple criteria. In our work AHP was used for comparing and ranking the LBM software packages using the overall impression quality scores that were gathered in the measurement template found in Appendix \ref{measurementtemplate2} using the grading template found in Appendix \ref{gradingtemplate2}. AHP performs a pairwise analysis using a matrix and generates an overall score as well as individual quality scores for each software package. Smith et al. (2016) shows how the AHP is applied to ranking software based on quality measures \cite{SmithEtAl2016}. 
 
 This project used a tool for conducting this process. The tool includes a sensitivity analysis that was used to ensure that the software package rankings are appropriate with respect to the uncertainty of the quality scores. The \href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/AHP2020/LBM/README.txt}{README} file of the tool includes requirements and usage information.
 
@@ -1454,7 +1455,7 @@ The software packages were tested for handling unexpected input, including incor
 	\end{center}
 \end{figure}
 
-Figure \ref{Fig_Robustness} shows the surface robustness ranking of the software packages using AHP. Software packages with a high score behaved reasonably in response to unexpected input as described above. All of the software packages that installed correctly passed this test. They output descriptive error messages or did not crash. Software packages with a lower surface robustness score had not installed correctly, so their robustness score may not be a true reflection of runtime robustness. Similarly, all software packages that installed correctly and require plain text input files correctly handled an unexpected change to these input files, including a replacement of new lines with carriage returns. Furthermore, nine of the top 10 ranked packages are noted as being alive. 
+Figure \ref{Fig_Robustness} shows the surface robustness ranking of the software packages using AHP. Software packages with a high score behaved reasonably in response to unexpected input as described above. All of the software packages that installed correctly passed this test. They output descriptive error messages or did not crash. Software packages with a lower surface robustness score had not installed correctly, so their robustness score may not be a true reflection of runtime robustness. Similarly, all software packages that installed correctly and require plain text input files correctly handled an unexpected change to these input files, including a replacement of new lines with carriage returns. Furthermore, nine of the top 10 ranked packages are noted as being alive. LIMBES is noted as being dead.
 
 \subsubsection{Surface Performance}
 
@@ -1462,7 +1463,7 @@ Although the software packages all apply LBM to solve scientific computing probl
 
 \subsubsection{Surface Usability}
 
-Software package artifacts were reviewed for the presence of a tutorial, a user manual, documented user characteristics, and a user support model. In total 18 software packages have a tutorial and 13 have a user manual. The tutorials vary in scope and substance, and eight include an expected output. Most user manuals are in the form of a file that can be downloaded, while some are rendered on a web-page. Some packages (waLBerla) do not have a user manual, but do have useful documentation distributed on their web-pages. Expected user characteristics are documented in four software packages (laboetie, LIMBES, Ludwig, Palabos). Users are typically scientists or engineers. Their background is often physics, chemistry, biophysics, or mathematics. All but one of the packages (LIMBES) have a user support model, and many of them have multiple avenues of user support. The most popular avenue of support is Git, followed by email and forums. One software package (OpenLB) has an FAQ page.    
+Software package artifacts were reviewed for the presence of a tutorial, a user manual, documented user characteristics, and a user support model. In total 18 software packages have a tutorial, 13 have a user manual, and 11 have both. The tutorials vary in scope and substance, and eight include an expected output. Most user manuals are in the form of a file that can be downloaded, while some are rendered on a web-page. Some packages (waLBerla) do not have a user manual, but do have useful documentation distributed on their web-pages. Expected user characteristics are documented in four software packages (laboetie, LIMBES, Ludwig, Palabos). Users are typically scientists or engineers. Their background is often physics, chemistry, biophysics, or mathematics. All but one of the packages (LIMBES) have a user support model, and many of them have multiple avenues of user support. The most popular avenue of support is Git, followed by email and forums. One software package (OpenLB) has an FAQ page.    
 
 \begin{figure}[h!]
 	\begin{center}
@@ -1480,9 +1481,19 @@ Software packages were reviewed for the presence of artifacts. Every type of art
 
 Information on how code is reviewed, or how to contribute to the project was also noted. In total, 11 software packages have this information, which was found in various artifacts, including in developer guides, contributor guides, user guides, developer web-pages, and README files. 
 
-Issue tracking is used in 22 software packages, 15 of which use Git, six use email, and one (SunlightLB) uses SourceForge. Most software packages that use Git have most of their issues closed, and only three (laboetie, lettuce, Sailfish) have less than 50 percent of their issues closed. Alive packages (11 use Git issue tracking) have 64\% of their issues closed, while dead packages (3 use Git issue tracking) have 71\% of their issues closed. This information is presented in Table \ref{gitrepodata}. Furthermore, 13 packages that use Git for issue tracking use GitHub as a version control system, while two (Palabos, waLBerla) use GitLab. Of the other packages, one package (SunlightLB) uses CVS for issue tracking, and seven packages do not appear to use any issue tracking system.
+Issue tracking is used in 22 software packages, 15 of which use Git, six use email, and one (SunlightLB) uses SourceForge. Most software packages that use Git have most of their issues closed, and only three (laboetie, lettuce, Sailfish) have less than 50 percent of their issues closed. Four of the top five overall ranked packages (Ludwig, ESPResSo, Palabos, LUMA) have most of their issues closed. Fourth ranked LUMA does not use Git. Alive packages (11 use Git issue tracking) have 64\% of their issues closed, while dead packages (3 use Git issue tracking) have 71\% of their issues closed. This information is presented in Table \ref{gitrepodata}. Furthermore, 13 packages that use Git for issue tracking use GitHub as a version control system, while two (Palabos, waLBerla) use GitLab. Of the other packages, one package (SunlightLB) uses CVS for issue tracking, and seven packages do not appear to use any issue tracking system.
 
-Software package code files were further measured for the percentage of code that is comments. The findings are presented in Table \ref{gitrepodata}. Packages with a higher percentage of comments were designated as more maintainable. Comments represent more than 10 percent of code files in 15 packages, and the average percentage of code comments is about 14.\\ 
+Software package code files were further measured for the percentage of code that is comments. The findings are presented in Table \ref{gitrepodata}. Packages with a higher percentage of comments were designated as more maintainable. Comments represent more than 10 percent of code files in 15 packages, and the average percentage of code comments is about 14 percent. Four of the top five overall ranked packages (Ludwig, ESPResSo, Palabos, OpenLB) have more than the average. Fifth ranked LUMA has only 0.2 percent comments, the fewest of any package. The package has the most lines of source code, with over four million. The next largest package is ESPResSo++ with one million.
+
+\begin{figure}[h!]
+	\begin{center}
+		\includegraphics[width=1.0\textwidth]{maintainability_chart}
+		\caption{AHP Maintainability Score}
+		\label{Fig_Maintainability}
+	\end{center}
+\end{figure}
+
+Figure \ref{Fig_Maintainability} shows the maintainability ranking of the software packages using AHP. Software packages with a high score provide version numbers on documents and source code releases, have an abundance of high quality artifacts, and use an issue tracking tool and version control system. These packages also appear to reasonably handle tracked issues, having most of their issues closed. Their code files are well commented with more than 10 percent of the code being comments. Furthermore, nine of the top 10 ranked packages are noted as being alive. MP-LABS is noted as being dead.\\
 
 \begin{onehalfspacing}
 \begin{center}
@@ -1519,16 +1530,6 @@ Software package code files were further measured for the percentage of code tha
 \end{center}
 \end{onehalfspacing}
 
-\begin{figure}[h!]
-	\begin{center}
-		\includegraphics[width=1.0\textwidth]{maintainability_chart}
-		\caption{AHP Maintainability Score}
-		\label{Fig_Maintainability}
-	\end{center}
-\end{figure}
-
-Figure \ref{Fig_Maintainability} shows the maintainability ranking of the software packages using AHP. Software packages with a high score provide version numbers on documents and source code releases, have an abundance of high quality artifacts, and use an issue tracking tool and version control system. These packages also appear to reasonably handle tracked issues, having most of their issues closed. Their code files are well commented with more than 10 percent of the code being comments. Furthermore, nine of the top 10 ranked packages are noted as being alive. 
-
 \subsubsection{Reusability}\label{reusabilityresults}
 
 Each software package was measured for the total number of source code files. A larger number of source files was associated with increased reusability due to increased modularization. Some packages have more features than others, consequently contributing to reusablility since they have more source code that can be reused. The software packages were also reviewed for the presence of API documentation, which indicates that a software package was developed with interaction between other software applications in mind. 
@@ -1541,9 +1542,7 @@ Each software package was measured for the total number of source code files. A 
 	\end{center}
 \end{figure}
 
-Figure \ref{Fig_Reusabilty} shows the reusability ranking of the software packages using AHP. Software packages with a high score have thousands of source code files and API documentation. The highest scoring packages, ESPResSo and waLBerla, have extensive functionality, including graphical visualizations as well as modeling that does not use LBM. For this reason a comparison with other software packages is not on a level field. However, these packages do have an abundance of reusable components. Furthermore, nine of the top 10 ranked packages are noted as being alive.
-
-Table \ref{moduledata} shows file and line of code data of the software packages. Packages with a high reusability score do not have many LOC per text file, generally having a few hundred lines or less. This suggests that the source code of these packages is likely functionally modularized, and modules could be reused in other projects.\\  
+Figure \ref{Fig_Reusabilty} shows the reusability ranking of the software packages using AHP. Software packages with a high score have thousands of source code files and API documentation. The highest scoring packages, ESPResSo and waLBerla, have extensive functionality, including graphical visualizations as well as modeling that does not use LBM. For this reason a comparison with other software packages is not on a level field. However, these packages do have an abundance of reusable components. Furthermore, nine of the top 10 ranked packages are noted as being alive. HemeLB is noted as being dead.
 
 	\begin{center}
 		\begin{onehalfspacing}
@@ -1580,13 +1579,15 @@ Table \ref{moduledata} shows file and line of code data of the software packages
 		\end{onehalfspacing}
 	\end{center}
 
+Table \ref{moduledata} shows file and line of code data of the software packages. Packages with a high reusability score do not have many LOC per text file, generally having a few hundred lines or less. This suggests that the source code of these packages is likely functionally modularized, and modules could be reused in other projects.
+
 There was a strong focus on modularity when designing the waLBerla framework to enhance productivity, reusability, and maintainability \citep{bauer2021walberla}. Its software design has enabled waLBerla to be successfully applied in several projects as a basis for various extensions \citep{bauer2021walberla}.
 
 \subsubsection{Surface Understandability}
 
-Ten random source code files of each software package were reviewed for several measures. This assessment of surface understandability may not perfectly reflect each package due to the limitation of only testing 10 files. 
+Ten random source code files of each software package were reviewed for several measures. This assessment of surface understandability may not perfectly reflect each package due to the practical limitation of only being able to test 10 files. 
 
-All of the packages appear to have a consistent indentation and formatting style. Only LUMA and HemeLB explicitly identify coding standards that are used during development. Generally, the software packages use consistent, distinctive, and meaningful code identifiers. Only four packages (LB2D-Prime, LB3D-Prime, LIMBES, MP-LABS) appear to use vague identifiers, such as single letters for variables. Hard coded symbolic constants were observed in the source code of 12 packages. The constants are used for various parameters, mathematical constants, and matrix definitions. All of the packages are well commented and the comments clearly indicate what is being done. Domain algorithms are noted in the source code of 11 packages. Table \ref{moduledata} suggests that the software packages are modularized to various degrees. When observing the source code files, it was found that 13 of the packages have a consistent style and order of function parameters.
+All of the packages appear to have a consistent indentation and formatting style. Only LUMA and HemeLB explicitly identify coding standards that are used during development. Generally, the software packages use consistent, distinctive, and meaningful code identifiers. Only four packages (LB2D-Prime, LB3D-Prime, LIMBES, MP-LABS) appear to use vague identifiers, such as single letters for variables. Symbolic constants were observed in the source code of 12 packages. The constants are used for various parameters, mathematical constants, and matrix definitions. All of the packages are well commented and the comments clearly indicate what is being done. Domain algorithms are noted in the source code of 11 packages. Table \ref{moduledata} suggests that the software packages are modularized to various degrees. When observing the source code files, it was found that 13 of the packages have a consistent style and order of function parameters.
 
 \begin{figure}[h!]
 	\begin{center}
@@ -1596,7 +1597,7 @@ All of the packages appear to have a consistent indentation and formatting style
 	\end{center}
 \end{figure}
 
-Figure \ref{Fig_Understandability} shows the surface understandability ranking of the software packages using AHP. Software packages with a high score have a consistent indentation and formatting style, and consistent, distinctive, and meaningful code identifiers. They also have hard coded constants, and explicitly identify mathematical and LBM algorithms. Their comments are clear and indicate what is being done in the source code. The source code is well modularized and structured. Furthermore, four of the top five ranked packages are noted as being alive.
+Figure \ref{Fig_Understandability} shows the surface understandability ranking of the software packages using AHP. Software packages with a high score have a consistent indentation and formatting style, and consistent, distinctive, and meaningful code identifiers. They also have symbolic constants, and explicitly identify mathematical and LBM algorithms. Their comments are clear and indicate what is being done in the source code. The source code is well modularized and structured. Furthermore, four of the top five ranked packages are noted as being alive.
 
 \subsubsection{Visibility and Transparency}
 
@@ -1611,7 +1612,7 @@ Software package artifacts were reviewed for the identification of a specific de
 \end{figure}
 
 Figure \ref{Fig_VisibilityTransparency} shows the visibility and transparency ranking of the software packages using AHP. Software packages with a high score have an explicit development model and defined development process. They also 
-had detailed and easy to access notes accompanying software releases. Furthermore, four of the top five ranked packages are noted as being alive.
+had detailed and easy to access notes accompanying software releases. Furthermore, four of the top five ranked packages are noted as being alive. MP-LABS is noted as being dead.
 
 \subsubsection{Overall Quality}
 
@@ -1623,7 +1624,7 @@ had detailed and easy to access notes accompanying software releases. Furthermor
 	\end{center}
 \end{figure}
 
-Figure \ref{Fig_OverallScore} shows the overall ranking of the software packages using AHP. Software packages with an overall high score had ranked high in at least several of the individual qualities that were quantitatively measured.
+Figure \ref{Fig_OverallScore} shows the overall ranking of the software packages using AHP. Software packages with an overall high score had ranked high in at least several of the individual qualities that were quantitatively measured. The overall ranking is found with an assumption of an equal weighting of all qualities. If the qualities were weighed differently, the overall software package ranking would change.
 
 Looking at the top three ranked packages, Ludwig scored high in surface correctness and verifiability, surface robustness, surface usability, maintainability, and visibility and transparency. ESPResSo had achieved a relative high score in installability, surface correctness and verifiability, surface usability, maintainability, reusability, and visibility and transparency. Palabos scored high in installability, surface reliability, surface robustness, maintainability, and understandability. 
 
@@ -1631,7 +1632,7 @@ Section \ref{qualityrecommentations} further analyzes these findings and offers 
 
 \subsection{Qualitative Findings From Developer Interviews}\label{interviewresults}
 
-This subsection presents the qualitative findings from data that was gathered during interviews with developers. The interview questions are found in Section \ref{interviewquestions}.
+This subsection presents the qualitative findings from data that was gathered during interviews with developers. The interview questions are found in Appendix \ref{interviewquestions}.
 
 \subsubsection{Surface Correctness and Verifiability}
 
@@ -1643,7 +1644,7 @@ Several interviewed developers alluded to difficulty with testing the correctnes
 
 \subsubsection{Surface Usability}
 
-Interviews with developers revealed several usability issues. Some users have misunderstood the boundaries of LBM and CFD, and have combined or applied methods that are not physically sound. Sometimes users have applied LBM to poorly defined or inappropriate fluid dynamics problems. For example, they may wish to model flow through or around a structure despite having limited information about the structure or its environment, and having little previous knowledge of CFD. The users do not realize the limitations of the methods, of the software, and do not understand the requirements to properly model a problem with the software. As the developer of TCLB noted, such software packages are not designed to be used ``out of the box'' in a plug and play fashion, and it could take months so set up the CFD problems correctly. Developers of some software packages, including ESPResSo, mitigated this by editing the source code to prevent users from ``combining methods that are not physically sound together'', and by updating the documentation to better inform users of LBM limitations, and of the requirements to properly model appropriate problems, including what algorithms and parameters to use. 
+Interviews with developers revealed several usability issues. Some users have misunderstood the boundaries of LBM and CFD, and have combined or applied methods that are not physically sound. Sometimes users have applied LBM to poorly defined or inappropriate fluid dynamics problems. For example, they may wish to model flow through or around a structure despite having limited information about the structure or its environment, and having little previous knowledge of CFD. The users do not realize the limitations of the methods, of the software, and do not understand the requirements to properly model a problem with the software. As the developer of TCLB noted, such software packages are not designed to be used ``out of the box'' in a plug and play fashion, and it could take months or more to set up the CFD problems correctly. Developers of some software packages, including ESPResSo, mitigated this by editing the source code to prevent users from ``combining methods that are not physically sound together'', and by updating the documentation to better inform users of LBM limitations, and of the requirements to properly model appropriate problems, including what algorithms and parameters to use. 
 
 Some additional but infrequent software usability issues were commented on by the developers. Users have had trouble with installation and understanding how to maneuver the interfaces and how to set up or run models. These issues are addressed by various user support models, including frequently asked questions sections on the software package websites, user guides, and hardware and software requirements specifications.
 
@@ -1666,13 +1667,13 @@ In this project we asked developers to comment on modifiability when we intervie
 All of the developers that were interviewed noted that the ease of future changes was considered and that measures to ensure it had been taken, including
 requiring the separation of software components in the source code architecture.
 
-A high degree of code modularity and abstraction, ensured by separating components and hiding information behind well defined interfaces, was noted by developers as a measure to ensure the ease of future changes. The developer of ESPResSo also noted that some of the code base was transitioned from C to C++, which could ease modifiability of that software package. The developer of TCLB noted that their software package was designed to allow for the addition of some LBM features, but changes to major aspects of the system would be difficult. For example, ``implementing a new model will be an easy contribution'', but changes to the ``Cartesian mesh...will be a nightmare''. Furthermore, the package was designed with flexible data structures and storage in mind. 
+A high degree of code modularity and abstraction was noted by developers as a measure to ensure the ease of future changes. This can be ensured by separating components and hiding information behind well defined interfaces. The developer of ESPResSo also noted that some of the code base was transitioned from C to C++, which could ease modifiability of that software package. The developer of TCLB noted that their software package was designed to allow for the addition of some LBM features, but changes to major aspects of the system would be difficult. For example, ``implementing a new model will be an easy contribution'', but changes to the ``Cartesian mesh...will be a nightmare''. Furthermore, the package was designed with flexible data structures and storage in mind. 
 
 Some software packages, like Palabos, provide validation benchmarks for their core fundamental algorithmic ingredients \citep{latt2021palabos}. The stated intent of these benchmarks is to showcase the validity and usefulness of the package to stimulate the development of third-user extensions. The Palabos package identifies as a development framework for modeling problems in various CFD areas. 
 
 \subsubsection{Surface Understandability}
 
-Software developers noted that they believe users have generally found their packages to be understandable. The interviewed developer of ESPResSo commented that some users have attempted to run physically incompatible LBM methods, and the solution was to edit the code to prevent such combinations, as well as to update the documentation to prevent misunderstanding the methods. Similarly, a developer of pyLBM noted that some users had issues setting up parameters for LBM schemes. The solution to this was to update the interface where these parameters are set, as well as to add functionality to test the stability of the parameters. A developer of OpenLB noted that some users lack the background knowledge to easily model fluid dynamics problems using their software. A frequently asked questions section was added to their package website to help users find answers to common questions. The package also has detailed documentation, including guides and usage requirements specification, to better help user understand the software.
+Software developers noted that they believe users have generally found their packages to be understandable. The interviewed developer of ESPResSo commented that some users have attempted to run physically incompatible LBM methods, and the solution was to edit the code to prevent such combinations, as well as to update the documentation to prevent misunderstanding the methods. Similarly, a developer of pyLBM noted that some users had issues setting up parameters for LBM schemes. The solution to this was to update the interface where these parameters are set, as well as to add functionality to test the stability of the parameters. A developer of OpenLB noted that some users lack the background knowledge to easily model fluid dynamics problems using their software. A frequently asked questions section was added to their package website to help users find answers to common questions. The package also has detailed documentation, including guides and usage requirements specification, to better help users understand the software.
 
 \subsubsection{Traceability}
 
@@ -1683,7 +1684,7 @@ The interviewed developer of ESPResSo noted that all major additions to their pa
 
 Developers noted the importance of documentation for both the users and developers of their software. New features are always added to the documentation. The developers use documentation to stay up to date on the status of the software package, and to help expand features, like computational models or algorithms. This is necessary so that the coding standard for these models is kept consistent with new developers.
 
-The importance of documentation for both users and developers was stressed throughout the interviews. However, it was noted several times that a lack of time and funding has a negative affect on the documentation. Most of the developers are scientific researchers evaluated on the scientific papers that they produce. Writing and updating documentation is something that is done in free time, if that time arises. Sometimes it is a last priority for the developers. Finding ways to hasten updating documentation would increase the frequency of such updates and benefit both users and developers. 
+The importance of documentation for both users and developers was stressed throughout the interviews. However, it was noted several times that a lack of time and funding has a negative affect on the documentation. Most of the developers are scientific researchers evaluated on the scientific papers that they produce. Writing and updating documentation is something that is done in their free time, if that time arises. Sometimes it is a last priority for the developers. Finding ways to hasten updating documentation would increase the frequency of such updates and benefit both users and developers. 
 
 The developer of OpenLB noted the use of documentation generators like Doxygen. It would be advisable for more projects to use such automatic document generation tools, since some projects do not do this.  
 
@@ -1762,7 +1763,7 @@ These common artifacts contribute to the quality of the software in the followin
 
 \subsubsection{Less Common Artifacts}\label{lesscommon}
 The following artifacts were less commonly found in the 23 software packages that were tested. The top four AHP ranked packages have most of these artifacts.
-At the time of data collection, only one (Palabos) of the four packages did not have a user manual or guide, but there was a broken link on the package website indicating that such an artifact might exist. This broken link was later fixed, but this is not reflected in our data. Despite the broken link, Palabos does have a detailed and informative website. Another one (Ludwig) of the top four packages does not appear to have publicly visible design documentation. A third package (OpenLB) from the list does not appear to use a version control system. It is possible that such a system is used by the package since its website notes package version numbers, but the artifacts do not explicitly state the use of such a system.
+At the time of data collection, only one (Palabos) of the four packages did not have a user manual or guide, but there was a broken link on the package website indicating that such an artifact might exist. This broken link was later fixed, but this is not reflected in our data because it was not present at the time of data collection. Despite the broken link, Palabos does have a detailed and informative website. Another one (Ludwig) of the top four packages does not appear to have publicly visible design documentation. A third package (OpenLB) from the list does not appear to use a version control system. It is possible that such a system is used by the package since its website notes package version numbers, but the artifacts do not explicitly state the use of such a system.
 
 	\begin{multicols}{2}	
 		\begin{itemize}
@@ -1806,7 +1807,7 @@ Software tools are used to support the development, verification, maintenance, a
 
 \subsubsection{Development Tools}
 
-Development tools support the development of end products but do not become part of them, unlike dependencies that remain in the application once it is released \citep{ghezzi1991fundamentals}. The following type of development tools were explicitly noted in the artifacts or web-pages of the 23 LBM packages that were assessed. It is likely that other tools, such as debuggers, were used but are not specified in our sources.
+Development tools support the development of end products, but do not become part of them, unlike dependencies that remain in the application once it is released \citep{ghezzi1991fundamentals}. The following type of development tools were explicitly noted in the artifacts or web-pages of the 23 LBM packages that were assessed. It is likely that other tools, such as debuggers, were used but are not specified in our sources.
 
 	\begin{multicols}{2}	
 		\begin{itemize}
@@ -1826,7 +1827,7 @@ The above tools can verify the correctness of software during its development. O
 
 \subsubsection{Dependencies}
 
-The following types of dependencies were explicitly noted in the artifacts or web-pages of the 23 LBM packages that were assessed. It is possible that other types of dependencies are part of these software packages but are not clearly specified in their artifacts or web sites and because of that they are not listed here.
+The following types of dependencies were explicitly noted in the artifacts or web-pages of the 23 LBM packages that were assessed. It is possible that other types of dependencies are part of these software packages, but are not clearly specified in their artifacts or web sites and because of that they are not listed here.
 
 	\begin{multicols}{2}	
 		\begin{itemize}
@@ -1858,9 +1859,9 @@ Many of the software packages that were assessed were developed by teams of two 
 	\end{multicols}
 
 
-Collaboration tools are noted as being used when developing the software projects. Most often email and video conferencing is used. Project management software was not explicitly mentioned, but it is possible that some of the projects use such software. Many of the projects are located on GitHub, and its developers use the platform to help manage their projects, especially bug related issues. Most of the projects appear to use change tracking and version control tools. They often use GitHub for this. One package (lbmpy) uses Git, and another (SunlightLB) uses CVS. Document generation tools are mentioned in the artifacts of 12 of the projects. The tools Sphinx and Doxygen are explicitly used in this capacity. 
+Collaboration tools are noted as being used when developing the software projects. Most often email and video conferencing is used. Project management software was not explicitly mentioned, but it is possible that some of the projects use such software. Many of the projects are located on GitHub, and its developers use the platform to help manage their projects, especially bug related issues. Most of the projects appear to use change tracking and version control tools. They often use GitHub or GitLab for this. One package (SunlightLB) uses CVS. Document generation tools are mentioned in the artifacts of 12 of the projects. The tools Sphinx and Doxygen are explicitly used in this capacity. 
 
-\subsection{Principles, Processes, and Methodologies - DONE 1st DRAFT}\label{prinprocmeth}
+\subsection{Principles, Processes, and Methodologies}\label{prinprocmeth}
 
 This subsection answers the research question: What principles, processes, and methodologies are used in the development of current software packages?
 
@@ -1878,7 +1879,7 @@ Thirteen (57\%) of the 23 software packages use GitHub for managing the project,
 
 Documentation was also noted as playing a significant role in the development process, specifically with on-boarding new developers. A goal of documentation is to lower the entry barrier for these new contributors. The documentation provides information on how to get started, orients the user to artifacts and the source code, and explains how the system works, including the so-called simulation engine and interface. The use of document generation tools is mentioned in the artifacts of 12 software packages, and was noted during interviews with developers. Sphinx and Doxygen are the tools that were mentioned. 
 
-Two types of software changes were discussed during interviews with developers. One is feature additions, which arise from a scientific or functional need. The development of such changes was noted to involve more formal discussions within the development team and the addition of them into the main software branch involves lead developers. The other change type is code refactoring, which only sometimes involves formal discussions with the development team. New developers were noted to play an increased role in these changes compared to the former changes. Software bugs are typically addressed in a similar fashion as code refactoring, and issue tracking is commonly used to manage these changes. 
+Two types of software changes were discussed during interviews with developers. One is feature additions, which arise from a scientific or functional need. These changes involve formal discussions within the development team, and lead developer participation is mandatory. The other change type is code refactoring, which only sometimes involves formal discussions with the development team. New developers were noted to play an increased role in these changes compared to the former changes. Software bugs are typically addressed in a similar fashion as code refactoring, and issue tracking is commonly used to manage these changes. 
 
 Interviews with the developers of software packages also revealed a more frequent use of both unit testing and continuous integration in the development process than was found by only assessing the artifacts. The use of automatic installation processes is also common. Most often this involved a Make script.
 
@@ -1897,7 +1898,9 @@ The same developer also noted that there is a lack of incentive and funding in a
 
 Another raised concern was that there are no organizations helping with the development of good quality software; but some do exist, including \href{https://bssw.io/}{Better Scientific Software (BSSw)}, \href{https://www.software.ac.uk/}{Software Sustainability Institute}, and \href{https://software-carpentry.org/}{Software Carpentry}. Some SCS developers may not be familiar with these organizations. 
 
-Scientific software is often developed in-house by the very researchers that temporarily use it in their own research. Empirical studies of such ``professional end-user development'' of SCS is noted in \citep{segal2007end}. This kind of software has a defined user and purpose, and often does not meet the standards that would be required by external users. It has been categorized as a ``private tool'' by \citep{gewaltig2012quality}, which notes that despite often being made freely available, ``it is not always clear that it is sufficiently mature in terms of domain coverage, validity, documentation or usability, to be useful to other researchers''. It is less common for such ad hoc scientific software to become ``user-ready software'', which ``is not only research-ready, but should have most of the attributes commonly expected of commercial software products including broadness of scope, robustness, demonstrable correctness and adequate documentation'' \citep{gewaltig2012quality}. As software becomes user-ready, it can become commercialized and closed-source. Documentation of LBM software is noted as being important, but its quality could be improved. As already noted, there is often no time or funding for maintaining quality documentation for software that is rarely used outside of the development team. Furthermore, the documentation generally only provides a shallow overview of the underlying CFD theory. Users would be well advised to already be familiar with these topics, or they should spend significant time referencing theory resources. The documentation instead generally focuses on explaining how to use the software. It is of course not feasible for package documentation to address the underlying physics topics in detail, so it is advised that the package documentation links to resources that better explain the underlying theory. Sometimes, frequently asked questions about the underlying theory are answered in the documentation. OpenLB has an artifact for such questions.
+Scientific software is often developed in-house by the very researchers that temporarily use it in their own research. Empirical studies of such ``professional end-user development'' of SCS is noted in \citep{segal2007end}. This kind of software has a defined user and purpose, and often does not meet the standards that would be required by external users. It has been categorized as a ``private tool'' by \citep{gewaltig2012quality}, which notes that despite often being made freely available, ``it is not always clear that it is sufficiently mature in terms of domain coverage, validity, documentation or usability, to be useful to other researchers''. It is less common for such ad hoc scientific software to become ``user-ready software'', which ``is not only research-ready, but should have most of the attributes commonly expected of commercial software products including broadness of scope, robustness, demonstrable correctness and adequate documentation'' \citep{gewaltig2012quality}. As software becomes user-ready, it can become commercialized and closed-source. 
+
+Documentation of LBM software is noted as being important, but its quality could be improved. As already noted, there is often no time or funding for maintaining quality documentation for software that is rarely used outside of the development team. Furthermore, the documentation generally only provides a shallow overview of the underlying CFD theory. Users would be well advised to already be familiar with these topics, or they should spend significant time referencing theory resources. The documentation instead generally focuses on explaining how to use the software. It is of course not feasible for package documentation to address the underlying physics topics in detail, so it is advised that the package documentation links to resources that better explain the underlying theory. Sometimes, frequently asked questions about the underlying theory are answered in the documentation. OpenLB has an artifact for such questions.
 
 Setting up parallelization was also noted as a technical pain point by one of the developers, and the introduction of continuous integration by another. Software development knowledge, and automatic code generation, could mitigate such pain points. As already noted, many of the developers are domain experts and not professional software developers. The developer of TCLB noted that eliminating equivalent statements using macros had helped improve the quality of their source code, specifically helping with reusing code to run on both the CPU and GPU. 
 
@@ -1937,7 +1940,7 @@ The following points regarding software quality should be considered when develo
 \subsubsection{Surface Correctness and Verifiability}
 
 \begin{itemize}
-	\item Use a requirements specification document. A template is presented in \citep{smith2005new}. 
+	\item Use a requirements specification document. A potential template is presented in \citep{smith2005new}. 
 	\item Make public (on package website or GitHub) the requirements specification document, or explicitly reference the domain theory that the software is designed from.
 	\item Ensure the above information is easy to find. Consider adding it to the user manual. 
 	\item Development teams should include both domain experts and experienced software developers.
@@ -1993,7 +1996,7 @@ The following points regarding software quality should be considered when develo
 	\item Have a defined process for accepting contributions, and make public documentation for making contributions to the project. The top five ranked software packages include information on how to contribute. 
 	\item Use an issue tracker (Git, email, SourceForge, other) to manage bugs and changes. Issues should be regularly reviewed and closed. All but three (laboetie, lettuce, Sailfish) of the software packages that use Git have most of their issues closed.
 	\item Use a version control system (GitHib, CVS). Four (ESPREsSo, Ludwig, LUMA, Palabos) of the top five ranked packages use a version control system.
-	\item Source code needs to be well commented. Typically, more than 10 percent of LBM package source code is comments, as presented in Table \ref{gitrepodata}.
+	\item Source code needs to be well commented. Typically, more than 10 percent of LBM package source code is comments, as presented in Table \ref{gitrepodata}. Four of the top five overall ranked packages (Ludwig, ESPResSo, Palabos, OpenLB) have about 20 percent of their source code as comments.
 	\item Modularize the source code, separate components, hide information behind well defined interfaces.
 	\item Eliminate code duplication.
 	\item If possible, consider using popular user-friendly software languages like Python. Especially consider this for parts of the source code that is likely to be modified or reviewed by users. ESPResSo and Sailfish use Python to address several software qualities, including maintainability.
@@ -2082,69 +2085,69 @@ This comparison helps evaluate the methodology that was used, and assess the val
 
 \subsubsection{Repository Ranking Metrics}\label{repmetrics}
 
+Table \ref{repometrics} presents our LBM software package rankings along with the repository ranking metrics of each software package. 
+
+Eight packages do not use GitHub or GitLab, so they do not have a measure of repository stars. Looking at the repository stars of the other 15 packages, we can observe a slight pattern where packages that have been highly ranked by our assessment do have more stars than lower ranked packages. The second ranked package (ESPResSo) has the second most number of stars. The ninth ranked package (Sailfish) has the most number of stars. Packages designated as lower quality often do not use GitHub or GitLab, or have few stars, except for HemeLB which has 22 stars. Our assessment of this package might not be accurate. The number of stars does not necessarily represent the perceptions of the community, but for lack of an alternative measure we will use it this way. 
+
+The repository watches column contains even less data to compare since two of the packages (Palabos, waLBerla) use GitLab, which does not include this metric. The pattern that can be observed with this metric is very similar to that of the stars metric. The ninth ranked package (Sailfish) has the most number of watches. The second ranked package (ESPResSo) has the second most number of watches.
+
+Besides missing data, another threat to the validity of this comparison is the varying ages of the repositories. Older packages have been able to accumulate stars and watches for longer than newer packages. The true quality of new packages may not be reflected in their stars and watches. \\
+
 \begin{center}
 	\begin{onehalfspacing}
-		\begin{tabular}{ p{3.5cm}p{2.5cm}p{2.5cm}p{2.5cm} }
+		\begin{tabular}{ p{3.5cm}p{2.5cm}p{2cm}p{2cm}p{2cm} }
 			\hline
-			Name & Our Ranking & Repository Stars & Repository Watches \\
+			Name & Our Ranking & Repository Stars & Repository Star Rank & Repository Watches \\
 			\hline
-			Ludwig&1& 19 & 6\\
-			ESPResSo &2& 115 & 23\\
-			Palabos &3& 14 & GitLab\\
-			OpenLB &4& No Git & No Git\\
-			LUMA&5& 26 & 10\\
-			pyLBM &6& 57& 8\\
-			DL\_MESO (LBE) & 7 & No Git & No Git \\
-			waLBerla & 8 & 17 & GitLab\\
-			Sailfish &9& 154 & 39\\
-			laboetie &10& 4 & 5\\
-			TCLB &11& 61 & 16\\
-			MechSys &12& No Git & No Git\\
-			lettuce &13& 8 & 2\\
-			ESPResSo++ &14& 31 & 13\\
-			MP-LABS &15& 7 & 2\\			
-			SunlightLB & 16& No Git & No Git\\
-			LB3D &17& No Git & No Git\\			
-			LIMBES &18& No Git & No Git\\
-			LB2D-Prime &19& No Git & No Git\\		
-			HemeLB &20& 22 & 15\\
-			lbmpy&21&  4 & 2  \\	
-			LB3D-Prime &22& No Git & No Git\\	
-			LatBo.jl &23& 4 & 5\\			
+			Ludwig&1& 19 &8& 6\\
+			ESPResSo &2& 115 &2& 23\\
+			Palabos &3& 14 &10& GitLab\\
+			OpenLB &4& No Git &No Git & No Git\\
+			LUMA&5& 26 &6& 10\\
+			pyLBM &6& 57&4& 8\\
+			DL\_MESO (LBE) & 7 & No Git &No Git & No Git \\
+			waLBerla & 8 & 17 &9& GitLab\\
+			Sailfish &9& 154 &1& 39\\
+			laboetie &10& 4 &13& 5\\
+			TCLB &11& 61 &3& 16\\
+			MechSys &12& No Git &No Git & No Git\\
+			lettuce &13& 8 &11& 2\\
+			ESPResSo++ &14& 31 &5& 13\\
+			MP-LABS &15& 7 &12& 2\\			
+			SunlightLB & 16& No Git &No Git & No Git\\
+			LB3D &17& No Git &No Git & No Git\\			
+			LIMBES &18& No Git &No Git & No Git\\
+			LB2D-Prime &19& No Git &No Git & No Git\\		
+			HemeLB &20& 22 &7& 15\\
+			lbmpy&21&  4 &13& 2  \\	
+			LB3D-Prime &22& No Git &No Git & No Git\\	
+			LatBo.jl &23& 4 &13& 5\\			
 			\hline
 		\end{tabular}
 		\captionof{table}{Repository Ranking Metrics}\label{repometrics}
 	\end{onehalfspacing}
 \end{center}
 
-Table \ref{repometrics} presents our LBM software package rankings along with the repository ranking metrics of each software package. 
-
-Eight packages do not use GitHub or GitLab, so they do not have a measure of repository stars. Looking at the repository stars of the other 15 packages, we can observe a slight pattern where packages that have been highly ranked by our assessment do have more stars than lower ranked packages. The second ranked package (ESPResSo) has the second most number of stars. The ninth ranked package (Sailfish) has the most number of stars. Packages designated as lower quality often do not use GitHub or GitLab, or have few stars, except for HemeLB which has 22 stars. Our assessment of this package might not be accurate. 
-
-The repository watches column contains even less data to compare since two of the packages (Palabos, waLBerla) use GitLab, which does not include this metric. The pattern that can be observed with this metric is very similar to that of the stars metric. The ninth ranked package (Sailfish) has the most number of watches. The second ranked package (ESPResSo) has the second most number of watches.
-
-Besides missing data, another threat to the validity of this comparison is the varying ages of the repositories. Older packages have been able to accumulate stars and watches for longer than newer packages. The true quality of new packages may not be reflected in their stars and watches. 
-
 \subsubsection{Domain Expert Recommended Software}\label{domainexpertrecommend}
 
-Table \ref{rankingcomparison} compares the top 10 ranked LBM software packages with a LBM package ranking made by a domain expert. Five (Palabos, OpenLB, LUMA, waLBerla, Sailfish) of the top 10 ranked packages in this assessment are also found in the domain expert's list. Interestingly, these five packages are listed in the same order on both lists. Looking at the remaining packages, the top two ranked packages in this state of the practice assessment (Ludwig, ESPResSo) are not on the domain expert's list. Perhaps the intended applications of these packages, complex fluids for Ludwig and soft matter research for ESPResSo, do not align with the research interests of the domain expert, and this is why they did not make it onto their list. Moving down the list, pyLBM and DL\_MESO(LBE) did not make the domain expert's top 10 list but were mentioned by the domain expert. The 10th ranked package, laboetie, was not mentioned by the domain expert. Looking at the remainder of the domain expert's list, ASL is a general purpose tool for solving partial differential equations and may have fallen out of scope of the authoritative lists that were used to identify the initial LBM software list. The domain expert's fifth ranked package (ch4-project) was on the initial software list of this assessment, but was removed due to a lack of documentation. Open FSI is a new project that uses Palabos. It was made public the year before data was collected for this state of the practice exercise. It may not have been on authoritative lists due to its age. Similarly, LIFE was also made public recently. Finally, the domain expert's 10th ranked package (HemeLB) was ranked 20th in this state of the practice assessment. 
+Table \ref{rankingcomparison} compares the top 10 ranked LBM software packages with a LBM package ranking made by a domain expert. Five (Palabos, OpenLB, LUMA, waLBerla, Sailfish) of the top 10 ranked packages in this assessment are also found in the domain expert's list. Interestingly, these five packages are listed in the same order on both lists. Looking at the remaining packages, the top two ranked packages in this state of the practice assessment (Ludwig, ESPResSo) are not on the domain expert's list. Perhaps the intended applications of these packages, complex fluids for Ludwig and soft matter research for ESPResSo, do not align with the research interests of the domain expert, and this is why they did not make it onto their list. Moving down the list, pyLBM and DL\_MESO(LBE) did not make the domain expert's top 10 list but were mentioned by the domain expert. The 10th ranked package, laboetie, was not mentioned by the domain expert. Looking at the remainder of the domain expert's list, ASL is a general purpose tool for solving partial differential equations and may have fallen out of scope of the authoritative lists that were used to identify the initial LBM software list. The domain expert's fifth ranked package (ch4-project) was on the initial software list of this assessment, but was removed due to a lack of documentation. Open FSI is a new project that uses Palabos. It was made public the year before data was collected for this state of the practice exercise. It may not have been on authoritative lists due to its young age. Similarly, LIFE was also made public recently. Finally, the domain expert's 10th ranked package (HemeLB) was ranked 20th in this state of the practice assessment. 
 
 \begin{center}
 	\begin{onehalfspacing}
-		\begin{tabular}{ p{2cm}p{3.5cm}p{3.5cm}}
+		\begin{tabular}{ p{2cm}p{4.5cm}p{3.5cm}}
 			\hline
 			Rank & This Assessment & Domain Expert\\
 			\hline
-			1&Ludwig&Palabos\\
-			2&ESPResSo &OpenLB\\
-			3&Palabos &LUMA\\
-			4&OpenLB &ASL\\
-			5&LUMA&ch4-project\\
-			6&pyLBM &Open FSI\\
-			7&DL\_MESO (LBE) & WaLBerla\\
-			8&waLBerla & LIFE\\
-			9&Sailfish &Sailfish\\
-			10&laboetie &HemeLB\\		
+			1&Ludwig (N/A) &Palabos\\
+			2&ESPResSo (N/A) &OpenLB\\
+			3&Palabos (1)&LUMA\\
+			4&OpenLB (2)&ASL\\
+			5&LUMA (3)&ch4-project\\
+			6&pyLBM (17)&Open FSI\\
+			7&DL\_MESO (LBE) (12)& WaLBerla\\
+			8&waLBerla (7)& LIFE\\
+			9&Sailfish (9)&Sailfish\\
+			10&laboetie (N/A)&HemeLB\\		
 			\hline
 		\end{tabular}
 		\captionof{table}{Ranking Comparison}\label{rankingcomparison}
@@ -2154,6 +2157,8 @@ Table \ref{rankingcomparison} compares the top 10 ranked LBM software packages w
 \subsection{Threats To Validity}\label{threats}
 
 This section examines potential threats to the validity of this state of the practice assessment. These can be categorized into methodology and data collection issues. 
+
+The goal of this assessment isn't to rank the software, but to use the ranking exercise as a means to understand the state of the practice of LBM software development.
 
 The measures listed in our measurement template may not be broad enough to accurately capture some qualities. For example, there are only two measures of surface robustness. The measurement of robustness could be expanded, as it currently only measures unexpected input. Other faults could be introduced, but could require a large investment of time to develop, and might not be a fair measure for all packages. Similarly, reusability is assessed along the number of code files and LOC per file. While this measure is indicative of modularity, it is possible that some packages have many files, with few LOC, but the files do not contain source code that is easily reusable. The files may be poorly formatted, or the source code may be vague and have ambiguous identifiers. Furthermore, the measurement of understandability relies on 10 random source code files. It is possible that the 10 files that were chosen to represent a software package may not be a good representation of the understandability of that package.
 
@@ -2166,7 +2171,7 @@ Furthermore, design documentation was measured to be a ``less common'' artifact 
 \newpage
 \section{Conclusion}\label{conclusion}
 
-We analyzed the state of the practice of software development of Lattice Boltzmann Methods software domain by quantitatively and qualitatively measuring, and comparing, 23 software packages along quality attributes. The software qualities that were assessed in this report are listed in Section \ref{softwarequalities}. A methodology for assessing the state of the practice of software development in scientific computing software domains was presented. Domain packages were assessed to answer the software development related research questions listed in Section \ref{purpose} to understand how software quality is impacted by software development choices, including principles, processes, and tools. Software developers were interviewed to identify development pain points, and to identify how software quality is ensured. Quantitative data was used to rank the software packages using an analytical hierarchy process. The ranking designations were compared with rankings from the software development community, and we found that many of our top 10 ranked packages are ranked highly by a domain expert. Recommendations for improving software along quality metrics were made, and highlights are presented in Section \ref{highlightedrecommendations} of this conclusion. The findings of this report can be used to guide future development of scientific computing software, specifically along quality attributes, and to reduce software quality failures.
+We analyzed the state of the practice of software development of Lattice Boltzmann Methods software domain by quantitatively and qualitatively measuring, and comparing, 23 software packages along quality attributes. The software qualities that were assessed in this report are listed in Section \ref{softwarequalities}. A methodology for assessing the state of the practice of software development in SCS domains was presented. Domain packages were assessed to answer the software development related research questions listed in Section \ref{purpose} to understand how software quality is impacted by software development choices, including principles, processes, and tools. Software developers were interviewed to identify development pain points, and to identify how software quality is ensured. Quantitative data was used to rank the software packages using the AHP. The ranking designations were compared with rankings from the software development community, and we found that many of our top 10 ranked packages are ranked highly by a domain expert. Recommendations for improving software along quality metrics were made, and highlights are presented in Section \ref{highlightedrecommendations} of this conclusion. The findings of this report can be used to guide future development of SCS, specifically along quality attributes, and to reduce software quality failures.
 
 We understand that software packages vary in goals, developers, funding, and other aspects. Our goal was to highlight software quality successes through an evaluation of the entire domain software family. Furthermore, threats to the validity of the findings are highlighted in Section \ref{threats}. 
 
@@ -2191,21 +2196,210 @@ The following recommendations improve software quality along multiple attributes
 	\item Use project management tools, including change and version control tools (GitHub, GitLab, CVS), collaboration tools (GitHub, GitLab), and document generation tools (Doxygen, Drasil, Sphinx).
 \end{itemize}
 
-Ensuring software quality can take significant time. An inability to develop high quality documentation due to time constraints could be mitigated by the use of automatic document generation tools like Drasil. The Drasil Framework consists of a collection of Domain Specific Languages (DSL) for capturing scientific documents, structures, and computing knowledge, and then transforming this knowledge into relevant software artifacts without having to manually duplicate knowledge into multiple artifacts \citep{zhao2018}.
+Ensuring software quality can take significant time. An inability to develop high quality documentation due to time constraints could be mitigated in the future by the use of automatic document generation tools like Drasil. The Drasil Framework consists of a collection of Domain Specific Languages (DSL) for capturing scientific documents, structures, and computing knowledge, and then transforming this knowledge into relevant software artifacts without having to manually duplicate knowledge into multiple artifacts \citep{zhao2018}.
 
 \subsection{Future State Of The Practice Assessments}\label{futuresop}
 
 This section notes recommendations for future state of the practice assessments.  
 
-As mentioned in Section \ref{threats}, the measures listed in our measurement template may not be broad enough to accurately capture some qualities. Adding or extending measures is worth considering. 
+As mentioned in Section \ref{threats}, the measures listed in our measurement template may not be broad enough to accurately capture some qualities. Adding or extending measures is worth considering. For example, usability experiments and performance benchmarks could be incorporated into the assessment.
 
 Section \ref{interviewresults} noted that developers were not asked to comment on the reproducibility of their source code from their requirements specifications and design documentation. Adding this question to the interview guide should be considered in the next iteration of state of the practice assessments. Furthermore, as mentioned in Section \ref{threats}, it was found that some pertinent information was not specified in public artifacts. The use of unit testing and continuous integration by several packages (OpenLB, pyLBM, TCLB) was only discovered during interviews with developers. Adding further questions to the interview guide regarding the measures that are on the measurement template could reduce instances of incorrect data being collected. This additional interview data could be analyzed and incorporated into the AHP ranking, ensuring quality designations more accurate represent the true quality of the software packages.
 
 \newpage
-\section{Appendix}
-\begin{singlespace}	
+\begin{appendices}
 
-\subsection{Developer Interview Questions}\label{interviewquestions}
+\begin{singlespace}	
+	
+\section{Measurement Template}\label{measurementtemplate2}
+The table below lists the set of measures that are used to assess each software product. The first set identifies summary information, followed by 9 sets for software qualities and 3 sets for raw metrics. Each measure is followed by the type for a valid result. A superscript ∗ indicate that a response of this type needs to be accompanied by explanatory text.\\ 
+\newpage
+\captionof{table}{Measurement Template}\label{measurementtemplate}
+\def\arraystretch{1.22}
+\begin{tabular}{p{14cm}}
+	\hline
+	\textbf{Summary Information}\\
+	\hline
+	Software name? (string)\\
+	URL? (URL)\\
+	Affiliation (institution(s)) (string or {N/A})\\
+	Software purpose (string)\\
+	Number of developers (all developers that have contributed at least one commit to the project) (use repo commit logs) (number)\\
+	How is the project funded? (unfunded, unclear, funded*) where * requires a string to say the source of funding\\
+	Initial release date? (date)\\
+	Last commit date? (date)\\
+	Status? (alive is defined as presence of commits in the last 18 months) ({alive, dead, unclear})\\
+	License? ({GNU GPL, BSD, MIT, terms of use, trial, none, unclear, other*}) * given via a string \\
+	Platforms? (set of {Windows, Linux, OS X, Android, other*}) * given via string\\
+	Software Category? The concept category includes software that does not have an officially released version. Public software has a released version in the public domain. Private software has a released version available to authorized users only. ({concept, public, private})\\
+	Development model? ({open source, freeware, commercial, unclear})\\
+	Publications about the software? Refers to publications that have used or mentioned the software. (number or {unknown})\\
+	Source code URL? ({set of url, n/a, unclear})\\
+	Programming language(s)? (set of {FORTRAN, Matlab, C, C++, Java, R, Ruby, Python, Cython, BASIC, Pascal, IDL, unclear, other*}) * given via string \\
+	Is there evidence that performance was considered? Performance refers to either speed, storage, or throughput. ({yes∗, no})\\
+	Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have) \\
+	\hline
+\end{tabular}
+
+\def\arraystretch{1.5}
+\begin{tabular}{p{14cm}}
+	\hline		
+	\textbf{Installability  (Measured via installation on a virtual machine.) }\\
+	\hline
+	Are there installation instructions? ({yes, no})\\
+	Are the installation instructions in one place? Place referring to a single document or web-page. ({yes, no, n/a})\\
+	Are the installation instructions linear? Linear meaning progressing  in a single series of steps. ({yes, no, n/a})\\
+	Are the instructions written as if the person doing the installation has none of the dependent packages installed? ({yes, no, unclear})\\
+	Are compatible operating system versions listed? ({yes, no})\\
+	Is there something in place to automate the installation (makefile, script, installer, etc)? ({yes*, no})\\
+	If the software installation broke, was a descriptive error message displayed? ({yes, no, n/a})\\
+	Is there a specified way to validate the installation? ({yes*, no})\\
+	How many steps were involved in the installation? (Includes manual steps like unzipping files) Specify OS. (number, OS)\\
+	What OS was used for the installation? ({Windows, Linux, OS X, Android, other* }) *given via string\\
+	How many extra software packages need to be installed before or during installation? (number)\\
+	Are required package versions listed? ({yes, no, n/a})\\
+	Are there instructions for the installation of required packages / dependencies? ({yes, no, n/a})\\
+	Run uninstall, if available. Were any obvious problems caused? ({yes∗ , no, unavail})\\
+	Overall impression? ({1 .. 10})\\
+	Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have)\\
+	\hline
+\end{tabular}
+
+\def\arraystretch{1.33}
+\begin{tabular}{p{14cm}}
+	\hline		
+	\textbf{Correctness and Verifiability}\\
+	\hline
+	Any reference to the requirements specifications of the program or theory manuals? ({yes∗ , no, unclear})\\
+	What tools or techniques are used to build confidence of correctness? ({literate programming, automated testing, symbolic execution, model checking, assertions used in the code, Sphinx, Doxygen, Javadoc, confluence, unclear, other*}) * given via string\\
+	If there is a getting started tutorial? ({yes, no})\\
+	Are the tutorial instructions linear? ({yes, no, n/a})\\
+	Does the getting started tutorial provide an expected output? ({yes, no*, n/a})\\
+	Does your tutorial output match the expected output? ({yes, no, n/a})\\
+	Are unit tests available?  ({yes, no, unclear})\\
+	Is there evidence of continuous integration? (for example mentioned in documentation, Jenkins, Travis CI, Bamboo, other) ({yes*, no, unclear})\\
+	Overall impression? ({1 .. 10})\\
+	Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have) \\
+	\hline	
+	\textbf{Surface Reliability}\\
+	\hline
+	Did the software “break” during installation? ({yes∗ , no})\\
+	If the software installation broke, was the installation instance recoverable? ({yes, no, n/a})\\
+	Did the software “break” during the initial tutorial testing? ({yes∗, no, n/a})\\
+	If the tutorial testing broke, was a descriptive error message displayed? ({yes, no, n/a})\\
+	If the tutorial testing broke, was the tutorial testing instance recoverable? ({yes, no, n/a})\\
+	Overall impression? ({1 .. 10})\\
+	Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have)\\
+	\hline		
+\end{tabular}
+
+\def\arraystretch{1.4}
+\begin{tabular}{p{14cm}}
+	\hline		
+	\textbf{Surface Robustness}\\
+	\hline
+	Does the software handle unexpected/unanticipated input (like data of the wrong type, empty input, missing files or links) reasonably? (a reasonable response can include an appropriate error message.) ({yes, no∗ })\\
+	For any plain text input files, if all new lines are replaced with new lines and carriage returns, will the software handle this gracefully? ({yes, no∗, n/a})\\
+	Overall impression? ({1 .. 10})\\
+	Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have)\\
+	\hline		
+	\textbf{Surface Usability}\\
+	\hline
+	Is there a getting started tutorial? ({yes, no})\\
+	Is there a user manual? ({yes, no})\\
+	Are expected user characteristics documented? ({yes, no})\\
+	What is the user support model? FAQ? User forum? E-mail address to direct questions? Etc. (string)\\
+	Overall impression? ({1 .. 10})\\
+	Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have)\\
+	\hline
+\end{tabular}
+
+\def\arraystretch{1.4}
+\begin{tabular}{p{14cm}}
+		\hline	
+	\textbf{Maintainability}\\
+	\hline
+	What is the current version number? (number)\\
+	Is there any information on how code is reviewed, or how to contribute? ({yes*, no})\\
+	Are artifacts available? (List every type of file that is not a code file – for examples please look at the ‘Artifact Name’ column of https://gitlab.cas.mcmaster.ca/SEforSC/se4sc/-/blob/git-svn/GradStudents/Olu/ResearchProposal/Artifacts\_MiningV3.xlsx) ({yes*, no, unclear}) *list via string\\
+	What issue tracking tool is employed? (set of {Trac, JIRA, Redmine, e-mail, discussion board, sourceforge, google code, git, BitBucket, none, unclear, other*}) * given via string\\
+	What is the percentage of identified issues that are closed? (percentage)\\
+	What percentage of code is comments? (percentage)\\
+	Which version control system is in use? ({svn, cvs, git, github, unclear, other*}) * given via string\\
+	Overall impression? ({1 .. 10})\\
+	Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have)\\
+	\hline		
+	\textbf{Reusability}\\
+	\hline
+	How many code files are there? (number)\\
+	Is API documented? ({yes, no, n/a})\\
+	Overall impression? ({1 .. 10})\\
+	Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have)\\
+	\hline		
+\end{tabular}
+
+\def\arraystretch{1.4}
+\begin{tabular}{p{14cm}}
+		\hline		
+	\textbf{Surface Understandability (Based on 10 random source files)}\\
+	\hline
+	Consistent indentation and formatting style? ({yes, no, n/a})\\
+	Explicit identification of a coding standard? ({yes∗, no, n/a})\\
+	Are the code identifiers consistent, distinctive, and meaningful? ({yes, no∗ , n/a})\\
+	Are constants (other than 0 and 1) hard coded into the program? ({yes, no∗ , n/a})\\
+	Comments are clear, indicate what is being done, not how? ({yes, no∗ , n/a})\\
+	Is the name/URL of any algorithms used mentioned? ({yes, no∗ , n/a})\\
+	Parameters are in the same order for all functions? ({yes, no∗ , n/a})\\
+	Is code modularized? ({yes, no∗ , n/a})\\
+	Overall impression? ({1 .. 10})\\
+	Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have)\\
+	\hline		
+	\textbf{Visibility/Transparency}\\
+	\hline
+	Is the development process defined? If yes, what process is used. ({yes∗, no, n/a})\\
+	Are there any documents recording the development process and status?  ({yes∗, no}))\\
+	Is the development environment documented? ({yes∗, no})\\
+	Are there release notes? ({yes∗, no})\\
+	Overall impression? ({1 .. 10})\\
+	Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have)\\
+		\hline		
+	\textbf{Raw Metrics (Measured via git\_stats)}\\
+	\hline
+	Number of text-based files. (number)\\
+	Number of binary files. (number)\\
+	Number of total lines in text-based files. (number)\\
+	Number of total lines added to text-based files. (number)\\
+	Number of total lines deleted from text-based files. (number)\\
+	Number of total commits. (number)\\
+	Numbers of commits by year in the last 5 years. (Count from as early as possible if the project is younger than 5 years.) (list of numbers)\\
+	Numbers of commits by month in the last 12 months. (list of numbers)\\
+	\hline
+\end{tabular}
+
+\def\arraystretch{1.4}
+\begin{tabular}{p{14cm}}
+		\hline		
+	\textbf{Raw Metrics (Measured via scc)}\\
+	\hline
+	Number of text-based files. (number)\\
+	Number of total lines in text-based files. (number)\\
+	Number of code lines in text-based files. (number)\\
+	Number of comment lines in text-based files. (number)\\
+	Number of blank lines in text-based files. (number)\\
+	\hline
+	\textbf{Repo Metrics (Measured via GitHub)}\\
+	\hline
+	Number of stars. (number)\\
+	Number of forks. (number)\\
+	Number of people watching this repo. (number)\\
+	Number of open pull requests. (number)\\
+	Number of closed pull requests. (number)\\
+	\hline
+\end{tabular}
+
+\newpage	
+
+\section{Developer Interview Questions}\label{interviewquestions}
 
 Information about these interview questions:  This gives you an idea what I would like to learn about the development of {domain} software. Interviews will be one-to-one and will be open-ended (not just “yes or no” answers). Because of this, the exact wording may change a little. Sometimes I will use other short questions to make sure I understand what you told me or if I need more information when we are talking such as: “So, you are saying that …?), to get more information (“Please tell me more?”), or to learn what you think or feel about something (“Why do you think that is…?”). 
 
@@ -2236,195 +2430,12 @@ Information about these interview questions:  This gives you an idea what I woul
 
 \newpage
 
-\subsection{Measurement Template}\label{measurementtemplate2}
-The table below lists the set of measures that are used to assess each software product. The first set identifies summary information, followed by 9 sets for software qualities and 3 sets for raw metrics. Each measure is followed by the type for a valid result. A superscript ∗ indicate that a response of this type needs to be accompanied by explanatory text. 
-
-\captionof{table}{Measurement Template}\label{measurementtemplate}
-\def\arraystretch{1.22}
-\begin{tabular}{p{16cm}}
-		\hline
-		\textbf{Summary Information}\\
-		\hline
-		Software name? (string)\\
-		URL? (URL)\\
-		Affiliation (institution(s)) (string or {N/A})\\
-		Software purpose (string)\\
-		Number of developers (all developers that have contributed at least one commit to the project) (use repo commit logs) (number)\\
-		How is the project funded? (unfunded, unclear, funded*) where * requires a string to say the source of funding\\
-		Initial release date? (date)\\
-		Last commit date? (date)\\
-		Status? (alive is defined as presence of commits in the last 18 months) ({alive, dead, unclear})\\
-		License? ({GNU GPL, BSD, MIT, terms of use, trial, none, unclear, other*}) * given via a string \\
-		Platforms? (set of {Windows, Linux, OS X, Android, other*}) * given via string\\
-		Software Category? The concept category includes software that does not have an officially released version. Public software has a released version in the public domain. Private software has a released version available to authorized users only. ({concept, public, private})\\
-		Development model? ({open source, freeware, commercial, unclear})\\
-		Publications about the software? Refers to publications that have used or mentioned the software. (number or {unknown})\\
-		Source code URL? ({set of url, n/a, unclear})\\
-		Programming language(s)? (set of {FORTRAN, Matlab, C, C++, Java, R, Ruby, Python, Cython, BASIC, Pascal, IDL, unclear, other*}) * given via string \\
-		Is there evidence that performance was considered? Performance refers to either speed, storage, or throughput. ({yes∗, no})\\
-		Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have) \\
-		\hline
-\end{tabular}
-
-\def\arraystretch{1.5}
-\begin{tabular}{p{16cm}}
-		\hline		
-		\textbf{Installability  (Measured via installation on a virtual machine.) }\\
-		\hline
-		Are there installation instructions? ({yes, no})\\
-		Are the installation instructions in one place? Place referring to a single document or web-page. ({yes, no, n/a})\\
-		Are the installation instructions linear? Linear meaning progressing  in a single series of steps. ({yes, no, n/a})\\
-		Are the instructions written as if the person doing the installation has none of the dependent packages installed? ({yes, no, unclear})\\
-		Are compatible operating system versions listed? ({yes, no})\\
-		Is there something in place to automate the installation (makefile, script, installer, etc)? ({yes*, no})\\
-		If the software installation broke, was a descriptive error message displayed? ({yes, no, n/a})\\
-		Is there a specified way to validate the installation? ({yes*, no})\\
-		How many steps were involved in the installation? (Includes manual steps like unzipping files) Specify OS. (number, OS)\\
-		What OS was used for the installation? ({Windows, Linux, OS X, Android, other* }) *given via string\\
-		How many extra software packages need to be installed before or during installation? (number)\\
-		Are required package versions listed? ({yes, no, n/a})\\
-		Are there instructions for the installation of required packages / dependencies? ({yes, no, n/a})\\
-		Run uninstall, if available. Were any obvious problems caused? ({yes∗ , no, unavail})\\
-		Overall impression? ({1 .. 10})\\
-		Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have)\\
-		\hline
-\end{tabular}
-
-\def\arraystretch{1.33}
-\begin{tabular}{p{16cm}}
-	\hline		
-	\textbf{Correctness and Verifiability}\\
-	\hline
-	Any reference to the requirements specifications of the program or theory manuals? ({yes∗ , no, unclear})\\
-	What tools or techniques are used to build confidence of correctness? ({literate programming, automated testing, symbolic execution, model checking, assertions used in the code, Sphinx, Doxygen, Javadoc, confluence, unclear, other*}) * given via string\\
-	If there is a getting started tutorial? ({yes, no})\\
-	Are the tutorial instructions linear? ({yes, no, n/a})\\
-	Does the getting started tutorial provide an expected output? ({yes, no*, n/a})\\
-	Does your tutorial output match the expected output? ({yes, no, n/a})\\
-	Are unit tests available?  ({yes, no, unclear})\\
-	Is there evidence of continuous integration? (for example mentioned in documentation, Jenkins, Travis CI, Bamboo, other) ({yes*, no, unclear})\\
-	Overall impression? ({1 .. 10})\\
-	Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have) \\
-	\hline	
-	\textbf{Surface Reliability}\\
-	\hline
-	Did the software “break” during installation? ({yes∗ , no})\\
-	If the software installation broke, was the installation instance recoverable? ({yes, no, n/a})\\
-	Did the software “break” during the initial tutorial testing? ({yes∗, no, n/a})\\
-	If the tutorial testing broke, was a descriptive error message displayed? ({yes, no, n/a})\\
-	If the tutorial testing broke, was the tutorial testing instance recoverable? ({yes, no, n/a})\\
-	Overall impression? ({1 .. 10})\\
-	Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have)\\
-	\hline		
-	\textbf{Surface Robustness}\\
-	\hline
-	Does the software handle unexpected/unanticipated input (like data of the wrong type, empty input, missing files or links) reasonably? (a reasonable response can include an appropriate error message.) ({yes, no∗ })\\
-	For any plain text input files, if all new lines are replaced with new lines and carriage returns, will the software handle this gracefully? ({yes, no∗, n/a})\\
-	Overall impression? ({1 .. 10})\\
-	Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have)\\
-	\hline
-\end{tabular}
-
-\def\arraystretch{1.4}
-\begin{tabular}{p{16cm}}
-	\hline		
-	\textbf{Surface Usability}\\
-	\hline
-	Is there a getting started tutorial? ({yes, no})\\
-	Is there a user manual? ({yes, no})\\
-	Are expected user characteristics documented? ({yes, no})\\
-	What is the user support model? FAQ? User forum? E-mail address to direct questions? Etc. (string)\\
-	Overall impression? ({1 .. 10})\\
-	Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have)\\
-	\hline	
-	\textbf{Maintainability}\\
-	\hline
-	What is the current version number? (number)\\
-	Is there any information on how code is reviewed, or how to contribute? ({yes*, no})\\
-	Are artifacts available? (List every type of file that is not a code file – for examples please look at the ‘Artifact Name’ column of https://gitlab.cas.mcmaster.ca/SEforSC/se4sc/-/blob/git-svn/GradStudents/Olu/ResearchProposal/Artifacts\_MiningV3.xlsx) ({yes*, no, unclear}) *list via string\\
-	What issue tracking tool is employed? (set of {Trac, JIRA, Redmine, e-mail, discussion board, sourceforge, google code, git, BitBucket, none, unclear, other*}) * given via string\\
-	What is the percentage of identified issues that are closed? (percentage)\\
-	What percentage of code is comments? (percentage)\\
-	Which version control system is in use? ({svn, cvs, git, github, unclear, other*}) * given via string\\
-	Overall impression? ({1 .. 10})\\
-	Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have)\\
-	\hline		
-	\textbf{Reusability}\\
-	\hline
-	How many code files are there? (number)\\
-	Is API documented? ({yes, no, n/a})\\
-	Overall impression? ({1 .. 10})\\
-	Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have)\\
-	\hline
-\end{tabular}
-
-\def\arraystretch{1.4}
-\begin{tabular}{p{16cm}}
-	\hline		
-	\textbf{Surface Understandability (Based on 10 random source files)}\\
-	\hline
-	Consistent indentation and formatting style? ({yes, no, n/a})\\
-	Explicit identification of a coding standard? ({yes∗, no, n/a})\\
-	Are the code identifiers consistent, distinctive, and meaningful? ({yes, no∗ , n/a})\\
-	Are constants (other than 0 and 1) hard coded into the program? ({yes, no∗ , n/a})\\
-	Comments are clear, indicate what is being done, not how? ({yes, no∗ , n/a})\\
-	Is the name/URL of any algorithms used mentioned? ({yes, no∗ , n/a})\\
-	Parameters are in the same order for all functions? ({yes, no∗ , n/a})\\
-	Is code modularized? ({yes, no∗ , n/a})\\
-	Overall impression? ({1 .. 10})\\
-	Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have)\\
-	\hline		
-	\textbf{Visibility/Transparency}\\
-	\hline
-	Is the development process defined? If yes, what process is used. ({yes∗, no, n/a})\\
-	Are there any documents recording the development process and status?  ({yes∗, no}))\\
-	Is the development environment documented? ({yes∗, no})\\
-	Are there release notes? ({yes∗, no})\\
-	Overall impression? ({1 .. 10})\\
-	Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have)\\
-	\hline		
-	\textbf{Raw Metrics (Measured via git\_stats)}\\
-	\hline
-	Number of text-based files. (number)\\
-	Number of binary files. (number)\\
-	Number of total lines in text-based files. (number)\\
-	Number of total lines added to text-based files. (number)\\
-	Number of total lines deleted from text-based files. (number)\\
-	Number of total commits. (number)\\
-	Numbers of commits by year in the last 5 years. (Count from as early as possible if the project is younger than 5 years.) (list of numbers)\\
-	Numbers of commits by month in the last 12 months. (list of numbers)\\
-	\hline
-\end{tabular}
-
-\def\arraystretch{1.4}
-\begin{tabular}{p{16cm}}
-	\hline		
-	\textbf{Raw Metrics (Measured via scc)}\\
-	\hline
-	Number of text-based files. (number)\\
-	Number of total lines in text-based files. (number)\\
-	Number of code lines in text-based files. (number)\\
-	Number of comment lines in text-based files. (number)\\
-	Number of blank lines in text-based files. (number)\\
-	\hline
-	\textbf{Repo Metrics (Measured via GitHub)}\\
-	\hline
-	Number of stars. (number)\\
-	Number of forks. (number)\\
-	Number of people watching this repo. (number)\\
-	Number of open pull requests. (number)\\
-	Number of closed pull requests. (number)\\
-	\hline
-\end{tabular}
-
-\newpage
-
-\subsection{Grading Template}\label{gradingtemplate2}
+\section{Grading Template}\label{gradingtemplate2}
 The table below lists how each quality measure of the measurement template is used to calculate an overall impression in each software quality set.\newline
 
 \captionof{table}{Grading Template}\label{gradingtemplate}
 \def\arraystretch{1.5}
-\begin{tabular}{p{16cm}}
+\begin{tabular}{p{14cm}}
 	\hline		
 	\textbf{Installability  (Measured via installation on a virtual machine.) }\\
 	\hline
@@ -2447,7 +2458,7 @@ The table below lists how each quality measure of the measurement template is us
 \end{tabular}
 
 \def\arraystretch{1.33}
-\begin{tabular}{p{16cm}}
+\begin{tabular}{p{14cm}}
 	\hline		
 	\textbf{Correctness and Verifiability}\\
 	\hline
@@ -2473,17 +2484,17 @@ The table below lists how each quality measure of the measurement template is us
 	Does the software handle unexpected/unanticipated input (like data of the wrong type, empty input, missing files or links) reasonably? (a reasonable response can include an appropriate error message.) ({yes=5, no∗=0})\\
 	For any plain text input files, if all new lines are replaced with new lines and carriage returns, will the software handle this gracefully? ({yes=5, no∗=0, n/a=5})\\
 	\hline		
+\end{tabular}
+
+\def\arraystretch{1.4}
+\begin{tabular}{p{14cm}}
+		\hline		
 	\textbf{Surface Usability}\\
 	\hline
 	Is there a getting started tutorial? ({yes=3, no=0})\\
 	Is there a user manual? ({yes=4, no=0})\\
 	Are expected user characteristics documented? ({yes=1, no=0})\\
 	What is the user support model? FAQ? User forum? E-mail address to direct questions? Etc. (one=1, two+=2, none=0)\\
-	\hline
-\end{tabular}
-
-\def\arraystretch{1.4}
-\begin{tabular}{p{16cm}}
 	\hline
 	\textbf{Maintainability}\\
 	\hline
@@ -2499,29 +2510,35 @@ The table below lists how each quality measure of the measurement template is us
 	\hline
 	How many code files are there? (0-9=0, 10-49=1, 50-99=3, 100-299=4, 300-599=5, 600-999=6, 1000+=8)\\
 	Is API documented? ({yes=2, no=0, n/a=0})\\
-	\hline	
-	\textbf{Surface Understandability (Based on 10 random source files)}\\
-	\hline
-	Consistent indentation and formatting style? ({yes=1, no=0, n/a=0})\\
-	Explicit identification of a coding standard? ({yes∗=1, no=0, n/a=0})\\
-	Are the code identifiers consistent, distinctive, and meaningful? ({yes=2, no∗=0, n/a=0})\\
-	Are constants (other than 0 and 1) hard coded into the program? ({yes=1, no∗=0, n/a=0})\\
-	Comments are clear, indicate what is being done, not how? ({yes=2, no∗=0, n/a=0})\\
-	Is the name/URL of any algorithms used mentioned? ({yes=1, no∗=0, n/a=0})\\
-	Parameters are in the same order for all functions? ({yes=1, no∗=0, n/a=0})\\
-	Is code modularized? ({yes=1, no∗=0, n/a=0})\\
-	\hline		
-	\textbf{Visibility/Transparency}\\
-	\hline
-	Is the development process defined? If yes, what process is used. ({yes∗=3, no=0, n/a=0})\\
-	Are there any documents recording the development process and status?  ({yes∗=3, no=0}))\\
-	Is the development environment documented? ({yes∗=2, no=0})\\
-	Are there release notes? ({yes∗=2, no=0})\\
 	\hline
 \end{tabular}
+
+\def\arraystretch{1.4}
+\begin{tabular}{p{14cm}}
+\hline	
+\textbf{Surface Understandability (Based on 10 random source files)}\\
+\hline
+Consistent indentation and formatting style? ({yes=1, no=0, n/a=0})\\
+Explicit identification of a coding standard? ({yes∗=1, no=0, n/a=0})\\
+Are the code identifiers consistent, distinctive, and meaningful? ({yes=2, no∗=0, n/a=0})\\
+Are constants (other than 0 and 1) hard coded into the program? ({yes=1, no∗=0, n/a=0})\\
+Comments are clear, indicate what is being done, not how? ({yes=2, no∗=0, n/a=0})\\
+Is the name/URL of any algorithms used mentioned? ({yes=1, no∗=0, n/a=0})\\
+Parameters are in the same order for all functions? ({yes=1, no∗=0, n/a=0})\\
+Is code modularized? ({yes=1, no∗=0, n/a=0})\\
+\hline		
+\textbf{Visibility/Transparency}\\
+\hline
+Is the development process defined? If yes, what process is used. ({yes∗=3, no=0, n/a=0})\\
+Are there any documents recording the development process and status?  ({yes∗=3, no=0}))\\
+Is the development environment documented? ({yes∗=2, no=0})\\
+Are there release notes? ({yes∗=2, no=0})\\
+\hline
+\end{tabular}
+
 \newpage
 
-\subsection{Eliminated Software Packages}\label{eliminatedpackagessection}
+\section{Eliminated Software Packages}\label{eliminatedpackagessection}
 
 The table below lists the software packages that were filtered out of the candidate software list. 
 
@@ -2559,7 +2576,7 @@ The table below lists the software packages that were filtered out of the candid
 
 \newpage
 
-\subsection{Ethics Approval}
+\section{Ethics Approval}\label{ethicsapproval}
 This project received ethics clearance from the McMaster Research Ethics Board on February 20, 2021.\newline
 
 
@@ -2568,10 +2585,10 @@ Project Title: AIMSS - State of the Practice\newline
 
 MREB\#: 5219
 
-
-
+\end{singlespace}
+\end{appendices}
 \newpage
-
+\begin{singlespace}
 \bibliographystyle {plainnat}
 \bibliography {References}
 
