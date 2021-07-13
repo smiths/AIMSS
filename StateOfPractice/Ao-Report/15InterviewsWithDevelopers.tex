@@ -1,14 +1,286 @@
 \chapter{Interviews with Developers}
-\label{ch_interviews}
+\label{ch_interview}
 
-\section{Summary of Answers}
+This section summarizes some answers from the interviews with developers. We interviewed nine developers from eight of the 29 MI software projects. The eight projects are \textit{3D Slicer}, \textit{INVESALIUS 3}, \textit{dwv}, \textit{BioImage Suite Web}, \textit{ITK-SNAP}, \textit{MRIcroGL}, \textit{Weasis}, and \textit{OHIF}. We spent about 90 minutes for each interview and asked 20 prepared questions. We also asked following-up questions when we thought it was worth diving deeper. One participant was too busy to have an interview, so he wrote down the answers and sent them to us.
 
+In this section, we only discuss the answers which we think are the most exciting and essential. We summarize the rest part of the interviews in Appendix \ref{ap_interview}. The interviewees may have provided multiple answers to each question. When counting the number of interviewees for each response, we count all of them with this answer.
+
+\section{Current and Past Pain Points}
+
+By asking questions 9, 10, and 12, we tried to identify the pain points during the development process in the eight projects. The pain points include current and past obstacles. We also asked the interviewees how they would solve the problems.
+
+Questions 9, 10, and 12 are as follows,
+
+\textit{Q9. Currently, what are the most significant obstacles in your development process?}
+
+\textit{Q10. How might you change your development process to remove or reduce these obstacles?}
+
+\textit{Q12. In the past, is there any major obstacle to your development process that has been solved? How did you solve it?}
+
+Table \ref{tab_obstacles} shows the number of times the interviewees mentioned the current and past obstacles in their projects.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{llll}
+\hline
+\multirow{2}{*}{Group} & \multirow{2}{*}{Obstacle} & \multicolumn{2}{l}{Number of interviewees with the answer} \\ \cline{3-4} 
+ &  & as a current obstacle & as a past obstacle \\ \hline
+\multirow{2}{*}{1} & Lack of fundings & 3 &  \\
+ & Lack of time to devote to the project & 2 & 1 \\ \hdashline
+\multirow{3}{*}{2} & \begin{tabular}[c]{@{}l@{}}Hard to keep up with changes in operating \\ systems and libraries\end{tabular} & 1 &  \\
+ & Hard to support multiple operating systems & 2 &  \\
+ & Hard to support lower-end computers & 1 & 2 \\ \hdashline
+3 & Lack of access to real-world datasets for testing & 3 & 2 \\ \hdashline
+\multirow{7}{*}{Others}
+ & Hard to have a high level roadmap from the start & 1 &  \\
+ & Not enough participants for usability tests & 1 &  \\
+ & \begin{tabular}[c]{@{}l@{}}Codebase is so big and complicated and only\\ a few people fully understand it\end{tabular} & 1 &  \\
+ & Hard to transfer to new technologies & & 2 \\
+ & Hard to understand users' needs & & 1 \\
+ & Hard to maintain good documentations & & 1 \\ \hline
+\end{tabular}
+\caption{\label{tab_obstacles}Current and past obstacles by the numbers of interviewees with the answers}
+\end{table}
+
+The interviewees provided some potential and proven solutions for the problems in Table \ref{tab_obstacles}. We group these pain points into three major groups, and put the less mentioned ones into the group \textit{Others}. Sections \ref{sec_pain_points_1}, \ref{sec_pain_points_2}, and \ref{sec_pain_points_3} include further discussion about the three major groups of pain points and their solutions.
+
+\subsection{Pain Points in Group 1}
+\label{sec_pain_points_1}
+We summarize the pain points in Group 1 as
+\textbf{the lack of fundings and time.}
+
+We also summarize the potential and proven solutions as follows.
+
+\textit{Potential solutions from interviewees:}
 \begin{itemize}
-\item Start with one by one, with commonalities and interesting special cases.
-
-\item Shorten and summarize later.
+\item shifting from development mode toward maintenance mode when developers are not enough;
+\item licensing the software to commercial companies that integrate it into their products;
+\item better documentation to save time for answering users' and developers' questions;
+\item supporting third-party plugins and extensions.
 \end{itemize}
 
-\section{Discussions}
+\textit{Proven solutions from interviewees:}
+\begin{itemize}
+\item GitHub Actions, which is a good continuous integration and continuous delivery (CI/CD) tool to save time.
+\end{itemize}
 
-Any conclusions?
+Many interviewees thought lack of fundings and lack of time were the most significant obstacles. The interviewees from \textit{3D Slicer} team and \textit{OHIF} team pointed out that it was more challenging to get fundings for software maintenance as opposed to researches. The interviewee from the \textit{ITK-SNAP} team thought enough fundings was a way to solve to problem of lacking time, because they could hire more dedicated developers. On the other hand, the interviewee from the \textit{ITK-SNAP} team did not think that fundings could solve the same problem, since he still would need a lot of time to supervise the project.
+
+No interviewee suggested any solution to solve the funding problem fundamentally. However, they provided ideas to save time, such as better documentation, third-party plugins, and good CI/CD tools.
+
+\subsection{Pain Points in Group 2}
+\label{sec_pain_points_2}
+\label{sec_pain_points_1}
+We summarize the pain points in Group 2 as
+\textbf{the difficulty to balance between four factors: cross-platform compatibility, convenience to development \& maintenance, performance, and security.} They are also related to the choice between native application and web application.
+
+We also summarize the potential and proven solutions as follows.
+
+\textit{Potential solutions from interviewees:}
+\begin{itemize}
+\item web applications that use computing power from computers GPU;
+\item to better support lower-end computers, adopting a web-based approach with backend servers;
+\item to better support lower-end computers, using memory-mapped files to consume less computer memory;
+\item more fundings;
+\item maintaining better documentations to ease the development \& maintenance processes;
+\end{itemize}
+
+\textit{Proven solutions from interviewees:}
+\begin{itemize}
+\item one interviewee saw the performance problem disappeared over the years when computers became more and more powerful. 
+\end{itemize}
+
+Table \ref{tab_native_vs_web} shows the teams' choices between native application and web application. In all the 29 teams on our list, most of them chose to develop native applications. For the eight teams we interviewed, three of them were building web applications, and the \textit{MRIcroGL} team was considering web-based solutions. So we had a good chance to discuss the differences between the two choices with the interviewees.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lll}
+\hline
+Software team & Native application & Web application \\ \hline
+3D Slicer & X & \\
+INVESALIUS 3 & X & \\
+dwv & & X \\
+BioImage Suite Web & & X \\
+ITK-SNAP & X & \\
+MRIcroGL & X & \\
+Weasis & X & \\
+OHIF & & X \\ \hdashline
+Total number among the eight teams & 5 & 3 \\
+Total number among the 29 teams & 24 & 5 \\ \hline
+\end{tabular}
+\caption{\label{tab_native_vs_web}Teams' choices between native application and web application}
+\end{table}
+
+The interviewees talked about the advantages and disadvantages of the two choices. We summarize the opinions from the interviewees as follows.
+
+\textit{Native application}:
+\begin{itemize}
+\item Advantages
+    \begin{itemize}
+    \item higher performance
+    \end{itemize}
+\item Disadvantages
+    \begin{itemize}
+    \item hard to achieve cross-platform compatibility
+    \item more complicated build process
+    \end{itemize}
+\end{itemize}
+\textit{Web application}:
+\begin{itemize}
+\item Advantages
+    \begin{itemize}
+    \item easy to achieve cross-platform compatibility
+    \item simpler build process
+    \end{itemize}
+\item Disadvantages
+    \begin{itemize}
+    \item lower performance (without a backend)    \item may not meet the requirements of protecting patients' privacy (with a backend)
+    \item extra cost for backend servers (with a backend)
+    \end{itemize}
+\end{itemize}
+
+The interviewees did not conclude any perfect solutions.
+
+\subsection{Pain Points in Group 3}
+\label{sec_pain_points_3}
+The pain point in Group 3 is
+\textbf{the lack of access to real-world datasets for testing.}
+
+We also summarize the potential and proven solutions as follows.
+
+\textit{Potential solutions from interviewees:}
+\begin{itemize}
+\item using open datasets
+\end{itemize}
+
+\textit{Proven solutions from interviewees:}
+\begin{itemize}
+\item asking the users to provide deidentified copies of medical images if they have problems loading the images;
+\item sending the beta versions of software to medical workers who can access the data and complete the tests;
+\item if (part of) the team belongs to a medical school or a hospital, using the datasets they can access to;
+\item if the team has access to MRI scanners, self-building MI datasets;
+\item if the team has connections with MI equipment manufacturers, asking for their help on data format problems.
+\end{itemize}
+
+No interviewee provided a perfect way to solve this problem. However, connections between the development team and medical professionals/institutions could ease the pain.
+
+\section{Documents in the Projects}
+By asking questions 11 and 19, we tried to understand the interviewees' opinions on documentation. We also aimed to find out the quality of documentations in their projects.
+
+Questions 11 and 19 are as follows,
+
+\textit{Q11. How does documentation fit into your development process? Would improved documentation help with the obstacles you typically face?}
+
+\textit{Q19. Do you think the current documentation can clearly convey all necessary knowledge to the users? If yes, how did you successfully achieve it? If no, what improvements are needed?}
+
+Table \ref{tab_opinion_doc} summarizes interviewees' opinions on documentation. Interviewees from each of the eight projects thought that documentation was important to their projects, and most of them said that it could save their time to answer questions from users and developers. However, most of them saw the need to improve their documentation, and only three of them thought that their documentations conveyed information clearly enough. 
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ll}
+\hline
+Opinion on documentation & Number of interviewees with the answer \\ \hline
+Documentation is vital to the project& 8 \\
+Documentation of the project needs improvements & 7 \\
+Referring to documentation saves time to answer questions & 6 \\
+Lack of time to maintain good documentation & 4 \\
+Documentation of the project conveys information clearly & 3 \\
+Coding is more preferable than documentation & 2 \\
+Users help each other by referring to documentation & 1 \\ \hline
+\end{tabular}
+\caption{\label{tab_opinion_doc}Opinions on documentation by the numbers of interviewees with the answers}
+\end{table}
+
+Table \ref{tab_doc_tools} lists some of the tools and methods mentioned by the interviewees, which they used for documentation.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ll}
+\hline
+Tool or method for documentation & Number of interviewees with the answer \\ \hline
+Forum discussions & 3 \\
+Videos & 3 \\
+GitHub & 2 \\
+Mediawiki / wiki pages & 2 \\
+Workshops & 2 \\
+Social media & 2 \\
+Writing books & 1 \\
+Google Form & 1 \\
+State management & 1 \\ \hline
+\end{tabular}
+\caption{\label{tab_doc_tools}Tools and methods for documentation by the numbers of interviewees with the answers}
+\end{table}
+
+\section{Contribution Management and Project Management}
+By asking questions 5, 13, and 14, we tried to understand how the teams managed the contributions and their projects.
+
+Questions 5, 13, and 14 are as follows,
+
+
+\textit{Q5. Do you have a defined process for accepting new contributions into your team?}
+
+\textit{Q13. What is your software development model? For example, waterfall, agile, etc.}
+
+\textit{Q14. What is your project management process? Do you think improving this process can tackle the current problem? Were any project management tools used?}
+
+Maybe some team had a documented process for accepting new contributions, but none talked about it during the interview. However, most of them mentioned using GitHub and pull requests to manage contributions from the community. The interviewees generally gave very positive feedback on using GitHub. Some also said they had handled the project repository with some other tools, and eventually transferred to git and GitHub. Table \ref{tab_method_receive_contributions} shows the number of times the interviewees mentioned the methods of receiving contributions.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lll}
+\hline
+\multirow{2}{*}{Method of receiving contributions} & \multicolumn{2}{l}{Number of interviewees with the answer} \\ \cline{2-3} 
+ & as a current method & as a past method \\ \hline
+GitHub with pull requests & 8 & \\
+Code contributions from emails & & 3 \\
+Code contributions from forums & & 1 \\
+Sharing the git repository by email & & 1 \\ \hline
+\end{tabular}
+\caption{\label{tab_method_receive_contributions}Methods of receiving contributions by the numbers of interviewees with the answers}
+\end{table}
+
+Additionally, the \textit{3D Slicer} team encouraged users to develop their extensions for specific use cases, and the \textit{OHIF} team was trying to enable the use of plug-ins; the interviewee from the \textit{ITK-SNAP} team said one way of accepting new team members was through funded academic projects. 
+
+Table \ref{tab_developmen_models} shows the software development models by the numbers of interviewees with the answers. Only two interviewees confirmed their development models. The others did not think they used a specific model, but three of them suggested that their processes were similar to Waterfall or 
+Agile.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ll}
+\hline
+Software development model & Number of interviewees with the answer \\ \hline
+Undefined/self-directed & 3 \\
+Similar to Agile & 2 \\
+Similar to Waterfall & 1 \\
+Agile & 1 \\
+Waterfall & 1 \\ \hline
+\end{tabular}
+\caption{\label{tab_developmen_models}Software development models by the numbers of interviewees with the answers}
+\end{table}
+
+Some interviewees mentioned the project management tools they used, which are in Table \ref{tab_pm_tools}. Generally speaking, they talked about two types:
+
+\begin{itemize}
+\item Trackers, including GitHub, issue trackers, bug trackers and Jira;
+\item Documents, including GitHub, Wiki page, Google Doc, and Confluence.
+\end{itemize}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ll}
+\hline
+Project management tools & Number of interviewees with the answer \\ \hline
+GitHub & 3 \\
+Issue trackers & 1 \\
+Bug trackers & 1 \\
+Jira & 1 \\
+Wiki page & 1 \\
+Google Doc & 1 \\
+Confluence & 1 \\ \hline
+\end{tabular}
+\caption{\label{tab_pm_tools}Project management tools by the numbers of interviewees with the answers}
+\end{table}
+
+No interviewee introduced any strictly defined project management process. The most common way was following the issues, such as bugs and feature requests. Additionally, the \textit{3D Slicer} team had weekly meetings to discuss the goals for the project; the \textit{INVESALIUS 3} team relied on the GitHub process for their project management; the \textit{ITK-SNAP} team had a fixed six-month release pace; only the interviewee from the \textit{OHIF} team mentioned that the team has a project manager; the \textit{3D Slicer} team and \textit{BioImage Suite Web} team were doing nightly builds and tests.
+
+Most interviewees skipped the question ``Do you think improving this process can tackle the current problem?", but the interviewee from the \textit{OHIF} team gave a positive answer.
