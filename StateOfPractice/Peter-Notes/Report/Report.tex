@@ -119,7 +119,7 @@
 
 \noindent\textbf{SUPERVISOR:} Dr. Spencer Smith and Dr. Jacques Carette
 
-\noindent\textbf{NUMBER OF PAGES:} 119
+\noindent\textbf{NUMBER OF PAGES:} 120
 
 
 \newpage
@@ -293,7 +293,8 @@ The report is organized as follows:
 	\item LBM software \textbf{Domain Analysis}. A domain analysis consists of systematically identifying and documenting the commonalities, variabilities, and terminology of a software family \citep{Weiss1997}.
 	The purpose of this analysis in this state of the practice assessment is to better classify the different software products based on their functionality.
 	\item \textbf{Methodology} of this state of the practice assessment, including the steps of the methodology, software quality definitions and how these qualities are assessed in this report, an overview of candidate software selection, empirical measures gathered, and the AHP. This follows a general methodology for assessing the state of the practice for SCS domains.
-	\item Quantitative and qualitative \textbf{Results}. 
+	\item \textbf{Quantitative Results}. 
+	\item \textbf{Qualitative Results}. 
 	\item An analysis of the results and \textbf{Answers To Research Questions}.
 	\item \textbf{Conclusion} to the report including comments on suggestions for future state of the practice assessments.
 	\item \textbf{Appendix}: This section includes our Research Questions, the Measurement Template, Grading Template, Ethics Approval, and Developer Interview Questions.
@@ -1211,7 +1212,7 @@ These steps are further detailed in the \href{https://github.com/smiths/AIMSS/bl
 
 \subsection{Software Qualities}\label{softwarequalities}
 
-Software quality attributes facilitate the measurement and comparison of software packages in this state of the practice assessment. We adopt software quality definitions from various researchers and subject matter expert entities. Some of the definitions are from \cite{Smithetal2020}. The quality measurement results are found in Section \ref{qualityresults} of this report. Section \ref{qualityrecommentations} lists recommendations to address software qualities in LBM software packages. The following are the software quality definitions used in this state of the practice exercise, along with comments regarding their quantitative and qualitative measurement.
+Software quality attributes facilitate the measurement and comparison of software packages in this state of the practice assessment. We adopt software quality definitions from various researchers and subject matter expert entities. Some of the definitions are from \cite{Smithetal2020}. The quality measurement results are found in Section \ref{AHPresults} of this report. Section \ref{qualityrecommentations} lists recommendations to address software qualities in LBM software packages. The following are the software quality definitions used in this state of the practice exercise, along with comments regarding their quantitative and qualitative measurement.
 
 \subsubsection{Installability} 
 
@@ -1375,15 +1376,12 @@ The Analytical Hierarchy Process (AHP) is a decision-making technique that is us
 This project used a tool for conducting this process. The tool includes a sensitivity analysis that was used to ensure that the software package rankings are appropriate with respect to the uncertainty of the quality scores. The \href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/AHP2020/LBM/README.txt}{README} file of the tool includes requirements and usage information.
 
 \newpage
-\section{Results}\label{qualityresults}
 
-This section presents the quantitative and qualitative findings from data that was gathered for each quality listed in Section \ref{softwarequalities}. Quantitative results are presented in Section \ref{AHPresults}, and qualitative results are presented in Section \ref{interviewresults}.
+\section{Quantitative Findings and AHP Results}\label{AHPresults}
 
-\subsection{Quantitative Findings and AHP Results}\label{AHPresults}
+This section presents the quantitative findings from data that was gathered using the measurement template found in Section \ref{measurementtemplate2} for qualities listed in Section \ref{softwarequalities}. The results of the AHP analysis based on that data are also presented in this section.
 
-This subsection presents the quantitative findings from data that was gathered using the measurement template found in Section \ref{measurementtemplate2}. The results of the AHP analysis based on that data are also presented in this subsection.
-
-\subsubsection{Installability}
+\subsection{Installability}
 
 All of the 23 software packages that were tested have installation instructions. As noted previously, many of the 23 software packages that were part of the original long list of 45 packages were removed due to not including documentation or installation instructions. 
 
@@ -1417,7 +1415,7 @@ Figure \ref{Fig_Installability} shows the installability ranking of the software
 
 Many software packages would benefit from a rewrite or reorganization of installation instructions. A single location for installation instructions would improve their maintainability and correctness. Listing compatible operating system and dependency versions would decrease installation time and errors, as would adding instructions on installing dependencies. Installation process errors should prompt the system to display detailed messages. Once a software package is installed, either an automatic validation needs to be performed or the user needs to be able to perform a manual validation using test examples that include expected output. Finally, uninstallation instructions should be included in the documentation. 
  
-\subsubsection{Surface Correctness and Verifiability}
+\subsection{Surface Correctness and Verifiability}
 
 Sixteen of the software packages include a requirements specification artifact or explicitly reference domain theory, often only the latter. Software packages that distribute requirements specification information, such as DL\_MESO (LBE), generally keep it brief and include it within other documentation. This artifact is often found within a user manual, on a web-page, or is mentioned in related publications. In the latter case the user may need to spend significant time to find this information. 
 
@@ -1441,7 +1439,7 @@ Figure \ref{Fig_CorrectnessVerifiability} shows the surface correctness and veri
 
 The inclusion of requirements specification and theory documentation greatly benefits the correctness and verifiability of software packages. The use of document generation tools can help build confidence in correctness. The addition of easy to follow tutorials further helps users verify the software and have confidence in its correctness. Unit testing documentation and capability, as well as the use of continuous integration tools and techniques such as Bamboo, Jenkins, and Travis CI, help verify correctness.
 
-\subsubsection{Surface Reliability}
+\subsection{Surface Reliability}
 
 The analysis of surface reliability focused on package installation and tutorials. Errors occurred when installing 16 of the software packages. Every instance prompted an error message. These messages indicated unrecognized commands (even when following the installation guide), missing links, missing dependencies, syntax errors in code files. In some instances the error messages were vague. Several automatic installation processes could not find and load dependencies. In these instances the installation tried to access outdated external repositories. Seven of the installations were recovered and verified, and one of the installations (LB3D-Prime) was assumed to be recovered due to the absence of any way to verify it. The installation of eight of the software packages could not be recovered. Most of these broken installations could not find external dependencies, encountered system incompatibilities, or displayed vague error messages. 
 
@@ -1459,7 +1457,7 @@ Figure \ref{Fig_Reliability} shows the surface reliability ranking of the softwa
 
 Overall, lower ranked software packages are lacking clear documentation, testing or tutorial examples, and descriptive error messages, and have broken dependencies. Thus, regarding surface reliability, software packages would benefit from clear up-to-date documentation that specifies all dependencies, the inclusion of testing and tutorial examples, and the assurance of descriptive error messages during fault conditions.
 
-\subsubsection{Surface Robustness}
+\subsection{Surface Robustness}
 
 The software packages were tested for handling unexpected input, including incorrect data types, empty input, and missing files or links. Success predicated on a reasonable response from the system, including appropriate error messages and an absence of unrecoverable system failures. 
 
@@ -1473,11 +1471,11 @@ The software packages were tested for handling unexpected input, including incor
 
 Figure \ref{Fig_Robustness} shows the surface robustness ranking of the software packages using AHP. Software packages with a high score behaved reasonably in response to unexpected input as described above. All of the software packages that installed correctly passed this test. They output descriptive error messages or did not crash. Software packages with a lower surface robustness score had not installed correctly, so their robustness score may not be a true reflection of runtime robustness. Similarly, all software packages that installed correctly and require plain text input files correctly handled an unexpected change to these input files, including a replacement of new lines with carriage returns. Furthermore, nine of the top 10 ranked packages are noted as being alive. LIMBES is noted as being dead.
 
-\subsubsection{Surface Performance}
+\subsection{Surface Performance}
 
 Although the software packages all apply LBM to solve scientific computing problems, the packages focus on varied CFD problems, with varying parameters, and are technically different from each other. Due to this, a comparison of performance is not appropriate. In this project we instead looked through each software package's artifacts for evidence that performance was considered. The artifacts of 17 software packages mentioned parallelization. This included GPU processing and the CUDA parallel computing platform, which were mentioned in the artifacts of 6 packages (ESPResSo, lbmpy, lettuce, pyLBM, Sailfish, TCLB). GPUs provide superior processing power and speed compared to CPUs, and are often used for scientific computing when a large amount of data is involved. The software package TCLB is implemented in a highly efficient multi-GPU code to achieve performance suitable for model optimization \citep{rutkowski2020open}. In the Ludwig package, a so-called mixed mode approach is used where fine-grained parallelism is implemented on the GPU, and MPI is used for even larger scale parallelism \citep{gray2013ludwig}. While one software package (Sailfish) required CUDA and GPU processing, some (ESPResSo, lbmpy, lettuce, pyLBM, TCLB) have the option of using either the GPU or the CPU. The packages that require GPU and CUDA have better performance at the expense of installability and surface reliability.
 
-\subsubsection{Surface Usability}
+\subsection{Surface Usability}
 
 Software package artifacts were reviewed for the presence of a tutorial, a user manual, documented user characteristics, and a user support model. In total 18 software packages have a tutorial, 13 have a user manual, and 11 have both. The tutorials vary in scope and substance, and eight include an expected output. Most user manuals are in the form of a file that can be downloaded, while some are rendered on a web-page. Some packages (waLBerla) do not have a user manual, but do have useful documentation distributed on their web-pages. Expected user characteristics are documented in four software packages (laboetie, LIMBES, Ludwig, Palabos). Users are typically scientists or engineers. Their background is often physics, chemistry, biophysics, or mathematics. All but one of the packages (LIMBES) have a user support model, and many of them have multiple avenues of user support. The most popular avenue of support is Git, followed by email and forums. One software package (OpenLB) has an FAQ page.    
 
@@ -1491,7 +1489,7 @@ Software package artifacts were reviewed for the presence of a tutorial, a user 
 
 Figure \ref{Fig_Usability} shows the surface usability ranking of the software packages using AHP. Software packages with a high score have a tutorial and user manual, sometimes have documented user characteristics, and have at least one user support model. Many packages have several user support models. Furthermore, four of the top five ranked packages are noted as being alive. 
 
-\subsubsection{Maintainability}
+\subsection{Maintainability}
 
 Software packages were reviewed for the presence of artifacts. Every type of artifact or file that is not a code file was recorded. The software packages were also reviewed for software release and documentation version numbers. This information could be used to better troubleshoot issues and organize documentation. All but three software packages (LatBo.jl, LB3D-Prime, MechSys) have source code release and documentation version numbers.
 
@@ -1546,7 +1544,7 @@ Figure \ref{Fig_Maintainability} shows the maintainability ranking of the softwa
 \end{center}
 \end{onehalfspacing}
 
-\subsubsection{Reusability}\label{reusabilityresults}
+\subsection{Reusability}\label{reusabilityresults}
 
 Each software package was measured for the total number of source code files. A larger number of source files was associated with increased reusability due to increased modularization. Some packages have more features than others, consequently contributing to reusablility since they have more source code that can be reused. The software packages were also reviewed for the presence of API documentation, which indicates that a software package was developed with interaction between other software applications in mind. 
 
@@ -1599,7 +1597,7 @@ Table \ref{moduledata} shows file and line of code data of the software packages
 
 There was a strong focus on modularity when designing the waLBerla framework to enhance productivity, reusability, and maintainability \citep{bauer2021walberla}. Its software design has enabled waLBerla to be successfully applied in several projects as a basis for various extensions \citep{bauer2021walberla}.
 
-\subsubsection{Surface Understandability}
+\subsection{Surface Understandability}
 
 Ten random source code files of each software package were reviewed for several measures. This assessment of surface understandability may not perfectly reflect each package due to the practical limitation of only being able to test 10 files. 
 
@@ -1615,7 +1613,7 @@ All of the packages appear to have a consistent indentation and formatting style
 
 Figure \ref{Fig_Understandability} shows the surface understandability ranking of the software packages using AHP. Software packages with a high score have a consistent indentation and formatting style, and consistent, distinctive, and meaningful code identifiers. They also have symbolic constants, and explicitly identify mathematical and LBM algorithms. Their comments are clear and indicate what is being done in the source code. The source code is well modularized and structured. Furthermore, four of the top five ranked packages are noted as being alive.
 
-\subsubsection{Visibility and Transparency}
+\subsection{Visibility and Transparency}
 
 Software package artifacts were reviewed for the identification of a specific development model, like a waterfall of agile development model, and the presence of documentation recording the development process and standard. They were also reviewed for the identification of the development environment, and the presence of release notes. The packages tended to not explicitly use well-known development models. This was also noted in the interviews with developers, as detailed below. The development teams of these packages are fairly small and easily organized without the need for such processes. Seven of the software packages did have some artifacts outlining the general development process, how to contribute, and the status of the package or its components. Eight of the packages have artifacts that note the development environment. While this information could help developers, and would improve transparency, the small close-knit nature of the development teams make explicitly publicly specifying this information practically unnecessary. Version release notes were found in nine of the software packages.
 
@@ -1630,7 +1628,7 @@ Software package artifacts were reviewed for the identification of a specific de
 Figure \ref{Fig_VisibilityTransparency} shows the visibility and transparency ranking of the software packages using AHP. Software packages with a high score have an explicit development model and defined development process. They also 
 had detailed and easy to access notes accompanying software releases. Furthermore, four of the top five ranked packages are noted as being alive. MP-LABS is noted as being dead.
 
-\subsubsection{Overall Quality}
+\subsection{Overall Quality}
 
 \begin{figure}[h!]
 	\begin{center}
@@ -1646,11 +1644,13 @@ Looking at the top three ranked packages, Ludwig scored high in surface correctn
 
 Section \ref{qualityrecommentations} further analyzes these findings and offers some software quality recommendations for future development of LBM software.
 
-\subsection{Qualitative Findings From Developer Interviews}\label{interviewresults}
+\newpage
 
-This subsection presents the qualitative findings from data that was gathered during interviews with developers. The interview questions are found in Appendix \ref{interviewquestions}.
+\section{Qualitative Findings From Developer Interviews}\label{interviewresults}
 
-\subsubsection{Surface Correctness and Verifiability}
+This section presents the qualitative findings from data that was gathered during interviews with developers for qualities listed in Section \ref{softwarequalities}. The interview questions are found in Appendix \ref{interviewquestions}.
+
+\subsection{Surface Correctness and Verifiability}
 
 Interviews with developers confirmed that these software packages are developed by domain experts with backgrounds in physics, mathematics and mechanical engineering. It was noted in these interviews that some of the developers do not have formal software engineering education. Some of the development teams include computer scientists. Despite a lack of visible domain documentation and a resulting lower surface correctness and verifiability score, it is clear that some of the software packages were developed by teams with significant domain knowledge on account of the academic backgrounds of their developers. 
 
@@ -1658,7 +1658,7 @@ Interviews suggested a more frequent use of both unit testing and continuous int
 
 Several interviewed developers alluded to difficulty with testing the correctness of large numbers of features, and some even manually tested program output. The use of well defined unit testing tools could decrease the time spent testing some feature.
 
-\subsubsection{Surface Usability}
+\subsection{Surface Usability}
 
 Interviews with developers revealed several usability issues. Some users have misunderstood the boundaries of LBM and CFD, and have combined or applied methods that are not physically sound. Sometimes users have applied LBM to poorly defined or inappropriate fluid dynamics problems. For example, they may wish to model flow through or around a structure despite having limited information about the structure or its environment, and having little previous knowledge of CFD. The users do not realize the limitations of the methods, of the software, and do not understand the requirements to properly model a problem with the software. As the developer of TCLB noted, such software packages are not designed to be used ``out of the box'' in a plug and play fashion, and it could take months or more to set up the CFD problems correctly. Developers of some software packages, including ESPResSo, mitigated this by editing the source code to prevent users from ``combining methods that are not physically sound together'', and by updating the documentation to better inform users of LBM limitations, and of the requirements to properly model appropriate problems, including what algorithms and parameters to use. 
 
@@ -1666,7 +1666,7 @@ Some additional but infrequent software usability issues were commented on by th
 
 One software package (ESPResSo) changed some of its scripting language to Python to make it more usable. The developer commented that this was ``the biggest step in terms of usability over the years'', further commenting that ``most people in the field know [Python]'' and that ``it's easy to learn''. 
 
-\subsubsection{Maintainability}
+\subsection{Maintainability}
 
 Interviews with developers revealed that most projects do have a defined process for accepting contributions from team members. The packages rarely get contributions from outside developers, but the process would be similar as for the aforementioned group.
 
@@ -1676,7 +1676,7 @@ Some developers noted that their software package does not have well defined con
 
 Furthermore, maintainability has been addressed by increasing source code modularity, reducing duplicate information, and improving abstraction by developing well defined interfaces. This was noted by the developers of ESPResSo and pyLBM. Several software packages have had sections of their code base redeveloped with languages that the developers felt are more understandable and readable, and that are better supported, such as Python. Data structures have also been redeveloped and storage has been improved. A developer of pyLBM mentioned that the geometries and models of their system had been ``decoupled'', using abstraction and modularization of the source code, to make it ``very easy to add [new] features''.
 
-\subsubsection{Modifiability}
+\subsection{Modifiability}
 
 Software packages were not quantitatively measured for modifiability.
 In this project we asked developers to comment on modifiability when we interviewed them. Specifically, we asked if ease of future changes to the system, modules, and code blocks was considered when designing the software. We also asked if any measures had been taken to ensure the ease of future changes. 
@@ -1687,11 +1687,11 @@ A high degree of code modularity and abstraction was noted by developers as a me
 
 Some software packages, like Palabos, provide validation benchmarks for their core fundamental algorithmic ingredients \citep{latt2021palabos}. The stated intent of these benchmarks is to showcase the validity and usefulness of the package to stimulate the development of third-user extensions. The Palabos package identifies as a development framework for modeling problems in various CFD areas. 
 
-\subsubsection{Surface Understandability}
+\subsection{Surface Understandability}
 
 Software developers noted that they believe users have generally found their packages to be understandable. The interviewed developer of ESPResSo commented that some users have attempted to run physically incompatible LBM methods, and the solution was to edit the code to prevent such combinations, as well as to update the documentation to prevent misunderstanding the methods. Similarly, a developer of pyLBM noted that some users had issues setting up parameters for LBM schemes. The solution to this was to update the interface where these parameters are set, as well as to add functionality to test the stability of the parameters. A developer of OpenLB noted that some users lack the background knowledge to easily model fluid dynamics problems using their software. A frequently asked questions section was added to their package website to help users find answers to common questions. The package also has detailed documentation, including guides and usage requirements specification, to better help users understand the software.
 
-\subsubsection{Traceability}
+\subsection{Traceability}
 
 Software packages were not quantitatively measured for traceability.
 In this project we asked developers to comment on traceability, specifically on their software package's documentation and how it fit into their development process. 
@@ -1704,7 +1704,7 @@ The importance of documentation for both users and developers was stressed throu
 
 The developer of OpenLB noted the use of documentation generators like Doxygen. It would be advisable for more projects to use such automatic document generation tools, since some projects do not do this.  
 
-\subsubsection{Visibility and Transparency}
+\subsection{Visibility and Transparency}
 
 Developers were asked to comment on the obstacles in their development process. The developer of ESPResSo noted that a lot of their source code had been written with a specific application in mind, and that there is too much coupling between components. Addressing this issue would help with code modifiability and reusability. Updating the development process would help resolve this issue and prevent such issues in the future. Improving the visibility of software changes and a peer review process would also help. Improving the software engineering education or experience of developers is also an idea that was brought up by several developers. Specifically, developers should always write code that is decoupled and modular, and should keep in mind the visibility of their contributions by better updating documentation and ensuring that their contributions are transparent to the rest of the developers. This would help catch issues in the contributions, and improve source code maintenance.   
 
@@ -1716,7 +1716,7 @@ None of the software packages whose developers were interviewed have a formal so
 
 The developers noted similar project management processes. For teams of only a couple of developers, the addition of new features or major changes are discussed with the entire team. Projects with more than a couple of developers have lead developer roles. These lead developers review potential additions to the software. The software packages use GitHub for managing the project. Typically there are several development branches as well as the master branch.
 
-\subsubsection{Reproducibility}
+\subsection{Reproducibility}
 
 Software packages were not quantitatively measured for reproducibility.
 In this project we asked developers to comment on reproducibility when we interviewed them.
@@ -1729,7 +1729,7 @@ Several developers noted that they currently do not have a system in place to te
 
 The source code and artifacts of some software packages may be reproducible. There is considerable variance in the quality of software specifications and other developer documentation. Some packages are well detailed, and translating the specifications into source code will produce similar results across developers. Developers were not asked to comment on the reproducibility of their source code from their requirements specifications and design documentation. This question should be considered in the next iteration of state of the practice assessments. 
 
-\subsubsection{Unambiguity}
+\subsection{Unambiguity}
 
 Software packages were not quantitatively measured for unambiguity.
 In this project we asked developers to comment on unambiguity when we interviewed them.
@@ -1745,7 +1745,7 @@ The developer of pyLBM also noted that their documentation was in reasonable sha
 
 \section{Answers To Research Questions}\label{answersquestions}
 
-This section answers the research questions listed in Section \ref{purpose} using the quantitative and qualitative data presented in Section \ref{qualityresults}, additional data from software package repositories and artifacts, and domain expert feedback. Each subsection answers one of the research questions. Software package artifacts are examined in Section \ref{artifacts}, tools are listed in Section \ref{tools}, development principles, processes, and methodologies are discussed in Section \ref{prinprocmeth}, development pain points are explored in Section \ref{painpoints}, and our recommendations for improving software qualities are presented in Section \ref{qualityrecommentations}. A comparison between our designations of the software packages to community rankings is made in Section \ref{comparison}. Finally, threats to the validity of this assessment are noted in Section \ref{threats}.
+This section answers the research questions listed in Section \ref{purpose} using the quantitative data presented in Section \ref{AHPresults}, qualitative data presented in Section \ref{interviewresults}, additional data from software package repositories and artifacts, and domain expert feedback. Each subsection answers one of the research questions. Software package artifacts are examined in Section \ref{artifacts}, tools are listed in Section \ref{tools}, development principles, processes, and methodologies are discussed in Section \ref{prinprocmeth}, development pain points are explored in Section \ref{painpoints}, and our recommendations for improving software qualities are presented in Section \ref{qualityrecommentations}. A comparison between our designations of the software packages to community rankings is made in Section \ref{comparison}. Finally, threats to the validity of this assessment are noted in Section \ref{threats}.
 
 \subsection{Artifacts Present}\label{artifacts}
 
