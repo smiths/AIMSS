@@ -6,6 +6,7 @@ This section summarizes some answers from the interviews with developers. We int
 In this section, we only discuss the answers which we think are the most exciting and essential. We summarize the rest part of the interviews in Appendix \ref{ap_interview}. The interviewees may have provided multiple answers to each question. When counting the number of interviewees for each response, we count every interviewee with this answer.
 
 \section{Current and Past Pain Points}
+\label{sec_interview_pain_points}
 
 By asking questions 9, 10, and 12, we tried to identify the pain points during the development process in the eight projects. The pain points include current and past obstacles. We also asked the interviewees how they would solve the problems.
 
@@ -165,6 +166,7 @@ We also summarize the potential and proven solutions as follows.
 No interviewee provided a perfect way to solve this problem. However, connections between the development team and medical professionals/institutions could ease the pain.
 
 \section{Documents in the Projects}
+\label{sec_interview_documents}
 By asking questions 11 and 19, we tried to understand the interviewees' opinions on documentation. We also aimed to find out the quality of documentations in their projects.
 
 Questions 11 and 19 are as follows,
@@ -212,6 +214,7 @@ State management & 1 \\ \hline
 \end{table}
 
 \section{Contribution Management and Project Management}
+\label{sec_contribution_pm}
 By asking questions 5, 13, and 14, we tried to understand how the teams managed the contributions and their projects.
 
 Questions 5, 13, and 14 are as follows,
@@ -284,3 +287,177 @@ Confluence & 1 \\ \hline
 No interviewee introduced any strictly defined project management process. The most common way was following the issues, such as bugs and feature requests. Additionally, the \textit{3D Slicer} team had weekly meetings to discuss the goals for the project; the \textit{INVESALIUS 3} team relied on the GitHub process for their project management; the \textit{ITK-SNAP} team had a fixed six-month release pace; only the interviewee from the \textit{OHIF} team mentioned that the team has a project manager; the \textit{3D Slicer} team and \textit{BioImage Suite Web} team were doing nightly builds and tests.
 
 Most interviewees skipped the question ``Do you think improving this process can tackle the current problem?", but the interviewee from the \textit{OHIF} team gave a positive answer.
+
+\section{Discussions on Software Qualities}
+\label{sec_interview_software_qualities}
+Questions 15, 16, 17, 18, and 20 are about software qualities \textit{correctness}, \textit{maintainability}, \textit{understandability}, \textit{usability}, and \textit{reproducibility} respectively. We asked these questions to understand the threats to these qualities and the developers' strategies to improve them.
+
+\subsection{Correctness}
+\textit{Q15. Was it hard to ensure the correctness of the software? If there were any obstacles, what methods have been considered or practiced to improve the situation? If practiced, did it work?}
+
+Table \ref{tab_q15_threats_correctness} shows the threats to \textit{correctness} by the numbers of interviewees with the answers.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ll}
+\hline
+Threat to correctness & Number of interviewees with the answer \\ \hline
+\begin{tabular}[c]{@{}l@{}}Clinical systems produce data in various formats \\ (e.g. DICOM), which have complicated standards.\\ The software needs to handle the complexity.\end{tabular} & 2 \\
+\begin{tabular}[c]{@{}l@{}}Different types of MI machines can create data \\ in slightly different ways, adding more complexity\\ for the software to handle.\end{tabular} & 2 \\
+\begin{tabular}[c]{@{}l@{}}Besides viewing, the software has additional \\ functions, which lead to extra complexity.\end{tabular} & 1 \\
+There is lack of real word image data for testing. & 1 \\
+\begin{tabular}[c]{@{}l@{}}The team cannot use private data for debugging,\\ even when the data cause problems.\end{tabular} & 1 \\
+\begin{tabular}[c]{@{}l@{}}The software uses huge datasets for testing, so \\ the tests are expensive and time-consuming.\end{tabular} & 1 \\
+It is hard to well manage releases. & 1 \\
+The project has no unit tests. & 1 \\
+The project has no dedicated quality assurance team. & 1 \\ \hline
+\end{tabular}
+\caption{\label{tab_q15_threats_correctness}Threats to correctness by the numbers of interviewees with the answers}
+\end{table}
+
+Table \ref{tab_q15_strategies_correctness} shows the strategies to ensure \textit{correctness} by the numbers of interviewees with the answers. The interviewees from the \textit{3D Slicer} and \textit{ITK-SNAP} teams thought that the self-tests and automated tests were beneficial and could significantly save time. The interviewee from the \textit{Weasis} team kept collecting medical images for more than ten years. These images have caused problems with the software. So he had samples to test specific problems.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ll}
+\hline
+Strategy to ensure correctness & Number of interviewees with the answer \\ \hline
+\begin{tabular}[c]{@{}l@{}}Test-driven development / component tests /\\ integration tests / smoke tests / regression tests.\end{tabular} & 4 \\
+Self tests / automated tests. & 3 \\
+\begin{tabular}[c]{@{}l@{}}Two stage development process / stable release \&\\ nightly builds.\end{tabular} & 3 \\
+CI/CD. & 1 \\
+\begin{tabular}[c]{@{}l@{}}Using deidentified copies of medical images for\\ debugging.\end{tabular} & 1 \\
+\begin{tabular}[c]{@{}l@{}}Sending the beta versions of software to medical\\ workers who can access the data and do the tests.\end{tabular} & 1 \\
+\begin{tabular}[c]{@{}l@{}}Collecting and maintaining a dataset of\\ problematic images.\end{tabular} & 1 \\ \hline
+\end{tabular}
+\caption{\label{tab_q15_strategies_correctness}Strategies to ensure correctness by the numbers of interviewees with the answers}
+\end{table}
+
+\subsection{Maintainability}
+\textit{Q16. When designing the software, did you consider the ease of future changes? For example, will it be hard to change the system’s structure, modules, or code blocks? What measures have been taken to ensure the ease of future changes and maintains?}
+
+Table \ref{tab_q16_strategies_maintainability} shows the strategies to ensure \textit{maintainability} by the numbers of interviewees with the answers. The modular approach is the most talked-about solution to improve \textit{maintainability}. The \textit{3D Slicer} team used a well-defined structure for the software, which they named as ``event-driven MVC pattern''. Moreover, \textit{3D Slicer} discovers and loads necessary modules at runtime, according to the configuration and installed extensions. The \textit{BioImage Suite Web} team had designed and re-designed their software multiple times in the last 10+
+years. They found that their modular approach effectively supported the maintainability \cite{Joshi2011}. 
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ll}
+\hline
+Strategy to ensure maintainability & Number of interviewees with the answer \\ \hline
+\begin{tabular}[c]{@{}l@{}}Modular approach / thinking the software\\ as reusable Lego bricks / maintain \\ repetitive functions as libraries.\end{tabular} & 5 \\
+Supporting third-party extensions. & 1 \\
+Easy-to-understand architecture. & 1 \\
+Dedicated architect. & 1 \\
+Starting from simple solutions. & 1 \\
+Documentation. & 1 \\ \hline
+\end{tabular}
+\caption{\label{tab_q16_strategies_maintainability}Strategies to ensure maintainability by the numbers of interviewees with the answers}
+\end{table}
+
+\subsection{Understandability}
+\textit{Q17. Provide instances where users have misunderstood the software. What, if any, actions were taken to address understandability issues?}
+
+Table \ref{tab_q17_threats_understandability} shows the threats to \textit{understandability} by the numbers of interviewees with the answers. It separates \textit{understandability} issues to users and developers by the horizontal dash line.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ll}
+\hline
+Threat to understandability & Number of interviewees with the answer \\ \hline
+\begin{tabular}[c]{@{}l@{}}Not all users understand how to use some\\ features of the software.\end{tabular} & 2 \\
+\begin{tabular}[c]{@{}l@{}}The team has no dedicated user experience\\ (UX) designer.\end{tabular} & 1 \\
+\begin{tabular}[c]{@{}l@{}}The software does not make some important\\ indicators noticeable (e.g. a progress bar).\end{tabular} & 1 \\
+\begin{tabular}[c]{@{}l@{}}Not all users understand the purpose of the\\ software.\end{tabular} & 1 \\
+\begin{tabular}[c]{@{}l@{}}Not all users know if the software includes\\ certain features.\end{tabular} & 1 \\
+\begin{tabular}[c]{@{}l@{}}Not all users understand how to use the\\ command line tool.\end{tabular} & 1 \\
+\begin{tabular}[c]{@{}l@{}}Not all users understand that the software is \\a web application.\end{tabular} & 1 \\\hdashline
+\begin{tabular}[c]{@{}l@{}}Not all developers understand how to deploy\\ the software.\end{tabular} & 1 \\
+\begin{tabular}[c]{@{}l@{}}The architecture is difficult for new\\ developers to understand.\end{tabular} & 1 \\ \hline
+\end{tabular}
+\caption{\label{tab_q17_threats_understandability}Threats to understandability by the numbers of interviewees with the answers}
+\end{table}
+
+Table \ref{tab_q17_strategies_understandability} shows the strategies to ensure \textit{understandability} by the numbers of interviewees with the answers.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ll}
+\hline
+Strategy to ensure understandability & Number of interviewees with the answer \\ \hline
+\begin{tabular}[c]{@{}l@{}}Documentation / user manual /\\ user mailing list / forum.\end{tabular} & 4 \\
+Graphical user interface. & 2 \\
+Testing every release with active users. & 1 \\
+\begin{tabular}[c]{@{}l@{}}Making simple things simple and complicated\\ things possible.\end{tabular} & 1 \\
+Icons with more clear visual expressions. & 1 \\
+Designing the software to be intuitive. & 1 \\
+Having a UX designer with the right experience. & 1 \\
+Dialog windows for important notifications. & 1 \\
+\begin{tabular}[c]{@{}l@{}}Providing an example if the users need to build\\ the software by themselves.\end{tabular} & 1 \\ \hline
+\end{tabular}
+\caption{\label{tab_q17_strategies_understandability}Strategies to ensure understandability by the numbers of interviewees with the answers}
+\end{table}
+
+\subsection{Usability}
+\textit{Q18. What, if any, actions were taken to address usability issues?}
+
+Table \ref{tab_q18_strategies_usability} shows the strategies to ensure \textit{usability} by the numbers of interviewees with the answers.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ll}
+\hline
+Strategy to ensure usability & Number of interviewees with the answer \\ \hline
+Usability tests and interviews with end users. & 3 \\
+Adjusting according to users' feedbacks. & 3 \\
+\begin{tabular}[c]{@{}l@{}}Straightforward and intuitively designed interface /\\ professional UX designer.\end{tabular} & 2 \\
+\begin{tabular}[c]{@{}l@{}}Providing step-by-step processes, and showing\\ the step numbers.\end{tabular} & 1 \\
+\begin{tabular}[c]{@{}l@{}}Making the basic functions easy to use without\\ reading the documentation.\end{tabular} & 1 \\
+Focusing on limited number of functions. & 1 \\
+Making the software more streamlined. & 1 \\
+Downsampling images to consume less memory. & 1 \\
+\begin{tabular}[c]{@{}l@{}}An option to load only part of the data to boost\\ performance.\end{tabular} & 1 \\ \hline
+\end{tabular}
+\caption{\label{tab_q18_strategies_usability}Strategies to ensure usability by the numbers of interviewees with the answers}
+\end{table}
+
+\subsection{Reproducibility}
+\textit{Q20. Do you have any concern that your computational results won’t be reproducible in the future? Have you taken any steps to ensure reproducibility?}
+
+Table \ref{tab_q20_threats_reproducibility} shows the threats to \textit{reproducibility} by the numbers of interviewees with the answers.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ll}
+\hline
+Threat to reproducibility & Number of interviewees with the answer \\ \hline
+\begin{tabular}[c]{@{}l@{}}If the software is closed-source, the reproducibility\\is hard to achieve.\end{tabular} & 1 \\
+The project has no user interaction tests. & 1 \\
+The project has no unit tests. & 1 \\
+\begin{tabular}[c]{@{}l@{}}Using different versions of some common libraries\\may cause problems.\end{tabular} & 1 \\
+CPU variability can leads to non-reproducibility. & 1 \\
+\begin{tabular}[c]{@{}l@{}}When reverse-engineering how manufacturers create\\medical images, the team may misinterpret it.\end{tabular} & 1 \\ \hline
+\end{tabular}
+\caption{\label{tab_q20_threats_reproducibility}Threats to reproducibility by the numbers of interviewees with the answers}
+\end{table}
+
+Table \ref{tab_q20_strategies_reproducibility} shows the strategies to ensure \textit{ reproducibility} by the numbers of interviewees with the answers. The interviewee from the \textit{3D Slicer} team provided various suggestions. One interviewee from another team suggested that they used \textit{3D Slicer} as the benchmark to test their \textit{reproducibility}.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ll}
+\hline
+Strategy to ensure reproducibility & Number of interviewees with the answer \\ \hline
+Regression tests / unit tests / having good tests. & 6 \\
+\begin{tabular}[c]{@{}l@{}}Making code, data, and documentation available / making\\ the software open-source / using open-source libraries.\end{tabular} & 5 \\
+Running same tests on all platforms. & 1 \\
+\begin{tabular}[c]{@{}l@{}}A dockerized version of the software,  insulating it from\\ the operating system environment.\end{tabular} & 1 \\
+Using standard libraries. & 1 \\
+Monitoring the upgrades of the libraries. & 1 \\
+Clearly documenting the versions. & 1 \\
+\begin{tabular}[c]{@{}l@{}}Bringing along the exact versions of all the dependencies\\ with the software.\end{tabular} & 1 \\
+Providing checksums of the data. & 1 \\
+\begin{tabular}[c]{@{}l@{}}Benchmark the software against other software with\\ similar purposes.\end{tabular} & 1 \\ \hline
+\end{tabular}
+\caption{\label{tab_q20_strategies_reproducibility}Strategies to ensure  reproducibility by the numbers of interviewees with the answers}
+\end{table}
+

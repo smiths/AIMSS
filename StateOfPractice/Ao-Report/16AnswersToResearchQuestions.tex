@@ -1,10 +1,207 @@
 \chapter{Answers to Research Questions}
 \label{ch_answers}
 
-answers to research questions - TBC
+This section answers our research questions in Section \ref{sec_research_questions}. The answers are based on our quality measurements and developer interviews. Sections \ref{sec_rq1_pain_points}, \ref{sec_rq2_artifacts}, \ref{sec_rq3_documentation}, \ref{sec_rq4_PPMT}, \ref{sec_rq5_qualities}, and \ref{sec_rq6_comparison} summarize the answers to the six questions respectively. Section \ref{sec_threats_to_validity} lists the threats to the validity of our research.
+
+\section{Pain Points and Solutions}
+\label{sec_rq1_pain_points}
+\textit{RQ1. What are the pain points for developers working on MI software projects? What solutions have the developers tried to address the pain points?}
+
+We answer this question primarily by interviewing the developers. As described in Section \ref{sec_interview_pain_points}, the top three pain points are as follows,
+\begin{itemize}
+\item the lack of fundings and time;
+\item the difficulty to balance between four factors: cross-platform compatibility, convenience to development \& maintenance, performance, and security;
+\item the lack of access to real-world datasets for testing.
+\end{itemize}
+
+Section \ref{sec_interview_pain_points} also lists potential and proven solutions from the developers.
+
+\section{Artifacts in the Projects}
+\label{sec_rq2_artifacts}
+\textit{RQ2. What artifacts the projects generated?}
+
+We answer this question by searching and scanning the source code and documentation of the projects. The complete list of artifacts is in the repository \hyperlink{https://github.com/smiths/AIMSS}{https://github.com/smiths/AIMSS}.
+
+Part of the answer is in Section \ref{ch_results}. Table \ref{tab_maintainability_docs} shows which projects contained a project plan, development manual, or API documentation, and Table \ref{tab_Visibility/Transparency_docs} lists the projects with a documented development process, project status, development environment, or release notes.
+
+Table \ref{tab_artifacts_frequency} shows the frequency of some artifacts in the 29 MI projects.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ll}
+\hline
+Artifact & Number of projects \\ \hline
+Source code & 29 \\
+Version Control & 29 \\
+README & 29 \\
+License & 28 \\
+Bug tracker & 28 \\
+Change request & 28 \\
+User Manual & 22 \\
+Release notes & 22 \\
+Build file & 18 \\
+Tutorials & 18 \\
+Makefile & 18 \\
+Installation Guide & 16 \\
+Test cases & 15 \\
+Authors & 14 \\
+FAQ & 14 \\
+Acknowledgements & 12 \\
+Executable files & 10 \\
+Developer's Manual & 8 \\
+API documentation & 7 \\
+Troubleshooting guide & 6 \\
+Project Plan & 5 \\ \hline
+\end{tabular}
+\caption{\label{tab_artifacts_frequency}Artifacts by their frequency in the 29 MI projects}
+\end{table}
+
+\section{Documentation in the Projects}
+\label{sec_rq3_documentation}
+\textit{RQ3. What role does documentation play in the projects? What are the developers' attitudes toward it?}
+
+We answer this question by interviewing the developers. As shown in Section \ref{sec_interview_documents}, most of the nine interviewees thought that documentation was essential to their projects. However, they hold the common opinion that their documentation needed improvements. Nearly half of them also believed that the lack of time prevented them from improving the documentation.
+
+\section{Principles, Processes, Methodologies, and Tools in the Projects}
+\label{sec_rq4_PPMT}
+\textit{RQ4. What principles, processes, methodologies, and tools the projects used?}
+
+We answer this question by measuring the qualities and interviewing the developers.
+
+Table \ref{tab_maintainability_docs}, \ref{tab_Visibility/Transparency_docs}, and \ref{tab_artifacts_frequency} reveal part of the answer, such as which and how many teams used a project plan, API documentation, release notes, version control, etc.
+
+We summarize the other part of the answer from the interviews. Sections \ref{sec_interview_documents} and \ref{sec_contribution_pm} list some principles, processes, methodologies, and tools for documentation, contribution management, and project management. As shown in Section \ref{sec_interview_software_qualities}, the developers also shared some of their principles, processes, methodologies, and tools to improve \textit{correctness}, \textit{maintainability}, \textit{understandability}, \textit{usability}, and \textit{reproducibility}.
+
+\section{Software Qualities}
+\label{sec_rq5_qualities}
+\textit{RQ5. What is the current status of the following software qualities for the projects? What actions have the developers taken to address them?}
+
+We answer this question by measuring the qualities and interviewing the developers. Section \ref{ch_results} contains our measurement results for \textit{Installability}, \textit{Correctness \& Verifiability}, \textit{Reliability}, \textit{Robustness}, \textit{Usability}, \textit{Maintainability}, \textit{Reusability}, \textit{Understandability}, and \textit{Visibility/Transparency}; Section \ref{sec_interview_software_qualities} shows results from the interviews for \textit{correctness}, \textit{maintainability}, \textit{understandability}, \textit{usability}, and \textit{reproducibility}.
+
+We list some of the key points that may improve each quality as follows,
+\begin{itemize}
+\item \textbf{Installability}
+\begin{itemize}
+    \item clear instructions;
+    \item automated installer;
+    \item including all dependencies in the installer;
+    \item avoiding heavily depending on other commercial products (e.g. Matlab);
+    \item considering building a web application that needs no installation.
+\end{itemize}
+\item \textbf{Correctness \& Verifiability}
+\begin{itemize}
+    \item test-driven development with unit tests, integration tests, nightly tests, etc.
+    \item two stage development process with stable release \& nightly builds;
+    \item CI/CD;
+    \item documents of requirements specifications and theory manuals.
+\end{itemize}
+\item \textbf{Reliability}
+\begin{itemize}
+    \item test-driven development with unit tests, integration tests, nightly tests, etc.
+    \item two stage development process with stable release \& nightly builds;
+    \item descriptive error messages.
+\end{itemize}
+\item \textbf{Robustness}
+\begin{itemize}
+    \item designing with exceptions and make the software failures elegant;
+    \item descriptive error messages.
+\end{itemize}
+\item \textbf{Usability}
+\begin{itemize}
+    \item usability tests and interviews with end users;
+    \item adjusting according to users’ feedbacks;
+    \item getting started tutorials;
+    \item user manuals;
+    \item professional UX designs;
+    \item active supports to users.
+\end{itemize}
+\item \textbf{Maintainability}
+\begin{itemize}
+    \item using GitHub;
+    \item modular approach;
+    \item documentation for developers, such as project plan, developer’s manual, and API documentation.
+\end{itemize}
+\item \textbf{Reusability}
+\begin{itemize}
+    \item modular approach;
+    \item API documentation.
+\end{itemize}
+\item \textbf{Understandability}
+\begin{itemize}
+    \item modular approach;
+    \item consistent codding style;
+    \item clear comments;
+    \item description of used algorithms;
+    \item documentation;
+    \item communication between developers and users via GitHub issues, mailing lists, forums etc.
+    \item graphical user interface.
+\end{itemize}
+\item \textbf{Visibility/Transparency}
+\begin{itemize}
+    \item documents for the development process, project status, development environment, and release notes.
+\end{itemize}
+\item \textbf{Reproducibility}
+\begin{itemize}
+    \item test-driven development with unit tests, integration tests, nightly tests, etc.
+    \item open-source;
+    \item making data and documentation available;
+    \item using open-source libraries.
+\end{itemize}
+\end{itemize}
+
+\section{Our Ranking versus the Community Ratings}
+\label{sec_rq6_comparison}
+\textit{RQ6. How does the software quality ranking generated by our methods compare with the ratings from the community?}
+
+We answer this question by grading the qualities of the software, then comparing the ranking with the community ratings on GitHub, such as GitHub stars, number of forks, and number of people watching the projects.
+
+Table \ref{tab_ranking_vs_GitHub} shows our ranking to the 29 MI projects, and their GitHub metrics if applicable. As mentioned in Section \ref{sec_score_maintainability}, 24 projects used GitHub. Since GitHub repositories have different creation dates, we collect the number of months each stayed on GitHub, and calculate the average number of new stars, people watching, and forks per 12 months. The method of getting the creation date is described in Section \ref{sec_empirical_measurements}, and we obtained these metrics in July, 2021.
+
+Generally speaking, most of the top-ranking MI software projects also received greater attention and popularity on GitHub. Project \textit{dwv} was popular on GitHub, but we ranked it low. As mentioned in Section \ref{sec_result_installability}, we failed to build it locally, and used the test version on its websites for the measurements. We followed the instructions and tried to run the command ``yarn run test" locally, which did not work. In addition, the test version did not detect a broken DICOM file and displayed a blank image as described in Section \ref{sec_result_robustness}. We might underestimate the scores for \textit{dwv} due to uncommon technical issues.
+
+\begingroup
+\renewcommand{\arraystretch}{0.85}
+\begin{table}[H]
+\centering
+\begin{tabular}{lllll}
+\hline
+Software & Our ranking & Stars/yr & Watch/yr & Forks/yr \\ \hline
+3D Slicer & 1 & 284.25 & 18.75 & 128.25 \\
+ImageJ & 2 & 83.58 & 9.37 & 30.00 \\
+OHIF Viewer & 3 & 277.04 & 19.30 & 223.83 \\
+Fiji & 4 & 44.20 & 4.98 & 20.68 \\
+ParaView & 5 & 66.76 & 7.11 & 28.36 \\
+Weasis & 6 & 36.00 & 5.10 & 18.90 \\
+medInria & 7 & 7.04 & 3.35 & 6.35 \\
+BioImage Suite Web & 8 & 17.85 & 4.62 & 6.77 \\
+OsiriX Lite & 9 & 34.14 & 8.62 & 23.77 \\
+INVESALIUS 3 & 10 & 39.66 & 4.11 & 17.37 \\
+Gwyddion & 11 & n/a & n/a & n/a \\
+Horos & 12 & 48.62 & 9.23 & 18.00 \\
+SMILI & 13 & 3.04 & 0.91 & 1.52 \\
+Ginkgo CADx & 14 & 18.83 & 4.43 & 5.72 \\
+ITK-SNAP & 15 & 9.10 & 0.97 & 3.59 \\
+MicroView & 16 & 1.48 & 0.82 & 0.82 \\
+Papaya & 17 & 44.70 & 4.84 & 19.71 \\
+MRIcroGL & 18 & 23.63 & 3.38 & 3.38 \\
+XMedCon & 19 & n/a & n/a & n/a \\
+Slice:Drop & 20 & 9.73 & 2.16 & 4.97 \\
+DicomBrowser & 21 & n/a & n/a & n/a \\
+AMIDE & 22 & n/a & n/a & n/a \\
+dwv & 23 & 123.56 & 11.59 & 51.36 \\
+3DimViewer & 24 & n/a & n/a & n/a \\
+GATE & 25 & 18.90 & 5.79 & 25.79 \\
+dicompyler & 26 & 35.18 & 4.77 & 13.64 \\
+Drishti & 27 & 16.04 & 3.78 & 4.43 \\
+MatrixUser & 28 & 2.00 & 0.33 & 0.33 \\
+DICOM Viewer & 29 & 42.86 & 5.71 & 8.57 \\ \hline
+\end{tabular}
+\caption{\label{tab_ranking_vs_GitHub}Software ranking versus GitHub metrics}
+\end{table}
+\endgroup
 
 \section{Threats to Validity}
-
+\label{sec_threats_to_validity}
 This section lists all the potential threats to the validity of our research.
 
 \begin{enumerate}
@@ -13,4 +210,5 @@ This section lists all the potential threats to the validity of our research.
 \item It was not practical to ask each development team for every piece of information. We collected much information - such as artifacts and funding situations of software - by ourselves. There may be cases that we missed some information.
 \item We interviewed eight teams, which is a good proportion of the 29. However, there is still a risk that they might not well represent the whole MI software community.
 \item As mentioned in Section \ref{ch_interview}, one interviewee was too busy to participate in a full interview, so he provided a version of written answers to us. Since we did not have the chance to explain our questions or ask him follow-up questions, there is a possibility of misinterpretation of the questions or answers.
+\item As mentioned in Section \ref{sec_rq6_comparison}, we gave \textit{dwv} much lower scores than its GitHub popularity. We might underestimate its rank due to uncommon technical issues.
 \end{enumerate}
