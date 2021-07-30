@@ -1,61 +1,61 @@
 \chapter{Background}
 \label{ch_background}
 
-When designing a method for evaluating the state of the practice of domain-specific software, we included a step to select domain and software. Knowledge of different software categories is essential for the selection. To compare and grade the software qualities with the grading template in Appendix \ref{ap_grading_template}, we need the definitions of qualities and the Analytic Hierarchy Process (AHP).
+In this section, we introduce the relevant software categories (Section \ref{sec_software_categories}). We also cover the software quality definitions (Section \ref{sec_software_quality}) and an overview of the Analytic Hierarchy Process (AHP) (Section \ref{sec_AHP}).
+
+When designing a method for evaluating the state of the practice of domain-specific software, we included a step to select domain and software. Knowledge of different software categories is essential for the selection. To compare and rank the software qualities with the grading template in Appendix \ref{ap_grading_template}, we need the definitions of qualities and the AHP.
 
 \section{Software Categories}
-We usually target specific software categories to narrow down the scopes when selecting software domains and software packages. In this section, we discuss three common software categories and also SC software.
+\label{sec_software_categories}
+We target specific software categories to narrow down the scope when selecting software packages for measuring. In this section, we discuss three common software categories: Open source software (OSS), freeware, and commercial software.
 
 \subsection{Open Source Software}
 \label{sec_open_source_software}
-For Open Source software (OSS), its source code is openly accessible, and users have the right to study, change and distribute it under a license granted by the copyright holder. For many OSS projects, the development process relies on the collaboration of different contributors worldwide \cite{Corbly2014}. Accessible source code usually exposes more ``secrets'' of a software project, such as the underlying logic of software functions, how developers achieve their works, and the flaws and potential risks in the final product. Thus, it brings much more convenience to the researchers analyzing the qualities of the project.
+For OSS, the source code is openly accessible. Users have the right to study, change and distribute it under a license granted by the copyright holder. For many OSS projects, the development process relies on the collaboration of different contributors worldwide \cite{Corbly2014}. Accessible source code usually exposes more ``secrets'' of a software project, such as the underlying logic of software functions, how developers achieve their works, and the flaws and potential risks in the final product. Thus, it brings much more convenience to researchers analyzing the qualities of the project.
 
 \subsection{Freeware}
 \label{sec_freeware}
-Freeware is software that can be used free of charge. Unlike with OSS, the authors of freeware typically do not allow users to access or modify the source code of the software \cite{LINFO2006}. The term \textit{freeware} should not be confused with \textit{free software}, which is similar to OSS but with a few differences. To the end-users, the differences between freeware and OSS often do not bother them. The fact that these products are free of charge is likely to make them popular with many users. However, software developers, end-users who wish to modify the source code, and researchers looking for inner characteristics may find the inaccessible source code a problem. 
+Freeware is software that can be used free of charge. Unlike with OSS, the authors of freeware do not allow users to access or modify the source code of the software \cite{LINFO2006}. The term \textit{freeware} should not be confused with \textit{free software}, which is similar to OSS. To the end-users, the differences between freeware and OSS often do not bother them. The fact that these products are free of charge is likely to make them popular with many users. However, software developers, end-users who wish to modify the source code, and researchers looking for insight into software development process will find the inaccessible source code a problem. 
 
 \subsection{Commercial Software}
 ``Commercial software is software developed by a business as part of its business'' \cite{GNU2019}.
 Typically speaking, the users are required to pay to access all of the features of commercial software, excluding access to the source code. However, some commercial software is also free of charge \cite{GNU2019}. Based on our experience, most commercial software products are not OSS.
 
-For some specific software, the backgrounds of commercial software developers often differ from the ones of non-commercial OSS. In such a case, the former is usually the product of software engineers, and the latter is likely to have developers who work in the domain and are also end-users of the products. One example is software in SC, since the developers need to utilize their domain-specific during the development process \cite{WilsonEtAl2014}.
-
-\subsection{Scientific Computing Software}
-Software development in SC depends on the knowledge of three areas - the inside of a specific engineering or science domain, the ability to mathematically build models and apply algorithms, and to implement theoretical models and algorithms with computational tools. SC software is built with mathematical and computational tools to serve the purpose of solving scientific problems in a domain \cite{Mehta2015}. However, the majority of scientists developing their software are self-taught programmers \cite{WilsonEtAl2014}, so there may be a bigger Room for software quality improvement in SC domains.
+For some specific software, the backgrounds of commercial software developers often differ from the ones of non-commercial OSS. In such a case, the former is usually the product of software engineers, and the latter is likely to have developers who work in the domain and are also end-users of the products. One example of such software is SC software, since the developers need to utilize their domain-specific during the development process \cite{Wilson2014}.
 
 \section{Software Quality Definitions}
 \label{sec_software_quality}
 
-Our grading template in Appendix \ref{ap_grading_template} contain nine software qualities. This section lists the definitions of them, which are from Smith et al. \cite{SmithEtAl2020}. The order of the first nine qualities follows the grading template. We do not measure \textit{reproducibility} with the grading template, but we discuss it with the developers by interviews.
+This section lists the definitions of 10 software qualities, which are from Smith et al. \cite{SmithEtAl2020}. We aim to measure each of them for selected SC software packages. The order of the first nine qualities follows our grading template in Appendix \ref{ap_grading_template}. We do not measure \textit{reproducibility} with the grading template, but discuss it with the developers by interviews.
 
 \begin{itemize}
-	\label{def_installability}
-	\item \textbf{Installability} The effort required for the installation, uninstallation, or reinstallation of a software or product in a specified environment.
-	\label{def_correctness_verifiability}
-	\item \textbf{Correctness \& Verifiability} A program is correct if it behaves according to its stated. Verifiability is the extent to which a set of tests can be written and executed, to demonstrate that the delivered system meets the specification.
-	\label{def_reliability}
-	\item \textbf{Reliability} The probability of failure-free operation of a computer program in a specified environment for a specified time, i.e. the average time interval between two failures also known as the mean time to failure (MTTF).
-	\label{def_robustness}
-	\item \textbf{Robustness} Software possesses the characteristic of robustness if it behaves ``reasonably'' in two situations: i) when it encounters circumstances not anticipated in the requirements specification, and ii) when the assumptions in its requirements specification are violated.
-	\label{def_usability}
-	\item \textbf{Usability} The extent to which a product can be used by specified users to achieve specified goals with effectiveness, efficiency, and satisfaction in a specified context of use.
-	\label{def_maintainability}
-	\item \textbf{Maintainability} The effort with which a software system or component can be modified to i) correct faults; ii) improve performance or other attributes; iii) satisfy new requirements.
-	\label{def_reusability}
-	\item \textbf{Reusability} The extent to which a software component can be used with or without adaptation in a problem solution other than the one for which it was originally developed.
-	\label{def_understandability}
-	\item \textbf{Understandability} The capability of the software product to enable the user to understand whether the software is suitable, and how it can be used for particular tasks and conditions of use.
-	\label{def_visibility_transparency}
-	\item \textbf{Visibility/Transparency} The extent to which all of the steps of a software development process and the current status of it are conveyed clearly.
-	\label{def_reproducibility}
-	\item \textbf{Reproducibility} A result is said to be reproducible if another researcher can take the original code and input data, execute it, and re-obtain the same result.
+	\item \textbf{Installability} The effort required for the installation, uninstallation, or reinstallation of a software or product in a specified environment \cite{ISO/IEC25010} \cite{lenhard2013measuring}.
+
+	\item \textbf{Correctness \& Verifiability} A program is correct if it behaves according to its stated. Verifiability is the extent to which a set of tests can be written and executed, to demonstrate that the delivered system meets the specification \cite{GhezziEtAl2003}.
+
+	\item \textbf{Reliability} The probability of failure-free operation of a computer program in a specified environment for a specified time, i.e. the average time interval between two failures also known as the mean time to failure (MTTF) \cite{musa1987software} 
+	\cite{GhezziEtAl2003}.
+
+	\item \textbf{Robustness} Software possesses the characteristic of robustness if it behaves ``reasonably'' in two situations: i) when it encounters circumstances not anticipated in the requirements specification, and ii) when the assumptions in its requirements specification are violated \cite{ghezzi1991fundamentals} \cite{boehm2007software}.
+
+	\item \textbf{Usability} ``The extent to which a product can be used by specified users to achieve specified goals with effectiveness, efficiency, and satisfaction in a specified context of use" \cite{ISO/TR16982:2002} \cite{ISO9241-11:2018}.
+
+	\item \textbf{Maintainability} The effort with which a software system or component can be modified to i) correct faults; ii) improve performance or other attributes; iii) satisfy new requirements \cite{IEEEStdGlossarySET1990} \cite{boehm2007software}.
+
+	\item \textbf{Reusability} ``The extent to which a software component can be used with or without adaptation in a problem solution other than the one for which it was originally developed" \cite{kalagiakos2003non}.
+
+	\item \textbf{Understandability} ``The capability of the software product to enable the user to understand whether the software is suitable, and how it can be used for particular tasks and conditions of use" \cite{iso2001iec}.
+
+	\item \textbf{Visibility/Transparency} The extent to which all of the steps of a software development process and the current status of it are conveyed clearly \cite{ghezzi1991fundamentals}.
+
+	\item \textbf{Reproducibility} ``A result is said to be reproducible if another researcher can take the original code and input data, execute it, and re-obtain the same result" \cite{BenureauAndRougier2017}.
 \end{itemize}
 
 \section{Analytic Hierarchy Process}
 \label{sec_AHP}
-To generate grading scores for a group of software packages, we use the AHP to pairwise compare them. Thomas L. Saaty developed this tool, and people widely used it to make and analyze multiple criteria decisions \cite{VaidyaEtAl2006}. The AHP organizes multiple criteria factors in a hierarchical structure and pairwise compares the alternatives to calculate relative ratios \cite{Saaty1990}.
+To generate ranking scores for a set of software packages, we use AHP, which utilizes pairwise comparisons between all of the packages. Thomas L. Saaty developed this tool, and people widely used it to make and analyze multiple criteria decisions \cite{VaidyaEtAl2006}. AHP organizes multiple criteria factors in a hierarchical structure and uses pairwise comparisons between alternatives to calculate relative ratios \cite{Saaty1990}.
 
-For a project with $ m $ criteria, we can use a  $m\times m$ matrix $A$ to record the relative importance between factors. By pairwise compare criterion $i$ and criterion $j$, the value of $A_{ij}$ is decided as follows, and the value of $A_{ji}$ is $1/A_{ij}$ \cite{Saaty1990},
+For a project with $ m $ criteria, we can use an $m\times m$ matrix $A$ to record the relative importance between factors. By pairwise compare criterion $i$ and criterion $j$, the value of $A_{ij}$ is decided as follows, and the value of $A_{ji}$ is $1/A_{ij}$ \cite{Saaty1990},
 \begin{itemize}
 	\item $A_{ij} = 1$ if criterion $i$ and criterion $j$ are equally important;
 	\item $A_{ij} = 9$ if criterion $i$ is extremely more important than criterion $j$;
@@ -64,12 +64,12 @@ For a project with $ m $ criteria, we can use a  $m\times m$ matrix $A$ to recor
 
 The above process assumes that criterion $i$ is not less important than criterion $j$, otherwise, we need to reverse $i$ and $j$ and determine $A_{ji}$ first, then $A_{ij} = 1/A_{ji}$.
 
-The priority vecotr $w$ can be calculated by solving the following equation \cite{Saaty1990}, \begin{equation}
+The priority vector $w$ can be calculated by solving the following equation \cite{Saaty1990}, \begin{equation}
 Aw = \lambda_{max}w,
 \end{equation}
 where $\lambda_{max}$ is the maximal eigenvalue of $A$.
 
-In this project, $w$ is approximated with the approach classic \textit{mean of normalized values}  \cite{AlessioEtAl2006},
+In this project, $w$ is approximated with the classic \textit{mean of normalized values} approach \cite{AlessioEtAl2006},
 
 \begin{equation}
 w_i = \frac{1}{m}\sum_{j=1}^{m}\frac{A_{ij}}{\sum_{k=1}^{m}A_{kj}}
@@ -77,4 +77,4 @@ w_i = \frac{1}{m}\sum_{j=1}^{m}\frac{A_{ij}}{\sum_{k=1}^{m}A_{kj}}
 
 Suppose there are $n$ alternatives, for criterion $i = 1, 2, ... , m$, we can create an $n\times n$ matrix $B_i$ to record the relative preferences between these choices. The way of generating $B_i$ is similar to the one for $A$. However, unlike comparing the importance between criteria, we pairwise decide how much we favor one alternative over the other. We use the same method to calculate the local priority vector for each $B_i$.
 
-In this project, the 9 software qualities mentioned above are the criteria ($m = 9$), while 29 software packages ($n = 29$) are compared. The software are evaluated with the grading template in Appendix \ref{ap_grading_template} and a subjective score is given for each quality. For a pair of qualities or software, $i$ and $j$, such that $i$ is not less significant than $j$, the pairwise comparison result of $i$ versus $j$ is converted from $min((score_i - score_j) + 1, 9)$.
+In this project, the 9 software qualities mentioned above are the criteria ($m = 9$), while 29 software packages ($n = 29$) are compared for each of the $m$ criteria. The software are evaluated with the grading template in Appendix \ref{ap_grading_template} and a subjective score from one to ten is given for each quality for each package. To convert the results into pair-wise scores, we apply the following steps: for each quality, for a pair of packages $i$ and $j$, such that $score_i >= score_j$, the pairwise comparison result of $i$ versus $j$ is converted from $min((score_i - score_j) + 1, 9)$.
