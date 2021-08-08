@@ -1,17 +1,23 @@
-\chapter{Methods}
+\chapter{Research Methodology}
 \label{ch_methods}
 
-We designed a general process for evaluating the state of the practice of domain-specific software, that we instantiate to SC software for specific scientific domains.
+We designed a general process for evaluating the state of the practice of domain-specific software, that we instantiate to SC software for a specific scientific domain.
 
-Our method involves: 1) choosing a software domain (Section \ref{sec_domain_selection}); 2) collecting and filtering software packages (Section \ref{sec_software_selection}); 3) grading the selected software (Section \ref{sec_grading_software}); 4) interviewing development teams for further information (Section \ref{sec_interview_methods}).
+Our methodology involves several steps, shown as follows:
+\begin{enumerate}
+\item choosing a software domain (Section \ref{sec_domain_selection});
+\item collecting and filtering software packages (Section \ref{sec_software_selection});
+\item grading the selected software (Section \ref{sec_grading_software});
+\item interviewing development teams for further information (Section \ref{sec_interview_methods}).
+\end{enumerate}
 
-Details of how we applied the method on the MI domain are expanded upon in Section \ref{sec_applying_method}.
+Section \ref{sec_applying_method} presents an example of how we applied the methodology on the MI domain.
 
 \section{Domain Selection}
 \label{sec_domain_selection}
 Our methods are generic, but we have only applied them to scientific domains due to the objective of our research.
 
-When choosing a candidate domain, we prefer one with a large number of active OSS. The reason is that we aim to finalize a list of 30 software packages \cite{SmithEtAl2021} after the screening step. For example, we remove the ones without recent updates or specific functions. Thus, we need enough software candidates from the beginning. Besides, we prefer OSS projects because our grading method works better on them. Moreover, we prefer domains with active communities developing and using SC software, so it is easier to invite enough developers for interviews.
+When choosing a candidate domain, we prefer one with a large number of active OSS. The reason is that we aim to finalize a list of 30 software packages \cite{SmithEtAl2021} after the screening step. For example, we remove the ones without recent updates or specific functions. Thus, we need enough software candidates from the beginning. Besides, we prefer OSS projects because our grading method requires access to the code. In addition, we prefer a domain with an active community developing and using the software. As a result, it is easier to invite enough developers for interviews.
 
 We prefer 30 software packages providing similar functions or falling into different sub-groups depending on our research purpose. So the domain needs to have enough candidates in one sub-group or enough sub-groups to cross-compare.
 
@@ -24,23 +30,27 @@ The process of selecting software packages contains two steps: i) identify softw
 
 \subsection{Identify Software Candidates}
 \label{sec_identify_software_candidates}
-We start with finding candidate software in publications of the domain. Then, we search various websites, such as \hyperlink{https://github.com/}{GitHub}, \hyperlink{https://swmath.org/}{swMATH} and the Google search results for software recommendation articles. Meanwhile, we include the suggested ones from domain experts \cite{SmithEtAl2021}.
+We start with finding candidate software in publications of the domain. Then, we search various websites, such as \hyperlink{https://github.com/}{GitHub}, \hyperlink{https://swmath.org/}{swMATH} and the Google search results for software recommendation articles. We should also include the ones suggested by the domain experts \cite{SmithEtAl2021}.
 
 \subsection{Filter the Software List}
 \label{sec_filter_software_list}
 The goal is to build a software list with a length of about 30 \cite{SmithEtAl2021}.
 
-The only ``mandatory'' requirement is that the software must be OSS, as defined in Section \ref{sec_open_source_software}. Because to evaluate all software qualities, our methods need to access the source code.
+The only ``mandatory'' requirement is that the software must be OSS, as defined in Section \ref{sec_open_source_software}. We need this because evaluating some software qualities requires the source code.
 
-The other factors to filter the list are optional, and we consider them according to the number of software candidates and the objectives of the research project.
+The other filters are optional, and we consider them according to the number of software candidates and the objectives of the research project. We try to apply them in the following priority order:
 
-One factor is the functions and purposes of the software. For example, we can choose a group of software with similar functions, so that the comparison is between the software; or we can cross-compare sub-groups in the domain, then we need to select candidates from each sub-group.
+\begin{enumerate}
+\item The functions and purpose of the software. For example, we can choose a group of software with similar functions, so that the comparison is between the software; or we can cross-compare sub-groups in the domain, then we need to select candidates from each sub-group.
 
-The empirical measurement tools listed in Section \ref{sec_empirical_measurements} only work on projects using \hyperlink{https://git-scm.com/}{Git}, so we prefer software with Git. Some manual steps in empirical measurement depend on a few metrics of GitHub, which makes projects held on GitHub more favored \cite{SmithEtAl2021}.
+\item The version control tool. The empirical measurement tools listed in Section \ref{sec_empirical_measurements} only work on projects using \hyperlink{https://git-scm.com/}{Git}, so we prefer software with Git. Some manual steps in empirical measurement depend on a few metrics of GitHub, which makes projects held on GitHub more favored \cite{SmithEtAl2021}.
 
-Some of the OSS projects may experience a lack of recent maintenance. So we eliminate packages without recent updates, unless they are still popular and highly recommended by the domain users \cite{SmithEtAl2021}.
+\item The age of software. Some of the OSS projects may experience a lack of recent maintenance. So we eliminate packages without recent updates, unless they are still popular and highly recommended by the domain users \cite{SmithEtAl2021}. We consider a software project as ``alive" if it has any update within the last 18 months; otherwise, we mark it as ``dead".
+\end{enumerate}
 
-With domain experts in the team, we value their opinions on the filtering process. For example, if a software package is not OSS and has no updates for a long while, but the domain experts identify it as a valuable product, we still consider it to keep.
+The order of filters 2 and 3 is flexible. We adjust it according to the number of software packages affected by the filters, and the number of ones remaining on the list.
+
+Before showing our filtered list to the domain experts, we ask them to list the top 10 software in the domain. Then, we cross-compare the two lists and discuss the commons and differences. We value their opinions on the filtering process. For example, if a software package is not OSS and has no updates for a long while, but the domain experts identify it as a valuable product, we still consider it to keep.
 
 \section{Grading Software}
 \label{sec_grading_software}
@@ -49,7 +59,13 @@ We grade the selected software using a template (Section \ref{sec_grading_templa
 
 \subsection{Grading Template}
 \label{sec_grading_template}
-The full grading template can be found in Appendix \ref{ap_grading_template}. The template contains 103 questions that we use for grading software products.
+The full grading template can be found in Appendix \ref{ap_grading_template}. The template contains 103 questions that we use for grading software products. Figure \ref{fg_grading_template_example} shows an example of this grading template.
+
+\begin{figure}[h]
+\includegraphics[scale=0.42]{figures/template.png}
+\caption{Grading template example}
+\label{fg_grading_template_example}
+\end{figure}
 
 We use the first section of the template to collect general information, such as the name, purpose, platform, programming language, publications about the software, the first release and the most recent change date, website, and source code repository of the product, etc. Information in this section helps us understand the projects better and may be helpful for further analysis, but it does not directly affect the grading scores.
 
@@ -66,16 +82,16 @@ We designed the following nine sections in the template for the nine software qu
 
 \item \textbf{Surface Usability} We examine the documents of the projects and consider software with a getting started tutorial and a user manual easier to use. Meanwhile, we check if users have any channels to get supports. Our impressions and user experiences when testing the software also affect the scores. For example, easy-to-use graphical user interfaces give us a better experience, thus lead to better scores.
 
-\item \textbf{Maintainability} We search the projects' documents and identify the process of contributing and reviewing code. We believe that the artifacts of a project - including source code, documents, building scripts, etc. - can significantly affect its  \textit{maintainability}. Thus we check each project for its artifacts, such as API documentation, bug tracker, release notes, test cases, build files, version control, etc. We also check the tools supporting issue tracking and version control and the percentages of closed issues and comment lines in code.
+\item \textbf{Maintainability} We search the projects' documents and identify the process of contributing and reviewing code. We believe that the artifacts of a project - including source code, documents, building scripts, etc. - can significantly affect its  \textit{maintainability}. Thus we check each project for its artifacts, such as API documentation, bug tracker, release notes, test cases, build files, version control, etc. We also check the tools supporting issue tracking and version control, the percentages of closed issues, and the proportion of comment lines in code.
 
-\item \textbf{reusability} We count the total number of code files for each project. Projects with a large number of components provide more choices to reuse. Furthermore, well modularized code, which tend to have smaller parts in separated files, are easier to reuse. Thus, we consider the projects with more code files to be more reusable. We use \textit{GitStats} as a tool to count the number of text-based files for all projects, and consider the projects with more text-based files to also have more code files. We also decide that the projects with API documentation can deliver better \textit{Reusability}.
+\item \textbf{reusability} We count the total number of code files for each project. Projects with a large number of components provide more choices to reuse. Furthermore, well-modularized code, which tends to have smaller parts in separated files, is easier to reuse. Thus, we consider the projects with more code files to be more reusable. We use \textit{GitStats} as a tool to count the number of text-based files for all projects, and consider the projects with more text-based files to also have more code files. We also decide that the projects with API documentation can deliver better \textit{Reusability}.
 
-\item \textbf{Surface Understandability} We randomly examine 10 code files. We check the code’s style within each code file, such as whether the identifiers, parameters, indentation, and formatting are consistent, whether the constants (other than 0 and 1) are hardcoded into the code, and whether the developers modularized the code. We also check the descriptive information for the code, such as documents mentioning the coding standard, the comments in the code, and the descriptions or links for algorithms in the code. 
+\item \textbf{Surface Understandability} We randomly examine 10 code files. We check the code’s style within each file, such as whether the identifiers, parameters, indentation, and formatting are consistent, whether the constants (other than 0 and 1) are hardcoded, and whether the developers modularized the code. We also check the descriptive information for the code, such as documents mentioning the coding standard, the comments in the code, and the descriptions or links for algorithms in the code. 
 
 \item \textbf{Visibility/Transparency} To measure this quality, such as all of the steps of a software development process and the current status of a project, we check the existing documents. We examine the development process, current status, development environment, and release notes for each project. If any information is missing or poorly conveyed, the \textit{visibility/transparency} is not ideal.
 \end{itemize}
 
-All the last three sections are about the empirical measurements. For some qualities, the empirical measurements also affect the score. We use two command-line software tools \textit{GitStats} and \textit{scc} to extract information from the source code repositories. For projects held on GitHub, we manually collect additional metrics, such as the stars of the GitHub repository, and the numbers of open and closed pull requests. Section \ref{sec_empirical_measurements} presents more details about the empirical measurements.
+All the last three sections are about the empirical measurements. For some qualities, the empirical measurements also affect the score. We use tools to extract information from the source code repositories. For projects held on GitHub, we manually collect additional metrics, such as the stars of the GitHub repository, and the numbers of open and closed pull requests. Section \ref{sec_empirical_measurements} presents more details about the empirical measurements.
 
 \subsection{Empirical Measurements}
 \label{sec_empirical_measurements}
@@ -84,7 +100,7 @@ We use two command-line tools for the empirical measurements. One is \textit{Git
 
 Both tools measure the number of text-based files in a git repository and lines of text in these files. Based on our experience, most text-based files in a repository contain programming source code, and developers use them to compile and build software products. A minority of these files are instructions and other documents. So we roughly regard the lines of text in text-based files as lines of programming code. The two tools usually generate similar but not identical results. From our understanding, this minor difference is due to the different techniques to detect if a file is text-based or binary.
 
-Additionally, we also manually collect information for projects held on GitHub, such as the numbers of stars, forks, people watching this repository, open pull requests, closed pull requests, number of months a repository has been on GitHub. A git repository can have a creation date much earlier than the first day on GitHub. For example, the developers created the git repository of \textit{3D Slicer} in 2002, but did not upload a copy of it to GitHub until 2020. We get the creation date of the GitHub copy by using API \textit{https://api.github.com/repos/{:owner}/{:repository}} (e.g. \hyperlink{https://api.github.com/repos/slicer/slicer}{https://api.github.com/repos/slicer/slicer}). In the response, the value of ``created\_at" is what we want. The number of months a repository has been on GitHub helps us to understand the average change of metrics over time, e.g. the average new stars per month. 
+Additionally, we manually collect information for projects held on GitHub, such as the numbers of stars, forks, people watching this repository, open pull requests, closed pull requests, number of months a repository has been on GitHub. A git repository can have a creation date much earlier than the first day on GitHub. For example, the developers created the git repository of \textit{3D Slicer} in 2002, but did not upload a copy of it to GitHub until 2020. We get the creation date of the GitHub copy by using API \textit{https://api.github.com/repos/{:owner}/{:repository}} (e.g., \hyperlink{https://api.github.com/repos/slicer/slicer}{https://api.github.com/repos/slicer/slicer}). In the response, the value of ``created\_at" is what we want. The number of months a repository has been on GitHub helps us understand the average change of metrics over time, e.g., the average new stars per month. 
 
 These empirical measurements help us from two aspects. Firstly, they help us with getting a project overview faster and more accurately. For example, the number of commits over the last 12 months shows how active this project has been, and the number of stars and forks may reveal its popularity. Secondly, the results may affect our decisions regarding the grading scores for some software qualities. For example, if the percentage of comment lines is low, we double-check the \textit{understandability} of the code; if the ratio of open versus closed pull requests is high, we pay more attention to the \textit{maintainability}.
 
@@ -92,38 +108,52 @@ These empirical measurements help us from two aspects. Firstly, they help us wit
 \label{sec_technical_details}
 To test the software on a ``clean'' system, we create a new virtual machine (VM) for each software and only install the necessary dependencies before measuring. We make all 30 VM on the same computer, one at a time, and destroy them after measuring.
 
-We spend about two hours grading one package, unless we find technical issues and need more time to resolve them. In most of the situation, we finish all the measurements for one software on the same day.
+We spend about two hours grading each package, unless we find technical issues and need more time to resolve them. In most of the situation, we finish all the measurements for one software on the same day.
 
 \section{Interview Methods}
 \label{sec_interview_methods}
 
-\subsection{Interviewee Selection}
-For a software list with a length of roughly 30, we aim to interview about ten development teams. Interviewing multiple individuals from each team gives us more comprehensive information, but a single engineer well-knowing the project is also sufficient.
+This section introduces our interview questions (Section \ref{sec_interview_questions}), method of selecting interviewees (Section \ref{sec_interviewee_selection}), and interview process (Section \ref{sec_interview_process}).
 
-Ideally, we select projects after the grading measurements and prefer the ones with higher overall scores. However, if we do not find enough participants, we contact all teams on the list.
-
-We try to find the contacts of the teams on the projects' websites, such as the official web pages, repositories, publications, and bio pages of the teams' institutions. Then, we send at most two emails to one contact asking for its participation before receiving any replies.
-
-\subsection{Interview Question Selection}
-
-We have a list of 20 questions to guide our interviews, which can be found in Section \ref{ch_interview} and Appendix \ref{ap_interview}.
+\subsection{Interview Questions}
+\label{sec_interview_questions}
+We designed a list of 20 questions to guide our interviews, which can be found in Section \ref{ch_interview} and Appendix \ref{ap_interview}.
 
 Some questions are about the background of the software, the development teams, the interviewees, and how they organize the projects. We also ask about their understandings of the users. Some questions focus on the current and past difficulties, and the solutions the team has found or will try. We also discuss the importance and current situations of documentation. A few questions are about specific software qualities, such as \textit{maintainability}, \textit{understandability}, \textit{usability}, and \textit{reproducibility}.
 
 The interviews are semi-structured based on the question list, and we also ask follow-up questions when necessary. Based on our experience, the interviewees usually bring up some exciting ideas that we do not expect, and it is worth expanding on these topics.
 
+\subsection{Interviewee Selection}
+\label{sec_interviewee_selection}
+For a software list with a length of roughly 30, we aim to interview about ten development teams. Interviewing multiple individuals from each team gives us more comprehensive information, but a single engineer well-knowing the project is also sufficient.
+
+Ideally, we select projects after the grading measurements and prefer the ones with higher overall scores. However, if we do not find enough participants, we contact all teams on the list.
+
+We try to find the contacts of the teams on the projects' websites, such as the official web pages, repositories, publications, and bio pages of the teams' institutions. Then, we send at most two emails to one contact asking for its participation before receiving any replies. We operate the invitation according to our ethics approval, such as the one in Appendix \ref{ap_ethics}. For example, we ask for participants' consent before interviewing them, recording the conversation, or including it in our report.
+
 \subsection{Interview Process}
-Since the members of the development teams are usually around the world, we organize these interviews as virtual meetings online with \hyperlink{https://zoom.us/}{Zoom}. After receiving consent from the interviewees, we also record our discussions to transcribe them better.
+\label{sec_interview_process}
+Since the members of the development teams are usually around the world, we organize these interviews as virtual meetings online with \hyperlink{https://zoom.us/}{Zoom}. After receiving consent from the interviewees, we also record and transcribe our discussions.
 
 \section{Applying the Method to MI}
 \label{sec_applying_method}
 
-Based on the principles in Section \ref{sec_domain_selection}, we selected the MI domain and the sub-group of software with Visualization function shown in Figure \ref{fig_mi_functions}. We also included MI domain experts in our team.
+Based on the principles in Section \ref{sec_domain_selection}, we selected the MI domain and the sub-group of software with the Visualization function shown in Figure \ref{fig_mi_functions}. We also included Dr. Michael Noseworthy and some of his students as the MI domain experts in our team.
 
 By using the method in Section \ref{sec_identify_software_candidates}, we identified 48 MI software projects as the candidates from publications \cite{Bjorn2017} \cite{Bruhschwein2019} \cite{Haak2015}, online articles related to the domain \cite{Emms2019} \cite{Hasan2020} \cite{Mu2019}, forum discussions related to the domain \cite{Samala2014}, etc.
 
-Appendix \ref{ap_list_before_filtering} shows all the 48 software packages. Among them, there were several ones that we could not find in their source code, such as \textit{MicroDicom}, \textit{Aliza}, and \textit{jivex}, etc. These packages are likely to be freeware defined in Section \ref{sec_freeware} and not OSS. So following guidelines in Section \ref{sec_filter_software_list} we removed them from the list. Next, we focused on the MI software providing visualization functions. Some of the software on the list were tool kits or libraries for other software to use as dependencies but not for end-users to view medical images, such as \textit{VTK}, \textit{ITK}, \textit{dcm4che}, etc. We also eliminated these from the list. After that, there were 29 software products left on the list. We still preferred projects using git and GitHub and being updated recently, but did not apply another filtering since the number of packages was already below 30. However, 27 out of the 29 software packages on the final list used git, and 24 chose GitHub. Furthermore, 27 packages had the latest updates after the year 2018, and 23 after 2020.
+Appendix \ref{ap_list_before_filtering} shows all the 48 software packages. Our filtering process is as follows:
+
+\begin{enumerate}
+\item Among them, there were eight ones that we could not find their source code, such as \textit{MicroDicom}, \textit{Aliza}, and \textit{jivex}. These packages are likely to be freeware defined in Section \ref{sec_freeware} and not OSS. So following guidelines in Section \ref{sec_filter_software_list} we removed them from the list.
+
+\item Next, we focused on the MI software providing visualization functions, as described in Section \ref{sec_scope}. Seven of the software on the list were tool kits or libraries for other software to use as dependencies, but not for end-users to view medical images, such as \textit{VTK}, \textit{ITK}, and \textit{dcm4che}; another three were PACS. We also eliminated these from the list.
+
+\item Finally, we removed \textit{Open Dicom Viewer} from the list because it had not received any updates for a long time.
+\end{enumerate}
+
+After that, there were 29 software products left on the list. We still preferred projects using git and GitHub and being updated recently, but did not apply this filter since packages were already below 30. However, 27 out of the 29 software packages on the final list used git, and 24 chose GitHub. Furthermore, 27 packages had the latest updates after the year 2018, and 23 after 2020.
 
 Then we followed the steps in Section \ref{sec_grading_software} to measure and grade the software. 27 out of the 29 packages are compatible with two or three different OS such as Windows, macOS, and Linux, and 5 of them are browser-based, making them platform-independent. However, in the interest of time, we only performed the measurements for each project by installing it on one of the platforms, most likely Windows.
 
-Going through the interview process in Section \ref{sec_interview_methods}, we started with the teams with higher scores on our list, and eventually contacted all of them. As a result, developers/architects from 8 teams have participated in our interviews so far. Before contacting any interviewee candidate, we received ethics clearance from the McMaster University Research Ethics Board (Appendix \ref{ap_ethics}).
+Before contacting any interviewee candidate, we received ethics clearance from the McMaster University Research Ethics Board (Appendix \ref{ap_ethics}). Going through the interview process in Section \ref{sec_interview_methods}, we contacted all of the 29 teams. As a result, developers/architects from 8 teams have participated in our interviews so far.
