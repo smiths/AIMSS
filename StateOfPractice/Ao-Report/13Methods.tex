@@ -1,9 +1,9 @@
-\chapter{Research Methodology}
+\chapter{Methodology}
 \label{ch_methods}
 
 We designed a general process for evaluating the state of the practice of domain-specific software, that we instantiate to SC software for a specific scientific domain.
 
-Our methodology involves several steps, shown as follows:
+Our method involves several steps, shown as follows:
 \begin{enumerate}
 \item choosing a software domain (Section \ref{sec_domain_selection});
 \item collecting and filtering software packages (Section \ref{sec_software_selection});
@@ -11,7 +11,7 @@ Our methodology involves several steps, shown as follows:
 \item interviewing development teams for further information (Section \ref{sec_interview_methods}).
 \end{enumerate}
 
-Section \ref{sec_applying_method} presents an example of how we applied the methodology on the MI domain.
+Section \ref{sec_applying_method} presents an example of how we applied the method on the MI domain.
 
 \section{Domain Selection}
 \label{sec_domain_selection}
@@ -50,7 +50,9 @@ The other filters are optional, and we consider them according to the number of 
 
 The order of filters 2 and 3 is flexible. We adjust it according to the number of software packages affected by the filters, and the number of ones remaining on the list.
 
-Before showing our filtered list to the domain experts, we ask them to list the top 10 software in the domain. Then, we cross-compare the two lists and discuss the commons and differences. We value their opinions on the filtering process. For example, if a software package is not OSS and has no updates for a long while, but the domain experts identify it as a valuable product, we still consider it to keep.
+\subsection{Vet the Software List}
+\label{sec_vet_software_list}
+Before showing our filtered list to the domain experts, we ask them to list the top 10 software in the domain. Then, we cross-compare the two lists and discuss the commons and differences.  In addition, we ask them to vet our filtered list. They provide opinions on whether the list is reasonable to them. We also value their opinions on the filtering process. For example, if a software package is not OSS and has no updates for a long while, but the domain experts identify it as a valuable product, we still consider it to keep.
 
 \section{Grading Software}
 \label{sec_grading_software}
@@ -133,16 +135,19 @@ We try to find the contacts of the teams on the projects' websites, such as the 
 
 \subsection{Interview Process}
 \label{sec_interview_process}
-Since the members of the development teams are usually around the world, we organize these interviews as virtual meetings online with \hyperlink{https://zoom.us/}{Zoom}. After receiving consent from the interviewees, we also record and transcribe our discussions.
+Before contacting any interviewee candidate, we need to receive ethics clearance from the McMaster University Research Ethics Board. Since the members of the development teams are usually around the world, we organize these interviews as virtual meetings online with \hyperlink{https://zoom.us/}{Zoom}. After receiving consent from the interviewees, we also record and transcribe our discussions.
 
 \section{Applying the Method to MI}
 \label{sec_applying_method}
+This section shows an overview of applying our method to the MI domain.
 
+\subsection{Domain Selection}
 Based on the principles in Section \ref{sec_domain_selection}, we selected the MI domain and the sub-group of software with the Visualization function shown in Figure \ref{fig_mi_functions}. We also included Dr. Michael Noseworthy and some of his students as the MI domain experts in our team.
 
-By using the method in Section \ref{sec_identify_software_candidates}, we identified 48 MI software projects as the candidates from publications \cite{Bjorn2017} \cite{Bruhschwein2019} \cite{Haak2015}, online articles related to the domain \cite{Emms2019} \cite{Hasan2020} \cite{Mu2019}, forum discussions related to the domain \cite{Samala2014}, etc.
+\subsection{Software Product Selection}
+By using the method in Section \ref{sec_identify_software_candidates}, we identified 48 MI software projects as the candidates from publications \cite{Bjorn2017} \cite{Bruhschwein2019} \cite{Haak2015}, online articles related to the domain \cite{Emms2019} \cite{Hasan2020} \cite{Mu2019}, forum discussions related to the domain \cite{Samala2014}, etc. Appendix \ref{ap_list_before_filtering} shows all the 48 software packages.
 
-Appendix \ref{ap_list_before_filtering} shows all the 48 software packages. Our filtering process is as follows:
+Guided by the method in Section \ref{sec_filter_software_list}, we filtered the list with a process as follows:
 
 \begin{enumerate}
 \item Among them, there were eight ones that we could not find their source code, such as \textit{MicroDicom}, \textit{Aliza}, and \textit{jivex}. These packages are likely to be freeware defined in Section \ref{sec_freeware} and not OSS. So following guidelines in Section \ref{sec_filter_software_list} we removed them from the list.
@@ -152,8 +157,38 @@ Appendix \ref{ap_list_before_filtering} shows all the 48 software packages. Our 
 \item Finally, we removed \textit{Open Dicom Viewer} from the list because it had not received any updates for a long time (since 2011). After that, only \textit{MatrixUser} and \textit{AMIDE} were considered as ``dead". However, both of them had much more recent updates (after 2017) than \textit{Open Dicom Viewer}.
 \end{enumerate}
 
-There were 29 software products left on the list. We still preferred projects using git and GitHub and being updated recently, but did not apply this filter since packages were already below 30. Even without this filter, 27 out of the 29 software packages on the final list used git, and 24 chose GitHub.
+We still preferred projects using git and GitHub and being updated recently, but did not apply this filter since packages were already below 30. Even without this filter, 27 out of the 29 software packages on the filtered list used git, and 24 chose GitHub.
 
+Following the process in Section \ref{sec_vet_software_list}, our domain experts provided a list of top software that contains 12 software products (Table \ref{tab_top_software_experts}). We compared two lists and found six common ones. We did not include the rest in our final list, because their major function was not Visualization.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ll}
+\hline
+Software & On both lists \\ \hline
+3D Slicer & X \\
+Horos & X \\
+ImageJ & X \\
+Fiji & X \\
+AFNI &  \\
+FSL &  \\
+Freesurfer &  \\
+Mricron & X \\
+Mango & X \\
+Tarquin &  \\
+Diffusion Toolkit &  \\
+MRItrix &  \\ \hline
+\end{tabular}
+\caption{\label{tab_top_software_experts}Top software by the MI domain experts}
+\end{table}
+
+We included \textit{Mango} in the initial list, but removed it because it was not OSS. However, we kept \textit{Papaya}, a the web version of \textit{Mango}. Instead of \textit{MRIcron}, we chose \textit{MRIcroGL}, because \textit{MRIcron} development had moved to
+\textit{MRIcroGL} \cite{Rorden2021b}.
+
+After vetting our filtered list, the domain experts believed it was reasonable and did not identify any problem. Thus, as shown in Appendix \ref{ap_list_before_filtering}, eventually we had 29 software products on the final list. 
+
+\subsection{Grading Software}
 Then we followed the steps in Section \ref{sec_grading_software} to measure and grade the software. 27 out of the 29 packages are compatible with two or three different OS such as Windows, macOS, and Linux, and 5 of them are browser-based, making them platform-independent. However, in the interest of time, we only performed the measurements for each project by installing it on one of the platforms, most likely Windows.
 
-Before contacting any interviewee candidate, we received ethics clearance from the McMaster University Research Ethics Board (Appendix \ref{ap_ethics}). Going through the interview process in Section \ref{sec_interview_methods}, we contacted all of the 29 teams. As a result, developers/architects from 8 teams have participated in our interviews so far.
+\subsection{Interviews}
+We received ethics clearance from the McMaster University Research Ethics Board (Appendix \ref{ap_ethics}). Going through the interview process in Section \ref{sec_interview_methods}, we contacted all of the 29 teams. As a result, developers/architects from 8 teams have participated in our interviews so far.
