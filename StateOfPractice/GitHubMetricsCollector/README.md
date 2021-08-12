@@ -32,7 +32,7 @@ private final static String gitHubUsername = "your_GitHub_username";
 private final static String gitHubToken = "your_GitHub_token";
 ~~~
 
-Do NOT commit your credentials to this git repo. If you accidentally did, just disable this token in your GitHub account settings.
+Do NOT commit your credentials to this git repo. If you accidentally did, GitHub will automatically revoke the token for you. You can also manually revoke any token in your GitHub account settings.
 
 Tutorials of creating a GitHub token for GraphQL API are at https://docs.github.com/en/graphql/guides/forming-calls-with-graphql#authenticating-with-graphql
 
