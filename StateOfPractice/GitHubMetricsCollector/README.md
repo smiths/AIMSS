@@ -32,7 +32,15 @@ Tutorials of creating a GitHub token for GraphQL API are at https://docs.github.
 ## 5. Maven
 This is a Maven Java project. Dependencies are managed in the file ***pom.xml***. Tutorials for Maven are at https://maven.apache.org/ 
 
-## 6. Running the Script
+## 6. GraphQL
+This script uses the latest GitHub API V4 - GraphQL.
+GitHub API V3 uses REST API, but cannot provide all information we needed.
+
+See details at https://docs.github.com/en/graphql. You can try different queries with a tool at https://docs.github.com/en/graphql/overview/explorer.
+
+In this script, the query is set by variable ***REQUEST_BODY_TEMPLATE***.
+
+## 7. Running the Script
 Use a compiler to load the dependencies and run the code. IntelliJ IDEA is recommended.
 
 If you are interested, here are some ideas to improve this project:
