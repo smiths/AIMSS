@@ -1,7 +1,8 @@
-#Tutorial for GitHub Metrics Collector
-####Author: Ao Dong https://github.com/Ao99
+# Tutorial for GitHub Metrics Collector
 
 This Java script automatically collects GitHub metrics from a set of GitHub repos.
+
+Contact the author if you need help: Ao Dong https://github.com/Ao99
 
 ## 1. The Spreadsheet
 The script uses a spreadsheet for inputs and outputs. Make sure the existence of it, and double-check the file name and sheet name.
@@ -16,10 +17,16 @@ The only mandatory input is a set of repo urls. Make sure it starts from Column 
 
 Adding the names of software to Row 1 is optional.
 
-## 3. GitHub Authentication
-The script uses GitHub GraphQL API to retrieve data. See details in https://docs.github.com/en/graphql
+## 3. GraphQL
+This script uses the latest GitHub API V4 - GraphQL.
+GitHub API V3 uses REST API, but cannot provide all information we needed.
 
-Thus, the script needs your GitHub username and token for the auth. In the code, change the following lines to your credentials:
+See details at https://docs.github.com/en/graphql. You can try different queries with a tool at https://docs.github.com/en/graphql/overview/explorer.
+
+In this script, the query is set by variable ***REQUEST_BODY_TEMPLATE***.
+
+## 4. GitHub Authentication
+To use the GitHub API, the script needs your GitHub username and token for the auth. In the code, change the following lines to your credentials:
 ~~~Java
 private final static String gitHubUsername = "your_GitHub_username";
 private final static String gitHubToken = "your_GitHub_token";
@@ -32,15 +39,7 @@ Tutorials of creating a GitHub token for GraphQL API are at https://docs.github.
 ## 5. Maven
 This is a Maven Java project. Dependencies are managed in the file ***pom.xml***. Tutorials for Maven are at https://maven.apache.org/ 
 
-## 6. GraphQL
-This script uses the latest GitHub API V4 - GraphQL.
-GitHub API V3 uses REST API, but cannot provide all information we needed.
-
-See details at https://docs.github.com/en/graphql. You can try different queries with a tool at https://docs.github.com/en/graphql/overview/explorer.
-
-In this script, the query is set by variable ***REQUEST_BODY_TEMPLATE***.
-
-## 7. Running the Script
+## 6. Running the Script
 Use a compiler to load the dependencies and run the code. IntelliJ IDEA is recommended.
 
 If you are interested, here are some ideas to improve this project:
