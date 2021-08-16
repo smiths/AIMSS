@@ -1,13 +1,13 @@
 \chapter{Full Grading Template}
 \label{ap_grading_template}
 
+Table \ref{measurement_template} lists the measurements that we use to assess the software products. We use the first section to collect general information of software projects. The following nine sections assess the nine software qualities. The last three sections are for the empirical measurements.
+
 \newpage
-\begingroup
-\renewcommand{\arraystretch}{0.8}
 
 \begin{table}[H]
 \centering
-\caption{Measurement Template}\label{measurementtemplate}
+\caption{Measurement Template}\label{measurement_template}
 \begin{tabular}{p{14cm}}
 \hline
 \textbf{Summary Information}\\
@@ -37,7 +37,7 @@ Additional comments? (can cover any metrics you feel are missing, or any other t
 \begin{table}[H]
 \centering
 \begin{tabular}{p{14cm}}
-\hline		
+\hline
 \textbf{Installability  (Measured via installation on a virtual machine.) }\\
 \hline
 Are there installation instructions? ({yes, no})\\
@@ -63,7 +63,7 @@ Additional comments? (can cover any metrics you feel are missing, or any other t
 \begin{table}[H]
 \centering
 \begin{tabular}{p{14cm}}
-\hline		
+\hline
 \textbf{Correctness and Verifiability}\\
 \hline
 Any reference to the requirements specifications of the program or theory manuals? ({yes$\ast$ , no, unclear})\\
@@ -86,21 +86,21 @@ If the tutorial testing broke, was a descriptive error message displayed? ({yes,
 If the tutorial testing broke, was the tutorial testing instance recoverable? ({yes, no, n/a})\\
 Overall impression? ({1 .. 10})\\
 Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have)\\
-\hline		
-\end{tabular}
-\end{table}
-
-\begin{table}[H]
-\centering
-\begin{tabular}{p{14cm}}
-\hline		
+\hline
 \textbf{Surface Robustness}\\
 \hline
 Does the software handle unexpected/unanticipated input (like data of the wrong type, empty input, missing files or links) reasonably? (a reasonable response can include an appropriate error message.) ({yes, no$\ast$ })\\
 For any plain text input files, if all new lines are replaced with new lines and carriage returns, will the software handle this gracefully? ({yes, no$\ast$, n/a})\\
 Overall impression? ({1 .. 10})\\
 Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have)\\
-\hline		
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{p{14cm}}
+\hline
 \textbf{Surface Usability}\\
 \hline
 Is there a getting started tutorial? ({yes, no})\\
@@ -109,12 +109,7 @@ Are expected user characteristics documented? ({yes, no})\\
 What is the user support model? FAQ? User forum? E-mail address to direct questions? Etc. (string)\\
 Overall impression? ({1 .. 10})\\
 Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have)\\
-\hline
-\end{tabular}
-\end{table}
 
-\begin{table}[H]
-\begin{tabular}{p{14cm}}
 \hline	
 \textbf{Maintainability}\\
 \hline
@@ -127,20 +122,24 @@ What percentage of code is comments? (percentage)\\
 Which version control system is in use? ({svn, cvs, git, github, unclear, other$\ast$}) $\ast$ given via string\\
 Overall impression? ({1 .. 10})\\
 Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have)\\
-\hline		
+\hline
 \textbf{Reusability}\\
 \hline
 How many code files are there? (number)\\
 Is API documented? ({yes, no, n/a})\\
 Overall impression? ({1 .. 10})\\
 Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have)\\
-\hline		
+\hline\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\begin{tabular}{p{14cm}}
 \end{tabular}
 \end{table}
 
 \begin{table}[H]
 \begin{tabular}{p{14cm}}
-\hline		
+\hline
 \textbf{Surface Understandability (Based on 10 random source files)}\\
 \hline
 Consistent indentation and formatting style? ({yes, no, n/a})\\
@@ -153,7 +152,7 @@ Parameters are in the same order for all functions? ({yes, no$\ast$ , n/a})\\
 Is code modularized? ({yes, no$\ast$ , n/a})\\
 Overall impression? ({1 .. 10})\\
 Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have)\\
-\hline		
+\hline
 \textbf{Visibility/Transparency}\\
 \hline
 Is the development process defined? If yes, what process is used. ({yes$\ast$, no, n/a})\\
@@ -168,7 +167,7 @@ Additional comments? (can cover any metrics you feel are missing, or any other t
 
 \begin{table}[H]
 \begin{tabular}{p{14cm}}
-\hline		
+\hline
 \textbf{Raw Metrics (Measured via git\_stats)}\\
 \hline
 Number of text-based files. (number)\\
@@ -179,7 +178,7 @@ Number of total lines deleted from text-based files. (number)\\
 Number of total commits. (number)\\
 Numbers of commits by year in the last 5 years. (Count from as early as possible if the project is younger than 5 years.) (list of numbers)\\
 Numbers of commits by month in the last 12 months. (list of numbers)\\
-\hline		
+\hline
 \textbf{Raw Metrics (Measured via scc)}\\
 \hline
 Number of text-based files. (number)\\
@@ -200,5 +199,3 @@ Accessed date. (date)\\
 \hline
 \end{tabular}
 \end{table}
-
-\endgroup
