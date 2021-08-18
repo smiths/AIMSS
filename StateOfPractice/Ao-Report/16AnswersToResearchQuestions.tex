@@ -1,26 +1,15 @@
 \chapter{Answers to Research Questions}
 \label{ch_answers}
 
-This section answers our research questions in Section \ref{sec_research_questions}. The answers are based on our quality measurements and developer interviews. Sections \ref{sec_rq1_pain_points}, \ref{sec_rq2_artifacts}, \ref{sec_rq3_documentation}, \ref{sec_rq4_PPMT}, \ref{sec_rq5_qualities}, and \ref{sec_rq6_comparison} summarize the answers to the six questions respectively. Section \ref{sec_threats_to_validity} lists the threats to the validity of our research.
-
-\section{Pain Points and Solutions}
-\label{sec_rq1_pain_points}
-\begin{description}\item[RQ1.] What are the pain points for developers working on MI software projects? What solutions have the developers tried to address the pain points?\end{description}
-
-We answer this question primarily by interviewing the developers. As described in Section \ref{sec_interview_pain_points}, the top three pain points are as follows,
-\begin{itemize}
-\item the lack of fundings and time;
-\item the difficulty to balance between four factors: cross-platform compatibility, convenience to development \& maintenance, performance, and security;
-\item the lack of access to real-world datasets for testing.
-\end{itemize}
-
-Section \ref{sec_interview_pain_points} also lists potential and proven solutions from the developers.
+This section answers our research questions in Section \ref{sec_research_questions}. The answers are based on our quality measurements and developer interviews. Sections \ref{sec_rq_artifacts}, \ref{sec_rq_tools}, \ref{sec_rq_PPM}, \ref{sec_rq_pain_points}, \ref{sec_rq_qualities}, and \ref{sec_rq_comparison} summarize the answers to the six questions respectively. Section \ref{sec_threats_to_validity} lists the threats to the validity of our research.
 
 \section{Artifacts in the Projects}
-\label{sec_rq2_artifacts}
-\begin{description}\item[RQ2.] What artifacts the projects generated?\end{description}
+\label{sec_rq_artifacts}
+\begin{description}
+\item[RQ1.] What artifacts are present in current software projects?
+\end{description}
 
-We answer this question by searching and scanning the source code and documentation of the projects.
+We answer this question by examining the documentation, scanning the source code, and interviewing the developers of the projects.
 
 Part of the answer is in Section \ref{ch_results}. Table \ref{tab_maintainability_docs} shows which projects contained a project plan, development manual, or API documentation, and Table \ref{tab_Visibility/Transparency_docs} lists the projects with a documented development process, project status, development environment, or release notes.
 
@@ -56,37 +45,105 @@ Project Plan & 5 \\ \hline
 \caption{\label{tab_artifacts_frequency}Artifacts by their frequency in the 29 MI projects}
 \end{table}
 
-\section{Documentation in the Projects}
-\label{sec_rq3_documentation}
-\begin{description}\item[RQ3.] What role does documentation play in the projects? What are the developers' attitudes toward it?\end{description}
+\section{Tools in the Projects}
+\label{sec_rq_tools}
+\begin{description}
+\item[RQ2.] What tools are used in the development of current software packages?
+\end{description}
 
-We answer this question by interviewing the developers. As shown in Section \ref{sec_interview_documents}, most of the nine interviewees thought that documentation was essential to their projects. However, they hold the common opinion that their documentation needed improvements. Nearly half of them also believed that the lack of time prevented them from improving the documentation.
+We answer this question by measuring the qualities and interviewing the developers. This section summarizes the tools used for CI/CD, user support, version control, documentation, contribution management, and project management. 
 
-\section{Principles, Processes, Methodologies, and Tools in the Projects}
-\label{sec_rq4_PPMT}
-\begin{description}\item[RQ4.] What principles, processes, methodologies, and tools the projects used?\end{description}
+\subsection{CI/CD Tools}
+As mentioned in Section \ref{sec_result_correctness_verifiability}, we identified five projects using CI/CD tools. \textit{3D Slicer} and \textit{OHIF Viewer} used CircleCI; \textit{ImageJ}, \textit{Fiji}, and \textit{dwv} used Travis. According to the interviews with developers, \textit{dwv} and \textit{Weasis} used GitHub Actions.
 
-We answer this question by measuring the qualities and interviewing the developers.
+\subsection{User Support Tools}
+Table \ref{tab_user_support_model} shows the user support tools by the number of projects using them.
 
-Table \ref{tab_maintainability_docs}, \ref{tab_Visibility/Transparency_docs}, and \ref{tab_artifacts_frequency} reveal part of the answer, such as which and how many teams used a project plan, API documentation, release notes, version control, etc.
+\subsection{Version Control Tools}
+Briefly speaking, 27 of the 29 projects chose git as the version control tool, and 24 used GitHub to host the repositories. Section \ref{sec_score_maintainability} lists more details.
 
-We summarize the other part of the answer from the interviews. Sections \ref{sec_interview_documents} and \ref{sec_contribution_pm} list some principles, processes, methodologies, and tools for documentation, contribution management, and project management. As shown in Section \ref{sec_interview_software_qualities}, the developers also shared some of their principles, processes, methodologies, and tools to improve \textit{correctness}, \textit{maintainability}, \textit{understandability}, \textit{usability}, and \textit{reproducibility}.
+\subsection{Documentation Tools}
+Table \ref{tab_doc_tools} lists the documentation tools by the number of answers from the interviewees.
+
+\subsection{Contribution Management Tools}
+Table \ref{tab_method_receive_contributions} shows the ways of receiving contributions by the number of answers from the interviewees.
+
+\subsection{Project Management Tools}
+Table \ref{tab_pm_tools} shows the tools for project management by the number of answers from the interviewees.
+
+\section{Principles, Processes, and Methodologies in the Projects}
+\label{sec_rq_PPM}
+\begin{description}
+\item[RQ3.] What principles, processes, and methodologies are used in the development of current software packages?
+\end{description}
+
+We answer this question by measuring the qualities and interviewing the developers. This section shows the principles, processes, and methodologies in software testing, documentation, contribution management, project management, and improving software qualities.
+
+\subsection{Software Testing}
+As shown in Section \ref{fg_correctness_erifiability_scores}, we only identified the use of unit testing in less than half of the 29 projects. Most projects did not have requirements specifications and theory manuals.
+
+On the other hand, the interviewees believed that testing (including usability tests with users) was the top solution to improve \textit{correctness}, \textit{usability}, and \textit{reproducibility}, as shown in Section \ref{sec_interview_correctness}, \ref{sec_interview_usability}, and \ref{sec_interview_reproducibility}.
+
+Table \ref{tab_q15_threats_correctness} lists a threat to \textit{correctness}: with huge datasets for testing, the tests are expensive and time-consuming. Table \ref{tab_q15_strategies_correctness} shows that three interviewees endorsed self tests / automated tests, which may save the time for testing.
+
+Section \ref{sec_pain_points_3} introduces a pain point related to testing, and developers' strategies to address it.
+
+\subsection{Documentation}
+Section \ref{fg_correctness_erifiability_scores} shows that most projects did not have requirements specifications and theory manuals. Table \ref{tab_maintainability_docs} presents which projects had a project plan, developer’s manual, or API documentation, which implies better \textit{maintainability}. Table \ref{tab_Visibility/Transparency_docs} lists the existing documents that can improve \textit{visibility/transparency} of the projects. Table \ref{tab_artifacts_frequency} reveals the number of all the artifacts in the 29 projects.
+
+Most of the nine interviewees thought that documentation was essential to their projects. However, they hold the common opinion that their documentation needed improvements. Nearly half of them also believed that the lack of time prevented them from improving the documentation. See more details in Section \ref{sec_interview_documents}.
+
+\subsection{Contribution Management}
+According to the interviews, all the eight teams were using GitHub and pull requests to accept new contributions from the community. Some of them had relied on emails and forums for the purpose. More details are in Section \ref{sec_contribution_pm}.
+
+\subsection{Project Management}
+As presented in Section \ref{sec_contribution_pm}, most teams in the interviews did not have a clearly defined software development model. Many of them relied on GitHub, issue/bug trackers to manage their projects.
+
+\section{Pain Points and Solutions}
+\label{sec_rq_pain_points}
+\begin{description}
+\item[RQ4.] What are the pain points for developers working on research software projects? What aspects of the existing processes, methodologies, and tools do they consider as potentially needing improvement? What changes to processes, methodologies, and tools can improve software development and software quality?
+\end{description}
+
+We answer this question primarily by interviewing the developers. This section presents the pain points and the solutions from the developers and our team.
+
+\subsection{Pain Points}
+As described in Section \ref{sec_interview_pain_points}, the top three pain points are as follows,
+\begin{itemize}
+\item the lack of fundings and time;
+\item the difficulty to balance between four factors: cross-platform compatibility, convenience to development \& maintenance, performance, and security;
+\item the lack of access to real-world datasets for testing.
+\end{itemize}
+
+\subsection{Solutions}
+Section \ref{sec_interview_pain_points} lists the details about the potential and proven solutions from the developers in the MI domain. We also summarize our general recommendations on software development in all SC domains in Section \ref{ch_recommendations}.
 
 \section{Software Qualities}
-\label{sec_rq5_qualities}
+\label{sec_rq_qualities}
 \begin{description}\item[RQ5.] What is the current status of the following software qualities for the projects? What actions have the developers taken to address them?\end{description}
 
-We answer this question by measuring the qualities and interviewing the developers.
+This section includes our answers from the qualities measurements and interviews with the developers.
 
+\subsection{Results by Measuring Software Qualities}
 Section \ref{ch_results} contains our measurement results for \textit{Installability}, \textit{Correctness \& Verifiability}, \textit{Reliability}, \textit{Robustness}, \textit{Usability}, \textit{Maintainability}, \textit{Reusability}, \textit{Understandability}, and \textit{Visibility/Transparency}. We applied (surface) measurements to the nine qualities, and hope that the grading scores represent their current status. We believe that our assessments also revealed some of the development teams' practices addressing the qualities. 
 
-Section \ref{sec_interview_software_qualities} shows findings from the interviews for \textit{correctness}, \textit{maintainability}, \textit{understandability}, \textit{usability}, and \textit{reproducibility}. The interviewees expressed their thoughts on these five qualities. We discussed the current or past threats to them, and found out what actions they believed would improve the qualities.
+\subsection{Results by Interviewing Developers}
+Section \ref{sec_interview_software_qualities} shows findings from the interviews for \textit{correctness}, \textit{maintainability}, \textit{understandability}, \textit{usability}, and \textit{reproducibility}. The interviewees expressed their thoughts on these five qualities. We discussed the current or past threats, and found out what actions they believed would improve the qualities.
 
 \section{Our Ranking versus the Community Ratings}
-\label{sec_rq6_comparison}
-\begin{description}\item[RQ6.] How does the software quality ranking generated by our methods compare with the ratings from the community?\end{description}
+\label{sec_rq_comparison}
+\begin{description}
+\item[RQ6.] How does software designated as high quality by this methodology compare with top-rated software by the community?
+\end{description}
 
-We answer this question by grading the qualities of the software, then comparing the ranking with the community ratings on GitHub, such as GitHub stars, number of forks, and number of people watching the projects.
+We answer this question by grading the qualities of the software, collecting ratings from the MI community, then conducting two comparisons:
+\begin{itemize}
+\item comparing our ranking with the community ratings on GitHub, such as GitHub stars, number of forks, and number of people watching the projects (Section \ref{sec_ranking_vs_github});
+\item comparing top-rated software designated by our methodology with the ones recommended by our domain experts (Section \ref{sec_designation_vs_experts}).
+\end{itemize}
+
+\subsection{Our Ranking versus the GitHub Popularity}
+\label{sec_ranking_vs_github}
 
 Table \ref{tab_ranking_vs_GitHub} shows our ranking to the 29 MI projects, and their GitHub metrics if applicable. As mentioned in Section \ref{sec_score_maintainability}, 24 projects used GitHub. Since GitHub repositories have different creation dates, we collect the number of months each stayed on GitHub, and calculate the average number of new stars, people watching, and forks per 12 months. The method of getting the creation date is described in Section \ref{sec_empirical_measurements}, and we obtained these metrics in July, 2021.
 
@@ -133,9 +190,47 @@ DICOM Viewer & 29 & 42.86 & 5.71 & 8.57 \\ \hline
 \end{table}
 \endgroup
 
+\subsection{Designated Top Software versus the Domain Experts' Recommendation}
+\label{sec_designation_vs_experts}
+
+As shown in Section \ref{sec_mi_software_selection}, our domain experts recommended a list of top software with 12 software products. Table \ref{tab_top_software_vs_experts} compares the top 12 software projects ranked by our methodology with the ones from the domain experts.
+
+An example of interpreting Table \ref{tab_top_software_vs_experts} is as follows: in row 2, \textit{ImageJ} has rank 2 by our assessment, and the number \textit{(3)} means that it has rank 3 by the experts; likewise, \textit{Horos} has rank 2 by domain expers, and rank 12 by our assessment.
+
+All of the top 4 software from the domain experts are among the top 12 ones ranked by our methodology. 3 of the top 4 on both lists are the same ones: \textit{3D Slicer}, \textit{ImageJ}, and \textit{Fiji}. \textit{3D Slicer} is also the top 1 of both rankings.
+
+As mentioned in Section \ref{sec_mi_software_selection}, six of the recommended software packages did not have Visualization as the primary function, so we did not include them on our final list.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lll}
+\hline
+Rank & This assessment & Domain expert \\ \hline
+1 & 3D Slicer (1) & 3D Slicer (1) \\
+2 & ImageJ (3) & Horos (12) \\
+3 & OHIF Viewer (n/a) & ImageJ (2) \\
+4 & Fiji (4) & Fiji (4) \\
+5 & ParaView (n/a) & AFNI (n/a) \\
+6 & Weasis (n/a) & FSL (n/a) \\
+7 & medInria (n/a) & Freesurfer (n/a) \\
+8 & BioImage Suite Web (n/a) & Mricron (18*) \\
+9 & OsiriX Lite (n/a) & Mango (17**) \\
+10 & INVESALIUS 3 (n/a) & Tarquin (n/a) \\
+11 & Gwyddion (n/a) & Diffusion Toolkit (n/a) \\
+12 & Horos (2) & MRItrix (n/a) \\ \hline
+\end{tabular}
+\caption{\label{tab_top_software_vs_experts}Top software versus domain experts' recommendation}
+\end{table}
+
+* \textit{MRIcron} development had moved to \textit{MRIcroGL}, as mentioned in Section \ref{sec_mi_software_selection}. Thus, we measured and ranked \textit{MRIcroGL} at 18.
+
+** We included \textit{Mango} in the initial list, but removed it because it was not OSS. \textit{Papaya} is a the web version OSS of \textit{Mango}. We measured and ranked \textit{Papaya} at 17.
+
 \section{Threats to Validity}
 \label{sec_threats_to_validity}
 This section lists all the potential threats to the validity of our research.
+
+
 
 \begin{enumerate}
 \item We compared nine software qualities for 29 software packages, so we could only spend a limited time on each of them. As a result, our assessments may not be thorough in revealing their status fully.
@@ -143,5 +238,5 @@ This section lists all the potential threats to the validity of our research.
 \item It was not practical to ask each development team for every piece of information. We collected much information - such as artifacts and funding situations of software - by ourselves. There may be cases that we missed some information.
 \item We interviewed eight teams, which is a good proportion of the 29. However, there is still a risk that they might not well represent the whole MI software community.
 \item As mentioned in Section \ref{ch_interview}, one interviewee was too busy to participate in a full interview, so he provided a version of written answers to us. Since we did not have the chance to explain our questions or ask him follow-up questions, there is a possibility of misinterpretation of the questions or answers.
-\item As mentioned in Section \ref{sec_rq6_comparison}, we gave \textit{dwv} much lower scores than its GitHub popularity. We might underestimate its rank due to uncommon technical issues.
+\item As mentioned in Section \ref{sec_rq_comparison}, we gave \textit{dwv} much lower scores than its GitHub popularity. We might underestimate its rank due to uncommon technical issues.
 \end{enumerate}
