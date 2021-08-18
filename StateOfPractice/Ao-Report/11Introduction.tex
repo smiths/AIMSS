@@ -1,32 +1,32 @@
 \chapter{Introduction}
 \label{ch_intro}
-This report analyzes the state of the practice for Medical Imaging (MI) software. MI is the clinical tool to image the interior of a body, providing information for diagnostic, analytic, and medical applications \cite{FDA2021} \cite{enwiki:1034887445}. MI is an essential part of collecting accurate information during clinical diagnosis \cite{Zhang2008}. MI computing and software aim to visualize and process medical images and produce clinically meaningful information \cite{enwiki:1034877594}.
+We define Scientific Computing (SC) as ``the use of computer tools to analyze or simulate mathematical models of real world systems of engineering or scientiﬁc importance so that we can better understand and predict the system’s behaviour" \cite{Smith2006}. Many researchers consider SC as the third pillar of science and engineering, along with theory and experiment \cite{Landau2005}. Almost all areas in science and engineering use computers for modeling \cite{Golub2014}, and software plays an essential role in modern scientific research \cite{Hannay2009} \cite{Wilson2014}.  Software development in SC depends on three fields of knowledge: engineering or scientific domain knowledge, mathematical algorithm knowledge, and computational algorithm knowledge \cite{Landau2005} \cite{Mehta2015}. Thus, most SC software developers are scientists in SC domains \cite{Wilson2014}. However, they do not always use the modern software development techniques, tools, and methods \cite{Wilson2014}. Therefore, we developed a methodology for assessing the state of the practice for SC software. We apply this process to Medical Imaging (MI) software that belongs to a specific domain of SC.
 
-We define SC as ``the use of computer tools to analyze or simulate mathematical models of real world systems of engineering or scientiﬁc importance so that we can better understand and predict the system’s behaviour" \cite{Smith2006}. Software development in SC depends on the knowledge of three areas: engineering or science domain knowledge, mathematical algorithm knowledge, and computational algorithm knowledge. MI software belongs to a specific domain of SC.
+This report analyzes the state of the practice for MI software. MI is the clinical tool to image the interior of a body, providing information for diagnostic, analytic, and medical applications \cite{FDA2021} \cite{enwiki:1034887445}. MI is an essential part of collecting accurate information during clinical diagnosis \cite{Zhang2008}. MI software aims to visualize and process medical images and produce clinically meaningful information \cite{enwiki:1034877594}.
 
 We aim to study the current status of SC software development in the MI domain; understand the current merits, drawbacks, and pain points during the development process, as well as the software qualities in the domain; provide guidelines and recommendations for future development.
 
-Section \ref{sec_motivation} presents our motivation to start the research set the above goals, Section \ref{sec_research_questions} lists our research questions, and Section \ref{sec_scope} explains the domain analysis of MI software scope of our research.
+Section \ref{sec_motivation} presents our motivation to start the research set the above goals, Section \ref{sec_research_questions} lists our research questions, and Section \ref{sec_scope} presents the scope of MI software in our research.
 
 \section{Motivation}
 \label{sec_motivation}
-Most scientists think developing and using SC software play significant roles in their research \cite{Hannay2009}. They spend a substantial proportion of their working hours on SC software development \cite{Hannay2009} \cite{Prabhu2011}, and this proportion of time has increased over the years \cite{Hannay2009}. 
+Most scientists think developing and using SC software plays a significant role in their research \cite{Hannay2009}. They spend a substantial proportion of their working hours on SC software development \cite{Hannay2009} \cite{Prabhu2011}, and this proportion of time has increased over the years \cite{Hannay2009}. 
 
-Developing SC software requires solid knowledge in specific domains \cite{Wilson2014}. Many of them learn software engineering skills by themselves or from their peers, instead of proper training \cite{Hannay2009}. Hannay et al. \cite{Hannay2009} also pointed out that many scientists showed ignorance and indifference to standard software engineering concepts. According to a survey by Prabhu et al. \cite{Prabhu2011}, more than half of the 114 subjects did not use any proper debugger for their software.
+Developing SC software requires solid knowledge in specific domains \cite{Wilson2014}. Many developers learn software engineering skills by themselves or from their peers, instead of from proper training \cite{Hannay2009}. Hannay et al. \cite{Hannay2009} observe that many scientists showed ignorance and indifference to standard software engineering concepts. According to a survey by Prabhu et al. \cite{Prabhu2011}, more than half of the 114 subjects did not use any proper debugger for their software.
 
-Due to its nature, SC software born from one project can be part of many other projects in the future, with the potential to disproportionately causing damages to scientific researches \cite{Wilson2014}. 
+Due to its nature, SC software born from one project can be part of many other projects in the future, with the potential to disproportionately causing damages to scientific research \cite{Wilson2014}. 
 
-As a result, the development process and quality of SC software concern us. We want to understand their status in SC domains and improve them. We build and refine our methodology, based on our previous work in scientific domains such as oceanography \cite{Smith2015}, mesh generation \cite{smith2016state}, geographic information systems \cite{smith2018state}, psychology \cite{smith2018statistical} and seismology \cite{Smith2018Seismology}. 
+As a result, the development process and quality of SC software concern us. We want to understand their status in SC domains and improve them. In addition, we want to understand whether problems like these mentioned above occur in all SC domains, or whether the state of the practice varies between domains. We build and refine our methodology, based on our previous work in scientific domains such as oceanography \cite{Smith2015}, mesh generation \cite{smith2016state}, geographic information systems \cite{smith2018state}, psychology \cite{smith2018statistical} and seismology \cite{Smith2018Seismology}. 
 
 \section{Research Questions}
 \label{sec_research_questions}
-To achieve our objectives, we designed a few research questions and tried to answer them by our research methods. The questions are as follows,
+To achieve our objectives, we devised a few research questions as follows:
 
 \begin{description}
-\item[RQ1.] What are the pain points for developers working on MI software projects? What solutions the developers have tried to address the pain points?
-\item[RQ2.] What artifacts the projects generated?
-\item[RQ3.] What role does documentation play in the projects? What are the developers' attitudes toward it?
-\item[RQ4.] What principles, processes, methodologies, and tools the projects used?
+\item[RQ1.] What artifacts are present in current software projects? What role does documentation play in the projects? What are the developers' attitudes toward it?
+\item[RQ2.] What tools are used in the development of current software packages?
+\item[RQ3.] What principles, processes, and methodologies are used in the development of current software packages?
+\item[RQ4.] What are the pain points for developers working on research software projects? What aspects of the existing processes, methodologies, and tools do they consider as potentially needing improvement? What changes to processes, methodologies, and tools can improve software development and software quality?
 \item[RQ5.] What is the current status of the following software qualities for the projects? What actions have the developers taken to address them?
 \begin{itemize}
 	\item Installability
@@ -45,11 +45,11 @@ To achieve our objectives, we designed a few research questions and tried to ans
 
 \section{Scope}
 \label{sec_scope}
-According to Bankman \cite{Bankman2000}, MI software deals with six different basic problems, while Angenentet et al. \cite{Angenent2006} pointed out that four fundamental problems are solved by MI software. While both mentioned Segmentation, Registration, and Visualization of medical images, Bankman also included Enhancement, Quantification, and a section covering some other functions \cite{Bankman2000}. On the other hand, Angenent's team included Simulation \cite{Angenent2006}. According to Wikipedia contributors \cite{enwiki:1034877594}, MI software has primary functions in categories such as Segmentation, Registration, Visualization (including the basic display, reformatted views, and 3D volume rendering), Statistical Analysis, Image-based Physiological Modelling, etc. As Kim et al. \cite{Kim2011} describe, the general steps of medical image analysis after obtaining digital data include Enhancement, Segmentation, Feature Extraction, Classification, and Interpretation. Besides the above major functions, some MI software provides supportive functions. For example, with Tool Kit (TK) libraries VTK \cite{SchroederEtAl2006} and ITK \cite{McCormick2014}, developers build software with Visualization and Analysis functions; Picture Archiving and Communication System (PACS) helps users to economically store and conveniently access images \cite{Choplin1992}. 
+According to Bankman \cite{Bankman2000}, MI software deals with six different basic problems, while Angenentet et al. \cite{Angenent2006} pointed out that four fundamental problems are solved by MI software. While both mentioned Segmentation, Registration, and Visualization of medical images, Bankman also included Enhancement, Quantification, and three functions for MI archiving and telemedicine systems (Compression, Storage, and Communication) \cite{Bankman2000}. On the other hand, Angenent's team included Simulation \cite{Angenent2006}. According to Wikipedia contributors \cite{enwiki:1034877594}, MI software has primary functions in categories Segmentation, Registration, Visualization (including the basic display, reformatted views, and 3D volume rendering), Statistical Analysis, and Image-based Physiological Modelling. As Kim et al. \cite{Kim2011} describe, the general steps of medical image analysis after obtaining digital data include Enhancement, Segmentation, Feature Extraction, Classification, and Interpretation. Besides the above major functions, some MI software provides supportive functions. For example, with Tool Kit (TK) libraries VTK \cite{SchroederEtAl2006} and ITK \cite{McCormick2014}, developers build software with Visualization and Analysis functions; Picture Archiving and Communication System (PACS) helps users to economically store and conveniently access images \cite{Choplin1992}. 
 
-We divided MI software into five sub-groups and several sub-sub-groups by their major functions shown in Figure \ref{fig_mi_functions}.
+Based on our literature survey, we divided MI software into five sub-groups and several sub-sub-groups by their major functions, as shown in Figure \ref{fig_mi_functions}.
 
-\begin{figure}
+\begin{figure}[h]
 \centering
 \begin{tikzpicture}[mindmap, grow cyclic, every node/.style=concept, concept
 color=orange!40,
@@ -81,4 +81,21 @@ child[concept color=teal!40] { node {Visualization}
 \label{fig_mi_functions}
 \end{figure}
 
-In this project, the scope of the software is limited to the software library providing the Visualization tools and functions.
+To keep the data collection and analysis feasible, we limited the scope of the software to the software packages providing the Visualization tools and functions in this project.
+
+\section{Overview of the Methodology}
+We designed a general method to assess the state of the practice for SC software. With this method, we choose an SC domain and identify software candidates in it. Then, we filter the candidates and produce a final list of about 30 software packages. We measure the qualities of each software by answering questions on a grading template, as shown in Appendix \ref{ap_grading_template}. With the quantitative data generated by the template, we rank the software with the Analytic Hierarchy Process (AHP). After that, we interview some of the development teams to further understand the status of their development process. Finally, we summarize the results and propose recommendations for future SC software development.
+
+\section{Organization}
+We organize this report as follows:
+\begin{itemize}
+\item \textbf{Introduction} to our research and this report.
+\item \textbf{Background} of our research and methodology.
+\item \textbf{Methodology} of our state of the practice assessment, including an overview of applying it to the MI software.
+\item \textbf{Measurement Results} for a list of selected MI software, including measurement data generated by our grading template, and our ranking to the software on this list.
+\item \textbf{Interviews with Developers}, including the pain points and other status of their development process.
+\item \textbf{Answers to Research Questions.} 
+\item \textbf{Recommendations} to future SC software development.
+\item \textbf{Conclusions} to this report, including recommendations to the future state of the practice study.
+\item \textbf{Appendix}, including our Full Grading Template, Full Software List Before Filtering, Other Interview Answers, and Ethics Approval.
+\end{itemize}
