@@ -1,13 +1,13 @@
 \chapter{Background}
 \label{ch_background}
 
-In this section, we introduce the relevant software categories (Section \ref{sec_software_categories}). We also cover the software quality definitions (Section \ref{sec_software_quality}) and an overview of the AHP (Section \ref{sec_AHP}).
-
 When designing a method for evaluating the state of the practice of domain-specific software, we included a step to select domain and software. Knowledge of different software categories is essential for the selection. To compare and rank the software qualities with the grading template in Appendix \ref{ap_grading_template}, we need the definitions of qualities and the AHP.
+
+In this section, we introduce the relevant software categories (Section \ref{sec_software_categories}). We also cover the software quality definitions (Section \ref{sec_software_quality}) and an overview of the AHP (Section \ref{sec_AHP}).
 
 \section{Software Categories}
 \label{sec_software_categories}
-We target specific software categories to narrow down the scope when selecting software packages for measuring. In this section, we discuss three common software categories: Open source software (OSS), freeware, and commercial software.
+We target specific software categories to narrow down the scope when selecting software packages for measuring. One way to categorize them is grouping by functions, such as analyzing the scope for the MI software (Section \ref{sec_scope}), which requires specific domain knowledge. In this section, we discuss three common software categories that we can apply to all SC domains: Open source software (OSS), freeware, and commercial software.
 
 \subsection{Open Source Software}
 \label{sec_open_source_software}
@@ -31,7 +31,7 @@ This section lists the definitions of 10 software qualities, which are from Smit
 \begin{itemize}
 	\item \textbf{Installability} The effort required for the installation, uninstallation, or reinstallation of a software or product in a specified environment \cite{ISO/IEC25010} \cite{lenhard2013measuring}.
 
-	\item \textbf{Correctness \& Verifiability} A program is correct if it behaves according to its stated. Verifiability is the extent to which a set of tests can be written and executed, to demonstrate that the delivered system meets the specification \cite{GhezziEtAl2003}.
+	\item \textbf{Correctness \& Verifiability} A program is correct if it behaves according to its stated specifications. Verifiability is the extent to which a set of tests can be written and executed, to demonstrate that the delivered system meets the specification \cite{GhezziEtAl2003}.
 
 	\item \textbf{Reliability} The probability of failure-free operation of a computer program in a specified environment for a specified time, i.e. the average time interval between two failures also known as the mean time to failure (MTTF) \cite{musa1987software} 
 	\cite{GhezziEtAl2003}.
@@ -55,7 +55,7 @@ This section lists the definitions of 10 software qualities, which are from Smit
 \label{sec_AHP}
 To generate ranking scores for a set of software packages, we use AHP, which utilizes pairwise comparisons between all of the packages. Thomas L. Saaty developed this tool, and people widely used it to make and analyze multiple criteria decisions \cite{VaidyaEtAl2006}. AHP organizes multiple criteria factors in a hierarchical structure and uses pairwise comparisons between alternatives to calculate relative ratios \cite{Saaty1990}.
 
-For a project with $ m $ criteria, we can use an $m\times m$ matrix $A$ to record the relative importance between factors. By pairwise compare criterion $i$ and criterion $j$, the value of $A_{ij}$ is decided as follows, and the value of $A_{ji}$ is $1/A_{ij}$ \cite{Saaty1990},
+For a project with $ m $ criteria, we can use an $m\times m$ matrix $A$ to record the relative importance between factors. When comparing criterion $i$ and criterion $j$, the value of $A_{ij}$ is decided as follows, and the value of $A_{ji}$ is $1/A_{ij}$ \cite{Saaty1990},
 \begin{itemize}
 	\item $A_{ij} = 1$ if criterion $i$ and criterion $j$ are equally important;
 	\item $A_{ij} = 9$ if criterion $i$ is extremely more important than criterion $j$;
@@ -77,4 +77,13 @@ w_i = \frac{1}{m}\sum_{j=1}^{m}\frac{A_{ij}}{\sum_{k=1}^{m}A_{kj}}
 
 Suppose there are $n$ alternatives, for criterion $i = 1, 2, ... , m$, we can create an $n\times n$ matrix $B_i$ to record the relative preferences between these choices. The way of generating $B_i$ is similar to the one for $A$. However, unlike comparing the importance between criteria, we pairwise decide how much we favor one alternative over the other. We use the same method to calculate the local priority vector for each $B_i$.
 
-In this project, the 9 software qualities mentioned above are the criteria ($m = 9$), while 29 software packages ($n = 29$) are compared for each of the $m$ criteria. The software are evaluated with the grading template in Appendix \ref{ap_grading_template} and a subjective score from one to ten is given for each quality for each package. To convert the results into pair-wise scores, we apply the following steps: for each quality, for a pair of packages $i$ and $j$, such that $score_i >= score_j$, the pairwise comparison result of $i$ versus $j$ is converted from $min((score_i - score_j) + 1, 9)$.
+In this project, the 9 software qualities mentioned above are the criteria ($m = 9$), while 29 software packages ($n = 29$) are compared for each of the $m$ criteria. The software are evaluated with the grading template in Appendix \ref{ap_grading_template} and a subjective score from one to ten is given for each quality for each package. For each quality, for a pair of packages $i$ and $j$, such that $score_i >= score_j$, the difference between two scores is $diff_{ij} = score_i - score_j$. The relationship between $A_{ij} = 1$ and $diff_{ij}$ is as follows:
+\begin{itemize}
+\item $A_{ij} = 1$ and $diff_{ij} = 0$ when criterion $i$ and criterion $j$ are equally important;
+\item $A_{ij}$ increases when $diff_{ij}$ increases;
+\item $A_{ij} = 9$ and $diff_{ij} = 9$ when criterion $i$ is extremely more important than criterion $j$.
+\end{itemize}
+Thus, we approximate the pairwise comparison result of $i$ versus $j$ by the following equation:
+\begin{equation}
+A_{ij} = min(score_i - score_j + 1, 9)
+\end{equation}
