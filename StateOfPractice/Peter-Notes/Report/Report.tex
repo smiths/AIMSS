@@ -104,7 +104,7 @@
 	{\MakeUppercase{\fulltitle}}
 	{\MakeUppercase{\authorname}.}
 	{Master of Engineering in Computing and Software}
-	{\copyright \ Copyright by \authorname, July 2021}
+	{\copyright \ Copyright by \authorname, August 2021}
 
 \newpage
 \thispagestyle{empty}
@@ -119,7 +119,7 @@
 
 \noindent\textbf{SUPERVISOR:} Dr. Spencer Smith and Dr. Jacques Carette
 
-\noindent\textbf{NUMBER OF PAGES:} 123
+\noindent\textbf{NUMBER OF PAGES:} 125
 
 
 \newpage
@@ -211,7 +211,7 @@ We analyze the development of Computational Fluid Dynamics (CFD) software packag
 \begin{figure}[h!]
 	\begin{center}
 		\includegraphics[width=0.7\textwidth]{circularflow}
-		\caption{Streamlines of flow past a stationary circular cylinder at Re = 10, 20, and 40 \citep{chen2021phase}}
+		\caption{Streamlines of flow past a stationary circular cylinder at Reynolds number = 10, 20, and 40 \citep{chen2021phase}}
 		\label{circularflow}
 	\end{center}
 \end{figure}
@@ -274,7 +274,7 @@ The packages are assessed for a given set of quality attributes using quantitati
 
 The purpose of state of the practice assessments is to understand how software quality is impacted by software development choices, including principles, processes, and tools, within SCS communities. This knowledge can be used to guide future development of SCS, specifically along quality attributes, and to reduce software quality failures. This work reports on the state of the practice of LBM software development and makes suggestions on improving the quality of software in this domain.
 
-This assessment of the state of the practice of LBM software development builds off of prior work on assessing the state of research software development. The previous state of the practice assessments include domains such as Geographic Information Systems \citep{SmithEtAl2018_arXivGIS}, Mesh Generators \citep{SmithEtAl2016}, Oceanographic Software \citep{smith2015state}, Seismology software \citep{SmithEtAl2018}, and statistical software for psychology \citep{SmithEtAl2018_StatSoft}. 
+This assessment of the state of the practice of LBM software development builds off of prior work on assessing the state of research software development. Updates to the methodology used in prior assessments are detailed below. Those assessments include domains such as Geographic Information Systems \citep{SmithEtAl2018_arXivGIS}, Mesh Generators \citep{SmithEtAl2016}, Oceanographic Software \citep{smith2015state}, Seismology software \citep{SmithEtAl2018}, and statistical software for psychology \citep{SmithEtAl2018_StatSoft}.
 
 In the course of this assessment we updated the methodology that was used during previous assessments. Details of the new methodology are in \citep{methodology2020}. The previous set of research questions were critically assessed and modified. The updated questions are listed in Section \ref{purpose}. In this re-boot we collected more quantitative and qualitative data, focused on software quality attributes, and added more measures, including collecting empirical data and interviewing developers. We have also added a domain analysis to better characterize the functionality provided by the software, and have leveraged the expertise of a domain expert. As in past assessments, the collected data was combined to rank the software using the Analytical Hierarchy Process (AHP). The domain expert was consulted to verify the ordering.
 
@@ -304,9 +304,9 @@ The report is organized as follows:
 
 \section{Domain Analysis}\label{domainanalysis}
 
-A domain analysis consists of systematically identifying and documenting the commonalities, variabilities, and parameters of variation of a software family \citep{Weiss1997}. A software family is defined by \cite{parnas1976design} as “a set of programs whose common properties are so extensive that it is advantageous to study the common properties of the programs before analyzing individual members”. 
+A domain analysis consists of systematically identifying and documenting the commonalities, variabilities, and parameters of variation of a software family \citep{Weiss1997}. A software family is defined by \cite{parnas1976design} as ``a set of programs whose common properties are so extensive that it is advantageous to study the common properties of the programs before analyzing individual members''. 
 
-We added this domain commonality and variability analysis to our original methodology because the first time we did the State of the Practice exercise we found we weren't comparing ``apples to apples". Software packages can have considerable variation, even when the packages appear to be in the same software family. Viewing the ranking exercise as a means for selecting the right tool for a job, functionality is important. A 2D Lattice Boltzmann solver is not a substitute for a 3D Lattice Boltzmann solver when the latter is required. Therefore, this exercise seeks to classify the different software products based on their functionality. Nonfunctional qualities are assessed through other means in our process. For instance, through usability experiments as noted in the \href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/Methodology/Methodology.pdf}{Methodology for Assessing the State of the Practice for Domain X} document. 
+We added this domain commonality and variability analysis to our original methodology because the first time we did the State of the Practice exercise we found we weren't comparing ``apples to apples". Software packages can have considerable variation, even when the packages appear to be in the same software family. Viewing our final ranking of the software packages as a means for selecting the right tool for a job, functionality is important. A 2D Lattice Boltzmann solver is not a substitute for a 3D Lattice Boltzmann solver when the latter is required. For example, an analysis of a vascular system may require a 3D model to convey all required information to a researcher. This domain analysis helps ensure that the packages that we compare are appropriately similar, and highlights potential differences. This information further helps when analyzing the appropriateness of the final rank of the packages.  This exercise seeks to classify the different software products based on their functionality. Nonfunctional qualities are assessed through other means in our process. For instance, through usability experiments as noted in the \href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/Methodology/Methodology.pdf}{Methodology for Assessing the State of the Practice for Domain X} document. This exercise was not part of the methodology of the previous State of the Practice exercise.
 
 This domain analysis of the LBM SCS family is organized into the four subsection located below. The first subsection reviews the basics of Lattice Boltzmann systems. The next three subsections consist of lists of commonalities, variabilities, and parameters of variation, respectively. These three sections form the heart of the domain analysis and include an extensive set of cross-references to demonstrate the relationships between the different items.
 
@@ -320,7 +320,7 @@ LBM use the initial parameters of the fluid to find the probability of where alo
 
 \subsection{Commonalities}\label{comm_sec}
 
-This section lists common features among potential family members. The commonalities are organized using the following abstraction of the system, which can be used to describe all Lattice Boltzmann systems: input information, generate the simulation, output the results. Section \ref{comm_lbm} describes the commonalities for the simulation step. Section \ref{comm_in} highlights the input information that is required for Lattice Boltzmann systems. The next section, Section \ref{comm_out}, shows the common features for the output of Lattice Boltzmann systems, such as the requirement that mesh information be written to files. Although the output information could simply be written to the computer’s memory, in all practical applications it is desirable to have a persistent record of the output that was created.
+This section lists common features among potential family members. These features were chosen after a review of LBM literature and software package specifications. The commonalities are organized using the following abstraction of the system, which can be used to describe all Lattice Boltzmann systems: input information, generate the simulation, output the results. Section \ref{comm_lbm} describes the commonalities for the simulation step. Section \ref{comm_in} highlights the input information that is required for Lattice Boltzmann systems. The next section, Section \ref{comm_out}, shows the common features for the output of Lattice Boltzmann systems, such as the requirement that mesh information be written to files. Although the output information could simply be written to the memory, in all practical applications it is desirable to have a persistent record of the output that was created.
 
 Each commonality below uses the same structure. All of the commonalities are assigned a unique item number, which takes the form of a natural number with the prefix ``C''. Following this, a description of the commonality is provided along with a list of related variabilities, which are given as hyperlinks that allow navigation of the document to the text describing the variability.  
 
@@ -454,8 +454,10 @@ Each commonality below uses the same structure. All of the commonalities are ass
 		\hline
 	\end{tabular}
 \end{minipage}\\
+
+
 \subsection{Variabilities}\label{var_sec}
-This section provides a list of characteristics that may vary among family members. As in Section \ref{comm_sec}, the first three subsections on variabilities are organized into the following sublists: Simulation Models, Input and Output. The final subsection lists variabilities that can be characterized as system constraints. 
+This section provides a list of characteristics that may vary among family members. These features were chosen after a review of LBM literature and software package specifications. As in Section \ref{comm_sec}, the first three subsections on variabilities are organized into the following sublists: Simulation Models, Input and Output. The final subsection lists variabilities that can be characterized as system constraints. 
 
 As for the commonalities, each variability is labelled with a unique item number. In this case the numbers are prepended with the letter ``V''. The other three headings provided for each variability are: Description, Related Commonality, and Related Parameter. The related commonalities and parameters are given as a set of identifiers that respectively refer back to the previous section on commonalities or refer forward to the next section on parameters of variation.
 
