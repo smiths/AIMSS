@@ -3,47 +3,47 @@
 
 As discussed in Section \ref{sec_applying_method}, we applied our method to the MI domain. This section shows the summary of the measurement results. The detailed data can be found in the repository \hyperlink{https://data.mendeley.com/datasets/k3pcdvdzj2/1}{https://data.mendeley.com/datasets/k3pcdvdzj2/1}.
 
-Table \ref{tab_final_list} shows the 29 software packages that we measured. We found the initial release dates (Rlsd) in their documents for most projects and marked the rest two with ``?". We used the date of the latest change to each code repository to decide the latest update. We found out funding information (Fnd) for only eight projects.
+Table \ref{tab_final_list} shows the 29 software packages that we measured, along with some summary data collected in the year 2020. As mentioned in Section \ref{sec_grading_template}, we used \textit{scc} (Section \ref{sec_empirical_measurements}) to count the Lines of Code (LOC), excluding the comment and blank lines. We arrange the items in the descending order of the LOC. We found the initial release dates (Rlsd) in their documents for most projects and marked the two unknown dates with ``?". We used the date of the latest change to each code repository to decide the latest update. We found out funding information (Fnd) for only eight projects.
 
-We counted the number of contributors (NOC) and lines of code (LOC). we considered anyone who made at least one accepted commit to the source code as a contributor. Thus, it does not mean that any development team has are 100 long-term members. Many of these projects received change requests and code from the community, such as pull requests and git commits on GitHub.
+We counted the number of contributors (NOC). We considered anyone who made at least one accepted commit to the source code as a contributor. Thus, the NOC is not usually the same as the number of long-term members. Many of these projects received change requests and code from the community, such as pull requests and git commits on GitHub.
 
-Table \ref{tab_final_list} also shows the supported OS for each software package, and 25 of them could work on all three Windows (W), macOS (M), and Linux (L) systems. However, there was a significant difference in the philosophy to achieve cross-platform compatibility. Most of them were native software products, but five were naturally platform-independent web applications.
+Table \ref{tab_final_list} also shows the supported OS for each software package. Twenty-five of them could work on all three OSs: Windows (W), macOS (M), and Linux (L). However, there was a significant difference in the philosophy to achieve cross-platform compatibility. Most of them were native software products, but five were naturally platform-independent web applications, as shown in column ``Web".
 
 \begin{table}[H]
+\centering
 \begin{tabular}{llllllllll}
 \hline
-\multirow{2}{*}{Software} & \multirow{2}{*}{Rlsd} & \multirow{2}{*}{Updated} & \multirow{2}{*}{Fnd} & \multirow{2}{*}{NOC} & \multirow{2}{*}{LOC} & \multicolumn{3}{c}{OS} & \multirow{2}{*}{W} \\ \cline{7-9}
+\multirow{2}{*}{Software} & \multirow{2}{*}{Rlsd} & \multirow{2}{*}{Updated} & \multirow{2}{*}{Fnd} & \multirow{2}{*}{NOC} & \multirow{2}{*}{LOC} & \multicolumn{3}{c}{OS} & \multirow{2}{*}{Web} \\ \cline{7-9}
  &  &  &  &  &  & W & M & L &  \\ \hline
-3D Slicer \cite{Kikinis2014} & 1998 & 2020-08 & X & 100 & 501451 & X & X & X &  \\
-Ginkgo CADx \cite{Wollny2020} & 2010 & 2019-05 &  & 3 & 257144 & X & X & X &  \\
-XMedCon \cite{Nolf2003} & 2000 & 2020-08 &  & 2 & 96767 & X & X & X &  \\
-Weasis \cite{Roduit2021} & 2010 & 2020-08 &  & 8 & 123272 & X & X & X &  \\
-MRIcroGL \cite{Rorden2021} & 2015 & 2020-08 &  & 2 & 8493 & X & X & X &  \\
-SMILI \cite{Chandra2018} & 2014 & 2020-06 &  & 9 & 62626 & X & X & X &  \\
-ImageJ \cite{Rueden2017} & 1997 & 2020-08 & X & 18 & 9681 & X & X & X &  \\
-Fiji \cite{Schindelin2012} & 2011 & 2020-08 & X & 55 & 10833 & X & X & X &  \\
-DicomBrowser \cite{Archie2012} & 2012 & 2020-08 &  & 3 & 5505 & X & X & X &  \\
-3DimViewer \cite{TESCAN2020} & ? & 2020-03 & X & 3 & 178065 & X & X &  &  \\
+ParaView \cite{Ahrens2005} & 2002 & 2020-10 & X & 100 & 886326 & X & X & X & X \\
+Gwyddion \cite{Nevcas2012} & 2004 & 2020-11 &  & 38 & 643427 & X & X & X &  \\
 Horos \cite{horosproject2020} & ? & 2020-04 &  & 21 & 561617 &  & X &  &  \\
 OsiriX Lite \cite{PixmeoSARL2019} & 2004 & 2019-11 &  & 9 & 544304 &  & X &  &  \\
-dwv \cite{Martelli2021} & 2012 & 2020-09 &  & 22 & 47815 & X & X & X & X \\
+3D Slicer \cite{Kikinis2014} & 1998 & 2020-08 & X & 100 & 501451 & X & X & X &  \\
 Drishti \cite{Limaye2012} & 2012 & 2020-08 &  & 1 & 268168 & X & X & X &  \\
-BioImage Suite Web \cite{Papademetris2005} & 2018 & 2020-10 & X & 13 & 139699 & X & X & X & X \\
-OHIF Viewer \cite{Ziegler2020} & 2015 & 2020-10 &  & 76 & 63951 & X & X & X & X \\
-Slice:Drop \cite{Haehn2013} & 2012 & 2020-04 &  & 3 & 19020 & X & X & X & X \\
+Ginkgo CADx \cite{Wollny2020} & 2010 & 2019-05 &  & 3 & 257144 & X & X & X &  \\
 GATE \cite{Jan2004} & 2011 & 2020-10 &  & 45 & 207122 &  & X & X &  \\
-ITK-SNAP \cite{Yushkevich2006} & 2006 & 2020-06 & X & 13 & 88530 & X & X & X &  \\
-ParaView \cite{Ahrens2005} & 2002 & 2020-10 & X & 100 & 886326 & X & X & X & X \\
-MatrixUser \cite{Liu2016} & 2013 & 2018-07 &  & 1 & 23121 & X & X & X &  \\
-DICOM Viewer \cite{Afsar2021} & 2018 & 2020-04 & X & 5 & 30761 & X & X & X &  \\
-INVESALIUS 3 \cite{Amorim2015} & 2009 & 2020-09 &  & 10 & 48605 & X & X & X &  \\
+3DimViewer \cite{TESCAN2020} & ? & 2020-03 & X & 3 & 178065 & X & X &  &  \\
 medInria \cite{Fillard2012} & 2009 & 2020-11 &  & 21 & 148924 & X & X & X &  \\
-dicompyler \cite{Panchal2010} & 2009 & 2020-01 &  & 2 & 15941 & X & X &  &  \\
-MicroView \cite{ParallaxInnovations2020} & 2015 & 2020-08 &  & 2 & 27470 & X & X & X &  \\
-Papaya \cite{UTHSCSA2019} & 2012 & 2019-05 &  & 9 & 71831 & X & X & X &  \\
+BioImage Suite Web \cite{Papademetris2005} & 2018 & 2020-10 & X & 13 & 139699 & X & X & X & X \\
+Weasis \cite{Roduit2021} & 2010 & 2020-08 &  & 8 & 123272 & X & X & X &  \\
 AMIDE \cite{Loening2017} & 2006 & 2017-01 &  & 4 & 102827 & X & X & X &  \\
-Gwyddion \cite{Nevcas2012} & 2004 & 2020-11 &  & 38 & 643427 & X & X & X &  \\
-\hline
+XMedCon \cite{Nolf2003} & 2000 & 2020-08 &  & 2 & 96767 & X & X & X &  \\
+ITK-SNAP \cite{Yushkevich2006} & 2006 & 2020-06 & X & 13 & 88530 & X & X & X &  \\
+Papaya \cite{UTHSCSA2019} & 2012 & 2019-05 &  & 9 & 71831 & X & X & X &  \\
+OHIF Viewer \cite{Ziegler2020} & 2015 & 2020-10 &  & 76 & 63951 & X & X & X & X \\
+SMILI \cite{Chandra2018} & 2014 & 2020-06 &  & 9 & 62626 & X & X & X &  \\
+INVESALIUS 3 \cite{Amorim2015} & 2009 & 2020-09 &  & 10 & 48605 & X & X & X &  \\
+dwv \cite{Martelli2021} & 2012 & 2020-09 &  & 22 & 47815 & X & X & X & X \\
+DICOM Viewer \cite{Afsar2021} & 2018 & 2020-04 & X & 5 & 30761 & X & X & X &  \\
+MicroView \cite{ParallaxInnovations2020} & 2015 & 2020-08 &  & 2 & 27470 & X & X & X &  \\
+MatrixUser \cite{Liu2016} & 2013 & 2018-07 &  & 1 & 23121 & X & X & X &  \\
+Slice:Drop \cite{Haehn2013} & 2012 & 2020-04 &  & 3 & 19020 & X & X & X & X \\
+dicompyler \cite{Panchal2010} & 2009 & 2020-01 &  & 2 & 15941 & X & X &  &  \\
+Fiji \cite{Schindelin2012} & 2011 & 2020-08 & X & 55 & 10833 & X & X & X &  \\
+ImageJ \cite{Rueden2017} & 1997 & 2020-08 & X & 18 & 9681 & X & X & X &  \\
+MRIcroGL \cite{Rorden2021} & 2015 & 2020-08 &  & 2 & 8493 & X & X & X &  \\
+DicomBrowser \cite{Archie2012} & 2012 & 2020-08 &  & 3 & 5505 & X & X & X &  \\ \hline
 \end{tabular}
 \caption{\label{tab_final_list}Final software list}
 \end{table}
@@ -72,7 +72,7 @@ nodes near coords align={vertical},
 \caption{\label{fig_language}Primary languages versus number of projects using them}
 \end{figure}
 
-We failed installing \textit{DICOM Viewer}, so we could not test \textit{surface reliability} and \textit{surface robustness} for it. We kept this software on our list because the other seven qualities do not rely on a successful installation. Besides, it used a unique dependency, and we wanted to keep the diversity.
+We failed to install \textit{DICOM Viewer}, so we could not test its \textit{surface reliability} and \textit{surface robustness}. We kept this software on our list because the other seven qualities do not rely on a successful installation. Besides, the \textit{DICOM Viewer} team built it as a plugin software for NextCloud (\hyperlink{https://apps.nextcloud.com/}{https://apps.nextcloud.com/}) platform, which was a unique choice we had not seen before. We wanted to keep it to enrich the diversity.
 
 \section{Installability}
 \label{sec_result_installability}
@@ -85,11 +85,11 @@ Figure \ref{fg_installability_scores} lists the scores of \textit{installability
 \label{fg_installability_scores}
 \end{figure}
 
-We found installation instructions for 16 projects. Among the ones without such an instruction, \textit{BioImage Suite Web} and \textit{Slice:Drop} were web applications and provided online versions to use, thus they needed no installation. Installing 10 of the projects needed extra dependencies. Five of them are the web applications in Table \ref{tab_final_list}, and depended on a browser; \textit{dwv}, \textit{OHIF Viewer}, and \textit{GATE} needed extra dependencies to build; \textit{ImageJ} and	\textit{Fiji} needed an unzip tool; \textit{MatrixUser} was based on Matlab; \textit{DICOM Viewer} needed to work on Nextcloud platform.
+We found installation instructions for 16 projects. Among the ones without instructions, \textit{BioImage Suite Web} and \textit{Slice:Drop} are web applications with online versions to use, thus they do not need installation. Installing 10 of the projects required extra dependencies. Five of them are the web applications in Table \ref{tab_final_list}, and depended on a browser; \textit{dwv}, \textit{OHIF Viewer}, and \textit{GATE} needed extra dependencies to build; \textit{ImageJ} and	\textit{Fiji} needed an unzip tool; \textit{MatrixUser} was based on Matlab; \textit{DICOM Viewer} needed to work on a Nextcloud platform.
 
-\textit{3D Slicer} has the highest score because it had easy-to-follow installation instructions, and the installation processes were automated, fast, and frustration-free, with all dependencies automatically added. There were also no errors during the installation and uninstallation steps. Many other software packages also had installation instructions and automated installers, and we had no trouble installing them, such as \textit{INVESALIUS 3}, \textit{Gwyddion}, \textit{XMedCon}, and \textit{MicroView}. We gave them various scores based on the understandability of the instructions, installation steps, and user experience. Since \textit{BioImage Suite Web} and \textit{Slice:Drop} needed no installation, we gave them higher scores due to the significant convenience. \textit{BioImage Suite Web} also provided an option to download cache to local for offline usage, which was easy to apply.
+\textit{3D Slicer} has the highest score because it had easy to follow installation instructions, and the installation processes were automated, fast, and frustration-free, with all dependencies automatically added. There were also no errors during the installation and uninstallation steps. Many other software packages also had installation instructions and automated installers, and we had no trouble installing them, such as \textit{INVESALIUS 3}, \textit{Gwyddion}, \textit{XMedCon}, and \textit{MicroView}. We gave them various scores based on the understandability of the instructions, installation steps, and user experience. Since \textit{BioImage Suite Web} and \textit{Slice:Drop} needed no installation, we gave them higher scores. \textit{BioImage Suite Web} also provided an option to download cache to local for offline usage, which was easy to apply.
 
-\textit{dwv}, \textit{GATE}, and \textit{DICOM Viewer} showed severe problems. We could not install them due to some issues that we could not solve. We spent a reasonable amount of time on these problems, then considered them major obstacles for normal users if we still did not figure out any solutions. We suspect that only a part of the users faced the same problems, and given a lot of time, we might be able to find solutions. However, the difficulties greatly impacted the installation experiences, and we graded these software packages with lower scores. For example, \textit{dwv} and \textit{GATE} had the option to build from the source code, and we failed the building processes following the instructions. Although we could not locally build them, we could use a deployed online version for \textit{dwv}, and a VM version for \textit{GATE}. With those, we finished all the measurements for them. Furthermore, \textit{DICOM Viewer} depended on a cloud platform, and we could not successfully install the dependency.
+\textit{dwv}, \textit{GATE}, and \textit{DICOM Viewer} showed severe problems. We could not install them. We spent a reasonable amount of time on these problems, then considered them as major obstacles for normal users if we could not figure out any solutions. We suspect that only a part of the users faced the same problems, and given a lot of time, we might be able to find solutions. However, the difficulties greatly impacted the installation experiences, and we graded these software packages with lower scores. For example, \textit{dwv} and \textit{GATE} had the option to build from the source code, and we failed the building processes following the instructions. Although we could not locally build them, we could use a deployed online version for \textit{dwv}, and a VM version for \textit{GATE}. With those, we finished all the measurements for them. Furthermore, \textit{DICOM Viewer} depended on the NextCloud platform, and we could not successfully install the dependency.
 
 \textit{MatrixUser} has a lower score because it depended on Matlab. We considered installing Matlab takes many more steps and time, and some users may not have a license to use Matlab.
 
@@ -104,9 +104,9 @@ The scores of \textit{correctness \& verifiability} are shown in Figure \ref{fg_
 \label{fg_correctness_erifiability_scores}
 \end{figure}
 
-After examining the source code, we could not find any evidence of unit testing in more than half of the projects. Unit testing benefits most parts of the software's life cycle, such as designing, coding, debugging, and optimization \cite{Hamill2004}. It can reveal the bugs at an earlier stage of the development process, and the absence of unit testing may cause worse \textit{correctness \& verifiability}.
+After examining the source code, we could not find any evidence of unit testing in more than half of the projects. Unit testing benefits most parts of the software's life cycle, such as designing, coding, debugging, and optimization \cite{Hamill2004}. It can reveal the bugs at an earlier stage of the development process, and the absence of unit testing may cause problems for \textit{correctness \& verifiability}.
 
-We could not find requirements specifications for most projects. The only document we found is a road map of \textit{3D Slicer}, which contained design requirements for the following changes. However, it did not record the conditions for previous versions. We also could not identify the theory manuals for all of the projects. It seems that even for some projects with well-organized documents, requirements specifications and theory manuals were still missing.
+We could not find requirements specifications for most projects. The only document we found is a road map of \textit{3D Slicer}, which contained design requirements for the upcoming changes. However, it did not record the conditions for previous versions. We also could not identify the theory manuals for all of the projects. Even for some projects with well-organized documents, requirements specifications and theory manuals were still missing.
 
 We identified five projects using CI/CD tools, which are \textit{3D Slicer}, \textit{ImageJ
 }, \textit{Fiji}, \textit{dwv}, and \textit{OHIF Viewer}.
@@ -120,7 +120,9 @@ As described in Section \ref{sec_result_installability}, we could not build \tex
 \label{fg_reliability_scores}
 \end{figure}
 
-When applying basic operations with the software packages, we found out that \textit{Drishti} crashed during loading damaged image files, and \textit{GATE} could not open macro files and lost response several times.
+As shown in Section \ref{sec_result_installability}, most of the software products did not ``break" during installation or did not need installation; \textit{dwv} and \textit{GATE} broke in the building stage, and the processes were not recoverable; we could not install the dependency for \textit{DICOM Viewer}.
+
+Of the seven software packages with a getting started tutorial and operation steps in the tutorial, most showed no error when we followed the steps. However, \textit{GATE} could not open macro files and became unresponsive several times, without any descriptive error message. When assessing \textit{surface robustness} (Section \ref{sec_result_robustness}), we found out that \textit{Drishti} crashed during loading damaged image files and did not show any descriptive error message. On the other hand, we did not see any problems with the online version of \textit{dwv}.
 
 \section{Surface Robustness}
 \label{sec_result_robustness}
@@ -132,7 +134,13 @@ Figure \ref{fg_robustness_scores} presents the scores for \textit{surface robust
 \label{fg_robustness_scores}
 \end{figure}
 
-The packages with higher scores elegantly handled the unexpected/unanticipated inputs, normally showing a clear error message. We might underestimate the score of \textit{OHIF Viewer} since we needed further customization to load data, and the test was not complete. \textit{MatrixUser}, \textit{dwv}, \textit{Slice:Drop}, and \textit{MRIcroGL} ignored the incorrect format of the input files, and displayed blank or meaningless images. \textit{Drishti} successfully detected the unexpected/unanticipated inputs, but the software crashed as a result. For unknown reasons, \textit{GATE} failed to load both correct and incorrect inputs.
+The packages with higher scores elegantly handled the unexpected/unanticipated inputs, typically showing a clear error message. We might underestimate the score of \textit{OHIF Viewer} since we needed further customization to load data, and the test was not complete.
+
+Digital Imaging and Communications in Medicine (DICOM) is a widely used MI standard, and ``it defines the formats for medical images that can be exchanged with the data and quality necessary for clinical use" \cite{MITA2021}. According to their documentation, all 29 software packages should support the DICOM standard. We prepared two types of image files: the ones in correct formats and the broken ones. We used two MI sample files in the DICOM format as the image files with valid formats; we created a standard text file, changed its extension name from ``.txt" to ``.dcm", and used it as the unexpected/unanticipated input.
+
+Being tested with the input files with correct formats, all software packages except \textit{GATE} loaded the images correctly. \textit{GATE} failed this test for unknown reasons.
+
+With the unexpected/unanticipated input, \textit{MatrixUser}, \textit{dwv}, and \textit{Slice:Drop} ignored the incorrect format of the file and loaded it regardless. They did not show any error message and displayed a blank image. \textit{MRIcroGL} behaved similarly except that it showed a meaningless image with noise pixels. \textit{Drishti} successfully detected the broken format of the file, but the software crashed as a result. We recorded \textit{Drishti}'s issue to the measurement of its \textit{reliability} in Section \ref{sec_result_installability}.
 
 \section{Surface Usability}
 Figure \ref{fg_usability_scores} lists the AHP scores for \textit{surface usability}.
@@ -143,9 +151,9 @@ Figure \ref{fg_usability_scores} lists the AHP scores for \textit{surface usabil
 \label{fg_usability_scores}
 \end{figure}
 
-We found a getting started tutorial for only 11 projects but a user manual for 22 projects. \textit{MRIcroGL} was the only one with expected user characteristics documented.
+We found a getting started tutorial for only 11 projects but a user manual for 22 projects. \textit{MRIcroGL} was the only one with documentation for the expected user characteristics.
 
-The ones with higher scores usually provided both comprehensive document guidance and a good user experience. \textit{INVESALIUS 3} set an excellent example of a detailed and precise user manual. \textit{GATE} also provided a large number of documents, but we think that they conveyed the ideas poorly, as we had trouble understanding and using them.
+The software with higher scores usually provided both comprehensive document guidance and a good user experience. \textit{INVESALIUS 3} set an excellent example of a detailed and precise user manual. \textit{GATE} also provided a large number of documents, but we think that they conveyed the ideas poorly, as we had trouble understanding and using them.
  
 Table \ref{tab_user_support_model} shows the user support models by the number of projects using them. Maybe not every team intended to use GitHub issues to answer users' questions, but many users use them to seek help.
 
@@ -175,7 +183,7 @@ Figure \ref{fg_maintainability_scores} shows the AHP results for \textit{maintai
 \label{fg_maintainability_scores}
 \end{figure}
 
-We marked \textit{3D Slicer} with a much higher score than others because it did very well at closing the identified issues, and more importantly, we found it to have the most comprehensive artifacts. For example, as far as we could find out, only a few of the 29 projects had a project plan, developer's manual, or API documentation, and only \textit{3D Slicer}, \textit{ImageJ}, \textit{Fiji} included all three documents. Meanwhile, \textit{3D Slicer} has a much higher percentage of closed issues (91.65\%) than \textit{ImageJ} (52.49\%) and \textit{Fiji} (63.79\%). Table \ref{tab_maintainability_docs} shows which projects had these documents.
+We marked \textit{3D Slicer} with a much higher score than others because it did very well at closing the identified issues, and more importantly, we found it to have the most comprehensive artifacts. For example, as far as we could find out, only a few of the 29 projects had a project plan, developer's manual, or API documentation, and only \textit{3D Slicer}, \textit{ImageJ}, \textit{Fiji} included all three documents. Meanwhile, \textit{3D Slicer} has a much higher percentage of closed issues (91.65\%) than \textit{ImageJ} (52.49\%) and \textit{Fiji} (63.79\%). Table \ref{tab_maintainability_docs} shows which projects had these documents, in the descending order of their \textit{maintainability} scores.
 
 \begin{table}[H]
 \centering
@@ -183,16 +191,16 @@ We marked \textit{3D Slicer} with a much higher score than others because it did
 \hline
 \multicolumn{1}{c}{Software} & Proj plan & Dev manual & API doc \\ \hline
 3D Slicer & X & X & X \\
-Weasis &  & X &  \\
-SMILI &  &  & X \\
 ImageJ & X & X & X \\
+Weasis &  & X &  \\
+OHIF Viewer &  & X & X \\
 Fiji & X & X & X \\
+ParaView & X &  &  \\
+SMILI &  &  & X \\
+medInria &  & X &  \\
+INVESALIUS 3 & X &  &  \\
 dwv &  &  & X \\
 BioImage Suite Web &  & X &  \\
-OHIF Viewer &  & X & X \\
-ParaView & X &  &  \\
-INVESALIUS 3 & X &  &  \\
-medInria &  & X &  \\
 Gwyddion &  & X & X \\ \hline
 \end{tabular}
 \caption{\label{tab_maintainability_docs}Software with the maintainability documents}
@@ -210,13 +218,46 @@ Figure 4.7 shows the AHP results for \textit{reusability}.
 \label{fg_reusability_scores}
 \end{figure}
 
-As described in Section \ref{sec_grading_template}, we gave higher scores to the projects with an API document and more code files. As shown in Table \ref{tab_maintainability_docs}, seven projects had API documents. Figure \ref{fg_num_text_files} shows the number of text-based files by projects.
+As described in Section \ref{sec_grading_template}, we gave higher scores to the projects with an API document. As shown in Table \ref{tab_maintainability_docs}, seven projects had API documents. We also considered projects with more code files and less LOC per code file as more reusable. Table \ref{tab_loc_per_file} shows the number of text-based files by projects, which we used to approximate the number of code files. The table also lists the total number of lines (including comments and blanks), LOC, and average LOC per file. We arranged the items in the descending order of their \textit{reusability} scores. 
 
-\begin{figure}[H]
-\includegraphics[scale=0.38]{figures/num_text_files.png}
-\caption{Number of text-based files files by projects}
-\label{fg_num_text_files}
-\end{figure}
+\begin{table}[H]
+\centering
+\begin{tabular}{lllll}
+\hline
+\multirow{2}{*}{Software} & \multirow{2}{*}{Text files} & \multirow{2}{*}{Total lines} & \multirow{2}{*}{LOC} & \multirow{2}{*}{LOC/file} \\
+ &  &  &  &  \\ \hline
+OHIF Viewer & 1162 & 86306 & 63951 & 55 \\
+3D Slicer & 3386 & 709143 & 501451 & 148 \\
+Gwyddion & 2060 & 787966 & 643427 & 312 \\
+ParaView & 5556 & 1276863 & 886326 & 160 \\
+OsiriX Lite & 2270 & 873025 & 544304 & 240 \\
+Horos & 2346 & 912496 & 561617 & 239 \\
+medInria & 1678 & 214607 & 148924 & 89 \\
+Weasis & 1027 & 156551 & 123272 & 120 \\
+BioImage Suite Web & 931 & 203810 & 139699 & 150 \\
+GATE & 1720 & 311703 & 207122 & 120 \\
+Ginkgo CADx & 974 & 361207 & 257144 & 264 \\
+SMILI & 275 & 90146 & 62626 & 228 \\
+Fiji & 136 & 13764 & 10833 & 80 \\
+Drishti & 757 & 345225 & 268168 & 354 \\
+ITK-SNAP & 677 & 139880 & 88530 & 131 \\
+3DimViewer & 730 & 240627 & 178065 & 244 \\
+DICOM Viewer & 302 & 34701 & 30761 & 102 \\
+ImageJ & 40 & 10740 & 9681 & 242 \\
+dwv & 188 & 71099 & 47815 & 254 \\
+MatrixUser & 216 & 31336 & 23121 & 107 \\
+INVESALIUS 3 & 156 & 59328 & 48605 & 312 \\
+AMIDE & 183 & 139658 & 102827 & 562 \\
+Papaya & 110 & 95594 & 71831 & 653 \\
+MicroView & 137 & 36173 & 27470 & 201 \\
+XMedCon & 202 & 129991 & 96767 & 479 \\
+MRIcroGL & 97 & 50445 & 8493 & 88 \\
+Slice:Drop & 77 & 25720 & 19020 & 247 \\
+DicomBrowser & 54 & 7375 & 5505 & 102 \\
+dicompyler & 48 & 19201 & 15941 & 332 \\ \hline
+\end{tabular}
+\caption{\label{tab_loc_per_file}Number of files and lines}
+\end{table}
 
 \section{Surface Understandability}
 Figure \ref{fg_surface_understandability_scores} shows the scores for \textit{surface understandability}.
@@ -227,7 +268,7 @@ Figure \ref{fg_surface_understandability_scores} shows the scores for \textit{su
 \label{fg_surface_understandability_scores}
 \end{figure}
 
-All projects had a consistent code style with parameters in the same order for all functions; the code was modularized; the comments were clear, indicating what is being done, not how. However, we only found explicit identification of a coding standard for only 3 out of the 29, which are \textit{3D Slicer}, \textit{Weasis}, and \textit{ImageJ}. We also found hard-coded constants in \textit{medInria}, \textit{dicompyler}, \textit{MicroView}, and \textit{Papaya}. We did not find any reference to the used algorithms in projects \textit{XMedCon}, \textit{DicomBrowser}, \textit{3DimViewer}, \textit{BioImage Suite Web}, \textit{Slice:Drop}, \textit{MatrixUser}, \textit{DICOM Viewer}, \textit{dicompyler}, and \textit{Papaya}. 
+All projects had a consistent code style with parameters in the same order for all functions; the code was modularized; the comments were clear, indicating what is being done, not how. However, we only found explicit identification of a coding standard for 3 out of the 29: \textit{3D Slicer}, \textit{Weasis}, and \textit{ImageJ}. We also found hard-coded constants in \textit{medInria}, \textit{dicompyler}, \textit{MicroView}, and \textit{Papaya}. We did not find any reference to the used algorithms in projects \textit{XMedCon}, \textit{DicomBrowser}, \textit{3DimViewer}, \textit{BioImage Suite Web}, \textit{Slice:Drop}, \textit{MatrixUser}, \textit{DICOM Viewer}, \textit{dicompyler}, and \textit{Papaya}. 
 
 \section{Visibility/Transparency}
 Figure \ref{fg_visibility_transparency_scores} shows the AHP scores for \textit{visibility/transparency}. Generally speaking, the teams that actively documented their development process and plans scored higher because they delivered better communication to people outside the team.
@@ -238,41 +279,41 @@ Figure \ref{fg_visibility_transparency_scores} shows the AHP scores for \textit{
 \label{fg_visibility_transparency_scores}
 \end{figure}
 
-Table \ref{tab_Visibility/Transparency_docs} shows the projects which had documents for the development process, project status, development environment, and release notes.
+Table \ref{tab_Visibility/Transparency_docs} shows the projects which had documents for the development process, project status, development environment, and release notes, in the descending order of their \textit{visibility/transparency} scores.
 
-\begin{table}[]
+\begin{table}[H]
 \centering
 \begin{tabular}{lllll}
 \hline
 Software & Dev process & Proj status & Dev env & Rls notes \\ \hline
 3D Slicer & X & X & X & X \\
-Weasis \cite{Roduit2021} &  &  & X & X \\
-MRIcroGL \cite{Rorden2021} &  &  &  & X \\
-SMILI \cite{Chandra2018} &  &  &  & X \\
-ImageJ \cite{Rueden2017} & X & X & X & X \\
-Fiji \cite{Schindelin2012} & X & X & X &  \\
-Horos \cite{horosproject2020} &  &  &  & X \\
-OsiriX Lite \cite{PixmeoSARL2019} &  &  &  & X \\
-dwv \cite{Martelli2021} &  &  &  & X \\
-Drishti \cite{Limaye2012} &  &  &  & X \\
-\begin{tabular}[c]{@{}l@{}}BioImage Suite\\ Web\end{tabular} &  &  & X &  \\
-OHIF Viewer \cite{Ziegler2020} &  &  & X & X \\
-GATE \cite{Jan2004} &  &  &  & X \\
-ITK-SNAP \cite{Yushkevich2006} &  &  &  & X \\
-ParaView \cite{Ahrens2005} &  & X &  &  \\
-MatrixUser \cite{Liu2016} &  &  &  & X \\
-DICOM Viewer \cite{Afsar2021} &  &  & X & X \\
-INVESALIUS 3 \cite{Amorim2015} &  &  &  & X \\
-medInria \cite{Fillard2012} &  &  & X & X \\
-MicroView \cite{ParallaxInnovations2020} &  &  &  & X \\
-Gwyddion \cite{Nevcas2012} &  &  &  & X \\ \hline
+ImageJ & X & X & X & X \\
+Fiji & X & X & X &  \\
+MRIcroGL &  &  &  & X \\
+Weasis &  &  & X & X \\
+ParaView &  & X &  &  \\
+OHIF Viewer &  &  & X & X \\
+DICOM Viewer &  &  & X & X \\
+medInria &  &  & X & X \\
+SMILI &  &  &  & X \\
+Drishti &  &  &  & X \\
+INVESALIUS 3 &  &  &  & X \\
+OsiriX Lite &  &  &  & X \\
+GATE &  &  &  & X \\
+MicroView &  &  &  & X \\
+MatrixUser &  &  &  & X \\
+BioImage Suite Web &  &  & X &  \\
+ITK-SNAP &  &  &  & X \\
+Horos &  &  &  & X \\
+dwv &  &  &  & X \\
+Gwyddion &  &  &  & X \\ \hline
 \end{tabular}
 \caption{\label{tab_Visibility/Transparency_docs}Software with the visibility/transparency documents}
 \end{table}
 
 \section{Overall Scores}
 
-As described in Section \ref{sec_AHP}, for our AHP measurements, there are nine criteria which are the nine software qualities and 29 software packages as the alternatives. We decided to make all nine qualities equally important, so the score of each quality affects the overall scores on the same scale.
+As described in Section \ref{sec_AHP}, for our AHP measurements, there are nine criteria which are the nine software qualities and 29 software packages as the alternatives. In the absence of requirements for an actual project, we made all nine qualities equally important, so the score of each quality affects the overall scores on the same scale.
 
 Figure \ref{fg_overall_scores} shows the overall scores of all 29 software packages in descending order. Since we produced the scores from the AHP process, the total sum of the 29 scores is precisely 1.
 
