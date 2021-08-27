@@ -1,7 +1,7 @@
 \chapter{Answers to Research Questions}
 \label{ch_answers}
 
-This section answers our research questions in Section \ref{sec_research_questions}. The answers are based on our quality measurements and developer interviews. Sections \ref{sec_rq_artifacts}, \ref{sec_rq_tools}, \ref{sec_rq_PPM}, \ref{sec_rq_pain_points}, \ref{sec_rq_qualities}, and \ref{sec_rq_comparison} summarize the answers to the six questions respectively. Section \ref{sec_threats_to_validity} lists the threats to the validity of our research.
+This section answers our research questions from Section \ref{sec_research_questions}. The answers are based on our quality measurements and developer interviews. Sections \ref{sec_rq_artifacts}-- \ref{sec_rq_comparison} summarize the answers to the six questions, respectively. Section \ref{sec_threats_to_validity} lists the threats to the validity of our research.
 
 \section{Artifacts in the Projects}
 \label{sec_rq_artifacts}
@@ -13,7 +13,7 @@ We answer this question by examining the documentation, scanning the source code
 
 Part of the answer is in Section \ref{ch_results}. Table \ref{tab_maintainability_docs} shows which projects contained a project plan, development manual, or API documentation, and Table \ref{tab_Visibility/Transparency_docs} lists the projects with a documented development process, project status, development environment, or release notes.
 
-Table \ref{tab_artifacts_frequency} shows the frequency of some artifacts in the 29 MI projects.
+As mentioned in Section \ref{sec_grading_template}, we search for all the artifacts in a project when measuring \textit{maintainability}. The detailed records of the existing artifacts in the 29 MI projects are at \hyperlink{https://data.mendeley.com/datasets/k3pcdvdzj2/1}{https://data.mendeley.com/datasets/k3pcdvdzj2/1}. Table \ref{tab_artifacts_frequency} summarizes the frequency of the artifacts .
 
 \begin{table}[H]
 \centering
@@ -54,22 +54,22 @@ Project Plan & 5 \\ \hline
 We answer this question by measuring the qualities and interviewing the developers. This section summarizes the tools used for CI/CD, user support, version control, documentation, contribution management, and project management. 
 
 \subsection{CI/CD Tools}
-As mentioned in Section \ref{sec_result_correctness_verifiability}, we identified five projects using CI/CD tools. \textit{3D Slicer} and \textit{OHIF Viewer} used CircleCI; \textit{ImageJ}, \textit{Fiji}, and \textit{dwv} used Travis. According to the interviews with developers, \textit{dwv} and \textit{Weasis} used GitHub Actions.
+As mentioned in Section \ref{sec_result_correctness_verifiability}, we identified five projects using CI/CD tools. \textit{3D Slicer} and \textit{OHIF Viewer} used CircleCI; \textit{ImageJ}, \textit{Fiji}, and \textit{dwv} used Travis. We identified the above projects and tools by examining the documentation and source code of all projects. Thus, we may missed some projects or tools. According to the interviews with developers, \textit{dwv} and \textit{Weasis} used GitHub Actions.
 
 \subsection{User Support Tools}
-Table \ref{tab_user_support_model} shows the user support tools by the number of projects using them.
+Table \ref{tab_user_support_model} shows the user support tools by the number of projects using them. The two most popular tools are GitHub issue and FAQ.
 
 \subsection{Version Control Tools}
-Briefly speaking, 27 of the 29 projects chose git as the version control tool, and 24 used GitHub to host the repositories. Section \ref{sec_score_maintainability} lists more details.
+Briefly speaking, 27 of the 29 projects chose git as the version control tool, and 24 used GitHub to host the repositories. Section \ref{sec_score_maintainability} provides more details.
 
 \subsection{Documentation Tools}
-Table \ref{tab_doc_tools} lists the documentation tools by the number of answers from the interviewees.
+Table \ref{tab_doc_tools} lists the documentation tools by the number of answers from the interviewees. The two most popular tools are forum discussions and videos.
 
 \subsection{Contribution Management Tools}
-Table \ref{tab_method_receive_contributions} shows the ways of receiving contributions by the number of answers from the interviewees.
+Table \ref{tab_method_receive_contributions} shows the ways of receiving contributions by the number of answers from the interviewees. All eight development teams were using GitHub with pull requests as the tool. The most popular tool in the past was email.
 
 \subsection{Project Management Tools}
-Table \ref{tab_pm_tools} shows the tools for project management by the number of answers from the interviewees.
+Table \ref{tab_pm_tools} shows the tools for project management by the number of answers from the interviewees. GitHub was the top-chosen tool.
 
 \section{Principles, Processes, and Methodologies in the Projects}
 \label{sec_rq_PPM}
@@ -80,18 +80,18 @@ Table \ref{tab_pm_tools} shows the tools for project management by the number of
 We answer this question by measuring the qualities and interviewing the developers. This section shows the principles, processes, and methodologies in software testing, documentation, contribution management, project management, and improving software qualities.
 
 \subsection{Software Testing}
-As shown in Section \ref{fg_correctness_erifiability_scores}, we only identified the use of unit testing in less than half of the 29 projects. Most projects did not have requirements specifications and theory manuals.
+As shown in Section \ref{fg_correctness_erifiability_scores}, we identified the use of unit testing in less than half of the 29 projects.
 
 On the other hand, the interviewees believed that testing (including usability tests with users) was the top solution to improve \textit{correctness}, \textit{usability}, and \textit{reproducibility}, as shown in Section \ref{sec_interview_correctness}, \ref{sec_interview_usability}, and \ref{sec_interview_reproducibility}.
 
-Table \ref{tab_q15_threats_correctness} lists a threat to \textit{correctness}: with huge datasets for testing, the tests are expensive and time-consuming. Table \ref{tab_q15_strategies_correctness} shows that three interviewees endorsed self tests / automated tests, which may save the time for testing.
+Table \ref{tab_q15_threats_correctness} lists a threat to \textit{correctness}: with huge datasets for testing, the tests are expensive and time-consuming. Table \ref{tab_q15_strategies_correctness} shows that three interviewees endorsed self tests / automated tests, which may save time for testing.
 
 Section \ref{sec_pain_points_3} introduces a pain point related to testing, and developers' strategies to address it.
 
 \subsection{Documentation}
-Section \ref{fg_correctness_erifiability_scores} shows that most projects did not have requirements specifications and theory manuals. Table \ref{tab_maintainability_docs} presents which projects had a project plan, developer’s manual, or API documentation, which implies better \textit{maintainability}. Table \ref{tab_Visibility/Transparency_docs} lists the existing documents that can improve \textit{visibility/transparency} of the projects. Table \ref{tab_artifacts_frequency} reveals the number of all the artifacts in the 29 projects.
+Section \ref{fg_correctness_erifiability_scores} shows that all projects did not have theory manuals. We identified a road map in the \textit{3D Slicer} project, and no requirements specifications for the rest. Table \ref{tab_maintainability_docs} presents which projects had a project plan, developer’s manual, or API documentation, which implies better \textit{maintainability}. Table \ref{tab_Visibility/Transparency_docs} lists the existing documents that can improve \textit{visibility/transparency} of the projects. Table \ref{tab_artifacts_frequency} reveals the number of all the artifacts in the 29 projects.
 
-Most of the nine interviewees thought that documentation was essential to their projects. However, they hold the common opinion that their documentation needed improvements. Nearly half of them also believed that the lack of time prevented them from improving the documentation. See more details in Section \ref{sec_interview_documents}.
+Eight of the nine interviewees thought that documentation was essential to their projects. However, they hold the common opinion that their documentation needed improvements. Nearly half of them also believed that the lack of time prevented them from improving the documentation. See more details in Section \ref{sec_interview_documents}.
 
 \subsection{Contribution Management}
 According to the interviews, all the eight teams were using GitHub and pull requests to accept new contributions from the community. Some of them had relied on emails and forums for the purpose. More details are in Section \ref{sec_contribution_pm}.
@@ -105,7 +105,7 @@ As presented in Section \ref{sec_contribution_pm}, most teams in the interviews 
 \item[RQ4.] What are the pain points for developers working on research software projects? What aspects of the existing processes, methodologies, and tools do they consider as potentially needing improvement? What changes to processes, methodologies, and tools can improve software development and software quality?
 \end{description}
 
-We answer this question primarily by interviewing the developers. This section presents the pain points and the solutions from the developers and our team.
+We answer this question primarily by interviewing the developers. This section presents the pain points and the solutions proposed by the developers.
 
 \subsection{Pain Points}
 As described in Section \ref{sec_interview_pain_points}, the top three pain points are as follows,
@@ -116,7 +116,7 @@ As described in Section \ref{sec_interview_pain_points}, the top three pain poin
 \end{itemize}
 
 \subsection{Solutions}
-Section \ref{sec_interview_pain_points} lists the details about the potential and proven solutions from the developers in the MI domain. We also summarize our general recommendations on software development in all SC domains in Section \ref{ch_recommendations}.
+Section \ref{sec_interview_pain_points} lists the details about the potential and proven solutions from the developers in the MI domain.
 
 \section{Software Qualities}
 \label{sec_rq_qualities}
@@ -125,7 +125,7 @@ Section \ref{sec_interview_pain_points} lists the details about the potential an
 This section includes our answers from the qualities measurements and interviews with the developers.
 
 \subsection{Results by Measuring Software Qualities}
-Section \ref{ch_results} contains our measurement results for \textit{Installability}, \textit{Correctness \& Verifiability}, \textit{Reliability}, \textit{Robustness}, \textit{Usability}, \textit{Maintainability}, \textit{Reusability}, \textit{Understandability}, and \textit{Visibility/Transparency}. We applied (surface) measurements to the nine qualities, and hope that the grading scores represent their current status. We believe that our assessments also revealed some of the development teams' practices addressing the qualities. 
+Section \ref{ch_results} contains our measurement results for \textit{Installability}, \textit{Correctness \& Verifiability}, \textit{Reliability}, \textit{Robustness}, \textit{Usability}, \textit{Maintainability}, \textit{Reusability}, \textit{Understandability}, and \textit{Visibility/Transparency}. We applied (surface) measurements to the nine qualities, and hope that the grading scores represent their current status.
 
 \subsection{Results by Interviewing Developers}
 Section \ref{sec_interview_software_qualities} shows findings from the interviews for \textit{correctness}, \textit{maintainability}, \textit{understandability}, \textit{usability}, and \textit{reproducibility}. The interviewees expressed their thoughts on these five qualities. We discussed the current or past threats, and found out what actions they believed would improve the qualities.
@@ -147,7 +147,7 @@ We answer this question by grading the qualities of the software, collecting rat
 
 Table \ref{tab_ranking_vs_GitHub} shows our ranking to the 29 MI projects, and their GitHub metrics if applicable. As mentioned in Section \ref{sec_score_maintainability}, 24 projects used GitHub. Since GitHub repositories have different creation dates, we collect the number of months each stayed on GitHub, and calculate the average number of new stars, people watching, and forks per 12 months. The method of getting the creation date is described in Section \ref{sec_empirical_measurements}, and we obtained these metrics in July, 2021.
 
-Generally speaking, most of the top-ranking MI software projects also received greater attention and popularity on GitHub. Project \textit{dwv} was popular on GitHub, but we ranked it low. As mentioned in Section \ref{sec_result_installability}, we failed to build it locally, and used the test version on its websites for the measurements. We followed the instructions and tried to run the command ``yarn run test" locally, which did not work. In addition, the test version did not detect a broken DICOM file and displayed a blank image as described in Section \ref{sec_result_robustness}. We might underestimate the scores for \textit{dwv} due to uncommon technical issues.
+Generally speaking, most of the top-ranking MI software projects also received greater attention and popularity on GitHub. Project \textit{dwv} was popular on GitHub, but we ranked it low. As mentioned in Section \ref{sec_result_installability}, we failed to build it locally, and used the test version on its websites for the measurements. We followed the instructions and tried to run the command ``yarn run test" locally, which did not work. In addition, the test version did not detect a broken DICOM file and displayed a blank image as described in Section \ref{sec_result_robustness}. We might underestimate the scores for \textit{dwv} due to uncommon technical issues. We also ranked \textit{DICOM Viewer} much lower than its popularity. As mentioned in Section \ref{sec_result_installability} it depended on the NextCloud platform that we could not successfully install. Thus, we might underestimate the scores of its \textit{surface reliability} and \textit{surface robustness}. We weighted all qualities equally, which is not likely to be the case with all end-users. As a result, some projects may have received higher popularity because of their better performance in part of the nine qualities.
 
 \begingroup
 \renewcommand{\arraystretch}{0.85}
@@ -155,36 +155,36 @@ Generally speaking, most of the top-ranking MI software projects also received g
 \centering
 \begin{tabular}{lllll}
 \hline
-Software & Our ranking & Stars/yr & Watch/yr & Forks/yr \\ \hline
+Software & Our ranking & Stars/yr & Watches/yr & Forks/yr \\ \hline
 3D Slicer & 1 & 284.25 & 18.75 & 128.25 \\
-ImageJ & 2 & 83.58 & 9.37 & 30.00 \\
-OHIF Viewer & 3 & 277.04 & 19.30 & 223.83 \\
-Fiji & 4 & 44.20 & 4.98 & 20.68 \\
-ParaView & 5 & 66.76 & 7.11 & 28.36 \\
-Weasis & 6 & 36.00 & 5.10 & 18.90 \\
-medInria & 7 & 7.04 & 3.35 & 6.35 \\
-BioImage Suite Web & 8 & 17.85 & 4.62 & 6.77 \\
-OsiriX Lite & 9 & 34.14 & 8.62 & 23.77 \\
-INVESALIUS 3 & 10 & 39.66 & 4.11 & 17.37 \\
-Gwyddion & 11 & n/a & n/a & n/a \\
-Horos & 12 & 48.62 & 9.23 & 18.00 \\
-SMILI & 13 & 3.04 & 0.91 & 1.52 \\
-Ginkgo CADx & 14 & 18.83 & 4.43 & 5.72 \\
-ITK-SNAP & 15 & 9.10 & 0.97 & 3.59 \\
-MicroView & 16 & 1.48 & 0.82 & 0.82 \\
-Papaya & 17 & 44.70 & 4.84 & 19.71 \\
-MRIcroGL & 18 & 23.63 & 3.38 & 3.38 \\
-XMedCon & 19 & n/a & n/a & n/a \\
-Slice:Drop & 20 & 9.73 & 2.16 & 4.97 \\
-DicomBrowser & 21 & n/a & n/a & n/a \\
-AMIDE & 22 & n/a & n/a & n/a \\
+OHIF Viewer & 3 & 277.04 & 19.3 & 223.83 \\
 dwv & 23 & 123.56 & 11.59 & 51.36 \\
-3DimViewer & 24 & n/a & n/a & n/a \\
-GATE & 25 & 18.90 & 5.79 & 25.79 \\
+ImageJ & 2 & 83.58 & 9.37 & 30 \\
+ParaView & 5 & 66.76 & 7.11 & 28.36 \\
+Horos & 12 & 48.62 & 9.23 & 18 \\
+Papaya & 17 & 44.7 & 4.84 & 19.71 \\
+Fiji & 4 & 44.2 & 4.98 & 20.68 \\
+DICOM Viewer & 29 & 42.86 & 5.71 & 8.57 \\
+INVESALIUS 3 & 10 & 39.66 & 4.11 & 17.37 \\
+Weasis & 6 & 36 & 5.1 & 18.9 \\
 dicompyler & 26 & 35.18 & 4.77 & 13.64 \\
+OsiriX Lite & 9 & 34.14 & 8.62 & 23.77 \\
+MRIcroGL & 18 & 23.63 & 3.38 & 3.38 \\
+GATE & 25 & 18.9 & 5.79 & 25.79 \\
+Ginkgo CADx & 14 & 18.83 & 4.43 & 5.72 \\
+BioImage Suite Web & 8 & 17.85 & 4.62 & 6.77 \\
 Drishti & 27 & 16.04 & 3.78 & 4.43 \\
-MatrixUser & 28 & 2.00 & 0.33 & 0.33 \\
-DICOM Viewer & 29 & 42.86 & 5.71 & 8.57 \\ \hline
+Slice:Drop & 20 & 9.73 & 2.16 & 4.97 \\
+ITK-SNAP & 15 & 9.1 & 0.97 & 3.59 \\
+medInria & 7 & 7.04 & 3.35 & 6.35 \\
+SMILI & 13 & 3.04 & 0.91 & 1.52 \\
+MatrixUser & 28 & 2 & 0.33 & 0.33 \\
+MicroView & 16 & 1.48 & 0.82 & 0.82 \\
+Gwyddion & 11 & n/a & n/a & n/a \\
+XMedCon & 19 & n/a & n/a & n/a \\
+DicomBrower & 21 & n/a & n/a & n/a \\
+AMIDE & 22 & n/a & n/a & n/a \\
+3DimViewer & 24 & n/a & n/a & n/a \\ \hline
 \end{tabular}
 \caption{\label{tab_ranking_vs_GitHub}Software ranking versus GitHub metrics}
 \end{table}
@@ -195,11 +195,11 @@ DICOM Viewer & 29 & 42.86 & 5.71 & 8.57 \\ \hline
 
 As shown in Section \ref{sec_mi_software_selection}, our domain experts recommended a list of top software with 12 software products. Table \ref{tab_top_software_vs_experts} compares the top 12 software projects ranked by our methodology with the ones from the domain experts.
 
-An example of interpreting Table \ref{tab_top_software_vs_experts} is as follows: in row 2, \textit{ImageJ} has rank 2 by our assessment, and the number \textit{(3)} means that it has rank 3 by the experts; likewise, \textit{Horos} has rank 2 by domain expers, and rank 12 by our assessment.
+An example of interpreting Table \ref{tab_top_software_vs_experts} is as follows: in row 2, \textit{ImageJ} has rank 2 by our assessment, and the number \textit{(3)} means that it has rank 3 by the experts; likewise, \textit{Horos} has rank 2 by the domain experts, and rank 12 by our assessment.
 
 All of the top 4 software from the domain experts are among the top 12 ones ranked by our methodology. 3 of the top 4 on both lists are the same ones: \textit{3D Slicer}, \textit{ImageJ}, and \textit{Fiji}. \textit{3D Slicer} is also the top 1 of both rankings.
 
-As mentioned in Section \ref{sec_mi_software_selection}, six of the recommended software packages did not have Visualization as the primary function, so we did not include them on our final list.
+As mentioned in Section \ref{sec_mi_software_selection}, six of the recommended software packages did not have visualization as the primary function, so we did not include them on our final list.
 
 \begin{table}[H]
 \centering
@@ -233,10 +233,13 @@ This section lists all the potential threats to the validity of our research.
 
 
 \begin{enumerate}
-\item We compared nine software qualities for 29 software packages, so we could only spend a limited time on each of them. As a result, our assessments may not be thorough in revealing their status fully.
+\item We compared nine software qualities for 29 software packages, so we could only spend a limited time on each of them. As a result, our assessments may have missed something relevant.
 \item We used the grading template in Appendix \ref{ap_grading_template} to guide our measurements. Our impressions of the software - such as user experience - were factors in deciding some scores. Thus, there is a risk that some scores may be subjective and biased.
 \item It was not practical to ask each development team for every piece of information. We collected much information - such as artifacts and funding situations of software - by ourselves. There may be cases that we missed some information.
+\item Our ranking is partly based on surface (shallow) measurement, which may not fully reveal the underlying qualities.
 \item We interviewed eight teams, which is a good proportion of the 29. However, there is still a risk that they might not well represent the whole MI software community.
 \item As mentioned in Section \ref{ch_interview}, one interviewee was too busy to participate in a full interview, so he provided a version of written answers to us. Since we did not have the chance to explain our questions or ask him follow-up questions, there is a possibility of misinterpretation of the questions or answers.
-\item As mentioned in Section \ref{sec_rq_comparison}, we gave \textit{dwv} much lower scores than its GitHub popularity. We might underestimate its rank due to uncommon technical issues.
+\item As mentioned in Section \ref{sec_result_installability}, we could not install or build \textit{dwv}, \textit{GATE}, and \textit{DICOM Viewer}. We used a deployed online version for \textit{dwv}, a VM version for \textit{GATE}, but no alternative for \textit{DICOM Viewer}. We might underestimate their rank due to uncommon technical issues.
+\item Our ranking gave all qualities equal weight, which may not be the case with all end-users. Thus, it may not represent the popularity of software among end-users.
+\item The number of GitHub stars, watches, and forks are not perfect measures of popularity, but they are what we had available.
 \end{enumerate}
