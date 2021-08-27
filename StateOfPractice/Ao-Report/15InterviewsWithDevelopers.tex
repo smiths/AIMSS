@@ -1,19 +1,19 @@
 \chapter{Interviews with Developers}
 \label{ch_interview}
 
-We applied our method to the MI domain (Section \ref{sec_applying_method}) and summarize some answers from the interviews with developers in this section. We only discuss the answers that we think are the most exciting and essential in this section, and summarize the rest in Appendix \ref{ap_interview}.
+Our method involves interviews with developers in the MI domain (Section \ref{sec_applying_method}). We summarize some answers from the interviews in this section. We highlight the answers that are the most informative and interesting in this section, and summarize the rest in Appendix \ref{ap_interview}.
 
-We interviewed nine developers from eight of the 29 MI software projects. The eight projects are \textit{3D Slicer}, \textit{INVESALIUS 3}, \textit{dwv}, \textit{BioImage Suite Web}, \textit{ITK-SNAP}, \textit{MRIcroGL}, \textit{Weasis}, and \textit{OHIF}. We spent about 90 minutes for each interview and asked 20 prepared questions. We also asked following-up questions when we thought it was worth diving deeper. One participant was too busy to have an interview, so they wrote down their answers. The interviewees may have provided multiple answers to each question. Thus, when counting the number of answers, the total result can be larger than nine.
+We interviewed nine developers from eight of the 29 MI software projects. The eight projects are \textit{3D Slicer}, \textit{INVESALIUS 3}, \textit{dwv}, \textit{BioImage Suite Web}, \textit{ITK-SNAP}, \textit{MRIcroGL}, \textit{Weasis}, and \textit{OHIF}. We spent about 90 minutes for each interview and asked 20 prepared questions. We also asked following-up questions when we thought it was worth diving deeper. One participant was too busy to have an interview, so they wrote down their answers. The interviewees may have provided multiple answers to each question. Thus, when counting the number of answers, the total result is sometimes larger than nine.
 
 \section{Current and Past Pain Points}
 \label{sec_interview_pain_points}
 
-By asking questions 9, 10, and 12, we tried to identify the pain points during the development process in the eight projects. The pain points include current and past obstacles. We also asked the interviewees how they would solve the problems. Questions 9, 10, and 12 are as follows:
+By asking questions \hyperlink{q9}{9}, \hyperlink{q10}{10}, and \hyperlink{q12}{12}, we tried to identify the pain points during the development process in the eight projects. The pain points include current and past obstacles. We also asked the interviewees how they would solve the problems. Questions 9, 10, and 12 are as follows:
 
 \begin{description}
-\item[Q9.] Currently, what are the most significant obstacles in your development process?
-\item[Q10.] How might you change your development process to remove or reduce these obstacles?
-\item[Q12.] In the past, is there any major obstacle to your development process that has been solved? How did you solve it?
+\item[Q9.] \hypertarget{q9}Currently, what are the most significant obstacles in your development process?
+\item[Q10.] \hypertarget{q10}How might you change your development process to remove or reduce these obstacles?
+\item[Q12.] \hypertarget{q12}In the past, is there any major obstacle to your development process that has been solved? How did you solve it?
 \end{description}
 
 Table \ref{tab_obstacles} shows the number of times the interviewees mentioned the current and past obstacles in their projects.
@@ -22,15 +22,15 @@ Table \ref{tab_obstacles} shows the number of times the interviewees mentioned t
 \centering
 \begin{tabular}{llll}
 \hline
-\multirow{2}{*}{Grp} & \multirow{2}{*}{Obstacle} & \multicolumn{2}{l}{Num ans.} \\ \cline{3-4} 
+\multirow{2}{*}{Category} & \multirow{2}{*}{Obstacle} & \multicolumn{2}{c}{Num ans.} \\ \cline{3-4} 
  &  & current & past \\ \hline
-\multirow{2}{*}{1} & Lack of fundings & 3 &  \\
+\multirow{2}{*}{Resource} & Lack of fundings & 3 &  \\
  & Lack of time to devote to the project & 2 & 1 \\ \hdashline
-\multirow{3}{*}{2} & Hard to keep up with changes in OS and libraries & 1 &  \\
+\multirow{3}{*}{Balance} & Hard to keep up with changes in OS and libraries & 1 &  \\
  & Hard to support multiple OS & 2 &  \\
  & Hard to support lower-end computers & 1 & 2 \\ \hdashline
-3 & Lack of access to real-world datasets for testing & 3 & 2 \\ \hdashline
-\multirow{7}{*}{Oths}
+Testing & Lack of access to real-world datasets for testing & 3 & 2 \\ \hdashline
+\multirow{7}{*}{Others}
  & Hard to have a high level roadmap from the start & 1 &  \\
  & Not enough participants for usability tests & 1 &  \\
  & Only a few people fully understand the large codebase & 1 &  \\
@@ -41,14 +41,14 @@ Table \ref{tab_obstacles} shows the number of times the interviewees mentioned t
 \caption{\label{tab_obstacles}Current and past obstacles by the numbers of interviewees with the answers}
 \end{table}
 
-The interviewees provided some potential and proven solutions for the problems in Table \ref{tab_obstacles}. We group these pain points into three major groups, and put the less mentioned ones into the group \textit{Others}. Sections \ref{sec_pain_points_1}, \ref{sec_pain_points_2}, and \ref{sec_pain_points_3} include further discussion about the three major groups of pain points and their solutions.
+The interviewees provided some potential and proven solutions for the problems in Table \ref{tab_obstacles}. We group these pain points into three major categories of obstacles: \textit{resource}, \textit{balance}, and \textit{testing}. We put the less mentioned ones into the category \textit{Others}. Sections \ref{sec_pain_points_1}, \ref{sec_pain_points_2}, and \ref{sec_pain_points_3} include further discussion about the three major groups of pain points and their solutions.
 
-\subsection{Pain Points in Group 1}
+\subsection{Resource Pain Points}
 \label{sec_pain_points_1}
-We summarize the pain points in Group 1 as
+We summarize the pain points in the \textit{resource} category as
 \textbf{the lack of fundings and time.}
 
-We also summarize the potential and proven solutions as follows.
+The potential and proven solutions are:
 
 \noindent\textit{Potential solutions from interviewees:}
 \begin{itemize}
@@ -67,12 +67,12 @@ Many interviewees thought lack of fundings and lack of time were the most signif
 
 No interviewee suggested any solution to bring extra funding to the project. However, they provided ideas to save time, such as better documentation, third-party plugins, and good CI/CD tools.
 
-\subsection{Pain Points in Group 2}
+\subsection{Balance Pain Points}
 \label{sec_pain_points_2}
-We summarize the pain points in Group 2 as
+We summarize the pain points in the \textit{balance} category as
 \textbf{the difficulty to balance between four factors: cross-platform compatibility, convenience to development \& maintenance, performance, and security.} They are also related to the choice between native application and web application.
 
-We also summarize the potential and proven solutions as follows.
+The potential and proven solutions are:
 
 \noindent\textit{Potential solutions from interviewees:}
 \begin{itemize}
@@ -115,21 +115,18 @@ The interviewees talked about the advantages and disadvantages of the two choice
 \centering
 \hspace*{-2cm}\begin{tabular}{lll}
 \hline
- & Native application & Web application \\ \hline
+& Native application & Web application \\ \hline
 Ad & - higher performance & \begin{tabular}[c]{@{}l@{}}- easy to achieve cross-platform compatibility\\ - simpler build process\end{tabular} \\ \hdashline
 Disad & \begin{tabular}[c]{@{}l@{}}- hard to achieve cross-platform compatibility\\ - more complicated build process\end{tabular} & \begin{tabular}[c]{@{}l@{}}\textit{Without a backend:} \\ - lower performance\\ \textit{With a backend:} \\ - harder for privacy protection \\ - extra cost for backend servers \end{tabular} \\ \hline
 \end{tabular}
 \caption{\label{tab_pros_cons_native_vs_web}Advantages and disadvantages of native application and web application}
 \end{table}
 
-The interviewees did not conclude any perfect solutions.
-
-\subsection{Pain Points in Group 3}
+\subsection{Testing Pain Point}
 \label{sec_pain_points_3}
-The pain point in Group 3 is
-\textbf{the lack of access to real-world datasets for testing.}
+The pain point in the \textit{testing} category is \textbf{the lack of access to real-world datasets for testing.}
 
-We also summarize the potential and proven solutions as follows.
+The potential and proven solutions are:
 
 \noindent\textit{Potential solutions from interviewees:}
 \begin{itemize}
@@ -140,8 +137,8 @@ We also summarize the potential and proven solutions as follows.
 \begin{itemize}
 \item asking the users to provide deidentified copies of medical images if they have problems loading the images;
 \item sending the beta versions of software to medical workers who can access the data and complete the tests;
-\item if (part of) the team belongs to a medical school or a hospital, using the datasets they can access to;
-\item if the team has access to MRI scanners, self-building MI datasets;
+\item if (part of) the team belongs to a medical school or a hospital, using the datasets they can access;
+\item if the team has access to MRI scanners, self-building sample images for testing;
 \item if the team has connections with MI equipment manufacturers, asking for their help on data format problems;
 \item storing all images that cause special problems, and maintaining this special dataset over time.
 \end{itemize}
@@ -157,7 +154,7 @@ We tried to understand the interviewees' opinions on documentation and the quali
 \item[Q19.] Do you think the current documentation can clearly convey all necessary knowledge to the users? If yes, how did you successfully achieve it? If no, what improvements are needed?
 \end{description}
 
-Table \ref{tab_opinion_doc} summarizes interviewees' opinions on documentation. Interviewees from each of the eight projects thought that documentation was important to their projects, and most of them said that it could save their time to answer questions from users and developers. However, most of them saw the need to improve their documentation, and only three of them thought that their documentations conveyed information clearly enough. 
+Table \ref{tab_opinion_doc} summarizes interviewees' opinions on documentation. Interviewees from each of the eight projects thought that documentation was important to their projects, and most of them said that it could save their time to answer questions from users and developers. Most of them saw the need to improve their documentation, and only three of them thought that their documentations conveyed information clearly enough. 
 
 \begin{table}[H]
 \centering
@@ -169,13 +166,13 @@ Documentation of the project needs improvements & 7 \\
 Referring to documentation saves time to answer questions & 6 \\
 Lack of time to maintain good documentation & 4 \\
 Documentation of the project conveys information clearly & 3 \\
-Coding is more preferable than documentation & 2 \\
+Coding is more fun than documentation & 2 \\
 Users help each other by referring to documentation & 1 \\ \hline
 \end{tabular}
 \caption{\label{tab_opinion_doc}Opinions on documentation by the numbers of interviewees with the answers}
 \end{table}
 
-Table \ref{tab_doc_tools} lists some of the tools and methods mentioned by the interviewees, which they used for documentation.
+Table \ref{tab_doc_tools} lists some of the documentation tools and methods mentioned by the interviewees.
 
 \begin{table}[H]
 \centering
@@ -197,22 +194,22 @@ State management & 1 \\ \hline
 
 \section{Contribution Management and Project Management}
 \label{sec_contribution_pm}
-We tried to understand how the teams managed the contributions and their projects by asking the questions:
+We tried to understand how the teams managed the contributions and their projects by asking the following questions:
 
 \begin{description}
 \item[Q5.] Do you have a defined process for accepting new contributions into your team?
 \item[Q13.] What is your software development model? For example, waterfall, agile, etc.
-\item[Q14.] What is your project management process? Do you think improving this process can tackle the current problem? Were any project management tools used?
+\item[Q14.] \hypertarget{q14}What is your project management process? Do you think improving this process can tackle the current problem? Were any project management tools used?
 \end{description}
 
-Maybe some team had a documented process for accepting new contributions, but none talked about it during the interview. However, most of them mentioned using GitHub and pull requests to manage contributions from the community. The interviewees generally gave very positive feedback on using GitHub. Some also said they had handled the project repository with some other tools, and eventually transferred to git and GitHub. Table \ref{tab_method_receive_contributions} shows the number of times the interviewees mentioned the methods of receiving contributions.
+Although some team may have a documented process for accepting new contributions, no one talked about it during the interview. However, most of them mentioned using GitHub and pull requests to manage contributions from the community. The interviewees generally gave very positive feedback on using GitHub. Some also said they had handled the project repository with some other tools, and eventually transferred to git and GitHub. Table \ref{tab_method_receive_contributions} shows the number of times the interviewees mentioned the methods of receiving contributions.
 
 \begin{table}[H]
 \centering
 \begin{tabular}{lll}
 \hline
 \multirow{2}{*}{Method of receiving contributions} & \multicolumn{2}{l}{Num ans.} \\ \cline{2-3} 
- & current & past \\ \hline
+& current & past \\ \hline
 GitHub with pull requests & 8 & \\
 Code contributions from emails & & 3 \\
 Code contributions from forums & & 1 \\
@@ -221,7 +218,7 @@ Sharing the git repository by email & & 1 \\ \hline
 \caption{\label{tab_method_receive_contributions}Methods of receiving contributions by the numbers of interviewees with the answers}
 \end{table}
 
-Additionally, the \textit{3D Slicer} team encouraged users to develop their extensions for specific use cases, and the \textit{OHIF} team was trying to enable the use of plug-ins; the interviewee from the \textit{ITK-SNAP} team said one way of accepting new team members was through funded academic projects. 
+For managing contributions, the \textit{3D Slicer} team encouraged users to develop their extensions for specific use cases, and the \textit{OHIF} team was trying to enable the use of plug-ins; the interviewee from the \textit{ITK-SNAP} team said one way of accepting new team members was through funded academic projects. 
 
 Table \ref{tab_developmen_models} shows the software development models by the numbers of interviewees with the answers. Only two interviewees confirmed their development models. The others did not think they used a specific model, but three of them suggested that their processes were similar to Waterfall or 
 Agile.
@@ -265,11 +262,11 @@ Confluence & 1 \\ \hline
 
 No interviewee introduced any strictly defined project management process. The most common way was following the issues, such as bugs and feature requests. Additionally, the \textit{3D Slicer} team had weekly meetings to discuss the goals for the project; the \textit{INVESALIUS 3} team relied on the GitHub process for their project management; the \textit{ITK-SNAP} team had a fixed six-month release pace; only the interviewee from the \textit{OHIF} team mentioned that the team has a project manager; the \textit{3D Slicer} team and \textit{BioImage Suite Web} team were doing nightly builds and tests.
 
-Most interviewees skipped the question ``Do you think improving this process can tackle the current problem?". We concluded that a yes-or-no question is not very informative here. The interviewee from the \textit{OHIF} team gave a positive answer to this question. They believed that a better project management process can improve the efficiency of junior developers. They also improved the project management tools (from public Jira to public GitHub repository plus private Jira), so they could better communicate externally and internally.
+Most interviewees skipped the second part of \hyperlink{q14}{Q14} ``Do you think improving this process can tackle the current problem?". In retrospect, we should not have asked a yes-or-no question, since it is not very informative. The interviewee from the \textit{OHIF} team gave a positive answer to this question. They believed that a better project management process can improve the efficiency of junior developers. They also improved the project management tools (from public Jira to public GitHub repository plus private Jira), so they could better communicate externally and internally.
 
 \section{Discussions on Software Qualities}
 \label{sec_interview_software_qualities}
-Questions 15, 16, 17, 18, and 20 are about software qualities \textit{correctness}, \textit{maintainability}, \textit{understandability}, \textit{usability}, and \textit{reproducibility} respectively. We asked these questions to understand the threats to these qualities and the developers' strategies to improve them.
+Questions 15--18, and 20 are about the software qualities of \textit{correctness}, \textit{maintainability}, \textit{understandability}, \textit{usability}, and \textit{reproducibility}, respectively. We asked these questions to understand the threats to these qualities and the developers' strategies to improve them. We discuss each quality in a separate section below.
 
 \subsection{Correctness}
 \label{sec_interview_correctness}
@@ -286,11 +283,11 @@ Table \ref{tab_q15_threats_correctness} shows the threats to \textit{correctness
 Threat to correctness & Num ans. \\ \hline
 Complexity - data in various formats and complicated standards. & 2 \\
 Complexity - different MI machines create data in different ways. & 2 \\
-Complexity - additional functions beside of viewing. & 1 \\
+Complexity - additional functions besides viewing. & 1 \\
 The lack of real word image data for testing. & 1 \\
 The team cannot use private data for debugging even when the data cause problems. & 1 \\
 With huge datasets for testing, the tests are expensive and time-consuming. & 1 \\
-It is hard to well manage releases. & 1 \\
+It is hard to manage releases. & 1 \\
 The project has no unit tests. & 1 \\
 The project has no dedicated quality assurance team. & 1 \\ \hline
 \end{tabular}
@@ -301,10 +298,10 @@ Table \ref{tab_q15_strategies_correctness} shows the strategies to ensure \texti
 
 \begin{table}[H]
 \centering
-\hspace*{-1cm}\begin{tabular}{ll}
+\hspace*{-1.5cm}\begin{tabular}{ll}
 \hline
 Strategy to ensure correctness & Num ans. \\ \hline
-Test-driven development, component / integration / smoke / regression tests. & 4 \\
+Test-driven development, component tests, integration tests, smoke tests, regression tests. & 4 \\
 Self tests / automated tests. & 3 \\
 Two stage development process / stable release \& nightly builds. & 3 \\
 CI/CD. & 1 \\
@@ -316,9 +313,9 @@ Collecting and maintaining a dataset of problematic images. & 1 \\ \hline
 \end{table}
 
 \subsection{Maintainability}
-
+\label{sec_interview_maintainability}
 \begin{description}
-\item[Q16.] When designing the software, did you consider the ease of future changes? For example, will it be hard to change the system’s structure, modules, or code blocks? What measures have been taken to ensure the ease of future changes and maintains?
+\item[Q16.] \hypertarget{q16}When designing the software, did you consider the ease of future changes? For example, will it be hard to change the system’s structure, modules, or code blocks? What measures have been taken to ensure the ease of future changes and maintains?
 \end{description}
 
 Table \ref{tab_q16_strategies_maintainability} shows the strategies to ensure \textit{maintainability} by the numbers of interviewees with the answers. The modular approach is the most talked-about solution to improve \textit{maintainability}. The \textit{3D Slicer} team used a well-defined structure for the software, which they named as ``event-driven MVC pattern''. Moreover, \textit{3D Slicer} discovers and loads necessary modules at runtime, according to the configuration and installed extensions. The \textit{BioImage Suite Web} team had designed and re-designed their software multiple times in the last 10+
@@ -342,7 +339,7 @@ Documentation. & 1 \\ \hline
 \subsection{Understandability}
 
 \begin{description}
-\item[Q17.] Provide instances where users have misunderstood the software. What, if any, actions were taken to address understandability issues?
+\item[Q17.] \hypertarget{q17}Provide instances where users have misunderstood the software. What, if any, actions were taken to address understandability issues?
 \end{description}
 
 Table \ref{tab_q17_threats_understandability} shows the threats to \textit{understandability} by the numbers of interviewees with the answers. It separates \textit{understandability} issues to users and developers by the horizontal dash line.
@@ -388,7 +385,7 @@ Providing an example if the users need to build the software by themselves. & 1 
 \subsection{Usability}
 \label{sec_interview_usability}
 \begin{description}
-\item[Q17.] What, if any, actions were taken to address usability issues?
+\item[Q18.] \hypertarget{q18}What, if any, actions were taken to address usability issues?
 \end{description}
 
 Table \ref{tab_q18_strategies_usability} shows the strategies to ensure \textit{usability} by the numbers of interviewees with the answers.
@@ -454,4 +451,3 @@ Benchmarking the software against other software with similar purposes. & 1 \\ \
 \end{tabular}
 \caption{\label{tab_q20_strategies_reproducibility}Strategies to ensure  reproducibility by the numbers of interviewees with the answers}
 \end{table}
-
