@@ -1,9 +1,9 @@
 \chapter{Recommendations}
 \label{ch_recommendations}
 
-This section presents our recommendations on SC software development. We give these suggestions to the development in all SC domains, unless specifically mentioning that some guidelines are only for MI software.
+This section presents our recommendations on SC software development. In general, our suggestions apply to all SC domains, unless we specifically mention that a particular guideline is only for MI software.
 
-Section \ref{sec_recommendations_qualities} discusses the actions that can potentially improve the ten software qualities. Sections \ref{sec_recommendations_limited_resources}, \ref{sec_recommendations_tech_stack}, and \ref{sec_recommendations_testing_dataset} are based on the primary pain points collected from the developers in the MI domain, but we believe scientists and developers are likely to face them in most SC domains. These sections contain our general suggestions to tackle them. 
+Section \ref{sec_recommendations_qualities} discusses the actions that can potentially improve the ten software qualities. Sections \ref{sec_recommendations_limited_resources}, \ref{sec_recommendations_tech_stack}, and \ref{sec_recommendations_testing_dataset} are based on the primary pain points collected from the developers in the MI domain, but we believe scientists and developers are likely to face them in most SC domains. These sections contain our general suggestions tackling them. 
 
 \section{Recommendations on Improving Software Qualities}
 \label{sec_recommendations_qualities}
@@ -20,20 +20,21 @@ Based on our quality measurements in Sections \ref{ch_results} and discussions w
 \end{itemize}
 \item \textbf{Correctness \& Verifiability}
 \begin{itemize}
-    \item test-driven development with unit tests, integration tests, nightly tests, etc.
+    \item test-driven development with unit tests, integration tests, and nightly tests;
     \item two stage development process with stable release \& nightly builds;
     \item CI/CD;
-    \item documents of requirements specifications and theory manuals.
+    \item requirements specifications and theory manuals \cite{Smith2016} \cite{SmithAndLai2005}.
+    \item static code analysis tools (e.g. Lint and SonarQube)
 \end{itemize}
 \item \textbf{Reliability}
 \begin{itemize}
-    \item test-driven development with unit tests, integration tests, nightly tests, etc.
+    \item test-driven development with unit tests, integration tests, and nightly tests.
     \item two stage development process with stable release \& nightly builds;
     \item descriptive error messages.
 \end{itemize}
 \item \textbf{Robustness}
 \begin{itemize}
-    \item designing with exceptions and make the software failures elegant;
+    \item designing with exceptions and make the software failures graceful;
     \item descriptive error messages.
 \end{itemize}
 \item \textbf{Usability}
@@ -48,22 +49,23 @@ Based on our quality measurements in Sections \ref{ch_results} and discussions w
 \item \textbf{Maintainability}
 \begin{itemize}
     \item using GitHub;
-    \item modular approach;
-    \item documentation for developers, such as project plan, developer’s manual, and API documentation.
+    \item modular approach with the design principle proposed by Parnas: ``system details that are likely to change independently should be the secrets of separate modules; the only assumptions that should appear in the interfaces between modules are those that are considered unlikely to change." \cite{ParnasEtAl2000}
+    \item documentation for developers: project plan, developer’s manual, and API documentation.
 \end{itemize}
 \item \textbf{Reusability}
 \begin{itemize}
     \item modular approach;
-    \item API documentation.
+    \item API documentation;
+    \item tools that generate software documentation for developers (e.g. Doxygen, Javadoc, and Sphinx).
 \end{itemize}
 \item \textbf{Understandability}
 \begin{itemize}
     \item modular approach;
-    \item consistent codding style;
-    \item clear comments;
+    \item good coding style: consistent indentation and formatting style; consistent, distinctive, and meaningful code identifiers; keeping parameters in the same order for all functions; avoiding hard-coded constants (other than 0 and 1);
+    \item clear comments, indicating what is being done, not how;
     \item description of used algorithms;
-    \item documentation;
-    \item communication between developers and users via GitHub issues, mailing lists, forums etc.
+    \item documentation of explicit requirements on coding standard;
+    \item communication between developers and users via GitHub issues, mailing lists, and forums.
     \item graphical user interface.
 \end{itemize}
 \item \textbf{Visibility/Transparency}
@@ -72,7 +74,7 @@ Based on our quality measurements in Sections \ref{ch_results} and discussions w
 \end{itemize}
 \item \textbf{Reproducibility}
 \begin{itemize}
-    \item test-driven development with unit tests, integration tests, nightly tests, etc.
+    \item test-driven development with unit tests, integration tests, and nightly tests.
     \item open-source;
     \item making data and documentation available;
     \item using open-source libraries.
@@ -84,21 +86,21 @@ Based on our quality measurements in Sections \ref{ch_results} and discussions w
 
 The limitation of resources has many faces. We regard the lack of fundings, time, and developers as representations of this problem.
 
-We summarize our discussion with the MI software developers in Section \ref{sec_pain_points_1} to the following recommendations,
+We summarize our discussion with the MI software developers in Section \ref{sec_pain_points_1} with the following recommendations,
 \begin{itemize}
 \item \textbf{Identify the root cause.} More fundings or developers may not solve the problem of lacking time. It is beneficial to identify the underlying obstacles to the team.
 
-\item \textbf{Maintain a good documentation.} Creating and updating documentation consumes time, but can save much more time in the long term. If the users and developers can find answers to their questions by themselves, they are less likely to abuse the team's issue tracker.
+\item \textbf{Maintain a good documentation.} Creating and updating documentation consumes time, but can save much more time in the long term. If the users and developers can find answers to their questions themselves, they are less likely to abuse the team's issue tracker.
 
 \item \textbf{Adopt time-saving tools.} A good CI/CD tool (e.g., GitHub Actions) saves time for building and deploying the product, and automated tests can work in the background while developers are focusing on other tasks.
 
-\item \textbf{Use test-driven development process.} Many people think writing test cases is less fun than building the functional code, but this is only true before the bugs show. Identifying and fixing bugs can cause substantial resources. Setting up the test cases costs time, but generates more benefits in the long run.
+\item \textbf{Use test-driven development process.} Many people think writing test cases is less fun than building the functional code, but this is only true before we encounter the bugs. Identifying and fixing bugs can consume substantial resources. Setting up the test cases costs time, but generates more benefits in the long run.
 
-\item \textbf{Consider supporting third-party plugins or extensions.} Why not let users share the burden? No software product can deliver every user's needs, and the large quantity of features leads to more bugs and difficulty to maintain. So it may be a good idea to shift some development and maintenance responsibilities to the users. The users may also be happy about the extra flexibility.
+\item \textbf{Consider supporting third-party plugins or extensions.} Why not let users share the burden? No software product can deliver every user's needs, and the large quantity of features leads to more bugs and maintenance problems. So it may be a good idea to shift some development and maintenance responsibilities to the users. The users may also be happy about the extra flexibility.
 
-\item \textbf{Consider ``hibernating" for a while.} When developers are not enough, the team can shift from development mode toward maintenance mode for some time. Stop building new features, and fix bugs and design problems in the past. The software qualities may also improve as a result.
+\item \textbf{Consider ``hibernating" for a while.} When developers are not enough, the team can shift from development mode toward maintenance mode for some time. Stop building new features, and instead fix bugs and design problems from the past. If the development team can repay some of its technical debt, the software qualities may improve as a result.
 
-\item \textbf{Commercialization is not always toxic.} Licensing the software to commercial companies to use as internal modules of their products may bring financial supports to the team. Meanwhile, the project can stay open-source to the community.
+\item \textbf{Commercialization is not always toxic.} Licensing the software to commercial companies to use as internal modules of their products may bring financial supports to the team. Meanwhile, the project can stay open-source for the community.
 \end{itemize}
 
 \section{Recommendations on Choosing A Tech Stack}
@@ -109,7 +111,7 @@ A tech stack refers to a set of technologies used by a team to build software an
 \begin{itemize}
 \item \textbf{Identify the priorities of the qualities.} It is hard to cover all aspects. Some teams achieve all four above qualities for their software, but it is not an easy task. Sections \ref{sec_pain_points_2} contains more details about the difficulty of balancing between the four qualities. A team needs to prioritize its objectives according to its resource and experience.
 
-\item \textbf{Be open-minded about new technologies.} Web applications with only a frontend are known for worse \textit{performance} than native applications. However, new technologies may ease this difference. For example, some JavaScript libraries can help the frontend with harnessing the power of computer GPU and accelerate graphical computing. In addition, there are new frameworks helping developers with cross-platform \textit{compatibility}. For example, the \hyperlink{https://flutter.dev/}{Flutter} project enables support for web, mobile, and desktop OS with one codebase.
+\item \textbf{Be open-minded about new technologies.} Web applications with only a frontend are known for worse \textit{performance} than native applications. However, new technologies may ease this difference. For example, some JavaScript libraries can help the frontend harness the power of computer GPU and accelerate graphical computing. In addition, there are new frameworks helping developers with cross-platform \textit{compatibility}. For example, the \hyperlink{https://flutter.dev/}{Flutter} project enables support for web, mobile, and desktop OS with one codebase.
 
 \item \textbf{Use git and GitHub.} 
 As mentioned in Sections \ref{sec_score_maintainability}, almost all of the 29 MI software projects used git, and the majority of them used GitHub. We found from the projects' websites and our interviews with developers that, some projects moved from other version control tools to git and GitHub. GitHub provides convenient repository and project management, and OSS projects receive more attention and contribution on
@@ -121,7 +123,7 @@ GitHub.
 
 \item \textbf{Web transmission may diminish security.} Transferring sensitive data online can be a problem for projects requiring high security. Regulations in some SC domains may forbid doing so. In this case, a web application with a backend may not be a good choice.
 
-\item \textbf{Maintain a good documentation.} No matter what tech stack a team uses, good documents such as well-maintained project plan, developer's manual, and API documentation always help team members to contribute more and make fewer mistakes.
+\item \textbf{Maintain a good documentation.} No matter what tech stack a team uses, a well-maintained project plan, developer's manual, and API documentation always help team members to contribute more and make fewer mistakes.
 \end{itemize}
 
 \section{Recommendations on Enriching the Testing Datasets}
@@ -133,9 +135,13 @@ Based on Section \ref{sec_pain_points_3}, we provide some suggestions as follows
 \begin{itemize}
 \item \textbf{Build and maintain good connections to datasets.} A team can build connections with professionals working in the SC domain, who may have access to private datasets and perform tests for the team. Moreover, if a team has such professionals as internal members, the process can be even simpler.
 
-\item \textbf{Collect and maintain datasets over time.} A team may face all kinds of strange problems caused by various unique inputs over the years of development. It is worth collecting and maintaining these data, which can form a good dataset for testing.
+\item \textbf{Collect and maintain datasets over time.} A team may face all kinds of strange problems caused by various unique inputs over the years of development. It is worth collecting and maintaining this data, which can form a good dataset for testing.
+
+\item \textbf{Search for open data sources.} In general, there are many open datasets in different SC domains. Take MI as an example, there are Chest X-ray Datasets by National Institute of Health (\hyperlink{https://nihcc.app.box.com/v/ChestXray-NIHCC}{https://nihcc.app.box.com/v/ChestXray-NIHCC}) \cite{WangEtAl2017}, Cancer Imaging Archive (\hyperlink{https://www.cancerimagingarchive.net/}{https://www.cancerimagingarchive.net/}) \cite{PriorEtAl2017}, and MedPix by National Library of Medicine (\hyperlink{https://medpix.nlm.nih.gov/home}{https://medpix.nlm.nih.gov/home}) \cite{Smirniotopoulos2014}. A team developing MI software should be able to find more open datasets according to their needs.
+
+\item \textbf{Create sample data for testing.} If a team can access tools creating sample data, they may also self-build datasets for testing. For example, an MI software development team can use an MRI scanner to create images of objects, animals, and volunteers. The team can build the images based on specific testing requirements.
 
 \item \textbf{Remove privacy from sensitive data.} For data with sensitive information, a team can ask the data owner to remove such information or add noise to protect privacy. One example is using deidentified copies of medical images for testing.
 
-\item \textbf{Establish community collaboration in the domain.} During our interviews with developers in the MI domain, we heard many stories of asking for supports from other professionals or equipment manufacturers. However, we believe that broader collaboration between development teams can address this problem better. Some datasets are too sensitive to share, but if the community has some kind of ``group discussion", teams can better express their needs, and professionals can better offer their voluntary supports for testing. Ultimately, perhaps the community can establish a nonprofit organization as a third-party, which maintains large datasets, tests OSS in the domain, and protects privacy.
+\item \textbf{Establish community collaboration in the domain.} During our interviews with developers in the MI domain, we heard many stories of asking for supports from other professionals or equipment manufacturers. However, we believe that broader collaboration between development teams can address this problem better. Some datasets are too sensitive to share, but if the community has some kind of ``group discussion", teams can better express their needs, and professionals can better offer voluntary support for testing. Ultimately, the community can establish a nonprofit organization as a third-party, which maintains large datasets, tests OSS in the domain, and protects privacy.
 \end{itemize}
