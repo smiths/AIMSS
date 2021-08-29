@@ -1,17 +1,68 @@
 \chapter{Conclusions}
 \label{ch_conclusions}
 
-We analyzed the state of the practice for SC software in the MI domain. To better achieve our goals in Section \ref{ch_intro}, we proposed six research questions, that we list in Section \ref{sec_research_questions}.
+We analyzed the state of the practice for SC software in the MI domain. To better achieve our goals in Section \ref{ch_intro}, we proposed six research questions in Section \ref{sec_research_questions}.
 
 Our methods in Section \ref{ch_methods} form a general process to evaluate domain-specific software, that we apply on specific SC domains. As mentioned in Section \ref{sec_applying_method}, following this process, we chose the MI domain, identified 48 SC software candidates in it, then selected 29 of them to our final list. Section \ref{ch_results} lists our measurements to nine software qualities for the 29 projects, and Section \ref{ch_interview} contains our interviews with eight of the 29 teams, discussing their development process and five software qualities.
 
-With the measurement and interview results in Section \ref{ch_results} and \ref{ch_interview}, we reveal some current status of SC software development and qualities in the MI domain. The interview results also show some merits, drawbacks, and pain points within the development process. With these findings, we answer our six research questions in Section \ref{ch_answers}. In addition, Section \ref{ch_recommendations} presents our recommendations on SC software development, such as the ones on improving software qualities and easing pain points during development.
+We answered our six research questions in Section \ref{ch_answers}. In addition, Section \ref{ch_recommendations} presents our recommendations on SC software development.
+
+\section{Key Findings}
+
+With the measurement results in Section \ref{ch_results}, we revealed some current status of SC software development and qualities in the MI domain. We ranked the 29 software projects in nine qualities based on the grading scores. \textit{3D Slicer}, \textit{ImageJ}, and \textit{OHIF Viewer} are the top three software by their overall scores.
+
+The interview results in Section \ref{ch_interview} show some merits, drawbacks, and pain points within the development process. The three primary categories of pain points are:
+\begin{itemize}
+\item the lack of fundings and time;
+\item the difficulty to balance between four factors: cross-platform compatibility, convenience to development \& maintenance, performance, and security;
+\item the lack of access to real-world datasets for testing.
+\end{itemize}
+We summarized the solutions from the developers to address these problems. We also collected the status of software testing, documentation, contribution management, and project management in the eight projects.
+
+Our answers to the research questions (Section \ref{ch_answers}) are based on the above findings. We identified the existing artifacts, tools, principles, processes, and methodologies in the 29 projects. By comparisons in Section \ref{sec_rq_comparison}, we found out: 1) four of the top five software projects in our ranking were also among the top five ones receiving the most GitHub stars per year (Table \ref{tab_ranking_vs_GitHub}); 2) three of the top four in our ranking were among the top four provided by the domain experts (Table \ref{tab_top_software_vs_experts}).
+
+Section \ref{ch_recommendations} presents our recommendations on improving software qualities and easing pain points during development. Some highlighted ones are:
+\begin{itemize}
+\item adopting test-driven development with unit tests, integration tests, and nightly tests;
+\item maintaining good documentation (e.g., installation instructions, requirements specifications, theory manuals, getting started tutorials, user manuals, project plan, developer’s manual, API documentation, requirements on coding standards, development process, project status, development environment, and release notes);
+\item using CI/CD;
+\item using git and GitHub;
+\item modular approach with the design principle proposed by Parnas \cite{ParnasEtAl2000};
+\item considering newer technologies (e.g., web application and serverless solution);
+\item various ways of enriching the testing datasets in Section \ref{sec_recommendations_testing_dataset}.
+\end{itemize}
+
+\section{Future Works}
 
 With learnings from this project, we summarized recommendations for the future state of the practice assessments:
 \begin{itemize}
+    \item we can make the surface measurements less shallow. For example:
+    \begin{itemize}
+        \item \textit{surface reliability}: our current measurement relies on the processes of installation and getting started tutorials. However, not all software needs installation or has a getting started tutorial. We can design a list of operation steps, perform the same operations with each software, and record any errors.
+        \item \textit{surface robustness}: we used damaged images as inputs for this measuring MI software. This process is similar to fuzz testing \cite{enwiki:1039424308}, which is one type of fault injection \cite{enwiki:1039005082}. We may adopt more fault injection methods, and identify tools and libraries to automate this process.
+        \item \textit{surface usability}: we can design usability tests and test all software projects with end-users. The end-users can be volunteers and domain experts.
+        \item \textit{surface understandability}: our current method does not require understanding the source code. As software engineers, perhaps we can select a small module of each project, read the source code and documentation, try to understand the logic, and score the ease of the process.
+    \end{itemize}
 	\item we can further automate the measurements on the grading temple in Appendix \ref{ap_grading_template}. For example, with automation scripts and a GitHub API, we may save significant time on retrieving the GitHub metrics;
 	\item the grading standard can be more explicit. For example, we can explicitly define scores for each item in the grading temple.
-	\item we can improve some interview questions. For example, in \hyperlink{q14}{Q14}, ``Do you think improving this process can tackle the current problem?" is a yes-or-no question, which is not informative enough. As mentioned in Section \ref{sec_contribution_pm}, most interviewees ignored it. We can change it to ``By improving this process, what current problems can be tackled?" In \hyperlink{q16}{Q16}, we can ask more details about the modular approach, such as "What principles did you use to divide code into modules? Can you give an example of using the principles?". \hyperlink{q17}{Q17} and  \hyperlink{q18}{Q18} should respectively ask \textit{understandability} to developers and \textit{usability} to end-users.
-	\item we can better organize the interview questions. Since we use audio conversion tools to transcribe the answers, we should aim to make the transcription easier to read. For example, we can order them together for questions about the five software qualities and compose a similar structure for each.
+	\item we can improve some interview questions. Some examples are:
+	\begin{itemize}
+	    \item in \hyperlink{q14}{Q14}, ``Do you think improving this process can tackle the current problem?" is a yes-or-no question, which is not informative enough. As mentioned in Section \ref{sec_contribution_pm}, most interviewees ignored it. We can change it to ``By improving this process, what current problems can be tackled?";
+	    \item in \hyperlink{q16}{Q16}, we can ask more details about the modular approach, such as "What principles did you use to divide code into modules? Can you give an example of using the principles?";
+	    \item \hyperlink{q17}{Q17} and  \hyperlink{q18}{Q18} should respectively ask \textit{understandability} to developers and \textit{usability} to end-users.
+	\end{itemize}
+	\item we can better organize the interview questions. Since we use audio conversion tools to transcribe the answers, we should make the transcription easier to read. For example, we can order them together for questions about the five software qualities and compose a similar structure for each.
 	\item we can mark the follow-up interview questions with keywords. For example, say ``this is a follow-up question" every time asking one. Thus, we record this sentence in the transcription, and it will be much easier to distinguish the follow-up questions from the 20 designed questions.
 \end{itemize}
+
+\noindent In addition, we propose a few SC domains that are potentially suitable for future works:
+\begin{itemize}
+    \item Metallurgy
+    \item Quantitative Finance
+    \item Computational Fluid Dynamics
+    \item Basic Linear Algebra
+    \item Finite Elements
+    \item Sparse Linear Solvers
+\end{itemize}
+
+\noindent After applying our method on various domains, we can start a meta-study to compare the state of the practice for software in different domains.
