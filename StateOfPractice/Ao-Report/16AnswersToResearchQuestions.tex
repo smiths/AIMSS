@@ -29,9 +29,8 @@ As mentioned in Section \ref{sec_grading_template}, we search for all the artifa
 \begin{tabular}{ll}
 \hline
 Artifact & Number of projects \\ \hline
-Source code & 29 \\
-Version Control & 29 \\
 README & 29 \\
+Version Control & 29 \\
 License & 28 \\
 Bug tracker & 28 \\
 Change request & 28 \\
@@ -39,7 +38,6 @@ User Manual & 22 \\
 Release notes & 22 \\
 Build file & 18 \\
 Tutorials & 18 \\
-Makefile & 18 \\
 Installation Guide & 16 \\
 Test cases & 15 \\
 Authors & 14 \\
@@ -53,6 +51,8 @@ Project Plan & 5 \\ \hline
 \end{tabular}
 \caption{\label{tab_artifacts_frequency}Artifacts by their frequency in the 29 MI projects}
 \end{table}
+
+We summarized the definitions of the artifacts in \hyperlink{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/Methodology/Artifacts_MiningV3.xlsx}{https://github.com/.../Artifacts\_MiningV3.xlsx}. Source code is a type of artifact. Since we only included OSS on the final list (Section \ref{sec_mi_software_selection}), every project's source code was available. Thus, we excluded it in the above table.
 
 \section{Tools in the Projects}
 \label{sec_rq_tools}
@@ -152,9 +152,9 @@ We answer this question by grading the qualities of the software, collecting rat
 \subsection{Our Ranking versus the GitHub Popularity}
 \label{sec_ranking_vs_github}
 
-Table \ref{tab_ranking_vs_GitHub} shows our ranking to the 29 MI projects, and their GitHub metrics if applicable, in the descending order of the average number of new stars. As mentioned in Section \ref{sec_score_maintainability}, 24 projects used GitHub. Since GitHub repositories have different creation dates, we collect the number of months each stayed on GitHub, and calculate the average number of new stars, people watching, and forks per 12 months. The method of getting the creation date is described in Section \ref{sec_empirical_measurements}, and we obtained these metrics in July, 2021.
+Table \ref{tab_ranking_vs_GitHub} shows our ranking to the 29 MI projects, and their GitHub metrics if applicable. As mentioned in Section \ref{sec_score_maintainability}, 24 projects used GitHub. Since GitHub repositories have different creation dates, we collect the number of months each stayed on GitHub, and calculate the average number of new stars, people watching, and forks per 12 months. The method of getting the creation date is described in Section \ref{sec_empirical_measurements}, and we obtained these metrics in July, 2021.
 
-Generally speaking, most of the top-ranking MI software projects also received greater attention and popularity on GitHub. Between our ranking and the GitHub stars-per-year ranking, four of the top five software projects are the same.
+In Table \ref{tab_ranking_vs_GitHub}, we used the average number of new stars per 12 months as an indicator of the GitHub popularity, and listed the items in the descending order of this number. We ordered the non-GitHub items by our ranking. Generally speaking, most of the top-ranking MI software projects also received greater attention and popularity on GitHub. Between our ranking and the GitHub stars-per-year ranking, four of the top five software projects are the same.
 
 Project \textit{dwv} was popular on GitHub, but we ranked it low. As mentioned in Section \ref{sec_result_installability}, we failed to build it locally, and used the test version on its websites for the measurements. We followed the instructions and tried to run the command ``yarn run test" locally, which did not work. In addition, the test version did not detect a broken DICOM file and displayed a blank image as described in Section \ref{sec_result_robustness}. We might underestimate the scores for \textit{dwv} due to uncommon technical issues. We also ranked \textit{DICOM Viewer} much lower than its popularity. As mentioned in Section \ref{sec_result_installability} it depended on the NextCloud platform that we could not successfully install. Thus, we might underestimate the scores of its \textit{surface reliability} and \textit{surface robustness}. We weighted all qualities equally, which is not likely to be the case with all users. As a result, some projects with high popularity may not perform well in all qualities.
 
@@ -165,30 +165,30 @@ Project \textit{dwv} was popular on GitHub, but we ranked it low. As mentioned i
 \begin{tabular}{lllll}
 \hline
 Software & Our ranking & Stars/yr & Watches/yr & Forks/yr \\ \hline
-3D Slicer & 1 & 284.25 & 18.75 & 128.25 \\
-OHIF Viewer & 3 & 277.04 & 19.3 & 223.83 \\
-dwv & 23 & 123.56 & 11.59 & 51.36 \\
-ImageJ & 2 & 83.58 & 9.37 & 30 \\
-ParaView & 5 & 66.76 & 7.11 & 28.36 \\
-Horos & 12 & 48.62 & 9.23 & 18 \\
-Papaya & 17 & 44.7 & 4.84 & 19.71 \\
-Fiji & 4 & 44.2 & 4.98 & 20.68 \\
-DICOM Viewer & 29 & 42.86 & 5.71 & 8.57 \\
-INVESALIUS 3 & 10 & 39.66 & 4.11 & 17.37 \\
-Weasis & 6 & 36 & 5.1 & 18.9 \\
-dicompyler & 26 & 35.18 & 4.77 & 13.64 \\
-OsiriX Lite & 9 & 34.14 & 8.62 & 23.77 \\
-MRIcroGL & 18 & 23.63 & 3.38 & 3.38 \\
-GATE & 25 & 18.9 & 5.79 & 25.79 \\
-Ginkgo CADx & 14 & 18.83 & 4.43 & 5.72 \\
-BioImage Suite Web & 8 & 17.85 & 4.62 & 6.77 \\
-Drishti & 27 & 16.04 & 3.78 & 4.43 \\
-Slice:Drop & 20 & 9.73 & 2.16 & 4.97 \\
-ITK-SNAP & 15 & 9.1 & 0.97 & 3.59 \\
-medInria & 7 & 7.04 & 3.35 & 6.35 \\
-SMILI & 13 & 3.04 & 0.91 & 1.52 \\
-MatrixUser & 28 & 2 & 0.33 & 0.33 \\
-MicroView & 16 & 1.48 & 0.82 & 0.82 \\
+3D Slicer & 1 & 284 & 19 & 128 \\
+OHIF Viewer & 3 & 277 & 19 & 224 \\
+dwv & 23 & 124 & 12 & 51 \\
+ImageJ & 2 & 84 & 9 & 30 \\
+ParaView & 5 & 67 & 7 & 28 \\
+Horos & 12 & 49 & 9 & 18 \\
+Papaya & 17 & 45 & 5 & 20 \\
+Fiji & 4 & 44 & 5 & 21 \\
+DICOM Viewer & 29 & 43 & 6 & 9 \\
+INVESALIUS 3 & 10 & 40 & 4 & 17 \\
+Weasis & 6 & 36 & 5 & 19 \\
+dicompyler & 26 & 35 & 5 & 14 \\
+OsiriX Lite & 9 & 34 & 9 & 24 \\
+MRIcroGL & 18 & 24 & 3 & 3 \\
+GATE & 25 & 19 & 6 & 26 \\
+Ginkgo CADx & 14 & 19 & 4 & 6 \\
+BioImage Suite Web & 8 & 18 & 5 & 7 \\
+Drishti & 27 & 16 & 4 & 4 \\
+Slice:Drop & 20 & 10 & 2 & 5 \\
+ITK-SNAP & 15 & 9 & 1 & 4 \\
+medInria & 7 & 7 & 3 & 6 \\
+SMILI & 13 & 3 & 1 & 2 \\
+MatrixUser & 28 & 2 & 0 & 0 \\
+MicroView & 16 & 1 & 1 & 1 \\
 Gwyddion & 11 & n/a & n/a & n/a \\
 XMedCon & 19 & n/a & n/a & n/a \\
 DicomBrower & 21 & n/a & n/a & n/a \\
@@ -202,9 +202,7 @@ AMIDE & 22 & n/a & n/a & n/a \\
 \subsection{Designated Top Software versus the Domain Experts' Recommendation}
 \label{sec_designation_vs_experts}
 
-As shown in Section \ref{sec_mi_software_selection}, our domain experts recommended a list of top software with 12 software products. Table \ref{tab_top_software_vs_experts} compares the top 12 software projects ranked by our methodology with the ones from the domain experts.
-
-An example of interpreting Table \ref{tab_top_software_vs_experts} is as follows: in row 2, \textit{ImageJ} has rank 2 by our assessment, and the number \textit{(3)} means that it has rank 3 by the experts; likewise, \textit{Horos} has rank 2 by the domain experts, and rank 12 by our assessment.
+As shown in Section \ref{sec_mi_software_selection}, our domain experts recommended a list of top software with 12 software products. Table \ref{tab_top_software_vs_experts} and \ref{tab_experts_vs_top_software} compare the top 12 software projects ranked by our methodology with the ones from the domain experts.
 
 All of the top 4 software from the domain experts are among the top 12 ones ranked by our methodology. 3 of the top 4 on both lists are the same ones: \textit{3D Slicer}, \textit{ImageJ}, and \textit{Fiji}. \textit{3D Slicer} is also the top 1 of both rankings.
 
@@ -214,21 +212,42 @@ As mentioned in Section \ref{sec_mi_software_selection}, six of the recommended 
 \centering
 \begin{tabular}{lll}
 \hline
-Rank & This assessment & Domain expert \\ \hline
-1 & 3D Slicer (1) & 3D Slicer (1) \\
-2 & ImageJ (3) & Horos (12) \\
-3 & OHIF Viewer (n/a) & ImageJ (2) \\
-4 & Fiji (4) & Fiji (4) \\
-5 & ParaView (n/a) & AFNI (n/a) \\
-6 & Weasis (n/a) & FSL (n/a) \\
-7 & medInria (n/a) & Freesurfer (n/a) \\
-8 & BioImage Suite Web (n/a) & Mricron (18*) \\
-9 & OsiriX Lite (n/a) & Mango (17**) \\
-10 & INVESALIUS 3 (n/a) & Tarquin (n/a) \\
-11 & Gwyddion (n/a) & Diffusion Toolkit (n/a) \\
-12 & Horos (2) & MRItrix (n/a) \\ \hline
+Our ranking & Assessed software & Domain experts \\ \hline
+1 & 3D Slicer & 1 \\
+2 & ImageJ & 3 \\
+3 & OHIF Viewer & n/a \\
+4 & Fiji & 4 \\
+5 & ParaView & n/a \\
+6 & Weasis & n/a \\
+7 & medInria & n/a \\
+8 & BioImage Suite Web & n/a \\
+9 & OsiriX Lite & n/a \\
+10 & INVESALIUS 3 & n/a \\
+11 & Gwyddion & n/a \\
+12 & Horos & 2 \\ \hline
 \end{tabular}
-\caption{\label{tab_top_software_vs_experts}Top software versus domain experts' recommendation}
+\caption{\label{tab_top_software_vs_experts}Top software by our ranking versus domain experts' recommendation}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lll}
+\hline
+Our ranking & Recommended software & Domain experts \\ \hline
+1 & 3D Slicer & 1 \\
+12 & Horos & 2 \\
+2 & ImageJ & 3 \\
+4 & Fiji & 4 \\
+n/a & AFNI & 5 \\
+n/a & FSL & 6 \\
+n/a & Freesurfer & 7 \\
+18* & Mricron & 8 \\
+17** & Mango & 9 \\
+n/a & Tarquin & 10 \\
+n/a & Diffusion Toolkit & 11 \\
+n/a & MRItrix & 12 \\ \hline
+\end{tabular}
+\caption{\label{tab_experts_vs_top_software}Domain experts' recommendation versus our ranking}
 \end{table}
 
 * \textit{MRIcron} development had moved to \textit{MRIcroGL}, as mentioned in Section \ref{sec_mi_software_selection}. Thus, we measured and ranked \textit{MRIcroGL} at 18.
