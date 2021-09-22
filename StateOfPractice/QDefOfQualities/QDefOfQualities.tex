@@ -1,4 +1,4 @@
-\documentclass[letterpaper,cleveref]{lipics-v2019}
+\documentclass[letterpaper, cleveref]{lipics-v2019}
 
 \usepackage{natbib}
 \usepackage{booktabs}
@@ -11,6 +11,7 @@ citecolor=blue,         % color of links to bibliography
 filecolor=magenta,      % color of file links
 urlcolor=cyan           % color of external links
 }
+\usepackage{bbding}
 
 %% Comments
 \newif\ifcomments\commentstrue
@@ -90,32 +91,140 @@ Olu Owojaiye and Peter Michalski and Ao Dong}
 
 % Purpose
 
-Given that our research focuses on improving the quality of software, we
-often find it necessary to have clear definitions of the different software
-qualities, like maintainability, usability, sustainability, etc.
-Unfortunately, the definitions that we find in the literature are not always
-satisfying.  This became clear when we recently undertook an exercise for
-measuring the \lq\lq{}state of the practice\rq\rq{} in different software
-domains, including the domains of seismology software \citep{SmithEtAl2018},
-Geographic Information Systems \citep{SmithEtAl2018_arXivGIS} and mesh
-generators \citep{smith2016state}. In trying to determine methods to quickly
-assess quality of large samples of existing software, we found communication
-between ourselves and other challenging.  We craved unambigous and
-standardized definitions to enable methods for measuring qualities.
-Therefore, we have endeavored to collect an exhaustive list of definitions
-and from this build a set of recommended definitions, based on our quality
-criteria for high-quality quality definitions.  We are publishing our
-collection, since others may likewise find them valuable.
+In the course of conducting and presenting our software engineering related
+research we have often desired clear definitions for relevant software
+qualities, like maintainability, usability, productivity, sustainability, etc.
+Unfortunately, the definitions of qualities that we found in the literature were
+not always satisfying.  The inadequacy of existing definitions became
+particularly clear when we recently undertook an exercise measuring the
+\lq\lq{}state of the practice\rq\rq{} in different software domains, including
+the domains of seismology software \citep{SmithEtAl2018}, Geographic Information
+Systems \citep{SmithEtAl2018_arXivGIS} and mesh generators
+\citep{smith2016state}. When determining methods to quickly assess quality
+across large samples of existing software, we found communication amongst
+ourselves and with others challenging. We craved unambiguous and standardized
+definitions to enable and inspire methods for measuring software qualities.  To
+help ground our future research, and possibly help others in the same situation,
+we have collected an exhaustive list of definitions.  From this list we have
+produced our set of recommended software quality definitions.  
+
+In the current work, quality is defined as a measure of the excellence or worth
+of an entity.  As is standard practice, we do not think of quality as a single
+measure, but rather as a set of measures.  In the overview of managing software
+quality provided by \citet[p 110]{VanVliet2000} the different measures are
+called quality attributes, quality factors, and quality criteria.  In
+\citet{ISO9126} they are called quality characteristics, subcharacteristics and
+attributes.  To keep our presentation simple, and to not imply a classification
+hierarchy that we don't intend, we will just use the term qualities to refer to
+the different measures of quality.  
+
+Many taxonomies have been proposed for software qualities, as in
+\citet{McCallEtAl1977, boehm1976quantitative, ISO9126}. Rather than aiming for a
+complete coverage of the history of qualities, the wide variety of potential
+qualities, or the relationships between them, we will instead take a practical
+approach; we will focus on the qualities that we have found most relevant in our
+research.  This means we will include the usual software engineering suspects,
+like usability and maintainability.  Furthermore, since we also do research on
+scientific computing software, we will also include scientifically relevant
+qualities, like validatability and reproducibility relevant.
+
+Given our respect for \citet[p.\ 15--33]{GhezziEtAl2003}, we used their list of
+qualities as a starting point. Our list, shown in
+Table~\ref{Tab_SoftwareQualities}, includes all of their qualities, except for
+timeliness, which we excluded because the already included quality of
+productivity implies the importance of timeliness.  To the list from
+\citet{GhezziEtAl2003} we have added the practical quality of installability,
+since our aforementioned studies on the state of the practice in different
+software domains (for instance \citet{SmithEtAl2018_arXivGIS}) have shown us
+that none of the other qualities matter if the software cannot be properly
+installed.  Given our interest in scientific computing, we also added the
+qualities of validatability and reproducibility. Since we were not able to find
+much information in the literature on the quality of verifiability, we also
+added the closely related quality of testability to our List.  The quality of
+sustainability was added since this term has emerged as a popular goal for
+software projects. The order of the qualities in
+Table~\ref{Tab_SoftwareQualities} follow the order used in
+\cite{GhezziEtAl2003}, which puts related qualities (like correctness and
+reliability) together.  The order is roughly the order in which qualities are
+considered.  We followed these same guidelines when inserting our additional
+qualities into the list.
+
+\begin{table}[h!]
+  \begin{center}
+  \begin{tabular}{lllll}
+  \toprule
+  & External & Internal & Product & Process \\  
+  \midrule
+  Installability & \Checkmark & & \Checkmark & \\
+  Correctness & \Checkmark & \Checkmark & \Checkmark & \Checkmark \\
+  Reliability & \Checkmark & & \Checkmark & \Checkmark \\
+  Robustness & \Checkmark & & \Checkmark & \Checkmark \\     
+  Performance & \Checkmark & & \Checkmark & \\
+  Usability & \Checkmark & & \Checkmark & \Checkmark \\
+  Verifiability & & \Checkmark & \Checkmark & \Checkmark \\
+  Validatability & \Checkmark & & \Checkmark & \\     
+  Testability & & \Checkmark & \Checkmark & \\
+  Maintainability &  & \Checkmark & \Checkmark & \Checkmark\\
+  Reusability & & \Checkmark & \Checkmark & \Checkmark\\
+  Portability & & \Checkmark & \Checkmark & \\
+  Understandability & & \Checkmark &  & \\     
+  Interoperability & \Checkmark & & \Checkmark & \\
+  Productivity &  &  &  & \Checkmark \\
+  Visibility &  & &  & \Checkmark \\
+  Reproducibility & \Checkmark & & \Checkmark & \\
+  Sustainability & & \Checkmark & \Checkmark & \\      
+  \bottomrule
+\end{tabular}
+\end{center}
+\caption{Software Qualities}
+\label{Tab_SoftwareQualities}
+\end{table}
+
+Table~\ref{Tab_SoftwareQualities} makes a distinction between external and
+internal qualities.  External qualities are the qualities that are relevant to
+the user of the software while internal qualities are those that are relevant to
+developers \citep[p.\ 16]{GhezziEtAl2003}.  Although the users are not typically
+interested in internal qualities, it is the internal qualities that influence
+external quality.  External qualities are assessed using the produced software
+and any user relevant documentation.  Internal qualities reference such things
+as the code, documentation, test cases, and the software development process.
+Correctness is shown as both an internal and external quality because it is
+possible to judge the correctness of software and of the various internal
+artifacts produced while developing software.  The external quality of
+reliability is influenced by the internal quality of verifiability.  Since
+validatability is related to getting the right requirements, it is shown as a
+external quality.  Although one could judge the usability of internal
+documentation, the quality of usability is considered as external, with the
+quality of understandability introduced to cover the internal equivalent.
+Filling in the table the way we want to use it.
+
+Some qualities focus on the product, others on the process, and yet others on
+both.  This is shown in Table~\ref{Tab_SoftwareQualities}.  Define process.
+Define product. Process quality improves product quality.  The check marks are
+for qualities that can be applied to a process, not the qualities that a process
+improves.  Examples.  Performance isn't for process.  For process use
+productivity.
+
 
 % Scope
 
-Not specifically emphasizing scientific computing, but when a specific
-context is needed for a definition, the scientific context will be used.  For
-instance, the ISO definition of accuracy is defined in terms of precision, but
-in scientific computing accuracy and precision are two different concepts.
+The topic of quality has been visited and revisited many times through the
+course of software engineering.  Starting with McCall, Boehm.  Iso standards.
+Taxonomies, relationships between qualities.  Rather than introduce distinctions
+that aren't relevant, we'll just focus on qualities of interest. We are not
+endeavoring to review all of the available literature, nor are we trying to
+provide a complete framework for all qualities and the relationships between
+them.  We are taking a more practical approach.  We have identified the
+qualities that come up most in our research.  Not specifically emphasizing
+scientific computing, but when a specific context is needed for a definition,
+the scientific context will be used.  For instance, the ISO definition of
+accuracy is defined in terms of precision, but in scientific computing accuracy
+and precision are two different concepts.  Some are product and some are process
+and some are both.  Some are internal and some are external.
 
 \wss{List of definitions don't include textbooks that simply repeat
 definitions from the literature.}
+
 
 % Methodology
 Methodology:
@@ -181,6 +290,7 @@ following criteria:
 Not necessary to have every quality measurable.  Analogy to the definition of
 true error in scientific computing.
 
+Roadmap.
 \subsection{Background}
 
 Quality definitions history: McCall, Ghezzi et al, VanHleit, Boehm, ISO standards.
@@ -194,15 +304,13 @@ below (and their refinement).
 \begin{defn} 
 \textsf{Effectiveness}:
 The accuracy and completeness with which users achieve specified
-goals. 
-\cite{ISO9241:11}
+goals. \cite{ISO9241:11}
 \end{defn}
 
 \begin{defn} 
 \textsf{Efficiency}: 
 The resources expended in relation to the accuracy and
-completeness with which users achieve goals.
-\cite{ISO9241:11}
+completeness with which users achieve goals. \cite{ISO9241:11}
 \end{defn}
 
 \begin{defn}
@@ -214,22 +322,19 @@ Freedom from discomfort, and positive attitude to the use of the product.
 \begin{defn}
 \textsf{Context of use}:
 characteristics of the users, tasks and the organizational and physical
-environments 
-\cite{ISO9241:11}
+environments. \cite{ISO9241:11}
 \end{defn}
 
 \begin{defn}
-\textsf{Goal}: intended outcome
-\cite{ISO9241:11}
+\textsf{Goal}: intended outcome. \cite{ISO9241:11}
 \end{defn}
 
 \begin{defn}
-\textsf{Task}: activities required to achieve a goal 
-\cite{ISO9241:11}
+\textsf{Task}: activities required to achieve a goal. \cite{ISO9241:11}
 \end{defn}
 
-\section{Qualities of Software Products, Artifacts and
-	Processes} \label{SecQualities}
+\section{Qualities of Software Products, Artifacts and Processes}
+\label{SecQualities}
 
 \wss{add a definition related to capability?  The word seems to come up in  many definitions.}
 
@@ -332,148 +437,6 @@ behaves according to its stated specifications.
 To determine whether a program is correct, we must be able to refer to both its
 specification, design and implementation to understand the intended purpose and
 this definition captures it all.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\subsection{\notdone{Verifiability} \oo{owner}}
-
-\begin{defn}
-	 Verification is the process of evaluating a system or component to
-   determine whether the products of a given development phase satisfy the
-   conditions imposed at the start of that phase
-   \citep{IEEEStdGlossarySET1990}.
-\end{defn}
-
-\begin{defn}
-	Verification involves solving the equations right \citep[p.~23]{Roache1998}.
-\end{defn}
-
-\begin{defn}
-  A software is verifiable if its properties can be verified easily
-  \citep{GhezziEtAl2003}.  \wss{Is this a direct quote?} \oo{yes}
-\end{defn}
-
-\begin{defn}
-	By verification, we mean all activities that are undertaken to ascertain
-  that the software meets its objectives \citep{GhezziEtAl2003}.
-\end{defn}
-
-\begin{defn}
-	Verifiability refers to how well software components or the integrated
-  product can be evaluated to demonstrate whether the system functions as
-  expected \citep{wiegers2003softreq}.
-\end{defn}
-
-\begin{defn} \label{Defn_Verifiability1}
-  Verifiability ``means that you should be able to write a set of tests that
-  can demonstrate that the delivered system meets each specified
-  requirement'' \citep{sommerville}. %2011
-\end{defn}
-
-\begin{defn}
-	The evaluation of whether or not a product, service, or result complies
-  with a regulation, requirement, specification, or imposed condition
-  \citep{project2017guide} \oo {verification definition}
-\end{defn}
-
-\noindent \textbf{Proposed Definition} Definition~\ref{Defn_Verifiability1}
-rephrased: Verifiability is the extent to which a set of tests can be
-written and executed, to demonstrate that the delivered system meets the
-specification.
-
-\noindent \textbf{Reasoning} 
-
-Definition is concise and measurable.  Verifiability involves solving the
-equations right \citep[p.~23]{Roache1998} and the definition states that
-system needs to be verifiable based on the specifications.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\subsection{\notdone{Validatability} \oo{owner}}
-
-\begin{defn} \label{Defn_Validatability}
-  The process of evaluating a system or component during or at the end of the
-  development process to determine whether it satisfies specified requirements
-  \citep{IEEEStdGlossarySET1990}.
-\end{defn}
-
-\begin{defn}
-  Validation means solving the right equations \citep[p.~23]{Roache1998}.
-\end{defn}
-
-\begin{defn}
-  Software validation is achieved through a series of tests that demonstrate
-  conformity with requirements \citep{pressman2005software}.
-\end{defn}
-
-\begin{defn}
-	Validation is concerned with establishing that the product fulfills its
-	intended use \citep{van2008software}.
-\end{defn}
-
-\begin{defn}
-  Software validation is the process of checking that the system conforms to
-  its specification and that it meets the real needs of the users of the
-  system \citep{sommerville}. %2011
-\end{defn}
-
-\begin{defn}
-	Software validation, where the software is checked to ensure that it is
-  what the customer requires \citep{sommerville}. %2011
-\end{defn}
-
-\begin{defn}
-  The assurance that a product, service, or result meets the needs of the
-  customer and other identified stakeholders \citep{project2017guide}.
-\end{defn}
-
-\noindent \textbf{Proposed Definition}
-
-Definition \ref{Defn_Validatability} rephrased:  The effort required in
-evaluating a system or component during or at the end of the development
-process to determine whether it satisfies specified requirements
-
-\noindent \textbf{Reasoning}
-
-Definition describes that system should be measurable through the
-development life cycle, It is concise and can be measured.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\subsection{\notdone{Testability} \oo{owner}}
-
-\begin{defn}
-	Code possesses the characteristic testability to the extent that it
-  facilitates the establishment of verification criteria and supports
-  evaluation of its performance \citep{boehm1976quantitative}
-\end{defn}
-
-\begin{defn}
-	Effort required to test a program to ensure it performs
-	its intended function \citep{McCallEtAl1977}.
-\end{defn}
-
-\begin{defn} \label{Defn_Testability}
-	 The degree to which a system or component facilitates the establishment of
-	 test criteria and the performance of tests to determine whether those
-	 criteria have been met \citep{IEEEStdGlossarySET1990}.
-\end{defn}
-
-\begin{defn}
-	The degree to which you can unit-test and system-test a system; the degree
-  to which you can verify that the system meets its requirements
-  \citep{mcconnell2004code}.
-\end{defn}
-
-\noindent \textbf{Proposed Definition}
-
-Definition \ref{Defn_Testability}: The degree to which a system or component
- facilitates the establishment of test criteria and the performance of tests
- to determine whether those criteria have been met.
-
-\noindent \textbf{Reasoning}
-
-Definition is concise and measurable.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -724,6 +687,148 @@ One core reference, for definitions and metrics, is
 There has been a lot of thought put behind the ISO definition, from experts.
 The standard has been revisited, but the definition has not changed, which 
 means that it has stood the test of time.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{\notdone{Verifiability} \oo{owner}}
+
+\begin{defn}
+	 Verification is the process of evaluating a system or component to
+   determine whether the products of a given development phase satisfy the
+   conditions imposed at the start of that phase
+   \citep{IEEEStdGlossarySET1990}.
+\end{defn}
+
+\begin{defn}
+	Verification involves solving the equations right \citep[p.~23]{Roache1998}.
+\end{defn}
+
+\begin{defn}
+  A software is verifiable if its properties can be verified easily
+  \citep{GhezziEtAl2003}.  \wss{Is this a direct quote?} \oo{yes}
+\end{defn}
+
+\begin{defn}
+	By verification, we mean all activities that are undertaken to ascertain
+  that the software meets its objectives \citep{GhezziEtAl2003}.
+\end{defn}
+
+\begin{defn}
+	Verifiability refers to how well software components or the integrated
+  product can be evaluated to demonstrate whether the system functions as
+  expected \citep{wiegers2003softreq}.
+\end{defn}
+
+\begin{defn} \label{Defn_Verifiability1}
+  Verifiability ``means that you should be able to write a set of tests that
+  can demonstrate that the delivered system meets each specified
+  requirement'' \citep{sommerville}. %2011
+\end{defn}
+
+\begin{defn}
+	The evaluation of whether or not a product, service, or result complies
+  with a regulation, requirement, specification, or imposed condition
+  \citep{project2017guide} \oo {verification definition}
+\end{defn}
+
+\noindent \textbf{Proposed Definition} Definition~\ref{Defn_Verifiability1}
+rephrased: Verifiability is the extent to which a set of tests can be
+written and executed, to demonstrate that the delivered system meets the
+specification.
+
+\noindent \textbf{Reasoning} 
+
+Definition is concise and measurable.  Verifiability involves solving the
+equations right \citep[p.~23]{Roache1998} and the definition states that
+system needs to be verifiable based on the specifications.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{\notdone{Validatability} \oo{owner}}
+
+\begin{defn} \label{Defn_Validatability}
+  The process of evaluating a system or component during or at the end of the
+  development process to determine whether it satisfies specified requirements
+  \citep{IEEEStdGlossarySET1990}.
+\end{defn}
+
+\begin{defn}
+  Validation means solving the right equations \citep[p.~23]{Roache1998}.
+\end{defn}
+
+\begin{defn}
+  Software validation is achieved through a series of tests that demonstrate
+  conformity with requirements \citep{pressman2005software}.
+\end{defn}
+
+\begin{defn}
+	Validation is concerned with establishing that the product fulfills its
+	intended use \citep{van2008software}.
+\end{defn}
+
+\begin{defn}
+  Software validation is the process of checking that the system conforms to
+  its specification and that it meets the real needs of the users of the
+  system \citep{sommerville}. %2011
+\end{defn}
+
+\begin{defn}
+	Software validation, where the software is checked to ensure that it is
+  what the customer requires \citep{sommerville}. %2011
+\end{defn}
+
+\begin{defn}
+  The assurance that a product, service, or result meets the needs of the
+  customer and other identified stakeholders \citep{project2017guide}.
+\end{defn}
+
+\noindent \textbf{Proposed Definition}
+
+Definition \ref{Defn_Validatability} rephrased:  The effort required in
+evaluating a system or component during or at the end of the development
+process to determine whether it satisfies specified requirements
+
+\noindent \textbf{Reasoning}
+
+Definition describes that system should be measurable through the
+development life cycle, It is concise and can be measured.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{\notdone{Testability} \oo{owner}}
+
+\begin{defn}
+	Code possesses the characteristic testability to the extent that it
+  facilitates the establishment of verification criteria and supports
+  evaluation of its performance \citep{boehm1976quantitative}
+\end{defn}
+
+\begin{defn}
+	Effort required to test a program to ensure it performs
+	its intended function \citep{McCallEtAl1977}.
+\end{defn}
+
+\begin{defn} \label{Defn_Testability}
+	 The degree to which a system or component facilitates the establishment of
+	 test criteria and the performance of tests to determine whether those
+	 criteria have been met \citep{IEEEStdGlossarySET1990}.
+\end{defn}
+
+\begin{defn}
+	The degree to which you can unit-test and system-test a system; the degree
+  to which you can verify that the system meets its requirements
+  \citep{mcconnell2004code}.
+\end{defn}
+
+\noindent \textbf{Proposed Definition}
+
+Definition \ref{Defn_Testability}: The degree to which a system or component
+ facilitates the establishment of test criteria and the performance of tests
+ to determine whether those criteria have been met.
+
+\noindent \textbf{Reasoning}
+
+Definition is concise and measurable.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -1057,6 +1162,103 @@ concept with more than 2 systems.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\subsection{\notdone{Productivity} \ad{owner}}
+
+\begin{defn}
+  The best definition of the productivity of a process is
+	\[\text{Productivity} = \dfrac{\text{Outputs produced by the
+              process}}{\text{Inputs consumed by the process}}\]
+
+Thus, we can improve the productivity of the software process by increasing its
+outputs, decreasing its inputs, or both. However, this means that we need to
+provide meaningful definitions of the inputs and outputs of the software
+process. \wss{Where did this definition come from?  Is this all from Boehm?
+  This is quite a long quote.  We might actually want to paraphrase.}
+\ad{all from Boehm. I feel the best way is deleting everything after the
+equation}
+
+\textbf{Defining inputs.} For the software process, providing a meaningful
+definition of inputs is a nontrivial but generally workable problem. Inputs to
+the software process generally comprise labor, computers, supplies, and other
+support facilities and equipment. However, one has to be careful which of
+various classes of items are to be counted as inputs. For example:
+\begin{itemize}
+\item Phases (just software development, or should we include system
+engineering, soft-ware requirements analysis, installation, or post development
+support?)
+\item Activities (to include documentation, project management, facilities
+management, conversion, training, database administration?)
+\item Personnel (to include secretaries, computer operators, business managers,
+contract administrators, line management?)
+\item Resources (to include facilities, equipment, communications, current
+versus future dollar payments?)
+\end{itemize}
+An organization can usually reach an agreement on which of the above are
+meaningful as inputs in their organizational context. Frequently, one can use
+present-value dollars as a uniform scale for various classes of resources.
+
+\textbf{Defining outputs.} The big problem in defining software productivity is
+defining outputs. Here we find a defining delivered source instructions (DSI) or
+lines of code as the output of the software process is totally inadequate, and
+they argue that there are a number of deficiencies in using DSI. However,
+	most organizations doing practical productivity measurement still use DSI as
+	their primary metric \citep{Boehm1987}. \wss{Is this a direct quote from
+		\citet{Boehm1987}?  The sentences seem incomplete?}
+\ad{I added some deleted parts, now it is a direct quote. After the ending of
+the quote, the following 2 pages discuss the flaws of DCI and a list of
+alternatives to DCI, so I ended the quote here.}
+\end{defn}
+
+\begin{defn}
+  A quality of the software production process, referring to its efficiency
+  and performance \citep{ghezzi1991fundamentals}.  \wss{2003 ref?}
+\end{defn}
+
+\begin{defn}
+	\label{ProductivitySelected2} The number of lines of new code developed per
+  person-day (an imperfect measure of productivity but one that could be
+  measured consistently) \citep{MacCormack2003}.
+\end{defn}
+
+\begin{defn}
+	\label{ProductivitySelected1} Productivity is the amount of output (what is
+  produced) per unit of input used. In general, productivity is difficult to
+  measure because outputs and inputs are typically quite diverse and are
+  often themselves difficult to measure. In the context of software,
+  productivity measurement is usually based on a simple ratio of product
+  size to project effort. Thus,If we can measure the size of the software
+  product and the effort required to develop the product, we have:
+	\begin{align}
+	\text{productivity} = \text{size}/\text{effort}
+	\end{align}
+  Equation (1) assumes that size is the output of the software production
+  process and effort is the input to the process. This can be contrasted
+  with the viewpoint of software cost models where we use size as an
+  independent variable (i.e., an input) to predict effort which is treated
+  as an output. Equation (1) is simple to operationalize if we have a single
+  dominant size measure, for example, product size measured in lines of code
+  \citep{Kitchenham2004}.
+\end{defn}
+
+\noindent \textbf{Proposed Definition}
+
+The revision of the combination of Definition \ref{ProductivitySelected1}
+and Definition \ref{ProductivitySelected2}: Productivity is the amount of
+output per unit of input used, which can be measured by the summation of all
+output (such as the number of lines of new code, the number of pages of new
+documents and the number of new test cases) produced per person-day.
+
+\noindent \textbf{Reasoning}
+
+It is concise and measurable. \wss{What is the output?  What is the input?
+I think the definition needs to give more information on these.  In
+particular, the above definitions focus on code as the output, but
+documentation, test cases etc should also be part of the output.  If we are
+going to measure this, we need a better idea of what we are measuring for
+outputs and inputs.} \ad{I added another def and made it more measurable}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \subsection{\notdone{Visibility/Transparency} \ad{owner}}
 
 \begin{defn}
@@ -1156,103 +1358,6 @@ Includes examples where replicability was found to be lacking.  Has a good
 litereature review in Section 2.}
 
 \wss{Needs to be completed}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\subsection{\notdone{Productivity} \ad{owner}}
-
-\begin{defn}
-  The best definition of the productivity of a process is
-	\[\text{Productivity} = \dfrac{\text{Outputs produced by the
-              process}}{\text{Inputs consumed by the process}}\]
-
-Thus, we can improve the productivity of the software process by increasing its
-outputs, decreasing its inputs, or both. However, this means that we need to
-provide meaningful definitions of the inputs and outputs of the software
-process. \wss{Where did this definition come from?  Is this all from Boehm?
-  This is quite a long quote.  We might actually want to paraphrase.}
-\ad{all from Boehm. I feel the best way is deleting everything after the
-equation}
-
-\textbf{Defining inputs.} For the software process, providing a meaningful
-definition of inputs is a nontrivial but generally workable problem. Inputs to
-the software process generally comprise labor, computers, supplies, and other
-support facilities and equipment. However, one has to be careful which of
-various classes of items are to be counted as inputs. For example:
-\begin{itemize}
-\item Phases (just software development, or should we include system
-engineering, soft-ware requirements analysis, installation, or post development
-support?)
-\item Activities (to include documentation, project management, facilities
-management, conversion, training, database administration?)
-\item Personnel (to include secretaries, computer operators, business managers,
-contract administrators, line management?)
-\item Resources (to include facilities, equipment, communications, current
-versus future dollar payments?)
-\end{itemize}
-An organization can usually reach an agreement on which of the above are
-meaningful as inputs in their organizational context. Frequently, one can use
-present-value dollars as a uniform scale for various classes of resources.
-
-\textbf{Defining outputs.} The big problem in defining software productivity is
-defining outputs. Here we find a defining delivered source instructions (DSI) or
-lines of code as the output of the software process is totally inadequate, and
-they argue that there are a number of deficiencies in using DSI. However,
-	most organizations doing practical productivity measurement still use DSI as
-	their primary metric \citep{Boehm1987}. \wss{Is this a direct quote from
-		\citet{Boehm1987}?  The sentences seem incomplete?}
-\ad{I added some deleted parts, now it is a direct quote. After the ending of
-the quote, the following 2 pages discuss the flaws of DCI and a list of
-alternatives to DCI, so I ended the quote here.}
-\end{defn}
-
-\begin{defn}
-  A quality of the software production process, referring to its efficiency
-  and performance \citep{ghezzi1991fundamentals}.  \wss{2003 ref?}
-\end{defn}
-
-\begin{defn}
-	\label{ProductivitySelected2} The number of lines of new code developed per
-  person-day (an imperfect measure of productivity but one that could be
-  measured consistently) \citep{MacCormack2003}.
-\end{defn}
-
-\begin{defn}
-	\label{ProductivitySelected1} Productivity is the amount of output (what is
-  produced) per unit of input used. In general, productivity is difficult to
-  measure because outputs and inputs are typically quite diverse and are
-  often themselves difficult to measure. In the context of software,
-  productivity measurement is usually based on a simple ratio of product
-  size to project effort. Thus,If we can measure the size of the software
-  product and the effort required to develop the product, we have:
-	\begin{align}
-	\text{productivity} = \text{size}/\text{effort}
-	\end{align}
-  Equation (1) assumes that size is the output of the software production
-  process and effort is the input to the process. This can be contrasted
-  with the viewpoint of software cost models where we use size as an
-  independent variable (i.e., an input) to predict effort which is treated
-  as an output. Equation (1) is simple to operationalize if we have a single
-  dominant size measure, for example, product size measured in lines of code
-  \citep{Kitchenham2004}.
-\end{defn}
-
-\noindent \textbf{Proposed Definition}
-
-The revision of the combination of Definition \ref{ProductivitySelected1}
-and Definition \ref{ProductivitySelected2}: Productivity is the amount of
-output per unit of input used, which can be measured by the summation of all
-output (such as the number of lines of new code, the number of pages of new
-documents and the number of new test cases) produced per person-day.
-
-\noindent \textbf{Reasoning}
-
-It is concise and measurable. \wss{What is the output?  What is the input?
-I think the definition needs to give more information on these.  In
-particular, the above definitions focus on code as the output, but
-documentation, test cases etc should also be part of the output.  If we are
-going to measure this, we need a better idea of what we are measuring for
-outputs and inputs.} \ad{I added another def and made it more measurable}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
