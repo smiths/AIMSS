@@ -86,10 +86,29 @@ Olu Owojaiye and Peter Michalski and Ao Dong}
 \maketitle
 
 \begin{abstract}
-	Existing definitions of software qualities (also called quality
-  characteristics) are collected and analyzed.  For each quality a
-  ``best'\rq{} definition is recommended based on the following criteria:
-  unambiguity, simplicity, consistency, ...
+	We have found some of the existing definitions of software qualities
+	inadequate as a basis for conducting and presenting our software engineering
+	research.  Therefore, we have endeavored to create a list of definitions that
+	are consistent (same words/phrases are always used for the same concepts),
+	measurable (all qualities are conceptually measurable, even if the data needed
+	for measurement is often unavailable), abstract (quality definitions state
+	what the quality achieves, but not how to achieve it) and traceable (explicit
+	links are given to all previous definitions and the ideas within those
+	definitions).  Our methodology starts with an exhaustive literature survey to
+	find existing definitions.  We then determine the recommended definition,
+	which is either one of the existing definitions, or a new definition, found by
+	combining existing definitions.  Each recommended definition is accompanied by
+	a rationale that explicitly justifies the definition.  By presenting the
+	rationales, we hope our software engineering colleagues will scrutinize our
+	work and provide recommendations for future modifications. The qualities that
+	are defined include installability, correctness, reliability, robustness,
+	performance, usability, verifiability, validatability, testability,
+	maintainability, reusability, portability, understandability,
+	interoperability, productivity, visibility/transparency, reproducibility,
+	sustainability, completeness, consistency, modifiability, traceability,
+	unambiguity and abstract.  Each quality is classified into one or more of the
+	following categories: direct, indirect, internal, external, product or
+	process.
 \end{abstract}
 
 \newpage
@@ -126,7 +145,7 @@ Quality is defined as a measure of the excellence or worth of an entity.  As is
 standard practice, we do not think of quality as a single measure, but rather as
 a set of measures.  That is, quality is a collection of different qualities,
 often called ``ilities.''  In the overview of managing software quality provided
-by \citet[p 110]{VanVliet2000} the different measures are called quality
+by \citet[p.~110]{VanVliet2000} the different measures are called quality
 attributes, quality factors, and quality criteria.  In \citet{ISO9126} they are
 called quality characteristics, sub-characteristics and attributes.  To keep our
 presentation simple, and to not imply a classification hierarchy that we don't
@@ -134,13 +153,14 @@ intend, we will just use the term qualities to refer to the different measures
 of quality.
 
 The qualities of most interest to project managers and users are summarized in
-the next subsection (\ref{Sec_IndirectQualities}).  Since these qualities cannot
-generally be measured directly, they are characterized as indirect qualities.
-The relevant indirect qualities are listed in this section, while being
-characterized as external, internal, product or process qualities.  The next
-subsection lists the relevant direct qualities that assist in achieving the
-indirect qualities.  The final subsection presents the methodology that was
-employed to summarize, analyze and define each quality.
+the next subsection (Section~\ref{Sec_IndirectQualities}).  Since these
+qualities cannot generally be measured directly, they are characterized as
+indirect qualities. The relevant indirect qualities are listed in this section
+and each quality is grouped into one or more of the following categories:
+external, internal, product or process. The next subsection lists the relevant
+direct qualities that assist in achieving the indirect qualities.  The final
+subsection presents the methodology that was employed to summarize, analyze and
+define each quality.
 
 \subsection{Indirect Qualities} \label{Sec_IndirectQualities}
 
@@ -150,24 +170,24 @@ complete coverage of the history of qualities, the wide variety of potential
 qualities, or the relationships between them, we will instead take a practical
 approach; we will focus on the qualities that we have found most relevant in our
 research.  This means we will include the usual software engineering suspects,
-like usability and maintainability.  In addition, since we also do research on
-scientific computing software, we will also include scientifically relevant
-qualities, like validatability and reproducibility.
+like usability and maintainability.  Since we also do research on scientific
+computing software, we will also include scientifically relevant qualities, like
+validatability and reproducibility.
 
 Given our respect for \citet[p.\ 15--33]{GhezziEtAl2003}, we used their list of
 qualities as a starting point. Our list, shown in
 Table~\ref{Tab_SoftwareQualities}, includes all of their qualities, except for
 timeliness, which was excluded because the already included quality of
-productivity overlaps with timeliness.  To the list from
+productivity sufficiently overlaps with timeliness.  To the list from
 \citet{GhezziEtAl2003} we have added the practical quality of installability,
 since our aforementioned studies on the state of the practice in different
 software domains (for instance \citet{SmithEtAl2018_arXivGIS}) have shown us
 that none of the other qualities matter if the software cannot be properly
 installed.  Given our interest in scientific computing, we also added the
-qualities of validatability and reproducibility. Since we were not able to find
-much information in the literature on the quality of verifiability, we also
-added the closely related quality of testability.  The quality of sustainability
-was added since this term has emerged as a popular goal for software projects.
+qualities of validatability and reproducibility. Since we found few definitions
+in the literature on the quality of verifiability, we also added the closely
+related quality of testability.  The quality of sustainability was added since
+this term has emerged as a popular goal for software projects.
 
 The order of the qualities in Table~\ref{Tab_SoftwareQualities} follow the order
 used in \cite{GhezziEtAl2003}, which puts related qualities (like correctness
@@ -221,7 +241,7 @@ external quality of reliability is influenced by the internal quality of
 verifiability. Since validatability is related to getting the right
 requirements, it is shown as an external quality.  Although one could judge the
 usability of internal documentation, the quality of usability is considered as
-external, with the quality of understandability designated to cover the internal
+external, since the quality of understandability designated to cover the internal
 equivalent of usability.
 
 Some qualities focus on the product, others on the process, and yet others on
@@ -233,16 +253,17 @@ relevant to the developers, like requirements documentation, design
 documentation, test cases, makefiles, etc.  The process refers to the sequence
 of activities that produce the software.  The process generates both the
 internal and external products.  The process is based on principles, methods and
-techniques.  The process is supported by tools.  All product qualities (internal
-and external) are effected by the process, so this information is not shown in
-Table~\ref{Tab_SoftwareQualities}.  Instead, the checkmarks in
-Table~\ref{Tab_SoftwareQualities} are for qualities that can be applied to a
-process.  For instance, we do discuss the installability or correctness of a
-process, but it does make sense to think about the portability of a process.
-Rather than discuss the performance of a process, we introduce the process
-specific quality of productivity.  Similarly, although we can discuss the
-usability of a process, we instead introduce the term understandability to
-exclusively apply to internal products (like the code).
+techniques while being supported by tools.  All product qualities (internal and
+external) are effected by the process, so the checkmarks in
+Table~\ref{Tab_SoftwareQualities} are used for a different purpose.  The
+checkmarks show which qualities are applied to the process itself.  For
+instance, we can consider the correctness and maintainability of a process, but
+discussing the portability of a process makes little sense. Rather than apply
+the quality of performance to a process, we instead introduce the process
+specific quality of productivity.  Although we can imagine discussing the
+understandability of a process, to avoid confusion and overlap, we reserve
+understandability for the internal quality applied to products (like code). For
+the related process quality, we designate the term usability.
 
 The qualities shown in Table~\ref{Tab_SoftwareQualities} are qualities that can
 only be measured indirectly \citep[p.\ 109]{VanVliet2000}.  For instance, a
@@ -255,13 +276,13 @@ Qualities that can be measured directly are discussed in the next section.
 
 To achieve the qualities listed in Section~\ref{Sec_IndirectQualities},
 conventional wisdom holds that the internal products should aim for the
-qualities listed below.  All but the final quality listed (abstraction), are
-adapted from the IEEE recommended practice for producing good software
-requirements \citep{IEEE1998}. Abstraction is an important software development
-principle for dealing with complexity \citep[p .~40]{GhezziEtAl2003}.
-\citet{IEEE1998} also includes correctness and verifiability, but we have
-excluded these from the list of direct qualities, since they belong in the list
-of indirect qualities in the previous section.
+qualities listed in this section.  All but the final quality listed
+(abstraction), are adapted from the IEEE recommended practice for producing good
+software requirements \citep{IEEE1998}. Abstraction is an important addition
+because it is the software development principle that allows us to deal with
+complexity \citep[p.~40]{GhezziEtAl2003}. \citet{IEEE1998} also includes
+correctness and verifiability, but we have excluded these from our list, since
+they belong in the list of indirect qualities in the previous section.
 
 \begin{itemize}
   \item Completeness
@@ -275,42 +296,45 @@ of indirect qualities in the previous section.
 All of the direct qualities listed above are internal qualities.  Furthermore,
 they apply to both the (internal) product and the process.
 
-\subsection{Methodology}
+\subsection{Methodology} \label{SecMethodology}
 
 For each quality we collect as many distinct instances of the definition that we
 can find.  Some of the definitions occur in multiple places (for instance the
 definitions from \citet{McCallEtAl1977} appear in many software engineering
-textbooks).  Since these instances do not add any new information, we do not
-make an effort to identify how frequently the definitions reappear in different
-sources.  Once all the definitions are collected, we determine the definition
-that we would like to work with going forward.  This definition can either be
-our preference from the existing definitions, or a new definition, which is
-often found by combining existing definitions.  
+textbooks).  Since these instances do not add any new information, they are not
+included; we do not make an effort to identify how frequently the definitions
+reappear in different sources.  Once all the definitions are collected, we
+determine the definition that we would like to recommend.  The recommended
+definition can either be our preference from the existing definitions, or a new
+definition, which is often found by combining existing definitions.  
 
 To ensure that our recommended definitions are quality definitions, they are
-based on direct quality measures (\ref{SecDirectQsIntro}).  To the list of
-direct qualities, we add the quality criteria of measurability.  How the direct
-qualities are applied to develop definitions of qualities is described below.
+based on the direct quality measures (Section~\ref{SecDirectQsIntro}).  To the
+list of direct qualities, we also add the quality criteria of measurability.
+How the direct qualities are applied to develop quality definitions of qualities
+is described below.
 
 \begin{description}
 
   \item[Completeness] To judge the completeness of our definitions, we verify
   that all of the relevant points from the collected definitions have been
-  included.  We also verify that all facets of the definition are covered when a
-  quality applies to multiple categories of internal, external, product and/or
-  process.  Finally, we check that all of the qualities listed here have been
+  included, or explicitly rejected in the definition's rationale.  We also
+  verify that all facets of the definition are covered when a quality applies to
+  multiple categories of internal, external, product and/or process.  Finally,
+  we check that all of the qualities listed in this section have been
   considered.
   
   \item[Consistency] The final list of definitions should be consistent in the
-  terminology used.  For instance, we do not use synonyms for variety; we use
-  the same word to mean the same concept throughout the final list of
+  terminology used.  For instance, we do not use synonyms; we use
+  the same word or phrase to mean the same concept throughout the final list of
   definitions.  Specific decisions on terminology are as follows:
   \begin{itemize}
     \item To represent the idea of cost, effort, time, resources, and
     efficiency, we say \emph{effort}.
     \item To represent ``the degree to which'' or the ``the extent to which'',
     we will say \emph{the extent to which}.
-    \item Fill in as go through definitions.
+    \item \wss{Fill in additional consistency decisions, as we go through
+    definitions.}
   \end{itemize}
 
   \item[Modifiability] The modifiability of the definitions is aided by the fact
@@ -321,12 +345,13 @@ qualities are applied to develop definitions of qualities is described below.
   \item[Traceability] Each definition includes a section for the rationale.  The
   rationale explicitly links the recommended definition to the previously
   published definitions.  The rationale also explains why any aspects of the
-  previous definitions were ignored.  The rationale also traces the selected
-  definition to these qualities.
+  previous definitions were ignored.  The rationale also explicitly traces the
+  selected definition to the qualities in this section.
 
   \item[Unambiguity] With natural language it is difficult to remove all
   ambiguity, but every effort is made to keep the definitions simple and to use
-  standard, consistent, terminology.
+  standard and consistent terminology.  The rationale given for each recommended
+  definition also serves the purpose of making the definitions unambiguous.
 
   \item[Abstract] Quality definitions should say what the quality achieves, but
   not how to achieve it.  We aim for abstract definitions that do not assume any
@@ -335,21 +360,22 @@ qualities are applied to develop definitions of qualities is described below.
   definition that will apply to all.  When that is not possible, we will clarify
   how the definition is modified between categories.
 
-  \item[Measurability] Although many qualities can only be indirectly measurable,
+  \item[Measurability] Although many qualities can only be indirectly measured,
   the definition of the quality should imply a measure that is conceptually
   possible, even if the data needed to complete the measurement is often
   unavailable.  The scale type of the units of measure are as follows, in order
   of preference: ratio, interval, ordinal and nominal.  These scale types are
   defined in \citet[p.\ 107]{VanVliet2000}.  The ratio and interval scale types
-  are preferred to the ordinal and nominal types because more they can convey
-  more information.  Specific consequences of aiming for measurability are as follows:
+  are preferred to the ordinal and nominal types because they can convey more
+  information.  Specific consequences of aiming for measurability are as
+  follows:
   \begin{itemize}
     \item We will avoid the common phrase in definitions of ``the capability
     of'' because this implies a binary measure.  By this definition a product
     (or process) is either capable or not; it is a binary measure.  Instead of
     measuring capability, we will prefer to use the phrase ``the effort
     required''.
-    \item etc.
+    \item \wss{Add to this list as measurability specific decisions are made.}
   \end{itemize}
    
 \end{description}
@@ -358,9 +384,9 @@ Our aim is to capture the essence of the quality in an unambiguous way, even if
 it cannot be measured. This is analogous to the definition of true error in
 scientific computing.  The true error, which is the difference between the
 calculated and the true solution, can rarely be calculated since the true
-solution is rarely known. Even though it can usually only be estimated, the
-concept of true error is still a concept that is relevant for analyzing and
-understanding the behaviour of numerical algorithms.
+solution is generally unknown. Even though true error can only be estimated, the
+concept of true error is integral to analyzing and understanding the behaviour
+of numerical algorithms.
 
 After completing each definition we verify that the definition works for all of
 the quality categories (internal, external, product and process) that apply.  If
@@ -419,17 +445,21 @@ specified environment.
 
 \subsubsection*{Reasoning}
 
-The recommended definition comes from combining Definitions
-\ref{Installability_Selected2} and \ref{Installability_Selected1}.  The
-different reasons for the proposed definition are as follows:
+The recommended definition comes from combining
+Definitions~\ref{Installability_Selected2} and \ref{Installability_Selected1}.
+The rationales for the proposed definition are as follows:
 
 \begin{itemize}
-  \item For consistency uses the term \textbf{effort} in place of efficiency.
-  \item For measurability avoids the term ``the capability of'' from
-  Definition~\ref{Installability_ISO9126}.
+  \item For consistency we use the term \textbf{effort} in place of efficiency.
   \item The ``effectiveness'' from Definition~\ref{Installability_Selected2} is
-  dropped because installation typically is judged as a binary result.  The
-  installation is either completed, or not.
+  dropped because the success or failure of an installation is typically judged
+  as a binary result.  The installation is generally either completed, or not.
+  \item Although we are okay with a binary result for success or failure of an
+  installation, the measure of effort required to complete an installation is
+  not a binary measure.  For this reason, we do not use the term ``the
+  capability of'' (from Definition~\ref{Installability_ISO9126}), so that we can
+  be consistent with our other recommended definitions where we avoid that term
+  for measurability reasons.
   \item From Definition~\ref{Installability_Selected1} the phrase ``given an
   installation is possible to begin with'' is removed because this notion is
   covered by the measure of effort.  The effort will be infinite if an
@@ -475,8 +505,12 @@ specification can either be explicitly stated or implicit.
 \subsubsection*{Reasoning}
 
 The selection definition is a rephrasing of
-Definition~\ref{Correctness_GhezziEtAl2003}. The different reasons for the
-proposed definition are as follows:
+Definition~\ref{Correctness_GhezziEtAl2003}.  All of the other definitions
+(Definition~\ref{Correctness_McCallEtAl1977},
+Definition~\ref{Correctness_meyer1988object},
+Definition~\ref{Correctness_IEEEComputerDictionary1991} and
+Definition~\ref{Correctness_mcconnell2004code}) also mention specification.  The
+rationale for the proposed definition follows:
 
 \begin{itemize}
   \item Definition~\ref{Correctness_McCallEtAl1977} mentions ``mission
@@ -484,10 +518,10 @@ proposed definition are as follows:
   specification, so this element is not need to be mentioned separately in the
   recommended definition.
   \item Definition~\ref{Correctness_GhezziEtAl2003} refers to the functional
-  specification, but we believe that software is incorrect if it does not
-  follow the nonfunctional specification as well.  For instance, for safety
-  critical software the performance requirements need to be satisfied, or the
-  software will not be trustworthy.
+  specification, but we believe that correct software also follows the
+  nonfunctional specification.  For instance, for safety critical software the
+  performance requirements need to be satisfied, or the software will not be
+  trustworthy and therefore not correct.
   \item Definition~\ref{Correctness_IEEEComputerDictionary1991} and
   Definition~\ref{Correctness_mcconnell2004code} are almost the same, except
   Definition~\ref{Correctness_IEEEComputerDictionary1991} mentions ``system or
@@ -499,20 +533,38 @@ proposed definition are as follows:
   (Definition~\ref{Correctness_McCallEtAl1977}) and ``The degree to which''
   (Definitions~\ref{Correctness_IEEEComputerDictionary1991}
   and~\ref{Correctness_mcconnell2004code}). However, the proposed definition has
-  a binary range of possible measurement - either correct or incorrect.  This
-  doesn't follow our stated goal of having the quality of measurement cover the
-  largest possible scale type.  We chose to recommend this simpler definition of
-  correctness to satisfy the competing quality of unambiguity.
+  a binary range of possible measurement -- either correct or incorrect.  This
+  doesn't follow our stated goal (in Section~\ref{SecMethodology}) of having the
+  quality of measurement cover the largest possible scale type.  Like the
+  recommended definition,
   Definition~\ref{Correctness_IEEEComputerDictionary1991} also implies a binary
   measure with the phrase ``the ability of''.  Making correctness a binary
   quality makes the definition unambiguous and it frees up room for the quality
-  of reliability to cover the more nuanced aspects of the extent to which an
-  entity is ``correct''.
-  \item Internal Product,  Implied by
-  Definition~\ref{Correctness_IEEEComputerDictionary1991}.  Changed to mention
-  stated and unstated specification (explicit or implicit), since internal
-  products do not have a specification.  May have a template.
-  \item Process.
+  of reliability to cover the more nuanced aspects of how an entity is
+  ``correct''.
+  \item Like the recommended definition,
+  Definition~\ref{Correctness_IEEEComputerDictionary1991} implies that
+  correctness can be judged for products.
+  Definition~\ref{Correctness_IEEEComputerDictionary1991} mentions the
+  ``specification, design and implementation''.
+  \item So that our definition of correctness can be abstract and thus also
+  apply to internal products, the definition mentions internal products, and
+  states that the specification can be implicit.  To be correct an internal
+  product needs to follow any specified template or documentation conventions.
+  Moreover, although they may not be stated explicitly, the requirements for a
+  document will be implicitly specified in the minds of the products
+  authors/creators.
+  \item So that our definition of correctness can be abstract and thus also
+  apply to processes, the definition mentions processes and states the
+  specification can be implicit.  If the rules of the process are explicitly
+  specified, then developers can check whether the rules have been followed.
+  Even when the rules are not stated in writing, the developers will have
+  implicit (possibly changing and inconsistent) rules in their minds.
+  \item The definition for correctness allows the specification to be implicit,
+  even for the external product of the software itself.  Not every project
+  writes down the requirements, but the requirements still exist inside the
+  heads of the developers.  This is why testing can be done for software, even
+  when the developers do not specify their requirements.
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -627,11 +679,12 @@ definition are as follows:
 
 \begin{mybox}
 \subsubsection*{Robustness}
-Definition \ref{RobustnessPartialDefn} and Definition
-\ref{RobustnessDefnSelected} rephrased: Software possesses the characteristic of
-robustness if it behaves ``reasonably'' in two situations: i) when it encounters
-circumstances not anticipated in the requirements specification; and ii) when
-the assumptions in its requirements specification are violated.
+Definition~\ref{RobustnessPartialDefn} and
+Definition~\ref{RobustnessDefnSelected} rephrased: Software possesses the
+characteristic of robustness if it behaves ``reasonably'' in two situations: i)
+when it encounters circumstances not anticipated in the requirements
+specification; and ii) when the assumptions in its requirements specification
+are violated.
 \end{mybox}
 
 \subsubsection*{Reasoning}
@@ -672,26 +725,27 @@ follows:
 
 \begin{mybox}
 \subsubsection*{Performance}
-Combined definition \ref{PerformanceDefnSelected} and
-\ref{PerformanceDefnSelected2}: The degree to which a system or component
-accomplishes its designated functions within given constraints, such as speed
-(database response times, for instance), throughput (transactions per second),
-capacity (concurrent usage loads), and timing (hard real-time demands).
+The degree to which a system or component accomplishes its designated functions
+within given constraints, such as speed (database response times, for instance),
+throughput (transactions per second), capacity (concurrent usage loads), and
+timing (hard real-time demands).
 \wss{What is the difference between speed and timing?}
 \end{mybox}
 
 \subsubsection*{Reasoning}
 
-This definition offers a comprehensive list of constraints that are commonly
-associated with software performance, such as speed, throughput, capacity, and
-timing. \pmi{I will check if Wiegers discusses the difference between speed and
-timing.} \pmi{Wiegers did not discuss this difference.}  \pmi{Speed - change
-over time; timing - related to specification: when something should happen in
-relation to something else - state transitions}  \wss{If we need both speed and
-timing, we should define them.  We aren't including accuracy from the IEEE
-definition.  Is that on purpose?}  \pmi{We have decided not to include accuracy.
-SS will find difference b/w speed and timing from a colleague.}   The
-different reasons for the proposed definition are as follows:
+The definition is found by combining Definition~\ref{PerformanceDefnSelected}
+and Definition~\ref{PerformanceDefnSelected2}.  This definition offers a
+comprehensive list of constraints that are commonly associated with software
+performance, such as speed, throughput, capacity, and timing. \pmi{I will check
+if Wiegers discusses the difference between speed and timing.} \pmi{Wiegers did
+not discuss this difference.}  \pmi{Speed - change over time; timing - related
+to specification: when something should happen in relation to something else -
+state transitions}  \wss{If we need both speed and timing, we should define
+them.  We aren't including accuracy from the IEEE definition.  Is that on
+purpose?}  \pmi{We have decided not to include accuracy. SS will find difference
+b/w speed and timing from a colleague.}   The different reasons for the proposed
+definition are as follows:
 
 \begin{itemize}
   \item reason 1
@@ -1767,7 +1821,7 @@ and consistency, but I haven't summarized any def from it yet}
 
 \begin{mybox}
 \subsubsection*{Completeness} 
-The first sentence of Definition \ref{CompletenessSelected}: A specification is
+The first sentence of Definition~\ref{CompletenessSelected}: A specification is
 complete to the extent that all of its parts are present and each part is fully
 developed.
 \end{mybox}
@@ -1876,7 +1930,7 @@ The state or condition of always happening or behaving in the same way
 
 \begin{mybox}
 \subsubsection*{Consistency} 
-The first sentence of Definition \ref{ConsistencySelected}: A specification is
+The first sentence of Definition~\ref{ConsistencySelected}: A specification is
 consistent to the extent that its provisions do not conflict with each other or
 with governing specifications and objectives.
 \end{mybox}
@@ -1907,7 +1961,7 @@ IEEE Standard 610 seems to speak about this. (which is superseded?)
 
 \begin{mybox}
 \subsubsection*{Modifiability} 
-The first sentence of Definition \ref{ConsistencySelected}: A specification is
+The first sentence of Definition~\ref{ConsistencySelected}: A specification is
 consistent to the extent that its provisions do not conflict with each other or
 with governing specifications and objectives.
 \end{mybox}
