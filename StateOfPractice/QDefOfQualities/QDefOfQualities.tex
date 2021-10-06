@@ -569,7 +569,7 @@ rationale for the proposed definition follows:
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Reliability (external, product, process)} %\oo{owner} %NOTDONE
+\subsection{\notdone{Reliability (external, product, process)}} %\oo{owner} %NOTDONE
 
 \begin{defn}
   Code possesses the characteristic reliability to the extent that it can be
@@ -637,8 +637,10 @@ failures also known as the mean time to failure (MTTF).
 
 Definition \ref{reliabilitySelected1} and \ref{reliabilitySelected2} rephrased:.
 Reliability is defined such that the measurement metrics are visible - the
-specified environment and time.   The different reasons for the proposed
-definition are as follows:
+specified environment and time.   \wss{Accuracy should be mentioned here, since
+it is related to how close the solution is to the correct solution.  Accuracy is
+not part of performance.  Maybe make accuracy part of correctness?}  The
+different reasons for the proposed definition are as follows:
 
 \begin{itemize}
   \item reason 1
@@ -648,7 +650,7 @@ definition are as follows:
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Robustness (external, product, process)} %\pmi{owner}
+\subsection{\notdone{Robustness (external, product, process)}} %\pmi{owner}
 
 \begin{defn}
 	The degree to which a system or component can function correctly in the
@@ -710,10 +712,9 @@ follows:
   usage \citep{IEEEStdGlossarySET1990}.
 \end{defn}
 
-\begin{defn}
-	In software engineering we often equate performance with efficiency. A
-  software system is efficient if it uses computing resources economically
-  \citep{ghezzi1991fundamentals}.  \wss{Change to 2003 reference?}
+\begin{defn} \label{PerformanceGhezzieEtAl2003}
+	Performance ... is an external quality based on user requirements.
+  \citep[p.\ 20]{GhezziEtAl2003}.
 \end{defn}
 
 \begin{defn} \label{PerformanceDefnSelected2} How well or how rapidly the system
@@ -725,37 +726,40 @@ follows:
 
 \begin{mybox}
 \subsubsection*{Performance}
-The degree to which a system or component accomplishes its designated functions
-within given constraints, such as speed (database response times, for instance),
-throughput (transactions per second), capacity (concurrent usage loads), and
-timing (hard real-time demands).
-\wss{What is the difference between speed and timing?}
+The extent to which a system or component accomplishes its functional
+requirements within the given constraints of speed (database response times,
+for instance), throughput (transactions per second), capacity (concurrent usage
+loads), and timing (hard real-time demands).
 \end{mybox}
 
 \subsubsection*{Reasoning}
 
 The definition is found by combining Definition~\ref{PerformanceDefnSelected}
-and Definition~\ref{PerformanceDefnSelected2}.  This definition offers a
-comprehensive list of constraints that are commonly associated with software
-performance, such as speed, throughput, capacity, and timing. \pmi{I will check
-if Wiegers discusses the difference between speed and timing.} \pmi{Wiegers did
-not discuss this difference.}  \pmi{Speed - change over time; timing - related
-to specification: when something should happen in relation to something else -
-state transitions}  \wss{If we need both speed and timing, we should define
-them.  We aren't including accuracy from the IEEE definition.  Is that on
-purpose?}  \pmi{We have decided not to include accuracy. SS will find difference
-b/w speed and timing from a colleague.}   The different reasons for the proposed
-definition are as follows:
+and Definition~\ref{PerformanceDefnSelected2}.  The two definitions are fairly
+similar.  We liked the structure of Definition~\ref{PerformanceDefnSelected} and
+the more detailed list of performance aspects in
+Definition~\ref{PerformanceDefnSelected2}.  The specific reasons for the
+proposed definition are as follows:
 
 \begin{itemize}
-  \item reason 1
-  \item reason 2
-  \item ...
+  \item We say ``the extent to which'' to be consistent with our other
+  definitions.
+  \item We changed ``designated functions'' to ``functional requirements'' for
+  the goal of being unambiguous.  We already introduced the distinction between
+  functional and nonfunctional requirements in the discussion of correctness.
+  This also connects the proposed definition to the user requirements, as is
+  done by Definition~\ref{PerformanceGhezzieEtAl2003}.
+  \item To remove ambiguity, we explicitly list all aspects of performance
+  (speed, throughput, capacity and timing), instead of introducing a list that
+  is implied to be incomplete via the phrase ``such as''.
+  \item We do not include accuracy (from
+  Definition~\ref{PerformanceDefnSelected}) because we consider accuracy to be
+  related to correctness and reliability.
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Usability (external, product, process) } %\notdone \jc{owner}
+\subsection{\notdone{Usability (external, product, process)}} %\notdone \jc{owner}
 
 \begin{defn}
   ``The effort required to learn, operate, prepare input, and interpret output
@@ -841,7 +845,7 @@ definition are as follows:
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Verifiability (internal, product, process) } %\notdone \oo{owner}
+\subsection{\notdone{Verifiability (internal, product, process)}} %\notdone \oo{owner}
 
 \begin{defn}
 	 Verification is the process of evaluating a system or component to
@@ -945,7 +949,7 @@ proposed definition are as follows:
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Validatability (external, product, process)} %\notdone \oo{owner}
+\subsection{\notdone{Validatability (external, product, process)}} %\notdone \oo{owner}
 
 \begin{defn} \label{Defn_Validatability}
   The process of evaluating a system or component during or at the end of the
@@ -1004,7 +1008,7 @@ different reasons for the proposed definition are as follows:
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Testability (internal, product)} %\notdone \oo{owner}
+\subsection{\notdone{Testability (internal, product)}} %\notdone \oo{owner}
 
 \begin{defn}
 	Code possesses the characteristic testability to the extent that it
@@ -1049,7 +1053,7 @@ definition are as follows:
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Maintainability (internal, product, process)} %\notdone \pmi{owner}
+\subsection{\notdone{Maintainability (internal, product, process)}} %\notdone \pmi{owner}
 
 \begin{defn}
   Effort required to locate and fix an error in an operational program
@@ -1152,7 +1156,7 @@ The different reasons for the proposed definition are as follows:
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Reusability (internal, product, process)} %\pmi{owner}
+\subsection{\notdone{Reusability (internal, product, process)}} %\pmi{owner}
 
 \begin{defn}
   Extent to which a program can be used in other applications - related to
@@ -1197,7 +1201,7 @@ software component(s) being transferred.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Portability (internal, product)} %\pmi{owner}
+\subsection{\notdone{Portability (internal, product)}} %\pmi{owner}
 
 \begin{defn} \label{PortabilityDefnSelected}
   Effort required to transfer a program from one hardware configuration
@@ -1260,7 +1264,7 @@ definition are as follows:
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Understandability (internal, product)} %\notdone \jc{owner}
+\subsection{\notdone{Understandability (internal, product)}} %\notdone \jc{owner}
 
 \begin{defn}
   The effort ``to uncover the logic of the application''
@@ -1305,7 +1309,7 @@ Section 11.2 of \citet{adams2015nonfunctional} does have a full definition.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Interoperability (external, product)} %\notdone \ad{owner}
+\subsection{\notdone{Interoperability (external, product)}} %\notdone \ad{owner}
 
 \begin{defn}
   Effort required to couple one system with another \citep{McCallEtAl1977}.
@@ -1405,7 +1409,7 @@ follows:
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Productivity (process)} %\notdone \ad{owner}}
+\subsection{\notdone{Productivity (process)}} %\notdone \ad{owner}}
 
 \begin{defn}
   The best definition of the productivity of a process is
@@ -1511,7 +1515,7 @@ proposed definition are as follows:
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Visibility/Transparency (process)} %\notdone \ad{owner}
+\subsection{\notdone{Visibility/Transparency (process)}} %\notdone \ad{owner}
 
 \begin{defn}
   \label{VisibilitySelected} A software development process is visible if
@@ -1572,7 +1576,7 @@ proposed definition are as follows:
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Reproducibility (external, product)} %\notdone \wss{owner}
+\subsection{\notdone{Reproducibility (external, product)}} %\notdone \wss{owner}
 
 Reproducibility is a required component of the scientific method
 \citep{Davison2012}.  Although QA has, ``a bad name among creative
@@ -1621,7 +1625,7 @@ litereature review in Section 2.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Sustainability (internal, product)} %\notdone \wss{owner}
+\subsection{\notdone{Sustainability (internal, product)}} %\notdone \wss{owner}
 
 One of the original definitions of sustainability (for systems, not software
 specific), and still often quoted, is:
@@ -1759,7 +1763,7 @@ products and process should achieve the qualities listed in this section.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Completeness} %\ontdone \ad{owner}
+\subsection{\notdone{Completeness}} %\ontdone \ad{owner}
 
 \begin{defn}
   Those attributes of the software that provide full implementation of the
@@ -1839,7 +1843,7 @@ are as follows:
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Consistency} %\notdone \ad{owner}
+\subsection{\notdone{Consistency}} %\notdone \ad{owner}
 
 \begin{defn}
   Those attributes of the software that provide uniform design and
@@ -1948,7 +1952,7 @@ are as follows:
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Modifiability} %\notdone \jc{owner}
+\subsection{\notdone{Modifiability}} %\notdone \jc{owner}
 
 Here we do seem to have a simple, if somewhat uninformative, definition:
 
@@ -1979,7 +1983,7 @@ different reasons for the proposed definition are as follows:
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Traceability} %\notdone \jc{owner}
+\subsection{\notdone{Traceability}} %\notdone \jc{owner}
 
 Here the Wikipedia page~\url{https://en.wikipedia.org/wiki/Traceability} is
 actually rather informative, especially as it also lists how this concept is
@@ -2038,7 +2042,7 @@ are as follows:
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Unambiguity} %\notdone \wss{owner}
+\subsection{\notdone{Unambiguity}} %\notdone \wss{owner}
 
 \begin{defn}
  A Software Requirements Specification (SRS) is unambiguous if, and only if,
@@ -2063,7 +2067,7 @@ are as follows:
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Abstract} %\notdone \wss{owner}
+\subsection{\notdone{Abstract}} %\notdone \wss{owner}
 
 \begin{defn}
   Documented requirements are said to be abstract if they state what the
