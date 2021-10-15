@@ -333,6 +333,9 @@ is described below.
     efficiency, we say \emph{effort}.
     \item To represent ``the degree to which'' or the ``the extent to which'',
     we will say \emph{the extent to which}.
+    \item Definitions use phrases like ``goals'' and ``requirements''.  We will
+    use the term ``requirements'', since it implies something more concrete than
+    a goal.
     \item \wss{Fill in additional consistency decisions, as we go through
     definitions.}
   \end{itemize}
@@ -761,25 +764,29 @@ proposed definition are as follows:
 
 \subsection{\notdone{Usability (external, product, process)}} %\notdone \jc{owner}
 
-\begin{defn}
-  ``The effort required to learn, operate, prepare input, and interpret output
-  of a program'' \citep{McCallEtAl1977}.
+\begin{defn} \label{UsabilityMcCallEtAl1977}
+  The effort required to learn, operate, prepare input, and interpret output
+  of a program \citep{McCallEtAl1977}.
 \end{defn}
 
-\begin{defn}
-  ``A software is usable - or user friendly - if its human users find it easy
-  to use'' \citep{ghezzi1991fundamentals}. \wss{switch to 2003 ref?}
+\begin{defn} \label{UsabilityISO9126}
+  The capability of the software to be understood, learned, used and liked by
+  the user, when used under specified conditions. \cite{ISO9126}
 \end{defn}
 
-\begin{defn}
+\begin{defn} \label{UsabilityGhezziEtAl2003}
+  A software system is usable - or \emph{user friendly} - if its human users
+  find it easy to use. \citep[p.\ 22]{GhezziEtAl2003}.
+\end{defn}
+
+\begin{defn} \label{UsabilityISO16982:2002}
   The extent to which a product can be used by specified users to achieve
   specified goals with effectiveness, efficiency, and satisfaction in a
-  specified context of use. \cite{ISO16982:2002} and \cite{ISO9241:11}
+  specified context of use. \citep{ISO16982:2002, ISO9241:11}
 \end{defn}
 
-Nielsen and (separately) Schneidermann have defined usability as part of
-usefulness and is composed of:
-\begin{defn}
+\begin{defn} \label{UsabilityNielsenNorman}
+Usability as part of usefulness and is composed of:
 \begin{itemize}
 \item Learnability: How easy is it for users to accomplish basic tasks the first
   time they encounter the design?
@@ -797,7 +804,7 @@ economics sense of the word).
 \cite{NielsenNorman} %2012
 \end{defn}
 
-\begin{defn}
+\begin{defn} \label{UsabilityDesFoundation}
 Desirable outcomes of usability:
 \begin{enumerate}
 \item It should be easy for the user to become familiar with and competent in
@@ -815,32 +822,38 @@ From the Interaction Design Foundation
 \url{https://www.interaction-design.org/literature/topics/usability}.
 \end{defn}
 
-One core reference, for definitions and metrics, is
-\citet{bevan1995measuring}.
-
-\begin{defn}
-  The capability of the software to be understood, learned, used and liked by
-  the user, when used under specified conditions \cite{ISO9126}.
-\end{defn}
+% One core reference, for definitions and metrics, is
+% \citet{bevan1995measuring}.
 
 \begin{mybox}
 \subsubsection*{Usability}
-The extent to which a product can be used by specified users to achieve
-specified goals with effectiveness, efficiency, and satisfaction in a specified
-context of use. \cite{ISO16982:2002} and \cite{ISO9241:11}
+The extent to which software can be used by specified users to achieve specified
+requirements with effectiveness, efficiency, and satisfaction in a specified
+context of use. 
 \end{mybox}
 
 \subsubsection*{Reasoning}
 
-There has been a lot of thought put behind the ISO definition, from experts. The
-standard has been revisited, but the definition has not changed, which means
-that it has stood the test of time.  The different reasons for the proposed
-definition are as follows:
+The selected definition is a modified version of
+Definition~\ref{UsabilityISO16982:2002}.  This definition comes from an ISO
+standard that has been revisited multiple times, without the definition for
+usability changing; therefore, the definition has stood the test of time.
+Additional justifications for selecting the proposed definition are as follows:
 
 \begin{itemize}
-  \item reason 1
-  \item reason 2
-  \item ...
+  \item The selected definition uses our selected phrase of ``the extent to
+  which'' for consistency with the other definitions.
+  \item The selected definition is less ambiguous compared
+  to~\ref{UsabilityMcCallEtAl1977},~\ref{UsabilityISO9126},~\ref{UsabilityGhezziEtAl2003}
+  and ~\ref{UsabilityDesFoundation} because the selected definition talks about
+  specified users, goals and context of use.
+  \item The proposed definition covers the ``learn, operate, prepare input, and
+  interpret output'' from Definition~\ref{UsabilityMcCallEtAl1977} and ``Learnability'', Memorability'' and ``Errors'' from Definition~\ref{UsabilityNielsenNorman} by the more
+  abstract phrase ``achieve specified requirements''.
+  \item We changed ``the product'' from Definition~\ref{UsabilityISO16982:2002}
+  to ``software'', since this document covers software qualities.
+  \item We changed ``goals'' from Definition~\ref{UsabilityISO16982:2002} to
+  ``requirements'' for the goal of being unambiguous and consistent.
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
