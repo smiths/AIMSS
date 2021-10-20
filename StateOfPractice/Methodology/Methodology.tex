@@ -685,10 +685,10 @@ be used when comparing multiple options by multiple criteria. In our work AHP is
 used for comparing and ranking the software packages of a domain using the
 quality scores that are gathered in the Measurement Template
 (Appendix~\ref{SecGradingTemplate}). AHP performs a pairwise analysis between
-each of the quality options using a matrix which is used to generate an overall
-score for each software package for the given criteria. \cite{SmithEtAl2016}
-shows how AHP is applied to ranking software based on quality measures. We have
-developed a
+each of the 9 quality options for each of the 30 software packages.  This
+results in a matrix, which is used to generate an overall score for each
+software package for the given criteria. \cite{SmithEtAl2016} shows how AHP is
+applied to ranking software based on quality measures. We have developed a
 \href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/AHP2020/LBM/README.txt}{tool}
 for conducting this process. The tool includes an AHP JAR script and a
 sensitivity analysis JAR script that is used to ensure that the software package
@@ -838,7 +838,7 @@ Official Manual: \href{https://github.com/tomgi/git_stats}{GitHub repo}
 The installation steps on your machine may be different from this section.
 Please refer to the user manual mentioned in Section \ref{git_stats_manual}, if
 necessary.  The steps shown here were executed on a virtual machine with 8 cores
-and 16 GB RAM running Debian GNU/Linux 9.11
+and 16 GB RAM running Debian GNU/Linux 9.11.
 
 \begin{enumerate}
 \item Install ruby/gem environment
@@ -997,14 +997,13 @@ preceding the type of an individual answer.  The type in these cases are then
 the power set of the individual response type.  In some cases a superscript $^*$
 is used to indicate that a response of this type should be accompanied by
 explanatory text.  For instance, if problems were caused by uninstall, the
-reviewer should note what problems were caused.  An (I) precedes the question
-description when its measurement requires a successful installation.
-
-The table below lists the set of measures that are used to assess each software
-product. The first set identifies summary information, followed by 9 sets for
-software qualities and 3 sets for raw metrics. Each measure is followed by the
-type for a valid result. A superscript $^*$ indicate that a response of this type
-needs to be accompanied by explanatory text.
+reviewer should note what problems were caused.  % An (I) precedes the question
+% description when its measurement requires a successful installation.
+The template also include 3 sections at the end for summarizing the repository
+based metrics.  A
+\href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/Methodology/Combined_MeasurementTemplate_EmpiricalMeasures.xlsx}
+{blank measurement template spreadsheet} is available to save time with data
+entry.
 
 \newpage
 
@@ -1152,7 +1151,7 @@ needs to be accompanied by explanatory text.
 
 \def\arraystretch{1.4}
 \begin{tabular}{p{14cm}}
-		\hline	
+	\hline	
 	\textbf{Maintainability}\\
 	\hline
 	What is the current version number? (number)\\
@@ -1185,7 +1184,7 @@ needs to be accompanied by explanatory text.
 
 \def\arraystretch{1.4}
 \begin{tabular}{p{14cm}}
-		\hline		
+	\hline		
 	\textbf{Surface Understandability (Based on 10 random source files)}\\
 	\hline
 	Consistent indentation and formatting style? ({yes, no, n/a})\\
@@ -1213,7 +1212,7 @@ needs to be accompanied by explanatory text.
 	Overall impression? ({1 .. 10})\\
 	Additional comments? (can cover any metrics you feel are missing, or any other
 	thoughts you have)\\
-		\hline		
+	\hline		
 	\textbf{Raw Metrics (Measured via git\_stats)}\\
 	\hline
 	Number of text-based files. (number)\\
@@ -1230,23 +1229,23 @@ needs to be accompanied by explanatory text.
 
 \def\arraystretch{1.4}
 \begin{tabular}{p{14cm}}
-		\hline		
-	\textbf{Raw Metrics (Measured via scc)}\\
-	\hline
-	Number of text-based files. (number)\\
-	Number of total lines in text-based files. (number)\\
-	Number of code lines in text-based files. (number)\\
-	Number of comment lines in text-based files. (number)\\
-	Number of blank lines in text-based files. (number)\\
-	\hline
-	\textbf{Repo Metrics (Measured via GitHub)}\\
-	\hline
-	Number of stars. (number)\\
-	Number of forks. (number)\\
-	Number of people watching this repo. (number)\\
-	Number of open pull requests. (number)\\
-	Number of closed pull requests. (number)\\
-	\hline
+\hline		
+\textbf{Raw Metrics (Measured via scc)}\\
+\hline
+Number of text-based files. (number)\\
+Number of total lines in text-based files. (number)\\
+Number of code lines in text-based files. (number)\\
+Number of comment lines in text-based files. (number)\\
+Number of blank lines in text-based files. (number)\\
+\hline
+\textbf{Repo Metrics (Measured via GitHub)}\\
+\hline
+Number of stars. (number)\\
+Number of forks. (number)\\
+Number of people watching this repo. (number)\\
+Number of open pull requests. (number)\\
+Number of closed pull requests. (number)\\
+\hline
 \end{tabular}
 
 \newpage
@@ -1290,8 +1289,6 @@ used to calculate an overall impression in each software quality set.
 	Overall impression? (a sum of $>$10 is rounded down to 10)\\
 	\hline
 \end{tabular}
-
-$\mathit{ab} \mathit{val}$
 
 \def\arraystretch{1.33}
 \begin{tabular}{p{14cm}}
@@ -1397,6 +1394,48 @@ Is the development environment documented? ({yes$^*$=2, no=0})\\
 Are there release notes? ({yes$^*$=2, no=0})\\
 \hline
 \end{tabular}
+
+% \def\arraystretch{1.22}
+% \begin{tabular}{p{14cm}}
+% \hline
+% \textbf{Repo Metrics (Measured via git_stats)}\\
+% \hline
+% Number of text-based files. (number)\\
+% Number of binary files. (number)\\
+% Number of total lines in text-based files. (number)\\
+% Number of total lines added to text-based files. (number or {not git repo})\\
+% Number of total lines deleted from text-based files. (number or {not git repo})\\
+% Number of total commits. (number or {not git repo})\\
+% Numbers of commits by year in the last 5 years. (Count from as early as possible if the project is younger than 5 years.) (list of numbers or {not git repo}\\
+% Numbers of commits by month in the last 12 months. (list of numbers or {not git repo})\\
+% \hline
+% \end{tabular}
+
+% \def\arraystretch{1.22}
+% \begin{tabular}{p{14cm}}
+% \hline
+% \textbf{Repo Metrics (Measured via scc)}\\
+% \hline
+% Number of text-based files.	(number)\\
+% Number of total lines in text-based files.	(number)\\
+% Number of code lines in text-based files.	(number)\\
+% Number of comment lines in text-based files.	(number)\\
+% Number of blank lines in text-based files.	(number)
+% \hline
+% \end{tabular}
+
+% \def\arraystretch{1.22}
+% \begin{tabular}{p{14cm}}
+% \hline
+% \textbf{Repo Metrics (Measured via GitHub)}\\
+% \hline
+% Number of stars.	(number or {n/a})
+% Number of forks.	(number or {n/a})
+% Number of people watching this repo.	(number or {n/a})
+% Number of open pull requests.	(number or {n/a})
+% Number of closed pull requests.	(number or {n/a})
+% \hline
+% \end{tabular}
 
 \newpage
 
