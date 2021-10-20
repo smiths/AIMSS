@@ -11,12 +11,12 @@
 \usepackage{booktabs}
 
 \hypersetup{
-colorlinks=true,       % false: boxed links; true: colored links
-linkcolor=red,          % color of internal links (change box color with
+colorlinks=true,     % false: boxed links; true: colored links
+linkcolor=red,       % color of internal links (change box color with
 %linkbordercolor)
-citecolor=blue,       % color of links to bibliography
+citecolor=blue,      % color of links to bibliography
 filecolor=magenta,   % color of file links
-urlcolor=cyan           % color of external links
+urlcolor=cyan        % color of external links
 }
 
 %% Comments
@@ -101,10 +101,11 @@ Olu Owojaiye and Peter Michalski and Ao Dong}
     \item Identify a list of candidate software packages;
     \item Filter the list to a length of about 30 packages;
     \item Gather source code and documentation for each package;
-    \item Collect raw data on each software repo, like number of stars, number
-    of open issues, number of lines of code, and so on;
-    \item Fill in the measurement template (the template consists of 108 questions
-    to assess 9 qualities (like installability, usability and visibility));
+    \item Collect repository related data on each software package, like number
+    of stars, number of open issues, number of lines of code;
+    \item Fill in the measurement template (the template consists of 108
+    questions to assess 9 qualities (including the qualities of installability,
+    usability and visibility));
     \item Interview developers (the interview consists of 20 questions and takes
     about an hour);
     \item Rank the software using the Analytic Hierarchy Process (AHP); and,
@@ -141,12 +142,12 @@ for methods and tools to sustainably develop high quality software.  This is
 evident from the existence of such groups as the Software Sustainability
 Institute (\href{https://www.software.ac.uk/} {SEI}) and Better Scientific
 Software (\href{https://bssw.io/} {BSS}).  Sustainability promoting groups such
-as these are necessary because unfortunately the current state-of-the-practice
-for research software often does not incorporate state-of-the-art Software
-Engineering (SE) tools and methods \citep{JohansonAndHasselbring2018}.  The lack
-of SE tools and methods contributes to sustainability and reliability problems
-\citep{FaulkEtAl2009}.  Problems with the current state of the practice are
-evident from embarrassing failures, like a retraction of derived molecular
+as these are necessary because unfortunately the current ``state of the
+practice'' for research software often does not incorporate ``state of the art''
+Software Engineering (SE) tools and methods \citep{JohansonAndHasselbring2018}.
+The lack of SE tools and methods contributes to sustainability and reliability
+problems \citep{FaulkEtAl2009}.  Problems with the current state of the practice
+are evident from embarrassing failures, like a retraction of derived molecular
 protein structures \citep{Miller2006}, false reproduction of sonoluminescent
 fusion \citep{PostAndVotta2005}, and fixing and then reintroducing the same
 error in a large code base three times in 20 year
@@ -177,7 +178,7 @@ re-boot we still target about 30 software examples from each domain, but we are
 now collecting more data.  In keeping with the previous project, we still have
 the constraint that the work load for applying the methodology to a given domain
 needs to be feasible for a team as small as one individual, and for a time that
-is short, ideally under a person month per domain.\footnote{A person month is
+is short, ideally around a person month per domain.\footnote{A person month is
 considered to be $20$ working days ($4$ weeks in a month, with $5$ days of work
 per week) at $8$ person hours per day, or $20 \cdot 8 = 160$ person hours.}
 
@@ -201,12 +202,13 @@ engages a domain expert partner throughout.  We did not previously engage the
 domain expert with the rationale that we wished to eliminate potential bias.
 However, this advantage is not worth the inability to evaluate the functionality
 of the software.  Moreover, not having an expert makes navigating the on-line
-resources difficult, since some information will be implicit to domain experts,
-and not every statement found on-line will be accurate   The importance of the
-domain expert is particularly noteworthy when it comes time to publication and
-dissemination of the state of the practice assessment.  Throughout this document
-the person (or persons) that provide domaine expertise will be designated as the
-\textit{Domain Expert}.
+resources difficult, since on-line resources are often silent on information
+that is implicit to domain experts.  Furthermore, not every statement found
+on-line will necessarily be accurate.  The importance of the domain expert is
+particularly noteworthy when it comes time for publication and dissemination of
+the state of the practice assessment.  Throughout this document the person (or
+persons) that provide domain expertise will be designated as the \textit{Domain
+Expert}.
 
 In the proposed methodology, the collected data is combined to rank the software
 within each domain using the Analytic Hierarchy Process (AHP) \citep{Saaty1980}.
@@ -220,18 +222,19 @@ developers.
 
 So that the collected data for a given domain can benefit the scientific
 community, our recommendation is that all collected data be made public.  For
-instance, the data collection for each domain could be put on a GitHub
-repository.  In addition to the project record left on GitHub, the final data
-can be exported to \href{https://data.mendeley.com/}{Mendeley Data}.  As an
-example, the measurements for the
-\href{https://data.mendeley.com/datasets/6kprpvv7r7/1} {state of practice on GIS
-software} are available on Mendeley.  Ideally the full analysis of the state of
-the practice for domain X will be published in a suitable journal.
+instance, the data collection for each domain can be put on a GitHub repository.
+In addition to the project record left on GitHub, the final data can be exported
+to \href{https://data.mendeley.com/}{Mendeley Data}.  As an example, the
+measurements for the \href{https://data.mendeley.com/datasets/6kprpvv7r7/1}
+{state of the practice for GIS software} are available on Mendeley.  Ideally the
+full analysis of the state of the practice for domain X will also be published
+in a suitable journal, allowing for dissemination/feedback and communication.
 
-The scope of this methodology includes observations on product, artifact and
-process quality for research softwares. We leave the assessment of research
-software using performance benchmarks to other projects, such as the work of
-\cite{kaagstrom1998gemm}.  Currently we are also leaving experiments to measure
+The scope of this methodology includes observations on product, artifact
+(documentation, test scripts, etc.) and process quality for research software.
+We leave the assessment of the performance of research software, for instance
+using benchmarks, to other projects, such as the work of
+\citet{kaagstrom1998gemm}.  Currently we are also leaving experiments to measure
 usability and modifiability as future work, as discussed in
 Section~\ref{SecFutureWork}.
 
@@ -246,10 +249,9 @@ The full methodology is presented in the sections that follow.
 Section~\ref{SecResearchQuestions} highlights the research questions that are to
 be answered for each measured domain. These questions are answered by the data
 collected using the process outlined in Section~\ref{StepsAQDS}.  The major
-steps in the process are outlined in
-Sections~\ref{SecIdentifyDomain}--\ref{SecAHP}.  Following this, the time
-required for assessing a single domain is given in
-Section~\ref{SecEstTimeRequired}.
+steps in the process are outlined in Sections~\ref{SecIdentifyDomain} --
+\ref{SecAHP}.  Following this, the time required for assessing a single domain
+is estimated in Section~\ref{SecEstTimeRequired}.
 
 \section{Research Questions} \label{SecResearchQuestions}
 
