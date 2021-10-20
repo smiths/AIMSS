@@ -558,20 +558,22 @@ operating system updates.
 
 The Measurement Template is found in Appendix~\ref{SecGradingTemplate}.  This
 template is used to track measurements and quality scores for all of the
-software packages in the domain. For each software package, we fill out one
-column of the template. This process can take between 1 to 4 hours for each
-package.  Project developers can be contacted for help regarding installation,
-if necessary, but a cap of about 2 hours should be imposed on the entire
+software packages in the domain. For each software package, we fill-in the
+template questions. This process can take between 1 to 4 hours for each package.
+Project developers can be contacted for help regarding installation, if
+necessary, but a cap of about 2 hours should be imposed on the entire
 installation process, to keep the overall measurement time feasible.  To save
 time, a
 \href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/Methodology/Combined_MeasurementTemplate_EmpiricalMeasures.xlsx}{blank
-measurement template spreadsheet} has been prepared.  An excerpt of the
-spreadsheet is shown in Figure~\ref{measurement_template_image}.
+measurement template spreadsheet} has been prepared, with the measures as rows.
+An excerpt of the spreadsheet is shown in
+Figure~\ref{measurement_template_image}.  A column should be added to this
+template for each software package to be measured.
 
 \begin{figure}[h!]
 	\begin{center}
 	  \includegraphics[width=1.0\textwidth]{measurement_template}
-	  \caption{Excerpt of the Top of the Measurement Template}
+	  \caption{Excerpt of the Top Section of the Measurement Template (Summary Information)}
 	  \label{measurement_template_image}
 	\end{center}
   \end{figure}
@@ -591,7 +593,7 @@ source, where source code is freely available under an open source license;
 free-ware, where a binary or executable is provided for free; and, commercial,
 where the user must pay for the software product.  
 
-Following the summary section to measure 9 qualities: 
+Following the summary section are sections to measure 9 qualities: 
 \begin{inparaenum}
 	\item installability;
 	\item correctness and verifiability;
@@ -601,9 +603,17 @@ Following the summary section to measure 9 qualities:
 	\item maintainability;
 	\item reusability;
 	\item surface understandability; and,
-	\item visibility/transparency. \end}inparaenum} Definitions of these
-qualities are available in a working document on software quality.  Explain the
-use of the word surface.
+	\item visibility/transparency. 
+\end{inparaenum} 
+Definitions of these qualities are available in a
+\href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/QDefOfQualities/QDefOfQualities.pdf}{working
+document on software quality}.  Several of the qualities use the word
+``surface''.  This is to highlight that, for these qualities in particular, the
+best that we can do is a shallow measure of the quality.  For instance, we are
+not currently doing any experiments to measure usability.  Instead, we are
+looking for an indication that usability was considered by the developers.  We
+do this by looking for cues in the documentation, like a getting started manual,
+a user manual and documentation of expected user characteristics.
 
 Most of the data to be collected should be straightforward from reviewing the
 measurement template.  However, in a few cases extra guidance is necessary
@@ -659,14 +669,14 @@ to eliminate ambiguity, as follows:
 \end{enumerate}
 
 As in \citet{SmithEtAl2016}, Virtual machines (VMs) are used to provide an
-optimal testing environments for each MGMP software product. VMs were used
-because it is easier to start with a fresh environment without hav- ing to worry
-about existing libraries and conflicts. Moreover, when the tests are complete
-the VM can be deleted, without any impact on the host operating system. The most
-significant advantage of using VMs is to level the playing field. Every software
-install starts from a clean slate, which removes ``works-on-my-computer``
-errors. In the grading data the details for each VM are noted, including
-hypervisor and operating system version.
+optimal testing environments for each package. VMs were used because it is
+easier to start with a fresh environment without having to worry about existing
+libraries and conflicts. Moreover, when the tests are complete the VM can be
+deleted, without any impact on the host operating system. The most significant
+advantage of using VMs is to level the playing field. Every software install
+starts from a clean slate, which removes ``works-on-my-computer`` errors. When
+filling in the measurement template spreadsheet, the the details for each VM
+should be noted, including hypervisor and operating system version.
 
 \section{Analytic Hierarchy Process} \label{SecAHP}
 
