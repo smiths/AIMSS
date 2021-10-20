@@ -550,15 +550,11 @@ The following measures are calculated from the raw data:
 \item Percentage of code that is comments.
 \end{itemize}
 
-\section{Measure Using Measurement Template} \label{SecMeasureTemplate}
+\noindent The time frame of 18 months was selected as the separating point
+between alive and dead projects because this is the usual timeframe for
+operating system updates.
 
-\begin{figure}[h!]
-  \begin{center}
-    \includegraphics[width=1.0\textwidth]{measurement_template}
-    \caption{Top of Measurement Template}
-    \label{measurement_template_image}
-  \end{center}
-\end{figure}
+\section{Measure Using Measurement Template} \label{SecMeasureTemplate}
 
 The Measurement Template is found in Appendix~\ref{SecGradingTemplate}.  This
 template is used to track measurements and quality scores for all of the
@@ -566,10 +562,51 @@ software packages in the domain. For each software package, we fill out one
 column of the template. This process can take between 1 to 4 hours for each
 package.  Project developers can be contacted for help regarding installation,
 if necessary, but a cap of about 2 hours should be imposed on the entire
-installation process, to keep the overall measurement time feasible.
+installation process, to keep the overall measurement time feasible.  To save
+time, a
+\href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/Methodology/Combined_MeasurementTemplate_EmpiricalMeasures.xlsx}{blank
+measurement template spreadsheet} has been prepared.  An excerpt of the
+spreadsheet is shown in Figure~\ref{measurement_template_image}.
+
+\begin{figure}[h!]
+	\begin{center}
+	  \includegraphics[width=1.0\textwidth]{measurement_template}
+	  \caption{Excerpt of the Top of the Measurement Template}
+	  \label{measurement_template_image}
+	\end{center}
+  \end{figure}
+  
+The full template consists of 108 questions categorized under 9 qualities.  The
+questions were designed to be unambiguous, quantifiable and measurable with
+limited time and domain knowledge. The measures are grouped under headings for
+each quality, and one for summary information. The summary information (shown in
+Figure~\ref{measurement_template_image}) is the first section of the template.
+This section summarizes general information, such as the software name, number
+of developers, etc.  We follow the definitions given by
+\citet{GewaltigAndCannon2012} for the software categories.  Public means software
+intended for public use.  Private means software aimed only at a specific
+group, while the concept category is used for software written simply to demonstrate
+algorithms or concepts. The three categories of development models are: open
+source, where source code is freely available under an open source license;
+free-ware, where a binary or executable is provided for free; and, commercial,
+where the user must pay for the software product.  
+
+Following the summary section to measure 9 qualities: 
+\begin{inparaenum}
+	\item installability;
+	\item correctness and verifiability;
+	\item surface reliability;
+	\item surface robustness;
+	\item surface usability;
+	\item maintainability;
+	\item reusability;
+	\item surface understandability; and,
+	\item visibility/transparency. \end}inparaenum} Definitions of these
+qualities are available in a working document on software quality.  Explain the
+use of the word surface.
 
 Most of the data to be collected should be straightforward from reviewing the
-measurement template.  However, in some cases some extra guidance is necessary
+measurement template.  However, in a few cases extra guidance is necessary
 to eliminate ambiguity, as follows:
 
 \begin{enumerate}
@@ -585,24 +622,26 @@ to eliminate ambiguity, as follows:
 \item Getting started tutorial: Sometimes this is found within another artifact,
   like the user manual.
 \item Continuous integration: Search the software artifacts for any mention of
-  continuous integration. The search function on GitHub can help.
+  continuous integration. The search function on GitHub can help.  In some
+  cases, \texttt{yaml} files will provide a hint that continuous integration is
+  employed.
 \end{enumerate}
 
-For completing the template, the following steps should be followed:
+\noindent To fill-in the spreadsheet template, the following steps should be followed:
 
 \begin{enumerate}
 \item Gather the summary information into the top section of the document
-  (Figure \ref{measurement_template_image})
-\item Using the GitStats tool that is described in Section
-  \ref{SecEmpiricalMeasures} gather the measurements for the Repo Metrics -
-  GitStats section found near the bottom of the document
-\item Using the SCC tool that is also described in Section
-  \ref{SecEmpiricalMeasures} gather the measurements for the Repo Metrics - SCC
-  section found near the bottom of the document
+  (Figure \ref{measurement_template_image}).
+\item Using the GitStats tool that is described in
+  Section~\ref{SecEmpiricalMeasures} gather the measurements for the Repo
+  Metrics - GitStats section found near the bottom of the spreadsheet.
+\item Using the SCC tool that is also described in
+  Section~\ref{SecEmpiricalMeasures} gather the measurements for the Repo
+  Metrics -- SCC section found near the bottom of the spreadsheet.
 \item If the software package is found on git, gather the measurements for the
-  Repo Metrics - GitHub section found near the bottom of the document
+  Repo Metrics - the GitHub section found near the bottom of the spreadsheet.
 \item Review installation documentation and attempt to install the software
-  package on a virtual machine
+  package on a virtual machine.
 \item Gather the measurements for installability
 \item Gather the measurements for correctness and verifiability
 \item Gather the measurements for surface reliability
@@ -618,6 +657,16 @@ For completing the template, the following steps should be followed:
   indicates the appropriate score to assign the measurement based on possible
   measurement values.
 \end{enumerate}
+
+As in \citet{SmithEtAl2016}, Virtual machines (VMs) are used to provide an
+optimal testing environments for each MGMP software product. VMs were used
+because it is easier to start with a fresh environment without hav- ing to worry
+about existing libraries and conflicts. Moreover, when the tests are complete
+the VM can be deleted, without any impact on the host operating system. The most
+significant advantage of using VMs is to level the playing field. Every software
+install starts from a clean slate, which removes ``works-on-my-computer``
+errors. In the grading data the details for each VM are noted, including
+hypervisor and operating system version.
 
 \section{Analytic Hierarchy Process} \label{SecAHP}
 
