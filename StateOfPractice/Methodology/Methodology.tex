@@ -12,8 +12,7 @@
 
 \hypersetup{
 colorlinks=true,     % false: boxed links; true: colored links
-linkcolor=red,       % color of internal links (change box color with
-%linkbordercolor)
+linkcolor=blue,      % color of internal links (change box color with linkbordercolor)
 citecolor=blue,      % color of links to bibliography
 filecolor=magenta,   % color of file links
 urlcolor=cyan        % color of external links
@@ -54,12 +53,12 @@ urlcolor=cyan        % color of external links
 \title{Methodology for Assessing the State of the Practice for Domain X} 
 \author{Spencer Smith}{McMaster University, Canada}{smiths@mcmaster.ca}{}{}
 \author{Jacques Carette}{McMaster University, Canada}{carette@mcmaster.ca}{}{}
-\author{Olu Owojaiye}{McMaster University, Canada}{owojaiyo@mcmaster.ca}{}{}
 \author{Peter Michalski}{McMaster University, Canada}{michap@mcmaster.ca}{}{}
 \author{Ao Dong}{McMaster University, Canada}{donga9@mcmaster.ca}{}{}
+\author{Olu Owojaiye}{McMaster University, Canada}{owojaiyo@mcmaster.ca}{}{}
 
 \authorrunning{Smith et al.}  \Copyright{Spencer Smith and Jacques Carette and
-Olu Owojaiye and Peter Michalski and Ao Dong}
+ Peter Michalski and Ao Dong and Olu Owojaiye}
 
 \ccsdesc{Software and its engineering}
 \ccsdesc{Software and its engineering~Software product lines}
@@ -113,7 +112,7 @@ Olu Owojaiye and Peter Michalski and Ao Dong}
   \end{inparaenum}
   A domain expert should be engaged throughout the process, to ensure that
   implicit information about the domain is properly represented and to assist
-  with conducing an analysis of the commonalities and variabilities between the
+  with conducting an analysis of the commonalities and variabilities between the
   30 selected packages.  Using our methodology, spreadsheet templates and AHP
   tool, we estimate (based on our experience with using the process) the time to
   complete an assessment for a given domain at \total{totHours} person hours.
@@ -240,9 +239,9 @@ Section~\ref{SecFutureWork}.
 
 Within this document the following typographic conventions have been adopted:
 \begin{inparaenum}[i)] 
-  \item \textcolor{red}{Red} text denotes a link to sections of this document. 
-  \item \textcolor{cyan}{Cyan} text denotes a URL link.
-  \item \textcolor{blue}{Blue} text denotes a citation.
+  \item \textcolor{red}{Blue} text denotes a link to sections of this document,
+  including citations 
+  \item \textcolor{cyan}{Cyan} text denotes an external URL link.
 \end{inparaenum}
 
 The full methodology is presented in the sections that follow.
@@ -316,7 +315,7 @@ from determining a domain that is suitable for measurement:
   package.
 \item Collect repository based information. (Section~\ref{SecEmpiricalMeasures})
 \item Measure using measurement template. (Section~\ref{SecMeasureTemplate})
-\item Survey developers. (Section~\ref{SecSurveyQuestions})
+\item Survey developers. (Section~\ref{SecSurvey})
 \item Use AHP process to rank the software packages. (Section~\ref{SecAHP})
 % \item Identify a short list of top software packages, typically four to six, for
 %   deeper exploration according to the AHP rankings of the measurements.
@@ -570,7 +569,7 @@ An excerpt of the spreadsheet is shown in
 Figure~\ref{measurement_template_image}.  A column should be added to this
 template for each software package to be measured.
 
-\begin{figure}[h!]
+\begin{figure}[!ht]
 	\begin{center}
 	  \includegraphics[width=1.0\textwidth]{measurement_template}
 	  \caption{Excerpt of the Top Section of the Measurement Template (Summary Information)}
@@ -674,21 +673,71 @@ easier to start with a fresh environment without having to worry about existing
 libraries and conflicts. Moreover, when the tests are complete the VM can be
 deleted, without any impact on the host operating system. The most significant
 advantage of using VMs is to level the playing field. Every software install
-starts from a clean slate, which removes ``works-on-my-computer`` errors. When
+starts from a clean slate, which removes ``works-on-my-computer'' errors. When
 filling in the measurement template spreadsheet, the the details for each VM
 should be noted, including hypervisor and operating system version.
+
+\section{Survey Developers} \label{SecSurvey}
+
+In the previous state of the practice measurement process
+\citep{SmithEtAl2018_arXivGIS, SmithEtAl2016, SmithEtAl2018}, we only based our
+assessment on information available in on-line software repos.  However, this
+approach meant we weren't able to learn about the development process, the
+attitudes of the developers, the pain points for developers and how the
+developers handle modifiability, reproducibility and usability.  Therefore, in
+the reboot of the measurement process, we have explicitly added a stage for
+interviewing research software developers.
+
+We designed a list of 20 questions to guide our interviews, which can be found
+in Appendix~\ref{SecSurveyQuestions}. Some questions are about the background of
+the software, the development teams, the interviewees, and how they organize the
+projects. We also ask about the developer's understandings of the users. Some
+questions focus on the current and past difficulties, and the solutions the team
+has found, or will try. We also discuss the importance and current situations of
+documentation. A few questions are about specific software qualities, such as
+maintainability, understandability, usability, and reproducibility. The
+interviews are semi-structured based on the question list; we ask follow-up
+questions when necessary. Based on our experience, the interviewees usually
+bring up some exciting ideas that we did not expect, and it is worth expanding
+on these topics.
+
+Our methodology suggests requesting interviews with a developer from each of the
+30 software package.  Requests for interviews are sent to all packages so as to
+not cause a potential bias by singling out any subset of the list. Moreover,
+since not every developer will agree to the interview request, asking 30 times
+will typically yield a reasonable number of responses. In our experience, the
+response rate is between 15\% and 30\%.  In some cases multiple developers from
+the same project will agree to be interviewed. When sending out interview
+requests, we recommend finding the contacts on the projects’ website, or code
+repository, or publications, or the biographic pages of the teams’ institutions.
+We send at most two interview request emails to a contact for each software
+package.  Meeting will typically be held using on-line meeting software, like
+Zoom or Teams.  This facilitates recording and automatic transcription of the
+meetings.
+
+The interviewees should follow a process where they can make informed consent.
+The interviews should follow standard ethics guideline of asking for consent
+before interviewing, recording, and including participant details in the report.
+The interview process presented here was approved by the McMaster University
+Research Ethics Board under the application number 
+\href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/MACREM/Application.pdf}
+{MREB\#: 5219}.
 
 \section{Analytic Hierarchy Process} \label{SecAHP}
 
 The Analytical Hierarchy Process (AHP) is a decision-making technique that can
-be used when comparing multiple options by multiple criteria. In our work AHP is
-used for comparing and ranking the software packages of a domain using the
-quality scores that are gathered in the Measurement Template
-(Appendix~\ref{SecGradingTemplate}). AHP performs a pairwise analysis between
-each of the 9 quality options for each of the 30 software packages.  This
-results in a matrix, which is used to generate an overall score for each
-software package for the given criteria. \cite{SmithEtAl2016} shows how AHP is
-applied to ranking software based on quality measures. We have developed a
+be used when comparing multiple options by multiple criteria. AHP focuses on
+pair-wise comparisons between all options for all criteria.  The advantage of
+pair-wise comparisons is that they facilitates a separation of concerns.  Rather
+than worry about the entire problem, the decision maker can focus on one
+comparison at a time.  In our work AHP is used for comparing and ranking the
+software packages of a domain using the quality scores that are gathered in the
+Measurement Template (Appendix~\ref{SecGradingTemplate}). AHP performs a
+pairwise analysis between each of the 9 quality options for each of the 30
+software packages.  This results in a matrix, which is used to generate an
+overall score for each software package for the given criteria.
+\cite{SmithEtAl2016} shows how AHP is applied to ranking software based on
+quality measures. We have developed a
 \href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/AHP2020/LBM/README.txt}{tool}
 for conducting this process. The tool includes an AHP JAR script and a
 sensitivity analysis JAR script that is used to ensure that the software package
@@ -794,24 +843,184 @@ answering questions, the Domain Expert time will be about 12 person hours.
 
 \section{Future Work} \label{SecFutureWork}
 
-- usability and modifiability experiments
+As explained in the introduction (Section~\ref{SecIntroduction}), our eventual
+goal is to improve the state of practice of software development, which requires
+a baseline means for measuring the current state of the practice.  Now that we
+have a methodology for assessing the state of practice for a given domain, the
+next task is to complete the measurements for multiple domains.  Using the
+previous and updated methodologies, we have measured the state of
+practice for the following domains: Geographic Information Systems
+\citep{SmithEtAl2018_arXivGIS}, Mesh Generators \citep{SmithEtAl2016},
+Seismology software \citep{SmithEtAl2018}, Statistical software for psychology
+\citep{SmithEtAl2018_StatSoft}, medical image analysis software \citep{Dong2021}
+and for Lattice Boltzmann Method software \citep{Michalski2021}.  Future domains
+for measurement could include finite element software, computational medicine,
+machine learning, ordinary differential equation solvers, computer graphics,
+stoichiometry, etc.
 
-Usability experiments (\href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/Methodology/Experiments.pdf}{Experiments})
-  
-Modifiability experiments (\href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/Methodology/Experiments.pdf}{Experiments})
+With the wealth of data from assessing the state of practice for multiple
+domains, the next step is a meta-analysis.  We would look at how the different
+domains compare. What lessons from one domain could be applied in other domains?
+What (if any) differences exist in the pain points between domains?  Are there
+differences in the tools, processes, and documentation between domains?
 
-- not just for research software
+The current methodology is constrained by limited resources.  A 4 hour cap on
+the measurement time for each software package limits what can be assessed.
+Within this limit, we can't measure some important qualities, like usability and
+modifiability.  In the future, we propose a more time-consuming process that
+would capture these other quality measures.  To improve the feasibility, the
+more time consuming measurements would not have to be completed for all 30
+packages. Instead, a short list could be identified using the output of the AHP
+ranking to select the top projects, or to select a sample of interesting
+projects across the quality spectrum.
 
-- use it to inform research on Drasil - what artifacts, what process dev
-currently use, how could the new process promoted by Drasil fit into the current
-development processes?
+If we can add measures for modifiability and usability, we can start to measure
+the quality impact of software development processes, tools and techniques.  For
+instance, we have a project (called
+\href{https://github.com/JacquesCarette/Drasil} {Drasil}
+\citep{SzymczakEtAl2016}), which facilitates a development process that focuses
+on knowledge capture, followed by generation of code and other software
+artifacts from the captured knowledge.  To understand the advantages and
+disadvantages of Drasil, we could measure its quality.  In particular, we would
+like to see the impact of a generative process on the quality of usability and
+modifiability.
 
-- meta analysis of collected data.  Already have GIS, mesh generator.  Currently
-working on medical image analysis and LBM.
+\subsection{Measuring Usability in the Future}
+
+In the future, we propose an experiment for assessing the usability of a given
+software package.  Some initial thoughts on how this might be done are recorded
+in this section.  To do the experiment we need an experimental subject, who will
+be required to complete tasks with the software being studied.  The interaction
+with the software will allow the study subject to experience the software's
+usability.  The tasks for the subject to complete would vary by domain;
+therefore, the tasks would be selected with the help of the Domain Expert.
+Criteria for selecting candidate tasks are as follows:
+
+\begin {enumerate}
+\item Tasks should be executable for subjects with novice to intermediate
+experience.
+\item All tasks should take no more than one hour.
+\item Tasks should include the basic/common use cases of the software package.
+\item Include tasks that require sequential or hierarchical steps for
+completion.
+\end {enumerate}
+
+Once the study subject has experience with the software, they will be in a
+position to judge its usability.  We will measure the usability using a
+standardized usability questionnaire, like the
+\href{https://www.usabilitest.com/sus-pdf-generator} {System Usability Scale
+questionnaire} or the
+\href{https://uiuxtrend.com/pssuq-post-study-system-usability-questionnaire/}
+{Post-Study System Usability Questionnaire}.
+
+As a starting point for the experiment design, the procedure could be something
+like the following:
+
+\begin {enumerate}
+\item Survey participants to collect pre-experiment data (background, experience
+of subjects (especially with domain software)).
+\item Participants perform tasks based on task defined by Domain Experts.
+\item Observe the study subjects (take notes, record sessions (screen
+recorder), watch for body languages and verbal cues).
+\item Survey the study subjects to collect feedback (post-experiment interview),
+complete usability questionnaire.
+\item Prepare a summary report of the experimental results.
+\end {enumerate}
+
+\subsection{Measuring Modifiability in the Future}
+
+The next experiment is designed to gather qualitative data regarding the
+modifiability of each software package. This proposed experiment also involves
+experimental subjects/participants, who in this case are asked to modify a set
+of software packages.  The specific modifications requested will again depend on
+the software domain.  In advance of the experiment the Domain Expert will be
+asked the likely changes for software in this domain.  We emphasize likely
+changes, instead of any changes because software cannot be designed so that
+everything is equally easy to change \citep{parnas1986rational}.  The procedure
+could be along the following lines:
+
+\begin{enumerate}
+	\item Domain Expert lists all likely changes that a developer
+	might be asked to make in a software package in the domain.
+	\item Survey study participants to collect pre-experiment data (background,
+	experience of subjects (especially with domain software)).
+	\item Participants perform modification tasks for likely changes on each
+	software package being studied.
+	\item Observe the study subjects (take notes, record sessions (screen
+	recorder), watch for body languages and verbal cues).
+	\item Record time needed to make the changes.	
+	\item Confirm through testing that the modified software has the correct
+	behaviour.
+	\item Survey the study subjects to collect feedback (post-experiment interview).
+	\item Prepare a summary report of the experimental results.
+\end{enumerate}
+
+The study subjects should make the same changes in multiple pieces of software.
+The reporting of the results will focus more on the relative time differences
+between the set of software packages, rather than the absolute time to make any
+given change. To remove biases caused by the participants experience, the
+different study subjects should use a different order as they go through the
+list of software packages.  Details for this experiment still need to be
+resolved, such as how to take the participants prior knowledge into account,
+especially with respect to their programming experience.
 
 \section{Concluding Remarks} \label{SecConcludingRemarks}
 
-- summary 
+We have outlined a methodology for assessing the state of the practice for any
+given research software domain.  (Although the scope of the current work has been
+on research software, there is little in the methodology that is specific to
+research software, except for the interview question related to the quality of
+reproducibility.)  When applying the methodology to a given domain, we provide a
+means to answer the following questions:
+\begin{inparaenum}[i)]
+\item What artifacts (documents, code, test cases, etc.) are present?
+\item What tools are used?
+\item What principles, process and methodologies are used?
+\item What are the pain points for developers?
+\item What actions are used to improve qualities like maintainability and
+reproducibility?
+\item What specific actions are taken to achieve the qualities of usability,
+traceability, modifiability, maintainability, correctness, understandability,
+unambiguity, reproducibility and visibility/transparency?
+\item How does software designated as high quality by this methodology compare
+  with top rated software by the community?
+\end{inparaenum} 
+
+The methodology depends on the engagement of a Domain Expert.  The Domain
+Expert's role is to ensure that the assessment is consistent with the culture of
+the community of practitioners in the domain.  The Domain Expert also has an
+important role to play with the domain analysis.  For each domain we 
+conduct a domain analysis to look at the commonalities, variabilities and
+parameters of variation, for the family of software in the domain.  The domain
+analysis means that software can be compared not just based on its quality, but
+also based on its functionality.
+
+The methodology follows a systematic procedure that begins with identifying the
+domain and ends with answering the research questions posed above.  In between
+we collect an authoritative list of about 30 software packages.  For each
+package in the list we fill in our measurement template.  The template consists
+of repository related data (like number of open issues, number of lines of code,
+etc.) and 108 measures/questions related to 9 qualities: installability,
+correctness/verifiability, reliability, robustness, usability, maintainability,
+reusability, understandability and visibility/transparency. Filling in the
+template requires installing the software, running simple tests (like completing
+the getting started instructions (if present)), and searching the code,
+documentation and test files.
+
+The data for each domain is used to rank the software package according to each
+quality dimension using AHP.  The ranking is not intended to identify a single
+best software package.  Instead the ranking is intended to provide insights on
+the top set of software for each quality.  The top performers can be contrasted
+with the lesser performers to gain insight into what practices in the domain are
+working.  Deeper insight can be obtained by combining this data with the
+interview data from asking each recruited developer 20 questions.
+
+Combining the quantitative data from the measurement template with the interview
+results, along with the domain experts knowledge, we can determine the current
+state of the practice for domain X.  Using our methodology, spreadsheet
+templates and AHP tool, we estimate (based on our experience with using the
+process) the time to complete an assessment for a given domain at
+\total{totHours} person hours.
 
 \newpage
 
@@ -880,7 +1089,8 @@ git_stats generate -p [repo path] -o [output path]
 
 View the analytic results by open [output path]/index.html with any browser or
 other software supporting HTML web page format.
-\begin{figure}[h!]
+
+\begin{figure}[!ht]
 \includegraphics[scale=0.4]{git-stats-demo.JPG}
 \end{figure}
 
@@ -973,7 +1183,7 @@ scc
 
 The results will be appear something like the following.
 
-\begin{figure}[h!]
+\begin{figure}[!ht]
 \includegraphics[scale=0.5]{scc-demo.JPG}
 \end{figure}
 
@@ -1166,7 +1376,7 @@ entry.
 	other$^*$}) $^*$ given via string\\
 	What is the percentage of identified issues that are closed? (percentage)\\
 	What percentage of code is comments? (percentage)\\
-	Which version control system is in use? ({svn, cvs, git, github, unclear,
+	Which version control system is in use? ({svn, cvs, git, Github, unclear,
 	other$^*$}) $^*$ given via string\\
 	Overall impression? ({1 .. 10})\\
 	Additional comments? (can cover any metrics you feel are missing, or any other
@@ -1395,64 +1605,20 @@ Are there release notes? ({yes$^*$=2, no=0})\\
 \hline
 \end{tabular}
 
-% \def\arraystretch{1.22}
-% \begin{tabular}{p{14cm}}
-% \hline
-% \textbf{Repo Metrics (Measured via git_stats)}\\
-% \hline
-% Number of text-based files. (number)\\
-% Number of binary files. (number)\\
-% Number of total lines in text-based files. (number)\\
-% Number of total lines added to text-based files. (number or {not git repo})\\
-% Number of total lines deleted from text-based files. (number or {not git repo})\\
-% Number of total commits. (number or {not git repo})\\
-% Numbers of commits by year in the last 5 years. (Count from as early as possible if the project is younger than 5 years.) (list of numbers or {not git repo}\\
-% Numbers of commits by month in the last 12 months. (list of numbers or {not git repo})\\
-% \hline
-% \end{tabular}
-
-% \def\arraystretch{1.22}
-% \begin{tabular}{p{14cm}}
-% \hline
-% \textbf{Repo Metrics (Measured via scc)}\\
-% \hline
-% Number of text-based files.	(number)\\
-% Number of total lines in text-based files.	(number)\\
-% Number of code lines in text-based files.	(number)\\
-% Number of comment lines in text-based files.	(number)\\
-% Number of blank lines in text-based files.	(number)
-% \hline
-% \end{tabular}
-
-% \def\arraystretch{1.22}
-% \begin{tabular}{p{14cm}}
-% \hline
-% \textbf{Repo Metrics (Measured via GitHub)}\\
-% \hline
-% Number of stars.	(number or {n/a})
-% Number of forks.	(number or {n/a})
-% Number of people watching this repo.	(number or {n/a})
-% Number of open pull requests.	(number or {n/a})
-% Number of closed pull requests.	(number or {n/a})
-% \hline
-% \end{tabular}
-
 \newpage
 
 \section{Survey Questions for Developers} \label{SecSurveyQuestions}
 
-Introduction.  Roadmap.  Anything about traceability to research questions.
+Interviews will be one-to-one and will be open-ended (not just “yes or no”
+answers). Because of this, the exact wording of the questions may change a
+little. If more information, or clarification, is needed during the
+conversation, follow up questions will be asked, such as: ``So, you are saying
+that ...?'', ``Please tell me more?'', or ``Why do you think that is?''
 
-Information about these interview questions:  This gives you an idea what I
-would like to learn about the development of {domain} software. Interviews will
-be one-to-one and will be open-ended (not just “yes or no” answers). Because of
-this, the exact wording may change a little. Sometimes I will use other short
-questions to make sure I understand what you told me or if I need more
-information when we are talking such as: “So, you are saying that ...?), to get
-more information (“Please tell me more?”), or to learn what you think or feel
-about something (“Why do you think that is...?”). 
+\subsection{Information about the developers and users} 
 
-\subsection{Information about the developers and users} \citep{Jegatheesan2016}
+These questions are based on questions used in \citet{Jegatheesan2016}
+
 \begin{enumerate}
 \item Interviewees' current position/title? degrees?
 \item Interviewees' contribution to/relationship with the software?
@@ -1466,8 +1632,8 @@ about something (“Why do you think that is...?”).
 
 \subsection{Information about the software}
 
-Square brackets are used for traceability to qualities and relevant research
-questions found in Section ...
+Square brackets are used for traceability to the  relevant research
+questions found in Section~\ref{SecResearchQuestions}.
 
 \begin{enumerate}
 \item Currently, what are the most significant obstacles in your development
@@ -1475,8 +1641,8 @@ process?
 \item How might you change your development process to remove or reduce these
 obstacles?
 \item How does documentation fit into your development process? Would improved
-documentation help with the obstacles you typically face? [traceability -
-research question 5b, visibility/transparency - research question 5i]
+documentation help with the obstacles you typically face? [research question 5b (traceability),
+research question 5i (visibility/transparency)]
 \item In the past, is there any major obstacle to your development process that
 has been solved? How did you solve it?
 \item What is your software development model? For example, waterfall, agile,
@@ -1485,23 +1651,23 @@ etc.
 can tackle the current problem? Were any project management tools used?
 \item Was it hard to ensure the correctness of the software? If there were any
  obstacles, what methods have been considered or practiced to improve the
- situation? If practiced, did it work? [correctness - research question 5e]
+ situation? If practiced, did it work? [research question 5e (correctness)]
 \item When designing the software, did you consider the ease of future changes?
  For example, will it be hard to change the structure of the system, modules or
  code blocks? What measures have been taken to ensure the ease of future changes
- and maintains? [maintainability - research question 5d, modifiability -
- research question 5c]
+ and maintains? [research question 5d (maintainability), 
+ research question 5c (modifiability)]
 \item Provide instances where users have misunderstood the software. What, if
-any, actions were taken to address understandability issues? [understandability
-- research question 5f]
-\item What, if any, actions were taken to address usability issues? [usability -
-research question 5a]
+any, actions were taken to address understandability issues? [research question
+5f (understandability)]
+\item What, if any, actions were taken to address usability issues? [
+research question 5a (usability)]
 \item Do you think the current documentation can clearly convey all necessary
 knowledge to the users? If yes, how did you successfully achieve it? If no, what
-improvements are needed? [unambiguity - research question 5g]
+improvements are needed? [research question 5g (unambiguity)]
 \item Do you have any concern that your computational results won't be
 reproducible in the future? Have you taken any steps to ensure reproducibility?
-[reproducibility - research question 5h]
+[research question 5h (reproducibility)]
 \end{enumerate}
 
 \newpage
