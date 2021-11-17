@@ -17,7 +17,8 @@
 %% Template article for Elsevier's document class `elsarticle'
 %% with harvard style bibliographic references
 
-\documentclass[preprint,12pt,authoryear]{elsarticle}
+%\documentclass[preprint,12pt,authoryear]{elsarticle}
+\documentclass[3p, 12pt,authoryear]{elsarticle}
 
 %% Use the option review to obtain double line spacing
 %% \documentclass[authoryear,preprint,review,12pt]{elsarticle}
@@ -38,7 +39,7 @@
 %% The amssymb package provides various useful mathematical symbols
 \usepackage{amssymb}
 %% The amsthm package provides extended theorem environments
-%% \usepackage{amsthm}
+\usepackage{amsmath,amsthm}
 
 %% The lineno packages adds line numbers. Start line numbering with
 %% \begin{linenumbers}, end it with \end{linenumbers}. Or switch it on
@@ -46,15 +47,15 @@
 %% \usepackage{lineno}
 
 \usepackage{hyperref}
-\usepackage{tikz}
-\usetikzlibrary{mindmap}
+%\usepackage{tikz}
+%\usetikzlibrary{mindmap}
 \usepackage{multirow}
 \usepackage{pgfplots}
 \usepackage{arydshln}
 
 \journal{Academic Radiology}
 
-\pgfplotsset{compat=1.13}
+%\pgfplotsset{compat=1.13}
 
 \begin{document}
 
@@ -194,7 +195,7 @@ concepts. For instance, according to a survey by \citet{Prabhu2011}, more than
 half of their 114 subjects did not use any proper debugger for their software.
 
 To gain insights, we devised five research questions, which can be applied
-to MI, and to other domains, of research software \citep{SmithEtAl2021}:
+to MI, as well as to other domains, of research software \citep{SmithEtAl2021}:
 
 \begin{description}
 
@@ -212,7 +213,8 @@ What changes to processes, methodologies, and tools can improve software
 development and software quality?
 \item[RQ5.] \hypertarget{rq5}What is the current status of the following
 software qualities for the projects? What actions have the developers taken to
-address them?
+address them?  (Section~\ref{ch_background} provides definitions of the software
+qualities.)
 \begin{itemize}
 	\item Installability
 	\item Correctness \& Verifiability
@@ -229,179 +231,163 @@ address them?
 this methodology compare with top-rated software by the community?
 \end{description}
 
-\subsection{Overview of the Methodology}
-
-We designed a general methodology to assess the state of the practice for SC
-software \citep{SmithEtAl2021}. Details can be found in Section~\ref{}.  This
-methodology builds off prior work to assess the state of the practice for such
-domains as Geographic Information Systems \citep{smith2018state}, Mesh
-Generators \citep{smith2016state}, Seismology software
-\citep{Smith2018Seismology}, and Statistical software for psychology
-\citep{smith2018statistical}.  In keeping with the previous methodology, we have
-maintained the constraint that the work load for measuring a given domain should
-be feasible for a team as small as one person, and for a short time,
-ideally around a person month of effort. A person month is considered to be $20$
-working days ($4$ weeks in a month, with $5$ days of work per week) at $8$
-person hours per day, or $20 \cdot 8 = 160$ person hours.
-
-With our methodology, we first choose an SC domain (in the current case MI) and
-identify a list of about 30 software packages. We approximately measure the
-qualities of each package by filling in a grading template (forward ref?).
-Compared with our previous methodology, the new methodology also includes
-repository based metrics, such as the number of files, number of lines of code,
-percentage of issues that are closed, etc. (forward ref?).  With the
-quantitative data in the grading template, we rank the software with the
-Analytic Hierarchy Process (AHP) (forward ref?). After this, as another addition
-to our previous methodology, we interview some of the development teams to
-further understand the status of their development process (forward ref?).
-Finally, we summarize the results and propose recommendations for future SC
-software development (forward ref?).
-
 \subsection{Scope} \label{sec_scope}
 
 We need to restrict the scope of MI software that we consider so that the
-measurement exercise is feasible within a person month of effort. MI considers a
-broad range of different problems.  According to \citet{Bankman2000}, MI
-software deals with six different basic problems, while \citet{Angenent2006}
-pointed out that four fundamental problems are solved by MI software. While both
-mentioned Segmentation, Registration, and Visualization of medical images,
-Bankman also included Enhancement, Quantification, and three functions for MI
-archiving and telemedicine systems (Compression, Storage, and Communication)
-\citep{Bankman2000}. On the other hand, \citet{Angenent2006} included
-Simulation. According to Wikipedia contributors \citep{enwiki:1034877594}, MI
-software has primary functions in Segmentation, Registration, Visualization
-(including the basic display, reformatted views, and 3D volume rendering),
-Statistical Analysis, and Image-based Physiological Modelling. As
-\citet{Kim2011} describes, the general steps of medical image analysis after
-obtaining digital data include Enhancement, Segmentation, Feature Extraction,
-Classification, and Interpretation. Besides the above major functions, some MI
-software provides supportive functions. For example, with Tool Kit libraries VTK
+measurement exercise is feasible within the targeted person month of effort. We
+can restrict the scope by selecting a sub-set of the broad range of problems
+considered by MI.  Summing the sets of MI tasks from \citet{Bankman2000} and
+\citet{Angenent2006}, we have the following problems are solved by MI software:
+Segmentation, Registration, Visualization, Enhancement, Quantification,
+Simulation, plus three functions for MI archiving and telemedicine systems
+(Compression, Storage, and Communication). To this list Wikipedia contributors
+\citep{enwiki:1034877594} add Statistical Analysis and Image-based Physiological
+Modelling. \citet{Kim2011} adds Feature Extraction, Classification, and
+Interpretation. Besides the above major functions, some MI software provides
+supportive functions. For example, using Tool Kit libraries VTK
 \citep{SchroederEtAl2006} and ITK \citep{McCormick2014}, developers build
-software with Visualization and Analysis functions; Picture Archiving and
-Communication System (PACS) helps users to economically store and conveniently
-access images \citep{Choplin1992}. 
+software with Visualization and Analysis functions. Finally, Picture Archiving
+and Communication System (PACS) helps users to economically store and
+conveniently access images \citep{Choplin1992}. 
 
 Based on our literature survey, we divided MI software into five sub-groups and
-several sub-sub-groups by their major functions, as shown in Figure
-\ref{fig_mi_functions}.
+several sub-sub-groups by their major functions, as shown in
+Figure~\ref{fig_mi_functions}. We selected the sub-group of Visualization for
+the current state of the practice exercise.
 
 \begin{figure}[ht]
 \centering
-\begin{tikzpicture}[mindmap, grow cyclic, every node/.style=concept, concept
-color=orange!40,
-level 1/.append style={level distance=5cm,sibling angle=72},
-level 2/.append style={level distance=3cm,sibling angle=90},
-level 3/.style={level distance=2.3cm,sibling angle=90}]
-\node{MI software}
-child[concept color=teal!40] { node {Enhancement}}
-child[concept color=teal!40] { node {Analysis}
-    child[concept color=blue!30] { node {Registration}}
-    child[concept color=blue!30,] { node {Segmentation}}
-    child[concept color=blue!30] { node {Statistical Analysis}
-    child[concept color=blue!20] { node {Feature Extraction}}
-    child[concept color=blue!20] { node {Classification}}
-    child[concept color=blue!20] { node {Interpretation}}
-    }}
-child[concept color=teal!40] { node {Simulation/\\Modeling}}
-child[concept color=teal!40] { node {Supporting}
-    child[concept color=blue!30] { node {Tool Kit}}
-    child[concept color=blue!30] { node {PACS}}
-}
-child[concept color=teal!40] { node {Visualization}
-    child[concept color=blue!30] { node {2D Display}}
-    child[concept color=blue!30] { node {3D Rendering}}
-    child[concept color=blue!30] { node {Reformatted Views}}
-};
-\end{tikzpicture}
-\caption{Major functions of MI software}
-\label{fig_mi_functions}
+\includegraphics[scale=0.6]{figures/FunctionsOfMiSoftware.pdf}
+\caption{Major functions of MI Software} \label{fig_mi_functions}
 \end{figure}
 
-To keep the data collection and analysis feasible, we limited the scope of the
-software to the software packages providing the Visualization tools and
-functions in this project.
+% \begin{figure}[ht]
+% \centering
+% \begin{tikzpicture}[mindmap, grow cyclic, every node/.style=concept, concept
+% color=orange!40,
+% level 1/.append style={level distance=5cm,sibling angle=72},
+% level 2/.append style={level distance=3cm,sibling angle=90},
+% level 3/.style={level distance=2.3cm,sibling angle=90}]
+% \node{MI software}
+% child[concept color=teal!40] { node {Enhancement}}
+% child[concept color=teal!40] { node {Analysis}
+%     child[concept color=blue!30] { node {Registration}}
+%     child[concept color=blue!30,] { node {Segmentation}}
+%     child[concept color=blue!30] { node {Statistical Analysis}
+%     child[concept color=blue!20] { node {Feature Extraction}}
+%     child[concept color=blue!20] { node {Classification}}
+%     child[concept color=blue!20] { node {Interpretation}}
+%     }}
+% child[concept color=teal!40] { node {Simulation/\\Modeling}}
+% child[concept color=teal!40] { node {Supporting}
+%     child[concept color=blue!30] { node {Tool Kit}}
+%     child[concept color=blue!30] { node {PACS}}
+% }
+% child[concept color=teal!40] { node {Visualization}
+%     child[concept color=blue!30] { node {2D Display}}
+%     child[concept color=blue!30] { node {3D Rendering}}
+%     child[concept color=blue!30] { node {Reformatted Views}}
+% };
+% \end{tikzpicture}
+% \caption{Major functions of MI software}
+% \label{fig_mi_functions}
+% \end{figure}
 
-[Roadmap - instead sprinkle forward references throughout the introduction?]
+\subsection{Methodology Overview}
+
+We designed a general methodology to assess the state of the practice for SC
+software \citep{SmithEtAl2021}. Details can be found in
+Section~\ref{ch_methods}.  This methodology builds off prior work to assess the
+state of the practice for such domains as Geographic Information Systems
+\citep{smith2018state}, Mesh Generators \citep{smith2016state}, Seismology
+software \citep{Smith2018Seismology}, and Statistical software for psychology
+\citep{smith2018statistical}.  In keeping with the previous methodology, we have
+maintained the constraint that the work load for measuring a given domain should
+be feasible for a team as small as one person, and for a short time, ideally
+around a person month of effort. A person month is considered to be $20$ working
+days ($4$ weeks in a month, with $5$ days of work per week) at $8$ person hours
+per day, or $20 \times 8 = 160$ person hours.
+
+With our methodology, we first choose an SC domain (in the current case MI) and
+identify a list of about 30 software packages. (For measuring MI we used 29
+software packages.)  We approximately measure the qualities of each package by
+filling in a grading template. Compared with our previous methodology, the new
+methodology also includes repository based metrics, such as the number of files,
+number of lines of code, percentage of issues that are closed, etc.  With the
+quantitative data in the grading template, we rank the software with the
+Analytic Hierarchy Process (AHP) (Details are found in
+Section~\ref{ch_background}). After this, as another addition to our previous
+methodology, we interview some of the development teams to further understand
+the status of their development process. Finally, we summarize the measurements
+(Section~\ref{ch_results}), summarize the interview answers
+(Section~\ref{ch_interview}), answer the research questions
+(Section~\ref{ch_answers}) and propose recommendations
+(Section~\ref{ch_recommendations}) for future SC software development.
 
 \section{Background} \label{ch_background}
 
-When designing a method for evaluating the state of the practice of
-domain-specific software, we included a step to select domain and software.
-Knowledge of different software categories is essential for the selection. To
-compare and rank the software qualities with the grading template in Appendix
-\ref{ap_grading_template}, we need the definitions of qualities and the AHP.
-
 In this section, we introduce the relevant software categories (Section
-\ref{sec_software_categories}). We also cover the software quality definitions
-(Section \ref{sec_software_quality}) and an overview of the AHP (Section
-\ref{sec_AHP}).
+\ref{sec_software_categories}). The categories will be used when collecting and
+assessing the software packages.  We also review the definitions of software
+qualities (Section \ref{sec_software_quality}) and provide an overview of the
+AHP (Section \ref{sec_AHP}).
 
 \subsection{Software Categories} \label{sec_software_categories}
 
-We target specific software categories to narrow down the scope when selecting
-software packages for measuring. One way to categorize them is grouping by
-functions, such as analyzing the scope for the MI software (Section
-\ref{sec_scope}), which requires specific domain knowledge. In this section, we
-discuss three common software categories that we can apply to all SC domains:
-Open source software (OSS), freeware, and commercial software.
+When assessing software packages, we need to know what license the software is
+distributed under.  In particular, we need to know whether the source code will
+be available to us or not.  In this section, we present three common software
+categories:
 
-\subsubsection{Open Source Software} \label{sec_open_source_software}
+\begin{itemize}
 
-For OSS, the source code is openly accessible. Users have the right to study,
-change and distribute it under a license granted by the copyright holder. For
-many OSS projects, the development process relies on the collaboration of
-different contributors worldwide \citep{Corbly2014}. Accessible source code
-usually exposes more ``secrets'' of a software project, such as the underlying
-logic of software functions, how developers achieve their works, and the flaws
-and potential risks in the final product. Thus, it brings much more convenience
-to researchers analyzing the qualities of the project.
+\item \textbf{Open Source Software (OSS)} For OSS, the source code is openly
+accessible. Users have the right to study, change and distribute it under a
+license granted by the copyright holder. For many OSS projects, the development
+process relies on the collaboration of different contributors worldwide
+\citep{Corbly2014}. Accessible source code usually exposes more ``secrets'' of a
+software project, such as the underlying logic of software functions, how
+developers achieve their works, and the flaws and potential risks in the final
+product. Thus, it brings much more convenience to researchers analyzing the
+qualities of the project.
 
-\subsubsection{Freeware} \label{sec_freeware}
+\item \textbf{Freeware} Freeware is software that can be used free of charge.
+Unlike with OSS, the authors of do not allow users to access or modify the
+source code \citep{LINFO2006}. To many end-users, the differences between
+freeware and OSS may not be relevant. However, software developers, end-users
+who wish to modify the source code, and researchers looking for insight into
+software development process may find the inaccessible source code a problem. 
 
-Freeware is software that can be used free of charge. Unlike with OSS, the
-authors of freeware do not allow users to access or modify the source code of
-the software \citep{LINFO2006}. The term \textit{freeware} should not be confused
-with \textit{free software}, which is similar to OSS. To the end-users, the
-differences between freeware and OSS often do not bother them. The fact that
-these products are free of charge is likely to make them popular with many
-users. However, software developers, end-users who wish to modify the source
-code, and researchers looking for insight into software development process will
-find the inaccessible source code a problem. 
+\item \textbf{Commercial Software} ``Commercial software is software developed
+by a business as part of its business'' \citep{GNU2019}. Typically speaking, the
+users are required to pay to access all of the features of commercial software,
+excluding access to the source code. However, some commercial software is also
+free of charge \citep{GNU2019}. Based on our experience, most commercial
+software products are not OSS.
 
-\subsubsection{Commercial Software}
-
-``Commercial software is software developed by a business as part of its
-business'' \citep{GNU2019}. Typically speaking, the users are required to pay to
-access all of the features of commercial software, excluding access to the
-source code. However, some commercial software is also free of charge
-\citep{GNU2019}. Based on our experience, most commercial software products are
-not OSS.
-
-For some specific software, the backgrounds of commercial software developers
-often differ from the ones of non-commercial OSS. In such a case, the former is
-usually the product of software engineers, and the latter is likely to have
-developers who work in the domain and are also end-users of the products. One
-example of such software is SC software, since the developers need to utilize
-their domain-specific during the development process \citep{Wilson2014}.
+\end{itemize}
 
 \subsection{Software Quality Definitions} \label{sec_software_quality}
 
-This section lists the definitions of 10 software qualities, which are from
-Smith et al. \citep{SmithEtAl2020}. We aim to measure each of them for selected
-SC software packages. The order of the first nine qualities follows our grading
-template in Appendix \ref{ap_grading_template}. We do not measure
-\textit{reproducibility} with the grading template, but discuss it with the
-developers by interviews.
+Quality is defined as a measure of the excellence or worth of an entity.  As is
+common practice, we do not think of quality as a single measure, but rather as a
+set of measures.  That is, quality is a collection of different qualities, often
+called ``ilities.''  Below we list the 10 qualities of interest for this study,
+as summarized in \citet{SmithEtAl2021-QDef}.  The order of the qualities follows
+the order used in \cite{GhezziEtAl2003}, which puts related qualities (like
+correctness and reliability) together.  Moreover, the order is roughly the same
+as the order qualities are considered in practice.  [*** To be completed - not
+currently in sync with QDef paper, QDef paper not completely done ***]
 
 \begin{itemize}
-	\item \textbf{Installability} The effort required for the installation,
-	uninstallation, or reinstallation of a software or product in a specified
-	environment \citep{ISO/IEC25010} \citep{lenhard2013measuring}.
+	\item \textbf{Installability} The effort required for the installation
+    and/or uninstallation of software in a specified environment.
 
 	\item \textbf{Correctness \& Verifiability} A program is correct if it
-	behaves according to its stated specifications. Verifiability is the extent
-	to which a set of tests can be written and executed, to demonstrate that the
-	delivered system meets the specification \citep{GhezziEtAl2003}.
+    matches its specification.  The specification can either be explicitly or
+    implicitly stated.  Verifiability is the extent to which the software
+    components or the integrated product can be evaluated to demonstrate whether
+    the system functions as expected.
 
 	\item \textbf{Reliability} The probability of failure-free operation of a
 	computer program in a specified environment for a specified time, i.e., the
@@ -443,60 +429,54 @@ developers by interviews.
 
 \subsection{Analytic Hierarchy Process} \label{sec_AHP}
 
-To generate ranking scores for a set of software packages, we use AHP, which
-utilizes pairwise comparisons between all of the packages. Thomas L. Saaty
-developed this tool, and people widely used it to make and analyze multiple
-criteria decisions \citep{VaidyaEtAl2006}. AHP organizes multiple criteria
-factors in a hierarchical structure and uses pairwise comparisons between
-alternatives to calculate relative ratios \citep{Saaty1990}.
+AHP is used to generate a ranking for a set of software packages. Thomas L.\
+Saaty developed AHP in the 1970s, and people have widely used it since to make
+and analyze multiple criteria decisions \citep{VaidyaEtAl2006}. AHP organizes
+multiple criteria factors in a hierarchical structure and uses pairwise
+comparisons between alternatives to calculate relative ratios \citep{Saaty1990}.
 
-For a project with $ m $ criteria, we can use an $m\times m$ matrix $A$ to
-record the relative importance between factors. When comparing criterion $i$ and
-criterion $j$, the value of $A_{ij}$ is decided as follows, and the value of
-$A_{ji}$ is $1/A_{ij}$ \citep{Saaty1990},
+For a project with $m$ criteria, we can use an $m\times m$ matrix $A$ to record
+the relative importance between factors. When comparing criterion $i$ and
+criterion $j$, the value of $A_{ij}$ is decided as follows, with the value of
+$A_{ji}$ generally as $1/A_{ij}$ \citep{Saaty1990}.  $A_{ij} = 1$ if criterion
+$i$ and criterion $j$ are equally important, while $A_{ij} = 9$ if criterion $i$
+is extremely more important than criterion $j$.  The natural numbers between 1
+and 9 are used to show the different levels of relative importance between these
+two extremes. The above assumes that criterion $i$ is not less important than
+criterion $j$.  If that is not the case, we reverse $i$ and $j$ and determine
+$A_{ji}$ first, then $A_{ij} = 1/A_{ji}$.
 
-\begin{itemize}
-	\item $A_{ij} = 1$ if criterion $i$ and criterion $j$ are equally important;
-	\item $A_{ij} = 9$ if criterion $i$ is extremely more important than
-	criterion $j$;
-	\item $A_{ij}$ equals to an integer value between 1 and 9 according the the
-	relative importance of criterion $i$ and criterion $j$.
-\end{itemize}
-
-The above process assumes that criterion $i$ is not less important than
-criterion $j$, otherwise, we need to reverse $i$ and $j$ and determine $A_{ji}$
-first, then $A_{ij} = 1/A_{ji}$.
-
-The priority vector $w$ can be calculated by solving the following equation
-\citep{Saaty1990}, 
+The priority vector $w$, which ranks the criteria by their importance, can be
+calculated by solving the equation \citep{Saaty1990}:
 \begin{equation} 
-    Aw = \lambda_{max}w,
+    A w = \lambda_{max} w,
 \end{equation}
-where $\lambda_{max}$ is the maximal eigenvalue of $A$.
-
-In this project, $w$ is approximated with the classic \textit{mean of normalized
-values} approach \citep{AlessioEtAl2006},
+where $\lambda_{max}$ is the maximal eigenvalue of $A$.  In this project, $w$ is
+approximated with the classic \textit{mean of normalized values} approach
+\citep{AlessioEtAl2006}:
 
 \begin{equation}
 w_i = \frac{1}{m}\sum_{j=1}^{m}\frac{A_{ij}}{\sum_{k=1}^{m}A_{kj}}
 \end{equation}
 
-Suppose there are $n$ alternatives, for criterion $i = 1, 2, ... , m$, we can
-create an $n\times n$ matrix $B_i$ to record the relative preferences between
-these choices. The way of generating $B_i$ is similar to the one for $A$.
-However, unlike comparing the importance between criteria, we pairwise decide
-how much we favor one alternative over the other. We use the same method to
-calculate the local priority vector for each $B_i$.
+If there are $n$ alternatives, for criterion $i = 1, 2, ... , m$, we can create
+an $n\times n$ matrix $B_i$ to record the relative preferences between these
+choices for each criterion. The way of generating $B_i$ is similar to the one
+for $A$. However, rather than comparing the importance between criteria, we
+pairwise decide how much we favor one alternative over the other. We use the
+same method to calculate the local priority vector for each $B_i$.  The local
+priority vector in this case ranks the $n$ alternatives for criterion $i$.
 
 In this project, the first nine software qualities mentioned in Section
 \ref{sec_software_quality} are the criteria ($m = 9$), while 29 software
 packages ($n = 29$) are compared for each of the $m$ criteria. The software are
-evaluated with the grading template in Appendix \ref{ap_grading_template} and a
-subjective score from one to ten is given for each quality for each package. For
-each quality, for a pair of packages $i$ and $j$, such that $score_i >=
-score_j$, the difference between two scores is $\mathit{diff_{ij}} = score_i -
-score_j$. The relationship between $A_{ij} = 1$ and $\mathit{diff_{ij}}$ is as
-follows:
+evaluated with the grading template in Section~\ref{sec_grading_template}, which
+includes a subjective score from $1$ to $10$ for each quality for each package.
+For each quality, for a pair of packages $i$ and $j$, with $\mathit{score}_i >=
+\mathit{score}_j$, the difference between the two scores is $\mathit{diff_{ij}}
+= \mathit{score}_i - \mathit{score}_j$. The mapping between $\mathit{diff_{ij}}$
+(which can vary between 0 and 9) and the values in $A_{ij}$ (which can vary
+between 1 and 9) is as follows:
 
 \begin{itemize}
 \item $A_{ij} = 1$ and $\mathit{diff_{ij}} = 0$ when criterion $i$ and criterion
@@ -506,11 +486,11 @@ $j$ are equally important;
 more important than criterion $j$.
 \end{itemize}
 
-Thus, we approximate the pairwise comparison result of $i$ versus $j$ by the
-following equation:
+\noindent Thus, we approximate the pairwise comparison result of $i$ versus $j$
+by the following equation:
 
 \begin{equation}
-A_{ij} = min(score_i - score_j + 1, 9)
+A_{ij} = \text{min}(\mathit{score}_i - \mathit{score}_j + 1, 9)
 \end{equation}
 
 \section{Methodology} \label{ch_methods}
@@ -630,7 +610,9 @@ it as a valuable product, we still consider it in our final list.
 We grade the selected software using a template (Section
 \ref{sec_grading_template}) and a specific empirical method (Section
 \ref{sec_empirical_measurements}). Some technical details for the measurements
-are in Section \ref{sec_technical_details}.
+are in Section \ref{sec_technical_details}.  We do not measure
+\textit{reproducibility} with the grading template, but discuss it with the
+developers by interviews.
 
 \subsubsection{Grading Template} \label{sec_grading_template}
 
@@ -944,7 +926,12 @@ final list.
 
 \subsubsection{Grading Software}
 \label{sec_applying_method_grading}
-Then we followed the steps in Section \ref{sec_grading_software} to measure and grade the software. 27 out of the 29 packages are compatible with two or three different OS such as Windows, macOS, and Linux, and 5 of them are browser-based, making them platform-independent. However, in the interest of time, we only performed the measurements for each project by installing it on one of the platforms, most likely Windows.
+Then we followed the steps in Section \ref{sec_grading_software} to measure and
+grade the software. 27 out of the 29 packages are compatible with two or three
+different OS such as Windows, macOS, and Linux, and 5 of them are browser-based,
+making them platform-independent. However, in the interest of time, we only
+performed the measurements for each project by installing it on one of the
+platforms, most likely Windows.
 
 \subsubsection{Interviews}
 \label{sec_apply_to_mi_interviews}
