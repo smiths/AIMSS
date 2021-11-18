@@ -52,6 +52,26 @@
 \usepackage{multirow}
 \usepackage{pgfplots}
 \usepackage{arydshln}
+\usepackage{paralist}
+
+%% Comments
+\newif\ifcomments\commentstrue
+
+\ifcomments
+\newcommand{\authornote}[3]{\textcolor{#1}{[#3 ---#2]}}
+\newcommand{\todo}[1]{\textcolor{red}{[TODO: #1]}}
+\else
+\newcommand{\authornote}[3]{}
+\newcommand{\todo}[1]{}
+\fi
+
+\newcommand{\wss}[1]{\authornote{blue}{SS}{#1}} %Spencer Smith
+\newcommand{\jc}[1]{\authornote{red}{JC}{#1}} %Jacques Carette
+\newcommand{\mn}[1]{\authornote{magenta}{MN}{#1}} %Mike Noseworthy
+\newcommand{\ad}[1]{\authornote{cyan}{AD}{#1}} %Ao Dong
+
+\newcommand{\notdone}[1]{\textcolor{red}{#1}}
+\newcommand{\done}[1]{\textcolor{black}{#1}}
 
 \journal{Academic Radiology}
 
@@ -296,8 +316,8 @@ the current state of the practice exercise.
 \subsection{Methodology Overview}
 
 We designed a general methodology to assess the state of the practice for SC
-software \citep{SmithEtAl2021}. Details can be found in
-Section~\ref{ch_methods}.  This methodology builds off prior work to assess the
+software \citep{SmithEtAl2021}. Details can be found in Section~\ref{ch_methods}
+and in \citep{Dong2021}.  This methodology builds off prior work to assess the
 state of the practice for such domains as Geographic Information Systems
 \citep{smith2018state}, Mesh Generators \citep{smith2016state}, Seismology
 software \citep{Smith2018Seismology}, and Statistical software for psychology
@@ -495,115 +515,96 @@ A_{ij} = \text{min}(\mathit{score}_i - \mathit{score}_j + 1, 9)
 
 \section{Methodology} \label{ch_methods}
 
-We designed a general process for evaluating the state of the practice of
-domain-specific SC software, that we instantiate for a specific scientific
-domain.
-
-Our method involves four steps:
-\begin{enumerate}
-\item choosing a software domain (Section \ref{sec_domain_selection});
-\item collecting and filtering software packages (Section
-\ref{sec_software_selection});
-\item grading the selected software (Section \ref{sec_grading_software});
-\item interviewing development teams for further information (Section
-\ref{sec_interview_methods}).
-\end{enumerate}
-
-\noindent Section \ref{sec_applying_method} presents an example of how we
-applied the method on the MI domain.
-
-\subsection{Domain Selection} \label{sec_domain_selection}
-
-Our methods are generic for any SC software, but they need to be applied to a
-specific domain. When choosing a candidate domain, we prefer one with a large
-number of active OSS. The reason is that we aim to finalize a list of 30
-software packages \citep{SmithEtAl2021} after the screening step. For example, we
-remove the ones without recent updates or specific functions. Besides, we prefer
-OSS projects because our grading method requires access to the code. In
-addition, we prefer a domain with an active community developing and using the
-software. As a result, it is easier to invite enough developers for interviews.
-
-We prefer 30 software packages providing similar functions or falling into
-different sub-groups depending on our research purpose. So the domain needs to
-have enough candidates in one sub-group or enough sub-groups to cross-compare.
-
-We also prefer domains in which our team has expertise. We invite domain experts
-to join and support our projects. They help us in many aspects, such as vetting
-the software list and interview questions.
-
-\subsection{Software Product Selection} \label{sec_software_selection}
-
-The process of selecting software packages contains two steps: i) identify
-software candidates in the chosen domain, ii) filter the list according to our
-needs \citep{SmithEtAl2021}.
-
-\subsubsection{Identify Software Candidates} \label{sec_identify_software_candidates}
-
-We start with finding candidate software in publications of the domain. Then, we
-search various websites, such as \hyperlink{https://github.com/}{GitHub},
-\hyperlink{https://swmath.org/}{swMATH} and the Google search results for
-software recommendation articles. We should also include the ones suggested by
-the domain experts \citep{SmithEtAl2021}.
-
-\subsubsection{Filter the Software List} \label{sec_filter_software_list}
-
-The goal is to build a software list with a length of about 30
-\citep{SmithEtAl2021}.
-
-The only ``mandatory'' requirement is that the software must be OSS, as defined
-in Section \ref{sec_open_source_software}. We need this because evaluating some
-software qualities requires the source code.
-
-The other filters are optional, and we consider them according to the number of
-software candidates and the objectives of the research project. We apply them in
-the following priority order:
+We developed a methodology for evaluating the state of the practice of SC
+software \citep{SmithEtAl2021}.  The  methodology can be instantiated for a
+specific domain of scientific software, which in the current case is medical
+imaging software for visualization.  Our methodology involves and engages a
+domain expert partner throughout, as discussed in
+Section~\ref{sec_vet_software_list}.  The four main steps of the methodology are:
 
 \begin{enumerate}
-\item The functions and purpose of the software. An SC domain often contains
-software with various functions and purposes. For example, some MI software
-packages are Tool Kit for developers to use, and some others offer Visualization
-function to end-users. We have two options:
-\begin{itemize}
-\item selecting a set of software with the same major function. In this case, we
-can use the identical process to assess all packages, e.g., same input to
-measure \textit{Robustness}. Also, when we give impression scores to qualities
-such as \textit{Installability} and \textit{Usability}, the results are more
-comparable. Thus, it is more feasible to collect the results and rank the
-software.
-\item selecting software from a set of different sub-groups. For example, we can
-choose 10 MI software from each of the three sub-groups: Visualization, Tool
-Kit, and PACS. The downside: we may need different processes to measure each
-sub-group; it may be less accurate to mix all three sub-groups and rank them
-together. The benefit: we can cross-compare the development processes between
-the sub-groups.
-\end{itemize}
-
-\item The version control tool. The empirical measurement tools listed in
-Section \ref{sec_empirical_measurements} only work on projects using
-\hyperlink{https://git-scm.com/}{Git}, so we prefer software with Git. Some
-manual steps in empirical measurement depend on a few metrics of GitHub, which
-makes projects held on GitHub more favored \citep{SmithEtAl2021}.
-
-\item The age of the software. Some of the OSS projects may experience a lack of
-recent maintenance. So we eliminate packages without recent updates, unless they
-are still popular and highly recommended by the domain users
-\citep{SmithEtAl2021}. We consider a software project as ``alive" if it has any
-update within the last 18 months; otherwise, we mark it as ``dead".
+\item Identify list of representative software packages
+(Section~\ref{sec_software_selection});
+\item Measure (or grade) the selected software (Section~\ref{sec_grading_software});
+\item Interview developers (Section~\ref{sec_interview_methods}).
+\item Answer the research questions (as given in Section~\ref{sec_motivation})
 \end{enumerate}
 
-The order of filters 2 and 3 is flexible. We adjust it according to the number
-of software packages affected by the filters, and the number of ones remaining
-on the list.
+In the sections below we provide additional detail on the above steps, while
+concurrently giving examples of how we applied the methodology to the MI domain.
 
-\subsubsection{Vet the Software List} \label{sec_vet_software_list}
+\subsection{Interaction With Domain Expert} \label{sec_vet_software_list}
 
-Before showing our filtered list to the domain experts, we ask them to list
-their top 10 software in the domain. Then, we cross-compare the two lists and
-discuss the commonality and variability.  In addition, we ask them to vet our
-filtered list. They provide views on whether the list is reasonable. We also use
-their opinions for a filtering process. For example, if a software package is
-not OSS and has had no updates for a long time, but the domain experts identify
-it as a valuable product, we still consider it in our final list.
+The Domain Expert is an important member of the state of the practice assessment
+team. Pitfalls exist if non-experts attempt to acquire an authoritative list of
+software, or try to definitively rank the software. Non-experts have the problem
+that they can only rely on information available on-line, which has the
+following drawbacks:
+\begin{inparaenum}[i)]
+  \item the on-line resources could have false or inaccurate information; and,
+  \item the on-line resources could leave out relevant information that is so
+in-grained with experts that nobody thinks to explicitly record it.
+\end{inparaenum}
+
+Domain experts may be recruited from academia or industry.  The only
+requirements are knowledge of the domain and a willingness to be engaged in the
+assessment process.  The Domain Expert does not have to be a software developer,
+but they should be a user of domain software.  Given that the domain experts are
+likely to be busy people, the measurement process cannot put to much of a burden
+on their time.  For the current assessment, our Domain Expert (and paper
+co-author) is Dr.\ Michael Noseworthy, Professor of Electrical and Computer
+Engineering at McMaster University, Co-Director of the McMaster School of
+Biomedical Engineering, and Director of Medical Imaging Physics and Engineering
+at St. Joseph’s Healthcare, Hamilton, Ontario, Canada.  
+
+In advance of the first meeting with the Domain Expert, the expert is asked to
+create a list of top software packages in the domain.  This is done to help
+the expert get in the right mind set in advance of the meeting.  Moreover,
+by doing the exercise in advance, we avoid the potential pitfall of the expert
+approving the discovered list of software without giving it adequate thought.
+
+The Domain Experts are asked to vet the collected data and analysis.  In
+particular, they are asked to vet the proposed list of software packages and the
+AHP ranking.  These interactions can be done either electronically or with
+in-person (or virtual) meetings.
+
+\subsection{List of Representative Software} \label{sec_software_selection}
+
+We have a two step process for selecting software packages: i) identify
+software candidates in the chosen domain; and, ii) filter the list to remove less relevant members \citep{SmithEtAl2021}.
+
+We initially identified 48 MI candidate software projects from the literature
+\citep{Bjorn2017, Bruhschwein2019, Haak2015}, online articles \citep{Emms2019,
+Hasan2020, Mu2019}, and forum discussions \citep{Samala2014}.  The full list of
+48 packages is available in \citet{Dong2021}.  To reduce the length of the list
+to a manageable number (29 in this case), we filtered the original list as
+follows:
+
+\begin{enumerate}
+
+\item We removed the packages that did not have source code available, such as
+\textit{MicroDicom}, \textit{Aliza}, and \textit{jivex}.
+
+\item We focused on the MI software that provides visualization functions, as
+described in Section~\ref{sec_scope}. We removed seven packages that were
+toolkits or libraries, such as \textit{VTK}, \textit{ITK}, and \textit{dcm4che}.
+We removed another three that were for PACS.
+
+\item We removed \textit{Open Dicom Viewer}, since it has not received any
+updates for a long time (since 2011).
+
+\end{enumerate}
+
+The Domain Expert provided a list of his top 12 software packages.  We compared
+his list to our list of 29.  We found 6 packages were on both lists: \textit{3D
+Slicer}, \textit{Horos}, \textit{ImageJ}, \textit{Fiji}, \textit{MRIcron} (we
+actually use the update version \textit{MRIcroGL}) and \textit{Mango} (we
+actually use the web version \textit{Papaya}).  Six software packages
+(\textit{AFNI}, \textit{FSL}, \textit{Freesurfer}, \textit{Tarquin},
+\textit{Diffusion Toolkit}, and \textit{MRItrix}) were on the Domain Expert
+list, but not on our filtered list.  However, when we examined those packages,
+we found they were out of scope, since their primary function was not
+visualization.  The Domain Expert agreed with our final choice of 29 packages.
 
 \subsection{Grading Software} \label{sec_grading_software}
 
@@ -613,8 +614,6 @@ We grade the selected software using a template (Section
 are in Section \ref{sec_technical_details}.  We do not measure
 \textit{reproducibility} with the grading template, but discuss it with the
 developers by interviews.
-
-\subsubsection{Grading Template} \label{sec_grading_template}
 
 The full grading template can be found in Appendix \ref{ap_grading_template}.
 The template contains 103 questions that we use for grading software products.
@@ -725,8 +724,6 @@ GitHub repository, and the numbers of open and closed pull requests. Section
 \ref{sec_empirical_measurements} presents more details about the empirical
 measurements.
 
-\subsubsection{Empirical Measurements} \label{sec_empirical_measurements}
-
 We use two command-line tools for the empirical measurements. One is
 \textit{GitStats} that generates statistics for git repositories and displays
 outputs in the form of web pages \citep{Gieniusz2019}; the other one is Sloc Cloc
@@ -765,16 +762,26 @@ double-check the \textit{understandability} of the code; if the ratio of open
 versus closed pull requests is high, we pay more attention to the
 \textit{maintainability}.
 
-\subsubsection{Technical Details} \label{sec_technical_details}
-
-To test the software on a ``clean'' system, we create a new virtual machine (VM)
-for each software and only install the necessary dependencies before measuring.
-We make all 30 VMs on the same computer, one at a time, and destroy them after
-measuring.
+As in \citet{SmithEtAl2016}, Virtual machines (VMs) are used to provide an
+optimal testing environments for each package. VMs were used because it is
+easier to start with a fresh environment without having to worry about existing
+libraries and conflicts. Moreover, when the tests are complete the VM can be
+deleted, without any impact on the host operating system. The most significant
+advantage of using VMs is to level the playing field. Every software install
+starts from a clean slate, which removes ``works-on-my-computer'' errors. When
+filling in the measurement template spreadsheet, the the details for each VM
+should be noted, including hypervisor and operating system version.
 
 We spend about two hours grading each package, unless we find technical issues
 and need more time to resolve them. In most of the situation, we finish all the
 measurements for one software on the same day.
+
+Then we followed the steps in Section \ref{sec_grading_software} to measure and
+grade the software. 27 out of the 29 packages are compatible with two or three
+different OS such as Windows, macOS, and Linux, and 5 of them are browser-based,
+making them platform-independent. However, in the interest of time, we only
+performed the measurements for each project by installing it on one of the
+platforms, most likely Windows.
 
 \subsection{Interview Methods} \label{sec_interview_methods}
 
@@ -782,8 +789,6 @@ This section introduces our interview questions (Section
 \ref{sec_interview_questions}), method of selecting interviewees (Section
 \ref{sec_interviewee_selection}), and interview process (Section
 \ref{sec_interview_process}).
-
-\subsubsection{Interview Questions} \label{sec_interview_questions}
 
 We designed a list of 20 questions to guide our interviews, which can be found
 in Section \ref{ch_interview} and Appendix \ref{ap_interview}.
@@ -800,8 +805,6 @@ The interviews are semi-structured based on the question list; we ask follow-up
 questions when necessary. Based on our experience, the interviewees usually
 bring up some exciting ideas that we did not expect, and it is worth expanding
 on these topics.
-
-\subsubsection{Interviewee Selection} \label{sec_interviewee_selection}
 
 For a software list with a length of roughly 30, we aim to interview about ten
 development teams. Interviewing multiple individuals from each team gives us
@@ -822,119 +825,12 @@ to our ethics approval, such as the one in Appendix \ref{ap_ethics}. For
 example, we ask for participants' consent before interviewing them, recording
 the conversation, or including it in our report.
 
-\subsubsection{Interview Process} \label{sec_interview_process}
-
 Before contacting any interviewee candidate, we need to receive ethics clearance
 from the McMaster University Research Ethics Board. Since the members of the
 development teams are usually around the world, we organize these interviews as
 virtual meetings online with \hyperlink{https://zoom.us/}{Zoom}. After receiving
 consent from the interviewees, we also record and transcribe our discussions.
 
-\subsection{Applying the Method to MI} \label{sec_applying_method}
-
-This section shows an overview of applying our method to the MI domain.
-
-\subsubsection{Domain Selection}
-
-Based on the principles in Section \ref{sec_domain_selection}, we selected the
-MI domain and the sub-group of software with the Visualization function shown in
-Figure \ref{fig_mi_functions}. We also included Dr. Michael Noseworthy, a
-professor of Electrical and Computer Engineering at McMaster University,
-Co-Director of the McMaster School of Biomedical Engineering, and Director of
-Medical Imaging Physics and Engineering at St. Joseph’s Healthcare, and some of
-his students as the MI domain experts in our team.
-
-\subsubsection{Software Product Selection} \label{sec_mi_software_selection}
-
-By using the method in Section \ref{sec_identify_software_candidates}, we
-identified 48 MI software projects as the candidates from publications
-\citep{Bjorn2017} \citep{Bruhschwein2019} \citep{Haak2015}, online articles related
-to the domain \citep{Emms2019} \citep{Hasan2020} \citep{Mu2019}, forum discussions
-related to the domain \citep{Samala2014}, etc. Appendix
-\ref{ap_list_before_filtering} shows all 48 software packages.
-
-Guided by the method in Section \ref{sec_filter_software_list}, we filtered the
-list with a process as follows:
-
-\begin{enumerate}
-
-\item Among them, there were eight that we could not find their source code,
-such as \textit{MicroDicom}, \textit{Aliza}, and \textit{jivex}. These packages
-are likely to be freeware defined in Section \ref{sec_freeware} and not OSS. So
-following guidelines in Section \ref{sec_filter_software_list} we removed them
-from the list.
-
-\item Next, we focused on the MI software providing Visualization functions, as
-described in Section \ref{sec_scope}. Seven of the software on the list were
-Tool Kits or libraries for other software to use as dependencies, but not for
-end-users to view medical images, such as \textit{VTK}, \textit{ITK}, and
-\textit{dcm4che}; another three were PACS. We also eliminated these from the
-list.
-
-\item Finally, we removed \textit{Open Dicom Viewer} from the list because it
-had not received any updates for a long time (since 2011). After that, only
-\textit{MatrixUser} and \textit{AMIDE} were considered as ``dead". However, both
-of them had much more recent updates (after 2017) than \textit{Open Dicom
-Viewer}.
-
-\end{enumerate}
-
-We still preferred projects using git and GitHub and being updated recently, but
-did not apply this filter since packages were already below 30. Even without
-this filter, 27 out of the 29 software packages on the filtered list used git,
-and 24 chose GitHub.
-
-Following the process in Section \ref{sec_vet_software_list}, our domain experts
-provided a list of top software that contains 12 software products (Table
-\ref{tab_top_software_experts}). We compared two lists and found six common
-ones.
-
-\begin{table}[ht]
-\centering
-\begin{tabular}{ll}
-\hline
-Software & On both lists \\ \hline
-3D Slicer & X \\
-Horos & X \\
-ImageJ & X \\
-Fiji & X \\
-AFNI &  \\
-FSL &  \\
-Freesurfer &  \\
-Mricron & X \\
-Mango & X \\
-Tarquin &  \\
-Diffusion Toolkit &  \\
-MRItrix &  \\ \hline
-\end{tabular}
-\caption{\label{tab_top_software_experts}Top software by the MI domain experts}
-\end{table}
-
-We included \textit{Mango} in the initial list, but removed it because it was
-not OSS. However, we kept \textit{Papaya}, a the web version of \textit{Mango}.
-Instead of \textit{MRIcron}, we chose \textit{MRIcroGL}, because
-\textit{MRIcron} development had moved to \textit{MRIcroGL} \citep{Rorden2021b}.
-
-Six software packages on the domain experts' list were not on our filtered list.
-We believed their primary function was Analysis mentioned in Section
-\ref{sec_scope}. Thus, we did not include them in our final list.
-
-After vetting our filtered list, the domain experts believed it was reasonable
-and did not identify any problem. Thus, as shown in Appendix
-\ref{ap_list_before_filtering}, eventually, we had 29 software products on the
-final list. 
-
-\subsubsection{Grading Software}
-\label{sec_applying_method_grading}
-Then we followed the steps in Section \ref{sec_grading_software} to measure and
-grade the software. 27 out of the 29 packages are compatible with two or three
-different OS such as Windows, macOS, and Linux, and 5 of them are browser-based,
-making them platform-independent. However, in the interest of time, we only
-performed the measurements for each project by installing it on one of the
-platforms, most likely Windows.
-
-\subsubsection{Interviews}
-\label{sec_apply_to_mi_interviews}
 We received ethics clearance from the McMaster University Research Ethics Board
 (Appendix \ref{ap_ethics}). Going through the interview process in Section
 \ref{sec_interview_methods}, we contacted all of the 29 teams. Members from
