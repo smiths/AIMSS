@@ -18,7 +18,8 @@
 %% with harvard style bibliographic references
 
 %\documentclass[preprint,12pt,authoryear]{elsarticle}
-\documentclass[3p, 12pt,authoryear]{elsarticle}
+%\documentclass[3p, 12pt,authoryear]{elsarticle}
+\documentclass[final, 3p, times, authoryear]{elsarticle}
 
 %% Use the option review to obtain double line spacing
 %% \documentclass[authoryear,preprint,review,12pt]{elsarticle}
@@ -396,8 +397,8 @@ called ``ilities.''  Below we list the 10 qualities of interest for this study,
 as summarized in \citet{SmithEtAl2021-QDef}.  The order of the qualities follows
 the order used in \cite{GhezziEtAl2003}, which puts related qualities (like
 correctness and reliability) together.  Moreover, the order is roughly the same
-as the order qualities are considered in practice.  [*** To be completed - not
-currently in sync with QDef paper, QDef paper not completely done ***]
+as the order qualities are considered in practice.  \wss{To be completed - not
+currently in sync with QDef paper, QDef paper not completely done.}
 
 \begin{itemize}
 	\item \textbf{Installability} The effort required for the installation
@@ -490,7 +491,7 @@ priority vector in this case ranks the $n$ alternatives for criterion $i$.
 In this project, the first nine software qualities mentioned in Section
 \ref{sec_software_quality} are the criteria ($m = 9$), while 29 software
 packages ($n = 29$) are compared for each of the $m$ criteria. The software are
-evaluated with the grading template in Section~\ref{sec_grading_template}, which
+evaluated with the grading template in Section~\ref{sec_grading_software}, which
 includes a subjective score from $1$ to $10$ for each quality for each package.
 For each quality, for a pair of packages $i$ and $j$, with $\mathit{score}_i >=
 \mathit{score}_j$, the difference between the two scores is $\mathit{diff_{ij}}
@@ -570,8 +571,9 @@ in-person (or virtual) meetings.
 
 \subsection{List of Representative Software} \label{sec_software_selection}
 
-We have a two step process for selecting software packages: i) identify
-software candidates in the chosen domain; and, ii) filter the list to remove less relevant members \citep{SmithEtAl2021}.
+We have a two step process for selecting software packages: i) identify software
+candidates in the chosen domain; and, ii) filter the list to remove less
+relevant members \citep{SmithEtAl2021}.
 
 We initially identified 48 MI candidate software projects from the literature
 \citep{Bjorn2017, Bruhschwein2019, Haak2015}, online articles \citep{Emms2019,
@@ -608,17 +610,18 @@ visualization.  The Domain Expert agreed with our final choice of 29 packages.
 
 \subsection{Grading Software} \label{sec_grading_software}
 
-We grade the selected software using a template (Section
-\ref{sec_grading_template}) and a specific empirical method (Section
-\ref{sec_empirical_measurements}). Some technical details for the measurements
-are in Section \ref{sec_technical_details}.  We do not measure
-\textit{reproducibility} with the grading template, but discuss it with the
-developers by interviews.
-
-The full grading template can be found in Appendix \ref{ap_grading_template}.
-The template contains 103 questions that we use for grading software products.
-Figure \ref{fg_grading_template_example} shows an example of this grading
-template.
+We grade the selected software using the measurement template summarized
+in~\citet{SmithEtAl2021}.  The template summarizes measures of the qualities
+listed in Section~\ref{sec_software_quality}, except for reproducibility, which
+is assessed through the developer interviews
+(Section~\ref{sec_interview_methods}). For each software package, we fill-in the
+template questions. This process can take between 1 to 4 hours for each package.
+Project developers can be contacted for help regarding installation, if
+necessary, but a cap of about 2 hours is imposed on the
+installation process, to keep the overall measurement time feasible. An excerpt
+of the spreadsheet is shown in Figure~\ref{fg_grading_template_example}.
+\wss{The Figure should be updated to be easier to read.}  A column is included
+to for each measured software package.
 
 \begin{figure}[ht]
 \includegraphics[scale=0.42]{figures/template.png}
@@ -626,109 +629,119 @@ template.
 \label{fg_grading_template_example}
 \end{figure}
 
-We use the first section of the template to collect general information, such as
-the name, purpose, platform, programming language, publications about the
-software, the first release and the most recent change date, website, source
-code repository of the product, etc. Information in this section helps us
-understand the projects better and may be helpful for further analysis, but it
-does not directly affect the grading scores.
+The full template consists of 108 questions categorized under 9 qualities.  The
+questions were designed to be unambiguous, quantifiable and measurable with
+limited time and domain knowledge. The measures are grouped under headings for
+each quality, and one for summary information. The summary information (shown in
+Figure~\ref{fg_grading_template_example}) is the first section of the template.
+This section summarizes general information, such as the software name, purpose,
+platform, programming language, publications about the software, the first
+release and the most recent change date, website, source code repository of the
+product, number of developers, etc.  We follow the definitions given by
+\citet{GewaltigAndCannon2012} for the software categories.  Public means
+software intended for public use.  Private means software aimed only at a
+specific group, while the concept category is used for software written simply
+to demonstrate algorithms or concepts. The three categories of development
+models are (open source, free-ware and commercial) are discussed in
+Section~\ref{sec_software_categories}.  Information in the summary section sets
+the context for the project, but it does not directly affect the grading scores.
 
-We designed the following nine sections in the template for the nine software
-qualities mentioned in Section~\ref{sec_software_quality}. For each quality, we
-ask several questions and the typical answers are among the collection of
-``yes'', ``no'', ``n/a'', ``unclear'', a number, a string, a date, a set of
-strings, etc. Each quality needs an overall score between 1 and 10 based on all
-the previous questions. For some qualities, we perform surface measurements,
-which allow us to measure all packages with reasonable efforts. The surface
-measurements reveal some traits of a underlying quality, but may not fully
-represent it.
+For measuring each quality, we ask several questions and the typical answers are
+among the collection of ``yes'', ``no'', ``n/a'', ``unclear'', a number, a
+string, a date, a set of strings, etc. Each quality is assigned an overall
+score, between 1 and 10, based on all the previous questions.  Several of the
+qualities use the word ``surface''.  This is to highlight that, for these
+qualities in particular, the best that we can do is a shallow measure.  For
+instance, we are not currently doing any experiments to measure usability.
+Instead, we are looking for an indication that usability was considered by the
+developers.  We do this by looking for cues in the documentation, like a getting
+started manual, a user manual and documentation of expected user
+characteristics.  Below is a summary of how each quality is measured.
 
 \begin{itemize}
 
-\item \textbf{Installability} We check the existence and quality of installation
-instructions. The user experience is also an important factor, such as the ease
-to follow the instructions, number of steps, automation tools, and the
-prerequisite steps for the installation. If any problem interrupts the process
-of installation or uninstallation, we give a lower score to this quality. We
-also record the Operating System (OS) for the installation test and whether we
-can verify the installation.
+\item \textbf{Installability} We assess the following: 
+\begin{inparaenum}[i)]
+    \item existence and quality of installation instructions;
+    \item the quality of the user experience via the ease of following
+    instructions, number of steps, automation tools; and,
+    \item whether there is a means to verify the installation.
+\end{inparaenum}
+If any problem interrupts the process of installation or uninstallation, we give
+a lower score. We also record the Operating System (OS) used for the
+installation test.
 
-\item \textbf{Correctness \& Verifiability} For \textit{correctness}, we check
-the projects to identify the techniques to ensure this quality, such as literate
-programming, automated testing, symbolic execution, model checking, unit tests,
-etc. We also examine whether the projects use continuous integration and
-continuous delivery (CI/CD). For \textit{verifiability}, we go through the
-documents of the projects to check the requirements specifications, theory
-manuals, and getting started tutorials. If a getting started tutorial exists and
-provides expected results, we follow it and check if the outputs match.
+\item \textbf{Correctness \& Verifiability} We check each project to identify
+any techniques used to ensure this quality, such as literate programming,
+automated testing, symbolic execution, model checking, unit tests, etc. We also
+examine whether the projects use continuous integration and continuous delivery
+(CI/CD). For verifiability, we go through the documents of the projects to check
+for the presence of requirements specifications, theory manuals, and getting
+started tutorials. If a getting started tutorial exists and provides expected
+results, we follow it to check the correctness of the output.
 
-\item \textbf{Surface Reliability} We check whether the software breaks during
-the installation and the operations following a getting started tutorials,
-whether there are descriptive error messages, and if we can recover the process
-after an error. We use the software to load damaged images during the assessment
-to \textit{surface robustness}, and lower its score for \textit{surface
-reliability} if a software product ``break" in this process.
+\item \textbf{Surface Reliability} We check the following: 
+\begin{inparaenum}
+    \item whether the software breaks during installation;
+    \item the operation of the software following the getting started tutorial (if present);
+    \item whether the error messages are descriptive; and,
+    \item whether we can recover the process after an error.
+\end{inparaenum}
 
 \item \textbf{Surface Robustness} We check how the software handles
 unexpected/unanticipated input. For example, we prepare broken image files for
-MI software packages with the function to load image files. We use a text file
-(.txt) with a modified extension name (.dcm) as an unexpected/unanticipated
-input. We load a few correct input files to ensure the function is working
-correctly before testing with the unexpected/unanticipated ones.
+MI software packages that load image files. We use a text file (.txt) with a
+modified extension name (.dcm) as an unexpected/unanticipated input. We load a
+few correct input files to ensure the function is working correctly before
+testing the unexpected/unanticipated ones.
 
-\item \textbf{Surface Usability} We examine the documentation of the projects,
-and we consider software with a getting started tutorial and a user manual
-easier to use. Meanwhile, we check if users have any channels to get support. We
-also record our impressions and user experiences when testing the software.
-Easy-to-use graphical user interfaces give us a better experience, which leads
-to better scores.
+\item \textbf{Surface Usability} We examine the project's documentation,
+checking for the presence of getting started tutorials and/or a user manual. We
+also check whether users have channels to request support, such as an e-mail
+address, or issue tracker. Our impressions of usability are based on our
+interaction with the software during testing.  In general, an easy-to-use
+graphical user interface scores higher.
 
-\item \textbf{Maintainability} We search the projects' documents and identify
-the process of contributing and reviewing code. We believe that the artifacts of
-a project - including source code, documents, building scripts, etc. - can
-significantly affect its  \textit{maintainability}. Thus we check each project
-for its artifacts, such as API documentation, bug tracker, release notes, test
-cases, build files, version control, etc. We also check the tools supporting
-issue tracking and version control, the percentages of closed issues, and the
-proportion of comment lines in code.
+\item \textbf{Maintainability} We believe that the artifacts of a project,
+including source code, documents, and building scripts, significantly influence
+its maintainability. Thus we check each project for the presence of such
+artifacts as API documentation, bug tracker information, release notes, test
+cases, and build files. We also check for the use of tools supporting issue
+tracking and version control, the percentages of closed issues, and the
+proportion of comment lines in the code.
 
 \item \textbf{Reusability} We count the total number of code files for each
-project. Projects with a large number of components provide more choices to
-reuse. Furthermore, well-modularized code, which tends to have smaller parts in
-separated files, is typically easier to reuse. Thus, we consider the projects
-with more code files and less code lines per file to be more reusable. We use a
-command-line tool \textit{scc} to count the number of  text-based files and LOC
-for all projects. We also decide that the projects with API documentation can
-deliver better \textit{Reusability}.
+project. Projects with a large number of components potentially provide more
+choices for reuse. Furthermore, well-modularized code, which tends to have
+smaller parts in separate files, is typically easier to reuse. Thus, we consider
+the projects with more code files and less Lines of Code (LOC) per file to be
+more reusable. We also consider projects with API documentation as delivering
+better reusability.
 
-\item \textbf{Surface Understandability} We randomly examine 10 code files. We
-check the code’s style within each file, such as whether the identifiers,
-parameters, indentation, and formatting are consistent, whether the constants
-(other than 0 and 1) are hardcoded, and whether the developers modularized the
-code. We also check the descriptive information for the code, such as documents
-mentioning the coding standard, the comments in the code, and the descriptions
-or links for algorithms in the code. 
+\item \textbf{Surface Understandability} Given that time is a constraint, we
+cannot look at all code files for each project; therefore, we randomly examine
+10 code files for their understandability. We check the code’s style within each
+file, such as whether the identifiers, parameters, indentation, and formatting
+are consistent, whether the constants (other than 0 and 1) are hardcoded, and
+whether the code is modularized. We also check the descriptive information for
+the code, such as documents mentioning the coding standard, the comments in the
+code, and the descriptions or links for details on algorithms in the code. 
 
 \item \textbf{Visibility/Transparency} To measure this quality, we check the
-existing documents to find out whether the software development process and
+existing documents to find whether the software development process and
 current status of a project are visible and transparent. We examine the
 development process, current status, development environment, and release notes
-for each project. If any information is missing or poorly conveyed, the
-\textit{visibility/transparency} will be lower.
+for each project.
 \end{itemize}
 
-For some qualities, the empirical measurements also affect the score. We use
-tools to extract information from the source code repositories. For projects
-held on GitHub, we manually collect additional metrics, such as the stars of the
-GitHub repository, and the numbers of open and closed pull requests. Section
-\ref{sec_empirical_measurements} presents more details about the empirical
-measurements.
-
-We use two command-line tools for the empirical measurements. One is
-\textit{GitStats} that generates statistics for git repositories and displays
-outputs in the form of web pages \citep{Gieniusz2019}; the other one is Sloc Cloc
-and Code (as known as \textit{scc}) \citep{Boyter2021}, aiming to count the lines
-of code, comments, etc.
+As part of filling in the measurement template, we use freeware tools to collect
+repository related data. \href{https://github.com/tomgi/git_stats}{GitStats}
+\citep{Gieniusz2019} is used to measure the number of binary files as well as
+the number of added and deleted lines in a repository. This tool is also used to
+measure the number of commits over different intervals of time.
+\href{https://github.com/boyter/scc}{Sloc Cloc and Code (scc)}
+\citep{Boyter2021} is used to measure the number of text based files as well as
+the number of total, code, comment, and blank lines in a repository.
 
 Both tools measure the number of text-based files in a git repository and lines
 of text in these files. Based on our experience, most text-based files in a
@@ -739,30 +752,29 @@ lines of programming code. The two tools usually generate similar but not
 identical results. From our understanding, this minor difference is due to the
 different techniques to detect if a file is text-based or binary.
 
-Additionally, we manually collect information for projects held on GitHub, such
-as the numbers of stars, forks, people watching this repository, open pull
-requests, closed pull requests, and the number of months a repository has been
+For projects on GitHub we manually collect additional information, such as the
+numbers of stars, forks, people watching this repository, and open pull requests
 on GitHub. A git repository can have a creation date much earlier than the first
-day on GitHub. For example, the developers created the git repository of
-\textit{3D Slicer} in 2002, but did not upload a copy of it to GitHub until
-2020. We get the creation date of the GitHub copy by using API
-\textit{https://api.github.com/repos/{:owner}/{:repository}} (e.g.,
-\hyperlink{https://api.github.com/repos/slicer/slicer}{https://api.github.com/repos/slicer/slicer}).
-In the response, the value of ``created\_at" is what we want. The number of
-months a repository has been on GitHub helps us understand the average change of
-metrics over time, e.g., the average new stars per month. 
+pull, closed pull requests, and the number of months a repository has been on
+GitHub. For example, the developers created the git repository for \textit{3D
+Slicer} in 2002, but did not upload a copy of it to GitHub until 2020. Some
+GitHub data can be found using its the GitHub Application Program Interface
+(API) via the following url:
+\textit{https://api.github.com/repos/[owner]/[repository]} where [owner] and
+[repository] are replaced by the repo specific values. The number of months a
+repository has been on GitHub helps us understand the average change of metrics
+over time, like the average new stars per month. 
 
-These empirical measurements help us from two aspects. Firstly, they help us
-with getting a project overview faster and more accurately. For example, the
-number of commits over the last 12 months shows how active this project has
-been, and the number of stars and forks may reveal its popularity. Secondly, the
-results may affect our decisions regarding the grading scores for some software
-qualities. For example, if the percentage of comment lines is low, we
-double-check the \textit{understandability} of the code; if the ratio of open
-versus closed pull requests is high, we pay more attention to the
-\textit{maintainability}.
+The repository measures help us in wo ways. Firstly, they help us with get a
+fast and accurate project overview. For example, the number of commits over the
+last 12 months shows how active a project has been, and the number of stars and
+forks may reveal its popularity. Secondly, the results may affect our decisions
+regarding the grading scores for some software qualities. For example, if the
+percentage of comment lines is low, we double-check the
+\textit{understandability} of the code; if the ratio of open versus closed pull
+requests is high, we pay more attention to \textit{maintainability}.
 
-As in \citet{SmithEtAl2016}, Virtual machines (VMs) are used to provide an
+As in \citet{SmithEtAl2016}, Virtual machines (VMs) were used to provide an
 optimal testing environments for each package. VMs were used because it is
 easier to start with a fresh environment without having to worry about existing
 libraries and conflicts. Moreover, when the tests are complete the VM can be
@@ -772,107 +784,59 @@ starts from a clean slate, which removes ``works-on-my-computer'' errors. When
 filling in the measurement template spreadsheet, the the details for each VM
 should be noted, including hypervisor and operating system version.
 
-We spend about two hours grading each package, unless we find technical issues
-and need more time to resolve them. In most of the situation, we finish all the
-measurements for one software on the same day.
-
-Then we followed the steps in Section \ref{sec_grading_software} to measure and
-grade the software. 27 out of the 29 packages are compatible with two or three
-different OS such as Windows, macOS, and Linux, and 5 of them are browser-based,
-making them platform-independent. However, in the interest of time, we only
-performed the measurements for each project by installing it on one of the
-platforms, most likely Windows.
+When grading the software, we found 27 out of the 29 packages are compatible
+with two or three different OS such as Windows, macOS, and Linux, and 5 of them
+are browser-based, making them platform-independent. However, in the interest of
+time, we only performed the measurements for each project by installing it on
+one of the platforms.  When it was an option, we selected Windows as the host
+OS.
 
 \subsection{Interview Methods} \label{sec_interview_methods}
 
-This section introduces our interview questions (Section
-\ref{sec_interview_questions}), method of selecting interviewees (Section
-\ref{sec_interviewee_selection}), and interview process (Section
-\ref{sec_interview_process}).
-
 We designed a list of 20 questions to guide our interviews, which can be found
-in Section \ref{ch_interview} and Appendix \ref{ap_interview}.
-
-Some questions are about the background of the software, the development teams,
-the interviewees, and how they organize the projects. We also ask about their
-understandings of the users. Some questions focus on the current and past
-difficulties, and the solutions the team has found or will try. We also discuss
-the importance and current situations of documentation. A few questions are
-about specific software qualities, such as \textit{maintainability},
-\textit{understandability}, \textit{usability}, and \textit{reproducibility}.
-
-The interviews are semi-structured based on the question list; we ask follow-up
+in \citet{SmithEtAl2021}. Some questions are about the background of
+the software, the development teams, the interviewees, and how they organize the
+projects. We also ask about the developer's understandings of the users. Some
+questions focus on the current and past difficulties, and the solutions the team
+has found, or will try. We also discuss the importance and current situations of
+documentation. A few questions are about specific software qualities, such as
+maintainability, understandability, usability, and reproducibility. The
+interviews are semi-structured based on the question list; we ask follow-up
 questions when necessary. Based on our experience, the interviewees usually
 bring up some exciting ideas that we did not expect, and it is worth expanding
 on these topics.
 
-For a software list with a length of roughly 30, we aim to interview about ten
-development teams. Interviewing multiple individuals from each team gives us
-more comprehensive information, but a single engineer well-knowing the project
-is also sufficient.
-
-Ideally, we select projects after the grading measurements and prefer the ones
-with higher overall scores. However, if we do not find enough participants, we
-reach all teams on the list. As mentioned in Section
-\ref{sec_apply_to_mi_interviews}, when we applied this process to the MI domain,
-we eventually contacted all teams.
-
-We try to find the contacts of the teams on the projects' websites, such as the
-official web pages, repositories, publications, and bio pages of the teams'
-institutions. Then, we send at most two emails to one contact asking for its
-participation before receiving any replies. We operate the invitation according
-to our ethics approval, such as the one in Appendix \ref{ap_ethics}. For
-example, we ask for participants' consent before interviewing them, recording
-the conversation, or including it in our report.
-
-Before contacting any interviewee candidate, we need to receive ethics clearance
-from the McMaster University Research Ethics Board. Since the members of the
-development teams are usually around the world, we organize these interviews as
-virtual meetings online with \hyperlink{https://zoom.us/}{Zoom}. After receiving
-consent from the interviewees, we also record and transcribe our discussions.
-
-We received ethics clearance from the McMaster University Research Ethics Board
-(Appendix \ref{ap_ethics}). Going through the interview process in Section
-\ref{sec_interview_methods}, we contacted all of the 29 teams. Members from
-eight teams responded and agreed to participate. As a result, we interviewed
-nine developers and architects from the eight teams.
+We sent out interview requests to all 29 projects, with 9 projects responding.
+In some cases multiple developers from the same project agreed to be
+interviewed. We found contact information from projects websites, code
+repository, publications, and from biographic pages at the teams’ institutions.
+Meetings were held on-line using either Zoom or Teams, which facilitates
+recording and automatic transcription of the meetings.  The interview process
+presented here was approved by the McMaster University Research Ethics Board
+under the application number 
+\href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/MACREM/Application.pdf}
+{MREB\#: 5219}.
 
 \section{Measurement Results} \label{ch_results}
 
-As discussed in Section~\ref{sec_grading_software}, we use a grading template
-and a empirical method to measure the selected software. We applied this step to
-the MI domain (Section~\ref{sec_applying_method_grading}). This section shows
-the summary of the measurement results. The detailed data can be found in the
-repository
-\hyperlink{https://data.mendeley.com/datasets/k3pcdvdzj2/1}{https://data.mendeley.com/datasets/k3pcdvdzj2/1}.
-This section contains part of the answers to \hyperlink{rq5}{RQ5}.
-
 Table \ref{tab_final_list} shows the 29 software packages that we measured,
-along with some summary data collected in the year 2020. As mentioned in Section
-\ref{sec_grading_template}, we used \textit{scc} (Section
-\ref{sec_empirical_measurements}) to count the Lines of Code (LOC), excluding
-the comment and blank lines. We arrange the items in the descending order of the
-LOC. We found the initial release dates (Rlsd) in their documents for most
+along with summary data collected in the year 2020. We arrange the items in
+descending order of LOC. We found the initial release dates (Rlsd) for most
 projects and marked the two unknown dates with ``?". We used the date of the
-latest change to each code repository to decide the latest update. We found out
-funding information (Fnd) for only eight projects.
-
-We counted the number of contributors (NOC). We considered anyone who made at
-least one accepted commit to the source code as a contributor. Thus, the NOC is
-not usually the same as the number of long-term members. Many of these projects
-received change requests and code from the community, such as pull requests and
-git commits on GitHub.
-
-Table \ref{tab_final_list} also shows the supported OS for each software
-package. Twenty-five of them could work on all three OSs: Windows (W), macOS
-(M), and Linux (L). However, there was a significant difference in the
-philosophy to achieve cross-platform compatibility. Most of them were native
-software products, but five were naturally platform-independent web
-applications, as shown in column ``Web".
+latest change to each code repository to decide the latest update. We found
+funding information (Fnd) for only eight projects.  For the number of
+contributors (NOC) we considered anyone who made at least one accepted commit as
+a contributor. The NOC is not usually the same as the number of long-term
+project members, since many projects received change requests and code from the
+community.  For the supported OS, 25 packages work on all three OSs: Windows
+(W), macOS (M), and Linux (L). Although the usual approach to cross-platform
+compatibility was to work natively on multiple OSes, five projects achieved
+platform-independence via web applications. The full measurement data for all
+packages is available in \citet{Dong2021-Data}.
 
 \begin{table}[ht]
 \centering
-\begin{tabular}{llllllllll}
+\begin{tabular}{p{6cm}lllllllll}
 \hline
 \multirow{2}{*}{Software} & \multirow{2}{*}{Rlsd} & \multirow{2}{*}{Updated} & \multirow{2}{*}{Fnd} & \multirow{2}{*}{NOC} & \multirow{2}{*}{LOC} & \multicolumn{3}{c}{OS} & \multirow{2}{*}{Web} \\ \cline{7-9}
  &  &  &  &  &  & W & M & L &  \\ \hline
@@ -909,63 +873,37 @@ DicomBrowser \citep{Archie2012} & 2012 & 2020-08 &  & 3 & 5505 & X & X & X &  \\
 \caption{\label{tab_final_list}Final software list}
 \end{table}
 
-Most of the projects used more than one programming language, including a
-primary language that the developers used the most. Figure \ref{fig_language}
-shows the primary languages versus the number of projects using them.
+Figure \ref{fig_language} shows the primary languages versus the number of
+projects using them.  The primary language is the language used for the majority
+of the project's code; in most cases projects also use other languages.  The
+most popular language is C++, with almost 40\% of projects (11 of 29).  The two
+least popular choices are Pascal and  Matlab, with around 3\% of projects each
+(1 of 29).
 
-% temporarily comment out
-
-% \begin{figure}[ht]
-% \centering
-% \begin{tikzpicture}
-% \centering
-% \begin{axis}
-% [
-% ybar,
-% height=8cm,
-% width=12cm,
-% ylabel={Number of projects},
-% xlabel={\ Primary language},
-% symbolic x coords={C++, JavaScript, Java, C, Python, Pascal, Matlab},
-% xtick=data,
-% nodes near coords,
-% nodes near coords align={vertical},
-% ]
-% \addplot[black,fill=blue!55!black] coordinates {(C++,11) (JavaScript,6) (Java,4) (C,3) (Python,3) (Pascal,1) (Matlab,1) };
-% \end{axis}  
-% \end{tikzpicture}
-% \caption{\label{fig_language}Primary languages versus number of projects using them}
-% \end{figure}
-
-We failed to install \textit{DICOM Viewer}, so we could not test its
-\textit{surface reliability} and \textit{surface robustness}. We kept this
-software on our list because the other seven qualities do not rely on a
-successful installation. Besides, the \textit{DICOM Viewer} team built it as a
-plugin software for NextCloud
-(\hyperlink{https://apps.nextcloud.com/}{https://apps.nextcloud.com/}) platform,
-which was a unique choice we had not seen before. We wanted to keep it to enrich
-the diversity.
+\begin{figure}[ht]
+\centering
+\includegraphics{figures/PrimaryLanguages.pdf}
+\centering
+\caption{\label{fig_language}Primary languages versus number of projects}
+\end{figure}
 
 \subsection{Installability} \label{sec_result_installability}
 
-Figure \ref{fg_installability_scores} lists the scores of
-\textit{installability}.
+Figure \ref{fg_installability_scores} lists the installability scores.  We found
+installation instructions for 16 projects. Among the ones without instructions,
+\textit{BioImage Suite Web} and \textit{Slice:Drop} do not need installation,
+since they are web applications. Installing 10 of the projects required extra
+dependencies. Five of them are the web applications (as shown in
+Table~\ref{tab_final_list}) and depended on a browser; \textit{dwv},
+\textit{OHIF Viewer}, and \textit{GATE} needed extra dependencies to build;
+\textit{ImageJ} and	\textit{Fiji} needed an unzip tool; \textit{MatrixUser} was
+based on Matlab; \textit{DICOM Viewer} needed to work on a Nextcloud platform.
 
 \begin{figure}[ht]
 \includegraphics[scale=0.38]{figures/installability_scores.png}
 \caption{AHP installability scores}
 \label{fg_installability_scores}
 \end{figure}
-
-We found installation instructions for 16 projects. Among the ones without
-instructions, \textit{BioImage Suite Web} and \textit{Slice:Drop} are web
-applications with online versions to use, thus they do not need installation.
-Installing 10 of the projects required extra dependencies. Five of them are the
-web applications in Table \ref{tab_final_list}, and depended on a browser;
-\textit{dwv}, \textit{OHIF Viewer}, and \textit{GATE} needed extra dependencies
-to build; \textit{ImageJ} and	\textit{Fiji} needed an unzip tool;
-\textit{MatrixUser} was based on Matlab; \textit{DICOM Viewer} needed to work on
-a Nextcloud platform.
 
 \textit{3D Slicer} has the highest score because it had easy to follow
 installation instructions, and the installation processes were automated, fast,
@@ -977,68 +915,69 @@ no trouble installing them, such as \textit{INVESALIUS 3}, \textit{Gwyddion},
 the understandability of the instructions, installation steps, and user
 experience. Since \textit{BioImage Suite Web} and \textit{Slice:Drop} needed no
 installation, we gave them higher scores. \textit{BioImage Suite Web} also
-provided an option to download cache to local for offline usage, which was easy
+provided an option to download cache for offline usage, which was easy
 to apply.
 
-\textit{dwv}, \textit{GATE}, and \textit{DICOM Viewer} showed severe problems.
-We could not install them. We spent a reasonable amount of time on these
-problems, then considered them as major obstacles for normal users if we could
-not figure out any solutions. We suspect that only a part of the users faced the
-same problems, and given a lot of time, we might be able to find solutions.
-However, the difficulties greatly impacted the installation experiences, and we
-graded these software packages with lower scores. For example, \textit{dwv} and
-\textit{GATE} had the option to build from the source code, and we failed the
-building processes following the instructions. Although we could not locally
-build them, we could use a deployed online version for \textit{dwv}, and a VM
-version for \textit{GATE}. With those, we finished all the measurements for
-them. Furthermore, \textit{DICOM Viewer} depended on the NextCloud platform, and
-we could not successfully install the dependency.
+\textit{dwv}, \textit{GATE}, and \textit{DICOM Viewer} showed severe
+installation problems. We were not able to install them, even after a reasonable
+amount of time (2 hours).  For \textit{dwv} and \textit{GATE} we failed to build
+from the source code, but we were able to proceed with measuring other qualities
+using a deployed online version for \textit{dwv}, and a VM version for
+\textit{GATE}. For \textit{DICOM Viewer} we could not install the NextCloud
+dependency, and we did not have another option for running the software.
+Therefore, for \textit{DICOM Viewer} we could not measure reliability or
+robustness.  The other seven qualities could be measured, since they do not require installation.
 
-\textit{MatrixUser} has a lower score because it depended on Matlab. We
-considered installing Matlab takes many more steps and time, and some users may
-not have a license to use Matlab.
+\textit{MatrixUser} has a lower score because it depended on Matlab. We assessed
+the score from the point of view of a user that would have to install Matlab and
+acquire a license.  Of course, for users that already work within Matlab, the
+installability score would be higher.
 
 \subsection{Correctness \& Verifiability} \label{sec_result_correctness_verifiability}
 
-The scores of \textit{correctness \& verifiability} are shown in Figure
-\ref{fg_correctness_erifiability_scores}. Generally speaking, the packages with
-higher scores adopted more techniques to improve \textit{correctness}, and had
-better documents for us to verify it.
+The scores of correctness \& verifiability are shown in
+Figure~\ref{fg_correctness_verifiability_scores}. Generally speaking, the
+packages with higher scores adopted more techniques to improve correctness, and
+had better documentation for us to verify this.  For instance, we looked for
+evidence of unit testing, since it benefits most parts of the software's life
+cycle, such as designing, coding, debugging, and optimization
+\citep{Hamill2004}.  We only found evidence of unit testing for about half of
+the projects.
 
 \begin{figure}[ht]
 \includegraphics[scale=0.38]{figures/correctness_verifiability_scores.png}
 \caption{AHP correctness \& verifiability scores}
-\label{fg_correctness_erifiability_scores}
+\label{fg_correctness_verifiability_scores}
 \end{figure}
 
-After examining the source code, we could not find any evidence of unit testing
-in more than half of the projects. Unit testing benefits most parts of the
-software's life cycle, such as designing, coding, debugging, and optimization
-\citep{Hamill2004}. It can reveal the bugs at an earlier stage of the development
-process, and the absence of unit testing may cause problems for
-\textit{correctness \& verifiability}.
+Even for some projects with well-organized documents, requirements
+specifications and theory manuals were still missing.  We could not identify
+theory manuals for all projects and we did not find requirements specifications
+for most projects. The only document we found was a road map of \textit{3D
+Slicer}, which contained design requirements for upcoming changes.
 
-We could not find requirements specifications for most projects. The only
-document we found is a road map of \textit{3D Slicer}, which contained design
-requirements for the upcoming changes. However, it did not record the conditions
-for previous versions. We also could not identify the theory manuals for all of
-the projects. Even for some projects with well-organized documents, requirements
-specifications and theory manuals were still missing.
-
-We identified five projects using CI/CD tools, which are \textit{3D Slicer},
+We identified five projects using CI/CD tools: \textit{3D Slicer},
 \textit{ImageJ}, \textit{Fiji}, \textit{dwv}, and \textit{OHIF Viewer}.
 
-In this section, the information about CI/CD tools is part of the answers to
-\hyperlink{rq2}{RQ2}, and the information about software testing and
-documentation is part of the answers to \hyperlink{rq3}{RQ3}.
+% In this section, the information about CI/CD tools is part of the answers to
+% \hyperlink{rq2}{RQ2}, and the information about software testing and
+% documentation is part of the answers to \hyperlink{rq3}{RQ3}.
 
 \subsection{Surface Reliability} \label{sec_result_reliability}
 
-As described in Section \ref{sec_result_installability}, we could not build
-\textit{dwv} and \textit{GATE}. However, since there was an online or VM version
-of them, successful deployment is possible. So the failure of installation did
-not affect their scores in \textit{surface reliability}. Figure
-\ref{fg_reliability_scores} shows the AHP results.
+Figure~\ref{fg_reliability_scores} shows the AHP results.  As shown in
+Section~\ref{sec_result_installability}, most of the software products did not
+``break" during installation, or did not need installation; \textit{dwv} and
+\textit{GATE} broke in the building stage, and the processes were not
+recoverable; we could not install the dependency for \textit{DICOM Viewer}. Of
+the seven software packages with a getting started tutorial and operation steps
+in the tutorial, most showed no error when we followed the steps. However,
+\textit{GATE} could not open macro files and became unresponsive several times,
+without any descriptive error message. When assessing robustness
+(Section~\ref{sec_result_robustness}), we found that \textit{Drishti} crashed
+when loading damaged image files, without showing any descriptive error message.
+On the other hand, we did not find any problems with the online version of
+\textit{dwv}.
 
 \begin{figure}[ht]
 \includegraphics[scale=0.38]{figures/reliability_scores.png}
@@ -1046,25 +985,13 @@ not affect their scores in \textit{surface reliability}. Figure
 \label{fg_reliability_scores}
 \end{figure}
 
-As shown in Section \ref{sec_result_installability}, most of the software
-products did not ``break" during installation or did not need installation;
-\textit{dwv} and \textit{GATE} broke in the building stage, and the processes
-were not recoverable; we could not install the dependency for \textit{DICOM
-Viewer}.
-
-Of the seven software packages with a getting started tutorial and operation
-steps in the tutorial, most showed no error when we followed the steps. However,
-\textit{GATE} could not open macro files and became unresponsive several times,
-without any descriptive error message. When assessing \textit{surface
-robustness} (Section \ref{sec_result_robustness}), we found out that
-\textit{Drishti} crashed during loading damaged image files and did not show any
-descriptive error message. On the other hand, we did not see any problems with
-the online version of \textit{dwv}.
-
 \subsection{Surface Robustness} \label{sec_result_robustness}
 
-Figure \ref{fg_robustness_scores} presents the scores for \textit{surface
-robustness}.
+Figure \ref{fg_robustness_scores} presents the scores for surface robustness.
+The packages with higher scores elegantly handled unexpected/unanticipated
+inputs, typically showing a clear error message. We may have underestimated the
+score of \textit{OHIF Viewer}, since we needed further customization to load
+data.
 
 \begin{figure}[ht]
 \includegraphics[scale=0.38]{figures/robustness_scores.png}
@@ -1072,58 +999,40 @@ robustness}.
 \label{fg_robustness_scores}
 \end{figure}
 
-The packages with higher scores elegantly handled the unexpected/unanticipated
-inputs, typically showing a clear error message. We might underestimate the
-score of \textit{OHIF Viewer} since we needed further customization to load
-data, and the test was not complete.
-
-Digital Imaging and Communications in Medicine (DICOM) is a widely used MI
-standard, and ``it defines the formats for medical images that can be exchanged
-with the data and quality necessary for clinical use" \citep{MITA2021}. According
-to their documentation, all 29 software packages should support the DICOM
-standard. We prepared two types of image files: the ones in correct formats and
-the broken ones. We used two MI sample files in the DICOM format as the image
-files with valid formats; we created a standard text file, changed its extension
-name from ``.txt" to ``.dcm", and used it as the unexpected/unanticipated input.
-
-Being tested with the input files with correct formats, all software packages
-except \textit{GATE} loaded the images correctly. \textit{GATE} failed this test
-for unknown reasons.
-
-With the unexpected/unanticipated input, \textit{MatrixUser}, \textit{dwv}, and
+Digital Imaging and Communications in Medicine (DICOM) ``defines the formats for
+medical images that can be exchanged with the data and quality necessary for
+clinical use" \citep{MITA2021}. According to their documentation, all 29
+software packages should support the DICOM standard. To test robustness, we
+prepared two types of image files: correct format and broken format (created by
+relabelled a text file to have the ``.dcm'' extension).  All software packages
+loaded the correct format image, except for \textit{GATE}, which failed for
+unknown reasons.  For the broken format, \textit{MatrixUser}, \textit{dwv}, and
 \textit{Slice:Drop} ignored the incorrect format of the file and loaded it
 regardless. They did not show any error message and displayed a blank image.
 \textit{MRIcroGL} behaved similarly except that it showed a meaningless image
 with noise pixels. \textit{Drishti} successfully detected the broken format of
-the file, but the software crashed as a result. We recorded \textit{Drishti}'s
-issue to the measurement of its \textit{reliability} in Section
-\ref{sec_result_installability}.
+the file, but the software crashed as a result.
 
 \subsection{Surface Usability} \label{sec_result_usability}
 
-Figure \ref{fg_usability_scores} lists the AHP scores for \textit{surface
-usability}.
+Figure \ref{fg_usability_scores} shows the AHP scores for surface usability. The
+software with higher scores usually provided both comprehensive documented
+guidance and a good user experience. \textit{INVESALIUS 3} provided an excellent
+example of a detailed and precise user manual. \textit{GATE} also provided a
+large number of documents, but unfortunately we had difficulty understanding and
+using them. We found getting started tutorials for only 11 projects, but a user
+manual for 22 projects. \textit{MRIcroGL} was the only project that explicitly
+documented expected user characteristics.
 
 \begin{figure}[ht]
 \includegraphics[scale=0.38]{figures/usability_scores.png}
 \caption{AHP surface usability scores}
 \label{fg_usability_scores}
 \end{figure}
-
-We found a getting started tutorial for only 11 projects but a user manual for
-22 projects. \textit{MRIcroGL} was the only one with documentation for the
-expected user characteristics.
-
-The software with higher scores usually provided both comprehensive document
-guidance and a good user experience. \textit{INVESALIUS 3} set an excellent
-example of a detailed and precise user manual. \textit{GATE} also provided a
-large number of documents, but we think that they conveyed the ideas poorly, as
-we had trouble understanding and using them.
  
-Table \ref{tab_user_support_model} shows the user support models by the number
-of projects using them. This table contains part of the answers to
-\hyperlink{rq2}{RQ2}. Maybe not every team intended to use GitHub issues to
-answer users' questions, but many users use them to seek help.
+Table~\ref{tab_user_support_model} summarizes the user support models by the number
+of projects using them. We do not know whether the prevalent use of GitHub issues for user support is by design, or whether this just naturally happened as users sought help.
+%  This table contains part of the answers to \hyperlink{rq2}{RQ2}.
 
 \begin{table}[ht]
 \centering
@@ -1143,26 +1052,23 @@ Contact form & 1 \\ \hline
 
 \subsection{Maintainability} \label{sec_score_maintainability}
 
-Figure \ref{fg_maintainability_scores} shows the AHP results for
-\textit{maintainability}. 
+Figure~\ref{fg_maintainability_scores} shows the ranking results for
+maintainability. We marked \textit{3D Slicer} with a higher score because
+we found it to have the most comprehensive artifacts. For example, as far as we
+could find, only a few of the 29 projects had a project plan, developer's
+manual, or API documentation, and only \textit{3D Slicer}, \textit{ImageJ},
+\textit{Fiji} included all three documents. Moreover, \textit{3D Slicer} has a
+much higher percentage of closed issues (91.65\%) compared to \textit{ImageJ}
+(52.49\%) and \textit{Fiji} (63.79\%). Table~\ref{tab_maintainability_docs}
+shows which projects had these documents, in the descending order of their
+maintainability scores. 
+% This table contains part of the answers to \hyperlink{rq1}{RQ1} and \hyperlink{rq3}{RQ3}.
 
 \begin{figure}[ht]
 \includegraphics[scale=0.38]{figures/maintainability_scores.png}
 \caption{AHP maintainability scores}
 \label{fg_maintainability_scores}
 \end{figure}
-
-We marked \textit{3D Slicer} with a much higher score than others because it did
-very well at closing the identified issues, and more importantly, we found it to
-have the most comprehensive artifacts. For example, as far as we could find out,
-only a few of the 29 projects had a project plan, developer's manual, or API
-documentation, and only \textit{3D Slicer}, \textit{ImageJ}, \textit{Fiji}
-included all three documents. Meanwhile, \textit{3D Slicer} has a much higher
-percentage of closed issues (91.65\%) than \textit{ImageJ} (52.49\%) and
-\textit{Fiji} (63.79\%). Table \ref{tab_maintainability_docs} shows which
-projects had these documents, in the descending order of their
-\textit{maintainability} scores. This table contains part of the answers to
-\hyperlink{rq1}{RQ1} and \hyperlink{rq3}{RQ3}.
 
 \begin{table}[ht]
 \centering
@@ -1185,31 +1091,30 @@ Gwyddion &  & X & X \\ \hline
 \caption{\label{tab_maintainability_docs}Software with the maintainability documents}
 \end{table}
 
-27 of the 29 projects used git as the version control tool; \textit{AMIDE} used
-Mercurial; \textit{Gwyddion} used Subversion. 24 projects used GitHub for their
-repositories; \textit{XMedCon}, \textit{AMIDE}, and \textit{Gwyddion} used
-SourceForge; \textit{DicomBrowser} and \textit{3DimViewer} used BitBucket. The
-information about version control tools is part of the answers to
-\hyperlink{rq2}{RQ2}.
+27 of the 29 projects used git as the version control tool, with 24 of these
+using GitHub. \textit{AMIDE} used Mercurial and \textit{Gwyddion} used
+Subversion. \textit{XMedCon}, \textit{AMIDE}, and \textit{Gwyddion} used
+SourceForge. \textit{DicomBrowser} and \textit{3DimViewer} used BitBucket. 
+% The information about version control tools is part of the answers to
+% \hyperlink{rq2}{RQ2}.
 
 \subsection{Reusability} \label{sec_result_reusability}
 
-Figure 4.7 shows the AHP results for \textit{reusability}.
+Figure 4.7 shows the AHP results for reusability. As described in
+Section~\ref{sec_grading_software}, we gave higher scores to the projects with
+API documentation. As shown in Table \ref{tab_maintainability_docs}, seven
+projects had API documents. We also considered projects with more code files and
+less LOC per code file as more reusable. Table \ref{tab_loc_per_file} shows the
+number of text-based files by projects, which we used to approximate the number
+of code files. The table also lists the total number of lines (including
+comments and blanks), LOC, and average LOC per file. We arranged the items in
+descending order of their reusability scores.
 
 \begin{figure}[ht]
 \includegraphics[scale=0.38]{figures/reusability_scores.png}
 \caption{AHP reusability scores}
 \label{fg_reusability_scores}
 \end{figure}
-
-As described in Section \ref{sec_grading_template}, we gave higher scores to the
-projects with an API document. As shown in Table \ref{tab_maintainability_docs},
-seven projects had API documents. We also considered projects with more code
-files and less LOC per code file as more reusable. Table \ref{tab_loc_per_file}
-shows the number of text-based files by projects, which we used to approximate
-the number of code files. The table also lists the total number of lines
-(including comments and blanks), LOC, and average LOC per file. We arranged the
-items in the descending order of their \textit{reusability} scores. 
 
 \begin{table}[ht]
 \centering
@@ -1252,8 +1157,17 @@ dicompyler & 48 & 19201 & 15941 & 332 \\ \hline
 
 \subsection{Surface Understandability} \label{sec_result_understandability}
 
-Figure \ref{fg_surface_understandability_scores} shows the scores for
-\textit{surface understandability}.
+Figure~\ref{fg_surface_understandability_scores} shows the scores for surface
+understandability. All projects had a consistent code style with parameters in
+the same order for all functions; the code was modularized; the comments were
+clear, indicating what is being done, not how. However, we only found explicit
+identification of a coding standard for 3 out of the 29: \textit{3D Slicer},
+\textit{Weasis}, and \textit{ImageJ}. We also found hard-coded constants in
+\textit{medInria}, \textit{dicompyler}, \textit{MicroView}, and \textit{Papaya}.
+We did not find any reference to the used algorithms in projects
+\textit{XMedCon}, \textit{DicomBrowser}, \textit{3DimViewer}, \textit{BioImage
+Suite Web}, \textit{Slice:Drop}, \textit{MatrixUser}, \textit{DICOM Viewer},
+\textit{dicompyler}, and \textit{Papaya}. 
 
 \begin{figure}[ht]
 \includegraphics[scale=0.38]{figures/understandability_scores.png}
@@ -1261,35 +1175,21 @@ Figure \ref{fg_surface_understandability_scores} shows the scores for
 \label{fg_surface_understandability_scores}
 \end{figure}
 
-All projects had a consistent code style with parameters in the same order for
-all functions; the code was modularized; the comments were clear, indicating
-what is being done, not how. However, we only found explicit identification of a
-coding standard for 3 out of the 29: \textit{3D Slicer}, \textit{Weasis}, and
-\textit{ImageJ}. We also found hard-coded constants in \textit{medInria},
-\textit{dicompyler}, \textit{MicroView}, and \textit{Papaya}. We did not find
-any reference to the used algorithms in projects \textit{XMedCon},
-\textit{DicomBrowser}, \textit{3DimViewer}, \textit{BioImage Suite Web},
-\textit{Slice:Drop}, \textit{MatrixUser}, \textit{DICOM Viewer},
-\textit{dicompyler}, and \textit{Papaya}. 
-
 \subsection{Visibility/Transparency} \label{sec_result_visibility_transparency}
 
 Figure \ref{fg_visibility_transparency_scores} shows the AHP scores for
 \textit{visibility/transparency}. Generally speaking, the teams that actively
-documented their development process and plans scored higher because they
-delivered better communication to people outside the team.
+documented their development process and plans scored higher. Table
+\ref{tab_Visibility/Transparency_docs} shows the projects that had documents for
+the development process, project status, development environment, and release
+notes, in the descending order of their visibility/transparency scores.
+%This table contains part of the answers to \hyperlink{rq1}{RQ1} and \hyperlink{rq3}{RQ3}.
 
 \begin{figure}[ht]
 \includegraphics[scale=0.38]{figures/visibility_transparency_scores.png}
 \caption{AHP visibility/transparency scores}
 \label{fg_visibility_transparency_scores}
 \end{figure}
-
-Table \ref{tab_Visibility/Transparency_docs} shows the projects which had
-documents for the development process, project status, development environment,
-and release notes, in the descending order of their
-\textit{visibility/transparency} scores. This table contains part of the answers
-to \hyperlink{rq1}{RQ1} and \hyperlink{rq3}{RQ3}.
 
 \begin{table}[ht]
 \centering
@@ -1323,15 +1223,12 @@ Gwyddion &  &  &  & X \\ \hline
 
 \subsection{Overall Scores}
 
-As described in Section \ref{sec_AHP}, for our AHP measurements, there are nine
-criteria which are the nine software qualities and 29 software packages as the
-alternatives. In the absence of requirements for an actual project, we made all
-nine qualities equally important, so the score of each quality affects the
-overall scores on the same scale.
-
-Figure \ref{fg_overall_scores} shows the overall scores of all 29 software
-packages in descending order. Since we produced the scores from the AHP process,
-the total sum of the 29 scores is precisely 1.
+As described in Section~\ref{sec_AHP}, for our AHP measurements, we have nine
+criteria (qualities) and 29 alternatives (software packages). In the absence of
+a specific real world context, we assumed all nine qualities are equally
+important. Figure \ref{fg_overall_scores} shows the overall scores in descending
+order. Since we produced the scores from the AHP process, the total sum of the
+29 scores is precisely 1.
 
 \begin{figure}[ht]
 \includegraphics[scale=0.38]{figures/overall_scores.png}
@@ -1343,16 +1240,14 @@ the total sum of the 29 scores is precisely 1.
 The top three software products \textit{3D Slicer}, \textit{ImageJ}, and
 \textit{OHIF Viewer} had higher scores in most criteria. \textit{3D Slicer}
 ranked in the top two software products for all qualities except \textit{surface
-robustness}; \textit{ImageJ} ranked in the top three products for
-\textit{correctness \& verifiability}, \textit{surface reliability},
-\textit{surface usability}, \textit{maintainability}, \textit{ surface
-understandability}, and \textit{visibility/transparency}; \textit{OHIF Viewer}
-ranked in the top five products for \textit{correctness \& verifiability},
-\textit{surface reliability}, \textit{surface usability},
-\textit{maintainability}, and \textit{reusability}. We might underestimate its
-scores of qualities \textit{surface reliability} and \textit{surface robustness}
-for \textit{DICOM Viewer}, but equally compared it with the other software for
-the rest seven qualities.
+robustness}; \textit{ImageJ} ranked in the top three for correctness \&
+verifiability, surface reliability, surface usability, maintainability, surface
+understandability, and visibility/transparency. \textit{OHIF Viewer} ranked in
+the top five products for correctness \& verifiability, surface reliability,
+surface usability, maintainability, and reusability. Given the installation
+problems, we may have underestimated the scores on reliability and robustness
+for \textit{DICOM Viewer}, but we compared it equally for the other seven
+qualities.
 
 \section{Interviews with Developers} \label{ch_interview}
 
@@ -2005,7 +1900,8 @@ respectively. Section \ref{sec_threats_to_validity} lists the threats to the
 validity of our research. The answers are based on our quality measurements in
 Section \ref{ch_results} and developer interviews in Section \ref{ch_interview}.
 We refer to these sections to avoid repetition, and organize the references in
-tables (e.g. Table \ref{tab_reference_rq1}).
+tables (e.g. Table \ref{tab_reference_rq1}).  RQ5 answered in
+Section~\ref{ch_results}.
 
 \subsection{Artifacts in the Projects} \label{sec_rq_artifacts}
 \begin{description}
@@ -2390,7 +2286,9 @@ not fully reveal the underlying qualities.
 \item It was not practical to ask each development team for every piece of
 information. We collected much information - such as artifacts and funding
 situations of software - by ourselves. There may be cases that we missed some
-information.
+information.  There also may be cases where we did not find evidence of
+something, like unit testing, not because the project didn't do it, but because
+no artifacts of this activity remained in the publicly available repository.
 \item As mentioned in Section \ref{ch_interview}, one interviewee was too busy
 to participate in a full interview, so he provided a version of written answers
 to us. Since we did not have the chance to explain our questions or ask him
