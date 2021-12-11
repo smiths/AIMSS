@@ -724,6 +724,16 @@ intervals. The tool \href{https://github.com/boyter/scc}{Sloc Cloc and Code
 (scc)} was used to measure the number of text based files as well as the number
 of total, code, comment, and blank lines in each GitHub repository.
 
+As in \citet{SmithEtAl2016}, Virtual machines (VMs) were used to provide an
+optimal testing environments for each package. VMs were used because it is
+easier to start with a fresh environment without having to worry about existing
+libraries and conflicts. Moreover, when the tests are complete the VM can be
+deleted, without any impact on the host operating system. The most significant
+advantage of using VMs is to level the playing field. Every software install
+starts from a clean slate, which removes ``works-on-my-computer'' errors. When
+filling in the measurement template spreadsheet, the details for each VM
+should be noted, including hypervisor and operating system version.
+
 \subsection{Interview Developers} \label{SecSurvey}
 
 We designed a list of 20 questions to guide our interviews, which can be found
@@ -800,12 +810,11 @@ ranking.  These interactions were done via virtual meetings.
 
 \section{Quantitative Findings and AHP Results} \label{AHPresults}
 
-This section presents the quantitative findings from data that was gathered
-using the measurement template found in Section~\ref{measurementtemplate2} for
-qualities listed in Section~\ref{softwarequalities}. The results of the AHP
-analysis based on that data are also presented in this section.
-
-Table that summarizes the software by variabilities.
+Table~\ref{} presents a summary of the software that was measured.  The table
+shows the differences between the packages based on features.  \wss{Add some
+discussion of some example features.}  The sections below summarize how the
+software packages compare based on qualities, as measured by the measurement
+template.   The results of the AHP ranking are also discussed.
 
 \begin{table}
     \begin{center}
@@ -851,21 +860,20 @@ Table that summarizes the software by variabilities.
 All of the 23 software packages that were tested have installation instructions.
 As noted previously, many of the 23 software packages that were part of the
 original long list of 45 packages were removed due to not including
-documentation or installation instructions. 
+documentation or installation instructions. Of the 23 software packages that
+were tested, most had installation instructions located in one place, often in
+an instruction manual or on a web-page. Sometimes, like with Ludwig, incomplete
+installation instructions are found on a home page, with more detailed
+instructions located on another web-page, or within the documentation.
+Maintainability and correctness of these instructions could be improved if all
+the instructions were in one location. 
 
 All 23 packages on the short list can be installed on some Unix-like systems.
 Seven packages could be installed on Windows, and five on macOS. Operating
 system compatibility is found in the documentation of 19 software packages. All
-but one of the software packages, TCLB, were tested on Ubuntu for this state of
+but one of the software packages (TCLB) were tested on Ubuntu for this state of
 the practice assessment. TCLB was tested on CentOS, since this operating system
 is mentioned in its installation instructions.
-
-Of the software packages that were tested, most installation instructions are
-located in one place, often in an instruction manual or on a web-page.
-Sometimes, like with Ludwig, incomplete installation instructions are found on a
-home page, with more detailed instructions located on another web-page, or
-within the documentation. Maintainability and correctness of these instructions
-could be improved if all the instructions were in one location. 
 
 All but one of the software packages (LatBo.jl) have automated at least some of
 the installation process. Most of these packages, such as waLBerla and
@@ -886,14 +894,14 @@ required performing a tutorial or running a script, as described below, if these
 were available. 
 
 About half of the installation instructions are written as if the person doing
-the installation has none of the dependent packages installed. It is common for
-software packages to not list all of their dependencies despite listing some.
-This was the case for many packages, including ESPResSo++, Ludwig, and LUMA.
-Sometimes only an error message during the installation process informs the user
-of the requirement of these additional packages. A detailed rewrite of the
-installation instructions from the point of view of installation on a clean
-operating system is suggested. A clean environment can be achieved for testing
-purposes by using a virtual machine.
+the installation has none of the dependent packages installed. Unfortunately,
+software packages, like ESPResSo++, Ludwig, and LUMA, frequently don't list all
+of their dependencies, or provide only a partial list. Sometimes only an error
+message during the installation process informs the user of the requirement of
+these additional packages. A detailed rewrite of the installation instructions
+from the point of view of installation on a clean operating system is suggested.
+A clean environment can be achieved for testing purposes by using a virtual
+machine.
 
 Sixteen software packages require less than 10 dependencies to be installed. All
 but one software package (LatBo.jl) require less than 20 dependencies. Some
@@ -916,8 +924,7 @@ installation validation include validation scripts (LB2D-Prime, lettuce, Ludwig,
 LUMA), automatic validation after the installation (LatBo.jl), and instructions
 to manually review the file system (LIMBES). 
 
-Uninstallation instructions were found for only one of the software packages,
-pyLBM.
+Uninstallation instructions were found for only one of the software packages: pyLBM.
 
 \begin{figure}[h!]
 	\begin{center}
