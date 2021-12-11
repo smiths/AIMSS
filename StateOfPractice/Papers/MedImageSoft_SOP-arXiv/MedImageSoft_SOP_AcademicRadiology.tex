@@ -1487,7 +1487,12 @@ previously used a different approach to version control and eventually
 transferred to git and GitHub.  The past approaches included contributions
 from e-mail (3 teams), contributions from forums (1 team) and sharing the
 git repository via e-mail (1 team).  \wss{I do not know what this last one means.
-Should ask Ao.}
+Should ask Ao.} \ad{The last one happened when cloud-based repositories (Github,
+Gitlab, Bitbucket, etc.) were not widely used. The project git repository was
+stored locally on the project owner's local computer. The owner shared the whole
+git repo to team members and other individuals who wanted to contribute. The
+contributors made changes to the repo, and sent it back. They transferred the
+repo back and forth by email.}
 
 For managing contributions, the \textit{3D Slicer} team encouraged users to
 develop their extensions for specific use cases, while the \textit{OHIF} team
@@ -1550,7 +1555,11 @@ include the following:
 \begin{itemize}
 \item Lack of real world image data for testing;
 \item The team cannot use private data for debugging even when the data causes
-problems; \wss{Why not?  Should ask Ao}
+problems; \wss{Why not?  Should ask Ao} \ad{For example, when a physician faces
+some problems to use the software to display a medical image, he/she might reach
+to the team for help. However, the image is private, so the physician can only
+describe the problems, but not share the image with the team to reproduce the
+problems for debugging.}
 \item Expense and time consumed by tests because of the huge datasets;
 \item Difficulty managing releases;
 \item No unit tests; and,
@@ -1595,7 +1604,12 @@ if any, actions were taken to address understandability issues?
 The discussion with the developers focused on understandability issues for two
 classes of users: the end users and other developers.  The threats to
 understandability for end users include users not understanding how to use
-features (\wss{Because the users don't have sufficient background?  Ask Ao.}),
+features (\wss{Because the users don't have sufficient background?  Ask Ao.})
+\ad{Did you mean medical or medical imaging background? No, it was majorly
+caused by the software usability. Based on the context of our interview
+conversations, it means that users don't understand how to complete certain
+operations or what functions a feature provides. It's due to unclear description,
+lack of documentation, poorly designed UI or nonintuitive process},
 the team not having a dedicated user experience (UX) designer, some important
 indicators are not noticeable (e.g. a progress bar), not all users understand
 the purpose of the software, not all users know if the software includes certain
@@ -1604,7 +1618,10 @@ users understand that the software is a web application. For developers the
 threats to understandability include developers not understanding how to deploy
 the software (\wss{This sounds like a consequence of a lack of
 understandability, rather than threat to it.  Or is the point that developers
-lack sufficient background?  Ask Ao}), and the architecture is difficult for new
+lack sufficient background?  Ask Ao}) \ad{Yes, this should be a consequence of a
+lack of understandability. I think the direct cause is that the project doesn't
+clearly explain how to deploy. The background of the developers wasn't discussed
+at that point.}, and the architecture is difficult for new
 developers to understand.
 
 The most common strategy, cited by 4 developers, for ensuring understandability
@@ -1641,7 +1658,9 @@ We discussed threats to reproducibility and strategies for improving it.  The
 threats that were mentioned include closed-source software, no user interaction
 tests, no unit tests, using different versions of some common libraries
 \wss{because the interface and/or behaviour of the library could have changed?
-Ask Ao}, variability between CPUs, and misinterpretation of how manufacturers
+Ask Ao} \ad{Yes. Behaviour change could be caused by a lib changing to use
+different algorithms or different dependencies}, variability
+between CPUs, and misinterpretation of how manufacturers
 create medical images. The most commonly cited (by 6 teams) strategy to improve
 reproducibility was testing (regression tests, unit tests, having good tests).
 The second most common strategy (mentioned by 5 teams) is making code, data, and
@@ -1729,7 +1748,7 @@ the other hand, the interviewees believed that testing (including usability
 tests with users) was the top solution to improve correctness, usability, and
 reproducibility. One pain point in the development process is the lack of access
 to real-world datasets for testing. The developers' strategies to address this
-are summarized in Section~\ref{sec_pain_points_3}. One threat to correctness is:
+are summarized in Section~\ref{sec_pain_points_3} \ad{to be fixed}. One threat to correctness is:
 with huge datasets for testing, the tests are expensive and time-consuming.
 Three interviewees endorsed self tests / automated tests, which may save time
 for testing.
