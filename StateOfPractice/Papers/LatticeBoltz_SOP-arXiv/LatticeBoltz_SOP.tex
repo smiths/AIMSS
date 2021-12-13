@@ -822,33 +822,33 @@ template.   The results of the AHP ranking are also discussed.
 			\hline
 			Name & Dim & Pll & Com & Rflx & MFl & Turb & CGE & OS\\
 			\hline
-			DL\_MESO (LBE) & 2, 3 & Y & Y & Y & Y & Y & Y & W, M, L\\
-			ESPResSo & 1, 2, 3 & Y & Y & Y & Y & Y & Y & M, L\\
-			ESPResSo++ & 1, 2, 3 & Y & Y & Y & Y & Y & Y & L\\
-			HemeLB & 3 & Y & Y & Y & Y & Y & Y & L\\
-			laboetie & 2, 3 & Y & Y & Y & Y & Y & Y & L\\
-			LatBo.jl & 2, 3 & N & Y & Y & Y & N & Y & L\\
-			LB2D-Prime & 2 & Y & Y & Y & Y & Y & Y & W, L\\
-			LB3D & 3 & Y & N & Y & Y & Y & Y & L\\
-			LB3D-Prime & 3 & Y & Y & Y & Y & Y & Y & W, L\\
-			lbmpy & 2, 3 & Y & Y & Y & Y & Y & Y & L\\
-			lettuce & 2, 3 & N & Y & Y & Y & Y & Y & W, M, L\\
-			LIMBES & 2 & Y & Y & Y & N & N & Y & L\\
-			Ludwig & 2, 3 & Y & Y & Y & Y & Y & Y & L\\
-			LUMA & 2, 3 & Y & Y & Y & Y & Y & Y & W, M, L\\
-			MechSys & 2, 3 & N & Y & Y & Y & Y & Y & L\\
-			MP-LABS & 2, 3 & Y & N & Y & Y & N & N & L\\
-			OpenLB & 1, 2, 3 & Y & Y & Y & Y & Y & Y & W, M, L\\
-			Palabos & 2, 3 & Y & Y & Y & Y & Y & Y & W, L\\
-			pyLBM & 1, 2, 3 & Y & Y & Y & N & Y & Y & W, M, L\\
-			Sailfish & 2, 3 & Y & Y & Y & Y & Y & Y & M, L\\
-			SunlightLB & 3 & N & Y & Y & N & N & Y & L\\
-			TCLB & 2, 3 & Y & Y & Y & Y & Y & Y & L\\
-			waLBerla & 2, 3 & Y & Y & Y & Y & Y & Y & L\\
+			DL\_MESO (LBE) & 2, 3 & MPI/OMP & Y & Y & Y & Y & Y & W, M, L\\
+			ESPResSo & 1, 2, 3 & CUDA/MPI & Y & Y & Y & Y & Y & M, L\\
+			ESPResSo++ & 1, 2, 3 & MPI & Y & Y & Y & Y & Y & L\\
+			HemeLB & 3 & MPI & Y & Y & Y & Y & Y & L\\
+			laboetie & 2, 3 & MPI & Y & Y & Y & Y & Y & L\\
+			LatBo.jl & 2, 3 & - & Y & Y & Y & N & Y & L\\
+			LB2D-Prime & 2 & MPI & Y & Y & Y & Y & Y & W, L\\
+			LB3D & 3 & MPI & N & Y & Y & Y & Y & L\\
+			LB3D-Prime & 3 & MPI & Y & Y & Y & Y & Y & W, L\\
+			lbmpy & 2, 3 & CUDA & Y & Y & Y & Y & Y & L\\
+			lettuce & 2, 3 & CUDA & Y & Y & Y & Y & Y & W, M, L\\
+			LIMBES & 2 & OMP & Y & Y & N & N & Y & L\\
+			Ludwig & 2, 3 & MPI & Y & Y & Y & Y & Y & L\\
+			LUMA & 2, 3 & MPI & Y & Y & Y & Y & Y & W, M, L\\
+			MechSys & 2, 3 & - & Y & Y & Y & Y & Y & L\\
+			MP-LABS & 2, 3 & MPI/OMP & N & Y & Y & N & N & L\\
+			OpenLB & 1, 2, 3 & MPI & Y & Y & Y & Y & Y & W, M, L\\
+			Palabos & 2, 3 & MPI & Y & Y & Y & Y & Y & W, L\\
+			pyLBM & 1, 2, 3 & MPI & Y & Y & N & Y & Y & W, M, L\\
+			Sailfish & 2, 3 & CUDA & Y & Y & Y & Y & Y & M, L\\
+			SunlightLB & 3 & - & Y & Y & N & N & Y & L\\
+			TCLB & 2, 3 & CUDA/MPI & Y & Y & Y & Y & Y & L\\
+			waLBerla & 2, 3 & MPI & Y & Y & Y & Y & Y & L\\
 			\hline
 		\end{tabular}
 		\caption{Features of Software Packages (Dim for Dimension (1, 2, 3),
-			Pll for Parallel (Yes or No), Com for Compressible (Yes or No), Rflx for
+			Pll for Parallel (CUDA, MPI, OpenMP (OMP)), Com for Compressible (Yes or No), Rflx for
 			Reflexive Boundary Condition (Yes or No), MFl for Multifluid (Yes or
 			No), Turb for Turbulent (Yes or No), CGE for Complex Geometries (Yes or No), OS for Operating System (Windows (W), macOS (M), Linux (L)))} \label{tbl_features}
 	\end{center}
