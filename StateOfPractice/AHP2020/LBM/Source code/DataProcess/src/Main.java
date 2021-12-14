@@ -15,7 +15,7 @@ public class Main {
 	public static void main(String[] args)
     {
 		int numberQualities = 9;
-		int numberSoftwarePackages = 23; //also need to change rownum below
+		int numberSoftwarePackages = 24; //also need to change rownum below
 		Cell[][] table=new Cell[numberQualities][numberSoftwarePackages];
 		Double[][][] ahpTable= new Double[numberQualities][numberSoftwarePackages][numberSoftwarePackages-1];
         try
