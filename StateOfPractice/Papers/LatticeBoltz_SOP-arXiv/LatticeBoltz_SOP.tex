@@ -749,13 +749,15 @@ questions when necessary. Based on our experience, the interviewees usually
 bring up some exciting ideas that we did not expect, and it is worth expanding
 on these topics.
 
-We requested interviews from all 24 packages, with 4 positive responses.  To
-send out interview requests we found we found contacts on the projects’ website,
-or code repository, or publications, or the biographic pages of the teams’
-institutions. We send at most two interview request emails to a contact for each
-software package.  Meeting will typically be held using on-line meeting
-software, like Zoom or Teams.  This facilitates recording and automatic
-transcription of the meetings.
+We requested interviews from all 24 packages, except Munubi, since Munubi was
+added after our ethics approved study window had expired.  We were able to
+recruit 4 developers to participate in our study.  To send out interview
+requests we found we found contacts on the projects’ website, or code
+repository, or publications, or the biographic pages of the teams’ institutions.
+We send at most two interview request emails to a contact for each software
+package.  Meeting will typically be held using on-line meeting software, like
+Zoom or Teams.  This facilitates recording and automatic transcription of the
+meetings.
 
 The interviews followed the standard ethics guideline of asking for consent
 before interviewing, recording, and including participant details in the report.
@@ -927,7 +929,7 @@ found for only one of the software packages: pyLBM.
 
 \begin{figure}[h!]
 	\begin{center}
-		\includegraphics[width=1.0\textwidth]{./figures/installability_chart}
+		\includegraphics[width=1.0\textwidth]{./figures/installability_chart.pdf}
 		\caption{AHP Installability Score}
 		\label{Fig_Installability}
 	\end{center}
@@ -1403,41 +1405,35 @@ surface robustness, maintainability, and understandability.
 
 \section{Qualitative Findings From Developer Interviews} \label{interviewresults}
 
-The interview process
-presented here was approved by the McMaster University Research Ethics Board
-under the application number 
-\href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/MACREM/Application.pdf}
-{MREB\#: 5219}.
+This section presents qualitative findings on software qualities as gleaned from
+interviewing 4 developers. The full interview questions are found in
+\citet{SmithEtAl2021}.
 
-This section presents the qualitative findings from data that was gathered
-during interviews with developers for qualities listed in Section
-~\ref{softwarequalities}. The interview questions are found in Appendix
-~\ref{interviewquestions}.
-
-\subsection{Surface Correctness and Verifiability}
+\subsection{Correctness and Verifiability}
 
 Interviews with developers confirmed that these software packages are developed
 by domain experts with backgrounds in physics, mathematics and mechanical
-engineering. It was noted in these interviews that some of the developers do not
-have formal software engineering education. Some of the development teams
-include computer scientists. Despite a lack of visible domain documentation and
-a resulting lower surface correctness and verifiability score, it is clear that
-some of the software packages were developed by teams with significant domain
-knowledge on account of the academic backgrounds of their developers. 
+engineering. \wss{Could point to surveys that have shown the same thing.}  It
+was noted in these interviews that some of the developers do not have formal
+software engineering education. Some of the development teams include computer
+scientists. Despite a lack of visible domain documentation and a resulting lower
+surface correctness and verifiability score, it is clear that some of the
+software packages were developed by teams with significant domain knowledge on
+account of the academic backgrounds of their developers. 
 
 Interviews suggested a more frequent use of both unit testing and continuous
 integration in the development processes than what was observed from the initial
-survey. For example, OpenLB, pyLBM, and TCLB use such methods during development
+survey. For example, OpenLB, pyLBM, and TCLB use such methods during development,
 despite this not being explicitly clear from an analysis of the material
-available online. The correctness and verifiability of such packages is not
-measured well using surface analysis.
+available online. \wss{Add this to threats to validity.}  The correctness and
+verifiability of such packages is not measured well using surface analysis.
 
-Several interviewed developers alluded to difficulty with testing the
-correctness of large numbers of features, and some even manually tested program
-output. The use of well defined unit testing tools could decrease the time spent
-testing some feature.
+Several developers alluded to difficulty with testing the correctness of large
+numbers of features, and some even manually tested program output. The use of
+well defined unit testing tools could decrease the time spent testing some
+feature.  \wss{link this to recommendations}
 
-\subsection{Surface Usability}
+\subsection{Usability}
 
 Interviews with developers revealed several usability issues. Some users have
 misunderstood the boundaries of LBM and CFD, and have combined or applied
@@ -1526,7 +1522,7 @@ package to stimulate the development of third-user extensions. The Palabos
 package identifies as a development framework for modeling problems in various
 CFD areas. 
 
-\subsection{Surface Understandability}
+\subsection{Understandability}
 
 Software developers noted that they believe users have generally found their
 packages to be understandable. The interviewed developer of ESPResSo commented
@@ -2600,7 +2596,13 @@ TO DO
 - create issues for Peter
 - data on Mendeley
 
+- add a comparison to other studies
+- add conclusions related to how LBM compares to other fields, and the "average" of all SC
 
+- make recommendations in order of conservative to ``bleeding edge''
+- add pointer to project checklists (as sent to Jacques, as promoted during workshop)
+
+- value of tools to enforce good behaviour of developers, like R, like MOOSE infrastructure
 
 
 
