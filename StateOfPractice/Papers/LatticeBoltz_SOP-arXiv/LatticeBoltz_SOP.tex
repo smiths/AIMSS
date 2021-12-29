@@ -68,7 +68,7 @@
 \newcommand{\wss}[1]{\authornote{blue}{SS}{#1}} %Spencer Smith
 \newcommand{\jc}[1]{\authornote{red}{JC}{#1}} %Jacques Carette
 \newcommand{\zm}[1]{\authornote{magenta}{MN}{#1}} %Zahra Motamed
-\newcommand{\pmm}[1]{\authornote{cyan}{AD}{#1}} %Peter Michalski
+\newcommand{\pmm}[1]{\authornote{cyan}{PM}{#1}} %Peter Michalski
 
 \newcommand{\notdone}[1]{\textcolor{red}{#1}}
 \newcommand{\done}[1]{\textcolor{black}{#1}}
@@ -1519,11 +1519,11 @@ the background knowledge to easily model fluid dynamics problems using their
 software. A frequently asked questions section was added to their package
 website to help users find answers to common questions. The package also has
 detailed documentation, including guides and usage requirements specification,
-to better help users understand the software.  \wss{Peter - the discussion here
+to better help users understand the software. \wss{Peter - the discussion here
 is more about user usability than the understandability of the code for
-developers.  Did any of the developers discuss developer understandability?  The
+developers. Did any of the developers discuss developer understandability?  The
 confusion between understandability and usability was also a confusion during
-the interviews Ao conducted.}
+the interviews Ao conducted.} \pmm{The developer of ESPResSo did comment on developer understandability, specifically for developers that are/were part of their peer review process. He commented that code architecture is documented, and that code is made to be readable, and that these help peer reviews of the code.}
 
 \wss{I moved this from the visibility section, since it is more about
 understandability.}  Developers were also asked how documentation fits into their
@@ -1548,7 +1548,7 @@ artifacts, source code, and system architecture, as well as how the software
 package build system works, and how the coupling between the simulation engine
 and the interface works.  \wss{Peter - these points about developer
 documentation seem like they would fit better under understandability, don't you
-think?}  \wss{If ESPresSo scored high (I think it did), we can use that to
+think?}  \pmm{After reviewing the definitions of the two qualities, I think you are right. I think that the point presented in the first sentence of this paragraph belongs here in traceability (but could be reworded to note that ESPResSo also has detailed change logs in their docs - change logs are also available for Palabos and waLBerla), but the rest of the paragraph can be moved to understandability.} \wss{If ESPresSo scored high (I think it did), we can use that to
 further promote the value of documentation.  Also a threat to validity is that
 we have implicitly assumed documentation is valuable when measuring quality.}
 
@@ -1558,7 +1558,7 @@ documentation. The developers use documentation to stay up to date on the status
 of the software package, and to help expand features, like computational models
 or algorithms. This is necessary so that the coding standard for these models is
 kept consistent for new developers. \wss{Peter - this also sounds like
-discussion that is relevant for understandability.}
+discussion that is relevant for understandability.} \pmm{The points here sound like they could work for both. The definition of traceability notes that `This quality refers to keeping track of information as it changes forms or relates between artifacts'. So the point `New features are always added to the documentation' could be reworded to fit that part of the definition of traceability. As noted above, this is similar to the point about some packages having including detailed change logs. Same with `The developers use documentation to stay up to date on the status of the software package, and to help expand features'. I agree that at least some of this paragraph could be in understandability, especially the first and second sentences.}
 
 The importance of documentation for both users and developers was stressed
 throughout the interviews. However, it was noted several times that a lack of
@@ -1572,11 +1572,7 @@ thing has come up in papers.  I'll try to find a reference for this.  This is
 also something we can point to for recommendations related to code generation.}
 \wss{Peter - this also sounds like understandability related discussion?  I
 wonder if we should drop Traceability as a quality that we assessed?  There
-doesn't seem to be much content specific to traceability.}  The developer of
-OpenLB noted the use of documentation generators like Doxygen. It would be
-advisable for more projects to use such automatic document generation tools,
-since some projects do not do this.  \wss{We can refer back to this for the
-recommendations.}
+doesn't seem to be much content specific to traceability.}  \pmm{Based on the comments I just added above, I think we can keep at least a small part of what is here in traceability, rewording parts to highlight the importance of change logs. Some of the content in this section should indeed be moved to understandability.} The developer of OpenLB noted the use of documentation generators like Doxygen. It would be advisable for more projects to use such automatic document generation tools, since some projects do not do this.  \wss{We can refer back to this for the recommendations.}
 
 \subsection{Visibility and Transparency} \label{secVisib}
 
@@ -1586,7 +1582,7 @@ Although they accept outside contributors, these are rare and the teams remain
 tight-knit.  Most of the teams interviewed have all members at the same
 institution, although one team is spread out internationally. \wss{Peter, can
 you say which team is international, so that we can add this detail to the
-paper?}  For teams of only a few developers, new features or major changes are
+paper?} \pmm{The interviewed developer of OpenLB noted that there were tasks for local and international developers when discussing their software development model. He also noted that they have frequent local meetings and annual international meetings.}  For teams of only a few developers, new features or major changes are
 discussed with the entire team. Projects with more than a few developers have
 lead developer roles. These lead developers review potential additions to the
 software.  
@@ -2459,7 +2455,7 @@ to this the measured data is not a true reflection of software package quality.
 
 We analyzed the state of the practice of software development in the Lattice
 Boltzmann Methods software domain by quantitatively and qualitatively measuring,
-and comparing, 23 software packages along quality attributes. The software
+and comparing, 24 software packages along quality attributes. The software
 qualities that were assessed in this report are listed in Section
 ~\ref{softwarequalities}. A methodology for assessing the state of the practice
 of software development in SCS domains was presented. Domain packages were
