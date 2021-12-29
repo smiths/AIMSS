@@ -1691,9 +1691,9 @@ current software packages?
 The software packages were examined for the presence of artifacts, which were
 then categorized by frequency. We have grouped them into common, less common,
 and rare artifacts in Table~\ref{artifactspresent}. Common artifacts were found
-in 16 to 23 ($>$70\%) of the software packages. Less common artifacts were found
-in 8 to 15 (35-70\%) of the software packages. Rare artifacts were found in 1 to
-7 ($<$35\%) of the software packages. 
+in 16 to 24 ($>$63\%) of the software packages. Less common artifacts were found
+in 8 to 15 (30-63\%) of the software packages. Rare artifacts were found in 1 to
+7 ($<$30\%) of the software packages. 
 
 \begin{table}
 	\begin{center}
@@ -1737,8 +1737,7 @@ in 8 to 15 (35-70\%) of the software packages. Rare artifacts were found in 1 to
 
 \subsubsection{Common Artifacts}
 
-All of the top four AHP ranked packages, ESPREsSo, Ludwig, OpenLB, and Palabos,
-have each of the commonly found artifacts, except only three of them have a
+All of the top four AHP ranked packages, ESPREsSo, Ludwig, Palabos, and OpenLB, have each of the commonly found artifacts, except only three of them have a
 requirements specification or theory notes. Palabos is the only one of these
 four packages that does not have an artifact from this category.
 
@@ -1763,9 +1762,8 @@ user manual or guide, but there was a broken link on the package website
 indicating that such an artifact might exist. This broken link was later fixed,
 but this is not reflected in our data because it was not present at the time of
 data collection. Despite the broken link, Palabos does have a detailed and
-informative website. Another one (Ludwig) of the top four packages does not
-appear to have publicly visible design documentation. A third package (OpenLB)
-from the list does not appear to use a version control system. It is possible
+informative website. Another one of the top four packages, Ludwig, does not
+appear to have publicly visible design documentation. A third package from the list, OpenLB, does not appear to use a version control system. It is possible
 that such a system is used by the package since its website notes package
 version numbers, but the artifacts do not explicitly state the use of such a
 system.
@@ -1813,7 +1811,7 @@ project management tools.
 Development tools support the development of end products, but do not become
 part of them, unlike dependencies that remain in the application once it is
 released \citep{ghezzi1991fundamentals}. The following type of development tools
-were explicitly noted in the artifacts or web-pages of the 23 LBM packages that
+were explicitly noted in the artifacts or web-pages of the 24 LBM packages that
 were assessed. It is likely that other tools, such as debuggers, were used but
 are not specified in our sources.
 
@@ -1832,19 +1830,12 @@ are not specified in our sources.
 	\end{multicols}
 
 The above tools can verify the correctness of software during its development.
-Only two (ESPResSo, Ludwig) of the software packages that were assessed
-mentioned using continuous integration tools, like Travis CI. Code editors and
-compilers were explicitly noted to have been used by several packages, and were
-likely used by all of them. One of the packages (Ludwig) explicitly noted the
-use of proprietary unit testing code written in C. Likewise, the use of
-proprietary code for verifying the correctness of output was noted by one
-(pyLBM) of the developers. It is likely that similar tools were used when
-developing other software packages. 
+Only three (ESPResSo, Ludwig, Musubi) of the software packages that were assessed mentioned using continuous integration tools, like Travis CI. Code editors and compilers were explicitly noted to have been used by several packages, and were likely used by all of them. One of the packages (Ludwig) explicitly noted the use of proprietary unit testing code written in C. Likewise, the use of proprietary code for verifying the correctness of output was noted by one (pyLBM) of the developers. It is likely that similar tools were used when developing other software packages. 
 
 \subsubsection{Dependencies}
 
 The following types of dependencies were explicitly noted in the artifacts or
-web-pages of the 23 LBM packages that were assessed. It is possible that other
+web-pages of the 24 LBM packages that were assessed. It is possible that other
 types of dependencies are part of these software packages, but are not clearly
 specified in their artifacts or web sites and because of that they are not
 listed here.
@@ -1874,7 +1865,7 @@ of these categories.
 Many of the software packages that were assessed were developed by teams of two
 or more people. Their work needed to be coordinated and managed. The following
 types of project management tools were explicitly noted in the artifacts,
-web-pages, or interviews with the developers of the 23 LBM packages that were
+web-pages, or interviews with the developers of the 24 LBM packages that were
 assessed. As with development tools and dependencies, it is possible that other
 types of project management tools were used to coordinate and manage the
 projects but are not specified and because of that they are not listed here.
@@ -1899,7 +1890,7 @@ developers use the platform to help manage their projects, especially bug
 related issues. Most of the projects appear to use change tracking and version
 control tools. They often use GitHub or GitLab for this. One package
 (SunlightLB) uses CVS. Document generation tools are mentioned in the artifacts
-of 12 of the projects. The tools Sphinx and Doxygen are explicitly used in this
+of 13 of the projects. The tools Sphinx and Doxygen are explicitly used in this
 capacity. 
 
 \subsection{Principles, Processes, and Methodologies} \label{prinprocmeth}
@@ -1929,10 +1920,8 @@ combination of agile and waterfall development models. The developer teams of
 the LBM packages are fairly small, so it is feasible for them to be organized
 without the need for such models. 
 
-Seven of the software packages contain artifacts outlining the general
-development process, like basic instructions on how to contribute. Eleven of the
-packages explicitly convey that they would accept outside contributors, but
-generally the teams are centralized, often working at the same institution. 
+Seven of the software packages contain artifacts recording the general
+development process and status. Eleven of the packages explicitly convey that they would accept outside contributors, but generally the teams are centralized, often working at the same institution. 
 
 The developers that were interviewed all noted similar project management
 processes. In teams of only a couple of developers, additions of new features or
@@ -1942,8 +1931,8 @@ potential additions to the software. One of the developers (ESPResSo) that was
 interviewed noted that an ad hoc peer review process is used to assess major
 changes and additions.
 
-Thirteen (57\%) of the 23 software packages use GitHub for managing the project,
-including nine (64\%) of the 14 alive packages, and four of the nine (44\%) dead
+Thirteen (54\%) of the 24 software packages use GitHub for managing the project,
+including nine (60\%) of the 15 alive packages, and four of the nine (44\%) dead
 packages. Two projects (Palabos, WaLBerla) use GitLab. This could be indicative
 of a transition to such software development and version control tools for SCS.
 Typically there are several simultaneous development branches in these projects.
@@ -1954,7 +1943,7 @@ is to lower the entry barrier for these new contributors. The documentation
 provides information on how to get started, orients the user to artifacts and
 the source code, and explains how the system works, including the so-called
 simulation engine and interface. The use of document generation tools is
-mentioned in the artifacts of 12 software packages, and was noted during
+mentioned in the artifacts of 13 software packages, and was noted during
 interviews with developers. Sphinx and Doxygen are the tools that were
 mentioned. 
 
@@ -2200,13 +2189,13 @@ they are just suggestions for consideration in the future.
 \subsubsection{Surface Robustness}
 
 \begin{itemize}
-	\item The system must provide descriptive error messages when it encounters unexpected input, including incorrect data types, empty input, and missing files or links. Eighteen of the software packages behaved reasonably when tested with unexpected input.
+	\item The system must provide descriptive error messages when it encounters unexpected input, including incorrect data types, empty input, and missing files or links. Nineteen of the software packages behaved reasonably when tested with unexpected input.
 \end{itemize}
 
 \subsubsection{Surface Performance}
 
 \begin{itemize}
-	\item Integrate parallelization tools and techniques to reduce processing time. Consider GPU processing, CUDA, and MPI. Seventeen software packages mentioned parallelization in their artifacts.
+	\item Integrate parallelization tools and techniques to reduce processing time. Consider GPU processing, CUDA, and MPI. Eighteen software packages mentioned parallelization in their artifacts.
 	\item The user should be able to choose to process their model on either the CPU or GPU. ESPResSo, lbmpy, lettuce, pyLBM, and TCLB allow for either CPU or GPU processing.
 \end{itemize}
 
@@ -2262,9 +2251,9 @@ they are just suggestions for consideration in the future.
 
 \begin{itemize}
 	\item Adopt a coding standard and document it in artifacts, including some examples. A coding standard needs to be part of continuous integration. Only
-	LUMA and HemeLB explicitly identify coding standards. 
-	\item Use consistent, distinctive, and meaningful code identifiers. Nineteen of the 23 software packages use such code identifiers.
-	\item Use symbolic constants. Twelve of the 23 software packages use such constants.
+	LUMA, HemeLB, and Musubi explicitly identify coding standards. 
+	\item Use consistent, distinctive, and meaningful code identifiers. Twenty of the 24 software packages use such code identifiers.
+	\item Use symbolic constants. Thirteen of the 24 software packages use such constants.
 	\item Identify algorithms that are used in source code comments. Document them in the artifacts. Cite relevant external sources if needed. Domain algorithms are noted in the source code of 11 packages.
 	\item Add meaningful comments. Indicate what is being done in each section of source code. All of the top ranked packages have meaningful comments in their source code.
 	\item Modularize the source code, separate components, hide information behind well defined interfaces. This is suggested in SCS literature, and in developer comments.
@@ -2285,7 +2274,7 @@ they are just suggestions for consideration in the future.
 
 \begin{itemize}
 	\item Summarize the development process that is used. Provide information on how new users can contribute. Identify the development model by name (waterfall, agile, etc.), if appropriate.  Seven of the software packages have some artifacts outlining the general development process. Eleven packages have information on how to contribute. 
-	\item Identify the development environment. Eight of the 23 software packages identify the development environment.
+	\item Identify the development environment. Eight of the 24 software packages identify the development environment.
 	\item Update all relevant documentation when a change to the software is made. This is suggested as good software development practice.
 	\item Include notes with all releases. Nine of the packages include release notes.
 	\item Communicate all changes within the development team. This suggestion is based on developer comments.
