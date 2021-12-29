@@ -2331,22 +2331,19 @@ to software recommended by a domain expert in Section
 Table~\ref{repometrics} presents our LBM software package rankings along with
 the repository ranking metrics of each software package. 
 
-Eight packages do not use GitHub or GitLab, so they do not have a measure of
+Nine packages do not use GitHub, so they do not have a measure of
 repository stars. Looking at the repository stars of the other 15 packages, we
 can observe a slight pattern where packages that have been highly ranked by our
-assessment do have more stars than lower ranked packages. The second ranked
+assessment do have more stars than lower ranked packages. The best ranked
 package (ESPResSo) has the second most number of stars. The ninth ranked package
 (Sailfish) has the most number of stars. Packages designated as lower quality
-often do not use GitHub or GitLab, or have few stars, except for HemeLB which
-has 22 stars. Our assessment of this package might not be accurate. The number
-of stars does not necessarily represent the perceptions of the community, but
-for lack of an alternative measure we will use it this way. 
+often do not use GitHub or GitLab, or have few stars. HemeLB only has 12 stars, but its location recently moved from a different GitHub repository. Our assessment of this package might not be accurate. The number of stars does not necessarily represent the perceptions of the community, but for lack of an alternative measure we will use it this way. 
 
 The repository watches column contains even less data to compare since two of
 the packages (Palabos, waLBerla) use GitLab, which does not include this metric.
 The pattern that can be observed with this metric is very similar to that of the
 stars metric. The ninth ranked package (Sailfish) has the most number of
-watches. The second ranked package (ESPResSo) has the second most number of
+watches. The best ranked package (ESPResSo) has the second most number of
 watches.
 
 Besides missing data, another threat to the validity of this comparison is the
@@ -2360,29 +2357,30 @@ packages may not be reflected in their stars and watches. \\
 			\hline
 			Name & Our Ranking & Repository Stars & Repository Star Rank & Repository Watches \\
 			\hline
-			Ludwig&1& 19 &8& 6\\
-			ESPResSo &2& 115 &2& 23\\
-			Palabos &3& 14 &10& GitLab\\
+			ESPResSo &1& 145 &2& 19\\
+			Ludwig&2& 27 &8& 6\\
+			Palabos &3& 34 &6& GitLab\\
 			OpenLB &4& No Git &No Git & No Git\\
-			LUMA&5& 26 &6& 10\\
-			pyLBM &6& 57&4& 8\\
+			LUMA&5& 33 &7& 12\\
+			pyLBM &6& 95&3& 10\\
 			DL\_MESO (LBE) & 7 & No Git &No Git & No Git \\
-			waLBerla & 8 & 17 &9& GitLab\\
-			Sailfish &9& 154 &1& 39\\
-			laboetie &10& 4 &13& 5\\
-			TCLB &11& 61 &3& 16\\
-			MechSys &12& No Git &No Git & No Git\\
-			lettuce &13& 8 &11& 2\\
-			ESPResSo++ &14& 31 &5& 13\\
-			MP-LABS &15& 7 &12& 2\\			
-			SunlightLB & 16& No Git &No Git & No Git\\
-			LB3D &17& No Git &No Git & No Git\\			
-			LIMBES &18& No Git &No Git & No Git\\
-			LB2D-Prime &19& No Git &No Git & No Git\\		
-			HemeLB &20& 22 &7& 15\\
-			lbmpy&21&  4 &13& 2  \\	
-			LB3D-Prime &22& No Git &No Git & No Git\\	
-			LatBo.jl &23& 4 &13& 5\\			
+			Musubi & 8 & No Git &No Git & No Git \\
+			Sailfish &9& 186 &1& 41\\
+			waLBerla & 10 & 20 &9& GitLab\\
+			laboetie &11& 4 &13& 5\\
+			TCLB &12& 95 &3& 16\\
+			MechSys &13& No Git &No Git & No Git\\
+			lettuce &14& 48 &4& 5\\
+			ESPResSo++ &15& 35 &5& 12\\
+			MP-LABS &16& 12 &11& 2\\			
+			SunlightLB & 17& No Git &No Git & No Git\\
+			LB3D &18& No Git &No Git & No Git\\			
+			LIMBES &19& No Git &No Git & No Git\\
+			LB2D-Prime &20& No Git &No Git & No Git\\		
+			HemeLB &21& 12 &11& 12\\
+			lbmpy&22&  11 &12&  2\\	
+			LB3D-Prime &23& No Git &No Git & No Git\\	
+			LatBo.jl &24& 17 &10& 8\\			
 			\hline
 		\end{tabular}
 		\caption{Repository Ranking Metrics} \label{repometrics}
@@ -2392,27 +2390,7 @@ packages may not be reflected in their stars and watches. \\
 \subsubsection{Domain Expert Recommended Software} \label{domainexpertrecommend}
 
 Table~\ref{rankingcomparison} compares the top 10 ranked LBM software packages
-with a LBM package ranking made by a domain expert. Five (Palabos, OpenLB, LUMA,
-waLBerla, Sailfish) of the top 10 ranked packages in this assessment are also
-found in the domain expert's list. Interestingly, these five packages are listed
-in the same order on both lists. Looking at the remaining packages, the top two
-ranked packages in this state of the practice assessment (Ludwig, ESPResSo) are
-not on the domain expert's list. Perhaps the intended applications of these
-packages, complex fluids for Ludwig and soft matter research for ESPResSo, do
-not align with the research interests of the domain expert, and this is why they
-did not make it onto their list. Moving down the list, pyLBM and DL\_MESO(LBE)
-did not make the domain expert's top 10 list but were mentioned by the domain
-expert. The 10th ranked package, laboetie, was not mentioned by the domain
-expert. Looking at the remainder of the domain expert's list, ASL is a general
-purpose tool for solving partial differential equations and may have fallen out
-of scope of the authoritative lists that were used to identify the initial LBM
-software list. The domain expert's fifth ranked package (ch4-project) was on the
-initial software list of this assessment, but was removed due to a lack of
-documentation. Open FSI is a new project that uses Palabos. It was made public
-the year before data was collected for this state of the practice exercise. It
-may not have been on authoritative lists due to its young age. Similarly, LIFE
-was also made public recently. Finally, the domain expert's 10th ranked package
-(HemeLB) was ranked 20th in this state of the practice assessment. 
+with a LBM package ranking made by a domain expert. Five (Palabos, OpenLB, LUMA, Sailfish, waLBerla) of the top 10 ranked packages in this assessment are also found in the domain expert's top 10 ranking. Interestingly, the first three of these five packages are listed in the same order on both lists. Looking at the remaining packages, the top two ranked packages in this state of the practice assessment (ESPResSo, Ludwig) are not on the domain expert's list. Perhaps the intended applications of these packages, complex fluids for Ludwig and soft matter research for ESPResSo, do not align with the research interests of the domain expert, and this is why they did not make it onto their list. This reasoning may also apply to eighth ranked Musubi. Moving down the list, pyLBM and DL\_MESO(LBE) did not make the domain expert's top 10 list but were mentioned by the domain expert. Looking at the remainder of the domain expert's list, ASL is a general purpose tool for solving partial differential equations and may have fallen out of scope of the authoritative lists that were used to identify the initial LBM software list. The domain expert's fifth ranked package (ch4-project) was on the initial software list of this assessment, but was removed due to a lack of documentation. Open FSI is a new project that uses Palabos. It was made public the year before data was collected for this state of the practice exercise. It may not have been on authoritative lists due to its young age. Similarly, LIFE was also made public recently. Finally, the domain expert's 10th ranked package (HemeLB) was ranked 21st in this state of the practice assessment. 
 
 \begin{table}
 \begin{center}
@@ -2420,16 +2398,16 @@ was also made public recently. Finally, the domain expert's 10th ranked package
 			\hline
 			Rank & This Assessment & Domain Expert\\
 			\hline
-			1&Ludwig (N/A) &Palabos\\
-			2&ESPResSo (N/A) &OpenLB\\
+			1&ESPResSo (N/A) &Palabos\\
+			2&Ludwig (N/A) &OpenLB\\
 			3&Palabos (1)&LUMA\\
 			4&OpenLB (2)&ASL\\
 			5&LUMA (3)&ch4-project\\
-			6&pyLBM (17)&Open FSI\\
-			7&DL\_MESO (LBE) (12)& WaLBerla\\
-			8&waLBerla (7)& LIFE\\
+			6&pyLBM (16)&Open FSI\\
+			7&DL\_MESO (LBE) (11)& WaLBerla\\
+			8&Musubi (N/A)& LIFE\\
 			9&Sailfish (9)&Sailfish\\
-			10&laboetie (N/A)&HemeLB\\		
+			10&WaLBerla (7)&HemeLB\\		
 			\hline
 		\end{tabular}
 		\caption{Ranking Comparison} \label{rankingcomparison}
@@ -2469,12 +2447,7 @@ Palabos, which had a broken link to its user manual, as noted in Section
 
 Some pertinent data may not have been specified in public artifacts, or may be
 obscure within an artifact or web-page. The use of unit testing and continuous
-integration was mentioned in the artifacts of only two (ESPResSo, Ludwig)
-packages. However, interviews suggested a more frequent use of both unit testing
-and continuous integration in the development processes than what was observed
-from the initial survey of the artifacts. For example, OpenLB, pyLBM, and TCLB
-use such methods during development despite this not being explicitly clear from
-an analysis of the material available online. 
+integration was mentioned in the artifacts of only three (ESPResSo, Ludwig, Musubi) packages. However, interviews suggested a more frequent use of both unit testing and continuous integration in the development processes than what was observed from the initial survey of the artifacts. For example, OpenLB, pyLBM, and TCLB use such methods during development despite this not being explicitly clear from an analysis of the material available online. 
 
 Furthermore, design documentation was measured to be a ``less common'' artifact
 in this assessment, but it is probable that such documentation is part of all
