@@ -53,6 +53,7 @@
 \usepackage{arydshln}
 \usepackage{paralist}
 \usepackage{multicol}
+\usepackage{booktabs}
 
 %% Comments
 \newif\ifcomments\commentstrue
@@ -1411,13 +1412,8 @@ surface robustness, maintainability, and understandability.
 
 \section{Qualitative Findings From Developer Interviews} \label{interviewresults}
 
-, without a need for a rigorous software development model. The developer of
-ESPResSo noted that while no formal model is used, their development model is
-something similar to a combination of agile and waterfall development models. 
-
-Improving the software engineering
-education or experience of developers is also an idea that was brought up by
-several developers.
+Improving the software engineering education or experience of developers is also
+an idea that was brought up by several developers.
 
 This section presents qualitative findings on software qualities as gleaned from
 interviewing 4 developers. The full interview questions are found in
@@ -1741,10 +1737,8 @@ designations of the software packages to community rankings is made in Section
 ~\ref{comparison}. Finally, threats to the validity of this assessment are noted
 in Section~\ref{threats}.
 
-\subsection{Artifacts Present} \label{artifacts}
-
-This subsection answers the research question: What artifacts are present in
-current software packages?
+\subsection{What artifacts are present in current software projects?}
+\label{artifacts}
 
 The software packages were examined for the presence of artifacts, which were
 then categorized by frequency. We have grouped them into common, less common,
@@ -1754,66 +1748,31 @@ in 8 to 15 (35-70\%) of the software packages. Rare artifacts were found in 1 to
 7 ($<$35\%) of the software packages. 
 
 \begin{table}
-	\begin{center}
-		\begin{tabular}{ p{8 cm} }
-			\hline
-			Common\\
-			\hline
-			Authors / Developers List\\
-			Bug Tracker\\
-			Dependency Notes\\
-			Installation Guide / Instructions\\
-			License\\
-			List of Related Articles / Publications\\
-			Makefile / Build File\\
-			README File\\
-			Requirements Specification / Theory Notes\\
-			Tutorial\\
-			\hline
-			Less Common\\
-			\hline
-			Change Log / Release Notes\\
-			Design Documentation\\
-			Functional Specification / Notes\\
-			Performance Information / Notes\\
-			Test Plan / Report / Script / Data / Cases\\
-			User Manual/Guide\\
-			Version Control\\
-			\hline
-			Rare\\
-			\hline
-			API Documentation\\
-			Developer / Contributor Manual / Guide\\
-			FAQ / Forum\\
-			Verification and Validation Plan / Notes\\
-			Video Guide (including YouTube)\\
-			\hline
-		\end{tabular}
-		\caption{Artifacts Present} \label{artifactspresent}
-	\end{center}
+\begin{center}
+\begin{tabular}{ p{5.3 cm} p{4.9 cm} p{5 cm}}
+\toprule
+\textbf{Common} & \textbf{Less Common} & \textbf{Rare} \\
+\midrule
+Authors / Developers List & Change Log / Release Notes & API Documentation\\
+Bug Tracker & Design Documentation & Developer / Contributor Manual\\
+Dependency Notes & Functional Spec. / Notes & FAQ / Forum\\
+Installation Guide / Instructions & Performance Information & Verification and Validation Plan\\
+Requirements Spec. / Theory Notes & Test Plan / Script / Cases & Video Guide (including YouTube)\\
+List of Related Publications & User Manual/Guide & \\
+Makefile / Build File & Version Control & \\
+README File & & \\
+License & & \\
+Tutorial & & \\
+\bottomrule
+\end{tabular}
+\caption{Artifacts Present} \label{artifactspresent}
+\end{center}
 \end{table}
-
-\subsubsection{Common Artifacts}
 
 All of the top four AHP ranked packages, ESPREsSo, Ludwig, OpenLB, and Palabos,
 have each of the commonly found artifacts, except only three of them have a
 requirements specification or theory notes. Palabos is the only one of these
 four packages that does not have an artifact from this category.
-
-The common artifacts contribute to the quality of the software in the following
-ways. A list of authors and developers helps potential users and contributors
-contact project members to answer questions affecting many software qualities. A
-bug tracker helps with organizing improvements to the software. Dependency notes
-help users install the software, as does an installation guide. Makefiles or
-other automated build files decrease human error in the installation process.
-Licenses promote usage of the software. Requirements specifications, linked
-theory notes, and related articles and publications help make the software more
-understandable, decrease ambiguity, and help with verifying its correctness.
-README files also help with understandability. The tutorials help users become
-familiar with using the software.
-
-
-\subsubsection{Less Common Artifacts} \label{lesscommon}
 
 The top four AHP ranked packages have most of the less common artifacts. At the
 time of data collection, only one (Palabos) of the four packages did not have a
@@ -1824,149 +1783,85 @@ data collection. Despite the broken link, Palabos does have a detailed and
 informative website. Another one (Ludwig) of the top four packages does not
 appear to have publicly visible design documentation. A third package (OpenLB)
 from the list does not appear to use a version control system. It is possible
-that such a system is used by the package since its website notes package
+that such a system is used by the package, since its website notes package
 version numbers, but the artifacts do not explicitly state the use of such a
 system.
 
-The less common artifacts also contribute to software quality. A change log or
-release notes improve traceability of the software. Design documentation helps
-with maintaining, modifying, and reusing the software. Version control also
-helps to improve these qualities, as well as with traceability. Functional
-specifications and notes clarify the software, contributing to usability and
-understandability. A user manual also helps with those qualities and with
-installability, and correctness and verifiability. Performance notes suggest
-that performance was considered when developing the software. Test plans,
-scripts, and cases, help verify correctness. 
+The top four ranked packages do not have many of the rare artifacts. None of the
+top four packages have any explicit API documentation. Three of these packages
+(ESPREsSo, Ludwig, Palabos) have information on contributing to the project. Two
+of them (OpenLB, Palabos) have a FAQ section or forum. One (OpenLB) has
+verification and validation notes, and a video guide of the software. 
 
-\subsubsection{Rare Artifacts}
-
-It is not common for the top four AHP ranked packages to have many of the rare
-artifacts. None of the top four packages have any explicit API documentation.
-Three of these packages (ESPREsSo, Ludwig, Palabos) have information on
-contributing to the project. Two of them (OpenLB, Palabos) have a FAQ section or
-forum. One (OpenLB) has verification and validation notes, and a video guide of
-the software. 
-
-Although the artifacts were rarely found in our set of LBM software, they also
-contribute to software quality. API documentation helps with reusing the
-software. Developer and contributor manuals and guides help with
-maintainability, visibility and transparency. FAQs and forums improve usability
-of software. Verification and validation notes can be used to help check if a
-system meets specifications. Video guides can contribute to many software
-qualities, depending on the content of the video. 
-
-\subsection{Tools Used} \label{tools}
-
-This subsection answers the research question: What tools (development,
-dependencies, project management) are used by current software packages?
+\subsection{What tools (development, dependencies, project management) are used by current software packages?} \label{tools}
 
 Software tools are used to support the development, verification, maintenance,
 and evolution of software, software processes, and artifacts
-\citep{ghezzi1991fundamentals}. Many tools are used by LBM software packages.
-The tools noted here are subdivided into development tools, dependencies, and
-project management tools.
+\citep{ghezzi1991fundamentals}. Many tools are used by LBM software packages, as
+summarized in Table~\ref{tbl_tools}.  The tools are subdivided into development
+tools, dependencies, and project management tools.
 
-\subsubsection{Development Tools}
+\begin{table}
+	\begin{center}
+	\begin{tabular}{ p{5.3 cm} p{4.9 cm} p{5 cm}}
+	\toprule
+	\textbf{Development Tools} & \textbf{Dependencies} & \textbf{Project
+	Management Tools} \\
+	\midrule
+	Continuous Integration & Build Automation Tools & Collaboration Tools\\
+	Code Editors & Technical Libraries & Email\\
+	Development Environment & Domain Specific Libraries & Change Tracking Tools\\
+	Runtime Environments &  & Version Control Tools\\
+	Compilers &  & Document Generation Tools\\
+	Unit Testing Tools &  & \\
+	Correctness Verification Tools &  & \\
+	\bottomrule
+	\end{tabular}
+	\caption{Observed development tools, dependencies and project management tools} \label{tbl_tools}
+	\end{center}
+\end{table}
 
 Development tools support the development of end products, but do not become
 part of them, unlike dependencies that remain in the application once it is
-released \citep{ghezzi1991fundamentals}. The following type of development tools
-were explicitly noted in the artifacts or web-pages of the 23 LBM packages that
-were assessed. It is likely that other tools, such as debuggers, were used but
-are not specified in our sources.
+released \citep{ghezzi1991fundamentals}. Although not shown in
+Table~\ref{tbl_tools}, debuggers were also likely used.  Only two (ESPResSo and
+Ludwig) packages mentioned continuous integration tools, like Travis CI. Code
+editors and compilers were explicitly noted to have been used by several
+packages, and were likely used by all of them. One of the packages (Ludwig)
+explicitly noted the use of proprietary unit testing code written in C.
+Likewise, the use of proprietary code for verifying the correctness of output
+was noted by one of the developers (pyLBM). Similar tools were likely used when
+developing the other software packages.
 
-	\begin{multicols}{2}	
-		\begin{itemize}
-			
-			\item Continuous Integration Tools
-			\item Code Editors
-			\item Development Environment
-			\item Runtime Environments
-			\item Compilers
-			\item Unit Testing Tools
-			\item Correctness Verification Tools
-			
-		\end{itemize}
-	\end{multicols}
-
-The above tools can verify the correctness of software during its development.
-Only two (ESPResSo, Ludwig) of the software packages that were assessed
-mentioned using continuous integration tools, like Travis CI. Code editors and
-compilers were explicitly noted to have been used by several packages, and were
-likely used by all of them. One of the packages (Ludwig) explicitly noted the
-use of proprietary unit testing code written in C. Likewise, the use of
-proprietary code for verifying the correctness of output was noted by one
-(pyLBM) of the developers. It is likely that similar tools were used when
-developing other software packages. 
-
-\subsubsection{Dependencies}
-
-The following types of dependencies were explicitly noted in the artifacts or
-web-pages of the 23 LBM packages that were assessed. It is possible that other
-types of dependencies are part of these software packages, but are not clearly
-specified in their artifacts or web sites and because of that they are not
-listed here.
-
-	\begin{multicols}{2}	
-		\begin{itemize}
-			
-			\item Build Automation Tools
-			\item Technical Libraries
-			\item Domain Specific Libraries
-		
-		\end{itemize}
-	\end{multicols}
-
-
-Most of the software packages use some sort of build automation tools, most
-commonly Make. They also all use various technical and domain specific
-libraries. Technical libraries include visualization (e.g. Matplotlib, ParaView,
-Pygame, VTK), data analysis (e.g. Anaconda, Torch), and message passing
-libraries (e.g. MPICH, Open MPI, PyZMQ). Domain specific libraries are
-scientific computing libraries (e.g. SciPy). Libraries that are not explicitly
-stated in artifacts, or were not noted during our observations, may fall outside
-of these categories. 
-
-\subsubsection{Project Management Tools}
+For the dependency tools (Table~\ref{tbl_tools}), we observed that most of the
+software packages use some sort of build automation tools, most commonly Make.
+They all use various technical and domain specific libraries. Technical
+libraries include visualization (e.g.\ Matplotlib, ParaView, Pygame, VTK), data
+analysis (e.g.\ Anaconda, Torch), and message passing libraries (e.g.\ MPICH,
+Open MPI, PyZMQ). Domain specific libraries include scientific computing
+libraries (e.g.\ SciPy). Some used libraries will be missing, if they are not
+explicitly stated in the artifacts we observed.
 
 Many of the software packages that were assessed were developed by teams of two
-or more people. Their work needed to be coordinated and managed. The following
-types of project management tools were explicitly noted in the artifacts,
-web-pages, or interviews with the developers of the 23 LBM packages that were
-assessed. As with development tools and dependencies, it is possible that other
-types of project management tools were used to coordinate and manage the
-projects but are not specified and because of that they are not listed here.
+or more people. Their work needed to be coordinated and managed.
+Table~\ref{tbl_tools} shows the types of project management tools that were
+explicitly noted in the artifacts, web-pages, or interviews with the developers.
+As with development tools and dependencies, it is possible that other types of
+project management tools are used, but they were not visible in the artifacts to
+which we had access.  Collaboration tools are noted as being used when
+developing the software projects. Most often email and video conferencing is
+used. Project management software was not explicitly mentioned, but it is
+possible that some of the projects use such software. Many of the projects are
+located on GitHub, and its developers use the platform to help manage their
+projects, especially bug related issues. Most of the projects appear to use
+change tracking and version control tools. They often use GitHub or GitLab for
+this. One package (SunlightLB) uses CVS. Document generation tools are mentioned
+in the artifacts of 12 of the projects. The tools Sphinx and Doxygen are
+explicitly used in this capacity. \wss{look at what the other papers say are
+commonly used tools and bring that information into this section.}
 
-	\begin{multicols}{2}	
-		\begin{itemize}
-			
-			\item Collaboration Tools
-			\item Email
-			\item Change Tracking Tools
-			\item Version Control Tools
-			\item Document Generation Tools
-		
-		\end{itemize}
-	\end{multicols}
-
-Collaboration tools are noted as being used when developing the software
-projects. Most often email and video conferencing is used. Project management
-software was not explicitly mentioned, but it is possible that some of the
-projects use such software. Many of the projects are located on GitHub, and its
-developers use the platform to help manage their projects, especially bug
-related issues. Most of the projects appear to use change tracking and version
-control tools. They often use GitHub or GitLab for this. One package
-(SunlightLB) uses CVS. Document generation tools are mentioned in the artifacts
-of 12 of the projects. The tools Sphinx and Doxygen are explicitly used in this
-capacity. 
-
-\subsection{Principles, Processes, and Methodologies} \label{prinprocmeth}
-
-This subsection answers the research question: What principles, processes, and
-methodologies are used in the development of current software packages?
-
-The points and conclusions in this subsection come from developer interviews and
-reviews of software package artifacts.
+\subsection{What principles, processes, and methodologies are used?}
+\label{prinprocmeth}
 
 Most of the software packages do not explicitly state in their artifacts the
 motivations or design principles that were considered when developing the
@@ -1985,7 +1880,8 @@ like a waterfall or agile development model. One developer (ESPResSo) noted that
 while no formal model is used, their development model is something similar to a
 combination of agile and waterfall development models. The developer teams of
 the LBM packages are fairly small, so it is feasible for them to be organized
-without the need for such models. 
+without the need for such models.  \wss{some repetition from the previous
+section - should try to figure out how to remove the repetition.}
 
 Seven of the software packages contain artifacts outlining the general
 development process, like basic instructions on how to contribute. Eleven of the
@@ -2030,16 +1926,15 @@ frequent use of both unit testing and continuous integration in the development
 process than was found by only assessing the artifacts. The use of automatic
 installation processes is also common. Most often this involved a Make script.
 
-\subsection{Pain Points} \label{painpoints}
+\subsection{What are the pain points?} \label{painpoints}
 
 This subsection answers the research question: What are the pain points for
 developers working on research software projects? What aspects of the existing
 processes, methodologies and tools do they consider as potentially needing
 improvement? How should processes, methodologies and tools be changed to improve
-software development and software quality?
-
-Developers were asked to comment on obstacles in their development process,
-obstacles encountered by users, and potential future obstacles.
+software development and software quality?  Developers were asked to comment on
+obstacles in their development process, obstacles encountered by users, and
+potential future obstacles.
 
 \subsubsection{Lack of Development Time}
 
@@ -2186,7 +2081,8 @@ tools that capture scientific and computing knowledge, and transform it into
 software artifacts, is advised. Drasil is an automatic document generation tool
 that is further discussed in Section~\ref{highlightedrecommendations}.
 
-\subsection{Quality Recommendations} \label{qualityrecommentations}
+\subsection{What is the current software quality for the projects?}
+\label{qualityrecommentations}
 
 This subsection answers the research question: For research software developers,
 what specific actions are taken to address software qualities?
@@ -2224,7 +2120,8 @@ they are just suggestions for consideration in the future.
 	\item Provide a way to validate the installation. This can be done using a
 	custom script, or a test case that specifies expected output. This was done
 	by several top ranked packages, including OpenLB, Ludwig, LUMA, and Palabos.
-	\item Provide instructions for uninstalling the software. These were included with pyLBM.
+	\item Provide instructions for uninstalling the software. These were
+	included with pyLBM.
 \end{itemize}
 
 \subsubsection{Surface Correctness and Verifiability}
@@ -2238,127 +2135,241 @@ they are just suggestions for consideration in the future.
 	specification document, or explicitly reference the domain theory that the
 	software is designed from.  This was done by several top ranked packages,
 	including ESPResSo, Ludwig, LUMA, and OpenLB.
-	\item Ensure the above information is easy to find. Consider adding it to the user manual. The information is easy to find in most top ranked packages.
-	\item Development teams should include both domain experts and experienced software developers. This suggestion is based on developer comments.
-	\item Use and make public (on package website or GitHub) detailed documentation. Consider using automatic document generation tools like Doxygen, Drasil, or Sphinx. This was done by all of the top five ranked packages.
-	\item Provide detailed tutorials that include expected output, like the \href{https://www.walberla.net/doxygen/index.html}{waLBerla tutorials}.
-	\item Use unit tests during development and make them public (on package website or GitHub). This was available for Ludwig.
-	\item Modularize the source code, separate components, hide information  behind well defined interfaces. This is suggested in SCS literature, and in developer comments.
-	\item Use continuous integration tools (Bamboo, Jenkins, and Travis CI) and processes during development. This was done by top ranked packages ESPResSo and Ludwig.
+	\item Ensure the above information is easy to find. Consider adding it to
+	the user manual. The information is easy to find in most top ranked
+	packages.
+	\item Development teams should include both domain experts and experienced
+	software developers. This suggestion is based on developer comments.
+	\item Use and make public (on package website or GitHub) detailed
+	documentation. Consider using automatic document generation tools like
+	Doxygen, Drasil, or Sphinx. This was done by all of the top five ranked
+	packages.
+	\item Provide detailed tutorials that include expected output, like the
+	\href{https://www.walberla.net/doxygen/index.html}{waLBerla tutorials}.
+	\item Use unit tests during development and make them public (on package
+	website or GitHub). This was available for Ludwig.
+	\item Modularize the source code, separate components, hide information
+	behind well defined interfaces. This is suggested in SCS literature, and in
+	developer comments.
+	\item Use continuous integration tools (Bamboo, Jenkins, and Travis CI) and
+	processes during development. This was done by top ranked packages ESPResSo
+	and Ludwig.
 \end{itemize}
 
 \subsubsection{Surface Reliability}
 
 \begin{itemize}
-	\item Include descriptive error messages where appropriate. This was done by most packages that encountered a fault.
-	\item In case automatic installation of dependencies fails, the system should indicate to the user what dependencies need to be installed manually. This was done by many packages, including ESPResSo++, Ludwig, LUMA, pyLBM, TCLB.
-	\item The packages should include detailed tutorials, including dependencies, expected output, and any additional supplementary documentation that may be required. This was done by many packages, including waLBerla, Palabos, MechSys, LUMA, and pyLBM.
+	\item Include descriptive error messages where appropriate. This was done by
+	most packages that encountered a fault.
+	\item In case automatic installation of dependencies fails, the system
+	should indicate to the user what dependencies need to be installed manually.
+	This was done by many packages, including ESPResSo++, Ludwig, LUMA, pyLBM,
+	TCLB.
+	\item The packages should include detailed tutorials, including
+	dependencies, expected output, and any additional supplementary
+	documentation that may be required. This was done by many packages,
+	including waLBerla, Palabos, MechSys, LUMA, and pyLBM.
 \end{itemize}
 
 \subsubsection{Surface Robustness}
 
 \begin{itemize}
-	\item The system must provide descriptive error messages when it encounters unexpected input, including incorrect data types, empty input, and missing files or links. Eighteen of the software packages behaved reasonably when tested with unexpected input.
+	\item The system must provide descriptive error messages when it encounters
+	unexpected input, including incorrect data types, empty input, and missing
+	files or links. Eighteen of the software packages behaved reasonably when
+	tested with unexpected input.
 \end{itemize}
 
 \subsubsection{Surface Performance}
 
 \begin{itemize}
-	\item Integrate parallelization tools and techniques to reduce processing time. Consider GPU processing, CUDA, and MPI. Seventeen software packages mentioned parallelization in their artifacts.
-	\item The user should be able to choose to process their model on either the CPU or GPU. ESPResSo, lbmpy, lettuce, pyLBM, and TCLB allow for either CPU or GPU processing.
+	\item Integrate parallelization tools and techniques to reduce processing
+	time. Consider GPU processing, CUDA, and MPI. Seventeen software packages
+	mentioned parallelization in their artifacts.
+	\item The user should be able to choose to process their model on either the
+	CPU or GPU. ESPResSo, lbmpy, lettuce, pyLBM, and TCLB allow for either CPU
+	or GPU processing.
 \end{itemize}
 
 \subsubsection{Surface Usability}
 
 \begin{itemize}
-	\item Include user hardware and software requirements documentation. Hardware requirements are rarely listed in the software packages that were assessed. Only those offering GPU processing (ESPResSo, lbmpy, lettuce, pyLBM, Sailfish, TCLB) mentioned any hardware requirements. On the other hand, some sort of software requirements were available for all packages, even if only some dependencies or a compatible operating system were mentioned.
-	\item Provide a user tutorial that indicates the expected output. This was done by many packages, including waLBerla, Palabos, MechSys, LUMA, pyLBM.
-	\item Provide a detailed user manual. It should identify elements of user interfaces, and identify all requirements to model a system. Thirteen packages have a user manual. ESPResSo has a well detailed manual.
-	\item State appropriate fluid dynamics problems that the software is designed to model in the documentation, and explicitly state the limits of the software. This is done in the ESPResSo user guide.
-	\item Provide documentation that details the background theory information, or provide a reference to such information. This was done by several top ranked packages, including ESPResSo, Ludwig, LUMA, and OpenLB.
-	\item Identify expected user characteristics. LIMBES, Ludwig, laboetie, and Palabos did this. The importance of specifying user characteristics is discussed in \citep{smith2007requirements}.
-	\item Keep all documentation in one location. This was done by top ranked packages.
-	\item Do not duplicate artifact information. This is suggested as good software development practice. Duplicate information is difficult to maintain. 
-	\item Maintain a user support model (Git, email, forum, FAQ). This was done by all of the top five ranked packages.
-	\item If possible, consider using popular user-friendly software languages like Python. Especially consider this for parts of the source code that is likely to be modified or reviewed by users. ESPResSo and Sailfish use Python to shorten development time and improve usability.
+	\item Include user hardware and software requirements documentation.
+	Hardware requirements are rarely listed in the software packages that were
+	assessed. Only those offering GPU processing (ESPResSo, lbmpy, lettuce,
+	pyLBM, Sailfish, TCLB) mentioned any hardware requirements. On the other
+	hand, some sort of software requirements were available for all packages,
+	even if only some dependencies or a compatible operating system were
+	mentioned.
+	\item Provide a user tutorial that indicates the expected output. This was
+	done by many packages, including waLBerla, Palabos, MechSys, LUMA, pyLBM.
+	\item Provide a detailed user manual. It should identify elements of user
+	interfaces, and identify all requirements to model a system. Thirteen
+	packages have a user manual. ESPResSo has a well detailed manual.
+	\item State appropriate fluid dynamics problems that the software is
+	designed to model in the documentation, and explicitly state the limits of
+	the software. This is done in the ESPResSo user guide.
+	\item Provide documentation that details the background theory information,
+	or provide a reference to such information. This was done by several top
+	ranked packages, including ESPResSo, Ludwig, LUMA, and OpenLB.
+	\item Identify expected user characteristics. LIMBES, Ludwig, laboetie, and
+	Palabos did this. The importance of specifying user characteristics is
+	discussed in \citep{smith2007requirements}.
+	\item Keep all documentation in one location. This was done by top ranked
+	packages.
+	\item Do not duplicate artifact information. This is suggested as good
+	software development practice. Duplicate information is difficult to
+	maintain. 
+	\item Maintain a user support model (Git, email, forum, FAQ). This was done
+	by all of the top five ranked packages.
+	\item If possible, consider using popular user-friendly software languages
+	like Python. Especially consider this for parts of the source code that is
+	likely to be modified or reviewed by users. ESPResSo and Sailfish use Python
+	to shorten development time and improve usability.
 \end{itemize}
 
 \subsubsection{Maintainability}
 
 \begin{itemize}
-	\item Keep artifacts updated. This is suggested as good software maintenance practice.
-	\item Ideally include most of the common and less common artifacts listed in Section~\ref{artifacts}.
-	\item Include version numbers and release notes for all major source code and artifact releases. The top five ranked software packages include release notes.
-	\item Have a defined process for accepting contributions, and make public documentation for making contributions to the project. The top five ranked software packages include information on how to contribute. 
-	\item Use an issue tracker (Git, email, SourceForge, other) to manage bugs and changes. Issues should be regularly reviewed and closed. All but three (laboetie, lettuce, Sailfish) of the software packages that use Git have most of their issues closed.
-	\item Use a version control system (GitHub, CVS). Four (ESPREsSo, Ludwig, LUMA, Palabos) of the top five ranked packages use a version control system.
-	\item Source code needs to be well commented. Typically, more than 10 percent of LBM package source code is comments, as presented in Table~\ref{gitrepodata}. Four of the top five overall ranked packages (Ludwig, ESPResSo, Palabos, OpenLB) have about 20 percent of their source code as comments.
-	\item Modularize the source code, separate components, hide information behind well defined interfaces. This is suggested in SCS literature, and in developer comments.
-	\item Eliminate code duplication. This is suggested as good software development practice. Duplicate code is difficult to maintain.
-	\item If possible, consider using popular user-friendly software languages like Python. Especially consider this for parts of the source code that is likely to be modified or reviewed by users. ESPResSo and Sailfish use Python to address several software qualities, including maintainability.
+	\item Keep artifacts updated. This is suggested as good software maintenance
+	practice.
+	\item Ideally include most of the common and less common artifacts listed in
+	Section~\ref{artifacts}.
+	\item Include version numbers and release notes for all major source code
+	and artifact releases. The top five ranked software packages include release
+	notes.
+	\item Have a defined process for accepting contributions, and make public
+	documentation for making contributions to the project. The top five ranked
+	software packages include information on how to contribute. 
+	\item Use an issue tracker (Git, email, SourceForge, other) to manage bugs
+	and changes. Issues should be regularly reviewed and closed. All but three
+	(laboetie, lettuce, Sailfish) of the software packages that use Git have
+	most of their issues closed.
+	\item Use a version control system (GitHub, CVS). Four (ESPREsSo, Ludwig,
+	LUMA, Palabos) of the top five ranked packages use a version control system.
+	\item Source code needs to be well commented. Typically, more than 10
+	percent of LBM package source code is comments, as presented in
+	Table~\ref{gitrepodata}. Four of the top five overall ranked packages
+	(Ludwig, ESPResSo, Palabos, OpenLB) have about 20 percent of their source
+	code as comments.
+	\item Modularize the source code, separate components, hide information
+	behind well defined interfaces. This is suggested in SCS literature, and in
+	developer comments.
+	\item Eliminate code duplication. This is suggested as good software
+	development practice. Duplicate code is difficult to maintain.
+	\item If possible, consider using popular user-friendly software languages
+	like Python. Especially consider this for parts of the source code that is
+	likely to be modified or reviewed by users. ESPResSo and Sailfish use Python
+	to address several software qualities, including maintainability.
 	\item Consider the recommended points for addressing traceability.
 \end{itemize}
 
 \subsubsection{Modifiability}
 
 \begin{itemize}
-	\item Modularize the source code, separate components, hide information behind well defined interfaces. This is suggested in SCS literature, and in developer comments.
-	\item If possible, consider using popular user-friendly software languages like Python. Especially consider this for parts of the source code that is likely to be modified or reviewed by users. ESPResSo and Sailfish use Python to address several software qualities, including modifiability.
-	\item Consider future source code modifiability as early as the design stage of development. This is suggested as good software development practice.
-	\item Consider flexibility of data structures and data storage in the design stage. The package pyLBM redeveloped data structures to ease future changes.
+	\item Modularize the source code, separate components, hide information
+	behind well defined interfaces. This is suggested in SCS literature, and in
+	developer comments.
+	\item If possible, consider using popular user-friendly software languages
+	like Python. Especially consider this for parts of the source code that is
+	likely to be modified or reviewed by users. ESPResSo and Sailfish use Python
+	to address several software qualities, including modifiability.
+	\item Consider future source code modifiability as early as the design stage
+	of development. This is suggested as good software development practice.
+	\item Consider flexibility of data structures and data storage in the design
+	stage. The package pyLBM redeveloped data structures to ease future changes.
 \end{itemize}
 
 \subsubsection{Reusability}
 
 \begin{itemize}
-	\item Modularize the source code, separate components, hide information behind well defined interfaces. This is suggested in SCS literature, and in developer comments.
-	\item Document module interfaces in design and developer documentation. This is suggested as good software development practice.
-	\item Provide API documentation, if applicable. Only one (ESPResSo) of the top five ranked packages provided API documentation.
+	\item Modularize the source code, separate components, hide information
+	behind well defined interfaces. This is suggested in SCS literature, and in
+	developer comments.
+	\item Document module interfaces in design and developer documentation. This
+	is suggested as good software development practice.
+	\item Provide API documentation, if applicable. Only one (ESPResSo) of the
+	top five ranked packages provided API documentation.
 \end{itemize}
 
 \subsubsection{Surface Understandability}
 
 \begin{itemize}
-	\item Adopt a coding standard and document it in artifacts, including some examples. A coding standard needs to be part of continuous integration. Only
+	\item Adopt a coding standard and document it in artifacts, including some
+	examples. A coding standard needs to be part of continuous integration. Only
 	LUMA and HemeLB explicitly identify coding standards. 
-	\item Use consistent, distinctive, and meaningful code identifiers. Nineteen of the 23 software packages use such code identifiers.
-	\item Use symbolic constants. Twelve of the 23 software packages use such constants.
-	\item Identify algorithms that are used in source code comments. Document them in the artifacts. Cite relevant external sources if needed. Domain algorithms are noted in the source code of 11 packages.
-	\item Add meaningful comments. Indicate what is being done in each section of source code. All of the top ranked packages have meaningful comments in their source code.
-	\item Modularize the source code, separate components, hide information behind well defined interfaces. This is suggested in SCS literature, and in developer comments.
-	\item Provide a user manual that identifies all technical and problem modeling requirements. Thirteen software packages have a user manual.
-	\item State appropriate fluid dynamics problems that the software is designed to model in the documentation, and explicitly state the limits of the software. This is done in the ESPResSo user guide. 
-	\item Consider adding a FAQ section to the documentation. This helped resolve some usability issues for OpenLB.
+	\item Use consistent, distinctive, and meaningful code identifiers. Nineteen
+	of the 23 software packages use such code identifiers.
+	\item Use symbolic constants. Twelve of the 23 software packages use such
+	constants.
+	\item Identify algorithms that are used in source code comments. Document
+	them in the artifacts. Cite relevant external sources if needed. Domain
+	algorithms are noted in the source code of 11 packages.
+	\item Add meaningful comments. Indicate what is being done in each section
+	of source code. All of the top ranked packages have meaningful comments in
+	their source code.
+	\item Modularize the source code, separate components, hide information
+	behind well defined interfaces. This is suggested in SCS literature, and in
+	developer comments.
+	\item Provide a user manual that identifies all technical and problem
+	modeling requirements. Thirteen software packages have a user manual.
+	\item State appropriate fluid dynamics problems that the software is
+	designed to model in the documentation, and explicitly state the limits of
+	the software. This is done in the ESPResSo user guide. 
+	\item Consider adding a FAQ section to the documentation. This helped
+	resolve some usability issues for OpenLB.
 \end{itemize}
 
 \subsubsection{Traceability}
 
 \begin{itemize}
-	\item Update all relevant documentation when a change to the software is made. This is suggested as good software development practice.
-	\item Use automatic document generation tools (Doxygen, Drasil, Sphinx) to limit the time spent on updating documentation. This was done by all of the top five ranked packages.
-	\item Provide a developer's guide to help orient developers to the artifacts, source code, and system architecture so that they can better document changes. Top ranked package OpenLB has a developer guide. 
+	\item Update all relevant documentation when a change to the software is
+	made. This is suggested as good software development practice.
+	\item Use automatic document generation tools (Doxygen, Drasil, Sphinx) to
+	limit the time spent on updating documentation. This was done by all of the
+	top five ranked packages.
+	\item Provide a developer's guide to help orient developers to the
+	artifacts, source code, and system architecture so that they can better
+	document changes. Top ranked package OpenLB has a developer guide. 
 \end{itemize}
 
 \subsubsection{Visibility and Transparency}
 
 \begin{itemize}
-	\item Summarize the development process that is used. Provide information on how new users can contribute. Identify the development model by name (waterfall, agile, etc.), if appropriate.  Seven of the software packages have some artifacts outlining the general development process. Eleven packages have information on how to contribute. 
-	\item Identify the development environment. Eight of the 23 software packages identify the development environment.
-	\item Update all relevant documentation when a change to the software is made. This is suggested as good software development practice.
+	\item Summarize the development process that is used. Provide information on
+	how new users can contribute. Identify the development model by name
+	(waterfall, agile, etc.), if appropriate.  Seven of the software packages
+	have some artifacts outlining the general development process. Eleven
+	packages have information on how to contribute. 
+	\item Identify the development environment. Eight of the 23 software
+	packages identify the development environment.
+	\item Update all relevant documentation when a change to the software is
+	made. This is suggested as good software development practice.
 	\item Include notes with all releases. Nine of the packages include release notes.
-	\item Communicate all changes within the development team. This suggestion is based on developer comments.
-	\item Use continuous integration processes and tools (Bamboo, Jenkins, and Travis CI). This was done by top ranked packages ESPResSo and Ludwig.
-	\item Consider peer review processes to assess contributions and ensure the tracking of information. High ranked package ESPResSo uses a peer review process for contributions. 
-	\item Use project management tools, including change and version control tools (GitHub, GitLab, CVS), collaboration tools (GitHub, GitLab), and document generation tools (Doxygen, Drasil, Sphinx). This was done by all of the top five ranked packages. 
+	\item Communicate all changes within the development team. This suggestion
+	is based on developer comments.
+	\item Use continuous integration processes and tools (Bamboo, Jenkins, and
+	Travis CI). This was done by top ranked packages ESPResSo and Ludwig.
+	\item Consider peer review processes to assess contributions and ensure the
+	tracking of information. High ranked package ESPResSo uses a peer review
+	process for contributions. 
+	\item Use project management tools, including change and version control
+	tools (GitHub, GitLab, CVS), collaboration tools (GitHub, GitLab), and
+	document generation tools (Doxygen, Drasil, Sphinx). This was done by all of
+	the top five ranked packages. 
 \end{itemize}
 
 \subsubsection{Reproducibility}
 
 \begin{itemize}
-	\item Test output against automatically calculated or known correct results. High ranked package ESPResSo does this.
-	\item Automate the testing of output. Run tests after all code changes. High ranked package ESPResSo does this.
-	\item Consider peer review processes and task based inspection to assess contributions. High ranked package ESPResSo does this.
-	\item Update all relevant design documentation when a change to the software is made. This is suggested as good software development practice.
+	\item Test output against automatically calculated or known correct results.
+	High ranked package ESPResSo does this.
+	\item Automate the testing of output. Run tests after all code changes. High
+	ranked package ESPResSo does this.
+	\item Consider peer review processes and task based inspection to assess
+	contributions. High ranked package ESPResSo does this.
+	\item Update all relevant design documentation when a change to the software
+	is made. This is suggested as good software development practice.
 \end{itemize}
 
 \subsubsection{Unambiguity}
@@ -2382,7 +2393,8 @@ they are just suggestions for consideration in the future.
 	of pyLBM noted that such feedback would be appreciated.
 \end{itemize}
 
-\subsection{Designation Comparison} \label{comparison}
+\subsection{How does software designated as high quality by this methodology
+compare with top-rated software by the community?} \label{comparison}
 
 This subsection answers the research question: How does software designated as
 high quality by this methodology compare with top rated software by the
@@ -2485,23 +2497,23 @@ was also made public recently. Finally, the domain expert's 10th ranked package
 
 \begin{table}
 \begin{center}
-		\begin{tabular}{ p{2cm}p{4.5cm}p{3.5cm}}
-			\hline
-			Rank & This Assessment & Domain Expert\\
-			\hline
-			1&Ludwig (N/A) &Palabos\\
-			2&ESPResSo (N/A) &OpenLB\\
-			3&Palabos (1)&LUMA\\
-			4&OpenLB (2)&ASL\\
-			5&LUMA (3)&ch4-project\\
-			6&pyLBM (17)&Open FSI\\
-			7&DL\_MESO (LBE) (12)& WaLBerla\\
-			8&waLBerla (7)& LIFE\\
-			9&Sailfish (9)&Sailfish\\
-			10&laboetie (N/A)&HemeLB\\		
-			\hline
-		\end{tabular}
-		\caption{Ranking Comparison} \label{rankingcomparison}
+	\begin{tabular}{ p{2cm}p{4.5cm}p{3.5cm}}
+		\toprule
+		Rank & This Assessment & Domain Expert\\
+		\midrule
+		1 & Ludwig (N/A) & Palabos\\
+		2 & ESPResSo (N/A) & OpenLB\\
+		3 & Palabos (1)& LUMA\\
+		4 & OpenLB (2)& ASL\\
+		5 & LUMA (3)& ch4-project\\
+		6 & pyLBM (17)& Open FSI\\
+		7 & DL\_MESO (LBE) (12)& WaLBerla\\
+		8 & waLBerla (7)& LIFE\\
+		9 & Sailfish (9)& Sailfish\\
+		10 & laboetie (N/A)& HemeLB\\		
+		\bottomrule
+	\end{tabular}
+	\caption{Ranking Comparison} \label{rankingcomparison}
 \end{center}
 \end{table}
 
@@ -2533,8 +2545,8 @@ that package.
 Regarding data collection, a risk to the validity of this assessment is missing
 or incorrect data. Some software package data may not have been measured due to
 technology issues like broken links. This issue arose with the measurement of
-Palabos, which had a broken link to its user manual, as noted in Section
-~\ref{lesscommon}. 
+Palabos, which had a broken link to its user manual, as noted in
+Section~\ref{artifacts}. 
 
 Some pertinent data may not have been specified in public artifacts, or may be
 obscure within an artifact or web-page. The use of unit testing and continuous
@@ -2662,7 +2674,8 @@ domains.  Where does LBM stand relative to other domains.
 
 - read \citet{WieseEtAl2019} (Naming the Pain in Developing Scientific Software)
 
-
+- change \citet{ghezzi1991fundamentals} to \citet{GhezziEtAl2003} (need to check
+each instance, add page numbers).
 
 
 
