@@ -15,7 +15,7 @@
 %% given in the file `manifest.txt'.
 %% 
 %% Template article for Elsevier's document class `elsarticle'
-%% with harvard style bibliographic references
+%% with Harvard style bibliographic references
 
 %\documentclass[preprint,12pt,authoryear]{elsarticle}
 %\documentclass[3p, 12pt,authoryear]{elsarticle}
@@ -881,7 +881,13 @@ Maintainability and correctness of these instructions could be improved if all
 the instructions were in one location. 
 
 All 24 packages on the short list can be installed on some Unix-like systems.
-Eight packages could be installed on Windows, and five on macOS. Operating system requirements are listed in the documentation of 20 software packages, but compatible operating system versions are only specified in four packages (ESPResSo, LUMA, Mechsys, Sailfish). All but one of the software packages (TCLB) were tested on Ubuntu for this state of the practice assessment. TCLB was tested on CentOS, since this operating system is mentioned in its installation instructions.
+Eight packages could be installed on Windows, and five on macOS. Operating
+system requirements are listed in the documentation of 20 software packages, but
+compatible operating system versions are only specified in four packages
+(ESPResSo, LUMA, Mechsys, Sailfish). All but one of the software packages (TCLB)
+were tested on Ubuntu for this state of the practice assessment. TCLB was tested
+on CentOS, since this operating system is mentioned in its installation
+instructions.
 
 All but one of the software packages (LatBo.jl) have automated at least some of
 the installation process. Most of these packages, such as waLBerla and
@@ -961,7 +967,9 @@ that distribute requirements specification information, such as DL\_MESO (LBE),
 generally keep it brief and include it within other documentation. This artifact
 is often found within a user manual, on a web-page, or is mentioned in related
 publications. In the latter case the user may need to spend significant time to
-find this information. 
+find this information.  \wss{More on requirements as a pain point is given in
+Weiss, and other papers cited by Carver (2021).  Isn't generally requirements in
+the SE sense of following a template or similar.}
 
 Document generation tools are explicitly used by 13 software packages. Sphinx is
 used by eight of them, and Doxygen is used by eight. Several of the packages use
@@ -1352,10 +1360,114 @@ several of the individual qualities that were quantitatively measured.
 Looking at the top three ranked packages: ESPResSo had achieved a
 relative high score in installability, surface usability, maintainability, reusability, and visibility and transparency. Ludwig scored high in surface correctness and verifiability, surface robustness, surface usability, maintainability, and visibility and transparency. Palabos scored high in installability, surface reliability, surface robustness, maintainability, understandability, and visibility and transparency. 
 
-\section{Qualitative Findings From Developer Interviews} \label{interviewresults}
+\section{Comparison to Community Ranking} \label{repmetrics}
 
-Improving the software engineering education or experience of developers is also
-an idea that was brought up by several developers.
+Table~\ref{repometrics} presents our LBM software package rankings along with
+the repository ranking metrics of each software package. Nine packages do not
+use GitHub, so they do not have a measure of repository stars. Looking at the
+repository stars of the other 15 packages, we can observe a slight pattern where
+packages that have been highly ranked by our assessment do have more stars than
+lower ranked packages. The best ranked package (ESPResSo) has the second most
+number of stars. The ninth ranked package (Sailfish) has the most number of
+stars. Packages designated as lower quality often do not use GitHub or GitLab,
+or have few stars. HemeLB only has 12 stars, but its location recently moved
+from a different GitHub repository. Our assessment of this package might not be
+accurate. The number of stars does not necessarily represent the perceptions of
+the community, but for lack of an alternative measure we will use it this way.
+Besides missing data, another threat to the validity of this comparison is the
+varying ages of the repositories. Older packages have been able to accumulate
+stars and watches for longer than newer packages. The true quality of new
+packages may not be reflected in their stars and watches.
+
+The repository watches column contains even less data to compare since two of
+the packages (Palabos, waLBerla) use GitLab, which does not include this metric.
+The pattern that can be observed with this metric is very similar to that of the
+stars metric. The ninth ranked package (Sailfish) has the most number of
+watches. The best ranked package (ESPResSo) has the second most number of
+watches.
+
+\begin{table}
+\begin{center}
+	\begin{tabular}{ p{3.5cm}p{2.5cm}p{2cm}p{2cm}p{2cm} }
+		\toprule
+		Name & Our Ranking & Repository Stars & Repository Star Rank & Repository Watches \\
+		\midrule
+		ESPResSo & 1 & 145 & 2 & 19\\
+		Ludwig & 2 & 27 & 8 & 6\\
+		Palabos & 3 & 34 & 6 & GitLab\\
+		OpenLB & 4 & No Git & No Git & No Git\\
+		LUMA & 5 & 33 & 7 & 12\\
+		pyLBM & 6 & 95 & 3 & 10\\
+		DL\_MESO (LBE) & 7 & No Git & No Git & No Git \\
+		Musubi & 8 & No Git & No Git & No Git \\
+		Sailfish & 9 & 186 & 1 & 41\\
+		waLBerla & 10 & 20 & 9 & GitLab\\
+		laboetie & 11 & 4 & 13 & 5\\
+		TCLB & 12 & 95 & 3 & 16\\
+		MechSys & 13 & No Git & No Git & No Git\\
+		lettuce & 14 & 48 & 4 & 5\\
+		ESPResSo++ & 15 & 35 & 5 & 12\\
+		MP-LABS & 16 & 12 & 11 & 2\\			
+		SunlightLB & 17 & No Git & No Git & No Git\\
+		LB3D & 18 & No Git & No Git & No Git\\			
+		LIMBES & 19 & No Git & No Git & No Git\\
+		LB2D-Prime & 20 & No Git & No Git & No Git\\		
+		HemeLB & 21 & 12 & 11 & 12\\
+		lbmpy & 22 &  11 & 12 & 2\\	
+		LB3D-Prime & 23 & No Git & No Git & No Git\\	
+		LatBo.jl & 24 & 17 & 10 & 8\\			
+		\bottomrule
+	\end{tabular}
+	\caption{Repository Ranking Metrics} \label{repometrics}
+\end{center}
+\end{table}
+
+Table~\ref{rankingcomparison} compares the top 10 ranked LBM software packages
+with a LBM package ranking made by a domain expert. Five (Palabos, OpenLB, LUMA,
+Sailfish, waLBerla) of the top 10 ranked packages in this assessment are also
+found in the domain expert's top 10 ranking. Interestingly, the first three of
+these five packages are listed in the same order on both lists. Looking at the
+remaining packages, the top two ranked packages in this state of the practice
+assessment (ESPResSo, Ludwig) are not on the domain expert's list. Perhaps the
+intended applications of these packages, complex fluids for Ludwig and soft
+matter research for ESPResSo, do not align with the research interests of the
+domain expert. This reasoning may also apply to eighth ranked Musubi. Moving
+down the list, pyLBM and DL\_MESO(LBE) did not make the domain expert's top 10
+list but were mentioned by the domain expert. Looking at the remainder of the
+domain expert's list, ASL is a general purpose tool for solving partial
+differential equations and may have fallen out of scope of the authoritative
+lists that were used to identify the initial LBM software list. The domain
+expert's fifth ranked package (ch4-project) was on the initial software list of
+this assessment, but was removed due to a lack of documentation. Open FSI is a
+new project that uses Palabos. It was made public the year before data was
+collected for this state of the practice exercise. It may not have been on
+authoritative lists due to its young age. Similarly, LIFE was also made public
+recently. Finally, the domain expert's 10th ranked package (HemeLB) was ranked
+21st in this state of the practice assessment. 
+
+\begin{table}
+\begin{center}
+	\begin{tabular}{ p{2cm}p{4.5cm}p{3.5cm}}
+		\toprule
+		Rank & This Assessment & Domain Expert\\
+		\midrule
+		1 & ESPResSo (N/A) & Palabos\\
+		2 & Ludwig (N/A) & OpenLB\\
+		3 & Palabos (1) & LUMA\\
+		4 & OpenLB (2) & ASL\\
+		5 & LUMA (3) & ch4-project\\
+		6 & pyLBM (16) & Open FSI\\
+		7 & DL\_MESO (LBE) (11) & WaLBerla\\
+		8 & Musubi (N/A) & LIFE\\
+		9 & Sailfish (9) & Sailfish\\
+		10 & WaLBerla (7) & HemeLB\\		
+		\bottomrule
+	\end{tabular}
+	\caption{Ranking Comparison} \label{rankingcomparison}
+\end{center}
+\end{table}
+
+\section{Qualitative Findings From Developer Interviews} \label{interviewresults}
 
 This section presents qualitative findings on software qualities as gleaned from
 interviewing 4 developers. The full interview questions are found in
@@ -1544,9 +1656,15 @@ artifacts, source code, and system architecture, as well as how the software
 package build system works, and how the coupling between the simulation engine
 and the interface works.  \wss{Peter - these points about developer
 documentation seem like they would fit better under understandability, don't you
-think?}  \pmm{After reviewing the definitions of the two qualities, I think you are right. I think that the point presented in the first sentence of this paragraph belongs here in traceability (but could be reworded to note that ESPResSo also has detailed change logs in their docs - change logs are also available for Palabos and waLBerla), but the rest of the paragraph can be moved to understandability.} \wss{If ESPresSo scored high (I think it did), we can use that to
-further promote the value of documentation.  Also a threat to validity is that
-we have implicitly assumed documentation is valuable when measuring quality.}
+think?}  \pmm{After reviewing the definitions of the two qualities, I think you
+are right. I think that the point presented in the first sentence of this
+paragraph belongs here in traceability (but could be reworded to note that
+ESPResSo also has detailed change logs in their docs - change logs are also
+available for Palabos and waLBerla), but the rest of the paragraph can be moved
+to understandability.} \wss{If ESPresSo scored high (I think it did), we can use
+that to further promote the value of documentation.  Also a threat to validity
+is that we have implicitly assumed documentation is valuable when measuring
+quality.}
 
 Developers noted the importance of documentation for both the users and
 developers of their software. New features are always added to the
@@ -1554,7 +1672,16 @@ documentation. The developers use documentation to stay up to date on the status
 of the software package, and to help expand features, like computational models
 or algorithms. This is necessary so that the coding standard for these models is
 kept consistent for new developers. \wss{Peter - this also sounds like
-discussion that is relevant for understandability.} \pmm{The points here sound like they could work for both. The definition of traceability notes that `This quality refers to keeping track of information as it changes forms or relates between artifacts'. So the point `New features are always added to the documentation' could be reworded to fit that part of the definition of traceability. As noted above, this is similar to the point about some packages having including detailed change logs. Same with `The developers use documentation to stay up to date on the status of the software package, and to help expand features'. I agree that at least some of this paragraph could be in understandability, especially the first and second sentences.}
+discussion that is relevant for understandability.} \pmm{The points here sound
+like they could work for both. The definition of traceability notes that `This
+quality refers to keeping track of information as it changes forms or relates
+between artifacts'. So the point `New features are always added to the
+documentation' could be reworded to fit that part of the definition of
+traceability. As noted above, this is similar to the point about some packages
+having including detailed change logs. Same with `The developers use
+documentation to stay up to date on the status of the software package, and to
+help expand features'. I agree that at least some of this paragraph could be in
+understandability, especially the first and second sentences.}
 
 The importance of documentation for both users and developers was stressed
 throughout the interviews. However, it was noted several times that a lack of
@@ -1568,7 +1695,14 @@ thing has come up in papers.  I'll try to find a reference for this.  This is
 also something we can point to for recommendations related to code generation.}
 \wss{Peter - this also sounds like understandability related discussion?  I
 wonder if we should drop Traceability as a quality that we assessed?  There
-doesn't seem to be much content specific to traceability.}  \pmm{Based on the comments I just added above, I think we can keep at least a small part of what is here in traceability, rewording parts to highlight the importance of change logs. Some of the content in this section should indeed be moved to understandability.} The developer of OpenLB noted the use of documentation generators like Doxygen. It would be advisable for more projects to use such automatic document generation tools, since some projects do not do this.  \wss{We can refer back to this for the recommendations.}
+doesn't seem to be much content specific to traceability.}  \pmm{Based on the
+comments I just added above, I think we can keep at least a small part of what
+is here in traceability, rewording parts to highlight the importance of change
+logs. Some of the content in this section should indeed be moved to
+understandability.} The developer of OpenLB noted the use of documentation
+generators like Doxygen. It would be advisable for more projects to use such
+automatic document generation tools, since some projects do not do this.
+\wss{We can refer back to this for the recommendations.}
 
 \subsection{Visibility and Transparency} \label{secVisib}
 
@@ -1669,11 +1803,10 @@ answers one of the research questions. Software package artifacts are examined
 in Section~\ref{artifacts}, tools are listed in Section~\ref{tools}, development
 principles, processes, and methodologies are discussed in Section
 ~\ref{prinprocmeth}, development pain points are explored in Section
-~\ref{painpoints}, and our recommendations for improving software qualities are
-presented in Section~\ref{qualityrecommentations}. A comparison between our
-designations of the software packages to community rankings is made in Section
-~\ref{comparison}. Finally, threats to the validity of this assessment are noted
-in Section~\ref{threats}.
+~\ref{painpoints}, and summary of current (Section~\ref{currentPractices}), best
+(Section~\ref{bestPractices}) and future practices
+(Section~\ref{futurePractices}). Finally, threats to the validity of this
+assessment are noted in Section~\ref{threats}.
 
 \subsection{What artifacts are present in current software projects?}
 \label{artifacts}
@@ -1703,7 +1836,8 @@ License & & \\
 Tutorial & & \\
 \bottomrule
 \end{tabular}
-\caption{Artifacts Present} \label{artifactspresent}
+\caption{Artifacts Present in Surveyed Packages, Classified by Frequency}
+\label{artifactspresent}
 \end{center}
 \end{table}
 
@@ -1713,7 +1847,7 @@ requirements specification or theory notes. Palabos is the only one of these
 four packages that does not have an artifact from this category.
 
 The top four AHP ranked packages have most of the less common artifacts. At the
-time of data collection, only one (Palabos) of the four packages did not have a
+time of data collection, only one of the four packages (Palabos) did not have a
 user manual or guide, but there was a broken link on the package website
 indicating that such an artifact might exist. This broken link was later fixed,
 but this is not reflected in our data because it was not present at the time of
@@ -1730,6 +1864,9 @@ top four packages have any explicit API documentation. Three of these packages
 (ESPREsSo, Ludwig, Palabos) have information on contributing to the project. Two
 of them (OpenLB, Palabos) have a FAQ section or forum. One (OpenLB) has
 verification and validation notes, and a video guide of the software. 
+
+\wss{Weiss mentions pain points related to design documentation.  Carver (2021) 
+also mentions design documentation in the literature review.}
 
 \subsection{What tools (development, dependencies, project management) are used
 by current software packages?} \label{tools}
@@ -1756,18 +1893,19 @@ tools, dependencies, and project management tools.
 	Correctness Verification Tools &  & \\
 	\bottomrule
 	\end{tabular}
-	\caption{Observed development tools, dependencies and project management tools} \label{tbl_tools}
+	\caption{Observed development tools, dependencies and project management
+	tools} \label{tbl_tools}
 	\end{center}
 \end{table}
 
 Development tools support the development of end products, but do not become
 part of them, unlike dependencies that remain in the application once it is
 released \citep{ghezzi1991fundamentals}. Although not shown in
-Table~\ref{tbl_tools}, debuggers were also likely used.  Only three (ESPResSo, 
-Ludwig and Musubi) packages mentioned continuous integration tools, like Travis CI. Code
-editors and compilers were explicitly noted to have been used by several
-packages, and were likely used by all of them. One of the packages (Ludwig)
-explicitly noted the use of proprietary unit testing code written in C.
+Table~\ref{tbl_tools}, debuggers were also likely used.  Only three (ESPResSo,
+Ludwig and Musubi) packages mentioned continuous integration tools, like Travis
+CI. Code editors and compilers were explicitly noted to have been used by
+several packages, and were likely used by all of them. One of the packages
+(Ludwig) explicitly noted the use of proprietary unit testing code written in C.
 Likewise, the use of proprietary code for verifying the correctness of output
 was noted by one of the developers (pyLBM). Similar tools were likely used when
 developing the other software packages.
@@ -1881,32 +2019,39 @@ A developer of pyLBM noted that their small development team has a lack of time
 to implement new features. Small development teams are common for LBM software
 packages. Team members are almost always part of the same institute or already
 know each other from other projects. External contributions are rare despite
-many of the projects accepting them. Aside from on-boarding new developers, time
-constraints could be mitigated by increasing developer efficiency, which could
-be addressed in several ways, including by improving the quality of
-documentation, or incorporating automatic code generation.
+many of the projects accepting them. \wss{Other projects cite the same point
+point - Wiese paper}  Aside from on-boarding new developers, time constraints
+could be mitigated by increasing developer efficiency, which could be addressed
+in several ways, including by improving the quality of documentation, or
+incorporating automatic code generation. \wss{Potential ways to address the pain
+points might go into a separate section?  Maybe propose the strategy, like code
+generation, and then list the pain points that are addressed?}
 
 \subsubsection{Lack of Software Development Experience}
 
 A lack of software development experience was noted by the developer of TCLB.
 Many of the team members on their project are domain experts and there can be a
-steep learning curve before these team members contribute good quality source
-code. It was further noted that this has been somewhat addressed, as the code
-has been re-written to best ensure ease of future contributions.
+steep learning curve before these members contribute good quality source code.
+This problem has been mitigated by re-writing the code to more easily enable
+future contributions.  On a related point, improving the software engineering
+education or experience of developers is also an idea that was brought up by
+several developers.  \wss{The Wiese paper and others talk about the background
+of developers.}
 
 \subsubsection{Lack of Incentive and Funding}
 
-The same developer also noted that there is a lack of incentive and funding in
-academia for developing widely used scientific software. The importance of
-funding for scientific software has been discussed in
-\cite{gewaltig2012quality}, which notes that ``software tools are developed and
-maintained only for as long as there is explicit or implicit funding''. The
-developer further commented that there are no journals that publish such
-scientific software source code. However, there are ways to get such source code
-cited. Work has been done to address this in \citep{smith2016software}, which
-presents a set of software citation principles and discusses ``how they could be
-used to implement software citation in the scholarly community''
-\citep{katz2019software}. 
+The TCLB developer noted a lack of incentive and funding in academia for
+developing widely used scientific software. The importance of funding for
+scientific software has been discussed in \cite{gewaltig2012quality}, which
+notes that ``software tools are developed and maintained only for as long as
+there is explicit or implicit funding''. The developer further commented that
+there are no journals that publish such scientific software source code.
+However, there are ways to get such source code cited. Work has been done to
+address this in \citep{smith2016software}, which presents a set of software
+citation principles and discusses ``how they could be used to implement software
+citation in the scholarly community'' \citep{katz2019software}.  \wss{other
+papers also mention this pain point.  Solutions proposed by Katz, journal of
+open source etc.}
 
 \subsubsection{Lack of External Support}
 
@@ -1931,7 +2076,10 @@ research-ready, but should have most of the attributes commonly expected of
 commercial software products including broadness of scope, robustness,
 demonstrable correctness and adequate documentation''
 \citep{gewaltig2012quality}. As software becomes user-ready, it can become
-commercialized and closed-source. 
+commercialized and closed-source.  \wss{remove this paragraph?}
+
+\wss{Remove this section?  The external support organizations will likely come
+up as the mitigation for some of the other pain points.}
 
 \subsubsection{Parallelization and Continuous Integration}
 
@@ -1942,7 +2090,8 @@ such pain points. As already noted, many of the developers are domain experts
 and not professional software developers. The developer of TCLB noted that
 eliminating equivalent statements using macros had helped improve the quality of
 their source code, specifically helping with reusing code to run on both the CPU
-and GPU. 
+and GPU. \wss{The point about macros isn't really related to parallelization or
+continuous integration.}
 
 \subsubsection{Ensuring Correctness}
 
@@ -1955,6 +2104,8 @@ problem as free testing services do not offer capabilities to store and process
 such large amounts of data, and in-house testing solutions needed to be created
 to address this limitation. The solution for this has been to limit the size of
 the testing problems, and to run tests in small batches with few iterations.
+\wss{The Weiss paper alludes this this as well.  I think the Kelly and Sanders
+paper likely talks about testing problems and correctness.}
 
 \subsubsection{Usability}
 
@@ -1969,19 +2120,20 @@ solve specific research problems, and are often primarily used by their
 developers. While they are modifiable to solve similar problems, these
 modifications are not trivial. Better documentation, with attention on
 traceability, and automatic code generation are suggested when designing
-software for change, and would help with these modifications. So far this
-problem of on-boarding new users has been addressed by updating the
-documentation to better inform users of the underlying LBM theory and package
-requirements. Similar issues with LBM parameters were noted by another
-developer. Updating the user interface to better explain theoretical principles,
-as well as test user input for compatibility, was the implemented solution. As
-noted above, sometimes frequently asked questions on the underlying theory and
-on how to use the software are answered in the documentation.
-
-The interviewed developer of ESPResSo commented that parts of their package's
-source code had been refactored to Python to help address usability issues.
-Python was perceived as a much more usable language, and it would be easy for
-future users and developers to learn and understand the source code. 
+software for change, and would help with these modifications. \wss{Should decide
+if want to introduce ideas for improving within the presentation of the pain
+point, or separately?}  So far this problem of on-boarding new users has been
+addressed by updating the documentation to better inform users of the underlying
+LBM theory and package requirements. Similar issues with LBM parameters were
+noted by another developer. Updating the user interface to better explain
+theoretical principles, as well as test user input for compatibility, was the
+implemented solution. As noted above, sometimes frequently asked questions on
+the underlying theory and on how to use the software are answered in the
+documentation.  The interviewed developer of ESPResSo commented that parts of
+their package's source code had been refactored to Python to help address
+usability issues. Python was perceived as a much more usable language, and it
+would be easy for future users and developers to learn and understand the source
+code. 
 
 \subsubsection{Technical Debt}
 
@@ -1990,11 +2142,10 @@ that their source code had been written with a specific application in mind and
 that due to this there was too much coupling between components of the source
 code. This results in technical debt, having an impact on future modifiability
 and reusability when trying to extend the software, and the code would need to
-be refactored.
-
-As noted above, difficulties with ensuring future correctness could also arise.
-As new methods and functionality is added into the software, new test cases and
-test data will need to be developed.
+be refactored.  As noted above, difficulties with ensuring future correctness
+could also arise. As new methods and functionality is added into the software,
+new test cases and test data will need to be developed.  \wss{Weiss mentions
+mainainability related issues under pain points.}
 
 \subsubsection{Quality of Documentation}
 
@@ -2010,7 +2161,7 @@ documentation to address the underlying physics topics in detail, so it is
 advised that the package documentation links to resources that better explain
 the underlying theory. Sometimes, frequently asked questions about the
 underlying theory are answered in the documentation. OpenLB has an artifact for
-such questions.
+such questions.  \wss{Weise mentions documentation.}
 
 The developer comments emphasized an importance on source code, while
 documentation seems to be of secondary importance. It must be stressed that
@@ -2020,18 +2171,16 @@ tools that capture scientific and computing knowledge, and transform it into
 software artifacts, is advised. Drasil is an automatic document generation tool
 that is further discussed in Section~\ref{highlightedrecommendations}.
 
-\subsection{What is the current software quality for the projects?}
-\label{qualityrecommentations}
-
-This subsection answers the research question: For research software developers,
-what specific actions are taken to address software qualities?
+\subsection{Current Practices} \label{currentPractices}
 
 The following points regarding software quality should be considered when
 developing LBM software packages. These points are based on developer
 interviews, SCS literature, what was found to have worked for packages that were
 designated as high quality in this assessment.  Our recommendations are not
 lists of what should have been done in the past, or what should be done now;
-they are just suggestions for consideration in the future.
+they are just suggestions for consideration in the future.  \wss{Rework this
+section to highlight what the top projects are doing.  Point to checklists for
+other advice?}
 
 \subsubsection{Installability}
 
@@ -2056,7 +2205,7 @@ they are just suggestions for consideration in the future.
 	Palabos.
 	\item Include descriptive error messages for errors encountered during
 	installation. This was done by several top ranked packages, including Ludwig
-	and LUMA
+	and LUMA.
 	\item Provide a way to validate the installation. This can be done using a
 	custom script, or a test case that specifies expected output. This was done
 	by several top ranked packages, including OpenLB, Ludwig, LUMA, and Palabos.
@@ -2090,10 +2239,10 @@ they are just suggestions for consideration in the future.
 	website or GitHub). This was available for Ludwig.
 	\item Modularize the source code, separate components, hide information
 	behind well defined interfaces. This is suggested in SCS literature, and in
-	developer comments.
+	developer comments.  \wss{one of Wilson's best practices.}
 	\item Use continuous integration tools (Bamboo, Jenkins, and Travis CI) and
 	processes during development. This was done by top ranked packages ESPResSo
-	and Ludwig.
+	and Ludwig.  \wss{Common in LBM - more common than in other domains}
 \end{itemize}
 
 \subsubsection{Surface Reliability}
@@ -2108,7 +2257,9 @@ they are just suggestions for consideration in the future.
 	\item The packages should include detailed tutorials, including
 	dependencies, expected output, and any additional supplementary
 	documentation that may be required. This was done by many packages,
-	including waLBerla, Palabos, MechSys, LUMA, and pyLBM.
+	including waLBerla, Palabos, MechSys, LUMA, and pyLBM.  \wss{Comment from
+	ASCR attendee that success with open source requires good tutorials and
+	documentation - is this published anywhere?}
 \end{itemize}
 
 \subsubsection{Surface Robustness}
@@ -2196,7 +2347,8 @@ they are just suggestions for consideration in the future.
 	behind well defined interfaces. This is suggested in SCS literature, and in
 	developer comments.
 	\item Eliminate code duplication. This is suggested as good software
-	development practice. Duplicate code is difficult to maintain.
+	development practice. Duplicate code is difficult to maintain. \wss{No
+	support for this one or citation, either find or remove it.}
 	\item If possible, consider using popular user-friendly software languages
 	like Python. Especially consider this for parts of the source code that is
 	likely to be modified or reviewed by users. ESPResSo and Sailfish use Python
@@ -2209,13 +2361,11 @@ they are just suggestions for consideration in the future.
 \begin{itemize}
 	\item Modularize the source code, separate components, hide information
 	behind well defined interfaces. This is suggested in SCS literature, and in
-	developer comments.
-	\item If possible, consider using popular user-friendly software languages
-	like Python. Especially consider this for parts of the source code that is
-	likely to be modified or reviewed by users. ESPResSo and Sailfish use Python
-	to address several software qualities, including modifiability.
+	developer comments.  \wss{add citation - Wilson mentions - this points seems
+	repetitive}
 	\item Consider future source code modifiability as early as the design stage
 	of development. This is suggested as good software development practice.
+	\wss{citation, support, or remove.}
 	\item Consider flexibility of data structures and data storage in the design
 	stage. The package pyLBM redeveloped data structures to ease future changes.
 \end{itemize}
@@ -2225,9 +2375,11 @@ they are just suggestions for consideration in the future.
 \begin{itemize}
 	\item Modularize the source code, separate components, hide information
 	behind well defined interfaces. This is suggested in SCS literature, and in
-	developer comments.
+	developer comments.  \wss{repeated from elsewhere - there should be an
+	easier way to do this - give the advice and then link it to the qualities,
+	instead of this way?}
 	\item Document module interfaces in design and developer documentation. This
-	is suggested as good software development practice.
+	is suggested as good software development practice. \wss{citation or support}
 	\item Provide API documentation, if applicable. Only one (ESPResSo) of the
 	top five ranked packages provided API documentation.
 \end{itemize}
@@ -2250,7 +2402,7 @@ they are just suggestions for consideration in the future.
 	their source code.
 	\item Modularize the source code, separate components, hide information
 	behind well defined interfaces. This is suggested in SCS literature, and in
-	developer comments.
+	developer comments. \wss{repetitive}
 	\item Provide a user manual that identifies all technical and problem
 	modeling requirements. Thirteen software packages have a user manual.
 	\item State appropriate fluid dynamics problems that the software is
@@ -2258,6 +2410,8 @@ they are just suggestions for consideration in the future.
 	the software. This is done in the ESPResSo user guide. 
 	\item Consider adding a FAQ section to the documentation. This helped
 	resolve some usability issues for OpenLB.
+	\item \wss{This quality is basically going through the list of things that
+	were measured by the template.}
 \end{itemize}
 
 \subsubsection{Traceability}
@@ -2265,12 +2419,14 @@ they are just suggestions for consideration in the future.
 \begin{itemize}
 	\item Update all relevant documentation when a change to the software is
 	made. This is suggested as good software development practice.
+	\wss{support, cite or remove}
 	\item Use automatic document generation tools (Doxygen, Drasil, Sphinx) to
 	limit the time spent on updating documentation. This was done by all of the
-	top five ranked packages.
+	top five ranked packages. \wss{repetitive}
 	\item Provide a developer's guide to help orient developers to the
 	artifacts, source code, and system architecture so that they can better
-	document changes. Top ranked package OpenLB has a developer guide. 
+	document changes. Top ranked package OpenLB has a developer guide. \wss{How
+	is this related to traceability?}
 \end{itemize}
 
 \subsubsection{Visibility and Transparency}
@@ -2296,7 +2452,7 @@ they are just suggestions for consideration in the future.
 	\item Use project management tools, including change and version control
 	tools (GitHub, GitLab, CVS), collaboration tools (GitHub, GitLab), and
 	document generation tools (Doxygen, Drasil, Sphinx). This was done by all of
-	the top five ranked packages. 
+	the top five ranked packages. \wss{repetitive}
 \end{itemize}
 
 \subsubsection{Reproducibility}
@@ -2310,6 +2466,7 @@ they are just suggestions for consideration in the future.
 	contributions. High ranked package ESPResSo does this.
 	\item Update all relevant design documentation when a change to the software
 	is made. This is suggested as good software development practice.
+	\wss{cite, support, or remove}
 \end{itemize}
 
 \subsubsection{Unambiguity}
@@ -2333,142 +2490,23 @@ they are just suggestions for consideration in the future.
 	of pyLBM noted that such feedback would be appreciated.
 \end{itemize}
 
-\subsection{How does software designated as high quality by this methodology
-compare with top-rated software by the community?} \label{comparison}
+\subsection{Best Practices} \label{bestPractices}
 
-This subsection answers the research question: How does software designated as
-high quality by this methodology compare with top rated software by the
-community?
+practices by the best measured.
 
-This comparison helps evaluate the methodology that was used, and assess the
-validity of the findings. Threats to the validity of this exercise are noted in
-Section~\ref{threats}. The software package designations of this report are
-compared to package repository ranking metrics in Section~\ref{repmetrics}, and
-to software recommended by a domain expert in Section
-~\ref{domainexpertrecommend}.
+practices mentioned in literature, but not practiced (if any)
 
-\subsubsection{Repository Ranking Metrics} \label{repmetrics}
+\subsection{Future Practices} \label{futurePractices}
 
-Table~\ref{repometrics} presents our LBM software package rankings along with
-the repository ranking metrics of each software package. 
+practices for the future.
 
-Nine packages do not use GitHub, so they do not have a measure of repository
-stars. Looking at the repository stars of the other 15 packages, we can observe
-a slight pattern where packages that have been highly ranked by our assessment
-do have more stars than lower ranked packages. The best ranked package
-(ESPResSo) has the second most number of stars. The ninth ranked package
-(Sailfish) has the most number of stars. Packages designated as lower quality
-often do not use GitHub or GitLab, or have few stars. HemeLB only has 12 stars,
-but its location recently moved from a different GitHub repository. Our
-assessment of this package might not be accurate. The number of stars does not
-necessarily represent the perceptions of the community, but for lack of an
-alternative measure we will use it this way. 
-
-The repository watches column contains even less data to compare since two of
-the packages (Palabos, waLBerla) use GitLab, which does not include this metric.
-The pattern that can be observed with this metric is very similar to that of the
-stars metric. The ninth ranked package (Sailfish) has the most number of
-watches. The best ranked package (ESPResSo) has the second most number of
-watches.
-
-Besides missing data, another threat to the validity of this comparison is the
-varying ages of the repositories. Older packages have been able to accumulate
-stars and watches for longer than newer packages. The true quality of new
-packages may not be reflected in their stars and watches. \\
-
-\begin{table}
-\begin{center}
-		\begin{tabular}{ p{3.5cm}p{2.5cm}p{2cm}p{2cm}p{2cm} }
-			\toprule
-			Name & Our Ranking & Repository Stars & Repository Star Rank & Repository Watches \\
-			\midrule
-			ESPResSo &1& 145 &2& 19\\
-			Ludwig&2& 27 &8& 6\\
-			Palabos &3& 34 &6& GitLab\\
-			OpenLB &4& No Git &No Git & No Git\\
-			LUMA&5& 33 &7& 12\\
-			pyLBM &6& 95&3& 10\\
-			DL\_MESO (LBE) & 7 & No Git &No Git & No Git \\
-			Musubi & 8 & No Git &No Git & No Git \\
-			Sailfish &9& 186 &1& 41\\
-			waLBerla & 10 & 20 &9& GitLab\\
-			laboetie &11& 4 &13& 5\\
-			TCLB &12& 95 &3& 16\\
-			MechSys &13& No Git &No Git & No Git\\
-			lettuce &14& 48 &4& 5\\
-			ESPResSo++ &15& 35 &5& 12\\
-			MP-LABS &16& 12 &11& 2\\			
-			SunlightLB & 17& No Git &No Git & No Git\\
-			LB3D &18& No Git &No Git & No Git\\			
-			LIMBES &19& No Git &No Git & No Git\\
-			LB2D-Prime &20& No Git &No Git & No Git\\		
-			HemeLB &21& 12 &11& 12\\
-			lbmpy&22&  11 &12&  2\\	
-			LB3D-Prime &23& No Git &No Git & No Git\\	
-			LatBo.jl &24& 17 &10& 8\\			
-			\bottomrule
-		\end{tabular}
-		\caption{Repository Ranking Metrics} \label{repometrics}
-\end{center}
-\end{table}
-
-\subsubsection{Domain Expert Recommended Software} \label{domainexpertrecommend}
-
-Table~\ref{rankingcomparison} compares the top 10 ranked LBM software packages
-with a LBM package ranking made by a domain expert. Five (Palabos, OpenLB, LUMA,
-Sailfish, waLBerla) of the top 10 ranked packages in this assessment are also
-found in the domain expert's top 10 ranking. Interestingly, the first three of
-these five packages are listed in the same order on both lists. Looking at the
-remaining packages, the top two ranked packages in this state of the practice
-assessment (ESPResSo, Ludwig) are not on the domain expert's list. Perhaps the
-intended applications of these packages, complex fluids for Ludwig and soft
-matter research for ESPResSo, do not align with the research interests of the
-domain expert, and this is why they did not make it onto their list. This
-reasoning may also apply to eighth ranked Musubi. Moving down the list, pyLBM
-and DL\_MESO(LBE) did not make the domain expert's top 10 list but were
-mentioned by the domain expert. Looking at the remainder of the domain expert's
-list, ASL is a general purpose tool for solving partial differential equations
-and may have fallen out of scope of the authoritative lists that were used to
-identify the initial LBM software list. The domain expert's fifth ranked package
-(ch4-project) was on the initial software list of this assessment, but was
-removed due to a lack of documentation. Open FSI is a new project that uses
-Palabos. It was made public the year before data was collected for this state of
-the practice exercise. It may not have been on authoritative lists due to its
-young age. Similarly, LIFE was also made public recently. Finally, the domain
-expert's 10th ranked package (HemeLB) was ranked 21st in this state of the
-practice assessment. 
-
-\begin{table}
-\begin{center}
-	\begin{tabular}{ p{2cm}p{4.5cm}p{3.5cm}}
-		\toprule
-		Rank & This Assessment & Domain Expert\\
-		\midrule
-		1 & ESPResSo (N/A) & Palabos\\
-		2 & Ludwig (N/A) & OpenLB\\
-		3 & Palabos (1) & LUMA\\
-		4 & OpenLB (2) & ASL\\
-		5 & LUMA (3) & ch4-project\\
-		6 & pyLBM (16) & Open FSI\\
-		7 & DL\_MESO (LBE) (11) & WaLBerla\\
-		8 & Musubi (N/A) & LIFE\\
-		9 & Sailfish (9) & Sailfish\\
-		10 & WaLBerla (7) & HemeLB\\		
-		\bottomrule
-	\end{tabular}
-	\caption{Ranking Comparison} \label{rankingcomparison}
-\end{center}
-\end{table}
-
-\subsection{Threats To Validity} \label{threats}
+\section{Threats To Validity} \label{threats}
 
 This section examines potential threats to the validity of this state of the
 practice assessment. These can be categorized into methodology and data
-collection issues. 
-
-The goal of this assessment isn't to rank the software, but to use the ranking
-exercise as a means to understand the state of the practice of LBM software
-development.
+collection issues. The goal of this assessment isn't to rank the software, but
+to use the ranking exercise as a means to understand the state of the practice
+of LBM software development.
 
 The measures listed in our measurement template may not be broad enough to
 accurately capture some qualities. For example, there are only two measures of
@@ -2506,6 +2544,9 @@ LBM packages. After all, developing SCS is not a trivial endeavor. It is likely
 that many packages have such documentation but did not make it public, and due
 to this the measured data is not a true reflection of software package quality.
 
+\wss{There are more threats to validity.  Brainstorm.  Watch for them while 
+editing.  Look at Ao paper.}
+
 \section{Conclusion} \label{conclusion}
 
 We analyzed the state of the practice of software development in the Lattice
@@ -2526,6 +2567,10 @@ improving software along quality metrics were made, and highlights are presented
 in Section~\ref{highlightedrecommendations} of this conclusion. The findings of
 this report can be used to guide future development of SCS, specifically along
 quality attributes, and to reduce software quality failures.
+
+\wss{More on the lessons to learn from the top packages.  The comparison to
+common practice - is LBM ahead or behind?  More on best practices comparison.
+Future practices.}
 
 We understand that software packages vary in goals, developers, funding, and
 other aspects. Our goal was to highlight software quality successes through an
@@ -2584,10 +2629,9 @@ Framework consists of a collection of Domain Specific Languages (DSL) for
 capturing scientific documents, structures, and computing knowledge, and then
 transforming this knowledge into relevant software artifacts without having to
 manually duplicate knowledge into multiple artifacts \citep{zhao2018}.
+\wss{Yuzhi is not the best reference to use for the Drasil work.}
 
 \subsection{Future State Of The Practice Assessments} \label{futuresop}
-
-This section notes recommendations for future state of the practice assessments.
 
 As mentioned in Section~\ref{threats}, the measures listed in our measurement
 template may not be broad enough to accurately capture some qualities. Adding or
@@ -2606,7 +2650,8 @@ questions to the interview guide regarding the measures that are on the
 measurement template could reduce instances of incorrect data being collected.
 This additional interview data could be analyzed and incorporated into the AHP
 ranking, ensuring quality designations more accurate represent the true quality
-of the software packages.
+of the software packages.  \wss{clarify the distinction between usability and
+understandability.}
 
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{LatticeBoltz_SOP}
@@ -2620,7 +2665,6 @@ TO DO
 - update simple stats for other projects
 - compare to existing survey results (do this in Ao's too)
 - read more of the existing survey studies, as highlighted by Carver paper
-- create issues for Peter
 - data on Mendeley
 
 - add a comparison to other studies
@@ -2641,6 +2685,8 @@ domains.  Where does LBM stand relative to other domains.
 
 - change \citet{ghezzi1991fundamentals} to \citet{GhezziEtAl2003} (need to check
 each instance, add page numbers).
+
+- add links or citations to all of the packages (could add them to the summary table)
 
 
 
