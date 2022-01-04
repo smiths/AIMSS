@@ -69,7 +69,7 @@
 \newcommand{\wss}[1]{\authornote{blue}{SS}{#1}} %Spencer Smith
 \newcommand{\jc}[1]{\authornote{red}{JC}{#1}} %Jacques Carette
 \newcommand{\zm}[1]{\authornote{magenta}{MN}{#1}} %Zahra Motamed
-\newcommand{\pmm}[1]{\authornote{cyan}{AD}{#1}} %Peter Michalski
+\newcommand{\pmm}[1]{\authornote{cyan}{PM}{#1}} %Peter Michalski
 
 \newcommand{\notdone}[1]{\textcolor{red}{#1}}
 \newcommand{\done}[1]{\textcolor{black}{#1}}
@@ -185,7 +185,7 @@ Department},%Department and Organization
     quantitative factors. Our ranking was roughly consistent with ranking the
     repositories by the number of GitHub stars, although the number one project
     by star count (Sailfish) is ranked 9th by our methodology. Our top three
-    packages were Ludwig, ESPResSo, and Palabos (all in the top 10 by star
+    packages were ESPResSo, Ludwig, and Palabos (all in the top 10 by star
     count). We interviewed 4 developers to gain insight into their current pain
     points. Identified challenges include lack of development time, lack of
     funding, and difficulty with ensuring correctness.  Based on our assessment,
@@ -595,24 +595,25 @@ information was more than 18 month ago.
 \begin{table}
 \begin{center}
 	\begin{tabular}{ p{4cm}p{3cm}p{3cm} }
-		\hline
+		\toprule
 		Name & Released & Updated\\
-		\hline
+		\midrule
 		DL\_MESO (LBE) & unclear & 2020 Mar\\
 		ESPResSo & 2010 Nov & 2020 Jun\\
 		ESPResSo++ & 2011 Feb & 2020 Apr\\
-		lbmpy& unknown  & 2020 Jun  \\
+		lbmpy& unclear  & 2020 Jun  \\
 		lettuce & 2019 May & 2020 Jul\\
 		Ludwig& 2018 Aug & 2020 Jul\\
 		LUMA& 2016 Nov   & 2020 Feb\\
-		MechSys & 2008 Jun    & 2020 Jul\\
+		MechSys & 2008 Jun    & 2021 Oct\\
+		Musubi & 2013 Sep & 2019 Aug\\
 		OpenLB & 2007 Jul & 2019 Oct\\
 		Palabos & unclear & 2020 Jul\\
 		pyLBM & 2015 Jun&   2020 Jun\\
 		Sailfish & 2012 Nov & 2019 Jun\\
 		TCLB & 2013 Jun  & 2020 Apr\\
 		waLBerla & 2008 Aug & 2020 Jul\\
-		\hline
+		\bottomrule
 	\end{tabular}
 	\caption{Alive Software Packages} \label{alivepackages}
 \end{center}
@@ -635,9 +636,9 @@ Table~\ref{deadpackages} lists packages that were `dead' at that time.
 \begin{table}
 \begin{center}
 	\begin{tabular}{ p{4cm}p{3cm}p{3cm} }
-		\hline
+		\toprule
 		Name & Released & Updated\\
-		\hline
+		\midrule
 		HemeLB & 2007 Jun & 2018 Aug\\
 		laboetie & 2014 Nov & 2018 Aug\\		
 		LatBo.jl & 2014 Aug & 2017 Feb\\
@@ -647,7 +648,7 @@ Table~\ref{deadpackages} lists packages that were `dead' at that time.
 		LIMBES & 2010 Nov & 2014 Dec\\
 		MP-LABS & 2008 Jun & 2014 Oct\\
 		SunlightLB & 2005 Sep & 2012 Nov\\
-		\hline
+		\bottomrule
 	\end{tabular}
 	\caption{Dead Software Packages} \label{deadpackages}
 \end{center}
@@ -830,9 +831,9 @@ results of the AHP ranking are also discussed.
 \begin{table}
 	\begin{center}
 		\begin{tabular}{ p{3cm}llllllll}
-			\hline
+			\toprule
 			Name & Dim & Pll & Com & Rflx & MFl & Turb & CGE & OS\\
-			\hline
+			\midrule
 			DL\_MESO (LBE) & 2, 3 & MPI/OMP & Y & Y & Y & Y & Y & W, M, L\\
 			ESPResSo & 1, 2, 3 & CUDA/MPI & Y & Y & Y & Y & Y & M, L\\
 			ESPResSo++ & 1, 2, 3 & MPI & Y & Y & Y & Y & Y & L\\
@@ -849,6 +850,7 @@ results of the AHP ranking are also discussed.
 			LUMA & 2, 3 & MPI & Y & Y & Y & Y & Y & W, M, L\\
 			MechSys & 2, 3 & - & Y & Y & Y & Y & Y & L\\
 			MP-LABS & 2, 3 & MPI/OMP & N & Y & Y & N & N & L\\
+			Musubi & 2, 3 & MPI & Y & Y & Y & Y & Y & W, L\\
 			OpenLB & 1, 2, 3 & MPI & Y & Y & Y & Y & Y & W, M, L\\
 			Palabos & 2, 3 & MPI & Y & Y & Y & Y & Y & W, L\\
 			pyLBM & 1, 2, 3 & MPI & Y & Y & N & Y & Y & W, M, L\\
@@ -856,7 +858,7 @@ results of the AHP ranking are also discussed.
 			SunlightLB & 3 & - & Y & Y & N & N & Y & L\\
 			TCLB & 2, 3 & CUDA/MPI & Y & Y & Y & Y & Y & L\\
 			waLBerla & 2, 3 & MPI & Y & Y & Y & Y & Y & L\\
-			\hline
+			\bottomrule
 		\end{tabular}
 		\caption{Features of Software Packages (Dim for Dimension (1, 2, 3),
 			Pll for Parallel (CUDA, MPI, OpenMP (OMP)), Com for Compressible (Yes or No), Rflx for
@@ -867,10 +869,10 @@ results of the AHP ranking are also discussed.
 
 \subsection{Installability}
 
-All of the 23 software packages that were tested have installation instructions.
-As noted previously, many of the 23 software packages that were part of the
-original long list of 45 packages were removed due to not including
-documentation or installation instructions. Of the 23 software packages that
+All of the 24 software packages that were tested have installation instructions.
+As noted previously, many of the 22 software packages that were part of the
+original long list of 46 packages were removed due to not including
+documentation or installation instructions. Of the 24 software packages that
 were tested, most had installation instructions located in one place, often in
 an instruction manual or on a web-page. Sometimes, like with Ludwig, incomplete
 installation instructions are found on a home page, with more detailed
@@ -878,12 +880,8 @@ instructions located on another web-page, or within the documentation.
 Maintainability and correctness of these instructions could be improved if all
 the instructions were in one location. 
 
-All 23 packages on the short list can be installed on some Unix-like systems.
-Seven packages could be installed on Windows, and five on macOS. Operating
-system compatibility is found in the documentation of 19 software packages. All
-but one of the software packages (TCLB) were tested on Ubuntu for this state of
-the practice assessment. TCLB was tested on CentOS, since this operating system
-is mentioned in its installation instructions.
+All 24 packages on the short list can be installed on some Unix-like systems.
+Eight packages could be installed on Windows, and five on macOS. Operating system requirements are listed in the documentation of 20 software packages, but compatible operating system versions are only specified in four packages (ESPResSo, LUMA, Mechsys, Sailfish). All but one of the software packages (TCLB) were tested on Ubuntu for this state of the practice assessment. TCLB was tested on CentOS, since this operating system is mentioned in its installation instructions.
 
 All but one of the software packages (LatBo.jl) have automated at least some of
 the installation process. Most of these packages, such as waLBerla and
@@ -913,13 +911,12 @@ from the point of view of installation on a clean operating system is suggested.
 A clean environment can be achieved for testing purposes by using a virtual
 machine.
 
-Sixteen software packages require less than 10 dependencies to be installed. All
-but one software package (LatBo.jl) require less than 20 dependencies. Some
+Seventeen software packages require less than 10 dependencies to be installed. All but one software package (LatBo.jl) require less than 20 dependencies. Some
 packages may automatically install additional dependencies in the background.
-Eighteen of the software packages do not explicitly indicate software dependency
+Twenty of the software packages do not explicitly indicate software dependency
 versions. Some software package installation issues, specifically those
 occurring when manual installation of dependencies is required, may be avoided
-if versions of dependencies are specified. Fifteen software packages do not have
+if versions of dependencies are specified. Sixteen software packages do not have
 detailed instructions for installing dependencies. Sixteen software packages
 have less than 10 manual installation steps. If dependencies are installed in
 one command then none of the software packages take more than 20 steps to
@@ -943,17 +940,7 @@ found for only one of the software packages: pyLBM.
 \end{figure}
 
 Figure~\ref{Fig_Installability} shows the installability ranking of the software
-packages using AHP. Software packages with a higher score (MechSys, Palabos,
-ESPResSo, OpenLB) tend to have one set of linear installation instructions that
-are written as if the person doing the installation has none of the dependencies
-installed. The instructions often list compatible operating system versions and
-include instructions for the installation of dependencies. The top ranked
-packages often incorporate some sort of automation of the installation process
-and have fewer manual installation steps. The number of dependencies a package
-has does not correlate with a higher score. The ability to validate the
-installation process, often through tutorials or test examples that include
-expected output, is correlated with a higher score. Furthermore, the top six
-ranked packages are noted as being alive. 
+packages using AHP. Software packages with a higher score (ESPResSo, MechSys, OpenLB, DL\_MESO, Palabos) tend to have one set of linear installation instructions that are written as if the person doing the installation has none of the dependencies installed. The instructions often list compatible operating system versions and include instructions for the installation of dependencies. The top ranked packages often incorporate some sort of automation of the installation process and have fewer manual installation steps. The number of dependencies a package has does not correlate with a higher score. The ability to validate the installation process, often through tutorials or test examples that include expected output, is correlated with a higher score. Furthermore, the top seven ranked packages are noted as being alive. 
 
 Many software packages would benefit from a rewrite or reorganization of
 installation instructions. A single location for installation instructions would
@@ -968,7 +955,7 @@ included in the documentation.
  
 \subsection{Surface Correctness and Verifiability}
 
-Sixteen of the software packages include a requirements specification artifact
+Seventeen of the software packages include a requirements specification artifact
 or explicitly reference domain theory, often only the latter. Software packages
 that distribute requirements specification information, such as DL\_MESO (LBE),
 generally keep it brief and include it within other documentation. This artifact
@@ -976,26 +963,21 @@ is often found within a user manual, on a web-page, or is mentioned in related
 publications. In the latter case the user may need to spend significant time to
 find this information. 
 
-Document generation tools are explicitly used by 12 software packages. Sphinx is
-used by eight of them, and Doxygen is used by seven. Several of the packages use
+Document generation tools are explicitly used by 13 software packages. Sphinx is
+used by eight of them, and Doxygen is used by eight. Several of the packages use
 both.
 
-Tutorials are available for 18 of the software packages. Generally they are
+Tutorials are available for 19 of the software packages. Generally they are
 linearly written and easy to follow. However, only eight tutorials provide an
 expected output. It is not possible to verify the correctness of the output of
 the software packages that are missing this key information. In these cases the
 user may need to assume correctness if there are no visible errors.
 
-Unit tests are only explicitly available for one of the software packages,
-Ludwig. Code modularization of most packages allow for users to create tests
-with varying degrees of effort. These tests allow developers and users to verify
-the correctness of fragments of the source code, and in doing so better assess
-the correctness of the entire package.
+Unit tests are only explicitly available for two of the software packages,
+Ludwig and Musubi. Code modularization of most packages allow for users to create tests with varying degrees of effort. These tests allow developers and users to verify the correctness of fragments of the source code, and in doing so better assess the correctness of the entire package.
 
 The use of continuous integration tools and techniques alludes to a more refined
-development process where faults are isolated and better recognized. Only two of
-the packages (ESPResSo, Ludwig) mentioned applying the practice of continuous
-integration in their development process. 
+development process where faults are isolated and better recognized. Only three of the packages (ESPResSo, Ludwig, Musubi) mentioned applying the practice of continuous integration in their development process. 
 
 \begin{figure}[h!]
 	\begin{center}
@@ -1011,10 +993,7 @@ a higher score tend to have a visible requirements specification or references
 to theory documentation. They also explicitly use at least one document
 generation tool that builds confidence of correctness. The top ranked software
 packages all include an easy to follow getting started tutorial, and most of
-these include expected output. Only the top ranked package, Ludwig, provided
-unit testing. It and the second ranked package, ESPResSo, explicitly
-incorporated continuous integration in the development process. Furthermore,
-eight of the top 10 ranked packages are noted as being alive.
+these include expected output. The two top ranked packages, Ludwig and Musubi, indicate the use of unit testing in their documentation. They also incorporated continuous integration in the development process. Furthermore, eight of the top 10 ranked packages are noted as being alive.
 
 The inclusion of requirements specification and theory documentation greatly
 benefits the correctness and verifiability of software packages. The use of
@@ -1030,17 +1009,9 @@ The analysis of surface reliability focused on package installation and
 tutorials. Errors occurred when installing 16 of the software packages. Every
 instance prompted an error message. These messages indicated unrecognized
 commands (even when following the installation guide), missing links, missing
-dependencies, and syntax errors in code files. In some instances the error messages
-were vague. Several automatic installation processes could not find and load 
-dependencies. In these instances the installation tried to access outdated
-external repositories. Seven of the installations were recovered and verified,
-and one of the installations (LB3D-Prime) was assumed to be recovered due to the
-absence of any way to verify it. The installation of eight of the software
-packages could not be recovered. Most of these broken installations could not
-find external dependencies, encountered system incompatibilities, or displayed
-vague error messages. 
+dependencies, and syntax errors in code files. In some instances the error messages were vague. Several automatic installation processes could not find and load dependencies. In these instances the installation tried to access outdated external repositories. Seven of the installations were recovered and verified, and one of the installations (LB3D-Prime) was assumed to be recovered due to the absence of any way to verify it. The installation of eight of the software packages could not be recovered. Most of these broken installations could not find external dependencies, encountered system incompatibilities, or displayed vague error messages. 
 
-Of the 13 software packages that installed correctly and also have tutorials,
+Of the 14 software packages that installed correctly and also have tutorials,
 four (pyLBM, ESPResSo++, LIMBES, Ludwig) broke during tutorial testing. All of
 these instances resulted in an error message being displayed. One error (pyLBM)
 was due to a missing tutorial dependency, another (Ludwig) was due to an invalid
@@ -1059,9 +1030,9 @@ missing a dependency was recoverable.
 Figure~\ref{Fig_Reliability} shows the surface reliability ranking of the
 software packages using AHP. Software packages with a high score either did not
 break during installation, or the broken installation was recoverable. All of
-the top five ranked packages have tutorials. One of these packages, pyLBM, broke
+the top five ranked packages have tutorials. The package pyLBM broke
 during tutorial testing, but a descriptive error message helped in recovery.
-Furthermore, nine of the top 10 ranked packages are noted as being alive. 
+Nine of the top 10 ranked packages are noted as being alive. 
 
 Overall, lower ranked software packages are lacking clear documentation, testing
 or tutorial examples, and descriptive error messages, and have broken
@@ -1104,7 +1075,7 @@ problems, the packages focus on varied CFD problems, with varying parameters,
 and are technically different from each other (as shown in
 Table~\ref{tbl_features}). Due to this, a comparison of performance is not
 appropriate. In this project we instead looked through each software package's
-artifacts for evidence that performance was considered. The artifacts of 17
+artifacts for evidence that performance was considered. The artifacts of 18
 software packages mentioned parallelization. This included GPU processing and
 the CUDA parallel computing platform, which were mentioned in the artifacts of 6
 packages (ESPResSo, lbmpy, lettuce, pyLBM, Sailfish, TCLB). GPUs provide
@@ -1123,18 +1094,14 @@ surface reliability.
 \subsection{Surface Usability}
 
 Software package artifacts were reviewed for the presence of a tutorial, a user
-manual, documented user characteristics, and a user support model. In total 18
+manual, documented user characteristics, and a user support model. In total 19
 software packages have a tutorial, 13 have a user manual, and 11 have both. The
 tutorials vary in scope and substance, and eight include expected output.
 Most user manuals are in the form of a file that can be downloaded, while some
 are rendered on a web-page. Some packages (waLBerla) do not have a user manual,
 but do have useful documentation distributed on their web-pages. Expected user
-characteristics are documented in four software packages (laboetie, LIMBES,
-Ludwig, Palabos). Users are typically scientists or engineers. Their background
-is often physics, chemistry, biophysics, or mathematics. All but one of the
-packages (LIMBES) have a user support model, and many of them have multiple
-avenues of user support. The most popular avenue of support is Git, followed by
-email and forums. One software package (OpenLB) has an FAQ page.    
+characteristics are documented in five software packages (laboetie, LIMBES,
+Ludwig, Musubi, Palabos). Users are typically scientists or engineers. Their background is often physics, chemistry, biophysics, or mathematics. All but one of the packages (LIMBES) have a user support model, and many of them have multiple avenues of user support. The most popular avenue of support is Git, followed by email and forums. One software package (OpenLB) has an FAQ page.    
 
 \begin{figure}[h!]
 	\begin{center}
@@ -1164,25 +1131,18 @@ project was also noted. In total, 11 software packages have this information,
 which was found in various artifacts, including in developer guides, contributor
 guides, user guides, developer web-pages, and README files. 
 
-Issue tracking is used in 22 software packages, 15 of which use Git, six use
+Issue tracking is used in 23 software packages, 15 of which use Git, seven use
 email, and one (SunlightLB) uses SourceForge. Most software packages that use
 Git have most of their issues closed, and only three (laboetie, lettuce,
-Sailfish) have less than 50 percent of their issues closed. Four of the top five
-overall ranked packages (Ludwig, ESPResSo, Palabos, LUMA) have most of their
-issues closed. Fourth ranked LUMA does not use Git. Alive packages (11 use Git
-issue tracking) have 64\% of their issues closed, while dead packages (3 use Git
-issue tracking) have 71\% of their issues closed. This information is presented
-in Table~\ref{gitrepodata}. Furthermore, 13 packages that use Git for issue
-tracking use GitHub as a version control system, while two (Palabos, waLBerla)
-use GitLab. Of the other packages, one package (SunlightLB) uses CVS for issue
-tracking, and seven packages do not appear to use any issue tracking system.
+Sailfish) have less than 50 percent of their issues closed. All of the top five
+overall ranked packages have most of their issues closed. Alive packages (11 use Git issue tracking) have 64\% of their issues closed, while dead packages (3 use Git issue tracking) have 71\% of their issues closed. This information is presented in Table~\ref{gitrepodata}. Furthermore, 13 packages that use Git for issue tracking use GitHub as a version control system, while two (Palabos, waLBerla) use GitLab. Of the other packages, one package (SunlightLB) uses CVS for issue tracking, and seven packages do not appear to use any issue tracking system.
 
 \begin{table}
 	\begin{center}
 		\begin{tabular}{ p{3.5cm}p{3.5cm}p{3.5cm}p{2.5cm} }
-			\hline
+			\toprule
 			Name & $\%$ Issues Closed & $\%$ Code Comments & Status\\
-			\hline
+			\midrule
 			DL\_MESO (LBE) & Not Git & 8.06& Alive\\
 			ESPResSo & 89.26 & 21.78 & Alive\\
 			ESPResSo++ & 66.28 & 17.10 & Alive\\
@@ -1199,6 +1159,7 @@ tracking, and seven packages do not appear to use any issue tracking system.
 			LUMA& 85.71   & 0.20 & Alive\\
 			MechSys & Not Git & 15.11 & Alive\\
 			MP-LABS & 100.00 & 26.67 & Dead\\
+			Musubi & Not Git & 24.19 & Alive\\
 			OpenLB & Not Git & 22.43 & Alive\\
 			Palabos & 89.47 & 17.76 & Alive\\
 			pyLBM & 66.67& 16.12 & Alive\\
@@ -1206,7 +1167,7 @@ tracking, and seven packages do not appear to use any issue tracking system.
 			SunlightLB & Not Git & 17.67 & Dead\\
 			TCLB & 60.32 & 6.02 & Alive\\
 			waLBerla & 72.90 & 22.62 & Alive\\
-			\hline
+			\bottomrule
 		\end{tabular}
 		\caption{Git Repository Data} \label{gitrepodata}
 	\end{center}
@@ -1215,12 +1176,9 @@ tracking, and seven packages do not appear to use any issue tracking system.
 Software package code files were further measured for the percentage of code
 that is comments. The findings are presented in Table~\ref{gitrepodata}.
 Packages with a higher percentage of comments were designated as more
-maintainable. Comments represent more than 10 percent of code files in 15
-packages, and the average percentage of code comments is about 14 percent. Four
-of the top five overall ranked packages (Ludwig, ESPResSo, Palabos, OpenLB) have
-more than the average. Fifth ranked LUMA has only 0.2 percent comments, the
-fewest of any package. This package has the most lines of source code, with over
-four million. The next largest package is ESPResSo++ with one million.
+maintainable. Comments represent more than 10 percent of code files in 16
+packages, and the average percentage of code comments is about 14 percent. All
+of the top five overall ranked packages have more than the average. LUMA has only 0.2 percent comments, the fewest of any package. This package has the most lines of source code, with over four million. The next largest package is ESPResSo++ with one million.
 
 \begin{figure}[h!]
 	\begin{center}
@@ -1236,7 +1194,7 @@ numbers on documents and source code releases, have an abundance of high quality
 artifacts, and use an issue tracking tool and version control system. These
 packages also appear to reasonably handle issue tracking, having most of their
 issues closed. Their code files are well commented with more than 10 percent of
-the code being comments. Furthermore, nine of the top 10 ranked packages are
+the code being comments. Furthermore, four of the top 5 ranked packages are
 noted as being alive. MP-LABS is noted as being dead.\\
 
 \wss{Sort ``Git Repository Data'' table in descending order of percentage of
@@ -1272,33 +1230,34 @@ alive. HemeLB is considered to be dead.
 \begin{table}
 	\begin{center}
 		\begin{tabular}{ p{3.5cm}p{2cm}p{2.5cm}p{2cm}p{2.5cm} }
-			\hline
+			\toprule
 			Name & Text Files & Binary Files & LOC & Avg. LOC / Text File\\
-			\hline
+			\midrule
 			DL\_MESO (LBE) & 310 & 51 & 170223 & 549\\
-			ESPResSo & 1309& 86 & 186700 & 143\\
-			ESPResSo++ & 5328& 66 & 969196 & 182\\
-			HemeLB & 1065& 48 & 95104 & 89\\
+			ESPResSo & 1390& 83 & 195083 & 140\\
+			ESPResSo++ & 1406& 30 & 165194 & 118\\
+			HemeLB & 1102& 44 & 123806 & 112\\
 			laboetie & 133& 1 & 48403 & 364\\		
 			LatBo.jl & 41& 0 & 42172 & 1029\\
 			LB2D-Prime & 82& 19 & 54755 & 668\\
 			LB3D & 99 & 76 & 39766 & 402\\
-			LB3D-Prime & 2 3& 6 & 12944 & 563\\
-			lbmpy& 201 & 28 & 46489 & 231\\
-			lettuce & 62 & 0 & 5529 & 89\\
+			LB3D-Prime & 23& 6 & 12944 & 563\\
+			lbmpy& 250 & 29 & 61632 & 247\\
+			lettuce & 73 & 1 & 7660 & 105\\
 			LIMBES & 26 & 1 & 4872 & 187\\
-			Ludwig & 859 & 32 & 109811 & 128\\
-			LUMA & 312 & 19 & 4370670 & 14000\\
-			MechSys & 324 & 3 & 85543 & 264\\
+			Ludwig & 954 & 32 & 162518 & 170\\
+			LUMA & 314 & 19 & 4399723 & 14011\\
+			MechSys & 333 & 3 & 95707 & 287\\
 			MP-LABS & 307 & 3 & 43124 & 140\\
-			OpenLB & 1104 & 5 & 209034 & 189\\
-			Palabos & 1829 & 67 & 547623 & 299\\
-			pyLBM & 258 & 85 & 32314 & 125\\
+			Musubi & 1347 & 1839 & 281879 & 209\\
+			OpenLB & 1438 & 7 & 218406 & 152\\
+			Palabos & 1974 & 71 & 563841 & 286\\
+			pyLBM & 272 & 108 & 37234 & 137\\
 			Sailfish & 632 & 11 & 69398 & 110\\
 			SunlightLB & 36 & 1 & 7646 & 212\\
-			TCLB & 535 & 7 & 43226 & 81\\
-			waLBerla & 2395 & 67 & 848146 & 353\\
-			\hline
+			TCLB & 594 & 7 & 49156 & 83\\
+			waLBerla & 2643 & 69 & 873988 & 331\\
+			\bottomrule
 		\end{tabular}
 		\caption{Module Data} \label{moduledata}
 	\end{center}
@@ -1322,19 +1281,7 @@ Ten random source code files of each software package were reviewed for several
 measures. This assessment of surface understandability may not perfectly reflect
 each package, due to the practical limitation of only examining 10 files. 
 
-All of the packages appear to have consistent indentation and formatting. Only
-LUMA and HemeLB explicitly identify coding standards that are used during
-development. Generally, the software packages use consistent, distinctive, and
-meaningful code identifiers. Only four packages (LB2D-Prime, LB3D-Prime, LIMBES,
-MP-LABS) appear to use vague identifiers, such as single letters for variables.
-Symbolic constants were observed in the source code of 12 packages. The
-constants are used for various parameters, mathematical constants, and matrix
-definitions. All of the packages are reasonably well commented, with the
-comments clearly indicating what is being done (as opposed to how it is being
-done). Domain algorithms are noted in the source code of 11 packages.
-Table~\ref{moduledata} suggests that the software packages are modularized to
-various degrees. When observing the source code files, it was found that 13 of
-the packages have a consistent style and order of function parameters.
+All of the packages appear to have consistent indentation and formatting. Only HemeLB, LUMA, and Musubi explicitly identify coding standards that are used during development. Generally, the software packages use consistent, distinctive, and meaningful code identifiers. Only four packages (LB2D-Prime, LB3D-Prime, LIMBES, MP-LABS) appear to use vague identifiers, such as single letters for variables. Symbolic constants were observed in the source code of 13 packages. The constants are used for various parameters, mathematical constants, and matrix definitions. All of the packages are reasonably well commented, with the comments clearly indicating what is being done (as opposed to how it is being done). Domain algorithms are noted in the source code of 11 packages. Table~\ref{moduledata} suggests that the software packages are modularized to various degrees. When observing the source code files, it was found that 14 of the packages have a consistent style and order of function parameters.
 
 \begin{figure}[h!]
 	\begin{center}
@@ -1350,7 +1297,7 @@ consistent indentation and formatting style, and consistent, distinctive, and
 meaningful code identifiers. They also have symbolic constants, and explicitly
 identify mathematical and LBM algorithms. Their comments are clear and indicate
 what is being done in the source code. The source code is well modularized and
-structured. Furthermore, four of the top five ranked packages are noted as being
+structured. Furthermore, all of the top five ranked packages are noted as being
 alive.
 
 \subsection{Visibility and Transparency}
@@ -1402,13 +1349,8 @@ qualities were weighed differently, the overall software package ranking would
 change. Software packages with an overall high score ranked high in at least
 several of the individual qualities that were quantitatively measured. 
 
-Looking at the top three ranked packages: Ludwig scored high in surface
-correctness and verifiability, surface robustness, surface usability,
-maintainability, and visibility and transparency. ESPResSo had achieved a
-relative high score in installability, surface correctness and verifiability,
-surface usability, maintainability, reusability, and visibility and
-transparency. Palabos scored high in installability, surface reliability,
-surface robustness, maintainability, and understandability. 
+Looking at the top three ranked packages: ESPResSo had achieved a
+relative high score in installability, surface usability, maintainability, reusability, and visibility and transparency. Ludwig scored high in surface correctness and verifiability, surface robustness, surface usability, maintainability, and visibility and transparency. Palabos scored high in installability, surface reliability, surface robustness, maintainability, understandability, and visibility and transparency. 
 
 \section{Qualitative Findings From Developer Interviews} \label{interviewresults}
 
@@ -1573,11 +1515,11 @@ the background knowledge to easily model fluid dynamics problems using their
 software. A frequently asked questions section was added to their package
 website to help users find answers to common questions. The package also has
 detailed documentation, including guides and usage requirements specification,
-to better help users understand the software.  \wss{Peter - the discussion here
+to better help users understand the software. \wss{Peter - the discussion here
 is more about user usability than the understandability of the code for
-developers.  Did any of the developers discuss developer understandability?  The
+developers. Did any of the developers discuss developer understandability?  The
 confusion between understandability and usability was also a confusion during
-the interviews Ao conducted.}
+the interviews Ao conducted.} \pmm{The developer of ESPResSo did comment on developer understandability, specifically for developers that are/were part of their peer review process. He commented that code architecture is documented, and that code is made to be readable, and that these help peer reviews of the code.}
 
 \wss{I moved this from the visibility section, since it is more about
 understandability.}  Developers were also asked how documentation fits into their
@@ -1602,7 +1544,7 @@ artifacts, source code, and system architecture, as well as how the software
 package build system works, and how the coupling between the simulation engine
 and the interface works.  \wss{Peter - these points about developer
 documentation seem like they would fit better under understandability, don't you
-think?}  \wss{If ESPresSo scored high (I think it did), we can use that to
+think?}  \pmm{After reviewing the definitions of the two qualities, I think you are right. I think that the point presented in the first sentence of this paragraph belongs here in traceability (but could be reworded to note that ESPResSo also has detailed change logs in their docs - change logs are also available for Palabos and waLBerla), but the rest of the paragraph can be moved to understandability.} \wss{If ESPresSo scored high (I think it did), we can use that to
 further promote the value of documentation.  Also a threat to validity is that
 we have implicitly assumed documentation is valuable when measuring quality.}
 
@@ -1612,7 +1554,7 @@ documentation. The developers use documentation to stay up to date on the status
 of the software package, and to help expand features, like computational models
 or algorithms. This is necessary so that the coding standard for these models is
 kept consistent for new developers. \wss{Peter - this also sounds like
-discussion that is relevant for understandability.}
+discussion that is relevant for understandability.} \pmm{The points here sound like they could work for both. The definition of traceability notes that `This quality refers to keeping track of information as it changes forms or relates between artifacts'. So the point `New features are always added to the documentation' could be reworded to fit that part of the definition of traceability. As noted above, this is similar to the point about some packages having including detailed change logs. Same with `The developers use documentation to stay up to date on the status of the software package, and to help expand features'. I agree that at least some of this paragraph could be in understandability, especially the first and second sentences.}
 
 The importance of documentation for both users and developers was stressed
 throughout the interviews. However, it was noted several times that a lack of
@@ -1626,11 +1568,7 @@ thing has come up in papers.  I'll try to find a reference for this.  This is
 also something we can point to for recommendations related to code generation.}
 \wss{Peter - this also sounds like understandability related discussion?  I
 wonder if we should drop Traceability as a quality that we assessed?  There
-doesn't seem to be much content specific to traceability.}  The developer of
-OpenLB noted the use of documentation generators like Doxygen. It would be
-advisable for more projects to use such automatic document generation tools,
-since some projects do not do this.  \wss{We can refer back to this for the
-recommendations.}
+doesn't seem to be much content specific to traceability.}  \pmm{Based on the comments I just added above, I think we can keep at least a small part of what is here in traceability, rewording parts to highlight the importance of change logs. Some of the content in this section should indeed be moved to understandability.} The developer of OpenLB noted the use of documentation generators like Doxygen. It would be advisable for more projects to use such automatic document generation tools, since some projects do not do this.  \wss{We can refer back to this for the recommendations.}
 
 \subsection{Visibility and Transparency} \label{secVisib}
 
@@ -1640,7 +1578,7 @@ Although they accept outside contributors, these are rare and the teams remain
 tight-knit.  Most of the teams interviewed have all members at the same
 institution, although one team is spread out internationally. \wss{Peter, can
 you say which team is international, so that we can add this detail to the
-paper?}  For teams of only a few developers, new features or major changes are
+paper?} \pmm{The interviewed developer of OpenLB noted that there were tasks for local and international developers when discussing their software development model. He also noted that they have frequent local meetings and annual international meetings.}  For teams of only a few developers, new features or major changes are
 discussed with the entire team. Projects with more than a few developers have
 lead developer roles. These lead developers review potential additions to the
 software.  
@@ -1743,9 +1681,9 @@ in Section~\ref{threats}.
 The software packages were examined for the presence of artifacts, which were
 then categorized by frequency. We have grouped them into common, less common,
 and rare artifacts in Table~\ref{artifactspresent}. Common artifacts were found
-in 16 to 23 ($>$70\%) of the software packages. Less common artifacts were found
-in 8 to 15 (35-70\%) of the software packages. Rare artifacts were found in 1 to
-7 ($<$35\%) of the software packages. 
+in 16 to 24 ($>$63\%) of the software packages. Less common artifacts were found
+in 8 to 15 (30-63\%) of the software packages. Rare artifacts were found in 1 to
+7 ($<$30\%) of the software packages. 
 
 \begin{table}
 \begin{center}
@@ -1769,7 +1707,7 @@ Tutorial & & \\
 \end{center}
 \end{table}
 
-All of the top four AHP ranked packages, ESPREsSo, Ludwig, OpenLB, and Palabos,
+All of the top four AHP ranked packages, ESPREsSo, Ludwig, Palabos, and OpenLB,
 have each of the commonly found artifacts, except only three of them have a
 requirements specification or theory notes. Palabos is the only one of these
 four packages that does not have an artifact from this category.
@@ -1793,7 +1731,8 @@ top four packages have any explicit API documentation. Three of these packages
 of them (OpenLB, Palabos) have a FAQ section or forum. One (OpenLB) has
 verification and validation notes, and a video guide of the software. 
 
-\subsection{What tools (development, dependencies, project management) are used by current software packages?} \label{tools}
+\subsection{What tools (development, dependencies, project management) are used
+by current software packages?} \label{tools}
 
 Software tools are used to support the development, verification, maintenance,
 and evolution of software, software processes, and artifacts
@@ -1824,8 +1763,8 @@ tools, dependencies, and project management tools.
 Development tools support the development of end products, but do not become
 part of them, unlike dependencies that remain in the application once it is
 released \citep{ghezzi1991fundamentals}. Although not shown in
-Table~\ref{tbl_tools}, debuggers were also likely used.  Only two (ESPResSo and
-Ludwig) packages mentioned continuous integration tools, like Travis CI. Code
+Table~\ref{tbl_tools}, debuggers were also likely used.  Only three (ESPResSo, 
+Ludwig and Musubi) packages mentioned continuous integration tools, like Travis CI. Code
 editors and compilers were explicitly noted to have been used by several
 packages, and were likely used by all of them. One of the packages (Ludwig)
 explicitly noted the use of proprietary unit testing code written in C.
@@ -1883,10 +1822,10 @@ the LBM packages are fairly small, so it is feasible for them to be organized
 without the need for such models.  \wss{some repetition from the previous
 section - should try to figure out how to remove the repetition.}
 
-Seven of the software packages contain artifacts outlining the general
-development process, like basic instructions on how to contribute. Eleven of the
-packages explicitly convey that they would accept outside contributors, but
-generally the teams are centralized, often working at the same institution. 
+Seven of the software packages contain artifacts recording the general
+development process and status. Eleven of the packages explicitly convey that
+they would accept outside contributors, but generally the teams are centralized,
+often working at the same institution. 
 
 The developers that were interviewed all noted similar project management
 processes. In teams of only a couple of developers, additions of new features or
@@ -1896,8 +1835,8 @@ potential additions to the software. One of the developers (ESPResSo) that was
 interviewed noted that an ad hoc peer review process is used to assess major
 changes and additions.
 
-Thirteen (57\%) of the 23 software packages use GitHub for managing the project,
-including nine (64\%) of the 14 alive packages, and four of the nine (44\%) dead
+Thirteen (54\%) of the 24 software packages use GitHub for managing the project,
+including nine (60\%) of the 15 alive packages, and four of the nine (44\%) dead
 packages. Two projects (Palabos, WaLBerla) use GitLab. This could be indicative
 of a transition to such software development and version control tools for SCS.
 Typically there are several simultaneous development branches in these projects.
@@ -1908,7 +1847,7 @@ is to lower the entry barrier for these new contributors. The documentation
 provides information on how to get started, orients the user to artifacts and
 the source code, and explains how the system works, including the so-called
 simulation engine and interface. The use of document generation tools is
-mentioned in the artifacts of 12 software packages, and was noted during
+mentioned in the artifacts of 13 software packages, and was noted during
 interviews with developers. Sphinx and Doxygen are the tools that were
 mentioned. 
 
@@ -2099,7 +2038,8 @@ they are just suggestions for consideration in the future.
 \begin{itemize}
 	\item Include OS compatibility, including specific OS versions. This was
 	done by several top ranked packages, including ESPResSo and LUMA.
-	\item Provide complete installation instructions. This was done by all of the top five ranked packages.
+	\item Provide complete installation instructions. This was done by all of
+	the top five ranked packages.
 	\item Installation instructions should be written as if the user does not
 	have any dependencies installed and is installing on a clean OS. This was
 	done by several top ranked packages, including ESPResSo, OpenLB, and
@@ -2176,7 +2116,7 @@ they are just suggestions for consideration in the future.
 \begin{itemize}
 	\item The system must provide descriptive error messages when it encounters
 	unexpected input, including incorrect data types, empty input, and missing
-	files or links. Eighteen of the software packages behaved reasonably when
+	files or links. Nineteen of the software packages behaved reasonably when
 	tested with unexpected input.
 \end{itemize}
 
@@ -2184,7 +2124,7 @@ they are just suggestions for consideration in the future.
 
 \begin{itemize}
 	\item Integrate parallelization tools and techniques to reduce processing
-	time. Consider GPU processing, CUDA, and MPI. Seventeen software packages
+	time. Consider GPU processing, CUDA, and MPI. Eighteen software packages
 	mentioned parallelization in their artifacts.
 	\item The user should be able to choose to process their model on either the
 	CPU or GPU. ESPResSo, lbmpy, lettuce, pyLBM, and TCLB allow for either CPU
@@ -2297,10 +2237,10 @@ they are just suggestions for consideration in the future.
 \begin{itemize}
 	\item Adopt a coding standard and document it in artifacts, including some
 	examples. A coding standard needs to be part of continuous integration. Only
-	LUMA and HemeLB explicitly identify coding standards. 
-	\item Use consistent, distinctive, and meaningful code identifiers. Nineteen
-	of the 23 software packages use such code identifiers.
-	\item Use symbolic constants. Twelve of the 23 software packages use such
+	LUMA, HemeLB, and Musubi explicitly identify coding standards. 
+	\item Use consistent, distinctive, and meaningful code identifiers. Twenty
+	of the 24 software packages use such code identifiers.
+	\item Use symbolic constants. Thirteen of the 24 software packages use such
 	constants.
 	\item Identify algorithms that are used in source code comments. Document
 	them in the artifacts. Cite relevant external sources if needed. Domain
@@ -2341,7 +2281,7 @@ they are just suggestions for consideration in the future.
 	(waterfall, agile, etc.), if appropriate.  Seven of the software packages
 	have some artifacts outlining the general development process. Eleven
 	packages have information on how to contribute. 
-	\item Identify the development environment. Eight of the 23 software
+	\item Identify the development environment. Eight of the 24 software
 	packages identify the development environment.
 	\item Update all relevant documentation when a change to the software is
 	made. This is suggested as good software development practice.
@@ -2412,22 +2352,23 @@ to software recommended by a domain expert in Section
 Table~\ref{repometrics} presents our LBM software package rankings along with
 the repository ranking metrics of each software package. 
 
-Eight packages do not use GitHub or GitLab, so they do not have a measure of
-repository stars. Looking at the repository stars of the other 15 packages, we
-can observe a slight pattern where packages that have been highly ranked by our
-assessment do have more stars than lower ranked packages. The second ranked
-package (ESPResSo) has the second most number of stars. The ninth ranked package
+Nine packages do not use GitHub, so they do not have a measure of repository
+stars. Looking at the repository stars of the other 15 packages, we can observe
+a slight pattern where packages that have been highly ranked by our assessment
+do have more stars than lower ranked packages. The best ranked package
+(ESPResSo) has the second most number of stars. The ninth ranked package
 (Sailfish) has the most number of stars. Packages designated as lower quality
-often do not use GitHub or GitLab, or have few stars, except for HemeLB which
-has 22 stars. Our assessment of this package might not be accurate. The number
-of stars does not necessarily represent the perceptions of the community, but
-for lack of an alternative measure we will use it this way. 
+often do not use GitHub or GitLab, or have few stars. HemeLB only has 12 stars,
+but its location recently moved from a different GitHub repository. Our
+assessment of this package might not be accurate. The number of stars does not
+necessarily represent the perceptions of the community, but for lack of an
+alternative measure we will use it this way. 
 
 The repository watches column contains even less data to compare since two of
 the packages (Palabos, waLBerla) use GitLab, which does not include this metric.
 The pattern that can be observed with this metric is very similar to that of the
 stars metric. The ninth ranked package (Sailfish) has the most number of
-watches. The second ranked package (ESPResSo) has the second most number of
+watches. The best ranked package (ESPResSo) has the second most number of
 watches.
 
 Besides missing data, another threat to the validity of this comparison is the
@@ -2438,33 +2379,34 @@ packages may not be reflected in their stars and watches. \\
 \begin{table}
 \begin{center}
 		\begin{tabular}{ p{3.5cm}p{2.5cm}p{2cm}p{2cm}p{2cm} }
-			\hline
+			\toprule
 			Name & Our Ranking & Repository Stars & Repository Star Rank & Repository Watches \\
-			\hline
-			Ludwig&1& 19 &8& 6\\
-			ESPResSo &2& 115 &2& 23\\
-			Palabos &3& 14 &10& GitLab\\
+			\midrule
+			ESPResSo &1& 145 &2& 19\\
+			Ludwig&2& 27 &8& 6\\
+			Palabos &3& 34 &6& GitLab\\
 			OpenLB &4& No Git &No Git & No Git\\
-			LUMA&5& 26 &6& 10\\
-			pyLBM &6& 57&4& 8\\
+			LUMA&5& 33 &7& 12\\
+			pyLBM &6& 95&3& 10\\
 			DL\_MESO (LBE) & 7 & No Git &No Git & No Git \\
-			waLBerla & 8 & 17 &9& GitLab\\
-			Sailfish &9& 154 &1& 39\\
-			laboetie &10& 4 &13& 5\\
-			TCLB &11& 61 &3& 16\\
-			MechSys &12& No Git &No Git & No Git\\
-			lettuce &13& 8 &11& 2\\
-			ESPResSo++ &14& 31 &5& 13\\
-			MP-LABS &15& 7 &12& 2\\			
-			SunlightLB & 16& No Git &No Git & No Git\\
-			LB3D &17& No Git &No Git & No Git\\			
-			LIMBES &18& No Git &No Git & No Git\\
-			LB2D-Prime &19& No Git &No Git & No Git\\		
-			HemeLB &20& 22 &7& 15\\
-			lbmpy&21&  4 &13& 2  \\	
-			LB3D-Prime &22& No Git &No Git & No Git\\	
-			LatBo.jl &23& 4 &13& 5\\			
-			\hline
+			Musubi & 8 & No Git &No Git & No Git \\
+			Sailfish &9& 186 &1& 41\\
+			waLBerla & 10 & 20 &9& GitLab\\
+			laboetie &11& 4 &13& 5\\
+			TCLB &12& 95 &3& 16\\
+			MechSys &13& No Git &No Git & No Git\\
+			lettuce &14& 48 &4& 5\\
+			ESPResSo++ &15& 35 &5& 12\\
+			MP-LABS &16& 12 &11& 2\\			
+			SunlightLB & 17& No Git &No Git & No Git\\
+			LB3D &18& No Git &No Git & No Git\\			
+			LIMBES &19& No Git &No Git & No Git\\
+			LB2D-Prime &20& No Git &No Git & No Git\\		
+			HemeLB &21& 12 &11& 12\\
+			lbmpy&22&  11 &12&  2\\	
+			LB3D-Prime &23& No Git &No Git & No Git\\	
+			LatBo.jl &24& 17 &10& 8\\			
+			\bottomrule
 		\end{tabular}
 		\caption{Repository Ranking Metrics} \label{repometrics}
 \end{center}
@@ -2474,26 +2416,27 @@ packages may not be reflected in their stars and watches. \\
 
 Table~\ref{rankingcomparison} compares the top 10 ranked LBM software packages
 with a LBM package ranking made by a domain expert. Five (Palabos, OpenLB, LUMA,
-waLBerla, Sailfish) of the top 10 ranked packages in this assessment are also
-found in the domain expert's list. Interestingly, these five packages are listed
-in the same order on both lists. Looking at the remaining packages, the top two
-ranked packages in this state of the practice assessment (Ludwig, ESPResSo) are
-not on the domain expert's list. Perhaps the intended applications of these
-packages, complex fluids for Ludwig and soft matter research for ESPResSo, do
-not align with the research interests of the domain expert, and this is why they
-did not make it onto their list. Moving down the list, pyLBM and DL\_MESO(LBE)
-did not make the domain expert's top 10 list but were mentioned by the domain
-expert. The 10th ranked package, laboetie, was not mentioned by the domain
-expert. Looking at the remainder of the domain expert's list, ASL is a general
-purpose tool for solving partial differential equations and may have fallen out
-of scope of the authoritative lists that were used to identify the initial LBM
-software list. The domain expert's fifth ranked package (ch4-project) was on the
-initial software list of this assessment, but was removed due to a lack of
-documentation. Open FSI is a new project that uses Palabos. It was made public
-the year before data was collected for this state of the practice exercise. It
-may not have been on authoritative lists due to its young age. Similarly, LIFE
-was also made public recently. Finally, the domain expert's 10th ranked package
-(HemeLB) was ranked 20th in this state of the practice assessment. 
+Sailfish, waLBerla) of the top 10 ranked packages in this assessment are also
+found in the domain expert's top 10 ranking. Interestingly, the first three of
+these five packages are listed in the same order on both lists. Looking at the
+remaining packages, the top two ranked packages in this state of the practice
+assessment (ESPResSo, Ludwig) are not on the domain expert's list. Perhaps the
+intended applications of these packages, complex fluids for Ludwig and soft
+matter research for ESPResSo, do not align with the research interests of the
+domain expert, and this is why they did not make it onto their list. This
+reasoning may also apply to eighth ranked Musubi. Moving down the list, pyLBM
+and DL\_MESO(LBE) did not make the domain expert's top 10 list but were
+mentioned by the domain expert. Looking at the remainder of the domain expert's
+list, ASL is a general purpose tool for solving partial differential equations
+and may have fallen out of scope of the authoritative lists that were used to
+identify the initial LBM software list. The domain expert's fifth ranked package
+(ch4-project) was on the initial software list of this assessment, but was
+removed due to a lack of documentation. Open FSI is a new project that uses
+Palabos. It was made public the year before data was collected for this state of
+the practice exercise. It may not have been on authoritative lists due to its
+young age. Similarly, LIFE was also made public recently. Finally, the domain
+expert's 10th ranked package (HemeLB) was ranked 21st in this state of the
+practice assessment. 
 
 \begin{table}
 \begin{center}
@@ -2501,16 +2444,16 @@ was also made public recently. Finally, the domain expert's 10th ranked package
 		\toprule
 		Rank & This Assessment & Domain Expert\\
 		\midrule
-		1 & Ludwig (N/A) & Palabos\\
-		2 & ESPResSo (N/A) & OpenLB\\
-		3 & Palabos (1)& LUMA\\
-		4 & OpenLB (2)& ASL\\
-		5 & LUMA (3)& ch4-project\\
-		6 & pyLBM (17)& Open FSI\\
-		7 & DL\_MESO (LBE) (12)& WaLBerla\\
-		8 & waLBerla (7)& LIFE\\
-		9 & Sailfish (9)& Sailfish\\
-		10 & laboetie (N/A)& HemeLB\\		
+		1 & ESPResSo (N/A) & Palabos\\
+		2 & Ludwig (N/A) & OpenLB\\
+		3 & Palabos (1) & LUMA\\
+		4 & OpenLB (2) & ASL\\
+		5 & LUMA (3) & ch4-project\\
+		6 & pyLBM (16) & Open FSI\\
+		7 & DL\_MESO (LBE) (11) & WaLBerla\\
+		8 & Musubi (N/A) & LIFE\\
+		9 & Sailfish (9) & Sailfish\\
+		10 & WaLBerla (7) & HemeLB\\		
 		\bottomrule
 	\end{tabular}
 	\caption{Ranking Comparison} \label{rankingcomparison}
@@ -2550,12 +2493,12 @@ Section~\ref{artifacts}.
 
 Some pertinent data may not have been specified in public artifacts, or may be
 obscure within an artifact or web-page. The use of unit testing and continuous
-integration was mentioned in the artifacts of only two (ESPResSo, Ludwig)
-packages. However, interviews suggested a more frequent use of both unit testing
-and continuous integration in the development processes than what was observed
-from the initial survey of the artifacts. For example, OpenLB, pyLBM, and TCLB
-use such methods during development despite this not being explicitly clear from
-an analysis of the material available online. 
+integration was mentioned in the artifacts of only three (ESPResSo, Ludwig,
+Musubi) packages. However, interviews suggested a more frequent use of both unit
+testing and continuous integration in the development processes than what was
+observed from the initial survey of the artifacts. For example, OpenLB, pyLBM,
+and TCLB use such methods during development despite this not being explicitly
+clear from an analysis of the material available online. 
 
 Furthermore, design documentation was measured to be a ``less common'' artifact
 in this assessment, but it is probable that such documentation is part of all
@@ -2567,7 +2510,7 @@ to this the measured data is not a true reflection of software package quality.
 
 We analyzed the state of the practice of software development in the Lattice
 Boltzmann Methods software domain by quantitatively and qualitatively measuring,
-and comparing, 23 software packages along quality attributes. The software
+and comparing, 24 software packages along quality attributes. The software
 qualities that were assessed in this report are listed in Section
 ~\ref{softwarequalities}. A methodology for assessing the state of the practice
 of software development in SCS domains was presented. Domain packages were
@@ -2598,18 +2541,40 @@ The following recommendations improve software quality along multiple
 attributes, and provide the greatest return on investment:
 
 \begin{itemize}
-	\item Provide a detailed user manual. It should identify elements of user interfaces, and identify all requirements to model a system. Thirteen packages have a user manual. ESPResSo has a well detailed manual.
-	\item State appropriate fluid dynamics problems that the software is designed to model in the documentation, and explicitly state the limits of the software. This is done in the ESPResSo user guide.
-	\item Include detailed tutorials, including dependencies, expected
-	output, and any additional supplementary documentation that may be required. This was done by many packages, including waLBerla, Palabos, MechSys, LUMA, and pyLBM.
+	\item Provide a detailed user manual. It should identify elements of user
+	interfaces, and identify all requirements to model a system. Thirteen
+	packages have a user manual. ESPResSo has a well detailed manual.
+	\item State appropriate fluid dynamics problems that the software is
+	designed to model in the documentation, and explicitly state the limits of
+	the software. This is done in the ESPResSo user guide.
+	\item Include detailed tutorials, including dependencies, expected output,
+	and any additional supplementary documentation that may be required. This
+	was done by many packages, including waLBerla, Palabos, MechSys, LUMA, and
+	pyLBM.
 	\item Keep all documentation in one location. This was done by top ranked packages.
-	\item If possible, consider using popular user-friendly software languages like Python. Especially consider this for parts of the source code that is likely to be modified or reviewed by users. ESPResSo and Sailfish use Python to address several software qualities, including maintainability, modifiability and usability.
-	\item Modularize the source code, separate components, hide information behind well defined interfaces. This is suggested in SCS literature, and in developer comments.
-	\item Include descriptive error messages where appropriate. This was done by most packages that encountered a fault.
-	\item Summarize the development process that is used. Provide information on how new users can contribute. Seven of the software packages have some artifacts outlining the general development process. Eleven packages have information on how to contribute.
-	\item Consider peer review processes and task based inspection to assess contributions. High ranked package ESPResSo does this.
-	\item Use continuous integration tools (Bamboo, Jenkins, and Travis CI) and processes during development. This was done by top ranked packages ESPResSo and Ludwig.
-	\item Use project management tools, including change and version control tools (GitHub, GitLab, CVS), collaboration tools (GitHub, GitLab), and document generation tools (Doxygen, Drasil, Sphinx). This was done by all of the top five ranked packages.
+	\item If possible, consider using popular user-friendly software languages
+	like Python. Especially consider this for parts of the source code that is
+	likely to be modified or reviewed by users. ESPResSo and Sailfish use Python
+	to address several software qualities, including maintainability,
+	modifiability and usability.
+	\item Modularize the source code, separate components, hide information
+	behind well defined interfaces. This is suggested in SCS literature, and in
+	developer comments.
+	\item Include descriptive error messages where appropriate. This was done by
+	most packages that encountered a fault.
+	\item Summarize the development process that is used. Provide information on
+	how new users can contribute. Seven of the software packages have some
+	artifacts outlining the general development process. Eleven packages have
+	information on how to contribute.
+	\item Consider peer review processes and task based inspection to assess
+	contributions. High ranked package ESPResSo does this.
+	\item Use continuous integration tools (Bamboo, Jenkins, and Travis CI) and
+	processes during development. This was done by top ranked packages ESPResSo
+	and Ludwig.
+	\item Use project management tools, including change and version control
+	tools (GitHub, GitLab, CVS), collaboration tools (GitHub, GitLab), and
+	document generation tools (Doxygen, Drasil, Sphinx). This was done by all of
+	the top five ranked packages.
 \end{itemize}
 
 Ensuring software quality can take significant time. An inability to develop
