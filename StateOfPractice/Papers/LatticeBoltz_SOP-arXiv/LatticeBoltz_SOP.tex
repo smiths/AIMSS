@@ -744,6 +744,24 @@ starts from a clean slate, which removes ``works-on-my-computer'' errors. When
 filling in the measurement template spreadsheet, the details for each VM
 should be noted, including hypervisor and operating system version.
 
+\subsection{Analytical Hierarchy Process} \label{AHP}
+
+The Analytical Hierarchy Process (AHP) is a decision-making technique that is
+used to compare multiple options by multiple criteria. In our work AHP was used
+for comparing and ranking the LBM software packages using the overall impression
+quality scores that were gathered in the measurement template.  AHP performs a
+pairwise analysis using a matrix and generates an overall score as well as
+individual quality scores for each software package. \citep{SmithEtAl2016} shows
+how AHP is applied to ranking software based on quality measures. 
+
+This project used a tool for conducting this process. The tool includes a
+sensitivity analysis that was used to ensure that the software package rankings
+are appropriate with respect to the uncertainty of the quality scores. For the
+sensitivity analysis we modified the score by 10\% for each package and verified
+that the overall ranking was stable.  The
+\href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/AHP2020/LBM/README.txt}{README}
+file of the tool includes requirements and usage information.
+
 \subsection{Interview Developers} \label{SecSurvey}
 
 We designed a list of 20 questions to guide our interviews, which can be found
@@ -776,24 +794,6 @@ Research Ethics Board under the application number
 \href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/MACREM/Application.pdf}
 {MREB\#: 5219}.
 
-\subsection{Analytical Hierarchy Process} \label{AHP}
-
-The Analytical Hierarchy Process (AHP) is a decision-making technique that is
-used to compare multiple options by multiple criteria. In our work AHP was used
-for comparing and ranking the LBM software packages using the overall impression
-quality scores that were gathered in the measurement template.  AHP performs a
-pairwise analysis using a matrix and generates an overall score as well as
-individual quality scores for each software package. \citep{SmithEtAl2016} shows
-how AHP is applied to ranking software based on quality measures. 
-
-This project used a tool for conducting this process. The tool includes a
-sensitivity analysis that was used to ensure that the software package rankings
-are appropriate with respect to the uncertainty of the quality scores. For the
-sensitivity analysis we modified the score by 10\% for each package and verified
-that the overall ranking was stable.  The
-\href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/AHP2020/LBM/README.txt}{README}
-file of the tool includes requirements and usage information.
-
 \subsection{Interaction With Domain Expert} \label{sec_vet_software_list}
 
 The Domain Expert is an important member of the state of the practice assessment
@@ -820,7 +820,7 @@ Expert was also asked to vet the collected data and analysis.  In particular,
 they were asked to vet the proposed list of software packages and the AHP
 ranking.  These interactions were done via virtual meetings.
 
-\section{Quantitative Findings and AHP Results} \label{AHPresults}
+\section{Ranking Projects Based on Quality Measures} \label{AHPresults}
 
 Before discussing quality differences between the packages and the results of
 the AHP ranking, we will contrast the different packages based on features, as
@@ -1888,7 +1888,7 @@ tools, dependencies, and project management tools.
 	\midrule
 	Continuous Integration & Build Automation Tools & Collaboration Tools\\
 	Code Editors & Technical Libraries & Email\\
-	Development Environment & Domain Specific Libraries & Change Tracking Tools\\
+	Development Environments & Domain Specific Libraries & Change Tracking Tools\\
 	Runtime Environments &  & Version Control Tools\\
 	Compilers &  & Document Generation Tools\\
 	Unit Testing Tools &  & \\
