@@ -193,7 +193,9 @@ Department},%Department and Organization
     provide a detailed user manual and tutorials, explicitly state the limits of
     the software, use user-friendly programming languages, consider a peer
     review process, communicate development and contribution information, and
-    use continuous integration and project management tools.
+    use continuous integration and project management tools.  \wss{Change the
+    abstract to discuss how LBM compares to common practices and best practices.
+    Highlight some future practices.}
 
 \end{abstract}
 
@@ -549,7 +551,7 @@ they achieved this or what improvements are needed to achieve it.
 The candidate software was found through search engine queries targeting
 authoritative lists of software. We found LBM software listed on the websites
 GitHub and swMATH, as well as through articles found in scholarly journals and
-databases.  The Domain Expert (Section~\ref{domainexpertrecommend}) was also
+databases.  The Domain Expert (Section~\ref{sec_vet_software_list}) was also
 engaged in selecting the candidate software.  \wss{Packages that fit our
 criteria but were found after data collection and analysis was conducted, such
 as Musubi \citep{HasertEtAl2014}, will need to be added to future SOP
@@ -2058,9 +2060,9 @@ open source etc.}
 Another raised concern was that there are no organizations helping with the
 development of good quality software; but some do exist, including
 \href{https://bssw.io/}{Better Scientific Software (BSSw)},
-\href{https://www.software.ac.uk/}{Software Sustainability Institute}, and
+\href{https://www.software.ac.uk/}{Software Sustainability Institute} \citep{CrouchEtAl2013}, and
 \href{https://software-carpentry.org/}{Software Carpentry}. Some SCS developers
-may not be familiar with these organizations. 
+may not be familiar with these organizations. \citep{WilsonAndLumsdaine2006}
 
 Scientific software is often developed in-house by the very researchers that
 temporarily use it in their own research. Empirical studies of such
@@ -2171,71 +2173,43 @@ tools that capture scientific and computing knowledge, and transform it into
 software artifacts, is advised. Drasil is an automatic document generation tool
 that is further discussed in Section~\ref{highlightedrecommendations}.
 
-\subsection{Current Practices} \label{currentPractices}
+\subsection{Common Practices} \label{currentPractices}
 
-The following points regarding software quality should be considered when
-developing LBM software packages. These points are based on developer
-interviews, SCS literature, what was found to have worked for packages that were
-designated as high quality in this assessment.  Our recommendations are not
-lists of what should have been done in the past, or what should be done now;
-they are just suggestions for consideration in the future.  \wss{Rework this
-section to highlight what the top projects are doing.  Point to checklists for
-other advice?}
+The practices that arose frequently.  Compare and contrast to what is done with
+research software in general.  The following points regarding software quality
+should be considered when developing LBM software packages. These points are
+based on developer interviews, SCS literature, what was found to have worked for
+packages that were designated as high quality in this assessment.  Our
+recommendations are not lists of what should have been done in the past, or what
+should be done now; they are just suggestions for consideration in the future.
+\wss{Rework this section to highlight what the top projects are doing.  Point to
+checklists for other advice?}  Highlights of common practices.  Put in context.
+
+Conclusion that LBM software common practice is similar to the common practice
+elsewhere.  Maybe point out where LBM is ahead.  Use results from common
+artifacts, common process etc. to support conclusion.  (Continuous integration, version control, README, Req etc. - point to Table 8.)
 
 \begin{itemize}
-	\item Surface Reliability. Include descriptive error messages where
-	appropriate. This was done by most packages that encountered a fault.
-	\item Surface Reliability. In case automatic installation of dependencies
-	fails, the system should indicate to the user what dependencies need to be
-	installed manually. This was done by many packages, including ESPResSo++,
-	Ludwig, LUMA, pyLBM, TCLB.
-	\item Surface Reliability. The packages should include detailed tutorials,
-	including dependencies, expected output, and any additional supplementary
-	documentation that may be required. This was done by many packages,
-	including waLBerla, Palabos, MechSys, LUMA, and pyLBM.  \wss{Comment from
-	ASCR attendee that success with open source requires good tutorials and
-	documentation - is this published anywhere?}
-	\item Surface Robustness. The system must provide descriptive error messages
-	when it encounters unexpected input, including incorrect data types, empty
-	input, and missing files or links. Nineteen of the software packages behaved
-	reasonably when tested with unexpected input.
-	\item Surface Performance. Integrate parallelization tools and techniques to
-	reduce processing time. Consider GPU processing, CUDA, and MPI. Eighteen
-	software packages mentioned parallelization in their artifacts.
-	\item Surface Performance. The user should be able to choose to process
-	their model on either the CPU or GPU. ESPResSo, lbmpy, lettuce, pyLBM, and
-	TCLB allow for either CPU or GPU processing.
+	\item Surface Reliability. Surface Usability. The packages should include
+	detailed tutorials, including dependencies, expected output, and any
+	additional supplementary documentation that may be required. This was done
+	by many packages, including waLBerla, Palabos, MechSys, LUMA, and pyLBM.
+	\wss{Comment from ASCR attendee that success with open source requires good
+	tutorials and documentation - is this published anywhere?  I think I can
+	find this recommendation in other papers.}
+	\item Surface Usability. Unambiguity. Surface Understandability. Provide a detailed user manual. It
+	should identify elements of user interfaces, and identify all requirements
+	to model a system. Thirteen packages have a user manual. ESPResSo has a well
+	detailed manual. \wss{Include this with tutorial?  Find papers that
+	recommend this kind of documentation?}
 	\item Surface Usability. Include user hardware and software requirements
 	documentation. Hardware requirements are rarely listed in the software
 	packages that were assessed. Only those offering GPU processing (ESPResSo,
 	lbmpy, lettuce, pyLBM, Sailfish, TCLB) mentioned any hardware requirements.
 	On the other hand, some sort of software requirements were available for all
 	packages, even if only some dependencies or a compatible operating system
-	were mentioned.
-	\item Surface Usability. Provide a user tutorial that indicates the expected
-	output. This was done by many packages, including waLBerla, Palabos,
-	MechSys, LUMA, pyLBM.
-	\item Surface Usability. Provide a detailed user manual. It should identify
-	elements of user interfaces, and identify all requirements to model a
-	system. Thirteen packages have a user manual. ESPResSo has a well detailed
-	manual.
-	\item Maintainability. Ideally include most of the common and less common
-	artifacts listed in Section~\ref{artifacts}.
-	\item Surface Understandability. Use consistent, distinctive, and meaningful
-	code identifiers. Twenty of the 24 software packages use such code
-	identifiers.
-	\item Surface Understandability. Use symbolic constants. Thirteen of the 24
-	software packages use such constants.
-	\item Surface Understandability. Identify algorithms that are used in source
-	code comments. Document them in the artifacts. Cite relevant external
-	sources if needed. Domain algorithms are noted in the source code of 11
-	packages.
-	\item Surface Understandability. Provide a user manual that identifies all
-	technical and problem modeling requirements. Thirteen software packages have
-	a user manual.
-	\item Unambiguity. Provide a detailed user manual. Thirteen packages have a
-	user manual. ESPResSo has a well detailed manual.
-
+	were mentioned.  \wss{This is a key part of reproducibility.}
+    \item Not much of a process - find papers that support this - papers recommend "Define clear and transparent contribution, governance and communication processes" JimenezEtAl2017
 \end{itemize}
 
 \subsection{Best Practices} \label{bestPractices}
@@ -2630,7 +2604,16 @@ each instance, add page numbers).
 
 - add links or citations to all of the packages (could add them to the summary table)
 
+- introduce the idea of using our measurement template as a checklist, instead of, or in addition to other checklists - cite the other checklists \citep{SchlauchEtAl2018, BrettEtAl2021, vanGompelEtAl2016}, \href{Software Sustainability Institute Online Form}{https://docs.google.com/forms/d/e/1FAIpQLSf0ccsVdN-nXJCHLluJ-hANZlp8rDKgprJa0oTYiLZSDxh3DA/viewform}
 
+- discuss Wilson papers ``Best Practices'' \citep{WilsonEtAl2014} and ``Good Enough Practices'' \citep{WilsonEtAl2016}
 
+- mention flake8 for Python?
 
+- mention \href{https://joss.theoj.org/}{The Journal of Open Source Software}
 
+- reproducibility - can point to the PiccoloAndFrampton2016 paper
+
+- AlNoamanyAndBorghi2018 lists the most popular languages, Python is number 1
+
+- JimenezEtAl2017 talks about Define clear and transparent contribution, governance and communication processes
