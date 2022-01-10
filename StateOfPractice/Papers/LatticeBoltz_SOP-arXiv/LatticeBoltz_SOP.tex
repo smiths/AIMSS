@@ -100,6 +100,10 @@
 \newcommand{\CC}{C\nolinebreak\hspace{-.05em}\raisebox{.4ex}{\small\bf
 +}\nolinebreak\hspace{-.10em}\raisebox{.4ex}{\small\bf +}}
 
+\newcounter{rqnum} %research question number
+\newcommand{\rqtherqnum}{RQ`'\therqnum}
+\newcommand{\rqref}[1]{RQ\ref{#1}}
+
 \journal{???}
 
 \begin{document}
@@ -275,36 +279,51 @@ user manuals, unit tests, system tests, usability tests, build scripts, API
 process documents, and code.
 
 \begin{enumerate}
-	\item What artifacts are present in current LBM packages? 
-	\item What tools (development, dependencies, project management) are used by
-	current LBM solvers?
-	\item What principles, processes, and methodologies are used in the development
-	of current LBM packages?
-	\item What are the pain points for developers working on LBM software
-	projects?  What aspects of the existing processes, methodologies and tools do
-	they consider as potentially needing improvement?  How should processes,
-	methodologies and tools be changed to improve software development and
-	software quality?
-	\item For LBM software developers, what specific actions are taken to
-	address the following:
-	\begin{enumerate}
-		\item installability
-		\item correctness and verifiability
-		\item reliability
-		\item robustness
-		\item performance
-		\item usability
-		\item maintainability
-		\item modifiability
-		\item reusability
-		\item understandability
-		\item traceability
-		\item visibility and transparency
-		\item reproducibility
-		\item unambiguity
-	\end{enumerate} 
-	\item How does software designated as high quality by this methodology
-	compare	with top rated software by the community?
+	\item[RQ\refstepcounter{rqnum}\therqnum \label{RQ_WhatProjects}:] What LBM
+	software projects exist, with the constraint that the source code must be
+	available for all identified projects?
+	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_HighestQuality}:] Which
+	of the projects identified in \rqref{RQ_WhatProjects} follow current best
+	practices, based on evidence found by experimenting with the software and
+	searching the artifacts available in each project's repository?
+	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_CompareHQ2Popular}:] How
+	similar is the list of top projects identified in \rqref{RQ_HighestQuality}
+	to the most popular projects, as viewed by the scientific community?
+    \item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_CompareArtifacts}:] How
+	do LBM projects compare to research software in general with respect to
+	the artifacts present in their repositories?
+	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_CompareToolsProjMngmnt}:]
+	How do LBM projects compare to research software in general with
+	respect to the use of tools for:
+	\begin{enumerate} 
+		\item [\rqref{RQ_CompareToolsProjMngmnt}.a] development; and,
+		\item [\rqref{RQ_CompareToolsProjMngmnt}.b] project management?
+	\end{enumerate}
+	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_PainPoints}:] What are
+	the pain points for developers working on LBM software projects? 
+	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_ComparePainPoints}:] How
+	do the pain points of developers from LBM compare to the pain points
+	for research software in general?
+	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_Concerns}:] For LBM
+	developers:
+	\begin{enumerate} 
+		\item [\rqref{RQ_Concerns}.a] what software development concerns exist; and,
+		\item [\rqref{RQ_Concerns}.b] what specific actions are taken to address
+		these concerns?
+	\end{enumerate}
+	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_CompareConcerns}:]
+	Compared to research software in general, how is LBM software (as answered
+	in \rqref{RQ_Concerns}) different with respect to:
+	\begin{enumerate} 
+		\item [\rqref{RQ_CompareConcerns}.a] software development concerns?; and,
+		\item [\rqref{RQ_CompareConcerns}.b] specific actions taken to address
+		concerns?
+	\end{enumerate}
+	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_Future}:] What actions
+	could be employed by future LBM developers to address the concerns
+	identified in \rqref{RQ_Concerns} and the pain points found in
+	\rqref{RQ_PainPoints}?
+
 \end{enumerate}
 
 We investigated the research questions by applying the general methodology
