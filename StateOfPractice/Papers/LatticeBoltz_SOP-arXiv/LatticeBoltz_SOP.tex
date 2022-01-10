@@ -299,6 +299,9 @@ process documents, and code.
 		\item [\rqref{RQ_CompareToolsProjMngmnt}.a] development; and,
 		\item [\rqref{RQ_CompareToolsProjMngmnt}.b] project management?
 	\end{enumerate}
+	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_CompareMethodologies}:]
+	How do LBM projects compare to research software in general with respect to
+	principles, processes and methodologies used?
 	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_PainPoints}:] What are
 	the pain points for developers working on LBM software projects? 
 	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_ComparePainPoints}:] How
@@ -308,21 +311,16 @@ process documents, and code.
 	developers:
 	\begin{enumerate} 
 		\item [\rqref{RQ_Concerns}.a] what software development concerns exist; and,
-		\item [\rqref{RQ_Concerns}.b] what specific actions are taken to address
-		these concerns?
+		\item [\rqref{RQ_Concerns}.b] what specific practices are taken to
+		address these concerns?
 	\end{enumerate}
-	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_CompareConcerns}:]
-	Compared to research software in general, how is LBM software (as answered
-	in \rqref{RQ_Concerns}) different with respect to:
-	\begin{enumerate} 
-		\item [\rqref{RQ_CompareConcerns}.a] software development concerns?; and,
-		\item [\rqref{RQ_CompareConcerns}.b] specific actions taken to address
-		concerns?
-	\end{enumerate}
-	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_Future}:] What actions
-	could be employed by future LBM developers to address the concerns
-	identified in \rqref{RQ_Concerns} and the pain points found in
-	\rqref{RQ_PainPoints}?
+	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_Recommend}:]
+	What, if any, existing research software best practice, not currently used
+	by LBM software, could address the concerns identified in
+	\rqref{RQ_Concerns}).
+	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_Future}:] What practices
+	could be employed by future LBM developers to address the pain points found
+	in \rqref{RQ_PainPoints} and the concerns identified in \rqref{RQ_Concerns}.a?
 
 \end{enumerate}
 
@@ -354,17 +352,18 @@ questions and propose recommendations for LBM software development
 \section{Methodology} \label{methodology}
 
 We developed a methodology for evaluating the state of the practice of
-scientific software \citep{SmithEtAl2021}.  This methodology can be instantiated
-for a specific domain of scientific software, which in the current case is LBM
-software.  The first section below describes the steps of the process we used to
-select, measure and compare LBM software. This is followed by quality
-definitions and how these qualities were assessed in our project. The rest of
-the section provides the details of the methodology.
+scientific software \citep{SmithEtAl2021}.  The methodology aims to answer the
+research questions posed in the previous section. This methodology can be
+instantiated for a specific domain of scientific software, which in the current
+case is LBM software.  The first section below describes the steps of the
+process we used to select, measure and compare LBM software. This is followed by
+quality definitions and how these qualities were assessed in our project. The
+rest of the section provides the details of the methodology.
 % an overview of the specifics of candidate software selection, the quantitative
 % measurements, developer interviews, the ranking process via AHP and
 % interaction with the Domain Expert.
 
-\subsection{Process}
+\subsection{Overall Process}
 
 The assessment was conducted via the following steps: 
 
@@ -567,14 +566,14 @@ they achieved this or what improvements are needed to achieve it.
 
 \subsection{Identify Candidate Software} \label{identifysoftware}
 
-The candidate software was found through search engine queries targeting
-authoritative lists of software. We found LBM software listed on the websites
-GitHub and swMATH, as well as through articles found in scholarly journals and
-databases.  The Domain Expert (Section~\ref{sec_vet_software_list}) was also
-engaged in selecting the candidate software.  \wss{Packages that fit our
-criteria but were found after data collection and analysis was conducted, such
-as Musubi \citep{HasertEtAl2014}, will need to be added to future SOP
-assessments.}
+Part of how we answer \rqref{RQ_WhatProjects}.  The candidate software was found
+through search engine queries targeting authoritative lists of software. We
+found LBM software listed on the websites GitHub and swMATH, as well as through
+articles found in scholarly journals and databases.  The Domain Expert
+(Section~\ref{sec_vet_software_list}) was also engaged in selecting the
+candidate software.  \wss{Packages that fit our criteria but were found after
+data collection and analysis was conducted, such as Musubi
+\citep{HasertEtAl2014}, will need to be added to future SOP assessments.}
 
 The following properties were considered when creating the list and reviewing
 the candidate software:
@@ -594,9 +593,10 @@ development.
 
 \subsection{Filter the Software List} \label{filtersoftware}
 
-To reduce the number of members in the candidate software list to a manageable
-size, the following filters were applied. The filters were applied in the
-priority order listed.
+With previous section, how we answer \rqref{RQ_WhatProjects}.  Answer to
+\rqref{RQ_WhatProjects} provided in this section.  To reduce the number of
+members in the candidate software list to a manageable size, the following
+filters were applied. The filters were applied in the priority order listed.
 
 \begin{enumerate}
 	\item Scope: Software is removed by narrowing what functionality is
@@ -689,10 +689,13 @@ and Python \citep{mazzeo2008hemelb}.
 
 \subsection{Quantitative Measures} \label{empiricalmeasures}
 
-The measurement template is found in \citet{SmithEtAl2021}.  This template is
-used to track measurements and quality scores for all of the software packages
-in the domain. For each software package, we fill-in the rows of the template.
-This process takes about 2 hours per package, with a cap of 4 hours.  The time
+Part of how we address \rqref{RQ_HighestQuality} and
+\rqref{RQ_CompareArtifacts}.  Once have \rqref{RQ_HighestQuality} can combine
+with estimate of popularity to answer \rqref{RQ_CompareHQ2Popular}.  The
+measurement template is found in \citet{SmithEtAl2021}.  This template is used
+to track measurements and quality scores for all of the software packages in the
+domain. For each software package, we fill-in the rows of the template. This
+process takes about 2 hours per package, with a cap of 4 hours.  The time
 constraint is necessary so that the work load for measuring a given domain is
 feasible for a team as small as one, since we aim for a cap of 160 person hours
 for the measurement phase \citet{SmithEtAl2021}.  An excerpt of the spreadsheet
@@ -765,13 +768,14 @@ should be noted, including hypervisor and operating system version.
 
 \subsection{Analytical Hierarchy Process} \label{AHP}
 
-The Analytical Hierarchy Process (AHP) is a decision-making technique that is
-used to compare multiple options by multiple criteria. In our work AHP was used
-for comparing and ranking the LBM software packages using the overall impression
-quality scores that were gathered in the measurement template.  AHP performs a
-pairwise analysis using a matrix and generates an overall score as well as
-individual quality scores for each software package. \citep{SmithEtAl2016} shows
-how AHP is applied to ranking software based on quality measures. 
+Part of how we address \rqref{RQ_HighestQuality}.  The Analytical Hierarchy
+Process (AHP) is a decision-making technique that is used to compare multiple
+options by multiple criteria. In our work AHP was used for comparing and ranking
+the LBM software packages using the overall impression quality scores that were
+gathered in the measurement template.  AHP performs a pairwise analysis using a
+matrix and generates an overall score as well as individual quality scores for
+each software package. \citep{SmithEtAl2016} shows how AHP is applied to ranking
+software based on quality measures. 
 
 This project used a tool for conducting this process. The tool includes a
 sensitivity analysis that was used to ensure that the software package rankings
@@ -783,18 +787,21 @@ file of the tool includes requirements and usage information.
 
 \subsection{Interview Developers} \label{SecSurvey}
 
-We designed a list of 20 questions to guide our interviews, which can be found
-in \citet{SmithEtAl2021}. Some questions are about the background of the
-software, the development teams, the interviewees, and how they organize the
-projects. We also ask about the developer's understandings of the users. Some
-questions focus on the current and past difficulties, and the solutions the team
-has found, or will try. We also discuss the importance and current situations of
-documentation. A few questions are about specific software qualities, such as
-maintainability, understandability, usability, and reproducibility. The
-interviews are semi-structured based on the question list; we ask follow-up
-questions when necessary. Based on our experience, the interviewees usually
-bring up some exciting ideas that we did not expect, and it is worth expanding
-on these topics.
+Part of how we address \rqref{RQ_CompareToolsProjMngmnt},
+\rqref{RQ_CompareMethodologies}, \rqref{RQ_PainPoints} (which enables
+\rqref{RQ_ComparePainPoints}, and \rqref{RQ_Concerns} (which enables
+\rqref{RQ_CompareConcerns}). We designed a list of 20 questions to guide our
+interviews, which can be found in \citet{SmithEtAl2021}. Some questions are
+about the background of the software, the development teams, the interviewees,
+and how they organize the projects. We also ask about the developer's
+understandings of the users. Some questions focus on the current and past
+difficulties, and the solutions the team has found, or will try. We also discuss
+the importance and current situations of documentation. A few questions are
+about specific software qualities, such as maintainability, understandability,
+usability, and reproducibility. The interviews are semi-structured based on the
+question list; we ask follow-up questions when necessary. Based on our
+experience, the interviewees usually bring up some exciting ideas that we did
+not expect, and it is worth expanding on these topics.
 
 We requested interviews from all 24 packages, except Munubi, since Munubi was
 added after our ethics approved study window had expired.  We were able to
@@ -815,11 +822,13 @@ Research Ethics Board under the application number
 
 \subsection{Interaction With Domain Expert} \label{sec_vet_software_list}
 
-The Domain Expert is an important member of the state of the practice assessment
-team. Pitfalls exist if non-experts attempt to acquire an authoritative list of
-software, or try to definitively rank the software. Non-experts have the problem
-that they can only rely on information available on-line, which has the
-following drawbacks:
+Part of how we address \rqref{RQ_WhatProjects} and \rqref{RQ_HighestQuality}.
+\wss{Should ask Zahra about \rqref{RQ_CompareHQ2Popular}, see if he has anything
+to add about \rqref{RQ_PainPoints}.} The Domain Expert is an important member of
+the state of the practice assessment team. Pitfalls exist if non-experts attempt
+to acquire an authoritative list of software, or try to definitively rank the
+software. Non-experts have the problem that they can only rely on information
+available on-line, which has the following drawbacks:
 \begin{inparaenum}[i)]
   \item the on-line resources could have false or inaccurate information; and,
   \item the on-line resources could leave out relevant information that is so
@@ -841,7 +850,7 @@ ranking.  These interactions were done via virtual meetings.
 
 \section{Ranking Projects Based on Quality Measures} \label{AHPresults}
 
-Before discussing quality differences between the packages and the results of
+Answers \rqref{RQ_HighestQuality}.  Before discussing quality differences between the packages and the results of
 the AHP ranking, we will contrast the different packages based on features, as
 shown in Table~\ref{tbl_features}. \wss{Add some discussion of some example
 features.  Add Non-Newtonian and Fluid Structure interaction.  Listed in
@@ -1383,22 +1392,23 @@ relative high score in installability, surface usability, maintainability, reusa
 
 \section{Comparison to Community Ranking} \label{repmetrics}
 
-Table~\ref{repometrics} presents our LBM software package rankings along with
-the repository ranking metrics of each software package. Nine packages do not
-use GitHub, so they do not have a measure of repository stars. Looking at the
-repository stars of the other 15 packages, we can observe a slight pattern where
-packages that have been highly ranked by our assessment do have more stars than
-lower ranked packages. The best ranked package (ESPResSo) has the second most
-number of stars. The ninth ranked package (Sailfish) has the most number of
-stars. Packages designated as lower quality often do not use GitHub or GitLab,
-or have few stars. HemeLB only has 12 stars, but its location recently moved
-from a different GitHub repository. Our assessment of this package might not be
-accurate. The number of stars does not necessarily represent the perceptions of
-the community, but for lack of an alternative measure we will use it this way.
-Besides missing data, another threat to the validity of this comparison is the
-varying ages of the repositories. Older packages have been able to accumulate
-stars and watches for longer than newer packages. The true quality of new
-packages may not be reflected in their stars and watches.
+Answers \rqref{RQ_CompareHQ2Popular}. Table~\ref{repometrics} presents our LBM
+software package rankings along with the repository ranking metrics of each
+software package. Nine packages do not use GitHub, so they do not have a measure
+of repository stars. Looking at the repository stars of the other 15 packages,
+we can observe a slight pattern where packages that have been highly ranked by
+our assessment do have more stars than lower ranked packages. The best ranked
+package (ESPResSo) has the second most number of stars. The ninth ranked package
+(Sailfish) has the most number of stars. Packages designated as lower quality
+often do not use GitHub or GitLab, or have few stars. HemeLB only has 12 stars,
+but its location recently moved from a different GitHub repository. Our
+assessment of this package might not be accurate. The number of stars does not
+necessarily represent the perceptions of the community, but for lack of an
+alternative measure we will use it this way. Besides missing data, another
+threat to the validity of this comparison is the varying ages of the
+repositories. Older packages have been able to accumulate stars and watches for
+longer than newer packages. The true quality of new packages may not be
+reflected in their stars and watches.
 
 The repository watches column contains even less data to compare since two of
 the packages (Palabos, waLBerla) use GitLab, which does not include this metric.
@@ -1488,11 +1498,379 @@ recently. Finally, the domain expert's 10th ranked package (HemeLB) was ranked
 \end{center}
 \end{table}
 
-\section{Qualitative Findings From Developer Interviews} \label{interviewresults}
+\section{Comparison of Artifacts to Research Software in General}
+\label{Sec_CompareArtifacts}
 
-This section presents qualitative findings on software qualities as gleaned from
-interviewing 4 developers. The full interview questions are found in
-\citet{SmithEtAl2021}.
+Answers \rqref{RQ_CompareArtifacts}.  The software packages were examined for
+the presence of artifacts, which were then categorized by frequency. We have
+grouped them into common, less common, and rare artifacts in
+Table~\ref{artifactspresent}. Common artifacts were found in 16 to 24 ($>$63\%)
+of the software packages. Less common artifacts were found in 8 to 15 (30-63\%)
+of the software packages. Rare artifacts were found in 1 to 7 ($<$30\%) of the
+software packages. 
+
+\begin{table}
+\begin{center}
+\begin{tabular}{ p{5.3 cm} p{4.9 cm} p{5 cm}}
+\toprule
+\textbf{Common} & \textbf{Less Common} & \textbf{Rare} \\
+\midrule
+Authors / Developers List & Change Log / Release Notes & API Documentation\\
+Bug Tracker & Design Documentation & Developer / Contributor Manual\\
+Dependency Notes & Functional Spec. / Notes & FAQ / Forum\\
+Installation Guide / Instructions & Performance Information & Verification and
+Validation Plan\\
+Requirements Spec. / Theory Notes & Test Plan / Script / Cases & Video Guide
+(including YouTube)\\
+List of Related Publications & User Manual/Guide & \\
+Makefile / Build File & Version Control & \\
+README File & & \\
+License & & \\
+Tutorial & & \\
+\bottomrule
+\end{tabular}
+\caption{Artifacts Present in Surveyed Packages, Classified by Frequency}
+\label{artifactspresent}
+\end{center}
+\end{table}
+
+All of the top four AHP ranked packages, ESPREsSo, Ludwig, Palabos, and OpenLB,
+have each of the commonly found artifacts, except only three of them have a
+requirements specification or theory notes. Palabos is the only one of these
+four packages that does not have an artifact from this category.
+
+The top four AHP ranked packages have most of the less common artifacts. At the
+time of data collection, only one of the four packages (Palabos) did not have a
+user manual or guide, but there was a broken link on the package website
+indicating that such an artifact might exist. This broken link was later fixed,
+but this is not reflected in our data because it was not present at the time of
+data collection. Despite the broken link, Palabos does have a detailed and
+informative website. Another one (Ludwig) of the top four packages does not
+appear to have publicly visible design documentation. A third package (OpenLB)
+from the list does not appear to use a version control system. It is possible
+that such a system is used by the package, since its website notes package
+version numbers, but the artifacts do not explicitly state the use of such a
+system.
+
+The top four ranked packages do not have many of the rare artifacts. None of the
+top four packages have any explicit API documentation. Three of these packages
+(ESPREsSo, Ludwig, Palabos) have information on contributing to the project. Two
+of them (OpenLB, Palabos) have a FAQ section or forum. One (OpenLB) has
+verification and validation notes, and a video guide of the software. 
+
+\wss{Weiss mentions pain points related to design documentation.  Carver (2021) 
+also mentions design documentation in the literature review.}
+
+\section{Comparison of Tool Usage to Research Software in General}
+\label{Sec_CompareTools}
+
+Answers \rqref{RQ_CompareToolsProjMngmnt}.  Software tools are used to support
+the development, verification, maintenance, and evolution of software, software
+processes, and artifacts \citep{ghezzi1991fundamentals}. Many tools are used by
+LBM software packages, as summarized in Table~\ref{tbl_tools}.  The tools are
+subdivided into development tools, dependencies, and project management tools.
+
+\begin{table}
+	\begin{center}
+	\begin{tabular}{ p{5.3 cm} p{4.9 cm} p{5 cm}}
+	\toprule
+	\textbf{Development Tools} & \textbf{Dependencies} & \textbf{Project
+	Management Tools} \\
+	\midrule
+	Continuous Integration & Build Automation Tools & Collaboration Tools\\
+	Code Editors & Technical Libraries & Email\\
+	Development Environments & Domain Specific Libraries & Change Tracking Tools\\
+	Runtime Environments &  & Version Control Tools\\
+	Compilers &  & Document Generation Tools\\
+	Unit Testing Tools &  & \\
+	Correctness Verification Tools &  & \\
+	\bottomrule
+	\end{tabular}
+	\caption{Observed development tools, dependencies and project management
+	tools} \label{tbl_tools}
+	\end{center}
+\end{table}
+
+Development tools support the development of end products, but do not become
+part of them, unlike dependencies that remain in the application once it is
+released \citep{ghezzi1991fundamentals}. Although not shown in
+Table~\ref{tbl_tools}, debuggers were also likely used.  Only three (ESPResSo,
+Ludwig and Musubi) packages mentioned continuous integration tools, like Travis
+CI. Code editors and compilers were explicitly noted to have been used by
+several packages, and were likely used by all of them. One of the packages
+(Ludwig) explicitly noted the use of proprietary unit testing code written in C.
+Likewise, the use of proprietary code for verifying the correctness of output
+was noted by one of the developers (pyLBM). Similar tools were likely used when
+developing the other software packages.
+
+For the dependency tools (Table~\ref{tbl_tools}), we observed that most of the
+software packages use some sort of build automation tools, most commonly Make.
+They all use various technical and domain specific libraries. Technical
+libraries include visualization (e.g.\ Matplotlib, ParaView, Pygame, VTK), data
+analysis (e.g.\ Anaconda, Torch), and message passing libraries (e.g.\ MPICH,
+Open MPI, PyZMQ). Domain specific libraries include scientific computing
+libraries (e.g.\ SciPy). Some used libraries will be missing, if they are not
+explicitly stated in the artifacts we observed.
+
+Many of the software packages that were assessed were developed by teams of two
+or more people. Their work needed to be coordinated and managed.
+Table~\ref{tbl_tools} shows the types of project management tools that were
+explicitly noted in the artifacts, web-pages, or interviews with the developers.
+As with development tools and dependencies, it is possible that other types of
+project management tools are used, but they were not visible in the artifacts to
+which we had access.  Collaboration tools are noted as being used when
+developing the software projects. Most often email and video conferencing is
+used. Project management software was not explicitly mentioned, but it is
+possible that some of the projects use such software. Many of the projects are
+located on GitHub, and its developers use the platform to help manage their
+projects, especially bug related issues. Most of the projects appear to use
+change tracking and version control tools. They often use GitHub or GitLab for
+this. One package (SunlightLB) uses CVS. Document generation tools are mentioned
+in the artifacts of 12 of the projects. The tools Sphinx and Doxygen are
+explicitly used in this capacity. \wss{look at what the other papers say are
+commonly used tools and bring that information into this section.}
+
+\section{Comparison of Principles, Process and Methodologies to Research Software in General} \label{Sec_CompareMethodologies}
+
+Answers \rqref{RQ_CompareMethodologies}.  Most of the software packages do not
+explicitly state in their artifacts the motivations or design principles that
+were considered when developing the software. One package, Sailfish, indicates
+in its artifacts that shortening the development time was considered in early
+stages of design, with the developers opting for using Python and CUDA/OpenCL to
+achieve this without sacrificing any computational performance. The goals of
+that project are explicitly listed as performance, scalability, agility and
+extendability, maintenance, and ease of use. The project scored well in these
+categories during our assessment.
+
+Processes, like methods, are ways of doing things, especially in an orderly way;
+while methodologies are defined as systems of methods
+\citep{ghezzi1991fundamentals}. It is not explicitly indicated in the artifacts
+of most of the packages that development involved following any specific model,
+like a waterfall or agile development model. One developer (ESPResSo) noted that
+while no formal model is used, their development model is something similar to a
+combination of agile and waterfall development models. The developer teams of
+the LBM packages are fairly small, so it is feasible for them to be organized
+without the need for such models.  \wss{some repetition from the previous
+section - should try to figure out how to remove the repetition.}
+
+Seven of the software packages contain artifacts recording the general
+development process and status. Eleven of the packages explicitly convey that
+they would accept outside contributors, but generally the teams are centralized,
+often working at the same institution. 
+
+The developers that were interviewed all noted similar project management
+processes. In teams of only a couple of developers, additions of new features or
+major changes are discussed with the entire team. Projects with more than a
+couple developers have lead developer roles. These lead developers review
+potential additions to the software. One of the developers (ESPResSo) that was
+interviewed noted that an ad hoc peer review process is used to assess major
+changes and additions.
+
+Thirteen (54\%) of the 24 software packages use GitHub for managing the project,
+including nine (60\%) of the 15 alive packages, and four of the nine (44\%) dead
+packages. Two projects (Palabos, WaLBerla) use GitLab. This could be indicative
+of a transition to such software development and version control tools for SCS.
+Typically there are several simultaneous development branches in these projects.
+
+Documentation was also noted as playing a significant role in the development
+process, specifically with on-boarding new developers. A goal of documentation
+is to lower the entry barrier for these new contributors. The documentation
+provides information on how to get started, orients the user to artifacts and
+the source code, and explains how the system works, including the so-called
+simulation engine and interface. The use of document generation tools is
+mentioned in the artifacts of 13 software packages, and was noted during
+interviews with developers. Sphinx and Doxygen are the tools that were
+mentioned. 
+
+Two types of software changes were discussed during interviews with developers.
+One is feature additions, which arise from a scientific or functional need.
+These changes involve formal discussions within the development team, and lead
+developer participation is mandatory. The other change type is code refactoring,
+which only sometimes involves formal discussions with the development team. New
+developers were noted to play an increased role in these changes compared to the
+former changes. Software bugs are typically addressed in a similar fashion as
+code refactoring, and issue tracking is commonly used to manage these changes. 
+
+Interviews with the developers of software packages also revealed a more
+frequent use of both unit testing and continuous integration in the development
+process than was found by only assessing the artifacts. The use of automatic
+installation processes is also common. Most often this involved a Make script.
+
+\section{Developer Pain Points} \label{painpoints}
+
+Answers \rqref{RQ_PainPoints} and \rqref{RQ_ComparePainPoints}.  This subsection
+answers the research question: What are the pain points for developers working
+on research software projects? What aspects of the existing processes,
+methodologies and tools do they consider as potentially needing improvement? How
+should processes, methodologies and tools be changed to improve software
+development and software quality? Developers were asked to comment on obstacles
+in their development process, obstacles encountered by users, and potential
+future obstacles.
+
+\subsubsection{Lack of Development Time}
+
+A developer of pyLBM noted that their small development team has a lack of time
+to implement new features. Small development teams are common for LBM software
+packages. Team members are almost always part of the same institute or already
+know each other from other projects. External contributions are rare despite
+many of the projects accepting them. \wss{Other projects cite the same point
+point - Wiese paper}  Aside from on-boarding new developers, time constraints
+could be mitigated by increasing developer efficiency, which could be addressed
+in several ways, including by improving the quality of documentation, or
+incorporating automatic code generation. \wss{Potential ways to address the pain
+points might go into a separate section?  Maybe propose the strategy, like code
+generation, and then list the pain points that are addressed?}
+
+\subsubsection{Lack of Software Development Experience}
+
+A lack of software development experience was noted by the developer of TCLB.
+Many of the team members on their project are domain experts and there can be a
+steep learning curve before these members contribute good quality source code.
+This problem has been mitigated by re-writing the code to more easily enable
+future contributions.  On a related point, improving the software engineering
+education or experience of developers is also an idea that was brought up by
+several developers.  \wss{The Wiese paper and others talk about the background
+of developers.}
+
+\subsubsection{Lack of Incentive and Funding}
+
+The TCLB developer noted a lack of incentive and funding in academia for
+developing widely used scientific software. The importance of funding for
+scientific software has been discussed in \cite{gewaltig2012quality}, which
+notes that ``software tools are developed and maintained only for as long as
+there is explicit or implicit funding''. The developer further commented that
+there are no journals that publish such scientific software source code.
+However, there are ways to get such source code cited. Work has been done to
+address this in \citep{smith2016software}, which presents a set of software
+citation principles and discusses ``how they could be used to implement software
+citation in the scholarly community'' \citep{katz2019software}.  \wss{other
+papers also mention this pain point.  Solutions proposed by Katz, journal of
+open source etc.}
+
+\subsubsection{Lack of External Support}
+
+Another raised concern was that there are no organizations helping with the
+development of good quality software; but some do exist, including
+\href{https://bssw.io/}{Better Scientific Software (BSSw)},
+\href{https://www.software.ac.uk/}{Software Sustainability Institute}
+\citep{CrouchEtAl2013}, and \href{https://software-carpentry.org/}{Software
+Carpentry}. Some SCS developers may not be familiar with these organizations.
+\citep{WilsonAndLumsdaine2006}
+
+Scientific software is often developed in-house by the very researchers that
+temporarily use it in their own research. Empirical studies of such
+``professional end-user development'' of SCS is noted in \citep{segal2007end}.
+This kind of software has a defined user and purpose, and often does not meet
+the standards that would be required by external users. It has been categorized
+as a ``private tool'' by \citep{gewaltig2012quality}, which notes that despite
+often being made freely available, ``it is not always clear that it is
+sufficiently mature in terms of domain coverage, validity, documentation or
+usability, to be useful to other researchers''. It is less common for such ad
+hoc scientific software to become ``user-ready software'', which ``is not only
+research-ready, but should have most of the attributes commonly expected of
+commercial software products including broadness of scope, robustness,
+demonstrable correctness and adequate documentation''
+\citep{gewaltig2012quality}. As software becomes user-ready, it can become
+commercialized and closed-source.  \wss{remove this paragraph?}
+
+\wss{Remove this section?  The external support organizations will likely come
+up as the mitigation for some of the other pain points.}
+
+\subsubsection{Parallelization and Continuous Integration}
+
+Setting up parallelization was also noted as a technical pain point by one of
+the developers, and the introduction of continuous integration by another.
+Software development knowledge, and automatic code generation, could mitigate
+such pain points. As already noted, many of the developers are domain experts
+and not professional software developers. The developer of TCLB noted that
+eliminating equivalent statements using macros had helped improve the quality of
+their source code, specifically helping with reusing code to run on both the CPU
+and GPU. \wss{The point about macros isn't really related to parallelization or
+continuous integration.}
+
+\subsubsection{Ensuring Correctness}
+
+Difficulties with ensuring correctness were also noted by several developers.
+They indicated that tests are run on all new source code additions, testing both
+individual modules and the system to verify correctness. These tests compare the
+package output to known correct output using test cases. The developer of TCLB
+commented that the amount of testing data that is needed for some cases is a
+problem as free testing services do not offer capabilities to store and process
+such large amounts of data, and in-house testing solutions needed to be created
+to address this limitation. The solution for this has been to limit the size of
+the testing problems, and to run tests in small batches with few iterations.
+\wss{The Weiss paper alludes this this as well.  I think the Kelly and Sanders
+paper likely talks about testing problems and correctness.}
+
+\subsubsection{Usability}
+
+A few obstacles related to users were found. Several developers noted that users
+sometimes try to use incorrect LBM method combinations to solve their problems.
+Furthermore, some users think that the packages will work out of the box to
+solve their cases, while the packages require both a good understanding of CFD
+and an understanding of the requirements for formulating problems in the
+individual packages, which can be a significant endeavor. These software
+packages are not like commercial software packages. They are generally set up to
+solve specific research problems, and are often primarily used by their
+developers. While they are modifiable to solve similar problems, these
+modifications are not trivial. Better documentation, with attention on
+traceability, and automatic code generation are suggested when designing
+software for change, and would help with these modifications. \wss{Should decide
+if want to introduce ideas for improving within the presentation of the pain
+point, or separately?}  So far this problem of on-boarding new users has been
+addressed by updating the documentation to better inform users of the underlying
+LBM theory and package requirements. Similar issues with LBM parameters were
+noted by another developer. Updating the user interface to better explain
+theoretical principles, as well as test user input for compatibility, was the
+implemented solution. As noted above, sometimes frequently asked questions on
+the underlying theory and on how to use the software are answered in the
+documentation.  The interviewed developer of ESPResSo commented that parts of
+their package's source code had been refactored to Python to help address
+usability issues. Python was perceived as a much more usable language, and it
+would be easy for future users and developers to learn and understand the source
+code. 
+
+\subsubsection{Technical Debt}
+
+A few potential future obstacles were noted. The developer of ESPResSo noted
+that their source code had been written with a specific application in mind and
+that due to this there was too much coupling between components of the source
+code. This results in technical debt, having an impact on future modifiability
+and reusability when trying to extend the software, and the code would need to
+be refactored.  As noted above, difficulties with ensuring future correctness
+could also arise. As new methods and functionality is added into the software,
+new test cases and test data will need to be developed.  \wss{Weiss mentions
+mainainability related issues under pain points.}
+
+\subsubsection{Quality of Documentation}
+
+Interviewees commented that documentation is important and that its quality
+could be improved. As already noted, there is often no time or funding for
+maintaining quality documentation for software that is rarely used outside of
+the development team. Furthermore, the documentation generally only provides a
+shallow overview of the underlying CFD theory. Users would be well advised to
+already be familiar with these topics, or they should spend significant time
+referencing theory resources. The documentation instead generally focuses on
+explaining how to use the software. It is of course not feasible for package
+documentation to address the underlying physics topics in detail, so it is
+advised that the package documentation links to resources that better explain
+the underlying theory. Sometimes, frequently asked questions about the
+underlying theory are answered in the documentation. OpenLB has an artifact for
+such questions.  \wss{Weise mentions documentation.}
+
+The developer comments emphasized an importance on source code, while
+documentation seems to be of secondary importance. It must be stressed that
+improving documentation could benefit development and help eliminate some of the
+developer concerns that were raised. The use of automatic document generation
+tools that capture scientific and computing knowledge, and transform it into
+software artifacts, is advised. Drasil is an automatic document generation tool
+that is further discussed in Section~\ref{highlightedrecommendations}.
+
+\section{LBM Developer Identified Concerns} \label{Sec_Concerns}
+
+Answers \rqref{RQ_Concerns}.  This section presents qualitative findings on
+software qualities as gleaned from interviewing 4 developers. The full interview
+questions are found in \citet{SmithEtAl2021}.
 
 \subsection{Correctness and Verifiability}
 
@@ -1821,386 +2199,21 @@ concepts can be an issue for some users. This information can be referenced in
 the documentation, but it is not something that the documentation needs to
 detail. 
 
-\section{Answers To Research Questions} \label{answersquestions}
+\section{Recommendations for Addressing Developer Concerns} \label{Sec_AddressConcerns}
 
-This section answers the research questions listed in Section~\ref{secIntro}
-using the quantitative data presented in Section~\ref{AHPresults}, qualitative
-data presented in Section~\ref{interviewresults}, additional data from software
-package repositories and artifacts, and domain expert feedback. Each subsection
-answers one of the research questions. Software package artifacts are examined
-in Section~\ref{artifacts}, tools are listed in Section~\ref{tools}, development
+Answers \rqref{RQ_Recommend}.  This section answers the research questions
+listed in Section~\ref{secIntro} using the quantitative data presented in
+Section~\ref{AHPresults}, qualitative data presented in
+Section~\ref{interviewresults}, additional data from software package
+repositories and artifacts, and domain expert feedback. Each subsection answers
+one of the research questions. Software package artifacts are examined in
+Section~\ref{artifacts}, tools are listed in Section~\ref{tools}, development
 principles, processes, and methodologies are discussed in Section
 ~\ref{prinprocmeth}, development pain points are explored in Section
 ~\ref{painpoints}, and summary of current (Section~\ref{currentPractices}), best
 (Section~\ref{bestPractices}) and future practices
 (Section~\ref{futurePractices}). Finally, threats to the validity of this
 assessment are noted in Section~\ref{threats}.
-
-\subsection{What artifacts are present in current software projects?}
-\label{artifacts}
-
-The software packages were examined for the presence of artifacts, which were
-then categorized by frequency. We have grouped them into common, less common,
-and rare artifacts in Table~\ref{artifactspresent}. Common artifacts were found
-in 16 to 24 ($>$63\%) of the software packages. Less common artifacts were found
-in 8 to 15 (30-63\%) of the software packages. Rare artifacts were found in 1 to
-7 ($<$30\%) of the software packages. 
-
-\begin{table}
-\begin{center}
-\begin{tabular}{ p{5.3 cm} p{4.9 cm} p{5 cm}}
-\toprule
-\textbf{Common} & \textbf{Less Common} & \textbf{Rare} \\
-\midrule
-Authors / Developers List & Change Log / Release Notes & API Documentation\\
-Bug Tracker & Design Documentation & Developer / Contributor Manual\\
-Dependency Notes & Functional Spec. / Notes & FAQ / Forum\\
-Installation Guide / Instructions & Performance Information & Verification and
-Validation Plan\\
-Requirements Spec. / Theory Notes & Test Plan / Script / Cases & Video Guide
-(including YouTube)\\
-List of Related Publications & User Manual/Guide & \\
-Makefile / Build File & Version Control & \\
-README File & & \\
-License & & \\
-Tutorial & & \\
-\bottomrule
-\end{tabular}
-\caption{Artifacts Present in Surveyed Packages, Classified by Frequency}
-\label{artifactspresent}
-\end{center}
-\end{table}
-
-All of the top four AHP ranked packages, ESPREsSo, Ludwig, Palabos, and OpenLB,
-have each of the commonly found artifacts, except only three of them have a
-requirements specification or theory notes. Palabos is the only one of these
-four packages that does not have an artifact from this category.
-
-The top four AHP ranked packages have most of the less common artifacts. At the
-time of data collection, only one of the four packages (Palabos) did not have a
-user manual or guide, but there was a broken link on the package website
-indicating that such an artifact might exist. This broken link was later fixed,
-but this is not reflected in our data because it was not present at the time of
-data collection. Despite the broken link, Palabos does have a detailed and
-informative website. Another one (Ludwig) of the top four packages does not
-appear to have publicly visible design documentation. A third package (OpenLB)
-from the list does not appear to use a version control system. It is possible
-that such a system is used by the package, since its website notes package
-version numbers, but the artifacts do not explicitly state the use of such a
-system.
-
-The top four ranked packages do not have many of the rare artifacts. None of the
-top four packages have any explicit API documentation. Three of these packages
-(ESPREsSo, Ludwig, Palabos) have information on contributing to the project. Two
-of them (OpenLB, Palabos) have a FAQ section or forum. One (OpenLB) has
-verification and validation notes, and a video guide of the software. 
-
-\wss{Weiss mentions pain points related to design documentation.  Carver (2021) 
-also mentions design documentation in the literature review.}
-
-\subsection{What tools (development, dependencies, project management) are used
-by current software packages?} \label{tools}
-
-Software tools are used to support the development, verification, maintenance,
-and evolution of software, software processes, and artifacts
-\citep{ghezzi1991fundamentals}. Many tools are used by LBM software packages, as
-summarized in Table~\ref{tbl_tools}.  The tools are subdivided into development
-tools, dependencies, and project management tools.
-
-\begin{table}
-	\begin{center}
-	\begin{tabular}{ p{5.3 cm} p{4.9 cm} p{5 cm}}
-	\toprule
-	\textbf{Development Tools} & \textbf{Dependencies} & \textbf{Project
-	Management Tools} \\
-	\midrule
-	Continuous Integration & Build Automation Tools & Collaboration Tools\\
-	Code Editors & Technical Libraries & Email\\
-	Development Environments & Domain Specific Libraries & Change Tracking Tools\\
-	Runtime Environments &  & Version Control Tools\\
-	Compilers &  & Document Generation Tools\\
-	Unit Testing Tools &  & \\
-	Correctness Verification Tools &  & \\
-	\bottomrule
-	\end{tabular}
-	\caption{Observed development tools, dependencies and project management
-	tools} \label{tbl_tools}
-	\end{center}
-\end{table}
-
-Development tools support the development of end products, but do not become
-part of them, unlike dependencies that remain in the application once it is
-released \citep{ghezzi1991fundamentals}. Although not shown in
-Table~\ref{tbl_tools}, debuggers were also likely used.  Only three (ESPResSo,
-Ludwig and Musubi) packages mentioned continuous integration tools, like Travis
-CI. Code editors and compilers were explicitly noted to have been used by
-several packages, and were likely used by all of them. One of the packages
-(Ludwig) explicitly noted the use of proprietary unit testing code written in C.
-Likewise, the use of proprietary code for verifying the correctness of output
-was noted by one of the developers (pyLBM). Similar tools were likely used when
-developing the other software packages.
-
-For the dependency tools (Table~\ref{tbl_tools}), we observed that most of the
-software packages use some sort of build automation tools, most commonly Make.
-They all use various technical and domain specific libraries. Technical
-libraries include visualization (e.g.\ Matplotlib, ParaView, Pygame, VTK), data
-analysis (e.g.\ Anaconda, Torch), and message passing libraries (e.g.\ MPICH,
-Open MPI, PyZMQ). Domain specific libraries include scientific computing
-libraries (e.g.\ SciPy). Some used libraries will be missing, if they are not
-explicitly stated in the artifacts we observed.
-
-Many of the software packages that were assessed were developed by teams of two
-or more people. Their work needed to be coordinated and managed.
-Table~\ref{tbl_tools} shows the types of project management tools that were
-explicitly noted in the artifacts, web-pages, or interviews with the developers.
-As with development tools and dependencies, it is possible that other types of
-project management tools are used, but they were not visible in the artifacts to
-which we had access.  Collaboration tools are noted as being used when
-developing the software projects. Most often email and video conferencing is
-used. Project management software was not explicitly mentioned, but it is
-possible that some of the projects use such software. Many of the projects are
-located on GitHub, and its developers use the platform to help manage their
-projects, especially bug related issues. Most of the projects appear to use
-change tracking and version control tools. They often use GitHub or GitLab for
-this. One package (SunlightLB) uses CVS. Document generation tools are mentioned
-in the artifacts of 12 of the projects. The tools Sphinx and Doxygen are
-explicitly used in this capacity. \wss{look at what the other papers say are
-commonly used tools and bring that information into this section.}
-
-\subsection{What principles, processes, and methodologies are used?}
-\label{prinprocmeth}
-
-Most of the software packages do not explicitly state in their artifacts the
-motivations or design principles that were considered when developing the
-software. One package, Sailfish, indicates in its artifacts that shortening the
-development time was considered in early stages of design, with the developers
-opting for using Python and CUDA/OpenCL to achieve this without sacrificing any
-computational performance. The goals of that project are explicitly listed as
-performance, scalability, agility and extendability, maintenance, and ease of
-use. The project scored well in these categories during our assessment.
-
-Processes, like methods, are ways of doing things, especially in an orderly way;
-while methodologies are defined as systems of methods
-\citep{ghezzi1991fundamentals}. It is not explicitly indicated in the artifacts
-of most of the packages that development involved following any specific model,
-like a waterfall or agile development model. One developer (ESPResSo) noted that
-while no formal model is used, their development model is something similar to a
-combination of agile and waterfall development models. The developer teams of
-the LBM packages are fairly small, so it is feasible for them to be organized
-without the need for such models.  \wss{some repetition from the previous
-section - should try to figure out how to remove the repetition.}
-
-Seven of the software packages contain artifacts recording the general
-development process and status. Eleven of the packages explicitly convey that
-they would accept outside contributors, but generally the teams are centralized,
-often working at the same institution. 
-
-The developers that were interviewed all noted similar project management
-processes. In teams of only a couple of developers, additions of new features or
-major changes are discussed with the entire team. Projects with more than a
-couple developers have lead developer roles. These lead developers review
-potential additions to the software. One of the developers (ESPResSo) that was
-interviewed noted that an ad hoc peer review process is used to assess major
-changes and additions.
-
-Thirteen (54\%) of the 24 software packages use GitHub for managing the project,
-including nine (60\%) of the 15 alive packages, and four of the nine (44\%) dead
-packages. Two projects (Palabos, WaLBerla) use GitLab. This could be indicative
-of a transition to such software development and version control tools for SCS.
-Typically there are several simultaneous development branches in these projects.
-
-Documentation was also noted as playing a significant role in the development
-process, specifically with on-boarding new developers. A goal of documentation
-is to lower the entry barrier for these new contributors. The documentation
-provides information on how to get started, orients the user to artifacts and
-the source code, and explains how the system works, including the so-called
-simulation engine and interface. The use of document generation tools is
-mentioned in the artifacts of 13 software packages, and was noted during
-interviews with developers. Sphinx and Doxygen are the tools that were
-mentioned. 
-
-Two types of software changes were discussed during interviews with developers.
-One is feature additions, which arise from a scientific or functional need.
-These changes involve formal discussions within the development team, and lead
-developer participation is mandatory. The other change type is code refactoring,
-which only sometimes involves formal discussions with the development team. New
-developers were noted to play an increased role in these changes compared to the
-former changes. Software bugs are typically addressed in a similar fashion as
-code refactoring, and issue tracking is commonly used to manage these changes. 
-
-Interviews with the developers of software packages also revealed a more
-frequent use of both unit testing and continuous integration in the development
-process than was found by only assessing the artifacts. The use of automatic
-installation processes is also common. Most often this involved a Make script.
-
-\subsection{What are the pain points?} \label{painpoints}
-
-This subsection answers the research question: What are the pain points for
-developers working on research software projects? What aspects of the existing
-processes, methodologies and tools do they consider as potentially needing
-improvement? How should processes, methodologies and tools be changed to improve
-software development and software quality?  Developers were asked to comment on
-obstacles in their development process, obstacles encountered by users, and
-potential future obstacles.
-
-\subsubsection{Lack of Development Time}
-
-A developer of pyLBM noted that their small development team has a lack of time
-to implement new features. Small development teams are common for LBM software
-packages. Team members are almost always part of the same institute or already
-know each other from other projects. External contributions are rare despite
-many of the projects accepting them. \wss{Other projects cite the same point
-point - Wiese paper}  Aside from on-boarding new developers, time constraints
-could be mitigated by increasing developer efficiency, which could be addressed
-in several ways, including by improving the quality of documentation, or
-incorporating automatic code generation. \wss{Potential ways to address the pain
-points might go into a separate section?  Maybe propose the strategy, like code
-generation, and then list the pain points that are addressed?}
-
-\subsubsection{Lack of Software Development Experience}
-
-A lack of software development experience was noted by the developer of TCLB.
-Many of the team members on their project are domain experts and there can be a
-steep learning curve before these members contribute good quality source code.
-This problem has been mitigated by re-writing the code to more easily enable
-future contributions.  On a related point, improving the software engineering
-education or experience of developers is also an idea that was brought up by
-several developers.  \wss{The Wiese paper and others talk about the background
-of developers.}
-
-\subsubsection{Lack of Incentive and Funding}
-
-The TCLB developer noted a lack of incentive and funding in academia for
-developing widely used scientific software. The importance of funding for
-scientific software has been discussed in \cite{gewaltig2012quality}, which
-notes that ``software tools are developed and maintained only for as long as
-there is explicit or implicit funding''. The developer further commented that
-there are no journals that publish such scientific software source code.
-However, there are ways to get such source code cited. Work has been done to
-address this in \citep{smith2016software}, which presents a set of software
-citation principles and discusses ``how they could be used to implement software
-citation in the scholarly community'' \citep{katz2019software}.  \wss{other
-papers also mention this pain point.  Solutions proposed by Katz, journal of
-open source etc.}
-
-\subsubsection{Lack of External Support}
-
-Another raised concern was that there are no organizations helping with the
-development of good quality software; but some do exist, including
-\href{https://bssw.io/}{Better Scientific Software (BSSw)},
-\href{https://www.software.ac.uk/}{Software Sustainability Institute}
-\citep{CrouchEtAl2013}, and \href{https://software-carpentry.org/}{Software
-Carpentry}. Some SCS developers may not be familiar with these organizations.
-\citep{WilsonAndLumsdaine2006}
-
-Scientific software is often developed in-house by the very researchers that
-temporarily use it in their own research. Empirical studies of such
-``professional end-user development'' of SCS is noted in \citep{segal2007end}.
-This kind of software has a defined user and purpose, and often does not meet
-the standards that would be required by external users. It has been categorized
-as a ``private tool'' by \citep{gewaltig2012quality}, which notes that despite
-often being made freely available, ``it is not always clear that it is
-sufficiently mature in terms of domain coverage, validity, documentation or
-usability, to be useful to other researchers''. It is less common for such ad
-hoc scientific software to become ``user-ready software'', which ``is not only
-research-ready, but should have most of the attributes commonly expected of
-commercial software products including broadness of scope, robustness,
-demonstrable correctness and adequate documentation''
-\citep{gewaltig2012quality}. As software becomes user-ready, it can become
-commercialized and closed-source.  \wss{remove this paragraph?}
-
-\wss{Remove this section?  The external support organizations will likely come
-up as the mitigation for some of the other pain points.}
-
-\subsubsection{Parallelization and Continuous Integration}
-
-Setting up parallelization was also noted as a technical pain point by one of
-the developers, and the introduction of continuous integration by another.
-Software development knowledge, and automatic code generation, could mitigate
-such pain points. As already noted, many of the developers are domain experts
-and not professional software developers. The developer of TCLB noted that
-eliminating equivalent statements using macros had helped improve the quality of
-their source code, specifically helping with reusing code to run on both the CPU
-and GPU. \wss{The point about macros isn't really related to parallelization or
-continuous integration.}
-
-\subsubsection{Ensuring Correctness}
-
-Difficulties with ensuring correctness were also noted by several developers.
-They indicated that tests are run on all new source code additions, testing both
-individual modules and the system to verify correctness. These tests compare the
-package output to known correct output using test cases. The developer of TCLB
-commented that the amount of testing data that is needed for some cases is a
-problem as free testing services do not offer capabilities to store and process
-such large amounts of data, and in-house testing solutions needed to be created
-to address this limitation. The solution for this has been to limit the size of
-the testing problems, and to run tests in small batches with few iterations.
-\wss{The Weiss paper alludes this this as well.  I think the Kelly and Sanders
-paper likely talks about testing problems and correctness.}
-
-\subsubsection{Usability}
-
-A few obstacles related to users were found. Several developers noted that users
-sometimes try to use incorrect LBM method combinations to solve their problems.
-Furthermore, some users think that the packages will work out of the box to
-solve their cases, while the packages require both a good understanding of CFD
-and an understanding of the requirements for formulating problems in the
-individual packages, which can be a significant endeavor. These software
-packages are not like commercial software packages. They are generally set up to
-solve specific research problems, and are often primarily used by their
-developers. While they are modifiable to solve similar problems, these
-modifications are not trivial. Better documentation, with attention on
-traceability, and automatic code generation are suggested when designing
-software for change, and would help with these modifications. \wss{Should decide
-if want to introduce ideas for improving within the presentation of the pain
-point, or separately?}  So far this problem of on-boarding new users has been
-addressed by updating the documentation to better inform users of the underlying
-LBM theory and package requirements. Similar issues with LBM parameters were
-noted by another developer. Updating the user interface to better explain
-theoretical principles, as well as test user input for compatibility, was the
-implemented solution. As noted above, sometimes frequently asked questions on
-the underlying theory and on how to use the software are answered in the
-documentation.  The interviewed developer of ESPResSo commented that parts of
-their package's source code had been refactored to Python to help address
-usability issues. Python was perceived as a much more usable language, and it
-would be easy for future users and developers to learn and understand the source
-code. 
-
-\subsubsection{Technical Debt}
-
-A few potential future obstacles were noted. The developer of ESPResSo noted
-that their source code had been written with a specific application in mind and
-that due to this there was too much coupling between components of the source
-code. This results in technical debt, having an impact on future modifiability
-and reusability when trying to extend the software, and the code would need to
-be refactored.  As noted above, difficulties with ensuring future correctness
-could also arise. As new methods and functionality is added into the software,
-new test cases and test data will need to be developed.  \wss{Weiss mentions
-mainainability related issues under pain points.}
-
-\subsubsection{Quality of Documentation}
-
-Interviewees commented that documentation is important and that its quality
-could be improved. As already noted, there is often no time or funding for
-maintaining quality documentation for software that is rarely used outside of
-the development team. Furthermore, the documentation generally only provides a
-shallow overview of the underlying CFD theory. Users would be well advised to
-already be familiar with these topics, or they should spend significant time
-referencing theory resources. The documentation instead generally focuses on
-explaining how to use the software. It is of course not feasible for package
-documentation to address the underlying physics topics in detail, so it is
-advised that the package documentation links to resources that better explain
-the underlying theory. Sometimes, frequently asked questions about the
-underlying theory are answered in the documentation. OpenLB has an artifact for
-such questions.  \wss{Weise mentions documentation.}
-
-The developer comments emphasized an importance on source code, while
-documentation seems to be of secondary importance. It must be stressed that
-improving documentation could benefit development and help eliminate some of the
-developer concerns that were raised. The use of automatic document generation
-tools that capture scientific and computing knowledge, and transform it into
-software artifacts, is advised. Drasil is an automatic document generation tool
-that is further discussed in Section~\ref{highlightedrecommendations}.
 
 \subsection{Common Practices} \label{currentPractices}
 
@@ -2447,7 +2460,7 @@ practices that aren't derived from developer interviews.
 
 \subsection{Future Practices} \label{futurePractices}
 
-practices for the future.
+Answers \rqref{RQ_Future}.  practices for the future.
 
 \section{Threats To Validity} \label{threats}
 
