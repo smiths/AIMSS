@@ -229,21 +229,20 @@ Department},%Department and Organization
 We analyze the development of Computational Fluid Dynamics (CFD) software
 packages that use the Lattice Boltzmann Method (LBM). LBM packages form a family
 of algorithms for simulating single-phase and multiphase fluid flows, often
-incorporating additional physical complexities \citep{chen1998lattice} such as
-reflective and non-reflective boundaries. They consider the behavior of a
-collection of particles as a single unit at the mesoscopic scale, between the
-nanoscopic and microscopic scales. LBM solvers predict the positional
-probability of a collection of particles moving through a lattice structure
-following a two step process: i) streaming, where the particles
-move along the lattice via links; and, ii) colliding, where energy and
-momentum is transferred among particles that collide \citep{bao2011lattice}. As
-an example of the output of LBM, Figure~\ref{circularflow} presents the streamlines of
-converged flow past a stationary circular cylinder with varying Reynolds numbers.
-\wss{Zahra might have a better example?  A journal publication isn't likely
-going to accept a figure produced for another paper.}  LBM has several
-advantages over conventional CFD methods, including a simple calculation
-procedure, improved parallelization, and robust handling of complex geometries
-\citep{ganji2015application}.
+incorporating additional physical complexities \citep{chen1998lattice}, such as
+reflective and non-reflective boundaries. LBM considers the behavior of a
+collection of particles as a single unit at the mesoscopic scale, which lies
+between the nanoscopic and microscopic scales. LBM solvers predict the
+positional probability of a collection of particles moving through a lattice
+structure following a two step process: i) streaming, where the particles move
+along the lattice via links; and, ii) colliding, where energy and momentum is
+transferred among particles that collide \citep{bao2011lattice}. As an example
+of the output of LBM, Figure~\ref{circularflow} presents the streamlines of
+converged flow past a stationary circular cylinder with varying Reynolds
+numbers. \wss{We should ask Zahra and her students for a better example.}  LBM
+has several advantages over conventional CFD methods, including a simple
+calculation procedure, improved parallelization, and robust handling of complex
+geometries \citep{ganji2015application}.
 
 \begin{figure}[h!]
 	\begin{center}
@@ -267,22 +266,34 @@ LBM libraries will have additional quality concerns, including maintainability,
 reusability, and understandability.  With the quality considerations in mind,
 and the potentially overwhelming number of choices for LBM libraries, the time
 is right to assess the state of the practice.  The goal of this report is to
-analyze the current state of LBM software development to provide insight into
-its best practices and to offer guidance for future development.
+analyze the current state of LBM software development and compare it to the
+development practices employed for research software in general.  We want to
+highlight the success stories that LBM developers can share amongst their
+community and with the broader research software community.  We also want to
+identify areas for future improvement.
 
-To focus our efforts, we devised five research questions, which can be applied
-to LBM, as well as to other domains, of research software \citep{SmithEtAl2021}.
-The first question below refers to artifacts, which is the term we use to
-represent the documents, scripts and code that constitutes a software
-development project. Example artifacts include requirements, specifications,
-user manuals, unit tests, system tests, usability tests, build scripts, API
-(Application Programming Interface) documentation, READMEs, license documents,
-process documents, and code.
+To focus our efforts, we devised 11 research questions.  The questions are
+inspired by the questions that underpin our data collection methodology
+\citep{SmithEtAl2021}. To start with, we need to identify the relevant examples
+of LBM software.  Knowing that our data collection methodology \citep{SmithEtAl2021} requires access to source code, we build that constraint into our research question:
 
 \begin{enumerate}
 	\item[RQ\refstepcounter{rqnum}\therqnum \label{RQ_WhatProjects}:] What LBM
 	software projects exist, with the constraint that the source code must be
 	available for all identified projects?
+\end{enumerate}
+
+We next wish to assess the representative software to determine how well they
+apply current software development best practices.  At this point we will base
+our assessment on publicly available artifacts, where artifacts are the
+documents, scripts and code that we find in a project's repository. Example
+artifacts include requirements, specifications, user manuals, unit test cases,
+system tests, usability tests, build scripts, API (Application Programming
+Interface) documentation, READMEs, license documents, process documents, and
+code.  Following best practices does not guarantee popularity, so we will also
+estimate which projects are most often used by the scientists.
+
+\begin{enumerate}
 	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_HighestQuality}:] Which
 	of the projects identified in \rqref{RQ_WhatProjects} follow current best
 	practices, based on evidence found by experimenting with the software and
@@ -290,6 +301,16 @@ process documents, and code.
 	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_CompareHQ2Popular}:] How
 	similar is the list of top projects identified in \rqref{RQ_HighestQuality}
 	to the most popular projects, as viewed by the scientific community?
+\end{enumerate}
+
+To understand the state of the practice we wish to learn the frequency with
+which different artifacts appear, the types of development tools used and the
+methodologies used for software development.  With this data, we can ask
+questions about how the LBM community compares to other research software.  That
+is, in what ways does LBM follow the trends from other communities, and in which
+ways is it different?
+
+\begin{enumerate}
     \item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_CompareArtifacts}:] How
 	do LBM projects compare to research software in general with respect to
 	the artifacts present in their repositories?
@@ -303,6 +324,19 @@ process documents, and code.
 	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_CompareMethodologies}:]
 	How do LBM projects compare to research software in general with respect to
 	principles, processes and methodologies used?
+\end{enumerate}	
+
+Only so much information can be gleaned by looking at software repositories.  To
+gain additional insight, we need to talk to developers.  We need to learn their
+concerns, how they deal with these concerns, and what pain points exist for
+them.  We wish to know what practices are used by the top LBM projects, so that
+others can potentially emulate these practices. We also wish to identify new
+practices by borrowing successful ideas from other domains. For LBM developers
+that may be interested in cutting edge software practices, ideas that are
+proposed, but not yet in practice, should also be identified.  All of this is
+covered by the questions outlined below:
+
+\begin{enumerate}
 	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_PainPoints}:] What are
 	the pain points for developers working on LBM software projects? 
 	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_ComparePainPoints}:] How
@@ -1746,7 +1780,7 @@ subject-matter skills (for instance, ``I am a mathematician, not an expert on
 software''), lack of formal reward system, hard to collaborate on software
 projects, aloneness.
 
-\subsubsection{Lack of Development Time}
+\subsection{Lack of Development Time}
 
 A developer of pyLBM noted that their small development team has a lack of time
 to implement new features. Small development teams are common for LBM software
@@ -1763,7 +1797,7 @@ generation, and then list the pain points that are addressed?}
 Lack of time was also mentioned by \citet{PintoEtAl2018} and
 \citet{PintoEtAl2016}.
 
-\subsubsection{Lack of Software Development Experience}
+\subsection{Lack of Software Development Experience}
 
 A lack of software development experience was noted by the developer of TCLB.
 Many of the team members on their project are domain experts and there can be a
@@ -1780,7 +1814,7 @@ Poor software documentation is also mentioned by \citet{PintoEtAl2018} and
 \citet{LethbridgeEtAl2003}.  The survey from \citet{LethbridgeEtAl2003} is for
 software in general, not just research software.
 
-\subsubsection{Lack of Incentive and Funding}
+\subsection{Lack of Incentive and Funding}
 
 The TCLB developer noted a lack of incentive and funding in academia for
 developing widely used scientific software. The importance of funding for
@@ -1795,7 +1829,7 @@ citation in the scholarly community'' \citep{katz2019software}.  \wss{other
 papers also mention this pain point.  Solutions proposed by Katz, journal of
 open source etc.}
 
-\subsubsection{Lack of External Support}
+\subsection{Lack of External Support}
 
 Another raised concern was that there are no organizations helping with the
 development of good quality software; but some do exist, including
@@ -1824,7 +1858,7 @@ commercialized and closed-source.  \wss{remove this paragraph?}
 \wss{Remove this section?  The external support organizations will likely come
 up as the mitigation for some of the other pain points.}
 
-\subsubsection{Parallelization and Continuous Integration}
+\subsection{Parallelization and Continuous Integration}
 
 Setting up parallelization was also noted as a technical pain point by one of
 the developers, and the introduction of continuous integration by another.
@@ -1836,7 +1870,7 @@ their source code, specifically helping with reusing code to run on both the CPU
 and GPU. \wss{The point about macros isn't really related to parallelization or
 continuous integration.}
 
-\subsubsection{Ensuring Correctness}
+\subsection{Ensuring Correctness}
 
 Difficulties with ensuring correctness were also noted by several developers.
 They indicated that tests are run on all new source code additions, testing both
@@ -1854,6 +1888,7 @@ number believe they have sufficient understanding about testing concepts''
 \citep{HannayEtAl2009}.}
 
 \wss{** BEGIN Testing and Verification **}
+
 \citet{Nguyen-HoanEtAl2010} says the following:
 \begin{itemize}
 	\item 38 of 60 respondents performed unit tests
@@ -1863,13 +1898,19 @@ number believe they have sufficient understanding about testing concepts''
 	of the four least commonly performed activities.'' \wss{testing is not the
 	only way to verify software.  This addresses the oracle problem.}
 \end{itemize}
+
+May do more testing than artifacts indicate, but that is still a problem.
+Artifacts should be available so that others can verify the results, verify
+their installation.  Part of an assurance case means that a third party can
+verify the work.
+
 \wss{** END Testing and Verification **}
 
 ``The questions of what constitutes an adequate testing oracle for scientific software and what constitutes adequate test data are left open. Some of the validation testing we researched was running up against the practical limits; they were using whatever oracle they could scrape together from industry data, benchmarks, and expert judgment.'' \citep{KellyAndSanders2008}
 
 \wss{Seems that LBM not concerned with the oracle problem?}
 
-\subsubsection{Usability}
+\subsection{Usability}
 
 A few obstacles related to users were found. Several developers noted that users
 sometimes try to use incorrect LBM method combinations to solve their problems.
@@ -1897,7 +1938,7 @@ usability issues. Python was perceived as a much more usable language, and it
 would be easy for future users and developers to learn and understand the source
 code. 
 
-\subsubsection{Technical Debt}
+\subsection{Technical Debt}
 
 A few potential future obstacles were noted. The developer of ESPResSo noted
 that their source code had been written with a specific application in mind and
@@ -1909,7 +1950,7 @@ could also arise. As new methods and functionality is added into the software,
 new test cases and test data will need to be developed.  \wss{Weiss mentions
 mainainability related issues under pain points.}
 
-\subsubsection{Quality of Documentation}
+\subsection{Quality of Documentation}
 
 Interviewees commented that documentation is important and that its quality
 could be improved. As already noted, there is often no time or funding for
@@ -2272,15 +2313,7 @@ Answers \rqref{RQ_Recommend}.  This section answers the research questions
 listed in Section~\ref{secIntro} using the quantitative data presented in
 Section~\ref{AHPresults}, qualitative data presented in
 Section~\ref{interviewresults}, additional data from software package
-repositories and artifacts, and domain expert feedback. Each subsection answers
-one of the research questions. Software package artifacts are examined in
-Section~\ref{artifacts}, tools are listed in Section~\ref{tools}, development
-principles, processes, and methodologies are discussed in Section
-~\ref{prinprocmeth}, development pain points are explored in Section
-~\ref{painpoints}, and summary of current (Section~\ref{currentPractices}), best
-(Section~\ref{bestPractices}) and future practices
-(Section~\ref{futurePractices}). Finally, threats to the validity of this
-assessment are noted in Section~\ref{threats}.
+repositories and artifacts, and domain expert feedback.
 
 \subsection{Common Practices} \label{currentPractices}
 
@@ -2329,37 +2362,11 @@ version control, README, Req etc. - point to Table 8.)
 practices by the best measured.
 
 \begin{itemize}
-	\item Installability. Include OS compatibility, including specific OS
-	versions. This was done by several top ranked packages, including ESPResSo
-	and LUMA.
-	\item Installability. Provide complete installation instructions. This was
-	done by all of the top five ranked packages.
-	\item Installability. Installation instructions should be written as if the
-	user does not have any dependencies installed and is installing on a clean
-	OS. This was done by several top ranked packages, including ESPResSo,
-	OpenLB, and Palabos. This can be tested on a clean environment using a
-	virtual machine.
-	\item Installability. List all dependencies in the installation
-	instructions, dependency versions, and how to install them. This was done by
-	several top ranked packages, including ESPResSo, LUMA, OpenLB, and Palabos.
-	\item Installability. If possible, automate the installation of
-	dependencies. Use tools such as Make. This was done by all of the top five
-	ranked packages.
-	\item Installability. Automate the installation process as much as possible.
-	Use tools such as Make. This was done by all of the top five ranked
-	packages.
-	\item Installability. The installation instruction should only be in one
-	location. This was done by several top ranked packages, including ESPResSo,
-	OpenLB, and Palabos.
-	\item Installability. Include descriptive error messages for errors
-	encountered during installation. This was done by several top ranked
-	packages, including Ludwig and LUMA.
-	\item Installability. Provide a way to validate the installation. This can
-	be done using a custom script, or a test case that specifies expected
-	output. This was done by several top ranked packages, including OpenLB,
-	Ludwig, LUMA, and Palabos.
-	\item Installability. Provide instructions for uninstalling the software.
-	These were included with pyLBM.
+	\item The top projects provide great examples of achieving installability,
+	by taking such steps as: providing complete installation instructions,
+	writing instructions as if the user does not have any of the dependencies
+	installed, automation of the installation process (for instance using make),
+	including descriptive error message, and including steps for uninstallation.
 	\item Surface Correctness and Verifiability. Make public (on package website
 	or GitHub) the requirements specification document, or explicitly reference
 	the domain theory that the software is designed from.  This was done by
