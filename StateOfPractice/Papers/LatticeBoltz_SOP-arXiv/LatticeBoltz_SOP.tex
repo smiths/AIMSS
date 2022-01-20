@@ -239,10 +239,10 @@ along the lattice via links; and, ii) colliding, where energy and momentum is
 transferred among particles that collide \citep{bao2011lattice}. As an example
 of the output of LBM, Figure~\ref{circularflow} presents the streamlines of
 converged flow past a stationary circular cylinder with varying Reynolds
-numbers. \wss{We should ask Zahra and her students for a better example.}  LBM
-has several advantages over conventional CFD methods, including a simple
-calculation procedure, improved parallelization, and robust handling of complex
-geometries \citep{ganji2015application}.
+numbers. \wss{Zahra can likely provide a better example.}  LBM has several
+advantages over conventional CFD methods, including a simple calculation
+procedure, improved parallelization, and robust handling of complex geometries
+\citep{ganji2015application}.
 
 \begin{figure}[h!]
 	\begin{center}
@@ -261,101 +261,106 @@ for tackling problems that impact such areas as environmental policy,
 manufacturing, and health and safety.  Given the important applications of LBM,
 users of the libraries will be concerned with software qualities like
 reliability, robustness, reproducibility, performance, correctness and
-verifiability.  Given the value of their time, developers that create or modify
+verifiability.  Since their time is valuable, developers that create or modify
 LBM libraries will have additional quality concerns, including maintainability,
 reusability, and understandability.  With the quality considerations in mind,
-and the potentially overwhelming number of choices for LBM libraries, the time
-is right to assess the state of the practice.  The goal of this report is to
-analyze the current state of LBM software development and compare it to the
-development practices employed for research software in general.  We want to
-highlight the success stories that LBM developers can share amongst their
-community and with the broader research software community.  We also want to
-identify areas for future improvement.
+and the potentially overwhelming number of choices for existing LBM libraries,
+the time is right to assess the state of the practice.  The goal of this report
+is to analyze the current state of LBM software development and compare it to
+the development practices employed for research software in general.  We want to
+highlight success stories that LBM developers can share amongst their
+community, and with the broader research software community, while at the same time watching for areas for potential future improvement.
 
-To focus our efforts, we devised 11 research questions.  The questions are
-inspired by the questions that underpin our data collection methodology
-\citep{SmithEtAl2021}. To start with, we need to identify the relevant examples
-of LBM software.  Knowing that our data collection methodology \citep{SmithEtAl2021} requires access to source code, we build that constraint into our research question:
+To focus our efforts, we devised 11 research questions.  The questions are used
+to structure the discussion in the paper, so for each research question below we
+point to the section that contains our answer.  The questions are inspired by
+the research questions that underpin our data collection methodology
+\citep{SmithEtAl2021}. We start with identifying the examples of LBM software
+where we have access to the source code:
 
 \begin{enumerate}
 	\item[RQ\refstepcounter{rqnum}\therqnum \label{RQ_WhatProjects}:] What LBM
 	software projects exist, with the constraint that the source code must be
-	available for all identified projects?
+	available for all identified projects? (Section~\ref{methodology})
 \end{enumerate}
 
 We next wish to assess the representative software to determine how well they
-apply current software development best practices.  At this point we will base
-our assessment on publicly available artifacts, where artifacts are the
-documents, scripts and code that we find in a project's repository. Example
-artifacts include requirements, specifications, user manuals, unit test cases,
-system tests, usability tests, build scripts, API (Application Programming
-Interface) documentation, READMEs, license documents, process documents, and
-code.  Following best practices does not guarantee popularity, so we will also
-estimate which projects are most often used by the scientists.
+apply current software development best practices.  At this point in the
+process, to remove potential user/developer bias, we will base our assessment
+only on publicly available artifacts, where artifacts are the documents, scripts
+and code that we find in a project's public repository. Example artifacts
+include requirements, specifications, user manuals, unit test cases, system
+tests, usability tests, build scripts, API (Application Programming Interface)
+documentation, READMEs, license documents, process documents, and code.
+Following best practices does not guarantee popularity, so we will also compare
+our ranking to how the user community itself ranks the identified projects.
 
 \begin{enumerate}
 	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_HighestQuality}:] Which
 	of the projects identified in \rqref{RQ_WhatProjects} follow current best
 	practices, based on evidence found by experimenting with the software and
-	searching the artifacts available in each project's repository?
+	searching the artifacts available in each project's repository? (Section~\ref{AHPresults})
 	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_CompareHQ2Popular}:] How
 	similar is the list of top projects identified in \rqref{RQ_HighestQuality}
-	to the most popular projects, as viewed by the scientific community?
+	to the most popular projects, as viewed by the scientific community? (Section~\ref{repmetrics})
 \end{enumerate}
 
 To understand the state of the practice we wish to learn the frequency with
 which different artifacts appear, the types of development tools used and the
 methodologies used for software development.  With this data, we can ask
-questions about how the LBM community compares to other research software.  That
-is, in what ways does LBM follow the trends from other communities, and in which
-ways is it different?
+questions about how LBM software compares to other research software.  That is,
+in what ways does LBM follow the trends from other developer communities, and in
+which ways is it different?
 
 \begin{enumerate}
     \item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_CompareArtifacts}:] How
-	do LBM projects compare to research software in general with respect to
-	the artifacts present in their repositories?
+	do LBM projects compare to research software in general with respect to the
+	artifacts present in their repositories?
+	(Section~\ref{Sec_CompareArtifacts})
 	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_CompareToolsProjMngmnt}:]
-	How do LBM projects compare to research software in general with
-	respect to the use of tools for:
+	How do LBM projects compare to research software in general with respect to
+	the use of tools (Section~\ref{Sec_CompareTools}) for:
 	\begin{enumerate} 
 		\item [\rqref{RQ_CompareToolsProjMngmnt}.a] development; and,
 		\item [\rqref{RQ_CompareToolsProjMngmnt}.b] project management?
 	\end{enumerate}
 	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_CompareMethodologies}:]
 	How do LBM projects compare to research software in general with respect to
-	principles, processes and methodologies used?
+	principles, processes and methodologies used? (Section~\ref{Sec_CompareMethodologies})
 \end{enumerate}	
 
 Only so much information can be gleaned by looking at software repositories.  To
-gain additional insight, we need to talk to developers.  We need to learn their
-concerns, how they deal with these concerns, and what pain points exist for
-them.  We wish to know what practices are used by the top LBM projects, so that
-others can potentially emulate these practices. We also wish to identify new
-practices by borrowing successful ideas from other domains. For LBM developers
-that may be interested in cutting edge software practices, ideas that are
-proposed, but not yet in practice, should also be identified.  All of this is
+gain additional insight, we need to interview developers.  We need to learn
+their concerns, how they deal with these concerns, and what pain points exist
+for them.  We wish to know what practices are used by the top LBM projects, so
+that others can potentially emulate these practices. We also wish to identify
+new practices by borrowing successful ideas from other domains. For LBM
+developers interested in future cutting edge practices, ideas that are proposed,
+but not yet in practice, should also be identified.  The above points are
 covered by the questions outlined below:
 
 \begin{enumerate}
 	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_PainPoints}:] What are
-	the pain points for developers working on LBM software projects? 
+	the pain points for developers working on LBM software projects?
+	(Section~\ref{painpoints})
 	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_ComparePainPoints}:] How
 	do the pain points of developers from LBM compare to the pain points
-	for research software in general?
+	for research software in general? (Section~\ref{painpoints})
 	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_Concerns}:] For LBM
 	developers:
 	\begin{enumerate} 
-		\item [\rqref{RQ_Concerns}.a] what software development concerns exist; and,
+		\item [\rqref{RQ_Concerns}.a] what software development concerns exist; and, (Section~\ref{Sec_Concerns})
 		\item [\rqref{RQ_Concerns}.b] what specific practices are taken to
-		address these concerns?
+		address these concerns? (Section~\ref{Sec_AddressConcerns})
 	\end{enumerate}
 	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_Recommend}:]
 	What, if any, existing research software best practice, not currently used
 	by LBM software, could address the concerns identified in
-	\rqref{RQ_Concerns}).
+	\rqref{RQ_Concerns}). (Section~\ref{Sec_AddressConcerns})
 	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_Future}:] What practices
 	could be employed by future LBM developers to address the pain points found
-	in \rqref{RQ_PainPoints} and the concerns identified in \rqref{RQ_Concerns}.a?
+	in~\rqref{RQ_PainPoints} and the concerns identified
+	in~\rqref{RQ_Concerns}.a? (Section~\ref{Sec_AddressConcerns})
 
 \end{enumerate}
 
@@ -366,23 +371,25 @@ details in \citep{Michalski2021}.  The current methodology updates the approach
 used in prior assessments of domains like Geographic Information Systems
 \citep{SmithEtAl2018_arXivGIS}, Mesh Generators \citep{SmithEtAl2016},
 Oceanographic Software \citep{smith2015state}, Seismology software
-\citep{SmithEtAl2018}, and statistical software for psychology
-\citep{SmithEtAl2018_StatSoft}.  \wss{add citation to medical imaging software,
-if it is an option}
+\citep{SmithEtAl2018}, statistical software for psychology
+\citep{SmithEtAl2018_StatSoft} and medical image analysis software
+\citep{Dong2021}.  \wss{add citation to medical imaging software, if it is an
+option}
 
-With our methodology, we first choose a software domain (in the current case
-LBM) and identify a list of 24 software packages.  We approximately measure the
-qualities of each package by filling in a grading template. Compared with our
-previous methodology, the new methodology also includes repository based
-metrics, such as the number of files, number of lines of code, percentage of
-issues that are closed, etc.  With the quantitative data in the grading
-template, we rank the software with the Analytic Hierarchy Process (AHP). After
-this, as another addition to our previous methodology, we interview some of the
-development teams to further understand the status of their development process.
-Finally, we summarize the measurements (Section~\ref{AHPresults}), summarize the
-interview answers (Section~\ref{interviewresults}), answer the research
-questions and propose recommendations for LBM software development
-(Section~\ref{answersquestions}).
+With our methodology we start by identifying 24 LBM software packages.  We then
+approximately measure the application of best practices for each package by
+filling in a grading template. Compared with our previous methodology (as used
+in \citep{SmithEtAl2016} for instance), the new methodology also includes
+repository based metrics, such as the number of files, number of lines of code,
+percentage of issues that are closed, etc.  With the quantitative data in the
+grading template, we rank the software with the Analytic Hierarchy Process
+(AHP). After this, as another addition to our previous methodology, we interview
+some of the development teams to further understand the status of their
+development process. The quantitative and qualitative data is then used to
+answer the research questions (Sections~\ref{methodology}
+to~\ref{Sec_AddressConcerns}).  Finally, we summarize the threats to validity
+(Section~\ref{threats}) and the final conclusions and recommendations
+(Section~\ref{conclusion}).
 
 \section{Methodology} \label{methodology}
 
@@ -2307,10 +2314,11 @@ concepts can be an issue for some users. This information can be referenced in
 the documentation, but it is not something that the documentation needs to
 detail. 
 
-\section{Recommendations for Addressing Developer Concerns} \label{Sec_AddressConcerns}
+\section{Lessons from LBM Developers} \label{Sec_AddressConcerns}
 
-Answers \rqref{RQ_Recommend}.  This section answers the research questions
-listed in Section~\ref{secIntro} using the quantitative data presented in
+Answers \rqref{RQ_Recommend}.  Recommendations for Addressing Developer
+Concerns.  This section answers the research questions listed in
+Section~\ref{secIntro} using the quantitative data presented in
 Section~\ref{AHPresults}, qualitative data presented in
 Section~\ref{interviewresults}, additional data from software package
 repositories and artifacts, and domain expert feedback.
