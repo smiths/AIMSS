@@ -394,43 +394,22 @@ to~\ref{Sec_AddressConcerns}).  Finally, we summarize the threats to validity
 \section{Methodology} \label{methodology}
 
 We developed a methodology for evaluating the state of the practice of
-scientific software \citep{SmithEtAl2021}.  The methodology aims to answer the
-research questions posed in the previous section. This methodology can be
-instantiated for a specific domain of scientific software, which in the current
-case is LBM software.  The first section below describes the steps of the
-process we used to select, measure and compare LBM software. This is followed by
-quality definitions and how these qualities were assessed in our project. The
-rest of the section provides the details of the methodology.
-% an overview of the specifics of candidate software selection, the quantitative
-% measurements, developer interviews, the ranking process via AHP and
-% interaction with the Domain Expert.
-
-\subsection{Overall Process}
-
-The assessment was conducted via the following steps: 
-
-\begin{enumerate}
-	\item List candidate software packages for the domain. This is discussed in
-	Section~\ref{identifysoftware}.
-	\item Filter the software package list. This is discussed in
-	Section~\ref{filtersoftware}.
-	\item Gather the source code and documentation for each software package.
-	\item Collect quantitative measures from the project repositories. This is
-	discussed in Section~\ref{empiricalmeasures}.
-	\item Measure using the measurement template. This is discussed in
-	Section~\ref{empiricalmeasures}. The full measurement template can be found
-	in \citet{SmithEtAl2021}.
-	\item Survey the developers. The developers of each software package in the
-	filtered software list were contacted for voluntary interviews. The details
-	are given in Section~\ref{SecSurvey}.
-	\item Use AHP to rank the software packages. This is discussed in
-	Section~\ref{AHP}.
-	\item Analyze the results and answer the research questions. The answers can
-	be found in Section~\ref{answersquestions}.
-\end{enumerate}
-
-The above steps depend on interaction with a domain expert partner, as discussed
-in Section~\ref{sec_vet_software_list}.
+scientific software \citep{SmithEtAl2021}. This methodology can be instantiated
+for a specific domain of scientific software, which in the current case is LBM
+software.  Since we group best practices around conventional software qualities,
+the first section below provides definitions for the qualities of interest
+(Section~\ref{softwarequalities}), along with information on how we assessed
+these qualities. The following section (Section~\ref{Sec_OverallProcess})
+provides an overview of the steps we used to select, measure and compare LBM
+software.  The remaining sections provide details on each step of the steps in
+the methodology. 
+% of the next sections provide an overview of the specifics of identifying
+% (Section~\ref{identifysoftware}) and filtering (Section~\ref{filtersoftware})
+% the candidate software, our quantitative measurements
+% (Section~\ref{empiricalmeasures}), the AHP ranking process
+% (Section~\ref{AHP}), developer interviews (Section~\ref{SecSurvey}), and
+% interactions with one of the key members of the assessment team -- the Domain
+% Expert (Section~\ref{sec_vet_software_list}).
 
 \subsection{Software Qualities} \label{softwarequalities}
 
@@ -605,6 +584,27 @@ This state of the practice assessment did not quantitatively measure
 unambiguity, but we did ask developers if they think that the current
 documentation can clearly convey all necessary knowledge to the users, and how
 they achieved this or what improvements are needed to achieve it.
+
+\subsection{Overall Process} \label{Sec_OverallProcess}
+
+The assessment was conducted via the following steps: 
+
+\begin{enumerate}
+	\item List candidate software packages for the domain.
+	(Section~\ref{identifysoftware})
+	\item Filter the software package list. (Section~\ref{filtersoftware})
+	\item Gather the source code and documentation for each software package.
+	\item Collect quantitative measures from the project repositories.
+	(Section~\ref{empiricalmeasures})
+	\item Measure using the measurement template.  The full measurement template
+	can be found in \citet{SmithEtAl2021}. (Section~\ref{empiricalmeasures})
+	\item Survey the developers. (Section~\ref{SecSurvey})
+	\item Use AHP to rank the software packages. (Section~\ref{AHP})
+	\item Analyze the results and answer the research questions.
+\end{enumerate}
+
+The above steps depend on interaction with a domain expert partner, as discussed
+in Section~\ref{sec_vet_software_list}.
 
 \subsection{Identify Candidate Software} \label{identifysoftware}
 
@@ -832,7 +832,7 @@ file of the tool includes requirements and usage information.
 Part of how we address \rqref{RQ_CompareToolsProjMngmnt},
 \rqref{RQ_CompareMethodologies}, \rqref{RQ_PainPoints} (which enables
 \rqref{RQ_ComparePainPoints}, and \rqref{RQ_Concerns} (which enables
-\rqref{RQ_CompareConcerns}). We designed a list of 20 questions to guide our
+\rqref{RQ_Recommend}). We designed a list of 20 questions to guide our
 interviews, which can be found in \citet{SmithEtAl2021}. Some questions are
 about the background of the software, the development teams, the interviewees,
 and how they organize the projects. We also ask about the developer's
