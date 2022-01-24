@@ -414,176 +414,153 @@ the methodology.
 \subsection{Software Qualities} \label{softwarequalities}
 
 We adopt software quality definitions from various researchers and subject
-matter experts. Some of the definitions are from \cite{Smithetal2020}. The
-following are the software quality definitions used in this exercise, along with
-comments regarding their quantitative and qualitative measurement.  \wss{Update
-when the Quality Definition of Qualities document is completed.}
+matter experts. The following are the software quality definitions used in this
+exercise, along with comments regarding their measurement.
 
-\subsubsection{Installability}
+\begin{description}
 
-Installability is measured by the effort required for the installation,
-uninstallation or reinstallation of a software product in a specified
-environment \citep{ISO/IEC25010, lenhard2013measuring}. A good measure of
-installability correlates with scenarios when low or moderate effort is required
-to gather and prepare software for its general use on a system for which it was
-designed. In our case effort includes the time spent finding and understanding
-the installation instructions, the person-time and resources spent performing
-the installation procedure, and the absence or ease of overcoming system
-compatibility issues. The ability to reasonably validate the installation
-procedure and the ease of installation also have a positive effect on the
-measure of installability.
+	\item[Installability] Installability is measured by the effort required for
+	the installation, uninstallation or reinstallation of a software product in
+	a specified environment \citep{ISO/IEC25010, lenhard2013measuring}. A good
+	measure of installability correlates with scenarios when low or moderate
+	effort is required to gather and prepare software for its general use on a
+	system for which it was designed. In our case effort includes the time spent
+	finding and understanding the installation instructions, the person-time and
+	resources spent performing the installation procedure, and the absence or
+	ease of overcoming system compatibility issues. An installability score
+	improves if the software has a means to validate the installation and
+	instructions for uninstallation.
+	
+	\item[Correctness] A software program is correct if it behaves according to
+	its stated specifications \citep{GhezziEtAl2003}. This requires that the
+	specification is available. Scientific software is unlikely to have an
+	explicit specification, since this is not common practice in the field. As a
+	consequence, the correctness of software cannot often be measured directly.
+	We assess correctness indirectly by looking for the following: availability
+	of a requirements specification, reference to domain theory, and explicit
+	use of tools and/or techniques for building confidence, such as
+	documentation generators and software analysis tools.
+	
+	\item[Verifiability] An artifact (like code, or a theory manual) is
+	verifiable if, and only if, every statement therein is verifiable. A
+	statement is verifiable if, and only if, there exists some finite
+	cost-effective process with which a person or machine can check that each
+	statement is correct (adapted from recommended practice for requirements
+	specifications \citep{IEEE1998}). Similarly to correctness, verifiability is
+	correlated with the availability of a specification and with reference to
+	domain knowledge. A good measure of verifiability is further correlated with
+	the availability of well written tutorials that include expected output,
+	with software unit testing, and with evidence of continuous integration. In
+	our process we measure correctness and verifiability together.
+	
+	\item[Reliability] Reliability is measured by the probability of
+	failure-free operation of a computer program in a specified environment for
+	a specified time \citep{GhezziEtAl2003, musa1987software}. Reliability is
+	thus positively correlated with the absence of errors during installation
+	and use. Recoverability from errors also improves reliability.
+	
+	\item[Robustness] Software possesses the characteristic of robustness if it
+	behaves ``reasonably'' in two situations: i) when it encounters
+	circumstances not anticipated in the requirements specification; and ii)
+	when the assumptions in its requirements specification are violated
+	\citep{boehm2007software, ghezzi1991fundamentals}. A good measure of
+	robustness correlates with a reasonable reaction to unexpected input,
+	including data of the wrong type, empty input, or missing files or links.
+	Examples of reasonable reaction include an appropriate error message and the
+	ability to recover the system.
+	
+	\item[Performance] Performance is measured by the degree to which a system
+	or component accomplishes its designated functions within given constraints,
+	such as speed (database response times, for instance), throughput
+	(transactions per second), capacity (concurrent usage loads), and timing
+	(hard real-time demands) \citep{IEEEStdGlossarySET1990, wiegers2003softreq}.
+	In this state of the practice assessment performance was not directly
+	quantitatively measured. Instead the documentation of each software package
+	was observed for information alluding to consideration of performance, such
+	testing results, or parallelization instructions. 
+	
+	\item[Usability] Usability is measured by the extent to which a software
+	product can be used by specified users to achieve specified goals with
+	effectiveness, efficiency, and satisfaction in a specified context of use
+	\citep{nielsonusability}. We assumed that high usability correlates with
+	the presence of documentation, including tutorials, manuals, defined
+	user characteristics, and user support. Preferably the user support model
+	will have avenues to contact developers and report issues.
+	
+	\item[Maintainability] A measure of maintainability is the effort with which
+	a software system or component can be modified to correct faults, improve
+	performance or other attributes, and satisfy new requirements
+	\citep{IEEEStdGlossarySET1990, boehm2007software}. In the current work
+	maintainability is measured by the quality of documentation artifacts, and
+	the presence of version control and issue tracking. These artifacts can
+	greatly decrease the effort needed to modify software. There are many
+	documentation artifacts that can improve maintainability, including user and
+	developer manuals, specifications, README files, change logs, release notes,
+	publications, forums, and instructional websites. 
 
-\subsubsection{Correctness}
-
-A software program is correct if it behaves according to its stated
-specifications \citep{GhezziEtAl2003}. This requires that the specification is
-available. Scientific software is unlikely to have a formal specification, since
-this is not common practice in the field. As a consequence, the correctness of
-software often cannot be measured directly. Despite an absent specification, the
-correctness can indirectly be assessed by looking at the output and applying
-domain knowledge. For our measurement of correctness we have assumed that the
-following factors suggest correctness was considered: availability of a
-requirements specification, reference to domain theory, and explicit use of
-tools and/or techniques for building confidence of correctness, such as
-documentation generators and software analysis tools.
-
-\subsubsection{Verifiability}
-
-Verifiability is measured by the extent to which a set of tests can be written
-and executed to demonstrate that the delivered system meets the specification
-\citep{sommerville}. Similarly to correctness, verifiability is correlated with
-the availability of a specification and with reference to domain knowledge. A
-good measure of verifiability is further correlated with the availability of
-well written tutorials that include expected output, with software unit testing
-documentation, and with evidence of continuous integration during the
-development process. In our process we measure correctness and verifiability
-together.
-
-\subsubsection{Reliability}
-
-Reliability is measured by the probability of failure-free operation of a
-computer program in a specified environment for a specified time; that is,
-reliability can be measured by the average time interval between two failures,
-also known as the mean time to failure (MTTF) \citep{GhezziEtAl2003}
-\citep{musa1987software}. Reliability is thus positively correlated with the
-absence of errors during installation and use. Recoverability from errors also
-improves reliability.
-
-\subsubsection{Robustness}
-
-Software possesses the characteristic of robustness if it behaves ``reasonably''
-in two situations: i) when it encounters circumstances not anticipated in the
-requirements specification; and ii) when the assumptions in its requirements
-specification are violated \citep{boehm2007software, ghezzi1991fundamentals}. A
-good measure of robustness correlates with a reasonable reaction to unexpected
-input, including data of the wrong type, empty input, or missing files or links.
-A reasonable reaction includes an appropriate error message and the ability to
-recover the system.
-
-\subsubsection{Performance}
-
-Performance is measured by the degree to which a system or component
-accomplishes its designated functions within given constraints, such as speed
-(database response times, for instance), throughput (transactions per second),
-capacity (concurrent usage loads), and timing (hard real-time demands)
-\citep{IEEEStdGlossarySET1990, wiegers2003softreq}. In this state of the
-practice assessment performance was not directly quantitatively measured.
-Instead the documentation of each software package was observed for information
-that alludes to a consideration of performance, such as parallelization tools. 
-
-\subsubsection{Usability}
-
-Usability is measured by the extent to which a software product can be used by
-specified users to achieve specified goals with effectiveness, efficiency, and
-satisfaction in a specified context of use \citep{nielsonusability}. We assumed
-that a high usability correlates with the presence of documentation,
-including tutorials, manuals, and defined user characteristics, and user
-support. Preferably the user support model has avenues to contact developers and
-report issues.
-
-\subsubsection{Maintainability}
-
-A measure of maintainability is the effort with which a software system or
-component can be modified to correct faults, improve performance or other
-attributes, and satisfy new requirements \citep{IEEEStdGlossarySET1990,
-boehm2007software}. In the current work maintainability is measured by the
-quality of documentation artifacts, and the presence of version control and
-issue tracking. These artifacts can greatly decrease the effort needed to modify
-software. There are many documentation artifacts that can improve
-maintainability, including user and developer manuals, specifications, README
-files, change logs, release notes, publications, forums, and instructional
-websites. 
-
-\subsubsection{Modifiability}
-
-Modifiability refers to the ease with which stable changes can be made to a
-system and the flexibility of the system to adopt such changes \citep{8016712}.
-We did not directly measure modifiability. Instead, developers were asked in
-interviews if they considered the ease of future changes when developing the
-software packages, specifically changes to the structure of the system, modules
-and code blocks. A follow up question is asked if any measures had been taken.
-
-\subsubsection{Reusability}
-
-Reusability refers to the extent to which components of a software package can
-be used with or without adaptation in other software packages
-\citep{kalagiakos2003non}. A good measure of reusability results from a large
-number of easily reusable components. Increased software modularization, defined
-as the presence of smaller components with well defined interfaces, is
-important. For this state of the practice assessment, a good measure of
-reusability correlates with an increased number of code files, and the
-availability of API documentation.
-
-\subsubsection{Understandability}
-
-Understandability is measured by the capability of the software package to
-enable the user to understand its suitability and function \citep{ISO9126}. It
-is an artifact-dependent quality. Understandability is different for the
-user-interface, source code, and documentation. In this state of the practice
-analysis, understandability focuses on the source code. It is measured by the
-consistency of a formatting style, the extend of modularization, the explicit
-identification of coding standards, the presence of meaningful identifiers, and
-clarity of comments. 
-
-\subsubsection{Traceability}
-
-Traceability refers to the ability to link the software implementation and the
-software artifacts, especially the requirement specification
-\citep{McCallEtAl1977}. Similar to the quality of correctness, this requires the
-availability of some form of specification. This quality refers to keeping track
-of information as it changes forms or relates between artifacts. We did not
-quantitatively measure traceability. Instead, developers were asked in
-interviews how documentation fits into their development process.
-
-\subsubsection{Visibility and Transparency}
-
-Visibility and transparency refer to the extent to which all of the steps of a
-software development process, and the current status of it, are conveyed clearly
-\citep{ghezzi1991fundamentals}. In this state of the practice assessment a good
-measure of visibility and transparency correlates with a well defined
-development process, documentation of the development process and environment
-and software package version release notes.
-
-\subsubsection{Reproducibility}
-
-Software achieves reproducibility if another developer can take the requirements
-documentation and re-obtain the same software artifacts
-\citep{BenureauAndRougier2017}. This includes the output of the software, where
-the scientific results are compared between software implementations, or between
-software implementations and manually calculated results. We measured
-reproducibility qualitatively by asking developers if they have any concern that
-their computational results won't be reproducible, and if they have taken any
-steps to ensure reproducibility.
-
-\subsubsection{Unambiguity}
-
-Unambiguity refers to the extent to which two readers have similar
-interpretations when reading software artifacts. In other words, artifacts are
-unambiguous if, and only if, they only have one interpretation \citep{IEEE1998}.
-This state of the practice assessment did not quantitatively measure
-unambiguity, but we did ask developers if they think that the current
-documentation can clearly convey all necessary knowledge to the users, and how
-they achieved this or what improvements are needed to achieve it.
+	\item[Modifiability] Modifiability refers to the ease with which stable
+	changes can be made to a system and the flexibility of the system to adopt
+	such changes \citep{8016712}. We did not directly measure modifiability.
+	Instead, developers were asked in interviews if they considered the ease of
+	future changes when developing the software packages, specifically changes
+	to the structure of the system, modules and code blocks. A follow up
+	question is asked if any measures had been taken.
+	
+	\item[Reusability] Reusability refers to the extent to which components of a
+	software package can be used with or without adaptation in other software
+	packages \citep{kalagiakos2003non}. A good measure of reusability results
+	from a large number of easily reusable components. Increased software
+	modularization, defined as the presence of smaller components with well
+	defined interfaces, is important. For this state of the practice assessment,
+	we assumed that a good measure of reusability correlates with an increased
+	number of code files, and the availability of API documentation.
+	
+	\item[Understandability] Understandability is measured by the capability of
+	the software package to enable the user to understand its suitability and
+	function \citep{ISO9126}. It is an artifact-dependent quality.
+	Understandability is different for the user-interface, source code, and
+	documentation. In this state of the practice analysis, understandability
+	focuses on the source code. It is measured by the consistency of a
+	formatting style, the extend of modularization, the explicit identification
+	of coding standards, the presence of meaningful identifiers, and the clarity
+	of comments. 
+	
+	\item[Traceability] Traceability refers to the ability to link the software
+	implementation and the software artifacts, especially the requirement
+	specification \citep{McCallEtAl1977}. Similar to the quality of correctness,
+	this requires the availability of some form of specification. This quality
+	refers to keeping track of information as it changes forms or relates
+	between artifacts. We did not quantitatively measure traceability. Instead,
+	developers were asked in interviews how documentation fits into their
+	development process.
+	
+	\item[Visibility and Transparency] Visibility and transparency refer to the
+	extent to which all of the steps of a software development process, and the
+	current status of it, are conveyed clearly \citep{ghezzi1991fundamentals}.
+	In this state of the practice assessment a good measure of visibility and
+	transparency correlates with a well defined development process,
+	documentation of the development process and environment and software
+	package version release notes.
+	
+	\item[Reproducibility] Software achieves reproducibility if another
+	developer can take the requirements documentation and re-obtain the same
+	software artifacts \citep{BenureauAndRougier2017}. This includes the output
+	of the software, where the scientific results are compared between software
+	implementations, or between software implementations and manually calculated
+	results. We measured reproducibility qualitatively by asking developers if
+	they have any concern that their computational results won't be
+	reproducible, and if they have taken any steps to ensure reproducibility.
+	
+	\item[Unambiguity] Unambiguity refers to the extent to which two readers
+	have similar interpretations when reading software artifacts. In other
+	words, artifacts are unambiguous if, and only if, they only have one
+	interpretation \citep{IEEE1998}. This state of the practice assessment did
+	not quantitatively measure unambiguity, but we did ask developers if they
+	think that the current documentation can clearly convey all necessary
+	knowledge to the users, and how they achieved this or what improvements are
+	needed to achieve it.
+				 
+\end{description}
 
 \subsection{Overall Process} \label{Sec_OverallProcess}
 
