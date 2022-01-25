@@ -709,30 +709,26 @@ and Python \citep{mazzeo2008hemelb}.
 
 \subsection{Quantitative Measures} \label{empiricalmeasures}
 
-Part of how we address \rqref{RQ_HighestQuality} and
-\rqref{RQ_CompareArtifacts}.  Once have \rqref{RQ_HighestQuality} can combine
-with estimate of popularity to answer \rqref{RQ_CompareHQ2Popular}.  The
-measurement template is found in \citet{SmithEtAl2021}.  This template is used
-to track measurements and quality scores for all of the software packages in the
-domain. For each software package, we fill-in the rows of the template. This
-process takes about 2 hours per package, with a cap of 4 hours.  The time
-constraint is necessary so that the work load for measuring a given domain is
-feasible for a team as small as one, since we aim for a cap of 160 person hours
-for the measurement phase \citet{SmithEtAl2021}.  An excerpt of the spreadsheet
-is shown in Figure~\ref{measurement_template_image}.  A column is added to this
-template for each of the 24 software package measured.
+We rank the projects by how well they follow best practices
+(\rqref{RQ_HighestQuality}) via a measurement template, as described in
+\citet{SmithEtAl2021}.  For each software package (each column in the template),
+we fill-in the rows of the template. This process takes about 2 hours per
+package, with a cap of 4 hours. The time constraint is necessary so that the
+work load is feasible for a team as small as one, given our aim to cap the
+measurement phase at 160 person hours \citep{SmithEtAl2021}.  An excerpt of the
+template, in spreadsheet form, is shown in
+Figure~\ref{measurement_template_image}.
 
 \begin{figure}[!ht]
 	\begin{center}
-	  \includegraphics[width=1.0\textwidth]{./figures/measurement_template}
-	  \caption{Excerpt of the Top Section of the Measurement Template (Summary
-	  Information) \wss{Should update this figure to something easier to read}}
+	  \includegraphics[width=1.0\textwidth]{./figures/measurement_template.pdf}
+	  \caption{Excerpt of the Top Sections of the Measurement Template}
 	  \label{measurement_template_image}
 	\end{center}
 \end{figure}
 
 The full template consists of 108 questions categorized under 9 qualities:
-\begin{inparaenum}
+\begin{inparaenum}[(i)]
 	\item installability;
 	\item correctness and verifiability;
 	\item surface reliability;
@@ -743,6 +739,7 @@ The full template consists of 108 questions categorized under 9 qualities:
 	\item surface understandability; and,
 	\item visibility/transparency. 
 \end{inparaenum} 
+
 The questions were designed to be unambiguous, quantifiable and measurable with
 limited time and domain knowledge. The measures are grouped under headings for
 each quality, and one for summary information
@@ -758,16 +755,13 @@ is provided for free; and, commercial, where the user must pay for the software
 product.  
 
 Several of the qualities use the word ``surface''.  This is to highlight that,
-for these qualities in particular, the best that we can do is a shallow measure
-of the quality.  For instance, we are not currently doing any experiments to
-measure usability.  Instead, we are looking for an indication that usability was
-considered by the developers.  We do this by looking for cues in the
-documentation, like a getting started manual, a user manual and documentation of
-expected user characteristics.
+for these qualities in particular, the best that we can do is a shallow measure.
+For instance, we do not conduct experiments to measure usability. Instead, we
+are looking for an indication that usability was considered by the developers by
+looking for cues in the documentation, such as getting started instructions, a
+user manual or documentation of expected user characteristics.
 
-Most of the data was gathered by manually investigating the software, its source
-code, and its artifacts, while some was gathered using the automatic repository
-measurement tools.  Tools were use to find data such as the number of files,
+Tools were use to find some of the measurements, such as the number of files,
 number of lines of code (LOC), percentage of issues that are closed, etc. The
 tool \href{https://github.com/tomgi/git_stats}{GitStats} was used to measure
 each software package's GitHub repository for the number of binary files, the
@@ -782,19 +776,18 @@ easier to start with a fresh environment without having to worry about existing
 libraries and conflicts. Moreover, when the tests are complete the VM can be
 deleted, without any impact on the host operating system. The most significant
 advantage of using VMs is to level the playing field. Every software install
-starts from a clean slate, which removes ``works-on-my-computer'' errors. When
-filling in the measurement template spreadsheet, the details for each VM
-should be noted, including hypervisor and operating system version.
+starts from a clean slate, which removes ``works-on-my-computer'' errors.
 
 \subsection{Analytical Hierarchy Process} \label{AHP}
 
-Part of how we address \rqref{RQ_HighestQuality}.  The Analytical Hierarchy
-Process (AHP) is a decision-making technique that is used to compare multiple
-options by multiple criteria. In our work AHP was used for comparing and ranking
-the LBM software packages using the overall impression quality scores that were
-gathered in the measurement template.  AHP performs a pairwise analysis using a
-matrix and generates an overall score as well as individual quality scores for
-each software package. \citep{SmithEtAl2016} shows how AHP is applied to ranking
+Once we have measured each package, we still need to rank them to answer
+\rqref{RQ_HighestQuality}.  To do this, we used the Analytical Hierarchy Process
+(AHP), a decision-making technique that is used to compare multiple options by
+multiple criteria. AHP was used for comparing and ranking the LBM software
+packages using the overall impression quality scores that were gathered in the
+measurement template.  AHP performs a pairwise analysis using a matrix and
+generates an overall score as well as individual quality scores for each
+software package. \citep{SmithEtAl2016} shows how AHP is applied to ranking
 software based on quality measures. 
 
 This project used a tool for conducting this process. The tool includes a
@@ -807,48 +800,42 @@ file of the tool includes requirements and usage information.
 
 \subsection{Interview Developers} \label{SecSurvey}
 
-Part of how we address \rqref{RQ_CompareToolsProjMngmnt},
-\rqref{RQ_CompareMethodologies}, \rqref{RQ_PainPoints} (which enables
-\rqref{RQ_ComparePainPoints}, and \rqref{RQ_Concerns} (which enables
-\rqref{RQ_Recommend}). We designed a list of 20 questions to guide our
-interviews, which can be found in \citet{SmithEtAl2021}. Some questions are
-about the background of the software, the development teams, the interviewees,
-and how they organize the projects. We also ask about the developer's
-understandings of the users. Some questions focus on the current and past
+Several of the research question (\rqref{RQ_CompareToolsProjMngmnt},
+\rqref{RQ_CompareMethodologies}, \rqref{RQ_PainPoints}, \rqref{RQ_Concerns} and
+\rqref{RQ_Recommend}) require going beyond the quantitative data from the
+measurement template. To gain the required insight, we interviewed developers
+using a list of 20 questions from \citet{SmithEtAl2021}. The questions cover the
+background of the development teams, the interviewees, and the software itself.
+We ask the developers how they organize their projects. We also ask them about
+their understanding of the users. Some questions focus on the current and past
 difficulties, and the solutions the team has found, or will try. We also discuss
-the importance and current situations of documentation. A few questions are
-about specific software qualities, such as maintainability, understandability,
-usability, and reproducibility. The interviews are semi-structured based on the
-question list; we ask follow-up questions when necessary. Based on our
-experience, the interviewees usually bring up some exciting ideas that we did
-not expect, and it is worth expanding on these topics.
+the importance of, and the current situation for, documentation. A few questions
+are about specific software qualities, such as maintainability,
+understandability, usability, and reproducibility. The interviews are
+semi-structured based on the question list; we ask follow-up questions when
+necessary. Based on our experience, the interviewees often bring up exciting and
+unexpected ideas.
 
-We requested interviews from all 24 packages, except Munubi, since Munubi was
-added after our ethics approved study window had expired.  We were able to
-recruit 4 developers to participate in our study.  To send out interview
-requests we found we found contacts on the projects' website, or code
-repository, or publications, or the biographic pages of the teams'
-institutions. We send at most two interview request emails to a contact for each
-software package.  Meeting will typically be held using on-line meeting
-software, like Zoom or Teams.  This facilitates recording and automatic
-transcription of the meetings.
-
-The interviews followed the standard ethics guideline of asking for consent
-before interviewing, recording, and including participant details in the report.
-The interview process presented here was approved by the McMaster University
-Research Ethics Board under the application number 
+We requested interviews with developers for all 24 packages, except Munubi,
+since Munubi was added after our ethics approved had expired.  We were able to
+recruit 4 developers to participate in our study.  Our potential interview
+subjects were found from project websites, code repositories, publications, and
+biographic information on institution web-pages. Meeting were held using on-line
+meeting software (either Zoom or Teams), which facilitated recording and
+automatic transcription of the meetings.  The interview process was approved by
+the McMaster University Research Ethics Board under the application number 
 \href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/MACREM/Application.pdf}
 {MREB\#: 5219}.
 
 \subsection{Interaction With Domain Expert} \label{sec_vet_software_list}
 
-Part of how we address \rqref{RQ_WhatProjects} and \rqref{RQ_HighestQuality}.
-\wss{Should ask Zahra about \rqref{RQ_CompareHQ2Popular}, see if he has anything
-to add about \rqref{RQ_PainPoints}.} The Domain Expert is an important member of
-the state of the practice assessment team. Pitfalls exist if non-experts attempt
-to acquire an authoritative list of software, or try to definitively rank the
-software. Non-experts have the problem that they can only rely on information
-available on-line, which has the following drawbacks:
+We partnered with a Domain Expert to vet our list of projects
+(\rqref{RQ_WhatProjects}) and our ranking (\rqref{RQ_HighestQuality}).  The
+Domain Expert is an important member of the state of the practice assessment
+team. Pitfalls exist if non-experts attempt to acquire an authoritative list of
+software, or try to definitively rank the software. Non-experts have the problem
+that they can only rely on information available on-line, which has the
+following drawbacks:
 \begin{inparaenum}[i)]
   \item the on-line resources could have false or inaccurate information; and,
   \item the on-line resources could leave out relevant information that is so
@@ -1411,8 +1398,13 @@ qualities were weighed differently, the overall software package ranking would
 change. Software packages with an overall high score ranked high in at least
 several of the individual qualities that were quantitatively measured. 
 
-Looking at the top three ranked packages: ESPResSo had achieved a
-relative high score in installability, surface usability, maintainability, reusability, and visibility and transparency. Ludwig scored high in surface correctness and verifiability, surface robustness, surface usability, maintainability, and visibility and transparency. Palabos scored high in installability, surface reliability, surface robustness, maintainability, understandability, and visibility and transparency. 
+Looking at the top three ranked packages: ESPResSo had achieved a relative high
+score in installability, surface usability, maintainability, reusability, and
+visibility and transparency. Ludwig scored high in surface correctness and
+verifiability, surface robustness, surface usability, maintainability, and
+visibility and transparency. Palabos scored high in installability, surface
+reliability, surface robustness, maintainability, understandability, and
+visibility and transparency. 
 
 \section{Comparison to Community Ranking} \label{repmetrics}
 
