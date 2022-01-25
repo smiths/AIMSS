@@ -857,13 +857,22 @@ ranking.  These interactions were done via virtual meetings.
 
 \section{Ranking Projects Based on Quality Measures} \label{AHPresults}
 
-Answers \rqref{RQ_HighestQuality}.  Before discussing quality differences between the packages and the results of
-the AHP ranking, we will contrast the different packages based on features, as
-shown in Table~\ref{tbl_features}. \wss{Add some discussion of some example
-features.  Add Non-Newtonian and Fluid Structure interaction.  Listed in
-alphabetical order.}  The sections below summarize how the software packages
-compare based on qualities, as measured by the measurement template.   The
-results of the AHP ranking are also discussed.
+In this section we answer \rqref{RQ_HighestQuality} by using AHP to rank the
+identified LBM software against best practices.  Before discussing quality
+differences between the packages and the results of the AHP ranking, we will
+contrast the different packages based on their features, as shown in
+Table~\ref{tbl_features}. The set of LBM programs form a program family, or a
+software product line.  The packages all have the commonality of using LBM
+techniques to simulate the motion of fluids, but there are also variabilities
+between them.  LBM packages can be distinguished by the dimension of problems
+they simulate, whether or not (and how) they support parallel computation,
+whether or not compressibility can be considered, whether reflexive boundaries
+can be employed, whether the simulation handles multi-fluids, whether the
+simulations handles turbulence, and whether complex geometries can be simulated.
+All of these variabilities are listed as columns in Table~\ref{tbl_features}
+with the software listed in alphabetical order. A more complete analysis of the
+commonalities and variabilities between LBM packages is provided in
+\citet{Michalski2021}.
 
 \begin{table}
 	\begin{center}
@@ -897,34 +906,39 @@ results of the AHP ranking are also discussed.
 			waLBerla & 2, 3 & MPI & Y & Y & Y & Y & Y & L\\
 			\bottomrule
 		\end{tabular}
-		\caption{Features of Software Packages (Dim for Dimension (1, 2, 3),
-			Pll for Parallel (CUDA, MPI, OpenMP (OMP)), Com for Compressible (Yes or No), Rflx for
-			Reflexive Boundary Condition (Yes or No), MFl for Multi-fluid (Yes or
-			No), Turb for Turbulent (Yes or No), CGE for Complex Geometries (Yes or No), OS for Operating System (Windows (W), macOS (M), Linux (L)))} \label{tbl_features}
+		\caption{Features of Software Packages (Dim for Dimension (1, 2, 3), Pll
+			for Parallel (CUDA, MPI, OpenMP (OMP)), Com for Compressible (Yes or
+			No), Rflx for Reflexive Boundary Condition (Yes or No), MFl for
+			Multi-fluid (Yes or No), Turb for Turbulent (Yes or No), CGE for
+			Complex Geometries (Yes or No), OS for Operating System (Windows
+			(W), macOS (M), Linux (L)))} \label{tbl_features}
 	\end{center}
 \end{table}
+
+The sections below summarize how the software packages compare based on the
+qualities discussed in Section~\ref{softwarequalities}, as measured via the
+measurement template (Section~\ref{empiricalmeasures}).  For the purpose of
+discussion, the last subsection combines all the qualities into one ``global''
+ranking.
 
 \subsection{Installability}
 
 All of the 24 software packages that were tested have installation instructions.
-As noted previously, many of the 22 software packages that were part of the
-original long list of 46 packages were removed due to not including
-documentation or installation instructions. Of the 24 software packages that
-were tested, most had installation instructions located in one place, often in
-an instruction manual or on a web-page. Sometimes, like with Ludwig, incomplete
+Most have their installation instructions located in one place, often in an
+instruction manual or on a web-page. Sometimes, like with Ludwig, incomplete
 installation instructions are found on a home page, with more detailed
 instructions located on another web-page, or within the documentation.
-Maintainability and correctness of these instructions could be improved if all
-the instructions were in one location. 
+Installability of the software, and maintainability and correctness of the
+instructions themselves, are improved if all the instructions are in one
+location. 
 
-All 24 packages on the short list can be installed on some Unix-like systems.
-Eight packages could be installed on Windows, and five on macOS. Operating
-system requirements are listed in the documentation of 20 software packages, but
+All 24 packages on the short list can be installed on a Unix-like system. Eight
+packages could be installed on Windows, and five on macOS. Operating system
+requirements are listed in the documentation of 20 software packages, but
 compatible operating system versions are only specified in four packages
 (ESPResSo, LUMA, Mechsys, Sailfish). All but one of the software packages (TCLB)
 were tested on Ubuntu for this state of the practice assessment. TCLB was tested
-on CentOS, since this operating system is mentioned in its installation
-instructions.
+on CentOS, since CentOS is mentioned in its installation instructions.
 
 All but one of the software packages (LatBo.jl) have automated at least some of
 the installation process. Most of these packages, such as waLBerla and
@@ -938,11 +952,11 @@ fault, were more difficult to troubleshoot. Only three software packages
 (HemeLB, LB3D, lbmpy) that displayed a descriptive error message were not
 recoverable, and most of these instances were due to hardware and operating
 system incompatibility, such as the requirement of CUDA. Fourteen software
-packages definitively broke during installation. Some packages, such as
-LB2D-Prime and LB3D-Prime, did not provide a definitive message of the success
-or failure of installation. In these instances, validating the installation
-required performing a tutorial or running a script, as described below, if these
-were available. 
+packages broke during installation. Some packages, such as LB2D-Prime and
+LB3D-Prime, did not provide a definitive message of the success or failure of
+installation. In these instances, validating the installation required
+performing a tutorial or running a script, as described below, if these were
+available. 
 
 About half of the installation instructions are written as if the person doing
 the installation has none of the dependent packages installed. Unfortunately,
@@ -954,17 +968,18 @@ from the point of view of installation on a clean operating system is suggested.
 A clean environment can be achieved for testing purposes by using a virtual
 machine.
 
-Seventeen software packages require less than 10 dependencies to be installed. All but one software package (LatBo.jl) require less than 20 dependencies. Some
+Seventeen software packages require less than 10 dependencies to be installed.
+All but one software package (LatBo.jl) require less than 20 dependencies. Some
 packages may automatically install additional dependencies in the background.
-Twenty of the software packages do not explicitly indicate software dependency
-versions. Some software package installation issues, specifically those
-occurring when manual installation of dependencies is required, may be avoided
-if versions of dependencies are specified. Sixteen software packages do not have
-detailed instructions for installing dependencies. Sixteen software packages
-have less than 10 manual installation steps. If dependencies are installed in
-one command then none of the software packages take more than 20 steps to
-install. The average number of steps is about eight, and the fewest is two
-(LB3D-Prime). 
+Twenty of the software packages do not explicitly indicate the versions of
+software dependencies. Some software package installation issues, specifically
+those occurring when manual installation of dependencies is required, may be
+avoided if versions of dependencies are specified. Sixteen software packages do
+not have detailed instructions for installing dependencies. Sixteen software
+packages have less than 10 manual installation steps. If dependencies are
+installed in one command then none of the software packages take more than 20
+steps to install. The average number of steps is about eight, and the fewest is
+two (LB3D-Prime). 
 
 All but six (ESPResSo, HemeLB, laboetie, LB3D-Prime, lbmpy, waLBerla) of the
 software packages have a way to verify the installation. Most have some sort of
@@ -983,18 +998,18 @@ found for only one of the software packages: pyLBM.
 \end{figure}
 
 Figure~\ref{Fig_Installability} shows the installability ranking of the software
-packages using AHP. Software packages with a higher score (ESPResSo, MechSys, OpenLB, DL\_MESO, Palabos) tend to have one set of linear installation instructions that are written as if the person doing the installation has none of the dependencies installed. The instructions often list compatible operating system versions and include instructions for the installation of dependencies. The top ranked packages often incorporate some sort of automation of the installation process and have fewer manual installation steps. The number of dependencies a package has does not correlate with a higher score. The ability to validate the installation process, often through tutorials or test examples that include expected output, is correlated with a higher score. Furthermore, the top seven ranked packages are noted as being alive. 
-
-Many software packages would benefit from a rewrite or reorganization of
-installation instructions. A single location for installation instructions would
-improve their maintainability and correctness. Listing compatible operating
-system and dependency versions would decrease installation time and errors, as
-would adding instructions on installing dependencies. Installation process
-errors should prompt the system to display detailed messages. Once a software
-package is installed, either an automatic validation needs to be performed or
-the user needs to be able to perform a manual validation using test examples
-that include expected output. Finally, uninstallation instructions should be
-included in the documentation. 
+packages using AHP. Software packages with a higher score (ESPResSo, MechSys,
+OpenLB, DL\_MESO, Palabos) tend to have one set of linear installation
+instructions written as if the person doing the installation has none of the
+dependencies installed. The instructions often list compatible operating system
+versions and include instructions for the installation of dependencies. The top
+ranked packages often incorporate some sort of automation of the installation
+process and have fewer manual installation steps. The number of dependencies a
+package has does not correlate with a higher score. The ability to validate the
+installation process, often through tutorials or test examples that include
+expected output, is correlated with a higher score. Active work on a project
+seems to improve installability, since the top seven ranked packages are all
+classified as alive. 
  
 \subsection{Surface Correctness and Verifiability}
 
@@ -1145,12 +1160,16 @@ surface reliability.
 Software package artifacts were reviewed for the presence of a tutorial, a user
 manual, documented user characteristics, and a user support model. In total 19
 software packages have a tutorial, 13 have a user manual, and 11 have both. The
-tutorials vary in scope and substance, and eight include expected output.
-Most user manuals are in the form of a file that can be downloaded, while some
-are rendered on a web-page. Some packages (waLBerla) do not have a user manual,
-but do have useful documentation distributed on their web-pages. Expected user
+tutorials vary in scope and substance, and eight include expected output. Most
+user manuals are in the form of a file that can be downloaded, while some are
+rendered on a web-page. Some packages (waLBerla) do not have a user manual, but
+do have useful documentation distributed on their web-pages. Expected user
 characteristics are documented in five software packages (laboetie, LIMBES,
-Ludwig, Musubi, Palabos). Users are typically scientists or engineers. Their background is often physics, chemistry, biophysics, or mathematics. All but one of the packages (LIMBES) have a user support model, and many of them have multiple avenues of user support. The most popular avenue of support is Git, followed by email and forums. One software package (OpenLB) has an FAQ page.    
+Ludwig, Musubi, Palabos). Users are typically scientists or engineers. Their
+background is often physics, chemistry, biophysics, or mathematics. All but one
+of the packages (LIMBES) have a user support model, and many of them have
+multiple avenues of user support. The most popular avenue of support is Git,
+followed by email and forums. One software package (OpenLB) has an FAQ page.    
 
 \begin{figure}[h!]
 	\begin{center}
@@ -1184,7 +1203,14 @@ Issue tracking is used in 23 software packages, 15 of which use Git, seven use
 email, and one (SunlightLB) uses SourceForge. Most software packages that use
 Git have most of their issues closed, and only three (laboetie, lettuce,
 Sailfish) have less than 50 percent of their issues closed. All of the top five
-overall ranked packages have most of their issues closed. Alive packages (11 use Git issue tracking) have 64\% of their issues closed, while dead packages (3 use Git issue tracking) have 71\% of their issues closed. This information is presented in Table~\ref{gitrepodata}. Furthermore, 13 packages that use Git for issue tracking use GitHub as a version control system, while two (Palabos, waLBerla) use GitLab. Of the other packages, one package (SunlightLB) uses CVS for issue tracking, and seven packages do not appear to use any issue tracking system.
+overall ranked packages have most of their issues closed. Alive packages (11 use
+Git issue tracking) have 64\% of their issues closed, while dead packages (3 use
+Git issue tracking) have 71\% of their issues closed. This information is
+presented in Table~\ref{gitrepodata}. Furthermore, 13 packages that use Git for
+issue tracking use GitHub as a version control system, while two (Palabos,
+waLBerla) use GitLab. Of the other packages, one package (SunlightLB) uses CVS
+for issue tracking, and seven packages do not appear to use any issue tracking
+system.
 
 \begin{table}
 	\begin{center}
@@ -2226,7 +2252,7 @@ making a contribution.  \wss{in recommendations could point out what teams could
 do to get more external contributors, and potentially a longer life for their
 project.}
 
-\subsection{Reproducibility}
+\subsection{Reproducibility} \label{SecReproducibility}
 
 Software packages were not quantitatively measured for reproducibility. Instead,
 developers were asked if they had concerns that their computational results
@@ -2289,9 +2315,9 @@ detail.
 Answers \rqref{RQ_Recommend}.  Recommendations for Addressing Developer
 Concerns.  This section answers the research questions listed in
 Section~\ref{secIntro} using the quantitative data presented in
-Section~\ref{AHPresults}, qualitative data presented in
-Section~\ref{interviewresults}, additional data from software package
-repositories and artifacts, and domain expert feedback.
+Section~\ref{AHPresults}, qualitative data from developer interviews
+(Section~\ref{SecSurvey}), additional data from software package repositories
+and artifacts, and domain expert feedback.
 
 \subsection{Common Practices} \label{currentPractices}
 
@@ -2546,7 +2572,7 @@ Regarding data collection, a risk to the validity of this assessment is missing
 or incorrect data. Some software package data may not have been measured due to
 technology issues like broken links. This issue arose with the measurement of
 Palabos, which had a broken link to its user manual, as noted in
-Section~\ref{artifacts}. 
+Section~\ref{Sec_CompareArtifacts}. 
 
 Some pertinent data may not have been specified in public artifacts, or may be
 obscure within an artifact or web-page. The use of unit testing and continuous
@@ -2600,6 +2626,20 @@ Recommendations for future state of the practice assessments are made in Section
 ~\ref{futuresop}.
 
 \subsection{Highlighted Recommendations} \label{highlightedrecommendations}
+
+Many software packages would benefit from a rewrite or reorganization of
+installation instructions. A single location for installation instructions would
+improve their maintainability and correctness. Listing compatible operating
+system and dependency versions would decrease installation time and errors, as
+would adding instructions on installing dependencies. Installation process
+errors should prompt the system to display detailed messages. Once a software
+package is installed, either an automatic validation needs to be performed or
+the user needs to be able to perform a manual validation using test examples
+that include expected output. Finally, uninstallation instructions should be
+included in the documentation. \wss{Have to decide how much to emphasizse
+installability.}  \wss{Maybe at some point should mention more modern
+installation support, since most of the projects use make, and there are other
+options.}
 
 The following recommendations improve software quality along multiple
 attributes, and provide the greatest return on investment:
@@ -2657,7 +2697,7 @@ template may not be broad enough to accurately capture some qualities. Adding or
 extending measures is worth considering. For example, usability experiments and
 performance benchmarks could be incorporated into the assessment.
 
-Section~\ref{interviewresults} noted that developers were not asked to comment
+Section~\ref{SecReproducibility} noted that developers were not asked to comment
 on the reproducibility of their source code from their requirements
 specifications and design documentation. Adding this question to the interview
 guide should be considered in the next iteration of state of the practice
