@@ -1011,17 +1011,16 @@ expected output, is correlated with a higher score. Active work on a project
 seems to improve installability, since the top seven ranked packages are all
 classified as alive. 
  
-\subsection{Surface Correctness and Verifiability}
+\subsection{Surface Correctness and Verifiability} \label{SecSurfCorrectAndVerifiab}
 
-Seventeen of the software packages include a requirements specification artifact
-or explicitly reference domain theory, often only the latter. Software packages
-that distribute requirements specification information, such as DL\_MESO (LBE),
-generally keep it brief and include it within other documentation. This artifact
-is often found within a user manual, on a web-page, or is mentioned in related
-publications. In the latter case the user may need to spend significant time to
-find this information.  \wss{More on requirements as a pain point is given in
-Weiss, and other papers cited by Carver (2021).  Isn't generally requirements in
-the SE sense of following a template or similar.}
+Seventeen of the software packages explicitly reference domain theory, but a
+full requirements specification, in the software engineering sense
+\citep{IEEE1998, RobertsonAndRobertson1999Vol, ESA1991}, is absent from all of
+the projects. Software packages that include a subset of a requirements
+specification, such as DL\_MESO (LBE), keep the information brief and include it
+within other documents. When present, theory related information is generally
+found within a user manual, on a web-page, or in a cited publication. In the
+latter case significant time may be needed to track down the information.
 
 Document generation tools are explicitly used by 13 software packages. Sphinx is
 used by eight of them, and Doxygen is used by eight. Several of the packages use
@@ -1034,14 +1033,15 @@ the software packages that are missing this key information. In these cases the
 user may need to assume correctness if there are no visible errors.
 
 Unit tests are only explicitly available for two of the software packages,
-Ludwig and Musubi. Code modularization of most packages allow for users to create tests with varying degrees of effort. These tests allow developers and users to verify the correctness of fragments of the source code, and in doing so better assess the correctness of the entire package.
+Ludwig and Musubi. Code modularization of most packages allow for users to
+create tests with varying degrees of effort. These tests allow developers and
+users to verify the correctness of fragments of the source code, and in doing so
+better assess the correctness of the entire package.
 
 The use of continuous integration tools and techniques alludes to a more refined
 development process where faults are isolated and better recognized. Only three
 of the packages (ESPResSo, Ludwig, Musubi) mentioned applying the practice of
-continuous integration in their development process. \wss{Forward reference that
-suggests more tools use CI (Section 7 Comparison of Principles, Process and
-Methodologies to Research Software in General).}
+continuous integration in their development process.
 
 \begin{figure}[h!]
 	\begin{center}
@@ -1051,21 +1051,16 @@ Methodologies to Research Software in General).}
 	\end{center}
 \end{figure}
 
-Figure~\ref{Fig_CorrectnessVerifiability} shows the surface correctness and
-verifiability ranking of the software packages using AHP. Software packages with
-a higher score tend to have a visible requirements specification or references
-to theory documentation. They also explicitly use at least one document
-generation tool that builds confidence of correctness. The top ranked software
-packages all include an easy to follow getting started tutorial, and most of
-these include expected output. The two top ranked packages, Ludwig and Musubi, indicate the use of unit testing in their documentation. They also incorporated continuous integration in the development process. Furthermore, eight of the top 10 ranked packages are noted as being alive.
-
-The inclusion of requirements specification and theory documentation greatly
-benefits the correctness and verifiability of software packages. The use of
-document generation tools can help build confidence in correctness. The addition
-of easy to follow tutorials further helps users verify the software and have
-confidence in its correctness. Unit testing, as well as the use of continuous
-integration tools and techniques such as Bamboo, Jenkins, and Travis CI, help
-verify correctness.
+Figure~\ref{Fig_CorrectnessVerifiability} shows the ranking for surface
+correctness and verifiability. Software packages with a higher score tend to
+have theory documentation. They also explicitly use at least one document
+generation tool that helps with verification, thus building confidence in
+correctness. The top ranked software packages all include an easy to follow
+getting started tutorial, and most of these include expected output. The two top
+ranked packages, Ludwig and Musubi, indicate the use of unit testing in their
+documentation. They also incorporated continuous integration in the development
+process. Furthermore, eight of the top 10 ranked packages are noted as being
+alive.
 
 \subsection{Surface Reliability}
 
@@ -1603,6 +1598,14 @@ best example of requirements. It has a nice subsection on Functionality.
 type of documentation for scientific software in general.  LBM matches this
 trend.}
 
+\wss{Document theory (17 of the packages), but not requirements.  Might think
+ this is good enough, but a theory manual doesn't include the traceability to
+ the code.  For instance, what are the consequences of changing an assumption?}
+
+ \wss{More on requirements as a pain point is given in Weiss, and other papers
+cited by Carver (2021).  Isn't generally requirements in the SE sense of
+following a template or similar.}
+
 The top four AHP ranked packages have most of the less common artifacts. At the
 time of data collection, only one of the four packages (Palabos) did not have a
 user manual or guide, but there was a broken link on the package website
@@ -1699,7 +1702,11 @@ The tools Sphinx and Doxygen are explicitly used in this capacity. \wss{look at
 what the other papers say are commonly used tools and bring that information
 into this section.}
 
-\section{Comparison of Principles, Process and Methodologies to Research Software in General} \label{Sec_CompareMethodologies}
+Section \ref{SecSurfCorrectAndVerifiab} shows that continuous integration is
+rare in LBM.
+
+\section{Comparison of Principles, Process and Methodologies to Research
+Software in General} \label{Sec_CompareMethodologies}
 
 Answers \rqref{RQ_CompareMethodologies}.  Most of the software packages do not
 explicitly state in their artifacts the motivations or design principles that
