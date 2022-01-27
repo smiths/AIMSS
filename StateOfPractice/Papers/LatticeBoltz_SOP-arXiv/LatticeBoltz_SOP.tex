@@ -998,14 +998,14 @@ found for only one of the software packages: pyLBM.
 \end{figure}
 
 Figure~\ref{Fig_Installability} shows the installability ranking of the software
-packages using AHP. Software packages with a higher score (ESPResSo, MechSys,
-OpenLB, DL\_MESO, Palabos) tend to have one set of linear installation
-instructions written as if the person doing the installation has none of the
-dependencies installed. The instructions often list compatible operating system
-versions and include instructions for the installation of dependencies. The top
-ranked packages often incorporate some sort of automation of the installation
-process and have fewer manual installation steps. The number of dependencies a
-package has does not correlate with a higher score. The ability to validate the
+packages. Software packages with a higher score (ESPResSo, MechSys, OpenLB,
+DL\_MESO, Palabos) tend to have one set of linear installation instructions
+written as if the person doing the installation has none of the dependencies
+installed. The instructions often list compatible operating system versions and
+include instructions for the installation of dependencies. The top ranked
+packages often incorporate some sort of automation of the installation process
+and have fewer manual installation steps. The number of dependencies a package
+has does not correlate with a higher score. The ability to validate the
 installation process, often through tutorials or test examples that include
 expected output, is correlated with a higher score. Active work on a project
 seems to improve installability, since the top seven ranked packages are all
@@ -1095,11 +1095,11 @@ missing a dependency was recoverable.
 \end{figure}
 
 Figure~\ref{Fig_Reliability} shows the surface reliability ranking of the
-software packages using AHP. Software packages with a high score either did not
-break during installation, or the broken installation was recoverable. All of
-the top five ranked packages have tutorials. The package pyLBM broke
-during tutorial testing, but a descriptive error message helped in recovery.
-Nine of the top 10 ranked packages are noted as being alive. 
+software packages. Software packages with a high score either did not break
+during installation, or the broken installation was recoverable. All of the top
+five ranked packages have tutorials. The package pyLBM broke during tutorial
+testing, but a descriptive error message helped in recovery. Nine of the top 10
+ranked packages are noted as being alive. 
 
 \subsection{Surface Robustness}
 
@@ -1117,16 +1117,15 @@ messages and an absence of unrecoverable system failures.
 \end{figure}
 
 Figure~\ref{Fig_Robustness} shows the surface robustness ranking of the software
-packages using AHP. Software packages with a high score behaved reasonably in
-response to unexpected input as described above. All of the software packages
-that installed correctly passed this test. They output descriptive error
-messages or at least do not crash. Software packages with a lower surface
-robustness score did not install correctly, so their robustness score may not be
-a true reflection of runtime robustness. All successfully installed software
-packages that require a plain text input file correctly handled an unexpected
-change to these input files, including a replacement of new lines with carriage
-returns. Furthermore, nine of the top 10 ranked packages are noted as being
-alive.
+packages. Software packages with a high score behaved reasonably in response to
+unexpected input as described above. All of the software packages that installed
+correctly passed this test. They output descriptive error messages or at least
+do not crash. Software packages with a lower surface robustness score did not
+install correctly, so their robustness score may not be a true reflection of
+runtime robustness. All successfully installed software packages that require a
+plain text input file correctly handled an unexpected change to these input
+files, including a replacement of new lines with carriage returns. Furthermore,
+nine of the top 10 ranked packages are noted as being alive.
 
 \subsection{Surface Performance}
 
@@ -1175,10 +1174,10 @@ followed by email and forums. One software package (OpenLB) has an FAQ page.
 \end{figure}
 
 Figure~\ref{Fig_Usability} shows the surface usability ranking of the software
-packages using AHP. Software packages with a high score have a tutorial and user
-manual, sometimes have documented user characteristics, and have at least one
-user support model. Many packages have several user support models. Furthermore,
-four of the top five packages are noted as being alive. 
+packages. Software packages with a high score have a tutorial and user manual,
+sometimes have documented user characteristics, and have at least one user
+support model. Many packages have several user support models. Furthermore, four
+of the top five packages are noted as being alive. 
 
 \subsection{Maintainability}
 
@@ -1344,13 +1343,25 @@ productivity, reusability, and maintainability \citep{bauer2021walberla}. The
 design of waLBerla has enabled it to be successfully applied in several projects
 as a basis for various extensions \citep{bauer2021walberla}.
 
-\subsection{Surface Understandability}
+\subsection{Surface Understandability} \label{Sec_SurfUnderstandability}
 
 Ten random source code files of each software package were reviewed for several
 measures. This assessment of surface understandability may not perfectly reflect
 each package, due to the practical limitation of only examining 10 files. 
 
-All of the packages appear to have consistent indentation and formatting. Only HemeLB, LUMA, and Musubi explicitly identify coding standards that are used during development. Generally, the software packages use consistent, distinctive, and meaningful code identifiers. Only four packages (LB2D-Prime, LB3D-Prime, LIMBES, MP-LABS) appear to use vague identifiers, such as single letters for variables. Symbolic constants were observed in the source code of 13 packages. The constants are used for various parameters, mathematical constants, and matrix definitions. All of the packages are reasonably well commented, with the comments clearly indicating what is being done (as opposed to how it is being done). Domain algorithms are noted in the source code of 11 packages. Table~\ref{moduledata} suggests that the software packages are modularized to various degrees. When observing the source code files, it was found that 14 of the packages have a consistent style and order of function parameters.
+All of the packages appear to have consistent indentation and formatting. Only
+HemeLB, LUMA, and Musubi explicitly identify coding standards that are used
+during development. Generally, the software packages use consistent,
+distinctive, and meaningful code identifiers. Only four packages (LB2D-Prime,
+LB3D-Prime, LIMBES, MP-LABS) appear to use vague identifiers, such as single
+letters for variables. Symbolic constants were observed in the source code of 13
+packages. The constants are used for various parameters, mathematical constants,
+and matrix definitions. All of the packages are reasonably well commented, with
+the comments clearly indicating what is being done (as opposed to how it is
+being done). Domain algorithms are noted in the source code of 11 packages.
+Table~\ref{moduledata} suggests that the software packages are modularized to
+various degrees. When observing the source code files, it was found that 14 of
+the packages have a consistent style and order of function parameters.
 
 \begin{figure}[h!]
 	\begin{center}
@@ -1361,13 +1372,12 @@ All of the packages appear to have consistent indentation and formatting. Only H
 \end{figure}
 
 Figure~\ref{Fig_Understandability} shows the surface understandability ranking
-of the software packages using AHP. Software packages with a high score have a
-consistent indentation and formatting style, and consistent, distinctive, and
-meaningful code identifiers. They also have symbolic constants, and explicitly
-identify mathematical and LBM algorithms. Their comments are clear and indicate
-what is being done in the source code. The source code is well modularized and
-structured. Furthermore, all of the top five ranked packages are noted as being
-alive.
+of the software packages. Software packages with a high score have a consistent
+indentation and formatting style, and consistent, distinctive, and meaningful
+code identifiers. They also have symbolic constants, and explicitly identify
+mathematical and LBM algorithms. Their comments are clear and indicate what is
+being done in the source code. The source code is well modularized and
+structured. All of the top five ranked packages are noted as being alive.
 
 \subsection{Visibility and Transparency}
 
@@ -1376,16 +1386,16 @@ development model, like a waterfall of agile development model, and the presence
 of documentation recording the development process and standard. They were also
 reviewed for the identification of the development environment, and the presence
 of release notes. The packages tended to not explicitly use well-known
-development models. This was also noted in the interviews with developers, as
-detailed below. The development teams of these packages are fairly small and
-easily organized without the need for such processes. Seven of the software
-packages did have some artifacts outlining the general development process, how
-to contribute, and the status of the package or its components. Eight of the
-packages have artifacts that note the development environment. While this
-information could help developers, and would improve transparency, the small
-close-knit nature of the development teams make explicitly publicly specifying
-this information practically unnecessary. Version release notes were found in
-nine of the software packages.
+development models. This was also noted in the interviews with developers
+(Section~\ref{Sec_CompareMethodologies}). The development teams of these
+packages are fairly small and easily organized without the need for such
+processes. Seven of the software packages did have some artifacts outlining the
+general development process, how to contribute, and the status of the package or
+its components. Eight of the packages have artifacts that note the development
+environment. While this information could help developers, and would improve
+transparency, the small close-knit nature of the development teams make
+explicitly publicly specifying this information practically unnecessary. Version
+release notes were found in nine of the software packages.
 
 \begin{figure}[h!]
 	\begin{center}
@@ -1396,13 +1406,12 @@ nine of the software packages.
 \end{figure}
 
 Figure~\ref{Fig_VisibilityTransparency} shows the visibility and transparency
-ranking of the software packages using AHP. Software packages with a high score
-have an explicit development model and defined development process. They also
-had detailed and easy to access notes accompanying software releases.
-Furthermore, four of the top five ranked packages are noted as being alive.
-MP-LABS is noted as being dead.
+ranking of the software packages. Software packages with a high score have an
+explicit development model and defined development process. They also had
+detailed and easy to access notes accompanying software releases. Four of the
+top five ranked packages are noted as being alive.
 
-\subsection{Overall Quality}
+\subsection{Overall Quality} \label{Sec_OverallQuality}
 
 \begin{figure}[h!]
 	\centering
@@ -1411,20 +1420,20 @@ MP-LABS is noted as being dead.
 		\label{Fig_OverallScore}
 \end{figure}
 
-Figure~\ref{Fig_OverallScore} shows the overall ranking of the software packages
-using AHP. In the absence of other information on priorities, the overall
-ranking was calculated by assuming an equal weighting between all qualities. If the
+Figure~\ref{Fig_OverallScore} shows the overall ranking of the software
+packages. In the absence of other information on priorities, the overall ranking
+was calculated by assuming an equal weighting between all qualities. If the
 qualities were weighed differently, the overall software package ranking would
 change. Software packages with an overall high score ranked high in at least
 several of the individual qualities that were quantitatively measured. 
 
-Looking at the top three ranked packages: ESPResSo had achieved a relative high
+Looking at the top three ranked packages: ESPResSo achieved a relatively high
 score in installability, surface usability, maintainability, reusability, and
 visibility and transparency. Ludwig scored high in surface correctness and
 verifiability, surface robustness, surface usability, maintainability, and
 visibility and transparency. Palabos scored high in installability, surface
 reliability, surface robustness, maintainability, understandability, and
-visibility and transparency. 
+visibility and transparency.
 
 \section{Comparison to Community Ranking} \label{repmetrics}
 
@@ -2598,8 +2607,16 @@ to this the measured data is not a true reflection of software package quality.
 \wss{There are more threats to validity.  Brainstorm.  Watch for them while 
 editing.  Look at Ao paper.}
 
-The assumption that more code files is an indicator of reusability
+Problems with the measurement of qualities:
+
+\begin{itemize}
+\item The assumption that more code files is an indicator of reusability
 (Section~\ref{reusabilityresults}) may not be a valid assumption.
+\item Understandability was measured using only 10 random files
+(Section~\ref{Sec_SurfUnderstandability}).  This could be improved.
+\end{itemize}
+
+Overall ranking with equally weighted qualities isn't realistic (Section~\ref{Sec_OverallQuality}).
 
 \section{Conclusion} \label{conclusion}
 
