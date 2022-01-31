@@ -230,7 +230,7 @@ We analyze the development of Computational Fluid Dynamics (CFD) software
 packages that use the Lattice Boltzmann Method (LBM). LBM packages form a family
 of algorithms for simulating single-phase and multiphase fluid flows, often
 incorporating additional physical complexities \citep{chen1998lattice}, such as
-reflective and non-reflective boundaries. LBM considers the behavior of a
+reflective and non-reflective boundaries. LBM considers the behaviour of a
 collection of particles as a single unit at the mesoscopic scale, which lies
 between the nanoscopic and microscopic scales. LBM solvers predict the
 positional probability of a collection of particles moving through a lattice
@@ -254,7 +254,7 @@ procedure, improved parallelization, and robust handling of complex geometries
 \end{figure}
 
 A small sample of important applications of LBM include the following: designing
-fuel cells \citep{ZhangEtAl2018}, modeling groundwater flow
+fuel cells \citep{ZhangEtAl2018}, modelling groundwater flow
 \citep{AnwarAndSukop2009}, and analyzing the flow of blood in the cardiovascular
 system \citep{SadeghiEtAl2020}.  As these examples illustrate, LBM can be used
 for tackling problems that impact such areas as environmental policy,
@@ -667,7 +667,10 @@ being marked as dead due to their prevalence on authoritative lists on LBM
 software and due to their surface excellence.  After the initial measurement
 exercise, which took place in mid 2020, we added one more package in January
 2022: Musubi.  Musubi did not come up in our initial search, but once we learned
-of it, we felt that this report is incomplete without including it.
+of it, we felt that this report is incomplete without including it.  With the
+addition of Musubi we did not update the manual collection of data for the
+previous packages, due to time constraints, but we did redo all data collection
+that was automated by tools.
 
 The final list of 24 software packages that were analyzed in this project can be
 found in two tables. Table~\ref{alivepackages} lists packages that fell into the
@@ -1291,7 +1294,7 @@ Figure~\ref{Fig_Reusabilty} shows the reusability ranking of the software
 packages. Software packages with a high score have thousands of source code
 files and API documentation. The highest scoring packages, ESPResSo and
 waLBerla, have extensive functionality, including graphical visualizations and
-non-LBM modeling. For this reason, a comparison with other software packages is
+non-LBM modelling. For this reason, a comparison with other software packages is
 not on a level field. However, these packages do have an abundance of reusable
 components. Nine of the top 10 ranked packages are noted as being alive.
 
@@ -1450,9 +1453,29 @@ this column contains less data, since two of the packages (Palabos, waLBerla)
 use GitLab, which does not track watches. Consistent with the star measure, our
 ninth ranked package (Sailfish) has the highest number of watches and our best
 ranked package (ESPResSo) has the second most watches. Packages designated as
-lower quality often do not use GitHub or GitLab, or have only a few stars/watches.
-Although the details of the rankings differ, our measures show that following
-best practices correlates with increased popularity in the scientific community.
+lower quality often do not use GitHub or GitLab, or have only a few
+stars/watches. Although the details of the rankings differ, our measures show
+that following best practices tends to correlate with increased popularity in
+the scientific community.
+
+Notable exceptions to this trend occur for three projects that rank high by star
+count, but relatively low in the ``follow best practices'' ranking: TCLB (star
+rank 3, our rank 12), lettuce (star rank 4, our rank 14) and ESPResSo++ (star
+rank 5, our rank 15).  Part of the discrepancy is because all projects are
+ranked by our process, but not all projects are measured by stars.  Also, our
+process equally weights all qualities (Section~\ref{Sec_OverallQuality}), but
+for real users some qualities will be more important than others. Discrepancies
+between our measures and the star measures may also be due to inaccuracy with
+using stars to approximate popularity, since stars and watches tend to increase
+over time. Older packages (like ESPResSo++ and TCLB) have had more time to
+accumulate stars and watches. Young projects have less time to accumulate stars,
+like HemeLB, which only 12 stars (at the time of measurement) having recently
+moved from a different GitHub repository.  Lettuce is a young project (released
+in 2019) with a relatively high number of stars.  The discrepancy in rankings
+here may be due to a mismatch between the time when lettuce was manually
+measured by our template and when the stars were counted.  The late addition of
+Musubi meant a large gap between when projects were manually measured and the
+time when our automated data (like stars) was collected.
 
 \begin{table}
 	\begin{center}
@@ -1491,25 +1514,11 @@ best practices correlates with increased popularity in the scientific community.
 	\end{center}
 	\end{table}
 
-Although our ranking and the estimate of popularity are consistent, trying to
-make more specific conclusions from this data would be problematic.  To start
-with, using stars and watches may not accurately measure popularity or
-necessarily represent the perceptions of the community. Even if the stars and
-watches are a good proxy for popularity, they are an unfair measure since
-repositories vary in age. Older packages have had more time to accumulate stars
-and watches. For instance, HemeLB only has 12 stars, but it is young because (at
-the time of measurement) HemeLB had recently moved from a different GitHub
-repository. From the other side, our estimate of ranking by best practices is
-also an approximation.  Besides our use of shallow measures, the assumption of
-equal weighting between all qualities to create our overall ranking
-(Section~\ref{Sec_OverallQuality}) does not represent reality.  For real
-projects some qualities are going to be more important than others.
-
 Although our ranking and the estimate of the community's ranking are not perfect
 measures, they do suggest a correlation between best practices and popularity.
 We do not know which comes first, the use of best practices or popularity, but
-we do know that the top ranked packages share common practices.  The next
-sections will explore how the practices of the LBM community compare to the
+we do know that the top ranked packages tend to incorporate best practices.  The
+next sections will explore how the practices of the LBM community compare to the
 broader research software community.  We will also investigate the practices
 from the top projects that others within the LBM community, and within the
 broader research software community, can potentially adopt.
@@ -1909,7 +1918,7 @@ sometimes try to use incorrect LBM method combinations to solve their problems.
 Furthermore, some users think that the packages will work out of the box to
 solve their cases, while the packages require both a good understanding of CFD
 and an understanding of the requirements for formulating problems in the
-individual packages, which can be a significant endeavor. These software
+individual packages, which can be a significant endeavour. These software
 packages are not like commercial software packages. They are generally set up to
 solve specific research problems, and are often primarily used by their
 developers. While they are modifiable to solve similar problems, these
@@ -1986,10 +1995,11 @@ developed by teams with significant domain knowledge.
 
 Interviews suggested a more frequent use of both unit testing and continuous
 integration in the development processes than what was observed from the initial
-survey. For example, OpenLB, pyLBM, and TCLB use such methods during development,
-despite this not being explicitly clear from an analysis of the material
-available online. \wss{Add this to threats to validity.}  The correctness and
-verifiability of such packages is not measured well using surface analysis.
+survey. For example, OpenLB, pyLBM, and TCLB use such methods during
+development, despite this not being explicitly clear from an analysis of the
+material available online. \wss{Add this to threats to validity.}  The
+correctness and verifiability of such packages is not measured well using
+surface analysis.
 
 Several developers alluded to difficulty with testing the correctness of large
 numbers of features, and some even manually tested program output, as opposed to
@@ -2098,7 +2108,7 @@ Some software packages, like Palabos, provide validation benchmarks for their
 core fundamental algorithmic ingredients \citep{latt2021palabos}. The stated
 intent of these benchmarks is to showcase the validity and usefulness of the
 package to stimulate the development of third-user extensions. The Palabos
-package identifies as a development framework for modeling problems in various
+package identifies as a development framework for modelling problems in various
 CFD areas.  \wss{Add validation benchmarks as a ``best practice'' used by
 Palabos - others could emmulate.  Goal of this exercise is for people in the
 community to learn from each other, and potentially from our advice too.}
@@ -2574,7 +2584,7 @@ clear from an analysis of the material available online.
 
 Furthermore, design documentation was measured to be a ``less common'' artifact
 in this assessment, but it is probable that such documentation is part of all
-LBM packages. After all, developing SCS is not a trivial endeavor. It is likely
+LBM packages. After all, developing SCS is not a trivial endeavour. It is likely
 that many packages have such documentation but did not make it public, and due
 to this the measured data is not a true reflection of software package quality.
 
@@ -2591,6 +2601,10 @@ Problems with the measurement of qualities:
 \end{itemize}
 
 Overall ranking with equally weighted qualities isn't realistic (Section~\ref{Sec_OverallQuality}).
+
+Threat to validity - the gap between measures of everything else and Musubi
+(Section~\ref{identifysoftware}), and then the gap between the manual measures
+and the automated measures (Section~\ref{repmetrics}).
 
 \section{Conclusion} \label{conclusion}
 
