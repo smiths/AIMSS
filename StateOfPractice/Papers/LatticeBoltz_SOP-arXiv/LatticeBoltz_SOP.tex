@@ -1526,8 +1526,12 @@ broader research software community, can potentially adopt.
 \section{Comparison of Artifacts to Research Software in General}
 \label{Sec_CompareArtifacts}
 
-Answers \rqref{RQ_CompareArtifacts}.  The software packages were examined for
-the presence of artifacts, which were then categorized by frequency. We have
+In this section we answers \rqref{RQ_CompareArtifacts} by comparing the
+artifacts that we observed in LBM repositories to those observed and recommended
+for research software in general.  roadmap?
+
+As part of filling in the measurement template the LBM packages were examined
+for the presence of artifacts, which were then categorized by frequency. We have
 grouped them into common, less common, and rare artifacts in
 Table~\ref{artifactspresent}. Common artifacts were found in 16 to 24 ($>$63\%)
 of the software packages. Less common artifacts were found in 8 to 15 (30-63\%)
@@ -1541,30 +1545,49 @@ software packages.
 \textbf{Common} & \textbf{Less Common} & \textbf{Rare} \\
 \midrule
 Authors / Developers List & Change Log / Release Notes & API Documentation\\
-Bug Tracker & Design Documentation & Developer / Contributor Manual\\
+Issue Tracker & Design Documentation & Developer / Contributor Manual\\
 Dependency Notes & Functional Spec. / Notes & FAQ / Forum\\
 Installation Guide / Instructions & Performance Information & Verification and
 Validation Plan\\
-Requirements Spec. / Theory Notes & Test Plan / Script / Cases & Video Guide
+Theory Notes & Test Plan / Script / Cases & Video Guide
 (including YouTube)\\
-List of Related Publications & User Manual/Guide & \\
+List of Related Publications & User Manual/Guide & Requirements Spec.\\
 Makefile / Build File & Version Control & \\
 README File & & \\
 License & & \\
 Tutorial & & \\
 \bottomrule
 \end{tabular}
-\caption{Artifacts Present in Surveyed Packages, Classified by Frequency}
+\caption{Artifacts Present in LBM Packages, Classified by Frequency}
 \label{artifactspresent}
 \end{center}
 \end{table}
 
 All of the top four AHP ranked packages, ESPREsSo, Ludwig, Palabos, and OpenLB,
-have each of the commonly found artifacts, except only three of them have a
-requirements specification or theory notes. \wss{Change to clarify that it is
-theory notes, not a requirements specification.  Remove requirements spec from
-table and put it as rare.}  Palabos is the only one of these four packages that
-does not have an artifact from this category.  \wss{** Requirements **}
+have each of the commonly found artifacts, except Palabos does not have any
+theory notes.  The top four AHP ranked packages have most of the less common
+artifacts. At the time of data collection, only one of the four packages
+(Palabos) did not have a user manual or guide, but there was a broken link on
+the package website indicating that such an artifact might exist. This broken
+link was later fixed, but this is not reflected in our data because it was not
+present at the time of initial data collection (mid 2020). Despite the broken
+link, Palabos does have a detailed and informative website. Another one (Ludwig)
+of the top four packages does not appear to have publicly visible design
+documentation. A third package (OpenLB) from the list does not appear to use a
+version control system. It is possible that such a system is used by the
+package, since its website notes package version numbers, but the artifacts do
+not explicitly state the use of such a system.
+
+The top four ranked packages do not have many of the rare artifacts. None of the
+top four packages have any explicit API documentation. Three of these packages
+(ESPREsSo, Ludwig, Palabos) have information on contributing to the project. Two
+of them (OpenLB, Palabos) have a FAQ section or forum. One (OpenLB) has
+verification and validation notes, and a video guide of the software. 
+
+\wss{Change to clarify that it is theory notes, not a requirements
+specification.  Remove requirements spec from table and put it as rare.}
+
+\wss{** Requirements **}
 \wss{Discuss requirements here. Extra information from Peter: I interpreted it
 to mean what the software should do. As noted in my report, this was not common,
 especially finding any formal document like an SRS. I do not recall any package
@@ -1590,31 +1613,21 @@ trend.}
  this is good enough, but a theory manual doesn't include the traceability to
  the code.  For instance, what are the consequences of changing an assumption?}
 
+ \wss{Kelly paper about how researchers document their theory.  Close to being enough - just need traceability and other things.}
+
  \wss{More on requirements as a pain point is given in Weiss, and other papers
 cited by Carver (2021).  Isn't generally requirements in the SE sense of
 following a template or similar.}
 
-The top four AHP ranked packages have most of the less common artifacts. At the
-time of data collection, only one of the four packages (Palabos) did not have a
-user manual or guide, but there was a broken link on the package website
-indicating that such an artifact might exist. This broken link was later fixed,
-but this is not reflected in our data because it was not present at the time of
-data collection. Despite the broken link, Palabos does have a detailed and
-informative website. Another one (Ludwig) of the top four packages does not
-appear to have publicly visible design documentation. A third package (OpenLB)
-from the list does not appear to use a version control system. It is possible
-that such a system is used by the package, since its website notes package
-version numbers, but the artifacts do not explicitly state the use of such a
-system.
-
-The top four ranked packages do not have many of the rare artifacts. None of the
-top four packages have any explicit API documentation. Three of these packages
-(ESPREsSo, Ludwig, Palabos) have information on contributing to the project. Two
-of them (OpenLB, Palabos) have a FAQ section or forum. One (OpenLB) has
-verification and validation notes, and a video guide of the software. 
-
 \wss{Weiss mentions pain points related to design documentation.  Carver (2021) 
 also mentions design documentation in the literature review.}
+
+\wss{README files discussed in PranaEtAl2018.}
+
+\wss{At some point should get into the intended use of the software.  The
+artifacts will change depending on the intention for the software.  Maybe just
+say at the start that writing as if all software is intended for research
+readiness?}
 
 \section{Comparison of Tool Usage to Research Software in General}
 \label{Sec_CompareTools}
@@ -2611,17 +2624,17 @@ and the automated measures (Section~\ref{repmetrics}).
 We analyzed the state of the practice of software development in the Lattice
 Boltzmann Methods software domain by quantitatively and qualitatively measuring,
 and comparing, 24 software packages along quality attributes. The software
-qualities that were assessed in this report are listed in Section
-~\ref{softwarequalities}. A methodology for assessing the state of the practice
-of software development in SCS domains was presented. Domain packages were
-assessed to answer the software development related research questions listed in
-Section~\ref{secIntro} to understand how software quality is impacted by software
-development choices, including principles, processes, and tools. Software
-developers were interviewed to identify development pain points, and to identify
-how software quality is ensured. Quantitative data was used to rank the software
-packages using the AHP. The ranking designations were compared with rankings
-from the software development community, and we found that many of our top 10
-ranked packages are ranked highly by a domain expert. Recommendations for
+qualities that were assessed in this report are listed in
+Section~\ref{softwarequalities}. A methodology for assessing the state of the
+practice of software development in SCS domains was presented. Domain packages
+were assessed to answer the software development related research questions
+listed in Section~\ref{secIntro} to understand how software quality is impacted
+by software development choices, including principles, processes, and tools.
+Software developers were interviewed to identify development pain points, and to
+identify how software quality is ensured. Quantitative data was used to rank the
+software packages using the AHP. The ranking designations were compared with
+rankings from the software development community, and we found that many of our
+top 10 ranked packages are ranked highly by a domain expert. Recommendations for
 improving software along quality metrics were made, and highlights are presented
 in Section~\ref{highlightedrecommendations} of this conclusion. The findings of
 this report can be used to guide future development of SCS, specifically along
