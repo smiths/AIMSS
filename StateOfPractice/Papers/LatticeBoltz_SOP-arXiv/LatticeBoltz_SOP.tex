@@ -1017,7 +1017,7 @@ classified as alive.
 \subsection{Surface Correctness and Verifiability} \label{SecSurfCorrectAndVerifiab}
 
 Seventeen of the software packages explicitly reference domain theory, but a
-full requirements specification, in the software engineering sense
+full and rigorous requirements specification, in the software engineering sense
 \citep{IEEE1998, RobertsonAndRobertson1999Vol, ESA1991}, is absent from all of
 the projects. Software packages that include a subset of a requirements
 specification, such as DL\_MESO (LBE), keep the information brief and include it
@@ -1033,7 +1033,9 @@ Tutorials are available for 19 of the software packages. Generally they are
 linearly written and easy to follow. However, only eight tutorials provide an
 expected output. It is not possible to verify the correctness of the output of
 the software packages that are missing this key information. In these cases the
-user may need to assume correctness if there are no visible errors.
+user may need to assume correctness if there are no visible errors.  A
+particularly  detailed tutorial that include expected output is provided by
+\href{https://www.walberla.net/doxygen/index.html}{waLBerla}.
 
 Unit tests are only explicitly available for two of the software packages,
 Ludwig and Musubi. Code modularization of most packages allow for users to
@@ -1523,7 +1525,7 @@ broader research software community.  We will also investigate the practices
 from the top projects that others within the LBM community, and within the
 broader research software community, can potentially adopt.
 
-\section{Comparison of Artifacts to Research Software in General}
+\section{Comparison Between LBM and Research Software for Artifacts}
 \label{Sec_CompareArtifacts}
 
 As part of filling in the measurement template the LBM packages were examined
@@ -1532,9 +1534,16 @@ grouped them into common, less common, and rare artifacts in
 Table~\ref{artifactspresent}. Common artifacts were found in 16 to 24 ($>$63\%)
 of the software packages. Less common artifacts were found in 8 to 15 (30-63\%)
 of the software packages. Rare artifacts were found in 1 to 7 ($<$30\%) of the
-software packages. In this section we answers \rqref{RQ_CompareArtifacts} by
+software packages.  In this section we answers \rqref{RQ_CompareArtifacts} by
 comparing the artifacts that we observed in LBM repositories to those observed
-and recommended for research software in general.
+and recommended for research software in general. Our comparison may point out
+areas where some LBM software packages fall short of current best practices.
+This is not intended to be a criticism of any existing packages, especially
+since in practice not every project needs to achieve the highest possible
+quality.  However, rather than delve into the nuances of which software can
+justify compromising which practices we will write our comparison under the
+ideal assumption that every project has sufficient resources to match best
+practices.
 
 \begin{table}
 \begin{center}
@@ -1544,7 +1553,7 @@ and recommended for research software in general.
 \midrule
 Authors / Developers List & Change Log / Release Notes & API Documentation\\
 Issue Tracker & Design Documentation & Developer / Contributor Manual\\
-Dependency Notes & Functional Spec. / Notes & FAQ / Forum\\
+Library Dependency List & Functional Spec. / Notes & FAQ / Forum\\
 Installation Guide / Instructions & Performance Information & Verification and
 Validation Plan\\
 Theory Notes & Test Plan / Script / Cases & Video Guide
@@ -1580,71 +1589,111 @@ The top four ranked packages do not have many of the rare artifacts. None of the
 top four packages have any explicit API documentation. Three of these packages
 (ESPREsSo, Ludwig, Palabos) have information on contributing to the project. Two
 of them (OpenLB, Palabos) have a FAQ section or forum. One (OpenLB) has
-verification and validation notes, and a video guide of the software. 
+verification and validation notes, and a video guide for the software. 
 
-\wss{Change to clarify that it is theory notes, not a requirements
-specification.  Remove requirements spec from table and put it as rare.}
+The majority of LBM generated artifacts correspond to general recommendations
+from research software developers.  A union of the three columns in
+Table~\ref{artifactspresent} mostly corresponds to recommendations made by the
+research software community.  Most of the items in Table~\ref{artifactspresent}
+are included in guidelines for writing research software, such as the DLR
+(German Aerospace Centre) Software Engineering Guidelines
+\citep{TobiasEtAl2018}, xSDK (Extreme-scale Scientific Software Development Kit)
+Community Package Policies \citep{SmithAndRoscoe2018}, the EURISE (European
+Research Infrastructure Software Engineers') Network Technical Reference
+\cite{ThielEtAl2020} and CLARIAH (Common Lab Research Infrastructure for the
+Arts and Humanities) Guidelines for Software Quality \citep{vanGompelEtAl2016}.
+As an example, LBM developers list the external libraries on which the software
+depends as recommended by \citet{BrettEtAl2021}, \citet{SmithAndRoscoe2018} and
+\citet{vanGompelEtAl2016}. Although in the rare column, some LBM developers
+include an FAQ (Frequently Asked Questions) document as recommended by
+\citep{OrvizEtAl2017}, \citep{ThielEtAl2020} and \citep{vanGompelEtAl2016}. LBM
+developers also follow the ubiquitous recommendation to have a README file,
+although, as for other software, the content of README files is not standardized
+\citep{PranaEtAl2018}.
 
-\wss{** Requirements **}
-\wss{Discuss requirements here. Extra information from Peter: I interpreted it
-to mean what the software should do. As noted in my report, this was not common,
-especially finding any formal document like an SRS. I do not recall any package
-having an SRS. Some packages did note in their manuals or artifacts some of the
-points that would be found in an SRS document. For example, DL\_MESO notes
-functional (``The following is a list of the features that DLMESO currently
-supports....'') and non-functional (should work in both ``serial and parallel
-running; it can be run on standalone machines, clusters and supercomputers..'')
-requirements in its documentation (more on this below). Yes, there was often
-some sort of a theory resource. Often it was simply a link or reference to the
-theory used in the package. There was significant discrepancy in how much theory
-was documented or referenced. Meanwhile, requirements were rare. A few packages
-did note some of this information within other artifacts but it was not
-comprehensive, and it was not presented in a SRS document. DL\_MESO has some of
-the information that belongs in an SRS in its user manual. It is not
-comprehensive or presented as it would be in an SRS, but it was probably the
-best example of requirements. It has a nice subsection on Functionality.
-\citet{Nguyen-HoanEtAl2010} showed requirements are the least commonly produced
-type of documentation for scientific software in general.  LBM matches this
-trend.}
+Three of the items that appear in Table~\ref{artifactspresent} do not explicitly
+appear in the software development guidelines: i) list of related publications,
+ii) performance information and iii) video guides.  The occurrence of the first
+two items in this list are likely more a consequence of how we collected our
+list of LBM artifacts, rather than being a unique practice of LBM developers. We
+highlighted publications and performance information because we were explicitly
+looking for both as part of filling in our measurement template. Related
+publications and performance information certainly appear in other research
+software projects; the practices just aren't highlighted in guidelines because
+they are implicit in other documentation recommendations, such as theory
+documentation and user guides. The observation of a video guide artifact is more
+novel.  Other projects likely use videos, but the practice has apparently not
+yet made it into community guidelines.  Putting aside the debate of the
+effectiveness of learning from print versus video, video documentation is
+growing in popularity, with a majority of Generation Z learners preferring video
+to print \citep{Genota2018}.
 
-\wss{Document theory (17 of the packages), but not requirements.  Might think
- this is good enough, but a theory manual doesn't include the traceability to
- the code.  For instance, what are the consequences of changing an assumption?}
+Although the LBM community participates in most of the practices we found listed
+in general research software guidelines, some recommended practices were not observed or rarely observed. In addition to the items in the last column of Table~\ref{artifactspresent}, we can add the following community recommended items that we rarely, if ever, observed:
 
- \wss{Kelly paper about how researchers document their theory.  Close to being enough - just need traceability and other things.}
+\begin{itemize}
+\item A roadmap showing what is planned for the future \citep{Yo2021,
+ThielEtAl2020, vanGompelEtAl2016}.  We did see this information mentioned in
+some repos, but we did not observe a specific artifact devoted to this purpose.
+\item A code of conduct to explicitly say how developers should treat one
+another \citep{Yo2021, ThielEtAl2020}.  We did not observe a policy of this
+sort, possibly because the number of developers for each LBM project is small.
+\item Programming style guidelines so that programming labels and formatting are
+consistent \citep{TobiasEtAl2018, ThielEtAl2020, OrvizEtAl2017, Zadka2018,
+vanGompelEtAl2016, WilsonEtAl2014}.  We saw this information as part of
+developer guides, but only rarely.
+\item Checklists can be used in projects to ensure that best practices are
+followed by all developers.  Some examples include checklists merging branches
+into master \citep{Brown2015}, checklists for saving and sharing changes to the
+project \citep{WilsonEtAl2016}, checklists for new and departing team members
+\citep{HerouxAndBernholdt2018}, checklists for processes related to commits and
+releases \citep{HerouxEtAl2008} and checklists for overall software quality
+\citep{ThielEtAl2020, SSI2022}.  We did see evidence of checklists in the LBM
+projects, but they were used only rarely.
+\item Although not observed for LBM projects, having instructions to uninstall
+the software is part of best practices \citep{vanGompelEtAl2016}.
+\end{itemize}
 
- \wss{More on requirements as a pain point is given in Weiss, and other papers
+The above discussion shows that, taken together, LBM projects fall short of
+recommended practices for research software.  However, LBM software is not alone
+in this.  Info on req, design and testing.  \citet{Nguyen-HoanEtAl2010} showed
+requirements are the least commonly produced type of documentation for
+scientific software in general.  Carver points out do not do requirements.  Not
+everyone recommends requirements - can find citations.  Feasible to do
+requirements.  Theory documents are already common (17 of 24? packages).  Need
+to add just a little more information.
+
+\wss{Document theory (17 of the packages), but not requirements.  Opportunity to
+ go a little further and have a more complete requirements specificaiton. Add
+ traceability to the code.  For instance, what are the consequences of changing
+ an assumption?  adding an abstract transformation from theorty to code - when
+ and how.  Example have a PDE, sate use finite difference. Consequence of change
+ - likely and unlikely changes - give example of 2D vs 3D.  Basic idea is to
+ give information on some simple things to add that would make a theory document
+ like a requirements document. }
+
+\wss{More on requirements as a pain point is given in Weiss, and other papers
 cited by Carver (2021).  Isn't generally requirements in the SE sense of
 following a template or similar.}
 
 \wss{Weiss mentions pain points related to design documentation.  Carver (2021) 
 also mentions design documentation in the literature review.}
 
-\wss{README files discussed in PranaEtAl2018.}
-
-\wss{At some point should get into the intended use of the software.  The
-artifacts will change depending on the intention for the software.  Maybe just
-say at the start that writing as if all software is intended for research
-readiness?}
-
-\wss{From Peter: Roadmap - I did see this mentioned, but no specific artifacts
-for it. (``rare'' mentions) Code of conduct, policies for team members - do not
-recall ever seeing this Citation - definitely saw this several times (``less
-common'') Programming style guide - I did see this as part of developers guide
-(``rare'') description of team processes - I do recall seeing ``workflow'' detailed
-(``rare''). Not sure if this is similar. peer review - This was mentioned a few
-times in the interviews, but I do not recall seeing artifacts for this.
-checklists - I did see this a few times (``rare'') linters - I did see this
-(``rare'') uninstall - I do not recall seeing this.}
+In Table~\ref{artifactspresent} a rigorous requirements specification is rare,
+but parts of a full specification do occur, with theory notes being common and
+portions of the functional specification (statements about what the software
+does) being less common.  Discuss requirements stuff.
 
 \section{Comparison of Tool Usage to Research Software in General}
 \label{Sec_CompareTools}
 
-Answers \rqref{RQ_CompareToolsProjMngmnt}.  Software tools are used to support
-the development, verification, maintenance, and evolution of software, software
-processes, and artifacts \citep{ghezzi1991fundamentals}. Many tools are used by
-LBM software packages, as summarized in Table~\ref{tbl_tools}.  The tools are
-subdivided into development tools, dependencies, and project management tools.
+Software tools are used to support the development, verification, maintenance,
+and evolution of software, software processes, and artifacts
+\citep{ghezzi1991fundamentals}. Many tools are used by LBM software packages, as
+summarized in Table~\ref{tbl_tools}.  The tools are subdivided into development
+tools, dependencies, and project management tools.  In this section we answers
+\rqref{RQ_CompareToolsProjMngmnt} by comparing the tool usage in LBM software to
+the utilization in the research software community in general.
 
 \begin{table}
 	\begin{center}
@@ -1712,7 +1761,7 @@ what the other papers say are commonly used tools and bring that information
 into this section.}
 
 Section \ref{SecSurfCorrectAndVerifiab} shows that continuous integration is
-rare in LBM.
+rare in LBM.  Recommended by many \citep{vanGompelEtAl2016} etc.
 
 \wss{Also compare to recommended practices for research software via the
 checklists and other articles.}
@@ -1752,7 +1801,9 @@ major changes are discussed with the entire team. Projects with more than a
 couple developers have lead developer roles. These lead developers review
 potential additions to the software. One of the developers (ESPResSo) that was
 interviewed noted that an ad hoc peer review process is used to assess major
-changes and additions.
+changes and additions.  Peer review (also known as code review and technical
+review) is a frequently recommended component of developing research software
+\citep{HerouxEtAl2008, Givler2020, OrvizEtAl2017, USGS2019}.
 
 Thirteen (54\%) of the 24 software packages use GitHub for managing the project,
 including nine (60\%) of the 15 alive packages, and four of the nine (44\%) dead
@@ -1830,7 +1881,10 @@ education or experience of developers is also an idea that was brought up by
 several developers.  \wss{The Wiese paper and others talk about the background
 of developers. The knowledge for developing research software primarily comes
 from peers and through self-study, not from formal training
-\citep{HannayEtAl2009}.  The thinking of the developer on the role of formal education matches the trend \citet{PintoEtAl2018} observes, where in their replication of a previous study \citep{HannayEtAl2009}, they show a growing interest in formal training (From 13\% of respondants in 2009 to 22\% in 2018).}
+\citep{HannayEtAl2009}.  The thinking of the developer on the role of formal
+education matches the trend \citet{PintoEtAl2018} observes, where in their
+replication of a previous study \citep{HannayEtAl2009}, they show a growing
+interest in formal training (From 13\% of respondants in 2009 to 22\% in 2018).}
 
 Poor software documentation is also mentioned by \citet{PintoEtAl2018} and
 \citet{LethbridgeEtAl2003}.  The survey from \citet{LethbridgeEtAl2003} is for
@@ -1928,7 +1982,11 @@ verify the work.
 
 \wss{** END Testing and Verification **}
 
-``The questions of what constitutes an adequate testing oracle for scientific software and what constitutes adequate test data are left open. Some of the validation testing we researched was running up against the practical limits; they were using whatever oracle they could scrape together from industry data, benchmarks, and expert judgment.'' \citep{KellyAndSanders2008}
+``The questions of what constitutes an adequate testing oracle for scientific
+software and what constitutes adequate test data are left open. Some of the
+validation testing we researched was running up against the practical limits;
+they were using whatever oracle they could scrape together from industry data,
+benchmarks, and expert judgment.'' \citep{KellyAndSanders2008}
 
 \wss{Seems that LBM not concerned with the oracle problem?}
 
@@ -2383,51 +2441,22 @@ version control, README, Req etc. - point to Table 8.)
 
 \subsection{Best Practices} \label{bestPractices}
 
-practices by the best measured.
+practices by the best measured.  Point to existing checklist and development
+guides.  This section should only mention things that are new.
 
 \begin{itemize}
-	\item The top projects provide great examples of achieving installability,
-	by taking such steps as: providing complete installation instructions,
-	writing instructions as if the user does not have any of the dependencies
-	installed, automation of the installation process (for instance using make),
-	including descriptive error message, and including steps for uninstallation.
-	\item Surface Correctness and Verifiability. Make public (on package website
-	or GitHub) the requirements specification document, or explicitly reference
-	the domain theory that the software is designed from.  This was done by
-	several top ranked packages, including ESPResSo, Ludwig, LUMA, and OpenLB.
-	\item Surface Correctness and Verifiability. Ensure the above information is
-	easy to find. Consider adding it to the user manual. The information is easy
-	to find in most top ranked packages.
 	\item Surface Correctness and Verifiability. Development teams should
 	include both domain experts and experienced software developers. This
 	suggestion is based on developer comments.
-	\item Surface Correctness and Verifiability. Traceability. Visibility and
-	Transparency. Use and make public (on package website or GitHub) detailed
-	documentation. Consider using automatic document generation tools like
-	Doxygen, Drasil, or Sphinx. This was done by all of the top five ranked
-	packages.
-	\item Surface Correctness and Verifiability. Provide detailed tutorials that
-	include expected output, like the
-	\href{https://www.walberla.net/doxygen/index.html}{waLBerla tutorials}.
-	\item Surface Correctness and Verifiability. Use unit tests during
-	development and make them public (on package website or GitHub). This was
-	available for Ludwig.
-	\item Surface Correctness and Verifiability. Modularize the source code,
+	\item Surface Correctness and Verifiability. Surface Understandability.
+	Maintainability.  Modifiability. Reusability.  Modularize the source code,
 	separate components, hide information behind well defined interfaces. This
 	is suggested in SCS literature, and in developer comments.  \wss{one of
 	Wilson's best practices.}
-	\item Surface Understandability. Maintainability.  Modifiability.
-	Reusability. Modularize the source code, separate components, hide
-	information behind well defined interfaces. This is suggested in SCS
-	literature, and in developer comments. \wss{add citation - Wilson mentions -
-	this points seems repetitive}
-	\item Surface Correctness and Verifiability. Use continuous integration
-	tools (Bamboo, Jenkins, and Travis CI) and processes during development.
-	This was done by top ranked packages ESPResSo and Ludwig.  \wss{Common in
-	LBM - more common than in other domains}
-	\item Surface Usability. State appropriate fluid dynamics problems that the
-	software is designed to model in the documentation, and explicitly state the
-	limits of the software. This is done in the ESPResSo user guide.
+	\item Surface Usability. Surface Understandability. Unambiguity. State
+	appropriate fluid dynamics problems that the software is designed to model
+	in the documentation, and explicitly state the limits of the software. This
+	is done in the ESPResSo user guide.
 	\item Surface Usability. Provide documentation that details the background
 	theory information, or provide a reference to such information. This was
 	done by several top ranked packages, including ESPResSo, Ludwig, LUMA, and
@@ -2437,35 +2466,9 @@ practices by the best measured.
 	characteristics is discussed in \citep{smith2007requirements}.
 	\item Surface Usability. Keep all documentation in one location. This was
 	done by top ranked packages.
-	\item Surface Usability. Maintain a user support model (Git, email, forum,
-	FAQ). This was done by all of the top five ranked packages.
-	\item Surface Usability. If possible, consider using popular user-friendly
-	software languages like Python. Especially consider this for parts of the
-	source code that is likely to be modified or reviewed by users. ESPResSo and
-	Sailfish use Python to shorten development time and improve usability.
-	\item Maintainability. Include version numbers and release notes for all
-	major source code and artifact releases. The top five ranked software
-	packages include release notes.
 	\item Maintainability. Have a defined process for accepting contributions,
 	and make public documentation for making contributions to the project. The
 	top five ranked software packages include information on how to contribute. 
-	\item Maintainability. Use an issue tracker (Git, email, SourceForge, other)
-	to manage bugs and changes. Issues should be regularly reviewed and closed.
-	All but three (laboetie, lettuce, Sailfish) of the software packages that
-	use Git have most of their issues closed.
-	\item Maintainability. Use a version control system (GitHub, CVS). Four
-	(ESPREsSo, Ludwig, LUMA, Palabos) of the top five ranked packages use a
-	version control system.
-	\item Maintainability. Source code needs to be well commented. Typically,
-	more than 10 percent of LBM package source code is comments, as presented in
-	Table~\ref{gitrepodata}. Four of the top five overall ranked packages
-	(Ludwig, ESPResSo, Palabos, OpenLB) have about 20 percent of their source
-	code as comments.
-	\item Maintainability. If possible, consider using popular user-friendly
-	software languages like Python. Especially consider this for parts of the
-	source code that is likely to be modified or reviewed by users. ESPResSo and
-	Sailfish use Python to address several software qualities, including
-	maintainability.
 	\item Modifiability. Consider flexibility of data structures and data
 	storage in the design stage. The package pyLBM redeveloped data structures
 	to ease future changes.
@@ -2475,14 +2478,6 @@ practices by the best measured.
 	artifacts, including some examples. A coding standard needs to be part of
 	continuous integration. Only LUMA, HemeLB, and Musubi explicitly identify
 	coding standards. 
-	\item Surface Understandability. Add meaningful comments. Indicate what is
-	being done in each section of source code. All of the top ranked packages
-	have meaningful comments in their source code.
-	\item Surface Understandability. State appropriate fluid dynamics problems
-	that the software is designed to model in the documentation, and explicitly
-	state the limits of the software. This is done in the ESPResSo user guide. 
-	\item Surface Understandability. Consider adding a FAQ section to the
-	documentation. This helped resolve some usability issues for OpenLB.
 	\item Traceability. Provide a developer's guide to help orient developers to
 	the artifacts, source code, and system architecture so that they can better
 	document changes. Top ranked package OpenLB has a developer guide. \wss{How
@@ -2492,15 +2487,6 @@ practices by the best measured.
 	development model by name (waterfall, agile, etc.), if appropriate.  Seven
 	of the software packages have some artifacts outlining the general
 	development process. Eleven packages have information on how to contribute. 
-	\item Visibility and Transparency. Identify the development environment.
-	Eight of the 24 software packages identify the development environment.
-	\item Visibility and Transparency. Include notes with all releases. Nine of
-	the packages include release notes.
-	\item Visibility and Transparency. Communicate all changes within the
-	development team. This suggestion is based on developer comments.
-	\item Visibility and Transparency. Use continuous integration processes and
-	tools (Bamboo, Jenkins, and Travis CI). This was done by top ranked packages
-	ESPResSo and Ludwig.
 	\item Visibility and Transparency. Consider peer review processes to assess
 	contributions and ensure the tracking of information. High ranked package
 	ESPResSo uses a peer review process for contributions. 
@@ -2510,13 +2496,6 @@ practices by the best measured.
 	code changes. High ranked package ESPResSo does this.
 	\item Reproducibility. Consider peer review processes and task based
 	inspection to assess contributions. High ranked package ESPResSo does this.
-	\item Unambiguity. State appropriate fluid dynamics problems that the
-	software is designed to model in the documentation, and explicitly state the
-	limits of the software. This is done in the ESPResSo user guide.
-	\item Unambiguity. The documentation should either explain the underlying
-	CFD theories or provide a reference to appropriate resources. This was done
-	by several top ranked packages, including ESPResSo, Ludwig, LUMA, and
-	OpenLB.
 	\item Unambiguity. Consider asking users for feedback on the documentation.
 	The developer of pyLBM noted that such feedback would be appreciated.
 
@@ -2564,6 +2543,8 @@ Answers \rqref{RQ_Future}.  practices for the future.
 changes in requirements ...)'' \citep{PintoEtAl2018}. We can point out that in
 the future this viewpoint could change and why.  Not really a unique challenge.
 Cite Smith 2016?
+
+linters \citep{Zadka2018} were rarely observed in LBM projects.  Do not see much evidence of their presence in best practice guides.
 
 \section{Threats To Validity} \label{threats}
 
@@ -2660,6 +2641,14 @@ validity of the findings are highlighted in Section~\ref{threats}.
 Recommendations for future state of the practice assessments are made in Section
 ~\ref{futuresop}.
 
+Our comparison may point out areas where some LBM software packages fall short
+of current best practices.  This is not intended to be a criticism of any
+existing packages, especially since in practice not every project needs to
+achieve the highest possible quality.  However, rather than delve into the
+nuances of which software can justify compromising which practice we will write
+our comparison under the ideal assumption that every project can have sufficient
+resources to match best practices.
+
 \subsection{Highlighted Recommendations} \label{highlightedrecommendations}
 
 Many software packages would benefit from a rewrite or reorganization of
@@ -2690,7 +2679,8 @@ attributes, and provide the greatest return on investment:
 	and any additional supplementary documentation that may be required. This
 	was done by many packages, including waLBerla, Palabos, MechSys, LUMA, and
 	pyLBM.
-	\item Keep all documentation in one location. This was done by top ranked packages.
+	\item Keep all documentation in one location. This was done by top ranked
+	packages.
 	\item If possible, consider using popular user-friendly software languages
 	like Python. Especially consider this for parts of the source code that is
 	likely to be modified or reviewed by users. ESPResSo and Sailfish use Python
@@ -2801,3 +2791,6 @@ Enough Practices'' \citep{WilsonEtAl2016}
 
 - JimenezEtAl2017 talks about Define clear and transparent contribution,
 governance and communication processes
+
+- should look at ReinerEtAl2022 on Domain of Ocean Modelling software to
+contrast to the state of the practice of LBM software
