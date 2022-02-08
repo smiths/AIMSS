@@ -1570,20 +1570,18 @@ Tutorial & & \\
 \end{center}
 \end{table}
 
-All of the top four AHP ranked packages, ESPREsSo, Ludwig, Palabos, and OpenLB,
-have each of the commonly found artifacts, except Palabos does not have any
-theory notes.  The top four AHP ranked packages have most of the less common
-artifacts. At the time of data collection, only one of the four packages
-(Palabos) did not have a user manual or guide, but there was a broken link on
-the package website indicating that such an artifact might exist. This broken
-link was later fixed, but this is not reflected in our data because it was not
-present at the time of initial data collection (mid 2020). Despite the broken
-link, Palabos does have a detailed and informative website. Another one (Ludwig)
-of the top four packages does not appear to have publicly visible design
-documentation. A third package (OpenLB) from the list does not appear to use a
-version control system. It is possible that such a system is used by the
-package, since its website notes package version numbers, but the artifacts do
-not explicitly state the use of such a system.
+The top four packages, ESPREsSo, Ludwig, Palabos, and OpenLB, have all of the
+common artifacts, except Palabos does not have theory notes.  The top four
+packages also have most of the less common artifacts. At the time of data
+collection, only one of the four packages (Palabos) did not have a user manual
+or guide, but there was a broken link on the package website indicating that
+such an artifact might exist. This broken link was later fixed, but this is not
+reflected in our data because it was not present at the time of data collection
+(mid 2020). Despite the broken link, Palabos does have a detailed and
+informative website. As far as we could observe, Ludwig does not appear to have
+publicly visible design and OpenLB does not appear to use a version control
+system. However, OpenLB's use of version numbers suggests that version control
+may be used privately by the developers.
 
 The top four ranked packages do not have many of the rare artifacts. None of the
 top four packages have any explicit API documentation. Three of these packages
@@ -1629,7 +1627,10 @@ growing in popularity, with a majority of Generation Z learners preferring video
 to print \citep{Genota2018}.
 
 Although the LBM community participates in most of the practices we found listed
-in general research software guidelines, some recommended practices were not observed or rarely observed. In addition to the items in the last column of Table~\ref{artifactspresent}, we can add the following community recommended items that we rarely, if ever, observed:
+in the general research software guidelines, some recommended practices were not
+observed or rarely observed. In addition to the items in the last column of
+Table~\ref{artifactspresent}, we can add the following community recommended
+items that we rarely, if ever, observed:
 
 \begin{itemize}
 \item A roadmap showing what is planned for the future \citep{Yo2021,
@@ -1641,48 +1642,57 @@ sort, possibly because the number of developers for each LBM project is small.
 \item Programming style guidelines so that programming labels and formatting are
 consistent \citep{TobiasEtAl2018, ThielEtAl2020, OrvizEtAl2017, Zadka2018,
 vanGompelEtAl2016, WilsonEtAl2014}.  We saw this information as part of
-developer guides, but only rarely.
+some developer guides, but only rarely.
 \item Checklists can be used in projects to ensure that best practices are
 followed by all developers.  Some examples include checklists merging branches
 into master \citep{Brown2015}, checklists for saving and sharing changes to the
 project \citep{WilsonEtAl2016}, checklists for new and departing team members
 \citep{HerouxAndBernholdt2018}, checklists for processes related to commits and
 releases \citep{HerouxEtAl2008} and checklists for overall software quality
-\citep{ThielEtAl2020, SSI2022}.  We did see evidence of checklists in the LBM
-projects, but they were used only rarely.
-\item Although not observed for LBM projects, having instructions to uninstall
-the software is part of best practices \citep{vanGompelEtAl2016}.
+\citep{ThielEtAl2020, SSI2022}.  For LBM software, ESPResSo has a checklist for
+managing releases, but otherwise they are used only rarely for LBM.
+\item Uninstall instructions \citep{vanGompelEtAl2016} were not observed for any
+of the LBM projects.
 \end{itemize}
 
 The above discussion shows that, taken together, LBM projects fall short of
-recommended practices for research software.  However, LBM software is not alone
-in this.  Info on req, design and testing.  \citet{Nguyen-HoanEtAl2010} showed
-requirements are the least commonly produced type of documentation for
-scientific software in general.  Carver points out do not do requirements.  Not
-everyone recommends requirements - can find citations.  Feasible to do
-requirements.  Theory documents are already common (17 of 24? packages).  Need
-to add just a little more information.
+recommended best practices for research software.  However, LBM software is not
+alone in this.  Many, if not most, research projects fall short of best
+practices.  Software requirements documentation provides a good example of the
+common deviation between recommendations and practice.  Although requirements
+documentation is recommended by some \citep{TobiasEtAl2018, HerouxEtAl2008,
+SmithAndKoothoor2016}, in practice scientific software developers often do not
+produce a proper requirements specification \citep{HeatonAndCarver2015}.
+\citet{SandersAndKelly2008} interviewed 16 scientists from 10 disciplines and
+found that none of the scientists created requirements specifications, unless
+regulations in their field mandated such a document. \citet{Nguyen-HoanEtAl2010}
+showed requirements are the least commonly produced type of documentation for
+scientific software in general. When looking at the pain points for research
+software developers, \citet{WieseEtAl2019} found that software requirements and
+management is the software engineering discipline that most hurts scientific
+developers, accounting for 23 \% of the technical problems reported by study
+participants.  The lack of support for requirements is likely due to the
+perception that up-front requirements are impossible for research software
+\citep{CarverEtAl2007,SegalAndMorris2008}, but when the instance on ``up-front''
+requirements is dropped, allowing the requirements to be written iteratively and
+incrementally, requirements are feasible \citep{Smith2016}.
 
-\wss{Document theory (17 of the packages), but not requirements.  Opportunity to
- go a little further and have a more complete requirements specificaiton. Add
- traceability to the code.  For instance, what are the consequences of changing
- an assumption?  adding an abstract transformation from theorty to code - when
- and how.  Example have a PDE, sate use finite difference. Consequence of change
- - likely and unlikely changes - give example of 2D vs 3D.  Basic idea is to
- give information on some simple things to add that would make a theory document
- like a requirements document. }
-
-\wss{More on requirements as a pain point is given in Weiss, and other papers
-cited by Carver (2021).  Isn't generally requirements in the SE sense of
-following a template or similar.}
-
-\wss{Weiss mentions pain points related to design documentation.  Carver (2021) 
-also mentions design documentation in the literature review.}
-
-In Table~\ref{artifactspresent} a rigorous requirements specification is rare,
-but parts of a full specification do occur, with theory notes being common and
-portions of the functional specification (statements about what the software
-does) being less common.  Discuss requirements stuff.
+Requirements documentation is feasible, as shown by the prevalence of theory
+documents in LBM software.  Table~\ref{artifactspresent} shows that theory
+documentation is common.  We observed 17 of 24 packages had at least some theory
+documentation. Templates for scientific requirements, like \citet{SmithEtAl2007,
+SmithAndLai2005}, show theory is a significant part of the requirements
+documentation. With the addition of some extra information, the theory documents
+can be transformed into requirements specification.  The key extra information
+includes explicitly stating user characteristics, explicitly stating how the
+user interacts with the software in terms of input data requirements, and
+listing likely and unlikely changes.  Explicit statements about likely changes
+are invaluable in the design stage, since they provide developers guidance on
+how general the software needs to be.  For those wishing to maximize the value
+of a requirement specification, information could be added like prioritizing the
+nonfunctional requirements (to show the relative importance between qualities
+like portability, reliability and performance) and traceability information (to
+show the consequences of any changes to the assumptions).
 
 \section{Comparison of Tool Usage to Research Software in General}
 \label{Sec_CompareTools}
@@ -1760,11 +1770,11 @@ The tools Sphinx and Doxygen are explicitly used in this capacity. \wss{look at
 what the other papers say are commonly used tools and bring that information
 into this section.}
 
+\wss{Beyond software carpenty has data on the increasing use of version control.}
+
 Section \ref{SecSurfCorrectAndVerifiab} shows that continuous integration is
 rare in LBM.  Recommended by many \citep{vanGompelEtAl2016} etc.
 
-\wss{Also compare to recommended practices for research software via the
-checklists and other articles.}
 
 \section{Comparison of Principles, Process and Methodologies to Research
 Software in General} \label{Sec_CompareMethodologies}
