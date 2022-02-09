@@ -1184,7 +1184,7 @@ sometimes have documented user characteristics, and have at least one user
 support model. Many packages have several user support models. Furthermore, four
 of the top five packages are noted as being alive. 
 
-\subsection{Maintainability}
+\subsection{Maintainability} \label{Sec_Maintainability}
 
 Software packages were reviewed for the presence of artifacts. Every type of
 artifact or file that is not a code file was recorded. The software packages
@@ -1208,8 +1208,8 @@ their issues closed, while dead packages (3 use issue tracking) have 71\% of
 their issues closed. This information is presented in Table~\ref{gitrepodata}.
 With respect to the host for the git repository, 13 packages use GitHub and two
 (Palabos, waLBerla) use GitLab. Of the other packages, one package (SunlightLB)
-uses CVS for issue tracking, and seven packages do not appear to use any issue
-tracking system.
+uses CVS for issue tracking and version control, and seven packages do not
+appear to use any issue tracking system.
 
 \begin{table}
 	\begin{center}
@@ -1559,10 +1559,11 @@ Validation Plan\\
 Theory Notes & Test Plan / Script / Cases & Video Guide
 (including YouTube)\\
 List of Related Publications & User Manual / Guide & Requirements Spec.\\
-Makefile / Build File & Version Control & \\
+Makefile / Build File &  & \\
 README File & & \\
 License & & \\
 Tutorial & & \\
+Version Control & & \\
 \bottomrule
 \end{tabular}
 \caption{Artifacts Present in LBM Packages, Classified by Frequency}
@@ -1571,13 +1572,14 @@ Tutorial & & \\
 \end{table}
 
 The top four packages, ESPREsSo, Ludwig, Palabos, and OpenLB, have all of the
-common artifacts, except Palabos does not have theory notes.  The top four
-packages also have most of the less common artifacts. At the time of data
-collection, only one of the four packages (Palabos) did not have a user manual
-or guide, but there was a broken link on the package website indicating that
-such an artifact might exist. This broken link was later fixed, but this is not
-reflected in our data because it was not present at the time of data collection
-(mid 2020). Despite the broken link, Palabos does have a detailed and
+common artifacts, except Palabos does not have theory notes and only three of
+them (ESPREsSo, Ludwig, Palabos) appear to use a version control system.  The
+top four packages also have most of the less common artifacts. At the time of
+data collection, only one of the four packages (Palabos) did not have a user
+manual or guide, but there was a broken link on the package website indicating
+that such an artifact might exist. This broken link was later fixed, but this is
+not reflected in our data because it was not present at the time of data
+collection (mid 2020). Despite the broken link, Palabos does have a detailed and
 informative website. As far as we could observe, Ludwig does not appear to have
 publicly visible design and OpenLB does not appear to use a version control
 system. However, OpenLB's use of version numbers suggests that version control
@@ -1694,16 +1696,16 @@ nonfunctional requirements (to show the relative importance between qualities
 like portability, reliability and performance) and traceability information (to
 show the consequences of any changes to the assumptions).
 
-\section{Comparison of Tool Usage to Research Software in General}
+\section{Comparison of Tool Usage Between LBM and Other Research Software}
 \label{Sec_CompareTools}
 
 Software tools are used to support the development, verification, maintenance,
-and evolution of software, software processes, and artifacts
-\citep{ghezzi1991fundamentals}. Many tools are used by LBM software packages, as
+and evolution of software, software processes, and artifacts \citep[p.\
+501]{GhezziEtAl2003}. Many tools are used by LBM software packages, as
 summarized in Table~\ref{tbl_tools}.  The tools are subdivided into development
 tools, dependencies, and project management tools.  In this section we answers
-\rqref{RQ_CompareToolsProjMngmnt} by comparing the tool usage in LBM software to
-the utilization in the research software community in general.
+\rqref{RQ_CompareToolsProjMngmnt} by comparing the tool usage in LBM to
+their utilization in the research software community in general.
 
 \begin{table}
 	\begin{center}
@@ -1728,7 +1730,7 @@ the utilization in the research software community in general.
 
 Development tools support the development of end products, but do not become
 part of them, unlike dependencies that remain in the application once it is
-released \citep{ghezzi1991fundamentals}. Although not shown in
+released \citep[p.\ 506]{GhezziEtAl2003}. Although not shown in
 Table~\ref{tbl_tools}, debuggers were also likely used.  Only three (ESPResSo,
 Ludwig and Musubi) packages mentioned continuous integration tools, like Travis
 CI. Code editors and compilers were explicitly noted to have been used by
@@ -1744,8 +1746,7 @@ They all use various technical and domain specific libraries. Technical
 libraries include visualization (e.g.\ Matplotlib, ParaView, Pygame, VTK), data
 analysis (e.g.\ Anaconda, Torch), and message passing libraries (e.g.\ MPICH,
 Open MPI, PyZMQ). Domain specific libraries include scientific computing
-libraries (e.g.\ SciPy). Some used libraries will be missing, if they are not
-explicitly stated in the artifacts we observed.
+libraries (e.g.\ SciPy).
 
 Many of the software packages that were assessed were developed by teams of two
 or more people. Their work needed to be coordinated and managed.
@@ -1753,28 +1754,36 @@ Table~\ref{tbl_tools} shows the types of project management tools that were
 explicitly noted in the artifacts, web-pages, or interviews with the developers.
 As with development tools and dependencies, it is possible that other types of
 project management tools are used, but they were not visible in the artifacts to
-which we had access.  Collaboration tools are noted as being used when
-developing the software projects. Most often email and video conferencing is
-used. Project management software was not explicitly mentioned, but it is
-possible that some of the projects use such software. Many of the projects are
-located on GitHub, and its developers use the platform to help manage their
-projects, especially bug related issues. Most of the projects appear to use
-change tracking and version control tools. \wss{**Version Control**} \wss{This
-contrasts with work from a little over 10 years ago that shows version control
-was only used in 50\% of research software projects \citep{Nguyen-HoanEtAl2010}.
-At that time \citet{Nguyen-HoanEtAl2010} noted an increase from previous levels
-of version control software use.  Anecdotally this confirms our observations.}
+which we had access.  Collaboration tools, most often email and video, are noted
+as being used when developing the software projects. Project management software
+was not explicitly mentioned, but it is possible that some of the projects use
+such software. Many of the projects are located on GitHub, where the developers
+use the platform to help manage their projects, especially bug related issues.
+Most of the projects appear to use change tracking and version control tools.
 They often use GitHub or GitLab for this. One package (SunlightLB) uses CVS.
-Document generation tools are mentioned in the artifacts of 12 of the projects.
-The tools Sphinx and Doxygen are explicitly used in this capacity. \wss{look at
-what the other papers say are commonly used tools and bring that information
-into this section.}
+Document generation tools are mentioned in 12 of the 24 projects. The tools
+Sphinx and Doxygen are explicitly used in this capacity.
 
-\wss{Beyond software carpenty has data on the increasing use of version control.}
+The poor adoption of version control tools that Wilson lamented in 2006
+\citep{Wilson2006} has greatly improved in the intervening years.  From
+Section~\ref{Sec_Maintainability} 67\% of LBM packages use version control
+(GitHub, GitLab and CVS).  The proliferation of version control tools for LBM
+matches the increase in the broader research software community.  A little over
+10 years ago (in 2010) version control was estimated to be used in only 50\% of
+research software projects \citep{Nguyen-HoanEtAl2010}, but even at that time
+\citet{Nguyen-HoanEtAl2010} noted an increase from previous usage levels.  A
+survey in 2018 shows 81\% of developers use a version control system
+\citep{AlNoamanyAndBorghi2018}.  This matches with \citet{Smith2018} shows
+active projects in mesh generation, geographic information systems and
+statistical software for psychiatry increasing from 75\%, 89\% and 17\%
+(respectively) to 100\%, 95\% and 100\% (respectively) over a four year period
+ending in 2018.  (For completeness the same study showed a decrease in version
+control tool usage for seismology software over the same time period (from 41\%
+down to 36\%).  Almost every software guide cited in
+Section~\ref{Sec_CompareArtifacts} mentions the advice to use version control.
 
 Section \ref{SecSurfCorrectAndVerifiab} shows that continuous integration is
 rare in LBM.  Recommended by many \citep{vanGompelEtAl2016} etc.
-
 
 \section{Comparison of Principles, Process and Methodologies to Research
 Software in General} \label{Sec_CompareMethodologies}
