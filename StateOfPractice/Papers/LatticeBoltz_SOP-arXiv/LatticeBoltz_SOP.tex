@@ -1875,20 +1875,28 @@ ThielEtAl2020, vanGompelEtAl2016, OrvizEtAl2017, FLOSS2022, JimenezEtAl2017}.
 Tutorials \citep{ThielEtAl2020}, trouble shooting guides \citep{OrvizEtAl2017,
 SSI2022} and quick start examples \citep{ThielEtAl2020, vanGompelEtAl2016} are
 also recommended.  \citep{SmithAndRoscoe2018} suggests including instructions
-specifically for on-boarding new developers. For open source software in
-general, \citep{Fogel2005} recommends providing tutorial style examples,
-developer guidelines, demos and screenshots.
+specifically for on-boarding new developers. For open source software in general
+(not just research software), \citep{Fogel2005} recommends providing tutorial
+style examples, developer guidelines, demos and screenshots.
 
 \section{Developer Pain Points} \label{painpoints}
 
-Answers \rqref{RQ_PainPoints} and \rqref{RQ_ComparePainPoints}.  This subsection
-answers the research question: What are the pain points for developers working
-on research software projects? What aspects of the existing processes,
-methodologies and tools do they consider as potentially needing improvement? How
-should processes, methodologies and tools be changed to improve software
-development and software quality? Developers were asked to comment on obstacles
-in their development process, obstacles encountered by users, and potential
-future obstacles.
+This section aims to answer the research questions: What are the pain points for
+developers working on research software projects (\rqref{RQ_PainPoints})?; and,
+How do the pain points of developers from LBM compare to the pain points for
+research software in general (\rqref{RQ_ComparePainPoints})?
+
+Roadmap.  Go through pain points, link to existing literature, then section on
+pain points not mentioned.  Ways to address pain points in the next section
+
+Maybe just do a table of pain points?  and then contrast the pain points with
+the literature.  The mitigation strategies should be elsewhere.  Some of the
+mitigation strategies have already been mentioned, like documentation.
+
+Likely possible to combine pain points and developer concerns.  Emphasizes what
+the pain points are, and how they compare to other studies.  Don't propose
+solutions in this section.  Say that all of the information comes from the
+interviews (as mentioned at the start of the next section).
 
 Pain points that others, but not LBM developers, mentioned in surveys include
 \citep{PintoEtAl2018}: Cross-platform compatibility, interruptions while coding,
@@ -1903,7 +1911,7 @@ A developer of pyLBM noted that their small development team has a lack of time
 to implement new features. Small development teams are common for LBM software
 packages. Team members are almost always part of the same institute or already
 know each other from other projects. External contributions are rare despite
-many of the projects accepting them. \wss{Other projects cite the same point
+many of the projects accepting them. \wss{Other projects cite the same pain
 point - Wiese paper}  Aside from on-boarding new developers, time constraints
 could be mitigated by increasing developer efficiency, which could be addressed
 in several ways, including by improving the quality of documentation, or
@@ -1929,10 +1937,6 @@ from peers and through self-study, not from formal training
 education matches the trend \citet{PintoEtAl2018} observes, where in their
 replication of a previous study \citep{HannayEtAl2009}, they show a growing
 interest in formal training (From 13\% of respondants in 2009 to 22\% in 2018).}
-
-Poor software documentation is also mentioned by \citet{PintoEtAl2018} and
-\citet{LethbridgeEtAl2003}.  The survey from \citet{LethbridgeEtAl2003} is for
-software in general, not just research software.
 
 \subsection{Lack of Incentive and Funding}
 
@@ -2088,7 +2092,9 @@ documentation to address the underlying physics topics in detail, so it is
 advised that the package documentation links to resources that better explain
 the underlying theory. Sometimes, frequently asked questions about the
 underlying theory are answered in the documentation. OpenLB has an artifact for
-such questions.  \wss{Weise mentions documentation.}
+such questions.  \wss{Weise mentions documentation.}  \wss{Partly solve the
+problem by documentation user characteristics, to explicitly state what the user
+is assumed to already know.}
 
 The developer comments emphasized an importance on source code, while
 documentation seems to be of secondary importance. It must be stressed that
@@ -2097,6 +2103,10 @@ developer concerns that were raised. The use of automatic document generation
 tools that capture scientific and computing knowledge, and transform it into
 software artifacts, is advised. Drasil is an automatic document generation tool
 that is further discussed in Section~\ref{highlightedrecommendations}.
+
+Poor software documentation is also mentioned by \citet{PintoEtAl2018} and
+\citet{LethbridgeEtAl2003}.  The survey from \citet{LethbridgeEtAl2003} is for
+software in general, not just research software.
 
 \section{LBM Developer Identified Concerns} \label{Sec_Concerns}
 
@@ -2176,7 +2186,7 @@ and pulled by lead developers, often with consultation with a group of core
 developers depending on the organizational model. Continuous integration is part
 of the process for some packages. \wss{Recommendation to increase.  Successful
 projects use it, a reasonable next step for projects that have not yet
-incorporated CI.}
+incorporated CI.}  \wss{There is definitely a great deal of repetition.}
 
 Some developers noted that their software package does not have well defined
 contributing guide in the repository, but it might be a good idea to add one in
@@ -2184,7 +2194,8 @@ the near future. They would be happy to see contribution from outside of their
 organization, but currently this does not happen.  \wss{A comment was made at
 the recent DOE workshop that you get new users through documentation and
 tutorials.  Maybe highlight the example of Musubi?  Should trace back to this
-for the recommendations part.}
+for the recommendations part.  \citep{Fogel2005} gives advice on having a
+successful project, also the web article (if needed).}
 
 Furthermore, maintainability has been addressed by increasing source code
 modularity, reducing duplicate information, and improving abstraction by
@@ -2225,7 +2236,7 @@ allow for the addition of some LBM features, but changes to major aspects of the
 system would be difficult. For example, ``implementing a new model will be an
 easy contribution'', but changes to the ``Cartesian mesh...will be a
 nightmare''. Furthermore, the package was designed with flexible data structures
-and storage in mind. 
+and storage in mind.  \wss{example suggests identifying likely changes.}
 
 Some software packages, like Palabos, provide validation benchmarks for their
 core fundamental algorithmic ingredients \citep{latt2021palabos}. The stated
