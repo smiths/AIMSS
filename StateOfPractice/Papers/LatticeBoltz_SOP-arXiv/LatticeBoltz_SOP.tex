@@ -1622,15 +1622,19 @@ publications and performance information certainly appear in other research
 software projects; the practices just aren't highlighted in guidelines because
 they are implicit in other documentation recommendations, such as theory
 documentation and user guides. The observation of a video guide artifact is more
-novel.  Other projects likely use videos, but the practice has apparently not
-yet made it into community guidelines.  Putting aside the debate of the
+novel.  \citet{Fogel2005} recommends videos for open source projects, and other
+projects likely use them, but the practice has apparently not yet made it into
+research software community's guidelines.  Putting aside the debate of the
 effectiveness of learning from print versus video, video documentation is
 growing in popularity, with a majority of Generation Z learners preferring video
 to print \citep{Genota2018}.
 
 Although the LBM community participates in most of the practices we found listed
 in the general research software guidelines, some recommended practices were not
-observed or rarely observed. In addition to the items in the last column of
+observed or rarely observed. For instance API documentation was rarely observed
+for LBM software, but it is a frequently recommended artifact
+\citep{SmithAndRoscoe2018, ThielEtAl2020, vanGompelEtAl2016, OrvizEtAl2017,
+SSI2022, Zadka2018}.  In addition to the items in the last column of
 Table~\ref{artifactspresent}, we can add the following community recommended
 items that we rarely, if ever, observed:
 
@@ -1703,9 +1707,9 @@ Software tools are used to support the development, verification, maintenance,
 and evolution of software, software processes, and artifacts \citep[p.\
 501]{GhezziEtAl2003}. Many tools are used by LBM software packages, as
 summarized in Table~\ref{tbl_tools}.  The tools are subdivided into development
-tools, dependencies, and project management tools.  In this section we answers
-\rqref{RQ_CompareToolsProjMngmnt} by comparing the tool usage in LBM to
-their utilization in the research software community in general.
+tools, dependencies, and project management tools.  In this section we answer
+\rqref{RQ_CompareToolsProjMngmnt} by comparing aspects of the tool usage in LBM
+to their utilization in the research software community in general.
 
 \begin{table}
 	\begin{center}
@@ -1760,85 +1764,69 @@ was not explicitly mentioned, but it is possible that some of the projects use
 such software. Many of the projects are located on GitHub, where the developers
 use the platform to help manage their projects, especially bug related issues.
 Most of the projects appear to use change tracking and version control tools.
-They often use GitHub or GitLab for this. One package (SunlightLB) uses CVS.
 Document generation tools are mentioned in 12 of the 24 projects. The tools
 Sphinx and Doxygen are explicitly used in this capacity.
 
 The poor adoption of version control tools that Wilson lamented in 2006
 \citep{Wilson2006} has greatly improved in the intervening years.  From
-Section~\ref{Sec_Maintainability} 67\% of LBM packages use version control
-(GitHub, GitLab and CVS).  The proliferation of version control tools for LBM
-matches the increase in the broader research software community.  A little over
-10 years ago (in 2010) version control was estimated to be used in only 50\% of
+Section~\ref{Sec_Maintainability}, 67\% of LBM packages use version control
+(GitHub, GitLab or CVS).  (From Table~\ref{gitrepodata}, 11/15 or 73\% of alive
+packages use version control.)  The proliferation of version control tools for
+LBM matches the increase in the broader research software community.  A little
+over 10 years ago version control was estimated to be used in only 50\% of
 research software projects \citep{Nguyen-HoanEtAl2010}, but even at that time
-\citet{Nguyen-HoanEtAl2010} noted an increase from previous usage levels.  A
+\citet{Nguyen-HoanEtAl2010} noted an increase from previous usage levels. A
 survey in 2018 shows 81\% of developers use a version control system
-\citep{AlNoamanyAndBorghi2018}.  This matches with \citet{Smith2018} shows
-active projects in mesh generation, geographic information systems and
-statistical software for psychiatry increasing from 75\%, 89\% and 17\%
-(respectively) to 100\%, 95\% and 100\% (respectively) over a four year period
-ending in 2018.  (For completeness the same study showed a decrease in version
-control tool usage for seismology software over the same time period (from 41\%
-down to 36\%).  Almost every software guide cited in
-Section~\ref{Sec_CompareArtifacts} mentions the advice to use version control.
+\citep{AlNoamanyAndBorghi2018}.  \citet{Smith2018} has similar results, showing
+version control usage for alive projects in mesh generation, geographic
+information systems and statistical software for psychiatry increasing from
+75\%, 89\% and 17\% (respectively) to 100\%, 95\% and 100\% (respectively) over
+a four year period ending in 2018.  (For completeness the same study showed a
+decrease in version control usage for seismology software over the same time
+period, from 41\% down to 36\%).  Almost every software guide cited in
+Section~\ref{Sec_CompareArtifacts} includes the advice to use version control.
+The high usage of version control tools in LBM software matches the trend in
+research software in general.
 
-Section \ref{SecSurfCorrectAndVerifiab} shows that continuous integration is
-rare in LBM.  Recommended by many \citep{vanGompelEtAl2016} etc.
+As mentioned in Section~\ref{SecSurfCorrectAndVerifiab}, continuous integration
+is rarely used in LBM (3 of 24 packages or 12.5\%). This contrasts with the
+frequency with which continuous integration is recommended in research software
+development guidelines \citep{BrettEtAl2021, Brown2015, ThielEtAl2020,
+Zadka2018, vanGompelEtAl2016}.  We could not find published data on the
+frequency with which continuous integration is used in general research
+software.  Our impression is that like LBM software, other research software
+packages lag behind the recommended best practice of employing continuous
+integration tools.
 
-\section{Comparison of Principles, Process and Methodologies to Research
-Software in General} \label{Sec_CompareMethodologies}
+Interviews with the developers revealed a potentially more frequent use of both
+unit testing and continuous integration, compared to what was observed from
+studying the repository artifacts.
 
-Answers \rqref{RQ_CompareMethodologies}.  Most of the software packages do not
-explicitly state in their artifacts the motivations or design principles that
-were considered when developing the software. One package, Sailfish, indicates
-in its artifacts that shortening the development time was considered in early
-stages of design, with the developers opting for using Python and CUDA/OpenCL to
-achieve this without sacrificing any computational performance. The goals of
-that project are explicitly listed as performance, scalability, agility and
-extendability, maintenance, and ease of use. The project scored well in these
-categories during our assessment.
+\section{Comparison of Principles, Process and Methodologies to Research Software in General} \label{Sec_CompareMethodologies}
 
-Processes, like methods, are ways of doing things, especially in an orderly way;
-while methodologies are defined as systems of methods
-\citep{ghezzi1991fundamentals}. It is not explicitly indicated in the artifacts
-of most of the packages that development involved following any specific model,
-like a waterfall or agile development model. One developer (ESPResSo) noted that
-while no formal model is used, their development model is something similar to a
-combination of agile and waterfall development models. The developer teams of
-the LBM packages are fairly small, so it is feasible for them to be organized
-without the need for such models.  \wss{some repetition from the previous
-section - should try to figure out how to remove the repetition.}
+This section answers research question \rqref{RQ_CompareMethodologies} by
+comparing the principles, processes and methodologies used for LBM software to
+what can be gleaned from the literature on research software in general. In our
+data collection for LBM software, the software development process is not
+explicitly indicated in the artifacts for most of the packages. However, during
+our interviews one developer (ESPResSo) told us their non-rigorous development
+model is like a combination of agile and waterfall. Employing a loosely defined
+process makes sense for LBM software, given that the teams are generally small
+and self-contained.  Although eleven of the packages explicitly convey that they
+would accept outside contributors, generally the teams are centralized, often
+working at the same institution.  Working at the same institution means that an
+informal process can show success, since informal conversations are relatively
+easy to have.
 
-Seven of the software packages contain artifacts recording the general
-development process and status. Eleven of the packages explicitly convey that
-they would accept outside contributors, but generally the teams are centralized,
-often working at the same institution. 
-
-The developers that were interviewed all noted similar project management
-processes. In teams of only a couple of developers, additions of new features or
-major changes are discussed with the entire team. Projects with more than a
-couple developers have lead developer roles. These lead developers review
-potential additions to the software. One of the developers (ESPResSo) that was
-interviewed noted that an ad hoc peer review process is used to assess major
-changes and additions.  Peer review (also known as code review and technical
-review) is a frequently recommended component of developing research software
-\citep{HerouxEtAl2008, Givler2020, OrvizEtAl2017, USGS2019}.
-
-Thirteen (54\%) of the 24 software packages use GitHub for managing the project,
-including nine (60\%) of the 15 alive packages, and four of the nine (44\%) dead
-packages. Two projects (Palabos, WaLBerla) use GitLab. This could be indicative
-of a transition to such software development and version control tools for SCS.
-Typically there are several simultaneous development branches in these projects.
-
-Documentation was also noted as playing a significant role in the development
-process, specifically with on-boarding new developers. A goal of documentation
-is to lower the entry barrier for these new contributors. The documentation
-provides information on how to get started, orients the user to artifacts and
-the source code, and explains how the system works, including the so-called
-simulation engine and interface. The use of document generation tools is
-mentioned in the artifacts of 13 software packages, and was noted during
-interviews with developers. Sphinx and Doxygen are the tools that were
-mentioned. 
+Interviews with developers confirmed a similar project management processes. In
+teams of only a couple of developers, additions of new features or major changes
+are discussed with the entire team. Projects with more than a couple developers
+have lead developer roles. These lead developers review potential additions to
+the software. One of the developers (ESPResSo) that was interviewed noted that
+an ad hoc peer review process is used to assess major changes and additions.
+Using peer review (also called technical review) matches with recommended
+practice for research software \citep{HerouxEtAl2008, Givler2020, OrvizEtAl2017,
+USGS2019}.
 
 Two types of software changes were discussed during interviews with developers.
 One is feature additions, which arise from a scientific or functional need.
@@ -1847,12 +1835,49 @@ developer participation is mandatory. The other change type is code refactoring,
 which only sometimes involves formal discussions with the development team. New
 developers were noted to play an increased role in these changes compared to the
 former changes. Software bugs are typically addressed in a similar fashion as
-code refactoring, and issue tracking is commonly used to manage these changes. 
+code refactoring.  Issue tracking is commonly used to manage these changes.
 
-Interviews with the developers of software packages also revealed a more
-frequent use of both unit testing and continuous integration in the development
-process than was found by only assessing the artifacts. The use of automatic
-installation processes is also common. Most often this involved a Make script.
+Our observations of a informally defined process, with elements of agile
+methods, matches what has been observed for research software in general.
+Scientific developers naturally use an agile philosophy \citep{AckroydEtAl2008,
+CarverEtAl2007, EasterbrookAndJohns2009, Segal2005, HeatonAndCarver2015}, or an
+amethododical process \citep{Kelly2013}, or a knowledge acquisition driven
+process \citep{Kelly2015}.
+
+Most of the software packages do not explicitly state the motivations or design
+principles that were considered when developing the software. One package,
+Sailfish, indicates in its artifacts that shortening the development time was
+considered in early stages of design, with the developers using Python and
+CUDA/OpenCL to achieve this without sacrificing performance. The Sailfish goals
+are explicitly listed as performance, scalability, agility and extendability,
+maintenance, and ease of use. The project scored well in these categories during
+our assessment.  The quality priorities for Sailfish roughly match the
+priorities observed for research software in general.
+\citet{Nguyen-HoanEtAl2010} surveyed developers to find the following list of
+qualities, in decreasing order of importance: reliability, functionality,
+maintainability, availability, performance, flexibility, testability, usability,
+reusability, traceability, and portability. The Sailfish list does not list
+reliability or functionality, but we can safely assume those are implicitly high
+priorities for any scientific project.  In earlier studies
+\citet{KellyAndSanders2008} and \citet{CarverEtAl2007} both highlight how
+important correctness is for research software.
+
+During our interviews, documentation was noted as playing a significant role in
+the development process, specifically with on-boarding new developers. A goal of
+documentation is to lower the entry barrier for these new contributors. The
+documentation provides information on how to get started, orients the user to
+artifacts and the source code, and explains how the system works, including the
+so-called simulation engine and interface.  This emphasis on documentation,
+especially for new developers, is echoed in research software guidelines.
+Multiple guidelines recommend a document explaining how to contribute to a
+project, often named CONTRIBUTING \citep{Yo2021, BrettEtAl2021, WilsonEtAl2016,
+ThielEtAl2020, vanGompelEtAl2016, OrvizEtAl2017, FLOSS2022, JimenezEtAl2017}.
+Tutorials \citep{ThielEtAl2020}, trouble shooting guides \citep{OrvizEtAl2017,
+SSI2022} and quick start examples \citep{ThielEtAl2020, vanGompelEtAl2016} are
+also recommended.  \citep{SmithAndRoscoe2018} suggests including instructions
+specifically for on-boarding new developers. For open source software in
+general, \citep{Fogel2005} recommends providing tutorial style examples,
+developer guidelines, demos and screenshots.
 
 \section{Developer Pain Points} \label{painpoints}
 
@@ -2626,6 +2651,10 @@ Overall ranking with equally weighted qualities isn't realistic (Section~\ref{Se
 Threat to validity - the gap between measures of everything else and Musubi
 (Section~\ref{identifysoftware}), and then the gap between the manual measures
 and the automated measures (Section~\ref{repmetrics}).
+
+From Section~\ref{Sec_CompareTools}: ``Interviews with the developers revealed a
+potentially more frequent use of both unit testing and continuous integration,
+compared to what was observed from studying the repository artifacts.''
 
 \section{Conclusion} \label{conclusion}
 
