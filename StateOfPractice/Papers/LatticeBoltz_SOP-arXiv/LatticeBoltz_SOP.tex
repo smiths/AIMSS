@@ -104,6 +104,10 @@
 \newcommand{\rqtherqnum}{RQ`'\therqnum}
 \newcommand{\rqref}[1]{RQ\ref{#1}}
 
+\newcounter{pnum} %pain point number
+\newcommand{\ppthepnum}{P`'\thepnum}
+\newcommand{\ppref}[1]{P\ref{#1}}
+
 \journal{???}
 
 \begin{document}
@@ -331,13 +335,13 @@ which ways is it different?
 
 Only so much information can be gleaned by looking at software repositories.  To
 gain additional insight, we need to interview developers.  We need to learn
-their concerns, how they deal with these concerns, and what pain points exist
-for them.  We wish to know what practices are used by the top LBM projects, so
-that others can potentially emulate these practices. We also wish to identify
-new practices by borrowing successful ideas from other domains. For LBM
-developers interested in future cutting edge practices, ideas that are proposed,
-but not yet in practice, should also be identified.  The above points are
-covered by the questions outlined below:
+their concerns, how they deal with these concerns; we need to learn what pain
+points exist for them.  We wish to know what practices are used by the top LBM
+projects, so that others can potentially emulate these practices. We also wish
+to identify new practices by borrowing successful ideas from other domains. For
+LBM developers interested in future cutting edge practices, ideas that are
+proposed, but not yet in practice, should also be identified.  The above points
+are covered by the questions outlined below:
 
 \begin{enumerate}
 	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_PainPoints}:] What are
@@ -347,12 +351,8 @@ covered by the questions outlined below:
 	do the pain points of developers from LBM compare to the pain points
 	for research software in general? (Section~\ref{painpoints})
 	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_Concerns}:] For LBM
-	developers:
-	\begin{enumerate} 
-		\item [\rqref{RQ_Concerns}.a] what software development concerns exist; and, (Section~\ref{Sec_Concerns})
-		\item [\rqref{RQ_Concerns}.b] what specific practices are taken to
-		address these concerns? (Section~\ref{Sec_AddressConcerns})
-	\end{enumerate}
+	developers what specific practices are taken to address the pain point
+	concerns? (Section~\ref{Sec_AddressConcerns})
 	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_Recommend}:]
 	What, if any, existing research software best practice, not currently used
 	by LBM software, could address the concerns identified in
@@ -360,7 +360,7 @@ covered by the questions outlined below:
 	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_Future}:] What practices
 	could be employed by future LBM developers to address the pain points found
 	in~\rqref{RQ_PainPoints} and the concerns identified
-	in~\rqref{RQ_Concerns}.a? (Section~\ref{Sec_AddressConcerns})
+	in~\rqref{RQ_Concerns}? (Section~\ref{Sec_AddressConcerns})
 
 \end{enumerate}
 
@@ -825,8 +825,9 @@ recruit 4 developers to participate in our study.  Our potential interview
 subjects were found from project websites, code repositories, publications, and
 biographic information on institution web-pages. Meeting were held using on-line
 meeting software (either Zoom or Teams), which facilitated recording and
-automatic transcription of the meetings.  The interview process was approved by
-the McMaster University Research Ethics Board under the application number 
+automatic transcription of the meetings.  Each meeting lasted about an hour. The
+interview process was approved by the McMaster University Research Ethics Board
+under the application number 
 \href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/MACREM/Application.pdf}
 {MREB\#: 5219}.
 
@@ -1881,238 +1882,132 @@ style examples, developer guidelines, demos and screenshots.
 
 \section{Developer Pain Points} \label{painpoints}
 
-This section aims to answer the research questions: What are the pain points for
-developers working on research software projects (\rqref{RQ_PainPoints})?; and,
-How do the pain points of developers from LBM compare to the pain points for
-research software in general (\rqref{RQ_ComparePainPoints})?
+Based on interviews with 4 developers, this section aims to answer the research
+questions: i) What are the pain points for developers working on research
+software projects (\rqref{RQ_PainPoints})?; and, ii) How do the pain points of
+developers from LBM compare to the pain points for research software in general
+(\rqref{RQ_ComparePainPoints})?  Below we go through each of the identified pain
+points and include citations that contrast the LBM experience with observations
+from researchers in other domains.  Potential ways to address the pain points
+are covered in Section~\ref{Sec_AddressConcerns}. The full interview questions
+are found in \citet{SmithEtAl2021}.
 
-Roadmap.  Go through pain points, link to existing literature, then section on
-pain points not mentioned.  Ways to address pain points in the next section
+\citep{PintoEtAl2018} lists some pain points that did not come up in our
+conversations with LBM developers: Cross-platform compatibility, interruptions
+while coding, scope bloat, lack of user feedback, hard to collaborate on
+software projects, and aloneness. \citep{WieseEtAl2019} repeat some of the
+previous pain points and add the following: dependency management, data handling
+concerns (like data quality, data management and data privacy), reproducibility,
+and software scope determination. Although LBM developers did not mention these
+pain points, we cannot conclude that they are not relevant for LBM software
+development, since we only interviewed 4 LBM developers for about an hour each.
 
-Maybe just do a table of pain points?  and then contrast the pain points with
-the literature.  The mitigation strategies should be elsewhere.  Some of the
-mitigation strategies have already been mentioned, like documentation.
+\begin{enumerate}
 
-Likely possible to combine pain points and developer concerns.  Emphasizes what
-the pain points are, and how they compare to other studies.  Don't propose
-solutions in this section.  Say that all of the information comes from the
-interviews (as mentioned at the start of the next section).
+	\item[P\refstepcounter{pnum}\thepnum \label{P_LackDevTime}:] \textbf{Lack of
+	Development Time} A developer of pyLBM noted that their small development
+	team has a lack of time to implement new features. Small development teams
+	are common for LBM software packages (as shown in the measurement table
+	excerpt in Figure~\ref{measurement_template_image}). Lack of time is also
+	highlighted as a pain point by other research software developers
+	\citet{PintoEtAl2018, PintoEtAl2016, WieseEtAl2019}.
 
-Pain points that others, but not LBM developers, mentioned in surveys include
-\citep{PintoEtAl2018}: Cross-platform compatibility, interruptions while coding,
-scope bloat, lack of user feedback, mismatch between coding skills and
-subject-matter skills (for instance, ``I am a mathematician, not an expert on
-software''), lack of formal reward system, hard to collaborate on software
-projects, aloneness.
+	\item[P\refstepcounter{pnum}\thepnum \label{P_LackSoftDevExp}:] \textbf{Lack
+	of Software Development Experience} A lack of software development
+	experience was noted by the developer of TCLB, and others noted a need for
+	improving software engineering education. Many of the team members on their
+	project are domain experts, not computer scientists or software engineers.
+	This same trend is noted by \citet{Nguyen-HoanEtAl2010}, which showed only
+	23\% of research software survey respondents having a computing-related
+	background. Similarly, \citep{UditAndKatz2017} show that the majority (54\%)
+	of postdocs have not received training in software development.  The LBM
+	developer suggesting an increasing role for formal software education
+	matches the trend observed by \citet{PintoEtAl2018}, where their replication
+	of a previous study \citep{HannayEtAl2009}, shows a growing interest in
+	formal training (From 13\% of respondents in 2009 to 22\% in 2018).
+	\citep{PintoEtAl2018} found that some developers feel there is a mismatch
+	between coding skills and subject-matter skills. 
+	
+	\item[P\refstepcounter{pnum}\thepnum \label{P_LackFunding}:] \textbf{Lack of
+	Incentive and Funding} The TCLB developer noted a lack of incentives and
+	funding in academia for developing widely used scientific software. This
+	problem has also been noted others \citep{gewaltig2012quality, Goble2014,
+	KaterbowAndFeulner2018}.  \citet{WieseEtAl2019} reported developer pains
+	related to publicity, since historically publishing norms make it difficult
+	to get credit for creating software.  As studied by
+	\citet{HowisonAndBullard2016}, research software (specifically biology
+	software, but the trend likely applies to other research software domains)
+	is infrequently cited.  \citep{PintoEtAl2018} also mentions the lack of
+	formal reward system for research software.
 
-\subsection{Lack of Development Time}
+	\item[P\refstepcounter{pnum}\thepnum \label{P_LackExtSupport}:] \textbf{Lack
+	of External Support} A concern was raised that there are no organizations
+	helping with the development of good quality software.  This concern is not
+	echoed in the literature because there are such organizations, including
+	\href{https://bssw.io/} {Better Scientific Software (BSSw)},
+	\href{https://www.software.ac.uk/} {Software Sustainability Institute}
+	\citep{CrouchEtAl2013}, and \href{https://software-carpentry.org/}{Software
+	Carpentry} \wss{WilsonAndLumsdaine2006, Wilson2016}. Over time awareness of
+	these groups will grow, so this pain point is likely to disappear in the
+	future for LBM and other research software developers.
+		
+	\item[P\refstepcounter{pnum}\thepnum \label{P_TechnologyHurdles}:]
+	\textbf{Technology Hurdles} Technology pain points include setting up
+	parallelization and continuous integration.
 
-A developer of pyLBM noted that their small development team has a lack of time
-to implement new features. Small development teams are common for LBM software
-packages. Team members are almost always part of the same institute or already
-know each other from other projects. External contributions are rare despite
-many of the projects accepting them. \wss{Other projects cite the same pain
-point - Wiese paper}  Aside from on-boarding new developers, time constraints
-could be mitigated by increasing developer efficiency, which could be addressed
-in several ways, including by improving the quality of documentation, or
-incorporating automatic code generation. \wss{Potential ways to address the pain
-points might go into a separate section?  Maybe propose the strategy, like code
-generation, and then list the pain points that are addressed?}
+	\item[P\refstepcounter{pnum}\thepnum \label{P_Correctness}:]
+	\textbf{Ensuring Correctness} Difficulties with ensuring correctness were
+	noted by several developers. The TCLB developer commented that the amount of
+	testing data needed was sometimes problematic, since free testing services
+	do not offer adequate facilities for large amounts of data, which means
+	in-house testing solutions are needed.  Other research software domains
+	point to different problems with testing, as follows: i)
+	\citep{PintoEtAl2018} mention the problem of insufficient testing; ii) the
+	survey of \citep{HannayEtAl2009} shows that more developers think testing is
+	important than the number that believe they have a sufficient understanding
+	of testing concepts; and, iii) \citep{HannayEtAl2009, KanewalaAndBieman2013,
+	KellyEtAl2011, WieseEtAl2019} point to the oracle problem, which
+	occurs in research software when we do not have a means to judge the
+	correctness of the calculated solutions.  Since LBM developers did not
+	allude to the oracle problem in our conversation, we believe that they have
+	developed techniques to work around the oracle problem.
+	
+	\item[P\refstepcounter{pnum}\thepnum \label{P_Usability}:]
+	\textbf{Usability} Several developers noted that users sometimes try to use
+	incorrect LBM method combinations to solve their problems. Furthermore, some
+	users think that the packages will work out of the box to solve their cases,
+	while in reality CFD knowledge needs to be applied to correctly modify the
+	packages for the new endeavour.  \citep{WieseEtAl2019} also interacted with
+	developers that mentioned that users do not always have the expertise
+	required to install or use the software.
+	
+	\item[P\refstepcounter{pnum}\thepnum \label{P_TechDebt}:] \textbf{Technical
+	Debt} The developer of ESPResSo said that their source code was written with
+	a specific application in mind, which later caused too much coupling between
+	components in the source code. This results in technical debt
+	\citet{KruchtenEtAl2012}, which has an impact on future modifiability and
+	reusability. Concern with technical debt is likely why researchers in the
+	survey of \citep{Nguyen-HoanEtAl2010} rated maintainability as the third
+	most important software quality. More recently the push for sustainable
+	software \citet{deSouzaEtAl2019} is motivated by the pain that past
+	developers have had with accumulating too much technical debt.
 
-Lack of time was also mentioned by \citet{PintoEtAl2018} and
-\citet{PintoEtAl2016}.
+	\item[P\refstepcounter{pnum}\thepnum \label{P_Documentation}:]
+	\textbf{Quality of Documentation} One of the consequences of pain point
+	\ppref{P_LackDevTime} is sometimes inadequate documentation. The
+	documentation for LBM is challenging because of the complexity of the
+	underlying CFD theory and the differing backgrounds of users. Poor research
+	software documentation is also mentioned by others \citep{PintoEtAl2018,
+	WieseEtAl2019} and the problem also arises with non-research software
+	\citep{LethbridgeEtAl2003}.  Recommendations on the development of research
+	software state that developers should critically evaluate their own
+	development processes in terms of quality assurance and comply with
+	international standards for software documentation
+	\citep{KaterbowAndFeulner2018}.
 
-\subsection{Lack of Software Development Experience}
-
-A lack of software development experience was noted by the developer of TCLB.
-Many of the team members on their project are domain experts and there can be a
-steep learning curve before these members contribute good quality source code.
-This problem has been mitigated by re-writing the code to more easily enable
-future contributions.  On a related point, improving the software engineering
-education or experience of developers is also an idea that was brought up by
-several developers.  \wss{The Wiese paper and others talk about the background
-of developers. The knowledge for developing research software primarily comes
-from peers and through self-study, not from formal training
-\citep{HannayEtAl2009}.  The thinking of the developer on the role of formal
-education matches the trend \citet{PintoEtAl2018} observes, where in their
-replication of a previous study \citep{HannayEtAl2009}, they show a growing
-interest in formal training (From 13\% of respondants in 2009 to 22\% in 2018).}
-
-\subsection{Lack of Incentive and Funding}
-
-The TCLB developer noted a lack of incentive and funding in academia for
-developing widely used scientific software. The importance of funding for
-scientific software has been discussed in \cite{gewaltig2012quality}, which
-notes that ``software tools are developed and maintained only for as long as
-there is explicit or implicit funding''. The developer further commented that
-there are no journals that publish such scientific software source code.
-However, there are ways to get such source code cited. Work has been done to
-address this in \citep{smith2016software}, which presents a set of software
-citation principles and discusses ``how they could be used to implement software
-citation in the scholarly community'' \citep{katz2019software}.  \wss{other
-papers also mention this pain point.  Solutions proposed by Katz, journal of
-open source etc.}
-
-\subsection{Lack of External Support}
-
-Another raised concern was that there are no organizations helping with the
-development of good quality software; but some do exist, including
-\href{https://bssw.io/}{Better Scientific Software (BSSw)},
-\href{https://www.software.ac.uk/}{Software Sustainability Institute}
-\citep{CrouchEtAl2013}, and \href{https://software-carpentry.org/}{Software
-Carpentry}. Some SCS developers may not be familiar with these organizations.
-\citep{WilsonAndLumsdaine2006}
-
-Scientific software is often developed in-house by the very researchers that
-temporarily use it in their own research. Empirical studies of such
-``professional end-user development'' of SCS is noted in \citep{segal2007end}.
-This kind of software has a defined user and purpose, and often does not meet
-the standards that would be required by external users. It has been categorized
-as a ``private tool'' by \citep{gewaltig2012quality}, which notes that despite
-often being made freely available, ``it is not always clear that it is
-sufficiently mature in terms of domain coverage, validity, documentation or
-usability, to be useful to other researchers''. It is less common for such ad
-hoc scientific software to become ``user-ready software'', which ``is not only
-research-ready, but should have most of the attributes commonly expected of
-commercial software products including broadness of scope, robustness,
-demonstrable correctness and adequate documentation''
-\citep{gewaltig2012quality}. As software becomes user-ready, it can become
-commercialized and closed-source.  \wss{remove this paragraph?}
-
-\wss{Remove this section?  The external support organizations will likely come
-up as the mitigation for some of the other pain points.}
-
-\subsection{Parallelization and Continuous Integration}
-
-Setting up parallelization was also noted as a technical pain point by one of
-the developers, and the introduction of continuous integration by another.
-Software development knowledge, and automatic code generation, could mitigate
-such pain points. As already noted, many of the developers are domain experts
-and not professional software developers. The developer of TCLB noted that
-eliminating equivalent statements using macros had helped improve the quality of
-their source code, specifically helping with reusing code to run on both the CPU
-and GPU. \wss{The point about macros isn't really related to parallelization or
-continuous integration.}
-
-\subsection{Ensuring Correctness}
-
-Difficulties with ensuring correctness were also noted by several developers.
-They indicated that tests are run on all new source code additions, testing both
-individual modules and the system to verify correctness. These tests compare the
-package output to known correct output using test cases. \wss{oracle}  The
-developer of TCLB commented that the amount of testing data that is needed for
-some cases is a problem as free testing services do not offer capabilities to
-store and process such large amounts of data, and in-house testing solutions
-needed to be created to address this limitation. The solution for this has been
-to limit the size of the testing problems, and to run tests in small batches
-with few iterations. \wss{The Weiss paper alludes this this as well.  I think
-the Kelly and Sanders paper likely talks about testing problems and correctness.
-``while many scientists believe that software testing is important, a smaller
-number believe they have sufficient understanding about testing concepts''
-\citep{HannayEtAl2009}.}
-
-\wss{** BEGIN Testing and Verification **}
-
-\citet{Nguyen-HoanEtAl2010} says the following:
-\begin{itemize}
-	\item 38 of 60 respondents performed unit tests
-	\item 23 of 60 respondents performed integration tests
-	\item ``In our results, the four most common activities involve comparisons
-	with known, trusted, or prior data. Verification and peer review were three
-	of the four least commonly performed activities.'' \wss{testing is not the
-	only way to verify software.  This addresses the oracle problem.}
-\end{itemize}
-
-May do more testing than artifacts indicate, but that is still a problem.
-Artifacts should be available so that others can verify the results, verify
-their installation.  Part of an assurance case means that a third party can
-verify the work.
-
-\wss{** END Testing and Verification **}
-
-``The questions of what constitutes an adequate testing oracle for scientific
-software and what constitutes adequate test data are left open. Some of the
-validation testing we researched was running up against the practical limits;
-they were using whatever oracle they could scrape together from industry data,
-benchmarks, and expert judgment.'' \citep{KellyAndSanders2008}
-
-\wss{Seems that LBM not concerned with the oracle problem?}
-
-\subsection{Usability}
-
-A few obstacles related to users were found. Several developers noted that users
-sometimes try to use incorrect LBM method combinations to solve their problems.
-Furthermore, some users think that the packages will work out of the box to
-solve their cases, while the packages require both a good understanding of CFD
-and an understanding of the requirements for formulating problems in the
-individual packages, which can be a significant endeavour. These software
-packages are not like commercial software packages. They are generally set up to
-solve specific research problems, and are often primarily used by their
-developers. While they are modifiable to solve similar problems, these
-modifications are not trivial. Better documentation, with attention on
-traceability, and automatic code generation are suggested when designing
-software for change, and would help with these modifications. \wss{Should decide
-if want to introduce ideas for improving within the presentation of the pain
-point, or separately?}  So far this problem of on-boarding new users has been
-addressed by updating the documentation to better inform users of the underlying
-LBM theory and package requirements. Similar issues with LBM parameters were
-noted by another developer. Updating the user interface to better explain
-theoretical principles, as well as test user input for compatibility, was the
-implemented solution. As noted above, sometimes frequently asked questions on
-the underlying theory and on how to use the software are answered in the
-documentation.  The interviewed developer of ESPResSo commented that parts of
-their package's source code had been refactored to Python to help address
-usability issues. Python was perceived as a much more usable language, and it
-would be easy for future users and developers to learn and understand the source
-code. 
-
-\subsection{Technical Debt}
-
-A few potential future obstacles were noted. The developer of ESPResSo noted
-that their source code had been written with a specific application in mind and
-that due to this there was too much coupling between components of the source
-code. This results in technical debt, having an impact on future modifiability
-and reusability when trying to extend the software, and the code would need to
-be refactored.  As noted above, difficulties with ensuring future correctness
-could also arise. As new methods and functionality is added into the software,
-new test cases and test data will need to be developed.  \wss{Weiss mentions
-mainainability related issues under pain points.}
-
-\subsection{Quality of Documentation}
-
-Interviewees commented that documentation is important and that its quality
-could be improved. As already noted, there is often no time or funding for
-maintaining quality documentation for software that is rarely used outside of
-the development team. Furthermore, the documentation generally only provides a
-shallow overview of the underlying CFD theory. Users would be well advised to
-already be familiar with these topics, or they should spend significant time
-referencing theory resources. The documentation instead generally focuses on
-explaining how to use the software. It is of course not feasible for package
-documentation to address the underlying physics topics in detail, so it is
-advised that the package documentation links to resources that better explain
-the underlying theory. Sometimes, frequently asked questions about the
-underlying theory are answered in the documentation. OpenLB has an artifact for
-such questions.  \wss{Weise mentions documentation.}  \wss{Partly solve the
-problem by documentation user characteristics, to explicitly state what the user
-is assumed to already know.}
-
-The developer comments emphasized an importance on source code, while
-documentation seems to be of secondary importance. It must be stressed that
-improving documentation could benefit development and help eliminate some of the
-developer concerns that were raised. The use of automatic document generation
-tools that capture scientific and computing knowledge, and transform it into
-software artifacts, is advised. Drasil is an automatic document generation tool
-that is further discussed in Section~\ref{highlightedrecommendations}.
-
-Poor software documentation is also mentioned by \citet{PintoEtAl2018} and
-\citet{LethbridgeEtAl2003}.  The survey from \citet{LethbridgeEtAl2003} is for
-software in general, not just research software.
+\end{enumerate}
 
 \section{LBM Developer Identified Concerns} \label{Sec_Concerns}
-
-Answers \rqref{RQ_Concerns}.  This section presents qualitative findings on
-software qualities as gleaned from interviewing 4 developers. The full interview
-questions are found in \citet{SmithEtAl2021}.
 
 \subsection{Correctness and Verifiability}
 
@@ -2451,6 +2346,45 @@ Section~\ref{secIntro} using the quantitative data presented in
 Section~\ref{AHPresults}, qualitative data from developer interviews
 (Section~\ref{SecSurvey}), additional data from software package repositories
 and artifacts, and domain expert feedback.
+
+\wss{Address lack of development time (\ppref{P_LackDevTime}): Aside from
+on-boarding new developers, time constraints could be mitigated by increasing
+developer efficiency, which could be addressed in several ways, including by
+improving the quality of documentation, or incorporating automatic code
+generation.} 
+
+\wss{Address lack of funding (\ppref{P_LackFunding}): The developer further
+commented that there are no journals that publish such scientific software
+source code. However, there are ways to get such source code cited. Work has
+been done to address this in \citep{SmithEtAl2016-softcite}, which presents a
+set of software citation principles and discusses ``how they could be used to
+implement software citation in the scholarly community''
+\citep{katz2019software}. other papers also mention this pain point.
+Solutions proposed by Katz, journal of open source etc. Journal of Open Source
+Software \citet{SmithEtAl2018-joss}.  Calling for direct software citations
+\citep{SmithEtAl2016-softcite}.  Guidance on software citation from
+\citet{KatzEtAl2021}.  Discussed in CarverEtAl2021 paper.}
+
+\wss{Address Usability (\ppref{P_Usability}): Better documentation, with
+attention on traceability, and automatic code generation are suggested when
+designing software for change, and would help with these modifications.  So far
+this problem of on-boarding new users has been addressed by updating the
+documentation to better inform users of the underlying LBM theory and package
+requirements. Similar issues with LBM parameters were noted by another
+developer. Updating the user interface to better explain theoretical principles,
+as well as test user input for compatibility, was the implemented solution. As
+noted above, sometimes frequently asked questions on the underlying theory and
+on how to use the software are answered in the documentation.  The interviewed
+developer of ESPResSo commented that parts of their package's source code had
+been refactored to Python to help address usability issues. Python was perceived
+as a much more usable language, and it would be easy for future users and
+developers to learn and understand the source code.}
+
+\wss{Address Correctness (\ppref{P_Correctness}): Testing is not the only way to
+build confidence in correctness.  Peer review.  } 
+
+\wss{Address quality of documentation (\ppref{P_Documentation}): Make required
+background of users explicit, possibly in a requirements document.}
 
 \subsection{Common Practices} \label{currentPractices}
 
