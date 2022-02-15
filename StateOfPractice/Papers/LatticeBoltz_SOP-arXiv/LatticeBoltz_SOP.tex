@@ -108,6 +108,10 @@
 \newcommand{\ppthepnum}{P`'\thepnum}
 \newcommand{\ppref}[1]{P\ref{#1}}
 
+\newcounter{bpnum} %best practice number
+\newcommand{\bpthepnum}{BP`'\thebpnum}
+\newcommand{\bpref}[1]{BP\ref{#1}}
+
 \journal{???}
 
 \begin{document}
@@ -351,17 +355,12 @@ are covered by the questions outlined below:
 	do the pain points of developers from LBM compare to the pain points
 	for research software in general? (Section~\ref{painpoints})
 	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_Concerns}:] For LBM
-	developers what specific practices are taken to address the pain point
-	concerns? (Section~\ref{Sec_AddressConcerns})
+	developers what specific best practices are taken to address the pain points
+	and software quality concerns? (Section~\ref{Sec_AddressConcerns})
 	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_Recommend}:]
-	What, if any, existing research software best practice, not currently used
-	by LBM software, could address the concerns identified in
-	\rqref{RQ_Concerns}). (Section~\ref{Sec_AddressConcerns})
-	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_Future}:] What practices
-	could be employed by future LBM developers to address the pain points found
-	in~\rqref{RQ_PainPoints} and the concerns identified
-	in~\rqref{RQ_Concerns}? (Section~\ref{Sec_AddressConcerns})
-
+	What research software development practice could potentially address the
+	pain point concerns identified in \rqref{RQ_PainPoints}).
+	(Section~\ref{Sec_Recommendations})
 \end{enumerate}
 
 We investigated the research questions by applying the general methodology
@@ -1957,20 +1956,24 @@ development, since we only interviewed 4 LBM developers for about an hour each.
 
 	\item[P\refstepcounter{pnum}\thepnum \label{P_Correctness}:]
 	\textbf{Ensuring Correctness} Difficulties with ensuring correctness were
-	noted by several developers. The TCLB developer commented that the amount of
-	testing data needed was sometimes problematic, since free testing services
-	do not offer adequate facilities for large amounts of data, which means
-	in-house testing solutions are needed.  Other research software domains
-	point to different problems with testing, as follows: i)
-	\citep{PintoEtAl2018} mention the problem of insufficient testing; ii) the
-	survey of \citep{HannayEtAl2009} shows that more developers think testing is
-	important than the number that believe they have a sufficient understanding
-	of testing concepts; and, iii) \citep{HannayEtAl2009, KanewalaAndBieman2013,
-	KellyEtAl2011, WieseEtAl2019} point to the oracle problem, which
-	occurs in research software when we do not have a means to judge the
-	correctness of the calculated solutions.  Since LBM developers did not
-	allude to the oracle problem in our conversation, we believe that they have
-	developed techniques to work around the oracle problem.
+	noted by several developers. Several developers alluded to difficulty with
+	testing the correctness of large numbers of features, and some manually
+	tested program output, as opposed to using automated testing. The TCLB
+	developer commented that the amount of testing data needed was sometimes
+	problematic, since free testing services do not offer adequate facilities
+	for large amounts of data, which means in-house testing solutions are
+	needed.  Other research software domains point to the following problems
+	with testing: i) \citep{PintoEtAl2018} mention the problem of insufficient
+	testing; ii) the survey of \citep{HannayEtAl2009} shows that more developers
+	think testing is important than the number that believe they have a
+	sufficient understanding of testing concepts; and, iii)
+	\citep{HannayEtAl2009, KanewalaAndBieman2013, KellyEtAl2011, WieseEtAl2019}
+	point to the oracle problem, which occurs in research software when we do
+	not have a means to judge the correctness of the calculated solutions.  The
+	LBM experience seems to overlap with i and ii, but the LBM developers did
+	not allude to problem iii (the oracle problem) in our conversation; we
+	believe that they have developed techniques to work around the oracle
+	problem.  
 	
 	\item[P\refstepcounter{pnum}\thepnum \label{P_Usability}:]
 	\textbf{Usability} Several developers noted that users sometimes try to use
@@ -1993,292 +1996,81 @@ development, since we only interviewed 4 LBM developers for about an hour each.
 	developers have had with accumulating too much technical debt.
 
 	\item[P\refstepcounter{pnum}\thepnum \label{P_Documentation}:]
-	\textbf{Quality of Documentation} One of the consequences of pain point
-	\ppref{P_LackDevTime} is sometimes inadequate documentation. The
-	documentation for LBM is challenging because of the complexity of the
-	underlying CFD theory and the differing backgrounds of users. Poor research
-	software documentation is also mentioned by others \citep{PintoEtAl2018,
-	WieseEtAl2019} and the problem also arises with non-research software
-	\citep{LethbridgeEtAl2003}.  Recommendations on the development of research
-	software state that developers should critically evaluate their own
-	development processes in terms of quality assurance and comply with
-	international standards for software documentation
-	\citep{KaterbowAndFeulner2018}.
+	\textbf{Quality of Documentation}  The importance of documentation for both
+	users and developers was stressed throughout the interviews. However, it was
+	noted several times that a lack of time and funding (\ppref{P_LackDevTime})
+	has a negative affect on the documentation. Most of the developers are
+	scientific researchers evaluated on the scientific papers that they produce.
+	Writing and updating documentation is something that is done in their free
+	time, if that time arises. Inadequate research software documentation is
+	also mentioned by others \citep{PintoEtAl2018, WieseEtAl2019} and the
+	problem also arises with non-research software \citep{LethbridgeEtAl2003}.
+	Recommendations on the development of research software state that
+	developers should critically evaluate their own development processes in
+	terms of quality assurance and comply with international standards for
+	software documentation \citep{KaterbowAndFeulner2018}.
 
 \end{enumerate}
 
-\section{LBM Developer Identified Concerns} \label{Sec_Concerns}
+\section{Lessons from LBM Developers} \label{Sec_AddressConcerns}
 
-\subsection{Correctness and Verifiability}
+This section summarizes the best practices from LBM developers that are taken to
+address the pain points mentioned in Section~\ref{painpoints}.  The main source
+of information is the qualitative data from developer interviews
+(Section~\ref{SecSurvey}).  The practices summarized in this section can
+potentially be emulated by the LBM software packages that do not currently
+follow them.  Moreover, these practices may also provide examples that can be
+followed by other research software domains.
 
-Interviews with developers confirmed that these software packages are developed
-by domain experts with backgrounds in physics, mathematics and mechanical
-engineering. \wss{Could point to surveys that have shown the same thing.}  It
-was noted in these interviews that some of the developers do not have formal
-software engineering education. \wss{Can point to other studies to support
-this.} Some of the development teams include computer scientists. Despite a lack
-of visible domain documentation and a resulting lower surface correctness and
-verifiability score, it is clear that some of the software packages were
-developed by teams with significant domain knowledge. 
+\subsection{Design For Change} \label{Sec_DesForChange}
 
-Interviews suggested a more frequent use of both unit testing and continuous
-integration in the development processes than what was observed from the initial
-survey. For example, OpenLB, pyLBM, and TCLB use such methods during
-development, despite this not being explicitly clear from an analysis of the
-material available online. \wss{Add this to threats to validity.}  The
-correctness and verifiability of such packages is not measured well using
-surface analysis.
+Increasing source code modularity, reducing duplicate information,
+and improving abstraction by developing well defined interfaces. This was noted
+by the developers of ESPResSo and pyLBM.  A developer of pyLBM mentioned that
+the geometries and models of their system had been ``decoupled'', using
+abstraction and modularization of the source code, to make it ``very easy to add
+[new] features''.  \wss{Highlights the advantage of design.  Other projects can
+look to these examples.  Maybe cite the Anshu paper about Flash? Dune? and point
+to the advantages of design.} Addresses maintainability.  The developer of TCLB
+mentioned that their package had two sets of code, for executing the models on
+the CPU and GPU, and that maintenance was decreased by introducing macros, a
+practice which became a common part of the development process. 
 
-Several developers alluded to difficulty with testing the correctness of large
-numbers of features, and some even manually tested program output, as opposed to
-using automated testing. The use of well defined unit testing tools could
-decrease the time spent testing some feature.  \wss{link this to
-recommendations}
+A high degree of code modularity and abstraction was noted by developers as a
+measure to ensure the ease of future changes. This can be ensured by separating
+components and hiding information behind well defined interfaces. The developer
+of ESPResSo also noted that some of the code base was transitioned from C to
+C++, which could ease modifiability of that software package. The developer of
+TCLB noted that their software package was designed to allow for the addition of
+some LBM features, but changes to major aspects of the system would be
+difficult. For example, ``implementing a new model will be an easy
+contribution'', but changes to the ``Cartesian mesh...will be a nightmare''.
+\wss{example suggests identifying likely changes.}
 
-\subsection{Usability}
+Modularize the source code, separate components, hide information behind well
+defined interfaces. This is suggested in SCS literature, and in developer
+comments.  \wss{one of Wilson's best practices.}
 
-Interviews with developers revealed several usability issues. Some users have
-misunderstood the boundaries of LBM and CFD, and have combined or applied
-methods that are not physically sound. Sometimes users have applied LBM to
-poorly defined or inappropriate fluid dynamics problems. For example, they may
-wish to model flow through or around a structure despite having limited
-information about the structure or its environment, and having little previous
-knowledge of CFD. The users do not realize the limitations of the methods, of
-the software, and do not understand the requirements to properly model a problem
-with the software. As the developer of TCLB noted, such software packages are
-not designed to be used ``out of the box'' in a plug and play fashion, and it
-could take months or more to set up the CFD problems correctly. Developers of
-some software packages, including ESPResSo, mitigated this by editing the source
-code to prevent users from ``combining methods that are not physically sound
-together'', and by updating the documentation to better inform users of LBM
-limitations, and of the requirements to properly model appropriate problems,
-including what algorithms and parameters to use.  \wss{Could point to this for
-recommendations related to documentation.  Could point to this for a generative
-approach that won't allow inadmissible combinations, or at least includes an
-explicit warning.}
+\begin{itemize}
+	\item Modifiability. Consider flexibility of data structures and data
+	storage in the design stage. The package pyLBM redeveloped data structures
+	to ease future changes.
+	\item Reusability. Provide API documentation, if applicable. Only one
+	(ESPResSo) of the top five ranked packages provided API documentation.
+\end{itemize}
 
-Usability concerns were also raised for installation, understanding how to
-maneuver the interfaces and understanding how to set up and run models. These
-issues are addressed by various user support models, including frequently asked
-questions sections on the software package websites, user guides, and hardware
-and software requirements specifications.  \wss{Could point to there being room
-for improvement here, especially for requirements specification.}
+\subsection{Verification and Validation} \label{Sec_VnV}
 
-One software package (ESPResSo) changed some of its scripting language to Python
-to make it more usable. The developer commented that this was ``the biggest step
-in terms of usability over the years'', further commenting that ``most people in
-the field know [Python]'' and that ``it's easy to learn''.  \wss{A generative
-approach facilitates switching to whatever language is currently popular.}
+\wss{Address Correctness (\ppref{P_Correctness}): Testing is not the only way to
+build confidence in correctness.  Peer review.  } 
 
-\subsection{Maintainability}
+Surface Correctness and Verifiability. Development teams should
+include both domain experts and experienced software developers. This
+suggestion is based on developer comments.
 
-Although not always visible from the publicly available artifacts, interviews
-with developers revealed that most projects have a defined process for accepting
-contributions from team members. The packages rarely get contributions from
-outside developers, but the process would be similar as for the aforementioned
-group.  In general, contributions are made through GitHub, and are then reviewed
-and pulled by lead developers, often with consultation with a group of core
-developers depending on the organizational model. Continuous integration is part
-of the process for some packages. \wss{Recommendation to increase.  Successful
-projects use it, a reasonable next step for projects that have not yet
-incorporated CI.}  \wss{There is definitely a great deal of repetition.}
-
-Some developers noted that their software package does not have well defined
-contributing guide in the repository, but it might be a good idea to add one in
-the near future. They would be happy to see contribution from outside of their
-organization, but currently this does not happen.  \wss{A comment was made at
-the recent DOE workshop that you get new users through documentation and
-tutorials.  Maybe highlight the example of Musubi?  Should trace back to this
-for the recommendations part.  \citep{Fogel2005} gives advice on having a
-successful project, also the web article (if needed).}
-
-Furthermore, maintainability has been addressed by increasing source code
-modularity, reducing duplicate information, and improving abstraction by
-developing well defined interfaces. This was noted by the developers of ESPResSo
-and pyLBM. Several software packages have had sections of their code base
-redeveloped with languages that the developers felt are more understandable and
-readable, and that are better supported, such as Python. Data structures have
-also been redeveloped and storage has been improved. A developer of pyLBM
-mentioned that the geometries and models of their system had been ``decoupled'',
-using abstraction and modularization of the source code, to make it ``very easy
-to add [new] features''.  \wss{Highlights the advantage of design.  Other
-projects can look to these examples.  Maybe cite the Anshu paper about Flash?
-Dune?  and point to the advantages of design.}
-
-The developer of TCLB mentioned that their package had two sets of code, for
-executing the models on the CPU and GPU, and that maintenance was decreased by
-introducing macros, a practice which became a common part of the development
-process. 
-
-\subsection{Modifiability}
-
-Software packages were not quantitatively measured for modifiability. In this
-project we asked developers to comment on modifiability when we interviewed
-them. Specifically, we asked if ease of future changes to the system, modules,
-and code blocks was considered when designing the software. We also asked if any
-measures had been taken to ensure the ease of future changes. All of the
-developers that were interviewed noted that the ease of future changes was
-considered and that measures to ensure it had been taken, including requiring
-the separation of software components in the source code architecture.  \wss{A
-good approach for other developers to adopt - part of recommendations.  Trace
-back to this comment.}  A high degree of code modularity and abstraction was
-noted by developers as a measure to ensure the ease of future changes. This can
-be ensured by separating components and hiding information behind well defined
-interfaces. The developer of ESPResSo also noted that some of the code base was
-transitioned from C to C++, which could ease modifiability of that software
-package. The developer of TCLB noted that their software package was designed to
-allow for the addition of some LBM features, but changes to major aspects of the
-system would be difficult. For example, ``implementing a new model will be an
-easy contribution'', but changes to the ``Cartesian mesh...will be a
-nightmare''. Furthermore, the package was designed with flexible data structures
-and storage in mind.  \wss{example suggests identifying likely changes.}
-
-Some software packages, like Palabos, provide validation benchmarks for their
-core fundamental algorithmic ingredients \citep{latt2021palabos}. The stated
-intent of these benchmarks is to showcase the validity and usefulness of the
-package to stimulate the development of third-user extensions. The Palabos
-package identifies as a development framework for modelling problems in various
-CFD areas.  \wss{Add validation benchmarks as a ``best practice'' used by
-Palabos - others could emmulate.  Goal of this exercise is for people in the
-community to learn from each other, and potentially from our advice too.}
-
-Developers were asked to comment on the obstacles in their development process.
-The developer of ESPResSo noted that a lot of their source code had been written
-with a specific application in mind, and that there is too much coupling between
-components. Addressing this issue, possibly by making the design review process
-more transparent (Section~\ref{secVisib}), would help with code modifiability
-and reusability.  \wss{Traceback for recommendations.}
-
-\subsection{Understandability}
-
-Software developers noted that they believe users have generally found their
-packages to be understandable. \wss{Confusion between understandability and
-usability - threat to validity example.}  The interviewed developer of ESPResSo
-commented that some users have attempted to run physically incompatible LBM
-methods, and the solution was to edit the code to prevent such combinations, as
-well as to update the documentation to prevent misunderstanding the methods.
-Similarly, a developer of pyLBM noted that some users had issues setting up
-parameters for LBM schemes. The solution to this was to update the interface
-where these parameters are set, as well as to add functionality to test the
-stability of the parameters. A developer of OpenLB noted that some users lack
-the background knowledge to easily model fluid dynamics problems using their
-software. A frequently asked questions section was added to their package
-website to help users find answers to common questions. The package also has
-detailed documentation, including guides and usage requirements specification,
-to better help users understand the software. \wss{Peter - the discussion here
-is more about user usability than the understandability of the code for
-developers. Did any of the developers discuss developer understandability?  The
-confusion between understandability and usability was also a confusion during
-the interviews Ao conducted.} \pmm{The developer of ESPResSo did comment on
-developer understandability, specifically for developers that are/were part of
-their peer review process. He commented that code architecture is documented,
-and that code is made to be readable, and that these help peer reviews of the
-code.}
-
-\wss{I moved this from the visibility section, since it is more about
-understandability.}  Developers were also asked how documentation fits into their
-development process. Several developers noted that developer documentation plays
-an important role in familiarizing potential contributors to the software system
-architecture. Without the guidance that the documentation provides it would be
-unlikely that contributions would pass the peer review process. 
-
-\subsection{Traceability}
-
-Software packages were not quantitatively measured for traceability. In this
-project we asked developers to comment on traceability, specifically on their
-software package's documentation and how it fit into their development process. 
-
-The interviewed developer of ESPResSo noted that all major additions to their
-package had accompanying changes to artifacts and documentation. They noted that
-considerable effort had been put into the documentation. They further commented
-that they want to lower the entry barrier for new developers, and because of
-that their package has a considerable amount of developer documentation. This
-documentation informs developers on how to get started, and orients them to the
-artifacts, source code, and system architecture, as well as how the software
-package build system works, and how the coupling between the simulation engine
-and the interface works.  \wss{Peter - these points about developer
-documentation seem like they would fit better under understandability, don't you
-think?}  \pmm{After reviewing the definitions of the two qualities, I think you
-are right. I think that the point presented in the first sentence of this
-paragraph belongs here in traceability (but could be reworded to note that
-ESPResSo also has detailed change logs in their docs - change logs are also
-available for Palabos and waLBerla), but the rest of the paragraph can be moved
-to understandability.} \wss{If ESPresSo scored high (I think it did), we can use
-that to further promote the value of documentation.  Also a threat to validity
-is that we have implicitly assumed documentation is valuable when measuring
-quality.}
-
-Developers noted the importance of documentation for both the users and
-developers of their software. New features are always added to the
-documentation. The developers use documentation to stay up to date on the status
-of the software package, and to help expand features, like computational models
-or algorithms. This is necessary so that the coding standard for these models is
-kept consistent for new developers. \wss{Peter - this also sounds like
-discussion that is relevant for understandability.} \pmm{The points here sound
-like they could work for both. The definition of traceability notes that `This
-quality refers to keeping track of information as it changes forms or relates
-between artifacts'. So the point `New features are always added to the
-documentation' could be reworded to fit that part of the definition of
-traceability. As noted above, this is similar to the point about some packages
-having including detailed change logs. Same with `The developers use
-documentation to stay up to date on the status of the software package, and to
-help expand features'. I agree that at least some of this paragraph could be in
-understandability, especially the first and second sentences.}
-
-The importance of documentation for both users and developers was stressed
-throughout the interviews. However, it was noted several times that a lack of
-time and funding has a negative affect on the documentation. Most of the
-developers are scientific researchers evaluated on the scientific papers that
-they produce. Writing and updating documentation is something that is done in
-their free time, if that time arises. Sometimes it is a last priority for the
-developers. Finding ways to hasten updating documentation would increase the
-frequency of such updates and benefit both users and developers.  \wss{Same
-thing has come up in papers.  I'll try to find a reference for this.  This is
-also something we can point to for recommendations related to code generation.}
-\wss{Peter - this also sounds like understandability related discussion?  I
-wonder if we should drop Traceability as a quality that we assessed?  There
-doesn't seem to be much content specific to traceability.}  \pmm{Based on the
-comments I just added above, I think we can keep at least a small part of what
-is here in traceability, rewording parts to highlight the importance of change
-logs. Some of the content in this section should indeed be moved to
-understandability.} The developer of OpenLB noted the use of documentation
-generators like Doxygen. It would be advisable for more projects to use such
-automatic document generation tools, since some projects do not do this.
-\wss{We can refer back to this for the recommendations.}
-
-\subsection{Visibility and Transparency} \label{secVisib}
-
-For the developers interviewed, visibility is not currently a priority.
-Visibility is not particularly necessary because the teams are fairly small.
-Although they accept outside contributors, these are rare and the teams remain
-tight-knit.  Most of the teams interviewed have all members at the same
-institution, although one team is spread out internationally. \wss{Peter, can
-you say which team is international, so that we can add this detail to the
-paper?} \pmm{The interviewed developer of OpenLB noted that there were tasks for
-local and international developers when discussing their software development
-model. He also noted that they have frequent local meetings and annual
-international meetings.}  For teams of only a few developers, new features or
-major changes are discussed with the entire team. Projects with more than a few
-developers have lead developer roles. These lead developers review potential
-additions to the software.  
-
-Although visibility is not a priority, positive steps are being undertaken. For
-instance, all interviewed teams used GitHub, with its visibility enhancing
-features of branching, issue tracking, insights on contributors, the blame
-feature, wikis, pull requests, etc. Continuous integration, as used by ESPResSo,
-makes projects even more visible, since contributors can explicitly see the bar
-that must be crossed for code to be incorporated into the master branch.
-ESPResSo also uses peer review, which improves visibility by explicitly asking
-for feedback from other developers.
-
-Previously mentioned concerns with maintainability, modifiability, and
-understandability  could be improved by further improving visibility.  For
-future sustainability, projects will likely have to expand their development
-teams by recruiting more external developers. One component of recruiting
-developers is transparency in the development process, including the process for
-making a contribution.  \wss{in recommendations could point out what teams could
-do to get more external contributors, and potentially a longer life for their
-project.}
+Visibility and Transparency. Consider peer review processes to assess
+contributions and ensure the tracking of information. High ranked package
+ESPResSo uses a peer review process for contributions. 
 
 \subsection{Reproducibility} \label{SecReproducibility}
 
@@ -2305,47 +2097,132 @@ be appropriate. \wss{Ideas for dealing with reproducibility in these situations
 will be explored in the recommendations section (like properties of the solution,
 such as conservation of mass).}
 
-For the current project, we did not assess the stronger form of
-``reproducibility'' known as replicability.  A software project is considered
-replicable if the documentation alone (without the code) is sufficiently precise
-and complete to allow a third-part to re-obtain the results of the original code
-\citep{BenureauAndRougier2017}.  Replicability is difficult to achieve with
-current documentation practices.  This question should be considered in the next
-iteration of state of the practice assessments. 
+Some software packages, like Palabos, provide validation benchmarks for their
+core fundamental algorithmic ingredients \citep{latt2021palabos}. The stated
+intent of these benchmarks is to showcase the validity and usefulness of the
+package to stimulate the development of third-user extensions. The Palabos
+package identifies as a development framework for modelling problems in various
+CFD areas.  \wss{Add validation benchmarks as a ``best practice'' used by
+Palabos - others could emmulate.  Goal of this exercise is for people in the
+community to learn from each other, and potentially from our advice too.}
 
-\subsection{Unambiguity}
+\begin{itemize}
+\item Reproducibility. Test output against automatically calculated or known
+correct results. High ranked package ESPResSo does this.
+\item Reproducibility. Automate the testing of output. Run tests after all code
+changes. High ranked package ESPResSo does this.
+\item Reproducibility. Consider peer review processes and task based inspection
+to assess contributions. High ranked package ESPResSo does this.
+\end{itemize}
 
-Software packages were not quantitatively measured for unambiguity. We asked
-developers if they thought that the current documentation can clearly convey all
-necessary knowledge to the users, and if they had taken any steps to ensure
-clarity. The developer of ESPResSo noted that their documentation was meant for
-users that are already familiar with the underlying physics and CFD methods.
-These concepts are not explained in detail within the documentation. Users
-should acquire this knowledge from suitable external sources. The documentation
-focuses on how to technically use the software package, and includes a user
-guide and tutorial walk through of how to set up and run a simulation. With this
-in mind, the developer believes that their documentation is in reasonable shape
-for users with a minimum knowledge of the underlying physics. If new users have
-technical questions these can be addressed in further revisions of the
-documentation. New developers should find that the documentation is reasonably
-clear and useful. Information that is missing, like detailed explanations of
-dependencies, is referenced in the documents. 
+\subsection{Documentation} \label{Sec_RecommendDoc}
 
-The developer of pyLBM also noted that their documentation was in reasonable
-shape, but that they ``need more [user] feedback to improve [it]''. They also
-noted that they believe a lack of knowledge of the underlying physics and CFD
-concepts can be an issue for some users. This information can be referenced in
-the documentation, but it is not something that the documentation needs to
-detail. 
+Software packages were not quantitatively measured for traceability. In this
+project we asked developers to comment on traceability, specifically on their
+software package's documentation and how it fit into their development process. 
 
-\section{Lessons from LBM Developers} \label{Sec_AddressConcerns}
+The interviewed developer of ESPResSo noted that all major additions to their
+package had accompanying changes to artifacts and documentation. They noted that
+considerable effort had been put into the documentation. They further commented
+that they want to lower the entry barrier for new developers, and because of
+that their package has a considerable amount of developer documentation. This
+documentation informs developers on how to get started, and orients them to the
+artifacts, source code, and system architecture, as well as how the software
+package build system works, and how the coupling between the simulation engine
+and the interface works.  \wss{Peter - these points about developer
+documentation seem like they would fit better under understandability, don't you
+think?}  \pmm{After reviewing the definitions of the two qualities, I think you
+are right. I think that the point presented in the first sentence of this
+paragraph belongs here in traceability (but could be reworded to note that
+ESPResSo also has detailed change logs in their docs - change logs are also
+available for Palabos and waLBerla), but the rest of the paragraph can be moved
+to understandability.} \wss{If ESPresSo scored high (I think it did), we can use
+that to further promote the value of documentation.  Also a threat to validity
+is that we have implicitly assumed documentation is valuable when measuring
+quality.}
 
-Answers \rqref{RQ_Recommend}.  Recommendations for Addressing Developer
-Concerns.  This section answers the research questions listed in
-Section~\ref{secIntro} using the quantitative data presented in
-Section~\ref{AHPresults}, qualitative data from developer interviews
-(Section~\ref{SecSurvey}), additional data from software package repositories
-and artifacts, and domain expert feedback.
+Finding ways to hasten updating documentation would increase the
+frequency of such updates and benefit both users and developers.  \wss{Same
+thing has come up in papers.  I'll try to find a reference for this.  This is
+also something we can point to for recommendations related to code generation.}
+\wss{Peter - this also sounds like understandability related discussion?  I
+wonder if we should drop Traceability as a quality that we assessed?  There
+doesn't seem to be much content specific to traceability.}  \pmm{Based on the
+comments I just added above, I think we can keep at least a small part of what
+is here in traceability, rewording parts to highlight the importance of change
+logs. Some of the content in this section should indeed be moved to
+understandability.} The developer of OpenLB noted the use of documentation
+generators like Doxygen. It would be advisable for more projects to use such
+automatic document generation tools, since some projects do not do this.
+\wss{We can refer back to this for the recommendations.}
+
+\wss{Address Usability (\ppref{P_Usability}): Better documentation, with
+attention on traceability, and automatic code generation are suggested when
+designing software for change, and would help with these modifications.  So far
+this problem of on-boarding new users has been addressed by updating the
+documentation to better inform users of the underlying LBM theory and package
+requirements. Similar issues with LBM parameters were noted by another
+developer. Updating the user interface to better explain theoretical principles,
+as well as test user input for compatibility, was the implemented solution. As
+noted above, sometimes frequently asked questions on the underlying theory and
+on how to use the software are answered in the documentation.  The interviewed
+developer of ESPResSo commented that parts of their package's source code had
+been refactored to Python to help address usability issues. Python was perceived
+as a much more usable language, and it would be easy for future users and
+developers to learn and understand the source code.}
+
+One software package (ESPResSo) changed some of its scripting language to Python
+to make it more usable. The developer commented that this was ``the biggest step
+in terms of usability over the years'', further commenting that ``most people in
+the field know [Python]'' and that ``it's easy to learn''.  \wss{A generative
+approach facilitates switching to whatever language is currently popular.}
+
+\begin{itemize}
+\item Usability. Understandability. Unambiguity. State appropriate fluid
+dynamics problems that the software is designed to model in the documentation,
+and explicitly state the limits of the software. This is done in the ESPResSo
+user guide.
+\item Usability. Provide documentation that details the background theory
+information, or provide a reference to such information. This was done by
+several top ranked packages, including ESPResSo, Ludwig, LUMA, and OpenLB.
+\item Usability. Identify expected user characteristics. LIMBES, Ludwig,
+laboetie, and Palabos did this. The importance of specifying user
+characteristics is discussed in \citep{smith2007requirements}.
+\item Usability. Keep all documentation in one location. This was done by top
+ranked packages.
+\item Usability. Do not duplicate artifact information. This is suggested as
+good software development practice. Duplicate information is difficult to
+maintain. 
+\end{itemize}
+
+\subsection{Visibility and Transparency} \label{secVisib}
+
+\wss{Will likely remove this section, but should find a way to say the good
+things that ESPResSo does.} Although visibility is not a priority, positive
+steps are being undertaken. For instance, all interviewed teams used GitHub,
+with its visibility enhancing features of branching, issue tracking, insights on
+contributors, the blame feature, wikis, pull requests, etc. Continuous
+integration, as used by ESPResSo, makes projects even more visible, since
+contributors can explicitly see the bar that must be crossed for code to be
+incorporated into the master branch. ESPResSo also uses peer review, which
+improves visibility by explicitly asking for feedback from other developers.
+
+\wss{in recommendations could point out what teams could do to get more external
+contributors, and potentially a longer life for their project.}
+
+\section{Recommendations for Future Practices} \label{Sec_Recommendations}
+
+Answers \rqref{RQ_Recommend}.  practices for the future.  Probably the easiest
+approach is to list the practice and then the PPs that it helps.  Our
+recommendations are not lists of what should have been done in the past, or what
+should be done now; they are just suggestions for consideration in the future.
+
+``unique challenges of scientific research (e.g., the frequent and unforeseen
+changes in requirements ...)'' \citep{PintoEtAl2018}. We can point out that in
+the future this viewpoint could change and why.  Not really a unique challenge.
+Cite Smith 2016?
+
+linters \citep{Zadka2018} were rarely observed in LBM projects.  Do not see much evidence of their presence in best practice guides.
 
 \wss{Address lack of development time (\ppref{P_LackDevTime}): Aside from
 on-boarding new developers, time constraints could be mitigated by increasing
@@ -2365,175 +2242,21 @@ Software \citet{SmithEtAl2018-joss}.  Calling for direct software citations
 \citep{SmithEtAl2016-softcite}.  Guidance on software citation from
 \citet{KatzEtAl2021}.  Discussed in CarverEtAl2021 paper.}
 
-\wss{Address Usability (\ppref{P_Usability}): Better documentation, with
-attention on traceability, and automatic code generation are suggested when
-designing software for change, and would help with these modifications.  So far
-this problem of on-boarding new users has been addressed by updating the
-documentation to better inform users of the underlying LBM theory and package
-requirements. Similar issues with LBM parameters were noted by another
-developer. Updating the user interface to better explain theoretical principles,
-as well as test user input for compatibility, was the implemented solution. As
-noted above, sometimes frequently asked questions on the underlying theory and
-on how to use the software are answered in the documentation.  The interviewed
-developer of ESPResSo commented that parts of their package's source code had
-been refactored to Python to help address usability issues. Python was perceived
-as a much more usable language, and it would be easy for future users and
-developers to learn and understand the source code.}
-
-\wss{Address Correctness (\ppref{P_Correctness}): Testing is not the only way to
-build confidence in correctness.  Peer review.  } 
-
 \wss{Address quality of documentation (\ppref{P_Documentation}): Make required
 background of users explicit, possibly in a requirements document.}
 
-\subsection{Common Practices} \label{currentPractices}
+Surface Correctness and Verifiability. Use a requirements
+specification document. This is suggested in SCS literature, and several of
+the top ranked packages had such a document or reference to theory manuals.
+A potential template is presented in \citep{smith2005new}. 
 
-The practices that arose frequently.  Compare and contrast to what is done with
-research software in general.  The following points regarding software quality
-should be considered when developing LBM software packages. These points are
-based on developer interviews, SCS literature, what was found to have worked for
-packages that were designated as high quality in this assessment.  Our
-recommendations are not lists of what should have been done in the past, or what
-should be done now; they are just suggestions for consideration in the future.
-\wss{Rework this section to highlight what the top projects are doing.  Point to
-checklists for other advice?}  Highlights of common practices.  Put in context.
+\subsection{Grow the Number of Contributors}
 
-Conclusion that LBM software common practice is similar to the common practice
-elsewhere.  Maybe point out where LBM is ahead.  Use results from common
-artifacts, common process etc. to support conclusion.  (Continuous integration,
-version control, README, Req etc. - point to Table 8.)
+Maintainability. Have a defined process for accepting contributions, and make
+public documentation for making contributions to the project. The top five
+ranked software packages include information on how to contribute. 
 
-\begin{itemize}
-	\item Surface Reliability. Surface Usability. The packages should include
-	detailed tutorials, including dependencies, expected output, and any
-	additional supplementary documentation that may be required. This was done
-	by many packages, including waLBerla, Palabos, MechSys, LUMA, and pyLBM.
-	\wss{Comment from ASCR attendee that success with open source requires good
-	tutorials and documentation - is this published anywhere?  I think I can
-	find this recommendation in other papers.}
-	\item Surface Usability. Unambiguity. Surface Understandability. Provide a
-	detailed user manual. It should identify elements of user interfaces, and
-	identify all requirements to model a system. Thirteen packages have a user
-	manual. ESPResSo has a well detailed manual. \wss{Include this with
-	tutorial?  Find papers that recommend this kind of documentation?}
-	\item Surface Usability. Include user hardware and software requirements
-	documentation. Hardware requirements are rarely listed in the software
-	packages that were assessed. Only those offering GPU processing (ESPResSo,
-	lbmpy, lettuce, pyLBM, Sailfish, TCLB) mentioned any hardware requirements.
-	On the other hand, some sort of software requirements were available for all
-	packages, even if only some dependencies or a compatible operating system
-	were mentioned.  \wss{This is a key part of reproducibility.}
-    \item Not much of a process - find papers that support this - papers
-    recommend "Define clear and transparent contribution, governance and
-    communication processes" JimenezEtAl2017
-\end{itemize}
-
-\subsection{Best Practices} \label{bestPractices}
-
-practices by the best measured.  Point to existing checklist and development
-guides.  This section should only mention things that are new.
-
-\begin{itemize}
-	\item Surface Correctness and Verifiability. Development teams should
-	include both domain experts and experienced software developers. This
-	suggestion is based on developer comments.
-	\item Surface Correctness and Verifiability. Surface Understandability.
-	Maintainability.  Modifiability. Reusability.  Modularize the source code,
-	separate components, hide information behind well defined interfaces. This
-	is suggested in SCS literature, and in developer comments.  \wss{one of
-	Wilson's best practices.}
-	\item Surface Usability. Surface Understandability. Unambiguity. State
-	appropriate fluid dynamics problems that the software is designed to model
-	in the documentation, and explicitly state the limits of the software. This
-	is done in the ESPResSo user guide.
-	\item Surface Usability. Provide documentation that details the background
-	theory information, or provide a reference to such information. This was
-	done by several top ranked packages, including ESPResSo, Ludwig, LUMA, and
-	OpenLB.
-	\item Surface Usability. Identify expected user characteristics. LIMBES,
-	Ludwig, laboetie, and Palabos did this. The importance of specifying user
-	characteristics is discussed in \citep{smith2007requirements}.
-	\item Surface Usability. Keep all documentation in one location. This was
-	done by top ranked packages.
-	\item Maintainability. Have a defined process for accepting contributions,
-	and make public documentation for making contributions to the project. The
-	top five ranked software packages include information on how to contribute. 
-	\item Modifiability. Consider flexibility of data structures and data
-	storage in the design stage. The package pyLBM redeveloped data structures
-	to ease future changes.
-	\item Reusability. Provide API documentation, if applicable. Only one
-	(ESPResSo) of the top five ranked packages provided API documentation.
-	\item Surface Understandability. Adopt a coding standard and document it in
-	artifacts, including some examples. A coding standard needs to be part of
-	continuous integration. Only LUMA, HemeLB, and Musubi explicitly identify
-	coding standards. 
-	\item Traceability. Provide a developer's guide to help orient developers to
-	the artifacts, source code, and system architecture so that they can better
-	document changes. Top ranked package OpenLB has a developer guide. \wss{How
-	is this related to traceability?}
-	\item Visibility and Transparency. Summarize the development process that is
-	used. Provide information on how new users can contribute. Identify the
-	development model by name (waterfall, agile, etc.), if appropriate.  Seven
-	of the software packages have some artifacts outlining the general
-	development process. Eleven packages have information on how to contribute. 
-	\item Visibility and Transparency. Consider peer review processes to assess
-	contributions and ensure the tracking of information. High ranked package
-	ESPResSo uses a peer review process for contributions. 
-	\item Reproducibility. Test output against automatically calculated or known
-	correct results. High ranked package ESPResSo does this.
-	\item Reproducibility. Automate the testing of output. Run tests after all
-	code changes. High ranked package ESPResSo does this.
-	\item Reproducibility. Consider peer review processes and task based
-	inspection to assess contributions. High ranked package ESPResSo does this.
-	\item Unambiguity. Consider asking users for feedback on the documentation.
-	The developer of pyLBM noted that such feedback would be appreciated.
-
-\end{itemize}
-
-practices mentioned in literature, but not practiced (if any).  Start with the
-practices that aren't derived from developer interviews.
-
-\begin{itemize}
-	\item Surface Correctness and Verifiability. Use a requirements
-	specification document. This is suggested in SCS literature, and several of
-	the top ranked packages had such a document or reference to theory manuals.
-	A potential template is presented in \citep{smith2005new}. 
-	\item Surface Usability. Do not duplicate artifact information. This is
-	suggested as good software development practice. Duplicate information is
-	difficult to maintain. 
-	\item Maintainability. Visibility and Transparency. Reproducibility. Keep
-	artifacts updated. This is suggested as good software maintenance practice.
-	\item Maintainability. Eliminate code duplication. This is suggested as good
-	software development practice. Duplicate code is difficult to maintain.
-	\wss{No support for this one or citation, either find or remove it.}
-	\item Modifiability. Consider future source code modifiability as early as
-	the design stage of development. This is suggested as good software
-	development practice. \wss{citation, support, or remove.}
-	\item Reusability. Document module interfaces in design and developer
-	documentation. This is suggested as good software development practice.
-	\wss{citation or support}
-	\item Traceability. Update all relevant documentation when a change to the
-	software is made. This is suggested as good software development practice.
-	\wss{support, cite or remove}
-	\item Unambiguity. Documentation must state all technical requirements and
-	software dependencies. A missing dependency was a frequent cause of fault
-	conditions during this assessment.
-	\item Unambiguity. Provide a table of symbols in the developer's guide that
-	maps to names used in the source code. This is suggested as good software
-	development practice.
-
-\end{itemize}	
-
-\subsection{Future Practices} \label{futurePractices}
-
-Answers \rqref{RQ_Future}.  practices for the future.
-
-``unique challenges of scientific research (e.g., the frequent and unforeseen
-changes in requirements ...)'' \citep{PintoEtAl2018}. We can point out that in
-the future this viewpoint could change and why.  Not really a unique challenge.
-Cite Smith 2016?
-
-linters \citep{Zadka2018} were rarely observed in LBM projects.  Do not see much evidence of their presence in best practice guides.
+Papers that talk about how to do open source.
 
 \section{Threats To Validity} \label{threats}
 
@@ -2601,6 +2324,43 @@ From Section~\ref{Sec_CompareTools}: ``Interviews with the developers revealed a
 potentially more frequent use of both unit testing and continuous integration,
 compared to what was observed from studying the repository artifacts.''
 
+Interviews suggested a more frequent use of both unit testing and continuous
+integration in the development processes than what was observed from the initial
+survey. For example, OpenLB, pyLBM, and TCLB use such methods during
+development, despite this not being explicitly clear from an analysis of the
+material available online.  The correctness and verifiability of such packages
+is not measured well using surface analysis.
+
+\subsection{Future State Of The Practice Assessments} \label{futuresop}
+
+As mentioned in Section~\ref{threats}, the measures listed in our measurement
+template may not be broad enough to accurately capture some qualities. Adding or
+extending measures is worth considering. For example, usability experiments and
+performance benchmarks could be incorporated into the assessment.
+
+Section~\ref{SecReproducibility} noted that developers were not asked to comment
+on the reproducibility of their source code from their requirements
+specifications and design documentation. Adding this question to the interview
+guide should be considered in the next iteration of state of the practice
+assessments. Furthermore, as mentioned in Section~\ref{threats}, it was found
+that some pertinent information was not specified in public artifacts. The use
+of unit testing and continuous integration by several packages (OpenLB, pyLBM,
+TCLB) was only discovered during interviews with developers. Adding further
+questions to the interview guide regarding the measures that are on the
+measurement template could reduce instances of incorrect data being collected.
+This additional interview data could be analyzed and incorporated into the AHP
+ranking, ensuring quality designations more accurate represent the true quality
+of the software packages.  \wss{clarify the distinction between usability and
+understandability.}
+
+For the current project, we did not assess the stronger form of
+``reproducibility'' known as replicability.  A software project is considered
+replicable if the documentation alone (without the code) is sufficiently precise
+and complete to allow a third-part to re-obtain the results of the original code
+\citep{BenureauAndRougier2017}.  Replicability is difficult to achieve with
+current documentation practices.  This question should be considered in the next
+iteration of state of the practice assessments. 
+
 \section{Conclusion} \label{conclusion}
 
 We analyzed the state of the practice of software development in the Lattice
@@ -2642,8 +2402,6 @@ nuances of which software can justify compromising which practice we will write
 our comparison under the ideal assumption that every project can have sufficient
 resources to match best practices.
 
-\subsection{Highlighted Recommendations} \label{highlightedrecommendations}
-
 Many software packages would benefit from a rewrite or reorganization of
 installation instructions. A single location for installation instructions would
 improve their maintainability and correctness. Listing compatible operating
@@ -2658,77 +2416,13 @@ installability.}  \wss{Maybe at some point should mention more modern
 installation support, since most of the projects use make, and there are other
 options.}
 
-The following recommendations improve software quality along multiple
-attributes, and provide the greatest return on investment:
-
-\begin{itemize}
-	\item Provide a detailed user manual. It should identify elements of user
-	interfaces, and identify all requirements to model a system. Thirteen
-	packages have a user manual. ESPResSo has a well detailed manual.
-	\item State appropriate fluid dynamics problems that the software is
-	designed to model in the documentation, and explicitly state the limits of
-	the software. This is done in the ESPResSo user guide.
-	\item Include detailed tutorials, including dependencies, expected output,
-	and any additional supplementary documentation that may be required. This
-	was done by many packages, including waLBerla, Palabos, MechSys, LUMA, and
-	pyLBM.
-	\item Keep all documentation in one location. This was done by top ranked
-	packages.
-	\item If possible, consider using popular user-friendly software languages
-	like Python. Especially consider this for parts of the source code that is
-	likely to be modified or reviewed by users. ESPResSo and Sailfish use Python
-	to address several software qualities, including maintainability,
-	modifiability and usability.
-	\item Modularize the source code, separate components, hide information
-	behind well defined interfaces. This is suggested in SCS literature, and in
-	developer comments.
-	\item Include descriptive error messages where appropriate. This was done by
-	most packages that encountered a fault.
-	\item Summarize the development process that is used. Provide information on
-	how new users can contribute. Seven of the software packages have some
-	artifacts outlining the general development process. Eleven packages have
-	information on how to contribute.
-	\item Consider peer review processes and task based inspection to assess
-	contributions. High ranked package ESPResSo does this.
-	\item Use continuous integration tools (Bamboo, Jenkins, and Travis CI) and
-	processes during development. This was done by top ranked packages ESPResSo
-	and Ludwig.
-	\item Use project management tools, including change and version control
-	tools (GitHub, GitLab, CVS), collaboration tools (GitHub, GitLab), and
-	document generation tools (Doxygen, Drasil, Sphinx). This was done by all of
-	the top five ranked packages.
-\end{itemize}
-
 Ensuring software quality can take significant time. An inability to develop
 high quality documentation due to time constraints could be mitigated in the
 future by the use of automatic document generation tools like Drasil. The Drasil
 Framework consists of a collection of Domain Specific Languages (DSL) for
 capturing scientific documents, structures, and computing knowledge, and then
 transforming this knowledge into relevant software artifacts without having to
-manually duplicate knowledge into multiple artifacts \citep{zhao2018}.
-\wss{Yuzhi is not the best reference to use for the Drasil work.}
-
-\subsection{Future State Of The Practice Assessments} \label{futuresop}
-
-As mentioned in Section~\ref{threats}, the measures listed in our measurement
-template may not be broad enough to accurately capture some qualities. Adding or
-extending measures is worth considering. For example, usability experiments and
-performance benchmarks could be incorporated into the assessment.
-
-Section~\ref{SecReproducibility} noted that developers were not asked to comment
-on the reproducibility of their source code from their requirements
-specifications and design documentation. Adding this question to the interview
-guide should be considered in the next iteration of state of the practice
-assessments. Furthermore, as mentioned in Section~\ref{threats}, it was found
-that some pertinent information was not specified in public artifacts. The use
-of unit testing and continuous integration by several packages (OpenLB, pyLBM,
-TCLB) was only discovered during interviews with developers. Adding further
-questions to the interview guide regarding the measures that are on the
-measurement template could reduce instances of incorrect data being collected.
-This additional interview data could be analyzed and incorporated into the AHP
-ranking, ensuring quality designations more accurate represent the true quality
-of the software packages.  \wss{clarify the distinction between usability and
-understandability.}
+manually duplicate knowledge into multiple artifacts \citep{SzymczakEtAl2016}.
 
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{LatticeBoltz_SOP}
@@ -2737,42 +2431,21 @@ understandability.}
 
 TO DO
 
-- add table of features - include Mohammed columns
-- add new program that wasn't measured - means measuring 24, not 23
-- update simple stats for other projects
-- compare to existing survey results (do this in Ao's too)
-- read more of the existing survey studies, as highlighted by Carver paper
 - data on Mendeley
-
-- add a comparison to other studies
-- add conclusions related to how LBM compares to other fields, and the "average" of all SC
 
 - make recommendations in order of conservative to ``bleeding edge''
 - add pointer to project checklists (as sent to Jacques, as promoted during workshop)
 
-- value of tools to enforce good behavior of developers, like R, like MOOSE infrastructure
-
-- change RQs - make them more about understanding the range of development
-practices, and identifying projects that are successful.  Also identify room for
-improvement, as identified by the developers themselves, and as identified by
-us.  Compare the state of the practice of LBM to the state of practice of other
-domains.  Where does LBM stand relative to other domains.
-
-- read \citet{WieseEtAl2019} (Naming the Pain in Developing Scientific Software)
+- value of tools to enforce good behaviour of developers, like R, like MOOSE infrastructure
 
 - change \citet{ghezzi1991fundamentals} to \citet{GhezziEtAl2003} (need to check
 each instance, add page numbers).
-
-- add links or citations to all of the packages (could add them to the summary table)
 
 - introduce the idea of using our measurement template as a checklist, instead
 of, or in addition to other checklists - cite the other checklists
 \citep{SchlauchEtAl2018, BrettEtAl2021, vanGompelEtAl2016}, \href{Software
 Sustainability Institute Online
 Form}{https://docs.google.com/forms/d/e/1FAIpQLSf0ccsVdN-nXJCHLluJ-hANZlp8rDKgprJa0oTYiLZSDxh3DA/viewform}
-
-- discuss Wilson papers ``Best Practices'' \citep{WilsonEtAl2014} and ``Good
-Enough Practices'' \citep{WilsonEtAl2016}
 
 - mention flake8 for Python?
 
@@ -2781,9 +2454,6 @@ Enough Practices'' \citep{WilsonEtAl2016}
 - reproducibility - can point to the PiccoloAndFrampton2016 paper
 
 - AlNoamanyAndBorghi2018 lists the most popular languages, Python is number 1
-
-- JimenezEtAl2017 talks about Define clear and transparent contribution,
-governance and communication processes
 
 - should look at ReinerEtAl2022 on Domain of Ocean Modelling software to
 contrast to the state of the practice of LBM software
