@@ -583,7 +583,11 @@ program family is defined by \cite{parnas1976design} as ``a set of programs
 whose common properties are so extensive that it is advantageous to study the
 common properties of the programs before analyzing individual members''.
 Studying the common properties within a family of related programs is termed a
-domain analysis.  For the current methodology time constraints necessitate a shallow domain analysis.  A table should be constructed that distinguishes the programs under study by the variabilities that distinguish them.  In research software the variabilities are often related to assumptions.  Table~\ref{} shows the variabilities for the LBM software example.
+domain analysis.  For the current methodology time constraints necessitate a
+shallow domain analysis.  A table should be constructed that distinguishes the
+programs under study by the variabilities that distinguish them.  In research
+software the variabilities are often related to assumptions.  Table~\ref{} shows
+the variabilities for the LBM software example.
 
 \section{Comparison to Community Ranking} \label{repmetrics}
 
@@ -688,6 +692,7 @@ INSTALL &  &  &  &  & & & & & \\
 Uninstall &  &  &  &  & & & & & \\
 Contributor Guide &  &  &  &  & & & & & \\
 Getting started &  &  &  &  & & & & & \\
+User manual &  &  &  &  & & & & & \\
 Tutorials &  &  &  &  & & & & & \\
 FAQ &  &  &  &  & & & & & \\
 Dependency List &  &  &  & & & & & & \\
@@ -809,26 +814,28 @@ tools, dependencies, and project management tools.  In this section we answer
 to their utilization in the research software community in general.
 
 \begin{table}
-	\begin{center}
-	\begin{tabular}{ p{5.3 cm} p{4.9 cm} p{5 cm}}
-	\toprule
-	\textbf{Development Tools} & \textbf{Dependencies} & \textbf{Project
-	Management Tools} \\
-	\midrule
-	Continuous Integration & Build Automation Tools & Collaboration Tools\\
-	Code Editors & Technical Libraries & Email\\
-	Development Environments & Domain Specific Libraries & Change Tracking Tools\\
-	Runtime Environments &  & Version Control Tools\\
-	Compilers &  & Document Generation Tools\\
-	Unit Testing Tools &  & \\
-	Correctness Verification Tools &  & \\
-	\bottomrule
-	\end{tabular}
-	\caption{Observed development tools, dependencies and project management
-	tools} \label{tbl_tools}
-	\end{center}
+\begin{center}
+\begin{tabular}{ p{12 cm}}
+%\toprule
+\textbf{Development Tools}\\
+\midrule
+Continuous Integration, Code Editors, Development Environments, Runtime
+Environments, Compilers, Unit Testing Tools, Correctness Verification Tools\\
+%\midrule
+\textbf{Dependencies}\\
+\midrule
+Build Automation Tools, Technical Libraries, Domain Specific Libraries\\
+%\midrule
+\textbf{Project Management Tools}\\
+\midrule
+Collaboration Tools, Email, Change Tracking Tools, Version Control Tools, Document Generation Tools\\
+%\bottomrule
+\end{tabular}
+\caption{Observed development tools, dependencies and project management tools} 
+\label{tbl_tools}
+\end{center}
 \end{table}
-
+	
 Development tools support the development of end products, but do not become
 part of them, unlike dependencies that remain in the application once it is
 released \cite[p.\ 506]{GhezziEtAl2003}. Although not shown in
