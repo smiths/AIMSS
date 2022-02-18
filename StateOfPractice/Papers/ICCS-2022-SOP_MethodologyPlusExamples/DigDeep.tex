@@ -59,31 +59,33 @@ Peter Michalski\inst{1}}%\orcidID{1111-2222-3333-4444} \and
 \email{smiths@mcmaster.ca}\\
 \url{http://www.cas.mcmaster.ca/~smiths/}}
 %
-\maketitle              % typeset the header of the contribution
+\maketitle % typeset the header of the contribution
 %
 \begin{abstract}
 
-	To improve software development methods and tools for research software, we
-	first need to understand the current state of the practice.  Therefore, we
-	have developed a methodology for assessing the state of the software
-	development practices for a given research software domain.  The methodology
-	is applied to one domain at a time in recognition that software development in
-	different domains is likely to have adopted different best practices.
-	Moreover, providing a means to measure different domains facilitates
-	comparison of development practices between domains.  For each domain we wish
-	to answer questions such as: 
-  \begin{inparaenum}[i)]
-    \item What artifacts (documents, code, test cases, etc.) are present?
-    \item What tools are used?
-    \item What principles, process and methodologies are used?
-    \item What are the pain points for developers?
-    \item What actions are used to improve qualities like maintainability and
-    reproducibility?
-  \end{inparaenum} 
-  To answer these questions, our methodology prescribes the following steps: 
-  The abstract should briefly summarize the contents of the paper in 150--250 words.
+	We have developed a methodology for assessing the state of the software
+	development practices for a given research software domain. Our methodology
+	prescribes the following steps: i) Identify the domain; ii) Identify a list
+	of candidate software packages; iii) Filter the list to a length of about 30
+	packages; iv) Collect repository related data on each software package, like
+	number of stars, number of open issues, number of lines of code; v) Fill in
+	the measurement template (the template consists of 108 questions to assess 9
+	qualities (including the qualities of installability, usability and
+	visibility)); vi) Interview developers (the interview consists of 20
+	questions and takes about an hour); and, vii) Rank the software using the
+	Analytic Hierarchy Process (AHP). The data is analyzed to: i) comparing the
+	ranking by best practices against an estimate of the communities ranking of
+	popularity; ii) comparing artifacts, tools and processes to current research
+	software development guidelines; and, iii) exploring pain points. We
+	estimate the time to complete an assessment for a given domain at 173 person
+	hours. We illustrate our method via the example of Lattice Boltzmann
+	Solvers, where we find that the top packages engaged in most of recommended
+	best practices, but show room for improvement with respect to providing API
+	documentation, a roadmap, a code of conduct, programming style guide,
+	uninstall instructions and continuous integration.
 
-\keywords{First keyword  \and Second keyword \and Another keyword.}
+\keywords{research software \and software quality \and empirical measures \and analytic hierarchy process \and software artifacts \and developer pain points \and Lattice Boltzmann Method}
+
 \end{abstract}
 
 \section{Introduction} \label{SecIntroduction}
@@ -232,15 +234,13 @@ Section~\ref{sec_vet_software_list}.
 \end{enumerate}
 
 Close to our goal of 160 person hours, we estimate 173 hours to complete the
-assessment of a given domain~\cite{SmithEtAl2021}.  This estimate assumes that
-the domain has already been decided and the Domain Expert has been recruited.
-The estimate assumes that the template spreadsheets and developed AHP
-tool~\cite{SmithEtAl2021}, will be employed, rather than developing new tools.
-The person hours given are a rough estimate, based on our experience completing
-assessments for medical image analysis software \cite{Dong2021} and for Lattice
-Boltzmann Method (LBM) software \cite{Michalski2021}.  The estimate assumes 30
-software packages will be measured; the numbers will need to be adjusted if the
-total packages changes.
+assessment of a given domain~\cite{SmithEtAl2021}.  This estimate assumes the
+domain has been decided, the Domain Expert has been recruited, and the template
+spreadsheets and AHP tool~\cite{SmithEtAl2021}, will be utilized. The hours are
+a rough estimate, based on our experience completing assessments for medical
+image analysis~\cite{Dong2021} and the Lattice Boltzmann Method
+(LBM)~\cite{Michalski2021}.  The estimate should be adjusted if the number of
+packages measured differs from 30.
 
 \subsection{How to Identify the Domain?} \label{SecIdentifyDomain} 
 
@@ -276,17 +276,15 @@ list and reviewing the candidate software:
 	\item The source code must be viewable.
 	\item The repository based measures should be available, which implies a
 	preference for GitHub-style repositories.
-	\item The software cannot be marked as incomplete or in an initial state of
-	development.
+	\item The software cannot be marked as incomplete.
 \end{enumerate}
 
 \subsection{How to Filter the Software List?} \label{filtersoftware}
 
-If the list of software is too long (over around 30 packages), then steps need
-to be taken to create a more manageable list to answer~\rqref{RQ_WhatProjects}.
-The following filters were applied in the priority order listed. Copies of both
-the initial and filtered lists, along with the rationale for shortening the
-list, should be kept for traceability purposes.
+If the list of software is too long (over around 30 packages)
+for~\rqref{RQ_WhatProjects}, then filters are applied in the priority order
+listed. Copies of both the initial and filtered lists, along with the rationale
+for shortening the list, should be kept for traceability purposes.
 
 \begin{enumerate}
 	\item Scope: Software is removed by narrowing what functionality is
@@ -738,35 +736,13 @@ include: lack of development time, Cross-platform compatibility, interruptions
 while coding, scope bloat, lack of user feedback, hard to collaborate on
 software projects, aloneness, dependency management, data handling concerns
 (like data quality, data management and data privacy), reproducibility, and
-software scope determination. For the LBM example, two sample pain points are:
+software scope determination. 
 
-\begin{enumerate}
-
-	\item[P\refstepcounter{pnum}\thepnum \label{P_LackDevTime}:] \textbf{Lack of
-	Development Time} A developer of pyLBM noted that their small development
-	team has a lack of time to implement new features. Small development teams
-	are common for LBM software packages (as shown in the measurement table
-	excerpt in Figure~\ref{measurement_template_image}). Lack of time is also
-	highlighted as a pain point by other research software developers
-	\cite{PintoEtAl2018,WieseEtAl2019}.
-
-	\item[P\refstepcounter{pnum}\thepnum \label{P_LackSoftDevExp}:] \textbf{Lack
-	of Software Development Experience} A lack of software development
-	experience was noted by the developer of TCLB, and others noted a need for
-	improving software engineering education. Many of the team members on their
-	project are domain experts, not computer scientists or software engineers.
-	This same trend is noted by \cite{Nguyen-HoanEtAl2010}, which showed only
-	23\% of research software survey respondents having a computing-related
-	background. Similarly, \cite{UditAndKatz2017} show that the majority (54\%)
-	of postdocs have not received training in software development.  The LBM
-	developer suggesting an increasing role for formal software education
-	matches the trend observed by \cite{PintoEtAl2018}, where their replication
-	of a previous study \cite{HannayEtAl2009}, shows a growing interest in
-	formal training (From 13\% of respondents in 2009 to 22\% in 2018).
-	\cite{PintoEtAl2018} found that some developers feel there is a mismatch
-	between coding skills and subject-matter skills. 
-	
-\end{enumerate}
+An example pain point noted by LBM developers is a lack of development time. A
+developer of pyLBM noted that their small development team did not have enough
+time to implement new features. Small development teams are common for LBM
+software packages (as shown in the measurement table excerpt in
+Figure~\ref{measurement_template_image}).
 
 \section{Threats To Validity} \label{threats}
 
@@ -791,85 +767,47 @@ processes.
 
 \section{Concluding Remarks} \label{SecConcludingRemarks}
 
-Next step to recommend ways to improve software (previously section 9).  We wish
-to know what practices are used by the top domain projects, so that others can
-potentially emulate these practices. We also wish to identify new practices by
-borrowing successful ideas from other domains. 
-
-Our comparison may point out areas where some LBM software
-packages fall short of current best practices. This is not intended to be a
-criticism of any existing packages, especially since in practice not every
-project needs to achieve the highest possible quality.  However, rather than
-delve into the nuances of which software can justify compromising which
-practices we will write our comparison under the ideal assumption that every
-project has sufficient resources to match best practices.
-
-For each domain we wish to highlight success stories that can be shared amongst
-domain community, and with the broader research software community, while at the
-same time watching for areas for potential future improvement.
+To improve the development of research software, both in terms of productivity,
+and the resulting software quality, we need to understand the current state of
+the practice. An exciting strategy to approach this goal is to assess one domain
+at a time, collecting data from developer interviews and digging deeply into
+their code repositories. By providing feedback specific to their domain, the
+developer community can be drawn into a dialogue on how to best make
+improvements going forward. Moreover, they can be encouraged to share their best
+practices between one another, and with other research software domains.
 
 We have outlined a methodology for assessing the state of the practice for any
-given research software domain.  When applying the methodology to a given domain, we provide a
-means to answer the following questions:
-\begin{inparaenum}[i)]
-\item What artifacts (documents, code, test cases, etc.) are present?
-\item What tools are used?
-\item What principles, process and methodologies are used?
-\item What are the pain points for developers?
-\item What actions are used to improve qualities like maintainability and
-reproducibility?
-\item What specific actions are taken to achieve the qualities of usability,
-traceability, modifiability, maintainability, correctness, understandability,
-unambiguity, reproducibility and visibility/transparency?
-\item How does software designated as high quality by this methodology compare
-  with top rated software by the community?
-\end{inparaenum} 
+given research software domain based on a list of about 30 representative
+projects.  In addition to interviews, we use manual and automated inspection of
+the artifacts in each project's repositories.  The repository data is collected
+by filling in a 108 question measurement template, which requires installing the
+software on a VM, running simple tests (like completing the getting started
+instructions (if present)), and searching the code, documentation and test
+files. Using AHP the projects are ranked for 9 individual qualities
+(installability, correctness and verifiability, reliability, robustness,
+usability, maintainability, reusability, surface understandability,
+visibility/transparency) and for overall quality.  Perspective and insight is
+shared with the user community via the following: i) comparing the ranking by
+best practices against an estimate of the communities ranking of popularity; ii)
+comparing artifacts, tools and processes to current research software
+development guidelines; and, iii) exploring pain points via developer
+interviews. Using our methodology, spreadsheet templates and AHP tool, we
+estimate (based on our experience with using the process) the time to complete
+an assessment for a given domain at 173 person hours.
 
-The methodology depends on the engagement of a Domain Expert.  The Domain
-Expert's role is to ensure that the assessment is consistent with the culture of
-the community of practitioners in the domain.  The Domain Expert also has an
-important role to play with the domain analysis.  For each domain we 
-conduct a domain analysis to look at the commonalities, variabilities and
-parameters of variation, for the family of software in the domain.  The domain
-analysis means that software can be compared not just based on its quality, but
-also based on its functionality.
+For the running example of LBM we found that the top packages engaged in most of
+recommended best practices, including examples of practising peer review.
+However, we did find room for improvement with respect to providing API
+documentation, a roadmap, a code of conduct, programming style guide, and
+uninstall instructions.  In addition, the community could likely benefit by
+increased use of continuous integration.
 
-The methodology follows a systematic procedure that begins with identifying the
-domain and ends with answering the research questions posed above.  In between
-we collect an authoritative list of about 30 software packages.  For each
-package in the list we fill in our measurement template.  The template consists
-of repository related data (like number of open issues, number of lines of code,
-etc.) and 108 measures/questions related to 9 qualities: installability,
-correctness/verifiability, reliability, robustness, usability, maintainability,
-reusability, understandability and visibility/transparency. Filling in the
-template requires installing the software, running simple tests (like completing
-the getting started instructions (if present)), and searching the code,
-documentation and test files.
-
-The data for each domain is used to rank the software package according to each
-quality dimension using AHP.  The ranking is not intended to identify a single
-best software package.  Instead the ranking is intended to provide insights on
-the top set of software for each quality.  The top performers can be contrasted
-with the lesser performers to gain insight into what practices in the domain are
-working.  Deeper insight can be obtained by combining this data with the
-interview data from asking each recruited developer 20 questions.
-
-Combining the quantitative data from the measurement template with the interview
-results, along with the domain experts knowledge, we can determine the current
-state of the practice for domain X.  Using our methodology, spreadsheet
-templates and AHP tool, we estimate (based on our experience with using the
-process) the time to complete an assessment for a given domain at 173 person
-hours.
-
-With the wealth of data from assessing the state of practice for multiple
-domains, the next step is a meta-analysis.  We would look at how the different
-domains compare. What lessons from one domain could be applied in other domains?
-What (if any) differences exist in the pain points between domains?  Are there
-differences in the tools, processes, and documentation between domains?
-
-The goal of this assessment isn't to rank the software, but to use the ranking
-exercise as a means to understand the state of the practice of LBM software
-development.
+Building from the LBM example we can create a wealth of data on multiple
+domains.  The next step is a meta-analysis, where we look at how the different
+domains compare to answer new research questions like: What lessons from one
+domain could be applied in other domains? What (if any) differences exist in the
+pain points between domains?  Are there differences in the tools, processes, and
+documentation between domains?
 
 %
 % ---- Bibliography ----
@@ -901,4 +839,5 @@ development.
 % LNCS Homepage, \url{http://www.springer.com/lncs}. Last accessed 4
 % Oct 2017
 % \end{thebibliography}
+
 \end{document}
