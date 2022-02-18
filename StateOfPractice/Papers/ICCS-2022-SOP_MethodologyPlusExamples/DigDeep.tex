@@ -96,46 +96,45 @@ complexity of the physical models and the nuances of floating point and parallel
 computation. The importance of research software and the difficulty with its
 development have prompted multiple researchers to investigate how developing
 this software differs from other classes of software.  Previous studies have
-focused on surveying developers \cite{Carveretc}, developer interviews \cite{}
-and case studies \cite{Segal}.  A valuable source of information that has
-received less attention is the data in the publicly available software
-repositories.  We propose a new methodology for digging deeper into how well
-projects are applying best practices by using a combination of manual and
-automated techniques to extract repository-based information.
+focused on surveying developers
+\cite{HannayEtAl2009,Nguyen-HoanEtAl2010,PintoEtAl2018}, developer interviews
+\cite{SandersAndKelly2008} and case studies \cite{CarverEtAl2007,Segal2005}.  A
+valuable source of information that has received less attention is the data in
+publicly available software repositories.  We propose digging deeper into how
+well projects are applying best practices by using a new methodology that
+combines manual and automated techniques to extract repository-based
+information.
 
 The surveys used in previous studies have tended to recruit participants from
 all domains of research software, possibly distinguishing them by programming
-language (for instance, R developers \cite{Rstudy}), or by the role of the
-developers (for instance postdoctoral researchers \cite{Katz}).  For their part,
-case studies have focused on a few specific examples at a time, since that is
-the nature of case studies.  We propose applying our new methodology between
-these two extremes.  Rather than focus on all research software, or just a few
-examples, we will focus on one domain of research software at a time. The
-practical reason for defining a domain scope is that digging deep into
-repository data takes time, making a broad scope infeasible.  We have the
-constraint that the work load for applying the methodology to a given domain
-needs to be feasible for a team as small as one individual, and for a time that
-is short, ideally around a person month per domain.\footnote{A person month is
-considered to be $20$ working days ($4$ weeks in a month, with $5$ days of work
-per week) at $8$ person hours per day, or $20 \cdot 8 = 160$ person hours.}
-Focusing on one domain at a time has more than just practical advantages.  By
-restricting ourselves to a single domain we can bring domain knowledge and
-domain experts into the mix.  The domain customized insight provided by the
-assessment has the potential to help a specific domain as they adopt and develop
-new development practices.  Moreover, providing a means to measure different
+language (for instance, R developers \cite{PintoEtAl2018}), or by the role of
+the developers (for instance postdoctoral researchers \cite{UditAndKatz2017}).
+Case studies, on the other hand, have focused on a few specific examples at a
+time, as is the nature of case studies.  For our new methodology, we propose a
+scope between these two extremes.  Rather than focus on all research software,
+or just a few examples, we will focus on one domain of research software at a
+time. The practical reason for defining a domain scope is that digging deep into
+repository data takes time, making a broad scope infeasible. We have determined
+that a practical constraint for the work load is for a team as small as one
+individual doing one person month worth of work per domain.\footnote{A person
+month is considered to be $20$ working days ($4$ weeks in a month, with $5$ days
+of work per week) at $8$ person hours per day, or $20 \cdot 8 = 160$ person
+hours.} Focusing on one domain at a time has more than just practical
+advantages.  By restricting ourselves to a single domain we can bring domain
+knowledge and domain experts into the mix.  The domain customized insight
+provided by the assessment has the potential to help a specific domain as they
+adopt and develop new development practices.  Moreover, measuring different
 domains facilitates uncovering domain specific practices, which can later be
-compared and contrasted between different domains.
+compared and contrasted.
 
-Our methodology is built around 10 research questions for the domain being
-assessed.  The questions are used to structure the presentation of the
-methodology, so for each research question we point to the corresponding section
-of the paper.  Assuming we have identified the domain of interest, the first question is:
+Our methodology is built around 10 research questions.  Assuming that the domain
+has been identified (Section~\ref{SecIdentifyDomain}), the first question is:
 
 \begin{enumerate}
 	\item[RQ\refstepcounter{rqnum}\therqnum \label{RQ_WhatProjects}:] What
 	software projects exist in the domain, with the constraint that the source
 	code must be available for all identified projects?
-	(Section~\ref{methodology})
+	(Sections~\ref{identifysoftware},~\ref{filtersoftware})
 \end{enumerate}
 
 We next wish to assess the representative software to determine how well they
@@ -153,7 +152,7 @@ our ranking to how the user community itself ranks the identified projects.
 	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_HighestQuality}:] Which
 	of the projects identified in \rqref{RQ_WhatProjects} follow current best
 	practices, based on evidence found by experimenting with the software and
-	searching the artifacts available in each project's repository? (Section~\ref{AHPresults})
+	searching the artifacts available in each project's repository? (Sections~\ref{empiricalmeasures},~\ref{AHP})
 	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_CompareHQ2Popular}:] How
 	similar is the list of top projects identified in \rqref{RQ_HighestQuality}
 	to the most popular projects, as viewed by the scientific community? (Section~\ref{repmetrics})
@@ -177,16 +176,17 @@ questions about how the domain software compares to other research software.
 	\end{enumerate}
 	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_CompareMethodologies}:]
 	How do domain projects compare to research software in general with respect to
-	principles, processes and methodologies used? (Section~\ref{Sec_CompareMethodologies})
+	the processes used? (Section~\ref{Sec_CompareMethodologies})
 \end{enumerate}	
 
 Only so much information can be gleaned by digging into software repositories.
-To gain additional insight, we need to interview developers.  We need to learn
-their concerns and how they deal with these concerns; we need to learn their
-pain points.  We wish to know what practices are used by the top domain
-projects, so that others can potentially emulate these practices. We also wish
-to identify new practices by borrowing successful ideas from other domains. The
-above points are covered by the questions outlined below:
+To gain additional insight, we need to interview developers
+(Section~\ref{SecSurvey}).  We need to learn their concerns and how they deal
+with these concerns; we need to learn their pain points.  We wish to know what
+practices are used by the top domain projects, so that others can potentially
+emulate these practices. We also wish to identify new practices by borrowing
+successful ideas from other domains. The above points are covered by the
+questions outlined below:
 
 \begin{enumerate}
 	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_PainPoints}:] What are
@@ -208,7 +208,7 @@ Our methodology answers the research question through inspecting repositories,
 using the Analytic Hierarch Process (AHP) for ranking software, interviewing
 developers and interacting with at least one domain expert.  We leave the
 measurement of the performance, for instance using benchmarks, to other projects
-\cite{kaagstrom1998gemm}. The current methodology updates the approach used in
+\cite{KaagstromEtAl1998}. The current methodology updates the approach used in
 prior assessments of domains like Geographic Information Systems
 \cite{SmithEtAl2018_arXivGIS}, Mesh Generators \cite{SmithEtAl2016}, Seismology
 software \cite{SmithEtAl2018}, and statistical software for psychology
@@ -218,9 +218,9 @@ Boltzmann Method (LBM) software \cite{Michalski2021}.  The LBM example will be
 used throughout this paper to illustrate the steps in the methodology.  The
 paper ends with a summary of potential threats to validity
 (Section~\ref{threats}) and our final conclusions and recommendations
-(Section~\ref{conclusion}).
+(Section~\ref{SecConcludingRemarks}).
 
-\section{Methodology} \label{StepsAQDS}
+\section{Methodology} \label{methodology}
 
 The assessment is conducted via the following steps.  The steps depend on
 interaction with a Domain Expert partner, as discussed in
@@ -238,79 +238,19 @@ Section~\ref{sec_vet_software_list}.
 	can be found in \cite{SmithEtAl2021}. (Section~\ref{empiricalmeasures})
 	\item Interview the developers. (Section~\ref{SecSurvey})
 	\item Use AHP to rank the software packages. (Section~\ref{AHP})
-	\item Analyze the results and answer the research questions. (Section~\ref{})
+	\item Analyze the results and answer the research questions. (Sections~\ref{repmetrics}---\ref{Sec_Recommendations}) %,~\ref{Sec_CompareArtifacts},~\ref{Sec_CompareTools},~\ref{Sec_CompareMethodologies},~\ref{painpoints},~\ref{Sec_AddressConcerns},
 \end{enumerate}
 
-Table~\ref{TabPersonHours} estimates the time required (in person hours) to
-complete a state of the practice assessment for a single domain.  The table
-assumes that the domain has already been decided and the Domain Expert has been
-recruited.  The time spent by the Domain Expert is not included in the numbers
-shown in the table, since the amount of time that the domain expert will work
-independently of the rest of the assessment team will be small.  Moreover, this
-amount of time will vary greatly depending on the preferred work habits of the
-Domain Expert.  The table follows the steps outlined above. It is assumed that
-the template spreadsheets linked in this document, and the developed AHP tool,
-will be employed, rather than developing new tools.  The person hours given are
-a rough estimate, based on our experience completing assessments for medical
-image analysis software \cite{Dong2021} and for Lattice Boltzmann Method (LBM)
-software \cite{Michalski2021}.  The estimate assumes 30 software packages will
-be measured; the numbers will need to be adjusted if the total packages changes.
-The total number of person hours is \total{totHours} hours.  This is close to
-our goal of 1 month of person hours (160 hours).  
-
-\begin{table}[h]
-  \caption{Estimated Person Hours for Assessing the State of Practice for Domain
-  X} \label{TabPersonHours}
-  \centering
-  \begin{tabular}{p{12.5cm} l}
-    \toprule
-    \textbf{Task} & \textbf{Hours} \\
-    \midrule
-
-    Initial 1 hour meeting with the Domain Expert plus meeting prep & 5
-    \addtocounter{totHours}{5} \\
-
-    Identify broad list of candidate software
-    (Section~\ref{SecIdentifyCandSoft}) & 12 \addtocounter{totHours}{12} \\
-
-    Filter software list (Section~\ref{SecInitialFilter}) (10 minutes per
-    package) & 5 \addtocounter{totHours}{5} \\
-
-	Review software list with Domain Expert (Section~\ref{SecDomainExpert}) & 2
-	\addtocounter{totHours}{2} \\
-
-    Domain analysis (with help of Domain Expert)
-    (Section~\ref{SecDomainAnalysis}) & 20 \addtocounter{totHours}{20} \\
-
-	Vet domain analysis with Domain Expert (Section~\ref{SecDomainExpert}) & 3
-	\addtocounter{totHours}{3} \\
-
-	Gather source code and documentation for each package (10 minutes per
-	package)) & 5 \addtocounter{totHours}{5} \\
-
-    Collect repository based data (Section~\ref{SecEmpiricalMeasures}) (10
-    minutes per package) & 5 \addtocounter{totHours}{5} \\
-
-	Measure using measurement template (Section~\ref{SecMeasureTemplate}) (2.5
-    hours per repo) & 75 \addtocounter{totHours}{75} \\
-
-    Solicit developers for interviews & 2 \addtocounter{totHours}{2} \\
-
-    Conduct interviews (1.5 hour interviews with 10 developers (30\% recruitment
-    rate)) & 15 \addtocounter{totHours}{15} \\
-
-    AHP ranking & 2 \addtocounter{totHours}{2} \\
-
-	Work with Domain Expert to vet AHP ranking & 2 \addtocounter{totHours}{2} \\
-
-    Analyze data and answer research questions & 20 \addtocounter{totHours}{20}\\
-
-    \midrule
-    \textbf{Total} & \textbf{\thetotHours} \\
-    \bottomrule
-  \end{tabular}
-  
-\end{table}  
+Close to our goal of 160 person hours, we estimate 173 hours to complete the
+assessment of a given domain~\cite{SmithEtAl2021}.  This estimate assumes that
+the domain has already been decided and the Domain Expert has been recruited.
+The estimate assumes that the template spreadsheets and developed AHP
+tool~\cite{SmithEtAl2021}, will be employed, rather than developing new tools.
+The person hours given are a rough estimate, based on our experience completing
+assessments for medical image analysis software \cite{Dong2021} and for Lattice
+Boltzmann Method (LBM) software \cite{Michalski2021}.  The estimate assumes 30
+software packages will be measured; the numbers will need to be adjusted if the
+total packages changes.
 
 \subsection{How to Identify the Domain?} \label{SecIdentifyDomain} 
 
@@ -352,8 +292,6 @@ the candidate software:
 	development.
 \end{enumerate}
 
-For the LBM example the initial list had 46 packages \cite{Michalski2021}.
-
 \subsection{How to Filter the Software List?} \label{filtersoftware}
 
 If the list of software is too long (over around 30 packages), then steps need
@@ -377,7 +315,8 @@ For the third item in the above filter, software packages are characterized as
 `alive' if their related documentation had been updated within the last 18
 month. Otherwise a package is categorized as `dead'.
 
-For the running example of LBM filtering by scope, usage, and age decreased the
+For the LBM example the initial list had 46 packages~\cite{Michalski2021}. For
+the running example of LBM filtering by scope, usage, and age decreased the
 initial list of 46 to a list of 24. Many of the removed packages could not be
 tested as there was no installation guide, they were incomplete, source code was
 not publicly available, a license was needed, or the project was out of scope or
@@ -440,27 +379,7 @@ are looking for an indication that usability was considered by the developers by
 looking for cues in the documentation, such as getting started instructions, a
 user manual or documentation of expected user characteristics.
 
-Most of the data to be collected should be straightforward from reviewing the
-measurement template.  However, in a few cases extra guidance is necessary
-to eliminate ambiguity, as follows:
-
-\begin{enumerate}
-\item Publications about the software: A list of publications can be found
-  directly on the website of some software packages. For others use Google
-  Scholar or a similar index.
-\item To answer whether there evidence that performance was considered, search
-  the software artifacts for any mention of speed, storage, throughput,
-  performance optimization, parallelism, multi-core processing, or similar
-  considerations. The search function on GitHub can help.
-\item Evidence of a getting started tutorial may be found within another
-  artifact, like the user manual.
-\item To find evidence of continuous integration, search the software artifacts
-  for any mention of continuous integration. The search function on GitHub can
-  help.  In some cases, \texttt{yaml} files will provide a hint that continuous
-  integration is employed.
-\end{enumerate}
-
-Tools were use to find some of the measurements, such as the number of files,
+Tools are used to find some of the measurements, such as the number of files,
 number of lines of code (LOC), percentage of issues that are closed, etc. The
 tool \href{https://github.com/tomgi/git_stats}{GitStats} was used to measure
 each software package's GitHub repository for the number of binary files, the
@@ -470,7 +389,7 @@ intervals. The tool \href{https://github.com/boyter/scc}{Sloc Cloc and Code
 of total, code, comment, and blank lines in each GitHub repository.
 
 As in \cite{SmithEtAl2016}, Virtual machines (VMs) are used to provide an
-optimal testing environments for each package. VMs were used because it is
+optimal testing environments for each package. VMs are used because it is
 easier to start with a fresh environment without having to worry about existing
 libraries and conflicts. Moreover, when the tests are complete the VM can be
 deleted, without any impact on the host operating system. The most significant
@@ -571,15 +490,11 @@ Expert was also asked to vet the collected data and analysis.  In particular,
 they were asked to vet the proposed list of software packages and the AHP
 ranking.
 
-For the LBM project, our Domain Expert was Dr.\
-Zahra Motamed, Assistant Professor of Mechanical Engineering at McMaster
-University, Hamilton, Ontario, Canada.  
-
 \subsection{Domain Analysis} \label{SecDomainAnalysis}
 
 Since each domain we will study will have a reasonably small scope, we will be
 able to view the software as constituting a program family.  The concept of a
-program family is defined by \cite{parnas1976design} as ``a set of programs
+program family is defined by~\cite{parnas1976design} as ``a set of programs
 whose common properties are so extensive that it is advantageous to study the
 common properties of the programs before analyzing individual members''.
 Studying the common properties within a family of related programs is termed a
@@ -660,7 +575,7 @@ the top ranked packages tend to incorporate best practices.
 	\end{center}
 	\end{table}
 
-\section{Comparison Between LBM and Research Software for Artifacts}
+\section{Comparison of Artifacts to Other Research Software}
 \label{Sec_CompareArtifacts}
 
 In this step of the methodology we answer \rqref{RQ_CompareArtifacts} by
@@ -724,7 +639,7 @@ research software developers.  A union of the three columns in
 Table~\ref{artifactspresent} mostly corresponds to recommendations made by the
 research software community, as shown in Table~\ref{Tbl_Guidelines}.
 
-\begin{table}
+\begin{table}[h!]
 \begin{center}
 \begin{tabular}{ p{12 cm}}
 %\toprule
@@ -752,32 +667,11 @@ Spec.\\
 
 Although the LBM community participates in most of the practices we found listed
 in the general research software guidelines, some recommended practices were not
-observed or rarely observed. For instance API documentation was rarely observed
-for LBM software, but it is a frequently recommended (Table~\ref{Tbl_Guidelines}).
-In addition to the items in the last column of Table~\ref{artifactspresent}, we
-can add the following community recommended items that we rarely, if ever,
-observed:
+observed or rarely observed. The following community recommended items were
+rarely, if ever, observed: API documentation, a roadmap, a code of conduct,
+programming style guide, uninstall instructions.
 
-\begin{itemize}
-\item A roadmap showing what is planned for the future.
-\item A code of conduct to explicitly say how developers should treat one
-another.
-\item Programming style guidelines so that programming labels and formatting are
-consistent \cite{TobiasEtAl2018,ThielEtAl2020,OrvizEtAl2017,Zadka2018,vanGompelEtAl2016,WilsonEtAl2014}.  We saw this information as part of
-some developer guides, but only rarely.
-\item Checklists can be used in projects to ensure that best practices are
-followed by all developers.  Some examples include checklists merging branches
-into master \cite{Brown2015}, checklists for saving and sharing changes to the
-project \cite{WilsonEtAl2016}, checklists for new and departing team members
-\cite{HerouxAndBernholdt2018}, checklists for processes related to commits and
-releases \cite{HerouxEtAl2008} and checklists for overall software quality
-\cite{ThielEtAl2020,SSI2022}.  For LBM software, ESPResSo has a checklist for
-managing releases, but otherwise they are used only rarely for LBM.
-\item Uninstall instructions \cite{vanGompelEtAl2016} were not observed for any
-of the LBM projects.
-\end{itemize}
-
-\section{Comparison of Tool Usage Between LBM and Other Research Software}
+\section{Comparison of Tools to Other Research Software}
 \label{Sec_CompareTools}
 
 Software tools are used to support the development, verification, maintenance,
@@ -788,7 +682,7 @@ tools, dependencies, and project management tools.  In this section we answer
 \rqref{RQ_CompareToolsProjMngmnt} by comparing aspects of the tool usage in LBM
 to their utilization in the research software community in general.
 
-\begin{table}
+\begin{table}[h!]
 \begin{center}
 \begin{tabular}{ p{12 cm}}
 %\toprule
@@ -880,7 +774,7 @@ Interviews with the developers revealed a potentially more frequent use of both
 unit testing and continuous integration, compared to what was observed from
 studying the repository artifacts.
 
-\section{Comparison of Principles, Process and Methodologies to Research Software in General} \label{Sec_CompareMethodologies}
+\section{Comparison of Processes to Other Research Software} \label{Sec_CompareMethodologies}
 
 This section answers research question \rqref{RQ_CompareMethodologies} by
 comparing the principles, processes and methodologies used for LBM software to
