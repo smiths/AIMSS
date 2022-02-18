@@ -770,81 +770,24 @@ software scope determination. For the LBM example, two sample pain points are:
 
 \section{Threats To Validity} \label{threats}
 
-This section examines potential threats to the validity of this state of the
-practice assessment. These can be categorized into methodology and data
-collection issues. The goal of this assessment isn't to rank the software, but
-to use the ranking exercise as a means to understand the state of the practice
-of LBM software development.
+The measures in the measurement template~\cite{SmithEtAl2021} may not be broad
+enough to accurately capture some qualities. For example, there are only two
+measures of surface robustness. Similarly, reusability is assessed by the number
+of code files and LOC per file, assuming that a large number of relatively small
+files implies modularity. Furthermore, the measurement of understandability
+relies on 10 random source code files. It is possible that the 10 files that
+were chosen to represent a software package may not be a good representation.
 
-The measures listed in our measurement template may not be broad enough to
-accurately capture some qualities. For example, there are only two measures of
-surface robustness. The measurement of robustness could be expanded, as it
-currently only measures unexpected input. Other faults could be introduced, but
-could require a large investment of time to develop, and might not be a fair
-measure for all packages. Similarly, reusability is assessed along the number of
-code files and LOC per file. While this measure is indicative of modularity, it
-is possible that some packages have many files, with few LOC, but the files do
-not contain source code that is easily reusable. The files may be poorly
-formatted, or the source code may be vague and have ambiguous identifiers.
-Furthermore, the measurement of understandability relies on 10 random source
-code files. It is possible that the 10 files that were chosen to represent a
-software package may not be a good representation of the understandability of
-that package.
-
-Regarding data collection, a risk to the validity of this assessment is missing
-or incorrect data. Some software package data may not have been measured due to
-technology issues like broken links. This issue arose with the measurement of
-Palabos, which had a broken link to its user manual, as noted in
-Section~\ref{Sec_CompareArtifacts}. 
-
-Some pertinent data may not have been specified in public artifacts, or may be
-obscure within an artifact or web-page. The use of unit testing and continuous
-integration was mentioned in the artifacts of only three (ESPResSo, Ludwig,
-Musubi) packages. However, interviews suggested a more frequent use of both unit
-testing and continuous integration in the development processes than what was
-observed from the initial survey of the artifacts. For example, OpenLB, pyLBM,
-and TCLB use such methods during development despite this not being explicitly
-clear from an analysis of the material available online. 
-
-Furthermore, design documentation was measured to be a ``less common'' artifact
-in this assessment, but it is probable that such documentation is part of all
-LBM packages. After all, developing SCS is not a trivial endeavour. It is likely
-that many packages have such documentation but did not make it public, and due
-to this the measured data is not a true reflection of software package quality.
-
-Interviews with the developers revealed a potentially more frequent use of both
-unit testing and continuous integration, compared to what was observed from
-studying the repository artifacts.
-
-[*{There are more threats to validity.  Brainstorm.  Watch for them while 
-editing.  Look at Ao paper.}
-
-Problems with the measurement of qualities:
-
-\begin{itemize}
-\item The assumption that more code files is an indicator of reusability
-(Section~\ref{reusabilityresults}) may not be a valid assumption.
-\item Understandability was measured using only 10 random files
-(Section~\ref{Sec_SurfUnderstandability}).  This could be improved.
-\end{itemize}
-
-Overall ranking with equally weighted qualities isn't realistic
-(Section~\ref{Sec_OverallQuality}).
-
-Threat to validity - the gap between measures of everything else and Musubi
-(Section~\ref{identifysoftware}), and then the gap between the manual measures
-and the automated measures (Section~\ref{repmetrics}).
-
-From Section~\ref{Sec_CompareTools}: ``Interviews with the developers revealed a
-potentially more frequent use of both unit testing and continuous integration,
-compared to what was observed from studying the repository artifacts.''
-
-Interviews suggested a more frequent use of both unit testing and continuous
-integration in the development processes than what was observed from the initial
-survey. For example, OpenLB, pyLBM, and TCLB use such methods during
-development, despite this not being explicitly clear from an analysis of the
-material available online.  The correctness and verifiability of such packages
-is not measured well using surface analysis.
+Another risk to the validity of the proposed approach is missing or incorrect
+data. Some software package data may not have been measured due to technology
+issues like broken links. For the LBM example, this issue arose with the
+measurement of Palabos, which had a broken link to its user manual. Some
+pertinent data may not have been specified in public artifacts, or may be
+obscure within an artifact or web-page. For the LBM example, the use of unit
+testing and continuous integration was mentioned in the artifacts of only three
+(ESPResSo, Ludwig, Musubi) packages. However, interviews suggested a more
+frequent use of both unit testing and continuous integration in the development
+processes.
 
 \section{Concluding Remarks} \label{SecConcludingRemarks}
 
@@ -866,10 +809,7 @@ domain community, and with the broader research software community, while at the
 same time watching for areas for potential future improvement.
 
 We have outlined a methodology for assessing the state of the practice for any
-given research software domain.  (Although the scope of the current work has been
-on research software, there is little in the methodology that is specific to
-research software, except for the interview question related to the quality of
-reproducibility.)  When applying the methodology to a given domain, we provide a
+given research software domain.  When applying the methodology to a given domain, we provide a
 means to answer the following questions:
 \begin{inparaenum}[i)]
 \item What artifacts (documents, code, test cases, etc.) are present?
@@ -927,19 +867,9 @@ domains compare. What lessons from one domain could be applied in other domains?
 What (if any) differences exist in the pain points between domains?  Are there
 differences in the tools, processes, and documentation between domains?
 
-The current methodology is constrained by limited resources.  A 4 hour cap on
-the measurement time for each software package limits what can be assessed.
-Within this limit, we can't measure some important qualities, like usability and
-modifiability.  In the future, we propose a more time-consuming process that
-would capture these other quality measures.  To improve the feasibility, the
-more time consuming measurements would not have to be completed for all 30
-packages. Instead, a short list could be identified using the output of the AHP
-ranking to select the top projects, or to select a sample of interesting
-projects across the quality spectrum.
-
-\subsubsection{Acknowledgements} Please place your acknowledgments at
-the end of the paper, preceded by an unnumbered run-in heading (i.e.
-3rd-level heading).
+The goal of this assessment isn't to rank the software, but to use the ranking
+exercise as a means to understand the state of the practice of LBM software
+development.
 
 %
 % ---- Bibliography ----
