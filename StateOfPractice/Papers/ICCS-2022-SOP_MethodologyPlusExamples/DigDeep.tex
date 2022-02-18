@@ -338,12 +338,11 @@ intervals. The tool \href{https://github.com/boyter/scc}{Sloc Cloc and Code
 of total, code, comment, and blank lines in each GitHub repository.
 
 Virtual machines (VMs) are used to provide an optimal testing environments for
-each package~\cite{SmithEtAl2016}. VMs are used because it is easier to start
-with a fresh environment so as to not worry about existing libraries and
-conflicts. Moreover, when the tests are complete the VM can be deleted, without
-any impact on the host operating system. The most significant advantage of using
-VMs is to level the playing field. Every software install starts from a clean
-slate, which removes ``works-on-my-computer'' errors.
+each package~\cite{SmithEtAl2016} because with a fresh VM there are no worries
+about conflicts with existing libraries. Moreover, when the tests are complete
+the VM can be deleted, without any impact on the host operating system. The most
+significant advantage of using VMs is that every software install starts from a
+clean slate, which removes ``works-on-my-computer'' errors.
 
 Once we have measured each package, we still need to rank them to answer
 \rqref{RQ_HighestQuality}.  To do this, we used the Analytical Hierarchy Process
@@ -373,14 +372,13 @@ the quantitative data from the measurement template. To gain the required
 insight, we interview developers using a list of 20 questions
 \cite{SmithEtAl2021}. The questions cover the background of the development
 teams, the interviewees, and the software itself. We ask the developers how they
-organize their projects. We also ask them about their understanding of the
-users. Some questions focus on the current and past difficulties, and the
-solutions the team has found, or will try. We also discuss the importance of,
-and the current situation for, documentation. A few questions are about specific
-software qualities, such as maintainability, understandability, usability, and
-reproducibility. The interviews are semi-structured based on the question list;
-we ask follow-up questions when necessary.  Each interview should take about 1
-hour.
+organize their projects and about their understanding of the users. Some
+questions focus on the current and past difficulties, and the solutions the team
+has found, or will try. We also discuss the importance of, and the current
+situation for, documentation. A few questions are about specific software
+qualities, such as maintainability, usability, and reproducibility. The
+interviews are semi-structured based on the question list.  Each interview
+should take about 1 hour.
 
 The interviewees should follow a process where they can make informed consent.
 The interviews should follow standard ethics guideline of asking for consent
@@ -410,14 +408,11 @@ requirements are knowledge of the domain and a willingness to be involved.
 
 \subsection{Domain Analysis} \label{SecDomainAnalysis}
 
-Since each domain will have a reasonably small scope, we will be able to view
-the software as a program family. Studying the common properties within a family
-via a domain analysis.  For the current methodology time constraints necessitate
-a shallow analysis. For each domain a table should be constructed that
-distinguishes the programs under study by their variabilities.  In research
-software the variabilities are often related to assumptions.
-Table~\ref{tbl_features} shows the variabilities for the LBM
-software~\cite{Michalski2021}.
+For the current methodology time constraints necessitate a shallow domain
+analysis. For each domain a table should be constructed that distinguishes the
+programs under study by their variabilities.  In research software the
+variabilities are often assumptions. Table~\ref{tbl_features} shows the
+variabilities for the LBM software~\cite{Michalski2021}.
 
 \begin{table}[h!]
 	\begin{center}
@@ -583,12 +578,9 @@ Code of Conduct &  &  &  &  & & & \checkmark & & \\
 The results for the LBM example are shown below.  The majority of LBM generated
 artifacts correspond to general recommendations from research software
 developers.  For LBM, a union of the three categories mostly corresponds to
-recommendations made by the research software community, as shown in
-Table~\ref{Tbl_Guidelines}. Although the LBM community participates in most of
-the practices we found listed in the general research software guidelines, some
-recommended practices were not observed or rarely observed as follows: API
-documentation, a roadmap, a code of conduct, programming style guide, uninstall
-instructions.
+general research software recommendations (Table~\ref{Tbl_Guidelines}). Areas
+where LBM developers could improve include providing: API documentation, a
+roadmap, a code of conduct, programming style guide, and uninstall instructions.
 
 \begin{description}
 	\item[Common:] Developer List, Issue Tracker, Dependency List, Installation
@@ -679,29 +671,27 @@ Another point of comparison should be on the use of peer review, since peer
 review is frequently recommended in software development
 guidelines~\cite{HerouxEtAl2008,OrvizEtAl2017,USGS2019}.
 
-The running example of LBM confirms an informal process, with elements of agile
-methods. The software development process is not explicitly indicated in the
-artifacts for most of the packages. However, during interviews one developer
-(ESPResSo) told us their non-rigorous development model is like a combination of
-agile and waterfall. Employing a loosely defined process makes sense for LBM
-software, given that the teams are generally small and self-contained. One of
-the developers (ESPResSo) that was interviewed also noted that an ad hoc peer
-review process is used to assess major changes and additions, matching the
-common recommendation.
+The LBM example confirms an informal, agile-like, process.
+The development process is not explicitly indicated in the artifacts
+for most of the packages. However, during interviews one developer (ESPResSo)
+told us their non-rigorous development model is like a combination of agile and
+waterfall. Employing a loosely defined process makes sense for LBM software,
+given that the teams are generally small and self-contained. One of the
+developers (ESPResSo) that was interviewed also noted that an ad hoc peer review
+process is used.
 
 \section{Developer Pain Points} \label{painpoints}
 
 To answer \rqref{RQ_PainPoints}, we ask developers about their pain points and
-then compare their responses to pain points identified in the
-literature~\cite{WieseEtAl2019,PintoEtAl2018}.  Pain points to watch for
-include: lack of development time, cross-platform compatibility, scope bloat,
+compare their responses to the literature~\cite{WieseEtAl2019,PintoEtAl2018}.
+Pain points to watch for include: cross-platform compatibility, scope bloat,
 lack of user feedback, dependency management, data handling concerns,
-reproducibility, and software scope determination. 
+reproducibility, and software scope. 
 
-An example pain point noted by LBM developers is a lack of development time. A
-developer of pyLBM noted that their small development team did not have enough
-time to implement new features. Small development teams are common for LBM
-software packages (as shown in Figure~\ref{measurement_template_image}).
+An example pain point noted for LBM is a lack of development time. A developer
+of pyLBM noted that their small development team did not have enough time to
+implement new features. Small development teams are common for LBM software
+packages (as shown in Figure~\ref{measurement_template_image}).
 
 \section{Threats To Validity} \label{threats}
 
