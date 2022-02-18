@@ -670,7 +670,8 @@ maintenance, and evolution of software, software processes, and
 artifacts~\cite[p.\ 501]{GhezziEtAl2003}. Development tools support the
 development of end products, but do not become part of them, unlike dependencies
 that remain in the application once it is released \cite[p.\
-506]{GhezziEtAl2003}. The tools found for LBM software packages are as follows:
+506]{GhezziEtAl2003}. As an example, the tools found for LBM software packages
+are as follows:
 
 \begin{description}
 	\item[Development Tools:] Continuous Integration, Code Editors, Development
@@ -682,75 +683,12 @@ that remain in the application once it is released \cite[p.\
 	Tools, Version Control Tools, Document Generation Tools
 \end{description}
 
-% \begin{table}[h!]
-% \begin{center}
-% \begin{tabular}{ p{12 cm}}
-% %\toprule
-% \textbf{Development Tools}\\
-% \midrule
-% Continuous Integration, Code Editors, Development Environments, Runtime
-% Environments, Compilers, Unit Testing Tools, Correctness Verification Tools\\
-% %\midrule
-% \textbf{Dependencies}\\
-% \midrule
-% Build Automation Tools, Technical Libraries, Domain Specific Libraries\\
-% %\midrule
-% \textbf{Project Management Tools}\\
-% \midrule
-% Collaboration Tools, Email, Change Tracking Tools, Version Control Tools, Document Generation Tools\\
-% %\bottomrule
-% \end{tabular}
-% \caption{Observed development tools, dependencies and project management tools} 
-% \label{tbl_tools}
-% \end{center}
-% \end{table}
-
-Once the data on tools is collected, two specific tools that can be compared to
-research software norms are version control and continuous integration.
-
-Development tools support the development of end products, but do not become
-part of them, unlike dependencies that remain in the application once it is
-released \cite[p.\ 506]{GhezziEtAl2003}. Although not shown in
-Table~\ref{tbl_tools}, debuggers were also likely used.  Only three (ESPResSo,
-Ludwig and Musubi) packages mentioned continuous integration tools, like Travis
-CI. Code editors and compilers were explicitly noted to have been used by
-several packages, and were likely used by all of them. One of the packages
-(Ludwig) explicitly noted the use of proprietary unit testing code written in C.
-Likewise, the use of proprietary code for verifying the correctness of output
-was noted by one of the developers (pyLBM). Similar tools were likely used when
-developing the other software packages.
-
-For the dependency tools (Table~\ref{tbl_tools}), we observed that most of the
-software packages use some sort of build automation tools, most commonly Make.
-They all use various technical and domain specific libraries. Technical
-libraries include visualization (e.g.\ Matplotlib, ParaView, Pygame, VTK), data
-analysis (e.g.\ Anaconda, Torch), and message passing libraries (e.g.\ MPICH,
-Open MPI, PyZMQ). Domain specific libraries include scientific computing
-libraries (e.g.\ SciPy).
-
-Many of the software packages that were assessed were developed by teams of two
-or more people. Their work needed to be coordinated and managed.
-Table~\ref{tbl_tools} shows the types of project management tools that were
-explicitly noted in the artifacts, web-pages, or interviews with the developers.
-As with development tools and dependencies, it is possible that other types of
-project management tools are used, but they were not visible in the artifacts to
-which we had access.  Collaboration tools, most often email and video, are noted
-as being used when developing the software projects. Project management software
-was not explicitly mentioned, but it is possible that some of the projects use
-such software. Many of the projects are located on GitHub, where the developers
-use the platform to help manage their projects, especially bug related issues.
-Most of the projects appear to use change tracking and version control tools.
-Document generation tools are mentioned in 12 of the 24 projects. The tools
-Sphinx and Doxygen are explicitly used in this capacity.
-
+Once the data on tools is collected, the use of two specific tools should be
+compared to research software norms: version control and continuous integration.
 The poor adoption of version control tools that Wilson lamented in 2006
-\cite{Wilson2006} has greatly improved in the intervening years.  From
-Section~\ref{Sec_Maintainability}, 67\% of LBM packages use version control
-(GitHub, GitLab or CVS).  (From Table~\ref{gitrepodata}, 11/15 or 73\% of alive
-packages use version control.)  The proliferation of version control tools for
-LBM matches the increase in the broader research software community.  A little
-over 10 years ago version control was estimated to be used in only 50\% of
-research software projects \cite{Nguyen-HoanEtAl2010}, but even at that time
+\cite{Wilson2006} has greatly improved in the intervening years.  A little over
+10 years ago version control was estimated to be used in only 50\% of research
+software projects \cite{Nguyen-HoanEtAl2010}, but even at that time
 \cite{Nguyen-HoanEtAl2010} noted an increase from previous usage levels. A
 survey in 2018 shows 81\% of developers use a version control system
 \cite{AlNoamanyAndBorghi2018}.  \cite{Smith2018} has similar results, showing
@@ -761,21 +699,16 @@ a four year period ending in 2018.  (For completeness the same study showed a
 decrease in version control usage for seismology software over the same time
 period, from 41\% down to 36\%).  Almost every software guide cited in
 Section~\ref{Sec_CompareArtifacts} includes the advice to use version control.
-The high usage of version control tools in LBM software matches the trend in
-research software in general.
+For LBM packages 67\% of LBM packages use version control (GitHub, GitLab or
+CVS). The high usage of version control tools in LBM software matches the trend
+in research software in general.
 
-As mentioned in Section~\ref{SecSurfCorrectAndVerifiab}, continuous integration
-is rarely used in LBM (3 of 24 packages or 12.5\%). This contrasts with the
-frequency with which continuous integration is recommended in research software
-development guidelines \cite{BrettEtAl2021,Brown2015,ThielEtAl2020,Zadka2018,vanGompelEtAl2016}.  We could not find published data on the
-frequency with which continuous integration is used in general research
-software.  Our impression is that like LBM software, other research software
-packages lag behind the recommended best practice of employing continuous
-integration tools.
-
-Interviews with the developers revealed a potentially more frequent use of both
-unit testing and continuous integration, compared to what was observed from
-studying the repository artifacts.
+Continuous integration is rarely used in LBM (3 of 24 packages or 12.5\%). This
+contrasts with the frequency with which continuous integration is recommended in
+research software development guidelines
+\cite{BrettEtAl2021,Brown2015,ThielEtAl2020,Zadka2018,vanGompelEtAl2016}. In
+this case, it seems likely that the recommendations are ahead of common
+practice.
 
 \section{Comparison of Processes to Other Research Software} \label{Sec_CompareMethodologies}
 
@@ -955,6 +888,10 @@ in this assessment, but it is probable that such documentation is part of all
 LBM packages. After all, developing SCS is not a trivial endeavour. It is likely
 that many packages have such documentation but did not make it public, and due
 to this the measured data is not a true reflection of software package quality.
+
+Interviews with the developers revealed a potentially more frequent use of both
+unit testing and continuous integration, compared to what was observed from
+studying the repository artifacts.
 
 [*{There are more threats to validity.  Brainstorm.  Watch for them while 
 editing.  Look at Ao paper.}
