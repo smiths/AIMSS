@@ -225,9 +225,10 @@ Section~\ref{sec_vet_software_list}.
 	(Section~\ref{empiricalmeasures})
 	\item Measure using the measurement template.  The full measurement template
 	can be found in \cite{SmithEtAl2021}. (Section~\ref{empiricalmeasures})
-	\item Interview the developers. (Section~\ref{SecSurvey})
 	\item Use AHP to rank the software packages. (Section~\ref{empiricalmeasures})
-	\item Analyze the results and answer the research questions. (Sections~\ref{repmetrics}---\ref{Sec_Recommendations}) %,~\ref{Sec_CompareArtifacts},~\ref{Sec_CompareTools},~\ref{Sec_CompareMethodologies},~\ref{painpoints},~\ref{Sec_AddressConcerns},
+	\item Interview the developers. (Section~\ref{SecSurvey})
+    \item Domain analysis.  (Section~\ref{SecDomainAnalysis})
+	\item Analyze the results and answer the research questions. (Sections~\ref{repmetrics}---\ref{painpoints}) %,~\ref{Sec_CompareArtifacts},~\ref{Sec_CompareTools},~\ref{Sec_CompareMethodologies},~\ref{painpoints},~\ref{Sec_AddressConcerns},
 \end{enumerate}
 
 Close to our goal of 160 person hours, we estimate 173 hours to complete the
@@ -393,19 +394,19 @@ change.
 \subsection{Interview Developers} \label{SecSurvey}
 
 Several of the research question (\rqref{RQ_CompareToolsProjMngmnt},
-\rqref{RQ_CompareMethodologies}, \rqref{RQ_PainPoints}, \rqref{RQ_Concerns} and
-\rqref{RQ_Recommend}) require going beyond the quantitative data from the
-measurement template. To gain the required insight, we interview developers
-using a list of 20 questions \cite{SmithEtAl2021}. The questions cover the
-background of the development teams, the interviewees, and the software itself.
-We ask the developers how they organize their projects. We also ask them about
-their understanding of the users. Some questions focus on the current and past
-difficulties, and the solutions the team has found, or will try. We also discuss
-the importance of, and the current situation for, documentation. A few questions
-are about specific software qualities, such as maintainability,
-understandability, usability, and reproducibility. The interviews are
-semi-structured based on the question list; we ask follow-up questions when
-necessary.  Each interview should take about 1 hour.
+\rqref{RQ_CompareMethodologies} and \rqref{RQ_PainPoints}) require going beyond
+the quantitative data from the measurement template. To gain the required
+insight, we interview developers using a list of 20 questions
+\cite{SmithEtAl2021}. The questions cover the background of the development
+teams, the interviewees, and the software itself. We ask the developers how they
+organize their projects. We also ask them about their understanding of the
+users. Some questions focus on the current and past difficulties, and the
+solutions the team has found, or will try. We also discuss the importance of,
+and the current situation for, documentation. A few questions are about specific
+software qualities, such as maintainability, understandability, usability, and
+reproducibility. The interviews are semi-structured based on the question list;
+we ask follow-up questions when necessary.  Each interview should take about 1
+hour.
 
 The interviewees should follow a process where they can make informed consent.
 The interviews should follow standard ethics guideline of asking for consent
@@ -414,7 +415,7 @@ The interview process presented here was approved by the McMaster University
 Research Ethics Board under the application number 
 \href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/MACREM/Application.pdf}
 {MREB\#: 5219}.  For LBM we were able to recruit 4 developers to participate in
-our study. Results in next sections.
+our study.
 
 \subsection{Interaction With Domain Expert} \label{sec_vet_software_list}
 
@@ -442,30 +443,15 @@ on their time.
 Since each domain we will study will have a reasonably small scope, we will be
 able to view the software as constituting a program family. Studying the common
 properties within a family of related programs is termed a domain analysis.  For
-the current methodology time constraints necessitate a shallow domain analysis.
-A table should be constructed that distinguishes the programs under study by the
-variabilities that distinguish them.  In research software the variabilities are
-often related to assumptions.  Table~\ref{tbl_features} shows the variabilities
-for the LBM software example.
-
-we will
-contrast the different packages based on their features, as shown in
-Table~\ref{tbl_features}. The set of LBM programs form a program family, or a
-software product line.  The packages all have the commonality of using LBM
-techniques to simulate the motion of fluids, but there are also variabilities
-between them.  LBM packages can be distinguished by the dimension of problems
-they simulate, whether or not (and how) they support parallel computation,
-whether or not compressibility can be considered, whether reflexive boundaries
-can be employed, whether the simulation handles multi-fluids, whether the
-simulations handles turbulence, and whether complex geometries can be simulated.
-All of these variabilities are listed as columns in Table~\ref{tbl_features}
-with the software listed in alphabetical order. A more complete analysis of the
-commonalities and variabilities between LBM packages is provided in
-\cite{Michalski2021}.
+the current methodology time constraints necessitate a shallow analysis. For
+each domain a table should be constructed that distinguishes the programs under
+study by their variabilities.  In research software the variabilities are often
+related to assumptions.  Table~\ref{tbl_features} shows the variabilities for
+the LBM software example~\cite{Michalski2021}.
 
 \begin{table}[h!]
 	\begin{center}
-		\begin{tabular}{ p{3cm}llllllll}
+		\begin{tabular}{ p{3cm}p{1.25cm}p{2.25cm}llllll}
 			\toprule
 			Name & Dim & Pll & Com & Rflx & MFl & Turb & CGE & OS\\
 			\midrule
@@ -517,7 +503,8 @@ inevitable for the following reasons:
 	\item the overall quality ranking via AHP makes the unrealistic assumption
 	of equal weighting between the different quality factors;
 	\item stars are known to not be a particularly good measure of popularity,
-	since young projects have less time to accumulate stars \cite{}; 
+	because of how people use stars and since young projects have less time to
+	accumulate stars~\cite{Szulik2017}; 
 	\item and, as for consumer products, there are more factors that determine
 	popularity than quality alone.
 \end{inparaenum}
@@ -531,12 +518,9 @@ packages. The best ranked package by AHP (ESPResSo) has the second most stars,
 while the ninth ranked package (Sailfish) has the highest number of stars. The
 same correlation is observed in the repository watch column, although this
 column contains less data, since two of the packages (Palabos, waLBerla) use
-GitLab, which does not track watches. Packages designated as lower quality often
-do not use GitHub or GitLab, or have only a few stars/watches. Although the AHP
-ranking and the community popularity estimate are not perfect measures, they do
-suggest a correlation between best practices and popularity. We do not know
-which comes first, the use of best practices or popularity, but we do know that
-the top ranked packages tend to incorporate best practices.
+GitLab, which does not track watches. Although the AHP ranking and the community
+popularity estimate are not perfect measures, they do suggest a correlation
+between best practices and popularity.
 
 \begin{table}[!h]
 	\begin{center}
@@ -579,18 +563,15 @@ the top ranked packages tend to incorporate best practices.
 \label{Sec_CompareArtifacts}
 
 In this step of the methodology we answer \rqref{RQ_CompareArtifacts} by
-comparing the artifacts that we observed in LBM repositories to those observed
-and recommended for research software in general.  As part of filling in the
-measurement template (Section~\ref{}), the domain software is examined for the
-presence of artifacts, which are then categorized by frequency. We suggest
-grouping them into the categories: common, less common, and rare.  Common
-artifacts are those found in more than two thirds of the examples, less common
-artifacts are between 1/3 and 2/3, while rare are in less than 1/3 of the
-software packages.  
-
-The observed frequency of artifacts should then be compared to the artifacts
-recommended by research software guidelines.  Table~\ref{} summarizes the
-artifacts recommended by some existing guidelines.  
+comparing the artifacts that we observed in the domain repositories to those
+observed and recommended for research software in general.  While filling in the
+measurement template (Section~\ref{empiricalmeasures}), the domain software is
+examined for the presence of artifacts, which are then categorized by frequency.
+We suggest grouping them into the categories: common (more than 2/3 of
+projects), less common (between 1/3 and 2/3), and rare (less than 1/3 of
+projects). The observed frequency of artifacts should then be compared to the
+artifacts recommended by research software guidelines, as summarized in
+Table~\ref{Tbl_Guidelines}.  
 
 \begin{table}[!h]
 \begin{center}
@@ -637,7 +618,11 @@ The results for the LBM example are shown below.  The majority of LBM generated
 artifacts correspond to general recommendations from research software
 developers.  For LBM, a union of the three categories mostly corresponds to
 recommendations made by the research software community, as shown in
-Table~\ref{Tbl_Guidelines}.
+Table~\ref{Tbl_Guidelines}. Although the LBM community participates in most of
+the practices we found listed in the general research software guidelines, some
+recommended practices were not observed or rarely observed as follows: API
+documentation, a roadmap, a code of conduct, programming style guide, uninstall
+instructions.
 
 \begin{description}
 	\item[Common:] Developer List, Issue Tracker, Dependency List, Installation
@@ -675,45 +660,54 @@ Table~\ref{Tbl_Guidelines}.
 % \end{center}
 % \end{table}
 
-Although the LBM community participates in most of the practices we found listed
-in the general research software guidelines, some recommended practices were not
-observed or rarely observed as follows: API documentation, a roadmap, a code of
-conduct, programming style guide, uninstall instructions.
-
 \section{Comparison of Tools to Other Research Software}
 \label{Sec_CompareTools}
 
-Software tools are used to support the development, verification, maintenance,
-and evolution of software, software processes, and artifacts \cite[p.\
-501]{GhezziEtAl2003}. Many tools are used by LBM software packages, as
-summarized in Table~\ref{tbl_tools}.  The tools are subdivided into development
-tools, dependencies, and project management tools.  In this section we answer
-\rqref{RQ_CompareToolsProjMngmnt} by comparing aspects of the tool usage in LBM
-to their utilization in the research software community in general.
+To answer \rqref{RQ_CompareToolsProjMngmnt} we need to summarize tools that are
+visible in the repositories and that are mentioned during the developer
+interviews. Software tools are used to support the development, verification,
+maintenance, and evolution of software, software processes, and
+artifacts~\cite[p.\ 501]{GhezziEtAl2003}. Development tools support the
+development of end products, but do not become part of them, unlike dependencies
+that remain in the application once it is released \cite[p.\
+506]{GhezziEtAl2003}. The tools found for LBM software packages are as follows:
 
-\begin{table}[h!]
-\begin{center}
-\begin{tabular}{ p{12 cm}}
-%\toprule
-\textbf{Development Tools}\\
-\midrule
-Continuous Integration, Code Editors, Development Environments, Runtime
-Environments, Compilers, Unit Testing Tools, Correctness Verification Tools\\
-%\midrule
-\textbf{Dependencies}\\
-\midrule
-Build Automation Tools, Technical Libraries, Domain Specific Libraries\\
-%\midrule
-\textbf{Project Management Tools}\\
-\midrule
-Collaboration Tools, Email, Change Tracking Tools, Version Control Tools, Document Generation Tools\\
-%\bottomrule
-\end{tabular}
-\caption{Observed development tools, dependencies and project management tools} 
-\label{tbl_tools}
-\end{center}
-\end{table}
-	
+\begin{description}
+	\item[Development Tools:] Continuous Integration, Code Editors, Development
+	Environments, Runtime Environments, Compilers, Unit Testing Tools,
+	Correctness Verification Tools
+	\item[Dependencies:] Build Automation Tools, Technical Libraries, Domain
+	Specific Libraries
+	\item[Project Management Tools:] Collaboration Tools, Email, Change Tracking
+	Tools, Version Control Tools, Document Generation Tools
+\end{description}
+
+% \begin{table}[h!]
+% \begin{center}
+% \begin{tabular}{ p{12 cm}}
+% %\toprule
+% \textbf{Development Tools}\\
+% \midrule
+% Continuous Integration, Code Editors, Development Environments, Runtime
+% Environments, Compilers, Unit Testing Tools, Correctness Verification Tools\\
+% %\midrule
+% \textbf{Dependencies}\\
+% \midrule
+% Build Automation Tools, Technical Libraries, Domain Specific Libraries\\
+% %\midrule
+% \textbf{Project Management Tools}\\
+% \midrule
+% Collaboration Tools, Email, Change Tracking Tools, Version Control Tools, Document Generation Tools\\
+% %\bottomrule
+% \end{tabular}
+% \caption{Observed development tools, dependencies and project management tools} 
+% \label{tbl_tools}
+% \end{center}
+% \end{table}
+
+Once the data on tools is collected, two specific tools that can be compared to
+research software norms are version control and continuous integration.
+
 Development tools support the development of end products, but do not become
 part of them, unlike dependencies that remain in the application once it is
 released \cite[p.\ 506]{GhezziEtAl2003}. Although not shown in
@@ -858,6 +852,7 @@ style examples, developer guidelines, demos and screenshots.
 
 \section{Developer Pain Points} \label{painpoints}
 
+Ask developers during the interviews about their pain points.  Compare the identified pain points to the literature that discusses pain points \cite{Wieseet}.
 Based on interviews with 4 developers, this section aims to answer the research
 questions: i) What are the pain points for developers working on research
 software projects (\rqref{RQ_PainPoints})?; and, ii) How do the pain points of
