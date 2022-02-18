@@ -71,18 +71,18 @@ Peter Michalski\inst{1}}%\orcidID{1111-2222-3333-4444} \and
 	number of stars, number of open issues, number of lines of code; v) Fill in
 	the measurement template (the template consists of 108 questions to assess 9
 	qualities (including the qualities of installability, usability and
-	visibility)); vi) Interview developers (the interview consists of 20
-	questions and takes about an hour); and, vii) Rank the software using the
-	Analytic Hierarchy Process (AHP). The data is analyzed to: i) comparing the
-	ranking by best practices against an estimate of the communities ranking of
-	popularity; ii) comparing artifacts, tools and processes to current research
-	software development guidelines; and, iii) exploring pain points. We
-	estimate the time to complete an assessment for a given domain at 173 person
-	hours. We illustrate our method via the example of Lattice Boltzmann
-	Solvers, where we find that the top packages engaged in most of recommended
-	best practices, but show room for improvement with respect to providing API
-	documentation, a roadmap, a code of conduct, programming style guide,
-	uninstall instructions and continuous integration.
+	visibility)); vi) Rank the software using the Analytic Hierarchy Process
+	(AHP); vii) Interview developers (the interview consists of 20 questions and
+	takes about an hour); and, viii) conduct a domain analysis. The collected
+	data is analyzed by: i) comparing the ranking by best practices against an
+	the ranking by popularity; ii) comparing artifacts, tools and processes to
+	current research software development guidelines; and, iii) exploring pain
+	points. We estimate the time to complete an assessment for a given domain at
+	173 person hours. The method is illustrated via the example of Lattice
+	Boltzmann Solvers, where we find that the top packages engaged in most of
+	recommended best practices, but still show room for improvement with respect
+	to providing API documentation, a roadmap, a code of conduct, programming
+	style guide, uninstall instructions and continuous integration.
 
 \keywords{research software \and software quality \and empirical measures \and analytic hierarchy process \and software artifacts \and developer pain points \and Lattice Boltzmann Method}
 
@@ -109,16 +109,15 @@ information.
 
 The surveys used in previous studies have tended to recruit participants from
 all domains of research software, possibly distinguishing them by programming
-language (for instance, R developers \cite{PintoEtAl2018}), or by the role of
+language (for instance, R developers~\cite{PintoEtAl2018}), or by the role of
 the developers (for instance postdoctoral researchers \cite{UditAndKatz2017}).
 Case studies, on the other hand, have focused on a few specific examples at a
 time, as is the nature of case studies.  For our new methodology, we propose a
 scope between these two extremes.  Rather than focus on all research software,
 or just a few examples, we will focus on one domain of research software at a
-time. The practical reason for defining a domain scope is that digging deep into
-repository data takes time, making a broad scope infeasible. We have determined
-that a practical constraint for the work load is for a team as small as one
-individual doing one person month worth of work per domain.\footnote{A person
+time. The practical reason for this scope is that digging deep into
+repository data takes time, making a broad scope infeasible. We have imposed
+a practical constraint of one person month worth of work per domain.\footnote{A person
 month is considered to be $20$ working days ($4$ weeks in a month, with $5$ days
 of work per week) at $8$ person hours per day, or $20 \cdot 8 = 160$ person
 hours.} Focusing on one domain at a time has more than just practical
@@ -181,10 +180,9 @@ questions about how the domain software compares to other research software.
 	the processes used? (Section~\ref{Sec_CompareMethodologies})
 \end{enumerate}	
 
-Only so much information can be gleaned by digging into software repositories.
+Only so much information can be gleaned by digging into software repos.
 To gain additional insight, we need to interview developers
-(Section~\ref{SecSurvey}).  We need to learn their concerns and how they deal
-with these concerns; we need to learn their pain points.
+(Section~\ref{SecSurvey}) to learn:
 
 \begin{enumerate}
 	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_PainPoints}:] What are
@@ -236,55 +234,43 @@ Section~\ref{sec_vet_software_list}.
 Close to our goal of 160 person hours, we estimate 173 hours to complete the
 assessment of a given domain~\cite{SmithEtAl2021}.  This estimate assumes the
 domain has been decided, the Domain Expert has been recruited, and the template
-spreadsheets and AHP tool~\cite{SmithEtAl2021}, will be utilized. The hours are
-a rough estimate, based on our experience completing assessments for medical
-image analysis~\cite{Dong2021} and the Lattice Boltzmann Method
-(LBM)~\cite{Michalski2021}.  The estimate should be adjusted if the number of
-packages measured differs from 30.
+spreadsheets and AHP tool~\cite{SmithEtAl2021}, will be utilized.
 
 \subsection{How to Identify the Domain?} \label{SecIdentifyDomain} 
 
-A domain of research software must be identified to begin the assessment. To be
-applicable for the methodology described in this document, the chosen domain
-must have the following properties:
+To be applicable for the methodology described in this document, the chosen
+domain must have the following properties:
 
 \begin{enumerate}
-\item The domain must have well-defined and stable theoretical underpinning.  A
-  good sign of this is the existence of standard textbooks, preferably
-  understandable by an upper year undergraduate student.
+\item The domain must have well-defined and stable theoretical underpinning.
 \item There must be a community of people studying the domain.
 \item The software packages must have open source options.
 \item A preliminary search, or discussion with experts, suggests that there will
-  be numerous, close to 30, candidate software packages in the domain that
-  qualify as `research software'.
+  be around 30 or more candidate software packages.
 \end{enumerate}	
 
 \subsection{How to Identify Candidate Software from the Domain?}
 \label{identifysoftware}
 
-To answer~\rqref{RQ_WhatProjects} we needed to identify existing projects. The
-candidate software should be found through search engine queries targeting
-authoritative lists of software.  Candidate places to search include
-\href{https://github.com/} {GitHub} and \href{https://swmath.org/} {swMATH}, as
-well as through scholarly articles. The Domain Expert
-(Section~\ref{sec_vet_software_list}) should also be engaged in selecting the
-candidate software.  The following properties were considered when creating the
-list and reviewing the candidate software:
+The candidate software to answer~\rqref{RQ_WhatProjects} should be found through
+search engine queries,  
+\href{https://github.com/} {GitHub}, \href{https://swmath.org/} {swMATH}
+and scholarly articles. The Domain Expert (Section~\ref{sec_vet_software_list})
+should also be engaged in selecting the candidate software.  The following
+properties are considered when creating the list:
 
 \begin{enumerate}
 	\item The software functionality must fall within the identified domain.
 	\item The source code must be viewable.
-	\item The repository based measures should be available, which implies a
-	preference for GitHub-style repositories.
-	\item The software cannot be marked as incomplete.
+	\item The repository based measures should be available.
+	\item The software must be complete.
 \end{enumerate}
 
 \subsection{How to Filter the Software List?} \label{filtersoftware}
 
-If the list of software is too long (over around 30 packages)
-for~\rqref{RQ_WhatProjects}, then filters are applied in the priority order
-listed. Copies of both the initial and filtered lists, along with the rationale
-for shortening the list, should be kept for traceability purposes.
+If the list of software is too long (over around 30 packages), then filters are
+applied in the priority order listed. Copies of both lists, along with the
+rationale for shortening the list, should be kept for traceability purposes.
 
 \begin{enumerate}
 	\item Scope: Software is removed by narrowing what functionality is
@@ -298,11 +284,7 @@ for shortening the list, should be kept for traceability purposes.
 \end{enumerate}
 
 For the LBM example the initial list had 46 packages~\cite{Michalski2021}. This
-list was filtered by scope, usage, and age to decrease the length to 24. Many of
-the removed packages could not be tested as there was no installation guide,
-they were incomplete, source code was not publicly available, a license was
-needed, or the project was out of scope or not up to a standard that would
-support incorporating them into this study~\cite{Michalski2021}.
+list was filtered by scope, usage, and age to decrease the length to 24.
 
 \subsection{Quantitative Measures} \label{empiricalmeasures}
 
@@ -365,15 +347,11 @@ slate, which removes ``works-on-my-computer'' errors.
 
 Once we have measured each package, we still need to rank them to answer
 \rqref{RQ_HighestQuality}.  To do this, we used the Analytical Hierarchy Process
-(AHP), a decision-making technique that is used to compare multiple options by
-multiple criteria \cite{Saaty1980}. AHP performs a pairwise analysis using a
-matrix and generates an overall score as well as individual quality scores for
-each software package. The advantage of pair-wise comparisons is they facilitate
-a separation of concerns.  Rather than worry about the entire problem, the
-decision maker can focus on one comparison at a time.  In our work AHP performs
-a pairwise analysis between each of the 9 quality options for each of the
-(approximately) 30 software packages.  This results in a matrix, which is used
-to generate an overall score for each software package for the given
+(AHP), a decision-making technique that uses pair-wise comparisons used to
+compare multiple options by multiple criteria \cite{Saaty1980}. In our work AHP
+performs a pairwise analysis between each of the 9 quality options for each of
+the (approximately) 30 software packages.  This results in a matrix, which is
+used to generate an overall score for each software package for the given
 criteria~\cite{SmithEtAl2016}.
 
 \begin{figure}[h!]
@@ -385,9 +363,7 @@ criteria~\cite{SmithEtAl2016}.
 
 Figure~\ref{Fig_OverallScore} shows the overall ranking of the LBM software
 packages. In the absence of other information on priorities, the overall ranking
-was calculated by assuming an equal weighting between all qualities. If the
-qualities were weighed differently, the overall software package ranking would
-change.
+was calculated by assuming an equal weighting between all qualities.
 
 \subsection{Interview Developers} \label{SecSurvey}
 
@@ -430,22 +406,18 @@ following drawbacks:
 in-grained with experts that nobody thinks to explicitly record it.
 \end{inparaenum}
 Domain experts may be recruited from academia or industry.  The only
-requirements are knowledge of the domain and a willingness to be engaged in the
-assessment process.  The Domain Expert does not have to be a software developer,
-but they should be a user of domain software.  Given that the domain experts are
-likely to be busy people, the measurement process cannot put to much of a burden
-on their time.
+requirements are knowledge of the domain and a willingness to be involved.
 
 \subsection{Domain Analysis} \label{SecDomainAnalysis}
 
-Since each domain we will study will have a reasonably small scope, we will be
-able to view the software as constituting a program family. Studying the common
-properties within a family of related programs is termed a domain analysis.  For
-the current methodology time constraints necessitate a shallow analysis. For
-each domain a table should be constructed that distinguishes the programs under
-study by their variabilities.  In research software the variabilities are often
-related to assumptions.  Table~\ref{tbl_features} shows the variabilities for
-the LBM software example~\cite{Michalski2021}.
+Since each domain will have a reasonably small scope, we will be able to view
+the software as a program family. Studying the common properties within a family
+via a domain analysis.  For the current methodology time constraints necessitate
+a shallow analysis. For each domain a table should be constructed that
+distinguishes the programs under study by their variabilities.  In research
+software the variabilities are often related to assumptions.
+Table~\ref{tbl_features} shows the variabilities for the LBM
+software~\cite{Michalski2021}.
 
 \begin{table}[h!]
 	\begin{center}
@@ -507,18 +479,15 @@ inevitable for the following reasons:
 	popularity than quality alone.
 \end{inparaenum}
 
-Table~\ref{repometrics} compares the AHP ranking of the LBM package versus their
+Table~\ref{repometrics} compares the AHP ranking of the LBM package to their
 popularity in the research community.  Nine packages do not use GitHub, so they
 do not have a measure of repository stars. Looking at the repository stars of
 the other 15 packages, we can observe a pattern where packages that have been
 highly ranked by our assessment tend to have more stars than lower ranked
 packages. The best ranked package by AHP (ESPResSo) has the second most stars,
-while the ninth ranked package (Sailfish) has the highest number of stars. The
-same correlation is observed in the repository watch column, although this
-column contains less data, since two of the packages (Palabos, waLBerla) use
-GitLab, which does not track watches. Although the AHP ranking and the community
-popularity estimate are not perfect measures, they do suggest a correlation
-between best practices and popularity.
+while the ninth ranked package (Sailfish) has the highest number of stars.
+Although the AHP ranking and the community popularity estimate are not perfect
+measures, they do suggest a correlation between best practices and popularity.
 
 \begin{table}[!h]
 	\begin{center}
@@ -539,37 +508,37 @@ between best practices and popularity.
 			waLBerla & 10 & 20 & 9 & GitLab& GitLab\\
 			laboetie & 11 & 4 & 13 & 5& 8\\
 			TCLB & 12 & 95 & 3 & 16& 3\\
-			MechSys & 13 & No Git & No Git & No Git& No Git\\
-			lettuce & 14 & 48 & 4 & 5& 8\\
-			ESPResSo++ & 15 & 35 & 5 & 12& 4\\
-			MP-LABS & 16 & 12 & 11 & 2& 9\\			
-			SunlightLB & 17 & No Git & No Git & No Git& No Git\\
-			LB3D & 18 & No Git & No Git & No Git& No Git\\			
-			LIMBES & 19 & No Git & No Git & No Git& No Git\\
-			LB2D-Prime & 20 & No Git & No Git & No Git& No Git\\		
-			HemeLB & 21 & 12 & 11 & 12& 4\\
-			lbmpy & 22 &  11 & 12 & 2& 9\\	
+			% MechSys & 13 & No Git & No Git & No Git& No Git\\
+			% lettuce & 14 & 48 & 4 & 5& 8\\
+			% ESPResSo++ & 15 & 35 & 5 & 12& 4\\
+			% MP-LABS & 16 & 12 & 11 & 2& 9\\			
+			% SunlightLB & 17 & No Git & No Git & No Git& No Git\\
+			% LB3D & 18 & No Git & No Git & No Git& No Git\\			
+			% LIMBES & 19 & No Git & No Git & No Git& No Git\\
+			% LB2D-Prime & 20 & No Git & No Git & No Git& No Git\\		
+			% HemeLB & 21 & 12 & 11 & 12& 4\\
+			% lbmpy & 22 &  11 & 12 & 2& 9\\	
+			... & ... & ... & ... & ... & ...\\	
 			LB3D-Prime & 23 & No Git & No Git & No Git& No Git\\	
 			LatBo.jl & 24 & 17 & 10 & 8& 6\\			
 			\bottomrule
 		\end{tabular}
-		\caption{Repository Ranking Metrics} \label{repometrics}
+		\caption{Excerpt from Repository Ranking Metrics~\cite{Michalski2021}}
+		\label{repometrics}
 	\end{center}
 	\end{table}
 
 \section{Comparison of Artifacts to Other Research Software}
 \label{Sec_CompareArtifacts}
 
-In this step of the methodology we answer \rqref{RQ_CompareArtifacts} by
-comparing the artifacts that we observed in the domain repositories to those
-observed and recommended for research software in general.  While filling in the
-measurement template (Section~\ref{empiricalmeasures}), the domain software is
-examined for the presence of artifacts, which are then categorized by frequency.
-We suggest grouping them into the categories: common (more than 2/3 of
-projects), less common (between 1/3 and 2/3), and rare (less than 1/3 of
-projects). The observed frequency of artifacts should then be compared to the
-artifacts recommended by research software guidelines, as summarized in
-Table~\ref{Tbl_Guidelines}.  
+We answer \rqref{RQ_CompareArtifacts} by comparing the artifacts that we observe
+to those observed and recommended for research software in general.  While
+filling in the measurement template (Section~\ref{empiricalmeasures}), the
+domain software is examined for the presence of artifacts, which are then
+categorized by frequency as: common (more than 2/3 of projects), less common
+(between 1/3 and 2/3), and rare (less than 1/3). The observed frequency of
+artifacts should then be compared to the artifacts recommended by research
+software guidelines, as summarized in Table~\ref{Tbl_Guidelines}.  
 
 \begin{table}[!h]
 \begin{center}
@@ -682,19 +651,12 @@ are as follows:
 
 Once the data on tools is collected, the use of two specific tools should be
 compared to research software norms: version control and continuous integration.
-The poor adoption of version control tools that Wilson lamented in 2006
-\cite{Wilson2006} has greatly improved in the intervening years.  A little over
-10 years ago version control was estimated to be used in only 50\% of research
-software projects \cite{Nguyen-HoanEtAl2010}, but even at that time
-\cite{Nguyen-HoanEtAl2010} noted an increase from previous usage levels. A
-survey in 2018 shows 81\% of developers use a version control system
-\cite{AlNoamanyAndBorghi2018}.  \cite{Smith2018} has similar results, showing
-version control usage for alive projects in mesh generation, geographic
-information systems and statistical software for psychiatry increasing from
-75\%, 89\% and 17\% (respectively) to 100\%, 95\% and 100\% (respectively) over
-a four year period ending in 2018.  (For completeness the same study showed a
-decrease in version control usage for seismology software over the same time
-period, from 41\% down to 36\%).  Almost every software guide cited in
+A little over 10 years ago version control was estimated to be used in only 50\%
+of research software projects \cite{Nguyen-HoanEtAl2010}, but even at that time
+\cite{Nguyen-HoanEtAl2010} noted an increase from previous usage levels. More
+recently, version control usage rates for active mesh generation, geographic
+information system and statistical software packages were close to
+100~\cite{Smith2018}.  Almost every software guide cited in
 Section~\ref{Sec_CompareArtifacts} includes the advice to use version control.
 For LBM packages 67\% of LBM packages use version control (GitHub, GitLab or
 CVS). The high usage of version control tools in LBM software matches the trend
@@ -730,19 +692,16 @@ common recommendation.
 \section{Developer Pain Points} \label{painpoints}
 
 To answer \rqref{RQ_PainPoints}, we ask developers about their pain points and
-compare their responses to pain points identified in the
+then compare their responses to pain points identified in the
 literature~\cite{WieseEtAl2019,PintoEtAl2018}.  Pain points to watch for
-include: lack of development time, Cross-platform compatibility, interruptions
-while coding, scope bloat, lack of user feedback, hard to collaborate on
-software projects, aloneness, dependency management, data handling concerns
-(like data quality, data management and data privacy), reproducibility, and
-software scope determination. 
+include: lack of development time, cross-platform compatibility, scope bloat,
+lack of user feedback, dependency management, data handling concerns,
+reproducibility, and software scope determination. 
 
 An example pain point noted by LBM developers is a lack of development time. A
 developer of pyLBM noted that their small development team did not have enough
 time to implement new features. Small development teams are common for LBM
-software packages (as shown in the measurement table excerpt in
-Figure~\ref{measurement_template_image}).
+software packages (as shown in Figure~\ref{measurement_template_image}).
 
 \section{Threats To Validity} \label{threats}
 
