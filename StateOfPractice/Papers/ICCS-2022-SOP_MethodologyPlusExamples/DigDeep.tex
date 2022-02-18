@@ -98,7 +98,7 @@ development have prompted multiple researchers to investigate how developing
 this software differs from other classes of software.  Previous studies have
 focused on surveying developers
 \cite{HannayEtAl2009,Nguyen-HoanEtAl2010,PintoEtAl2018}, developer interviews
-\cite{SandersAndKelly2008} and case studies \cite{CarverEtAl2007,Segal2005}.  A
+\cite{Kelly2013} and case studies \cite{CarverEtAl2007,Segal2005}.  A
 valuable source of information that has received less attention is the data in
 publicly available software repositories.  We propose digging deeper into how
 well projects are applying best practices by using a new methodology that
@@ -705,83 +705,30 @@ in research software in general.
 
 Continuous integration is rarely used in LBM (3 of 24 packages or 12.5\%). This
 contrasts with the frequency with which continuous integration is recommended in
-research software development guidelines
-\cite{BrettEtAl2021,Brown2015,ThielEtAl2020,Zadka2018,vanGompelEtAl2016}. In
-this case, it seems likely that the recommendations are ahead of common
-practice.
+research software development
+guidelines~\cite{BrettEtAl2021,vanGompelEtAl2016,ThielEtAl2020}. In this case,
+it seems likely that the recommendations are ahead of common practice.
 
 \section{Comparison of Processes to Other Research Software} \label{Sec_CompareMethodologies}
 
-This section answers research question \rqref{RQ_CompareMethodologies} by
-comparing the principles, processes and methodologies used for LBM software to
-what can be gleaned from the literature on research software in general. In our
-data collection for LBM software, the software development process is not
-explicitly indicated in the artifacts for most of the packages. However, during
-our interviews one developer (ESPResSo) told us their non-rigorous development
-model is like a combination of agile and waterfall. Employing a loosely defined
-process makes sense for LBM software, given that the teams are generally small
-and self-contained.  Although eleven of the packages explicitly convey that they
-would accept outside contributors, generally the teams are centralized, often
-working at the same institution.  Working at the same institution means that an
-informal process can show success, since informal conversations are relatively
-easy to have.
+The interview data on development processes is used to answer research question
+\rqref{RQ_CompareMethodologies}.  This data should be contrasted with the
+development process used by research software in general. The literature
+suggests that scientific developers naturally use an agile philosophy
+\cite{CarverEtAl2007,Segal2005}, or an amethododical process \cite{Kelly2013}.
+Another point of comparison should be on the use of peer review, since peer
+review is frequently recommended in software development
+guidelines~\cite{HerouxEtAl2008,OrvizEtAl2017,USGS2019}.
 
-Interviews with developers confirmed a similar project management processes. In
-teams of only a couple of developers, additions of new features or major changes
-are discussed with the entire team. Projects with more than a couple developers
-have lead developer roles. These lead developers review potential additions to
-the software. One of the developers (ESPResSo) that was interviewed noted that
-an ad hoc peer review process is used to assess major changes and additions.
-Using peer review (also called technical review) matches with recommended
-practice for research software \cite{HerouxEtAl2008,Givler2020,OrvizEtAl2017,USGS2019}.
-
-Two types of software changes were discussed during interviews with developers.
-One is feature additions, which arise from a scientific or functional need.
-These changes involve formal discussions within the development team, and lead
-developer participation is mandatory. The other change type is code refactoring,
-which only sometimes involves formal discussions with the development team. New
-developers were noted to play an increased role in these changes compared to the
-former changes. Software bugs are typically addressed in a similar fashion as
-code refactoring.  Issue tracking is commonly used to manage these changes.
-
-Our observations of a informally defined process, with elements of agile
-methods, matches what has been observed for research software in general.
-Scientific developers naturally use an agile philosophy \cite{AckroydEtAl2008,CarverEtAl2007,EasterbrookAndJohns2009,Segal2005,HeatonAndCarver2015}, or an
-amethododical process \cite{Kelly2013}, or a knowledge acquisition driven
-process \cite{Kelly2015}.
-
-Most of the software packages do not explicitly state the motivations or design
-principles that were considered when developing the software. One package,
-Sailfish, indicates in its artifacts that shortening the development time was
-considered in early stages of design, with the developers using Python and
-CUDA/OpenCL to achieve this without sacrificing performance. The Sailfish goals
-are explicitly listed as performance, scalability, agility and extendability,
-maintenance, and ease of use. The project scored well in these categories during
-our assessment.  The quality priorities for Sailfish roughly match the
-priorities observed for research software in general.
-\cite{Nguyen-HoanEtAl2010} surveyed developers to find the following list of
-qualities, in decreasing order of importance: reliability, functionality,
-maintainability, availability, performance, flexibility, testability, usability,
-reusability, traceability, and portability. The Sailfish list does not list
-reliability or functionality, but we can safely assume those are implicitly high
-priorities for any scientific project.  In earlier studies
-\cite{KellyAndSanders2008} and \cite{CarverEtAl2007} both highlight how
-important correctness is for research software.
-
-During our interviews, documentation was noted as playing a significant role in
-the development process, specifically with on-boarding new developers. A goal of
-documentation is to lower the entry barrier for these new contributors. The
-documentation provides information on how to get started, orients the user to
-artifacts and the source code, and explains how the system works, including the
-so-called simulation engine and interface.  This emphasis on documentation,
-especially for new developers, is echoed in research software guidelines.
-Multiple guidelines recommend a document explaining how to contribute to a
-project, often named CONTRIBUTING \cite{Yo2021,BrettEtAl2021,WilsonEtAl2016,ThielEtAl2020,vanGompelEtAl2016,OrvizEtAl2017,FLOSS2022,JimenezEtAl2017}.
-Tutorials \cite{ThielEtAl2020}, trouble shooting guides \cite{OrvizEtAl2017,SSI2022} and quick start examples \cite{ThielEtAl2020,vanGompelEtAl2016} are
-also recommended.  \cite{SmithAndRoscoe2018} suggests including instructions
-specifically for on-boarding new developers. For open source software in general
-(not just research software), \cite{Fogel2005} recommends providing tutorial
-style examples, developer guidelines, demos and screenshots.
+The running example of LBM confirms an informal process, with elements of agile
+methods. The software development process is not explicitly indicated in the
+artifacts for most of the packages. However, during interviews one developer
+(ESPResSo) told us their non-rigorous development model is like a combination of
+agile and waterfall. Employing a loosely defined process makes sense for LBM
+software, given that the teams are generally small and self-contained. One of
+the developers (ESPResSo) that was interviewed also noted that an ad hoc peer
+review process is used to assess major changes and additions, matching the
+common recommendation.
 
 \section{Developer Pain Points} \label{painpoints}
 
