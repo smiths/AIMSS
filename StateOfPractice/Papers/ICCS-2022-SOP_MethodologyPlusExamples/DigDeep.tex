@@ -152,7 +152,7 @@ our ranking to how the user community itself ranks the identified projects.
 	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_HighestQuality}:] Which
 	of the projects identified in \rqref{RQ_WhatProjects} follow current best
 	practices, based on evidence found by experimenting with the software and
-	searching the artifacts available in each project's repository? (Sections~\ref{empiricalmeasures},~\ref{AHP})
+	searching the artifacts available in each project's repository? (Sections~\ref{empiricalmeasures})
 	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_CompareHQ2Popular}:] How
 	similar is the list of top projects identified in \rqref{RQ_HighestQuality}
 	to the most popular projects, as viewed by the scientific community? (Section~\ref{repmetrics})
@@ -182,11 +182,7 @@ questions about how the domain software compares to other research software.
 Only so much information can be gleaned by digging into software repositories.
 To gain additional insight, we need to interview developers
 (Section~\ref{SecSurvey}).  We need to learn their concerns and how they deal
-with these concerns; we need to learn their pain points.  We wish to know what
-practices are used by the top domain projects, so that others can potentially
-emulate these practices. We also wish to identify new practices by borrowing
-successful ideas from other domains. The above points are covered by the
-questions outlined below:
+with these concerns; we need to learn their pain points.
 
 \begin{enumerate}
 	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_PainPoints}:] What are
@@ -195,13 +191,6 @@ questions outlined below:
 	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_ComparePainPoints}:] How
 	do the pain points of domain developers compare to the pain points
 	for research software in general? (Section~\ref{painpoints})
-	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_Concerns}:] For domain
-	developers what specific best practices are taken to address the pain points
-	and software quality concerns? (Section~\ref{Sec_AddressConcerns})
-	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_Recommend}:]
-	What research software development practice could potentially address the
-	pain points identified in \rqref{RQ_PainPoints}).
-	(Section~\ref{Sec_Recommendations})
 \end{enumerate}
 
 Our methodology answers the research question through inspecting repositories,
@@ -237,7 +226,7 @@ Section~\ref{sec_vet_software_list}.
 	\item Measure using the measurement template.  The full measurement template
 	can be found in \cite{SmithEtAl2021}. (Section~\ref{empiricalmeasures})
 	\item Interview the developers. (Section~\ref{SecSurvey})
-	\item Use AHP to rank the software packages. (Section~\ref{AHP})
+	\item Use AHP to rank the software packages. (Section~\ref{empiricalmeasures})
 	\item Analyze the results and answer the research questions. (Sections~\ref{repmetrics}---\ref{Sec_Recommendations}) %,~\ref{Sec_CompareArtifacts},~\ref{Sec_CompareTools},~\ref{Sec_CompareMethodologies},~\ref{painpoints},~\ref{Sec_AddressConcerns},
 \end{enumerate}
 
@@ -278,10 +267,8 @@ authoritative lists of software.  Candidate places to search include
 \href{https://github.com/} {GitHub} and \href{https://swmath.org/} {swMATH}, as
 well as through scholarly articles. The Domain Expert
 (Section~\ref{sec_vet_software_list}) should also be engaged in selecting the
-candidate software.
-
-The following properties were considered when creating the list and reviewing
-the candidate software:
+candidate software.  The following properties were considered when creating the
+list and reviewing the candidate software:
 
 \begin{enumerate}
 	\item The software functionality must fall within the identified domain.
@@ -311,41 +298,31 @@ list, should be kept for traceability purposes.
 	Domain Expert should be consulted on this question as necessary.)
 \end{enumerate}
 
-For the third item in the above filter, software packages are characterized as
-`alive' if their related documentation had been updated within the last 18
-month. Otherwise a package is categorized as `dead'.
-
-For the LBM example the initial list had 46 packages~\cite{Michalski2021}. For
-the running example of LBM filtering by scope, usage, and age decreased the
-initial list of 46 to a list of 24. Many of the removed packages could not be
-tested as there was no installation guide, they were incomplete, source code was
-not publicly available, a license was needed, or the project was out of scope or
-not up to a standard that would support incorporating them into this
-study~\cite{Michalski2021}. Of the remaining packages, some were kept on the
-list despite being marked as dead due to their prevalence on authoritative lists
-on LBM software and due to their surface excellence.
+For the LBM example the initial list had 46 packages~\cite{Michalski2021}. This
+list was filtered by scope, usage, and age to decrease the length to 24. Many of
+the removed packages could not be tested as there was no installation guide,
+they were incomplete, source code was not publicly available, a license was
+needed, or the project was out of scope or not up to a standard that would
+support incorporating them into this study~\cite{Michalski2021}.
 
 \subsection{Quantitative Measures} \label{empiricalmeasures}
 
 We rank the projects by how well they follow best practices
-(\rqref{RQ_HighestQuality}) via a measurement template, as described in
-\cite{SmithEtAl2021}.  For each software package (each column in the template),
-we fill-in the rows of the template. This process takes about 2 hours per
-package, with a cap of 4 hours. The time constraint is necessary so that the
-work load is feasible for a team as small as one, given our aim to cap the
-measurement phase at 160 person hours \cite{SmithEtAl2021}.  An excerpt of the
-template, in spreadsheet form, is shown in
-Figure~\ref{measurement_template_image}.
+(\rqref{RQ_HighestQuality}) via a measurement template~\cite{SmithEtAl2021}. For
+each software package (each column in the template), we fill-in the rows. This
+process takes about 2 hours per package, with a cap of 4 hours.  An excerpt of
+the template is shown in Figure~\ref{measurement_template_image}.
 
 \begin{figure}[!ht]
 	\begin{center}
-	  %\includegraphics[width=1.0\textwidth]{./figures/measurement_template.pdf}
+	  \includegraphics[width=1.0\textwidth]{./figures/measurement_template.pdf}
 	  \caption{Excerpt of the Top Sections of the Measurement Template}
 	  \label{measurement_template_image}
 	\end{center}
 \end{figure}
 
-The full template consists of 108 questions categorized under 9 qualities:
+The full template~\cite{SmithEtAl2021} consists of 108 questions categorized
+under 9 qualities:
 \begin{inparaenum}[(i)]
 	\item installability;
 	\item correctness and verifiability;
@@ -362,16 +339,7 @@ The questions were designed to be unambiguous, quantifiable and measurable with
 limited time and domain knowledge. The measures are grouped under headings for
 each quality, and one for summary information
 (Figure~\ref{measurement_template_image}).   The summary section provides
-general information, such as the software name, number of developers, etc.  We
-follow the definitions given by \cite{gewaltig2012quality} for the software
-categories.  Public means software intended for public use.  Private means
-software aimed only at a specific group, while the concept category is used for
-software written simply to demonstrate algorithms or concepts. The three
-categories of development models are: open source, where source code is freely
-available under an open source license; free-ware, where a binary or executable
-is provided for free; and, commercial, where the user must pay for the software
-product.  
-
+general information, such as the software name, number of developers, etc.
 Several of the qualities use the word ``surface''.  This is to highlight that,
 for these qualities in particular, the best that we can do is a shallow measure.
 For instance, we do not conduct experiments to measure usability. Instead, we
@@ -381,40 +349,46 @@ user manual or documentation of expected user characteristics.
 
 Tools are used to find some of the measurements, such as the number of files,
 number of lines of code (LOC), percentage of issues that are closed, etc. The
-tool \href{https://github.com/tomgi/git_stats}{GitStats} was used to measure
+tool \href{https://github.com/tomgi/git_stats}{GitStats} is used to measure
 each software package's GitHub repository for the number of binary files, the
 number of added and deleted lines, and the number of commits over varying time
 intervals. The tool \href{https://github.com/boyter/scc}{Sloc Cloc and Code
-(scc)} was used to measure the number of text based files as well as the number
+(scc)} is used to measure the number of text based files as well as the number
 of total, code, comment, and blank lines in each GitHub repository.
 
-As in \cite{SmithEtAl2016}, Virtual machines (VMs) are used to provide an
-optimal testing environments for each package. VMs are used because it is
-easier to start with a fresh environment without having to worry about existing
-libraries and conflicts. Moreover, when the tests are complete the VM can be
-deleted, without any impact on the host operating system. The most significant
-advantage of using VMs is to level the playing field. Every software install
-starts from a clean slate, which removes ``works-on-my-computer'' errors.
-
-\subsection{Analytical Hierarchy Process} \label{AHP}
+Virtual machines (VMs) are used to provide an optimal testing environments for
+each package~\cite{SmithEtAl2016}. VMs are used because it is easier to start
+with a fresh environment so as to not worry about existing libraries and
+conflicts. Moreover, when the tests are complete the VM can be deleted, without
+any impact on the host operating system. The most significant advantage of using
+VMs is to level the playing field. Every software install starts from a clean
+slate, which removes ``works-on-my-computer'' errors.
 
 Once we have measured each package, we still need to rank them to answer
 \rqref{RQ_HighestQuality}.  To do this, we used the Analytical Hierarchy Process
 (AHP), a decision-making technique that is used to compare multiple options by
-multiple criteria \cite{Saaty}. AHP performs a pairwise analysis using a matrix
-and generates an overall score as well as individual quality scores for each
-software package. The advantage of pair-wise comparisons is that they
-facilitates a separation of concerns.  Rather than worry about the entire
-problem, the decision maker can focus on one comparison at a time.  In our work
-AHP is used for comparing and ranking the software packages of a domain using
-the quality scores that are gathered in the Measurement Template
-(Appendix~\ref{SecGradingTemplate}). AHP performs a pairwise analysis between
-each of the 9 quality options for each of the 30 software packages.  This
-results in a matrix, which is used to generate an overall score for each
-software package for the given criteria. \cite{SmithEtAl2016} shows how AHP is
-applied to ranking software based on quality measures.
+multiple criteria \cite{Saaty1980}. AHP performs a pairwise analysis using a
+matrix and generates an overall score as well as individual quality scores for
+each software package. The advantage of pair-wise comparisons is they facilitate
+a separation of concerns.  Rather than worry about the entire problem, the
+decision maker can focus on one comparison at a time.  In our work AHP performs
+a pairwise analysis between each of the 9 quality options for each of the
+(approximately) 30 software packages.  This results in a matrix, which is used
+to generate an overall score for each software package for the given
+criteria~\cite{SmithEtAl2016}.
 
-Example of LBM measurement - maybe show the summary of all qualities?
+\begin{figure}[h!]
+	\centering
+		\includegraphics[width=1.0\textwidth]{./figures/finalscore_chart.pdf}
+		\caption{AHP Overall Score}
+		\label{Fig_OverallScore}
+\end{figure}
+
+Figure~\ref{Fig_OverallScore} shows the overall ranking of the LBM software
+packages. In the absence of other information on priorities, the overall ranking
+was calculated by assuming an equal weighting between all qualities. If the
+qualities were weighed differently, the overall software package ranking would
+change.
 
 \subsection{Interview Developers} \label{SecSurvey}
 
@@ -431,21 +405,7 @@ the importance of, and the current situation for, documentation. A few questions
 are about specific software qualities, such as maintainability,
 understandability, usability, and reproducibility. The interviews are
 semi-structured based on the question list; we ask follow-up questions when
-necessary.  Each interview takes an 1 hour on average.
-
-Our methodology suggests requesting interviews with a developer from each of the
-30 software package.  Requests for interviews are sent to all packages so as to
-not cause a potential bias by singling out any subset of the list. Moreover,
-since not every developer will agree to the interview request, asking 30 times
-will typically yield a reasonable number of responses. In our experience, the
-response rate is between 15\% and 30\%.  In some cases multiple developers from
-the same project will agree to be interviewed. When sending out interview
-requests, we recommend finding the contacts on the projects’ website, or code
-repository, or publications, or the biographic pages of the teams’ institutions.
-We send at most two interview request emails to a contact for each software
-package.  Meeting will typically be held using on-line meeting software, like
-Zoom or Teams, facilitates recording and automatic transcription of the
-meetings.
+necessary.  Each interview should take about 1 hour.
 
 The interviewees should follow a process where they can make informed consent.
 The interviews should follow standard ethics guideline of asking for consent
@@ -453,16 +413,14 @@ before interviewing, recording, and including participant details in the report.
 The interview process presented here was approved by the McMaster University
 Research Ethics Board under the application number 
 \href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/MACREM/Application.pdf}
-{MREB\#: 5219}.
-
-For LBM we were able to recruit 4 developers to participate in our study.
-Results in next sections.
+{MREB\#: 5219}.  For LBM we were able to recruit 4 developers to participate in
+our study. Results in next sections.
 
 \subsection{Interaction With Domain Expert} \label{sec_vet_software_list}
 
-We partnered with a Domain Expert to vet our list of projects
-(\rqref{RQ_WhatProjects}) and our ranking (\rqref{RQ_HighestQuality}).  The
-Domain Expert is an important member of the state of the practice assessment
+Our methodology relies on engaging a Domain Expert to vet the list of projects
+(\rqref{RQ_WhatProjects}) and the AHP ranking (\rqref{RQ_HighestQuality}).  The
+Domain Expert is an important member of the assessment
 team. Pitfalls exist if non-experts attempt to acquire an authoritative list of
 software, or try to definitively rank the software. Non-experts have the problem
 that they can only rely on information available on-line, which has the
@@ -472,7 +430,6 @@ following drawbacks:
   \item the on-line resources could leave out relevant information that is so
 in-grained with experts that nobody thinks to explicitly record it.
 \end{inparaenum}
-
 Domain experts may be recruited from academia or industry.  The only
 requirements are knowledge of the domain and a willingness to be engaged in the
 assessment process.  The Domain Expert does not have to be a software developer,
@@ -480,39 +437,82 @@ but they should be a user of domain software.  Given that the domain experts are
 likely to be busy people, the measurement process cannot put to much of a burden
 on their time.
 
-The Domain Expert has an important role with verifying the list of LBM packages.
-In advance of the first meeting with the Domain Expert, they were asked to
-create a list of top software packages in the domain.  This is done to help the
-expert get in the right mind set in advance of the meeting.  Moreover, by doing
-the exercise in advance, we avoid the potential pitfall of the expert approving
-the discovered list of software without giving it adequate thought.  The Domain
-Expert was also asked to vet the collected data and analysis.  In particular,
-they were asked to vet the proposed list of software packages and the AHP
-ranking.
-
 \subsection{Domain Analysis} \label{SecDomainAnalysis}
 
 Since each domain we will study will have a reasonably small scope, we will be
-able to view the software as constituting a program family.  The concept of a
-program family is defined by~\cite{parnas1976design} as ``a set of programs
-whose common properties are so extensive that it is advantageous to study the
-common properties of the programs before analyzing individual members''.
-Studying the common properties within a family of related programs is termed a
-domain analysis.  For the current methodology time constraints necessitate a
-shallow domain analysis.  A table should be constructed that distinguishes the
-programs under study by the variabilities that distinguish them.  In research
-software the variabilities are often related to assumptions.  Table~\ref{} shows
-the variabilities for the LBM software example.
+able to view the software as constituting a program family. Studying the common
+properties within a family of related programs is termed a domain analysis.  For
+the current methodology time constraints necessitate a shallow domain analysis.
+A table should be constructed that distinguishes the programs under study by the
+variabilities that distinguish them.  In research software the variabilities are
+often related to assumptions.  Table~\ref{tbl_features} shows the variabilities
+for the LBM software example.
+
+we will
+contrast the different packages based on their features, as shown in
+Table~\ref{tbl_features}. The set of LBM programs form a program family, or a
+software product line.  The packages all have the commonality of using LBM
+techniques to simulate the motion of fluids, but there are also variabilities
+between them.  LBM packages can be distinguished by the dimension of problems
+they simulate, whether or not (and how) they support parallel computation,
+whether or not compressibility can be considered, whether reflexive boundaries
+can be employed, whether the simulation handles multi-fluids, whether the
+simulations handles turbulence, and whether complex geometries can be simulated.
+All of these variabilities are listed as columns in Table~\ref{tbl_features}
+with the software listed in alphabetical order. A more complete analysis of the
+commonalities and variabilities between LBM packages is provided in
+\cite{Michalski2021}.
+
+\begin{table}[h!]
+	\begin{center}
+		\begin{tabular}{ p{3cm}llllllll}
+			\toprule
+			Name & Dim & Pll & Com & Rflx & MFl & Turb & CGE & OS\\
+			\midrule
+			DL\_MESO (LBE) & 2, 3 & MPI/OMP & Y & Y & Y & Y & Y & W, M, L\\
+			ESPResSo & 1, 2, 3 & CUDA/MPI & Y & Y & Y & Y & Y & M, L\\
+			ESPResSo++ & 1, 2, 3 & MPI & Y & Y & Y & Y & Y & L\\
+			HemeLB & 3 & MPI & Y & Y & Y & Y & Y & L\\
+			laboetie & 2, 3 & MPI & Y & Y & Y & Y & Y & L\\
+			LatBo.jl & 2, 3 & - & Y & Y & Y & N & Y & L\\
+			LB2D-Prime & 2 & MPI & Y & Y & Y & Y & Y & W, L\\
+			LB3D & 3 & MPI & N & Y & Y & Y & Y & L\\
+			LB3D-Prime & 3 & MPI & Y & Y & Y & Y & Y & W, L\\
+			lbmpy & 2, 3 & CUDA & Y & Y & Y & Y & Y & L\\
+			lettuce & 2, 3 & CUDA & Y & Y & Y & Y & Y & W, M, L\\
+			LIMBES & 2 & OMP & Y & Y & N & N & Y & L\\
+			Ludwig & 2, 3 & MPI & Y & Y & Y & Y & Y & L\\
+			LUMA & 2, 3 & MPI & Y & Y & Y & Y & Y & W, M, L\\
+			MechSys & 2, 3 & - & Y & Y & Y & Y & Y & L\\
+			MP-LABS & 2, 3 & MPI/OMP & N & Y & Y & N & N & L\\
+			Musubi & 2, 3 & MPI & Y & Y & Y & Y & Y & W, L\\
+			OpenLB & 1, 2, 3 & MPI & Y & Y & Y & Y & Y & W, M, L\\
+			Palabos & 2, 3 & MPI & Y & Y & Y & Y & Y & W, L\\
+			pyLBM & 1, 2, 3 & MPI & Y & Y & N & Y & Y & W, M, L\\
+			Sailfish & 2, 3 & CUDA & Y & Y & Y & Y & Y & M, L\\
+			SunlightLB & 3 & - & Y & Y & N & N & Y & L\\
+			TCLB & 2, 3 & CUDA/MPI & Y & Y & Y & Y & Y & L\\
+			waLBerla & 2, 3 & MPI & Y & Y & Y & Y & Y & L\\
+			\bottomrule
+		\end{tabular}
+		\caption{Features of Software Packages (Dim for Dimension (1, 2, 3), Pll
+			for Parallel (CUDA, MPI, OpenMP (OMP)), Com for Compressible (Yes or
+			No), Rflx for Reflexive Boundary Condition (Yes or No), MFl for
+			Multi-fluid (Yes or No), Turb for Turbulent (Yes or No), CGE for
+			Complex Geometries (Yes or No), OS for Operating System (Windows
+			(W), macOS (M), Linux (L)))} \label{tbl_features}
+	\end{center}
+\end{table}
 
 \section{Comparison to Community Ranking} \label{repmetrics}
 
 To address \rqref{RQ_CompareHQ2Popular} we need to compare the ranking by best
 practices to the communities ranking.  Our best practices ranking comes from the
-results of the AHP ranking (Section~\ref{AHP}).  We estimate the communities
-ranking by repository stars and watches.  The comparison will provide insight on
-whether best practices are rewarded by popularity.  However, inconsistencies
-between the AHP ranking and the communities ranking are in inevitable for the
-following reasons: 
+results of the AHP ranking (Section~\ref{empiricalmeasures}).  We estimate the
+communities ranking by repository stars and watches.  The comparison will
+provide insight on whether best practices are rewarded by popularity.  However,
+inconsistencies between the AHP ranking and the communities ranking are in
+inevitable for the following reasons: 
 \begin{inparaenum}[i)]
 	\item the overall quality ranking via AHP makes the unrealistic assumption
 	of equal weighting between the different quality factors;
@@ -633,43 +633,52 @@ Code of Conduct &  &  &  &  & & & & & \\
 \end{center}
 \end{table}
 
-The results for the LBM example are shown in Table~\ref{artifactspresent}.  The
-majority of LBM generated artifacts correspond to general recommendations from
-research software developers.  A union of the three columns in
-Table~\ref{artifactspresent} mostly corresponds to recommendations made by the
-research software community, as shown in Table~\ref{Tbl_Guidelines}.
+The results for the LBM example are shown below.  The majority of LBM generated
+artifacts correspond to general recommendations from research software
+developers.  For LBM, a union of the three categories mostly corresponds to
+recommendations made by the research software community, as shown in
+Table~\ref{Tbl_Guidelines}.
 
-\begin{table}[h!]
-\begin{center}
-\begin{tabular}{ p{12 cm}}
-%\toprule
-\textbf{Common}\\
-\midrule
-Developer List, Issue Tracker, Dependency List, Installation Guide, Theory
-Notes, Related Publications, Build Files, README File, License, Tutorial,
-Version Control\\
-%\midrule
-\textbf{Less Common}\\
-\midrule
-Change Log, Design Doc., Functional Spec., Performance Info., Test Cases, User
-Manual\\
-%\midrule
-\textbf{Rare}\\
-\midrule
-API Doc., Developer Manual, FAQ, Verification Plan, Video Guide, Requirements
-Spec.\\
-%\bottomrule
-\end{tabular}
-\caption{Artifacts Present in LBM Packages, Classified by Frequency}
-\label{artifactspresent}
-\end{center}
-\end{table}
+\begin{description}
+	\item[Common:] Developer List, Issue Tracker, Dependency List, Installation
+	Guide, Theory Notes, Related Publications, Build Files, README File,
+	License, Tutorial, Version Control
+	\item[Less Common:] Change Log, Design Doc., Functional Spec., Performance
+	Info., Test Cases, User Manual
+	\item[Rare:] API Doc., Developer Manual, FAQ, Verification Plan, Video Guide,
+	Requirements Spec.
+\end{description}
+
+% \begin{table}[h!]
+% \begin{center}
+% \begin{tabular}{ p{12 cm}}
+% %\toprule
+% \textbf{Common}\\
+% \midrule
+% Developer List, Issue Tracker, Dependency List, Installation Guide, Theory
+% Notes, Related Publications, Build Files, README File, License, Tutorial,
+% Version Control\\
+% %\midrule
+% \textbf{Less Common}\\
+% \midrule
+% Change Log, Design Doc., Functional Spec., Performance Info., Test Cases, User
+% Manual\\
+% %\midrule
+% \textbf{Rare}\\
+% \midrule
+% API Doc., Developer Manual, FAQ, Verification Plan, Video Guide, Requirements
+% Spec.\\
+% %\bottomrule
+% \end{tabular}
+% \caption{Artifacts Present in LBM Packages, Classified by Frequency}
+% \label{artifactspresent}
+% \end{center}
+% \end{table}
 
 Although the LBM community participates in most of the practices we found listed
 in the general research software guidelines, some recommended practices were not
-observed or rarely observed. The following community recommended items were
-rarely, if ever, observed: API documentation, a roadmap, a code of conduct,
-programming style guide, uninstall instructions.
+observed or rarely observed as follows: API documentation, a roadmap, a code of
+conduct, programming style guide, uninstall instructions.
 
 \section{Comparison of Tools to Other Research Software}
 \label{Sec_CompareTools}
@@ -895,17 +904,6 @@ development, since we only interviewed 4 LBM developers for about an hour each.
 	\cite{PintoEtAl2018} found that some developers feel there is a mismatch
 	between coding skills and subject-matter skills. 
 	
-	\item[P\refstepcounter{pnum}\thepnum \label{P_LackFunding}:] \textbf{Lack of
-	Incentive and Funding} The TCLB developer noted a lack of incentives and
-	funding in academia for developing widely used scientific software. This
-	problem has also been noted others \cite{gewaltig2012quality,Goble2014,KaterbowAndFeulner2018}.  \cite{WieseEtAl2019} reported developer pains
-	related to publicity, since historically publishing norms make it difficult
-	to get credit for creating software.  As studied by
-	\cite{HowisonAndBullard2016}, research software (specifically biology
-	software, but the trend likely applies to other research software domains)
-	is infrequently cited.  \cite{PintoEtAl2018} also mentions the lack of
-	formal reward system for research software.
-
 	\item[P\refstepcounter{pnum}\thepnum \label{P_LackExtSupport}:] \textbf{Lack
 	of External Support} A concern was raised that there are no organizations
 	helping with the development of good quality software.  This concern is not
@@ -916,176 +914,8 @@ development, since we only interviewed 4 LBM developers for about an hour each.
 	Carpentry} [* {WilsonAndLumsdaine2006, Wilson2016} *]. Over time awareness of
 	these groups will grow, so this pain point is likely to disappear in the
 	future for LBM and other research software developers.
-		
-	\item[P\refstepcounter{pnum}\thepnum \label{P_TechnologyHurdles}:]
-	\textbf{Technology Hurdles} Technology pain points include setting up
-	parallelization and continuous integration.
-
-	\item[P\refstepcounter{pnum}\thepnum \label{P_Correctness}:]
-	\textbf{Ensuring Correctness} Difficulties with ensuring correctness were
-	noted by several developers. Several developers alluded to difficulty with
-	testing the correctness of large numbers of features, and some manually
-	tested program output, as opposed to using automated testing. The TCLB
-	developer commented that the amount of testing data needed was sometimes
-	problematic, since free testing services do not offer adequate facilities
-	for large amounts of data, which means in-house testing solutions are
-	needed.  Other research software domains point to the following problems
-	with testing: i) \cite{PintoEtAl2018} mention the problem of insufficient
-	testing; ii) the survey of \cite{HannayEtAl2009} shows that more developers
-	think testing is important than the number that believe they have a
-	sufficient understanding of testing concepts; and, iii)
-	\cite{HannayEtAl2009,KanewalaAndBieman2013,KellyEtAl2011,WieseEtAl2019}
-	point to the oracle problem, which occurs in research software when we do
-	not have a means to judge the correctness of the calculated solutions.  The
-	LBM experience seems to overlap with i and ii, but the LBM developers did
-	not allude to problem iii (the oracle problem) in our conversation; we
-	believe that they have developed techniques to work around the oracle
-	problem.  
-	
-	\item[P\refstepcounter{pnum}\thepnum \label{P_Usability}:]
-	\textbf{Usability} Several developers noted that users sometimes try to use
-	incorrect LBM method combinations to solve their problems. Furthermore, some
-	users think that the packages will work out of the box to solve their cases,
-	while in reality CFD knowledge needs to be applied to correctly modify the
-	packages for the new endeavour.  \cite{WieseEtAl2019} also interacted with
-	developers that mentioned that users do not always have the expertise
-	required to install or use the software.
-	
-	\item[P\refstepcounter{pnum}\thepnum \label{P_TechDebt}:] \textbf{Technical
-	Debt} The developer of ESPResSo said that their source code was written with
-	a specific application in mind, which later caused too much coupling between
-	components in the source code. This results in technical debt
-	\cite{KruchtenEtAl2012}, which has an impact on future modifiability and
-	reusability. Concern with technical debt is likely why researchers in the
-	survey of \cite{Nguyen-HoanEtAl2010} rated maintainability as the third
-	most important software quality. More recently the push for sustainable
-	software \cite{deSouzaEtAl2019} is motivated by the pain that past
-	developers have had with accumulating too much technical debt.
-
-	\item[P\refstepcounter{pnum}\thepnum \label{P_Documentation}:]
-	\textbf{Quality of Documentation}  The importance of documentation for both
-	users and developers was stressed throughout the interviews. However, it was
-	noted several times that a lack of time and funding (\ppref{P_LackDevTime})
-	has a negative affect on the documentation. Most of the developers are
-	scientific researchers evaluated on the scientific papers that they produce.
-	Writing and updating documentation is something that is done in their free
-	time, if that time arises. Inadequate research software documentation is
-	also mentioned by others \cite{PintoEtAl2018,WieseEtAl2019} and the
-	problem also arises with non-research software \cite{LethbridgeEtAl2003}.
-	Recommendations on the development of research software state that
-	developers should critically evaluate their own development processes in
-	terms of quality assurance and comply with international standards for
-	software documentation \cite{KaterbowAndFeulner2018}.
 
 \end{enumerate}
-
-\section{Lessons from LBM Developers} \label{Sec_AddressConcerns}
-
-This section summarizes the best practices from LBM developers that are taken to
-address the pain points mentioned in Section~\ref{painpoints}.  The main source
-of information is the qualitative data from developer interviews
-(Section~\ref{SecSurvey}).  The practices summarized in this section can
-potentially be emulated by the LBM software packages that do not currently
-follow them.  Moreover, these practices may also provide examples that can be
-followed by other research software domains.
-
-\subsection{Design For Change} \label{Sec_DesForChange}
-
-Increasing source code modularity, reducing duplicate information,
-and improving abstraction by developing well defined interfaces. This was noted
-by the developers of ESPResSo and pyLBM.  A developer of pyLBM mentioned that
-the geometries and models of their system had been ``decoupled'', using
-abstraction and modularization of the source code, to make it ``very easy to add
-[new] features''.  [*{Highlights the advantage of design.  Other projects can
-look to these examples.  Maybe cite the Anshu paper about Flash? Dune? and point
-to the advantages of design.}*] Addresses maintainability.  The developer of TCLB
-mentioned that their package had two sets of code, for executing the models on
-the CPU and GPU, and that maintenance was decreased by introducing macros, a
-practice which became a common part of the development process. 
-
-A high degree of code modularity and abstraction was noted by developers as a
-measure to ensure the ease of future changes. This can be ensured by separating
-components and hiding information behind well defined interfaces. The developer
-of ESPResSo also noted that some of the code base was transitioned from C to
-C++, which could ease modifiability of that software package. The developer of
-TCLB noted that their software package was designed to allow for the addition of
-some LBM features, but changes to major aspects of the system would be
-difficult. For example, ``implementing a new model will be an easy
-contribution'', but changes to the ``Cartesian mesh...will be a nightmare''.
-[*{example suggests identifying likely changes.}*]
-
-Modularize the source code, separate components, hide information behind well
-defined interfaces. This is suggested in SCS literature, and in developer
-comments.  [*{one of Wilson's best practices.}*]
-
-\begin{itemize}
-	\item Modifiability. Consider flexibility of data structures and data
-	storage in the design stage. The package pyLBM redeveloped data structures
-	to ease future changes.
-	\item Reusability. Provide API documentation, if applicable. Only one
-	(ESPResSo) of the top five ranked packages provided API documentation.
-\end{itemize}
-
-\section{Recommendations for Future Practices} \label{Sec_Recommendations}
-
-Answers \rqref{RQ_Recommend}.  practices for the future.  Probably the easiest
-approach is to list the practice and then the PPs that it helps.  Our
-recommendations are not lists of what should have been done in the past, or what
-should be done now; they are just suggestions for consideration in the future.
-
-``unique challenges of scientific research (e.g., the frequent and unforeseen
-changes in requirements ...)'' \cite{PintoEtAl2018}. We can point out that in
-the future this viewpoint could change and why.  Not really a unique challenge.
-Cite Smith 2016?
-
-linters \cite{Zadka2018} were rarely observed in LBM projects.  Do not see much
-evidence of their presence in best practice guides.
-
-[*{Address lack of development time (\ppref{P_LackDevTime}): Aside from
-on-boarding new developers, time constraints could be mitigated by increasing
-developer efficiency, which could be addressed in several ways, including by
-improving the quality of documentation, or incorporating automatic code
-generation.} 
-
-[*{Address lack of funding (\ppref{P_LackFunding}): The developer further
-commented that there are no journals that publish such scientific software
-source code. However, there are ways to get such source code cited. Work has
-been done to address this in \cite{SmithEtAl2016-softcite}, which presents a
-set of software citation principles and discusses ``how they could be used to
-implement software citation in the scholarly community''
-\cite{katz2019software}. other papers also mention this pain point.
-Solutions proposed by Katz, journal of open source etc. Journal of Open Source
-Software \cite{SmithEtAl2018-joss}.  Calling for direct software citations
-\cite{SmithEtAl2016-softcite}.  Guidance on software citation from
-\cite{KatzEtAl2021}.  Discussed in CarverEtAl2021 paper.}
-
-[*{Address quality of documentation (\ppref{P_Documentation}): Make required
-background of users explicit, possibly in a requirements document.}
-
-Surface Correctness and Verifiability. Use a requirements
-specification document. This is suggested in SCS literature, and several of
-the top ranked packages had such a document or reference to theory manuals.
-A potential template is presented in \cite{smith2005new}. 
-
-Papers that talk about how to do open source.
-
-Requirements documentation is feasible, as shown by the prevalence of theory
-documents in LBM software.  Table~\ref{artifactspresent} shows that theory
-documentation is common.  We observed 17 of 24 packages had at least some theory
-documentation. Templates for scientific requirements, like
-\cite{SmithEtAl2007,SmithAndLai2005}, show theory is a significant part of the
-requirements documentation. With the addition of some extra information, the
-theory documents can be transformed into requirements specification.  The key
-extra information includes explicitly stating user characteristics, explicitly
-stating how the user interacts with the software in terms of input data
-requirements, and listing likely and unlikely changes.  Explicit statements
-about likely changes are invaluable in the design stage, since they provide
-developers guidance on how general the software needs to be.  For those wishing
-to maximize the value of a requirement specification, information could be added
-like prioritizing the nonfunctional requirements (to show the relative
-importance between qualities like portability, reliability and performance) and
-traceability information (to show the consequences of any changes to the
-assumptions).
 
 \section{Threats To Validity} \label{threats}
 
@@ -1162,6 +992,11 @@ material available online.  The correctness and verifiability of such packages
 is not measured well using surface analysis.
 
 \section{Concluding Remarks} \label{SecConcludingRemarks}
+
+Next step to recommend ways to improve software (previously section 9).  We wish
+to know what practices are used by the top domain projects, so that others can
+potentially emulate these practices. We also wish to identify new practices by
+borrowing successful ideas from other domains. 
 
 Our comparison may point out areas where some LBM software
 packages fall short of current best practices. This is not intended to be a
