@@ -54,6 +54,7 @@
 \usepackage{paralist}
 \usepackage{multicol}
 \usepackage{booktabs}
+\usepackage{pbox}
 
 %% Comments
 \newif\ifcomments\commentstrue
@@ -2429,6 +2430,38 @@ top 10 ranked packages are ranked highly by a domain expert. Recommendations for
 improving software along quality metrics were made... The findings of this
 report can be used to guide future development of SCS, specifically along
 quality attributes, and to reduce software quality failures.
+
+
+\begin{table}
+	\begin{center}
+		\begin{tabular}{ p{3cm}p{1.9cm}p{1.9cm}p{1.9cm}p{1.9cm}p{1.9cm} }
+			\toprule
+			Quality & Ranked 1st & Ranked 2nd & Ranked 3rd & Ranked 4th & Ranked 5th\\
+			\midrule
+			Installability & ESPResSo & MechSys & OpenLB & DL\_MESO (LBE) & Sailfish\\
+			\addlinespace[0.4cm]
+			\pbox{3.0cm}{Surface Correctness \\ and Verifiability} & Ludwig & Musubi & pyLBM & OpenLB & waLBerla\\
+			\addlinespace[0.4cm]
+			Surface Reliability & DL\_MESO (LBE) & laboetie & lettuce & MechSys & Musubi \\
+			\addlinespace[0.4cm]
+			Surface Robustness & DL\_MESO (LBE) & ESPResSo++ & lettuce & LUMA & OpenLB \\
+			\addlinespace[0.4cm]
+			Surface Usability & laboetie & ESPResSo & OpenLB & Ludwig & Sailfish\\
+			\addlinespace[0.4cm]
+			Maintainability & Ludwig & MP-LABS & ESPResSo++ & ESPResSo & Palabos\\
+			\addlinespace[0.4cm]
+			Reusability & ESPResSo & waLBerla & ESPResSo++ & Sailfish & HemeLB\\
+			\addlinespace[0.4cm]
+			\pbox{3.0cm}{Surface \\Understandability} & LUMA & Palabos & pyLBM & DL\_MESO (LBE)& MechSys\\
+			\addlinespace[0.4cm]
+			\pbox{3.0cm}{Visibility and \\Transparency} & Ludwig & Palabos & LUMA & ESPResSo & MP-LABS\\
+			\addlinespace[0.4cm]
+			Overall Quality & ESPResSo & Ludwig & Palabos & OpenLB & LUMA\\
+			\bottomrule
+		\end{tabular}
+		\caption{Top performers for each quality} \label{topperformerstable}
+	\end{center}
+\end{table}
 
 \wss{More on the lessons to learn from the top packages.  The comparison to
 common practice - is LBM ahead or behind?  More on best practices comparison.
