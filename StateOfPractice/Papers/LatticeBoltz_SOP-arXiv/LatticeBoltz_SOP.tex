@@ -542,13 +542,11 @@ with comments regarding their measurement.
 	version release notes.
 	
 	\item[Reproducibility] Software achieves reproducibility if another
-	developer can take the requirements documentation and re-obtain the same
-	software artifacts \citep{BenureauAndRougier2017}. This includes the output
-	of the software, where the scientific results are compared between software
-	implementations, or between software implementations and manually calculated
-	results. We measured reproducibility qualitatively by asking developers if
-	they have any concern that their computational results won't be
-	reproducible, and if they have taken any steps to ensure reproducibility.
+	developer can take the original code and input data, run it, and obtain the
+	original output \citep{BenureauAndRougier2017}. We measured reproducibility
+	qualitatively by asking developers if they have any concern that their
+	computational results won't be reproducible, and if they have taken any
+	steps to ensure reproducibility.
 	
 	\item[Unambiguity] Unambiguity refers to the extent to which two readers
 	have similar interpretations when reading software artifacts. In other
@@ -2058,41 +2056,31 @@ followed by other research software domains.
 
 \subsection{Design For Change} \label{Sec_DesForChange}
 
-Increasing source code modularity, reducing duplicate information,
-and improving abstraction by developing well defined interfaces. This was noted
-by the developers of ESPResSo and pyLBM.  A developer of pyLBM mentioned that
-the geometries and models of their system had been ``decoupled'', using
-abstraction and modularization of the source code, to make it ``very easy to add
-[new] features''.  \wss{Highlights the advantage of design.  Other projects can
-look to these examples.  Maybe cite the Anshu paper about Flash? Dune? and point
-to the advantages of design.} Addresses maintainability.  The developer of TCLB
-mentioned that their package had two sets of code, for executing the models on
-the CPU and GPU, and that maintenance was decreased by introducing macros, a
-practice which became a common part of the development process. 
+The top LBM developers show how modularization can be used to design research
+software for future change.  Although the advice to modularize research software
+to handle complexity is common \citep{WilsonEtAl2014, StewartEtAl2017,
+Storer2017}, specific guidelines on how to divide the software into modules is
+less prevalent.  Not every decomposition is a good design for supporting change,
+as shown by \citet{Parns1972a}.  A design with low cohesion and
+high coupling \citep[p.\ 48]{GhezziEtAl2003} will make change difficult.
+Especially in research software, where change is inevitable, designers need to
+produce a modularization that supports change. 
 
-A high degree of code modularity and abstraction was noted by developers as a
-measure to ensure the ease of future changes. This can be ensured by separating
-components and hiding information behind well defined interfaces. The developer
-of ESPResSo also noted that some of the code base was transitioned from C to
-C++, which could ease modifiability of that software package. The developer of
-TCLB noted that their software package was designed to allow for the addition of
-some LBM features, but changes to major aspects of the system would be
-difficult. For example, ``implementing a new model will be an easy
-contribution'', but changes to the ``Cartesian mesh...will be a nightmare''.
-\wss{example suggests identifying likely changes.}
+LBM developers highlighted in our interviews cases where their modularizations
+anticipated future changes.  The developer of pyLBM mentioned that the
+geometries and models of their system had been ``decoupled'', using abstraction
+and modularization of the source code, to make it ``very easy to add [new]
+features''.  The pyLBM design allows for independent changes to the geometry and
+the model.  We also learned that the package pyLBM redeveloped data structures
+to ease future changes. The developer of TCLB noted that their software package
+was designed to allow for the addition of some LBM features, but changes to
+major aspects of the system would be difficult. For example, ``implementing a
+new model will be an easy contribution'', but changes to the ``Cartesian mesh
+... will be a nightmare''.  The design of TCLB highlights that not every conceivable change needs to be supported, only the likely changes.  Likely changes.  
 
-Modularize the source code, separate components, hide information behind well
-defined interfaces. This is suggested in SCS literature, and in developer
-comments.  \wss{one of Wilson's best practices, although Wilson (like so many
-others) is silent on what criteria to use for modularization.}
-
-Modifiability. Consider flexibility of data structures and data
-storage in the design stage. The package pyLBM redeveloped data structures
-to ease future changes.
-
-Contrast with SE literature.  Can point to references, starting with Parnas, on
-the importance of modularization.  Also they seem to have a basis for the
-modularization that matches with Parnas - likely changes.
+As the LBM developers illustrate, design for changes is accomplished by first
+identifying likely changes, either implicitly or explicitly, and second by
+hiding those likely changes behind well-defined module interfaces.  
 
 \subsection{Circumventing the Oracle Problem to Verify Reproducibility}
 \label{SecReproducibility}
@@ -2281,6 +2269,11 @@ contributors, and potentially a longer life for their project.}
 - previous section discusses challenges with requirements and not popular (maybe
 move that section here) - say what information to incorporate, low hanging fruit
 - return on investment
+
+\subsection{Reproducibility}
+
+- record versions of everything
+- Docker, Virtual machines
 
 \section{Threats To Validity} \label{threats}
 
