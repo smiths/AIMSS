@@ -2076,11 +2076,15 @@ to ease future changes. The developer of TCLB noted that their software package
 was designed to allow for the addition of some LBM features, but changes to
 major aspects of the system would be difficult. For example, ``implementing a
 new model will be an easy contribution'', but changes to the ``Cartesian mesh
-... will be a nightmare''.  The design of TCLB highlights that not every conceivable change needs to be supported, only the likely changes.  Likely changes.  
+... will be a nightmare''.  The design of TCLB highlights that not every
+conceivable change needs to be supported, only the likely changes.  Likely
+changes.  
 
 As the LBM developers illustrate, design for changes is accomplished by first
 identifying likely changes, either implicitly or explicitly, and second by
-hiding those likely changes behind well-defined module interfaces.  
+hiding each likely change behind a well-defined module interface.  Although it
+is unclear whether the developers are aware of Parnas's work, the approach
+mirrors his recommendations \citep{Parns1972a}.
 
 \subsection{Circumventing the Oracle Problem to Verify Reproducibility}
 \label{SecReproducibility}
