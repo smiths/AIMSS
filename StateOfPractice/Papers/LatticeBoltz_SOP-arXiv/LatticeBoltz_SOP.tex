@@ -2005,7 +2005,7 @@ development, since we only interviewed 4 LBM developers for about an hour each.
 	not allude to problem iii (the oracle problem) in our conversations.  As
 	discussed in Section~\ref{SecReproducibility}, the oracle problem likely did
 	not come up because the LBM developers we interviewed have strategies for
-	verifying the reproducibility of their work.
+	verifying their work.
 	
 	\item[P\refstepcounter{pnum}\thepnum \label{P_Usability}:]
 	\textbf{Usability} Several developers noted that users sometimes try to use
@@ -2056,15 +2056,16 @@ followed by other research software domains.
 
 \subsection{Design For Change} \label{Sec_DesForChange}
 
-The top LBM developers show how modularization can be used to design research
-software for future change.  Although the advice to modularize research software
-to handle complexity is common \citep{WilsonEtAl2014, StewartEtAl2017,
-Storer2017}, specific guidelines on how to divide the software into modules is
-less prevalent.  Not every decomposition is a good design for supporting change,
-as shown by \citet{Parns1972a}.  A design with low cohesion and
-high coupling \citep[p.\ 48]{GhezziEtAl2003} will make change difficult.
-Especially in research software, where change is inevitable, designers need to
-produce a modularization that supports change. 
+To address technical debt (\pref{P_TechDebt}), the top LBM developers show how
+modularization can be used to design research software for future change.
+Although the advice to modularize research software to handle complexity is
+common \citep{WilsonEtAl2014, StewartEtAl2017, Storer2017}, specific guidelines
+on how to divide the software into modules is less prevalent.  Not every
+decomposition is a good design for supporting change, as shown by
+\citet{Parnas1972a}.  A design with low cohesion and high coupling \citep[p.\
+48]{GhezziEtAl2003} will make change difficult. Especially in research software,
+where change is inevitable, designers need to produce a modularization that
+supports change. 
 
 LBM developers highlighted in our interviews cases where their modularizations
 anticipated future changes.  The developer of pyLBM mentioned that the
@@ -2077,66 +2078,51 @@ was designed to allow for the addition of some LBM features, but changes to
 major aspects of the system would be difficult. For example, ``implementing a
 new model will be an easy contribution'', but changes to the ``Cartesian mesh
 ... will be a nightmare''.  The design of TCLB highlights that not every
-conceivable change needs to be supported, only the likely changes.  Likely
-changes.  
+conceivable change needs to be supported, only the likely changes.
 
 As the LBM developers illustrate, design for changes is accomplished by first
 identifying likely changes, either implicitly or explicitly, and second by
 hiding each likely change behind a well-defined module interface.  Although it
 is unclear whether the developers are aware of Parnas's work, the approach
-mirrors his recommendations \citep{Parns1972a}.
+mirrors his recommendations \citep{Parnas1972a}.
 
-\subsection{Circumventing the Oracle Problem to Verify Reproducibility}
+\subsection{Circumventing the Oracle Problem and Addressing Reproducibility}
 \label{SecReproducibility}
 
-Software packages were not quantitatively measured for reproducibility. Instead,
-developers were asked if they had concerns that their computational results
-would not be reproducible in the future, and if they had taken any steps to
-ensure reproducibility.  The developers all agreed that reproducibility is
-important, but they differ in how far they go to support reproducibility.
-ESPResSo does the most to support reproducibility.  For instance, they compare
-the results of their methods against manually calculated results. These
-comparison tests are automatically run for all source code changes. Continuous
-integration is used, so these tests are run when a pull request is opened on
-GitHub. Even once these tests are complete, a peer review process is undertaken
-before changes are fully committed to the appropriate branch. The results for
-all of the LBM schemes on the software package development branch are also
-frequently compared for correctness, ensuring that the system output reflects
-the expected output.  
+The top LBM projects have adopted techniques for software verification that get
+around the oracle problem (mentioned earlier in Section~\ref{P_Correctness}). In
+the absence of a general test oracle, the following techniques have been adopted
+by LBM developers:
 
-For other teams, the priority is verifying the mathematical foundations of the
-models, but the output of the software package is not compared to other output.
-Depending on the package and how it outputs solutions, this may not be practical
-or feasible. A correct output may not be exactly reproducible, as it may be
-dependent on a probability distribution, so strictly comparing results may not
-be appropriate. \wss{Ideas for dealing with reproducibility in these situations
-will be explored in the recommendations section (like properties of the solution,
-such as conservation of mass).}
+\begin{itemize}
+	\item Compare the calculated results against manually calculated results in
+	the cases where manual solutions can be determined.  Although it is not
+	always feasible to calculate results a priori, developers can find sub-sets
+	of the general problem where answers can be determined.  In special cases
+	that allow this, the results can be compared against exact analytical
+	solutions, as done by OpenLB.
+	\item Related to peer review, verify the mathematical foundations of the
+	models to build confidence in the software's theoretical underpinnings.
+	\item Compare the calculated results against pseudo-oracle solutions for
+	verification benchmarks. The developer of ESPResSo mentioned the value of
+	``tests which compare implementations against each other'' where the tests
+	``rely on different principles and they've been written by different
+	people''. \citet{latt2021palabos} shows several benchmark tests comparing
+	Palabos solutions to other software solutions, such as solutions calculated
+	using AnSys.
+	\item Use peer review of the code for major changes and additions, as
+	mentioned in Section~\ref{Sec_CompareMethodologies} for ESPResSo. 
+\end{itemize}
 
-Some software packages, like Palabos, provide validation benchmarks for their
-core fundamental algorithmic ingredients \citep{latt2021palabos}. The stated
-intent of these benchmarks is to showcase the validity and usefulness of the
-package to stimulate the development of third-party extensions. The Palabos
-package identifies as a development framework for modelling problems in various
-CFD areas.  \wss{Add validation benchmarks as a ``best practice'' used by
-Palabos - others could emmulate.  Goal of this exercise is for people in the
-community to learn from each other, and potentially from our advice too.}
+\noindent Additional strategies for getting around the oracle problem are
+provided in Section~\ref{Sec_Recommendations}.
 
-Consider peer review processes to assess contributions and ensure the tracking
-of information. High ranked package ESPResSo uses a peer review process for
-contributions. 
-
-\wss{From Peter: The developer of ESPResSo mentioned ``tests which compare
-implementations against each other, like say if there's to solve us for
-electrostatic switch rely on different principles and they've been written by
-different people''.
-The developer of TCLB also mentioned automatic testing. They discussed the idea
-of using test cases, but concerns were raised with this, such as the required
-computing power to run such tests frequently and where to store large amounts of
-data. Also, ``constructing such cases would be very hard''.
-The developer of OpenLB commented that they have different kinds of tests, such
-as integration tests, and tests where they know the ``exact analytical solution''.
-They also mentioned comparing computations and ``check[ing] the misfits''.}
+Some LBM developers improve reproducibility via automating the verification
+tests and making them part of a continuous integration process (mentioned in
+Section~\ref{Sec_CompareTools}).  Providing unit tests improves reproducibility
+because future developers will require a means to verify that they can obtain
+the same computational results as today.  Unit tests are a good way to embed
+self-diagnostics of reproducibility in the code \citep{BenureauAndRougier2017}.
 
 \subsection{Prioritize Documentation} \label{Sec_RecommendDoc}
 
@@ -2214,6 +2200,8 @@ maintain.
 
 \section{Recommendations for Future Practices} \label{Sec_Recommendations}
 
+Borrow from SE for HEP paper.
+
 Answers \rqref{RQ_Recommend}.  practices for the future.  Probably the easiest
 approach is to list the practice and then the PPs that it helps.  Our
 recommendations are not lists of what should have been done in the past, or what
@@ -2274,10 +2262,22 @@ contributors, and potentially a longer life for their project.}
 move that section here) - say what information to incorporate, low hanging fruit
 - return on investment
 
+\subsection{Verifiability}
+
+- further steps to address the oracle problem - borrow from SE for HEP paper.
+- anything in Smith 2016?
+
 \subsection{Reproducibility}
 
 - record versions of everything
 - Docker, Virtual machines
+
+Repeatability - A correct output may not be exactly reproducible, as it may be
+dependent on a probability distribution, so strictly comparing results may not
+be appropriate. \wss{Ideas for dealing with reproducibility in these situations
+will be explored in the recommendations section (like properties of the
+solution, such as conservation of mass).  5R paper mentions repeatability -
+design it so that the random number seed can be set.}
 
 \section{Threats To Validity} \label{threats}
 
