@@ -1712,23 +1712,6 @@ perception that up-front requirements are impossible for research software
 requirements is dropped, allowing the requirements to be written iteratively and
 incrementally, requirements are feasible \citep{Smith2016}.
 
-Requirements documentation is feasible, as shown by the prevalence of theory
-documents in LBM software.  Table~\ref{artifactspresent} shows that theory
-documentation is common.  We observed 17 of 24 packages had at least some theory
-documentation. Templates for scientific requirements, like \citet{SmithEtAl2007,
-SmithAndLai2005}, show theory is a significant part of the requirements
-documentation. With the addition of some extra information, the theory documents
-can be transformed into requirements specification.  The key extra information
-includes explicitly stating user characteristics, explicitly stating how the
-user interacts with the software in terms of input data requirements, and
-listing likely and unlikely changes.  Explicit statements about likely changes
-are invaluable in the design stage, since they provide developers guidance on
-how general the software needs to be.  For those wishing to maximize the value
-of a requirement specification, information could be added like prioritizing the
-nonfunctional requirements (to show the relative importance between qualities
-like portability, reliability and performance) and traceability information (to
-show the consequences of any changes to the assumptions).
-
 \section{Comparison of Tool Usage Between LBM and Other Research Software}
 \label{Sec_CompareTools}
 
@@ -2124,151 +2107,235 @@ because future developers will require a means to verify that they can obtain
 the same computational results as today.  Unit tests are a good way to embed
 self-diagnostics of reproducibility in the code \citep{BenureauAndRougier2017}.
 
-\subsection{Prioritize Documentation} \label{Sec_RecommendDoc}
+\subsection{Prioritize Documentation and Usability} \label{Sec_RecommendDoc}
 
-Despite it being a pain point, spending time on documentation provides a
-justifiable return on investment.  Addresses \ref{P_Documentation} on
-documentation.
-
-Software packages were not quantitatively measured for traceability. In this
-project we asked developers to comment on traceability, specifically on their
-software package's documentation and how it fit into their development process. 
-
-The interviewed developer of ESPResSo noted that all major additions to their
+Although documentation is difficult (as mentioned under pain point
+\ref{P_Documentation}), some LBM developers have realized that prioritizing time
+on documentation provides a justifiable return on investment. For instance, the
+interviewed developer of ESPResSo noted that all major additions to their
 package had accompanying changes to artifacts and documentation. They noted that
-considerable effort had been put into the documentation. They further commented
-that they want to lower the entry barrier for new developers, and because of
-that their package has a considerable amount of developer documentation. This
-documentation informs developers on how to get started, and orients them to the
-artifacts, source code, and system architecture, as well as how the software
-package build system works, and how the coupling between the simulation engine
-and the interface works. \wss{If ESPresSo scored high (I think it did), we can
-use that to further promote the value of documentation.  Also a threat to
-validity is that we have implicitly assumed documentation is valuable when
-measuring quality.}
+considerable effort was put into their documentation. They further commented
+that their goal was to lower the entry barrier for new developers, which meant
+providing considerable developer documentation. This documentation informs
+developers on how to get started; orients them to the artifacts, source code,
+system architecture, and build system; and, explains the coupling between
+the simulation engine and the interface. In addition, ESPResSo developers
+included API documentation, although they are the only one of the top five
+packages to do so.
 
-Finding ways to hasten updating documentation would increase the frequency of
-such updates and benefit both users and developers.  \wss{Same thing has come up
-in papers.  I'll try to find a reference for this.  This is also something we
-can point to for recommendations related to code generation.} The developer of
-OpenLB noted the use of documentation generators like Doxygen. It would be
-advisable for more projects to use such automatic document generation tools,
-since some projects do not do this. \wss{We can refer back to this for the
-recommendations.}
-
-Reusability. Provide API documentation, if applicable. Only one (ESPResSo) of
-the top five ranked packages provided API documentation.
-
-\wss{Address Usability (\ppref{P_Usability}): Better documentation, with
-attention on traceability, and automatic code generation are suggested when
-designing software for change, and would help with these modifications.  So far
-this problem of on-boarding new users has been addressed by updating the
-documentation to better inform users of the underlying LBM theory and package
-requirements. Similar issues with LBM parameters were noted by another
-developer. Updating the user interface to better explain theoretical principles,
-as well as test user input for compatibility, was the implemented solution. As
-noted above, sometimes frequently asked questions on the underlying theory and
-on how to use the software are answered in the documentation.  The interviewed
-developer of ESPResSo commented that parts of their package's source code had
-been refactored to Python to help address usability issues. Python was perceived
-as a much more usable language, and it would be easy for future users and
-developers to learn and understand the source code.}
-
-One software package (ESPResSo) changed some of its scripting language to Python
-to make it more usable. The developer commented that this was ``the biggest step
-in terms of usability over the years'', further commenting that ``most people in
-the field know [Python]'' and that ``it's easy to learn''.  \wss{A generative
-approach facilitates switching to whatever language is currently popular.}
+Furthermore, documentation is used by LBM developers to address usability
+challenges (\ref{P_Usability}), as follows:
 
 \begin{itemize}
-\item Usability. Understandability. Unambiguity. State appropriate fluid
-dynamics problems that the software is designed to model in the documentation,
-and explicitly state the limits of the software. This is done in the ESPResSo
-user guide.
-\item Usability. Provide documentation that details the background theory
-information, or provide a reference to such information. This was done by
-several top ranked packages, including ESPResSo, Ludwig, LUMA, and OpenLB.
-\item Usability. Identify expected user characteristics. LIMBES, Ludwig,
-laboetie, and Palabos did this. The importance of specifying user
-characteristics is discussed in \citep{smith2007requirements}.
-\item Usability. Keep all documentation in one location. This was done by top
-ranked packages.
-\item Usability. Do not duplicate artifact information. This is suggested as
-good software development practice. Duplicate information is difficult to
-maintain. 
+	\item Explicitly state appropriate fluid dynamics problems that the software
+	is designed to model and explicitly state the limits of the software. This
+	is done in the ESPResSo user guide.
+	\item Provide documentation that details the background theory, or provide a
+	reference to such information. This was done by several top ranked packages,
+	including ESPResSo, Ludwig, LUMA, and OpenLB.
+	\item Identify expected user characteristics. LIMBES, Ludwig, laboetie, and
+	Palabos all did this. Explicit user characteristics are important so the
+	application and documentation can be pitched toward the right user
+	background \citep{smith2007requirements}.
+	\item Keep all documentation in one location. This was done by all top
+	ranked packages.
+	\item Use documentation generators, like Doxygen, as done (for instance) by
+	OpenLB.  More details on the packages that use generators is given in
+	Sections~\ref{SecSurfCorrectAndVerifiab} and~\ref{Sec_CompareTools}.
+	\item Provide an explanation of theoretical principles through the user interface.
+	\item Add guards in the code to test user inputs for compatibility before
+	proceeding with the calculations.
+	\item Include documentation on frequently asked questions (Section~\ref{Sec_CompareArtifacts}).
 \end{itemize}
 
 \section{Recommendations for Future Practices} \label{Sec_Recommendations}
 
-Borrow from SE for HEP paper.
-
-Answers \rqref{RQ_Recommend}.  practices for the future.  Probably the easiest
-approach is to list the practice and then the PPs that it helps.  Our
-recommendations are not lists of what should have been done in the past, or what
+In this section we provide recommendations to address the pain points from
+Section~\ref{painpoints} to answer~\rqref{RQ_Recommend}.  Our recommendations
+are not lists of criticisms what should have been done in the past, or what
 should be done now; they are just suggestions for consideration in the future.
+We will not be repeating ideas here that have been discussed in previous
+section, such as continuous integration, documentation of APIs, etc.  Our aim is
+to mention ideas that are at least somewhat beyond conventional best practices.
+The ideas listed have the potential to become best practices in the medium to
+long-term.  The ideas are provided roughly in the order of increasing novelty.
 
-``unique challenges of scientific research (e.g., the frequent and unforeseen
-changes in requirements ...)'' \citep{PintoEtAl2018}. We can point out that in
-the future this viewpoint could change and why.  Not really a unique challenge.
-Cite Smith 2016?
+\subsection{Employ Linters} \label{Sec_Linters}
 
-linters \citep{Zadka2018} were rarely observed in LBM projects.  Do not see much evidence of their presence in best practice guides.
+With the exception of \citet{ThielEtAl2020}, the research software guidelines
+that we consulted do not mention linters.  However, we feel linters have the
+potential to improve code quality at a relatively low cost.  A linter is a tool
+that statically analyzes code to find programming errors, stylistic
+inconsistencies and suspicious constructs \citep{Wikipedia2022_Lint}. Linters
+can be used to spot check code files, or even better as part of a continuous
+integration system.  
 
-\wss{Address lack of development time (\ppref{P_LackDevTime}): Aside from
-on-boarding new developers, time constraints could be mitigated by increasing
-developer efficiency, which could be addressed in several ways, including by
-improving the quality of documentation, or incorporating automatic code
-generation.} 
+A sample of the potential benefits of linters include: finding memory leaks,
+finding potential bugs, standardizing code with respect to formatting, improving
+performance, removing silly errors before code reviews, and catching potential
+security issues \citep{SourceLevel2022_Lint}.  Linters are available for most
+popular programming languages.  For instance Python has the options of PyLint,
+flake8 and Black \citep{Zadka2018}.
 
-\wss{Address Correctness (\ppref{P_Correctness}): Testing is not the only way to
-build confidence in correctness.  Peer review.  } 
+Linters can address the pain points for LBM developers.  For instance, a linter
+can increase the amount of development time (\ppref{P_LackDevTime}) by
+decreasing the number of mundane mistakes programmers have to catch.  Since the
+linter can include rules that capture the wisdom of senior programmers, it can
+help newer developers avoid common mistakes (\ref{P_LackSoftDevExp}).  Although
+there do not appear to be many linters for checking parallel programming
+mistakes (\ppref{P_TechnologyHurdles}), Parallel Lint is an option for OpenMP.
+If a linter is used consistently this can guard against some technical debt
+(\ppref{P_TechDebt}). Although linters are thought of as tools for code
+analysis, similar ideas can be applied to documentation to ensure that at least
+the basic documentation rules are followed.  The use of tools to check
+documentation is a partial explanation for the relatively higher quality of
+statistical tools that are part of the Comprehensive R Archive Network (CRAN)
+\citep{SmithEtAl2018_StatSoft}.
 
-\wss{Address lack of funding (\ppref{P_LackFunding}): The developer further
-commented that there are no journals that publish such research software
-source code. However, there are ways to get such source code cited. Work has
-been done to address this in \citep{SmithEtAl2016-softcite}, which presents a
-set of software citation principles and discusses ``how they could be used to
-implement software citation in the scholarly community''
-\citep{katz2019software}. other papers also mention this pain point.
-Solutions proposed by Katz, journal of open source etc. Journal of Open Source
-Software \citet{SmithEtAl2018-joss}.  Calling for direct software citations
-\citep{SmithEtAl2016-softcite}.  Guidance on software citation from
-\citet{KatzEtAl2021}.  Discussed in CarverEtAl2021 paper.}
+\subsection{Conduct Rigorous Peer Reviews}
 
-\wss{Address quality of documentation (\ppref{P_Documentation}): Make required
-background of users explicit, possibly in a requirements document.}
+Peer review is already a strategy adopted by some LBM developers to improve
+confidence in their software (Section~\ref{SecReproducibility}), but the
+benefits of peer review can be improved by making its application more rigorous.
+\citet{Jones2008} shows that rigorous inspection finds 60-65\% of latent defects
+on average, and often tops 85\% in defect removal efficiency.  By way of
+comparison, most forms of testing average between 30 and 35\% for defect removal
+efficiency \citep{EbertAndJones2009, Jones2008}.  A formal code inspection
+involves asking the reviewer to either follow a review checklist (check
+consistency of variable names, look for terminating loops, etc.), or perform
+specific review tasks (like summarize the purpose of the code, create a data
+dictionary for the module assigned, cross reference the code to the technical
+manual, etc.) The task based inspection approach has been effectively used for
+research software, as described by \citet{KellyAndShepard2000}. Task based
+inspection is an ideal fit with an issue tracking system, like GitHub.  The
+review tasks can be issues, so that they can be easily assigned, monitored and
+recorded.  Other potential issues for the tracker include assigning junior team
+members to test installation instructions and getting-started tutorials.
+
+Rigorous peer review addresses the same pain points as linters
+(Section~\ref{Sec_Linters}): \ppref{P_LackDevTime}, \ref{P_LackSoftDevExp},
+\ppref{P_TechnologyHurdles}), \ppref{P_TechDebt} and \ppref{P_Correctness}. Peer
+review addresses these pain points by efficiently searching for defects and
+problems.
+
+\subsection{Write and Submit More Papers on Software}
+
+To address the pain point of a lack of funding (\ppref{P_LackFunding}), LBM
+developers should watch for new opportunities to publish their research software
+source code. For instance, the Journal of Open Source Software (JOSS) reviews
+and publishes articles that credit the scholarship contained in the software
+itself \citep{SmithEtAl2018-joss}.  \citep{SmithEtAl2016-softcite} presents a
+set of software citation principles that may encourage broad adoption of a
+consistent policy for software citation across disciplines and venues.
+\citep{ChueHongEtAl2019} provides a software citation checklist for developers
+to make a release of their software citable.  Further guidance on software
+citation is provided by \citet{KatzEtAl2021}.  Another option is to use GitHub
+for citation, since it is relatively easy to add metadata to repositories and to
+generate citations for those repositories \citet{Smith2021-CitationsOnGitHub}.
+
+\subsection{Grow the Number of Contributors}
+
+Addresses lack of development time (\ppref{P_LackDevTime}) by increasing the
+number of developers.
+
+Maintainability. Have a defined process for accepting contributions, and make
+public documentation for making contributions to the project. The top five
+ranked software packages include information on how to contribute. 
+
+Papers that talk about how to do open source. \citep{Jalan2016}
+
+Get more developers by better documentation, tutorials, etc.
+
+Combine existing teams?
+
+\subsection{Further Address the Oracle Problem} \label{Sec_FurtherOracle}
+
+- say what PPs are addressed
+- further steps to address the oracle problem - borrow from SE for HEP paper.
+- anything in Smith 2016?
+- introduce list on page 11 of HEP paper, add repeatability point
+
+In the absence of a test oracle, the following
+techniques can be used to build system tests \citep{Smith2016}:
+
+\begin{itemize}
+
+\item Test cases can be selected that are a subset of the real problem for which
+  a closed-form solution exists.  When using this approach, confidence in the
+  actual production code can only be built if it is the same code used for
+  testing; that is, nothing is gained if a separate, simpler, program is written
+  for testing the special cases.
+\item Verification test cases can be created by assuming a solution and using
+  this to calculate the inputs.  For instance, for a linear solver, if $A$ and
+  $x$ are assumed, $b$ can be calculated as $b = A x$.  Following this, $A x^* =
+  b$ can be solved and then $x$ and $x^*$, which should theoretically be equal,
+  can be compared.  In the case of solving Partial Differential Equations
+  (PDEs), this approach is called the Method of Manufactured Solutions
+  \citep{Roache1998}.
+\item Most scientific software uses floating point arithmetic, but for testing
+  purposes, the slower, but guaranteed correct, interval arithmetic
+  \citep{Hickey2001} can be employed. The faster floating point algorithm can
+  then be verified by ensuring that the calculated answers lie within the
+  guaranteed bounds.
+\item Verification tests should include plans for convergence studies.  The
+  discretization used in the numerical algorithm should be decreased (usually
+  halved) and the change in the solution assessed.
+\item Confidence can be built in a numerical algorithm by comparing the results
+  to another program that overlaps in functionality.  If the test results do not
+  agree, then one, possibly both of the programs is incorrect.
+\item The verification plan should also include test plans for nonfunctional
+  requirements, like accuracy, performance and portability, if these are
+  important implementation goals.  Performance tests can be planned to describe
+  how the software responds to changing inputs, such as problem size, condition
+  number etc.  Verification plans can include relative comparisons between
+  the new implementation and competing products \citep{Smith2006}.
+\item In cases where a test oracle is not available, as is usually the case for
+  scientific software, \emph{metamorphic} testing can be used.  ``This technique
+  operates by checking whether the program behaves according to a certain set of
+  properties called metamorphic relations.  A metamorphic relation is a
+  relationship between multiple inputs and output pairs of the program.''
+  \citep{KanewalaAndLundgren2016}.
+\end{itemize}
+
+\subsection{Augment Theory Manual to Include Requirements}
+
+Point to Section~\ref{Sec_CompareArtifacts}. Requirements documentation is
+feasible, as shown by the prevalence of theory documents in LBM software.
+Table~\ref{artifactspresent} shows that theory documentation is common.  We
+observed 17 of 24 packages had at least some theory documentation. Templates for
+scientific requirements, like \citet{SmithEtAl2007, SmithAndLai2005}, show
+theory is a significant part of the requirements documentation. With the
+addition of some extra information, the theory documents can be transformed into
+requirements specification.  The key extra information includes explicitly
+stating user characteristics, explicitly stating how the user interacts with the
+software in terms of input data requirements, and listing likely and unlikely
+changes.  Explicit statements about likely changes are invaluable in the design
+stage, since they provide developers guidance on how general the software needs
+to be.  For those wishing to maximize the value of a requirement specification,
+information could be added like prioritizing the nonfunctional requirements (to
+show the relative importance between qualities like portability, reliability and
+performance) and traceability information (to show the consequences of any
+changes to the assumptions).
+
+- say what PPs are addressed
+- previous section discusses challenges with requirements and not popular (maybe
+move that section here) - say what information to incorporate, low hanging fruit
+- return on investment
+- maybe borrow from SE for HEP
+- toward goal of replicability \citep{BenureauAndRougier2017}.
+
+Addresses lack of development time (\ppref{P_LackDevTime}) by getting developers
+up to speed more quickly.  Reducing the amount of time needed to train new
+developers.
 
 Surface Correctness and Verifiability. Use a requirements
 specification document. This is suggested in SCS literature, and several of
 the top ranked packages had such a document or reference to theory manuals.
 A potential template is presented in \citep{smith2005new}. 
 
-Test the installation and tutorials.  Assign a junior team member the task?
+\subsection{Improve Repeatability, Reproducibility and Replicability}
 
-\subsection{Grow the Number of Contributors}
-
-Maintainability. Have a defined process for accepting contributions, and make
-public documentation for making contributions to the project. The top five
-ranked software packages include information on how to contribute. 
-
-Papers that talk about how to do open source.
-
-\wss{in recommendations could point out what teams could do to get more external
-contributors, and potentially a longer life for their project.}
-
-\subsection{Augment Theory Manual to Include Requirements}
-
-- previous section discusses challenges with requirements and not popular (maybe
-move that section here) - say what information to incorporate, low hanging fruit
-- return on investment
-
-\subsection{Verifiability}
-
-- further steps to address the oracle problem - borrow from SE for HEP paper.
-- anything in Smith 2016?
-
-\subsection{Reproducibility}
-
+- say what PPs are addressed
 - record versions of everything
 - Docker, Virtual machines
 
@@ -2279,11 +2346,23 @@ will be explored in the recommendations section (like properties of the
 solution, such as conservation of mass).  5R paper mentions repeatability -
 design it so that the random number seed can be set.}
 
+\subsection{Generate All Things}
+
+- say what PPs are addressed Addresses lack of development time
+(\ppref{P_LackDevTime}) by automating the writing of documentation and code.
+
 \section{Threats To Validity} \label{threats}
 
 Maintainability is assumed to be improved by a higher ratio of comments to
 source code (Section~\ref{Sec_Maintainability}), but this is not necessarily
 true.
+
+a threat to validity is that we have implicitly assumed documentation is
+valuable when measuring quality.
+
+threat to validity is the person doing the measuring.  In the previous exercise
+we did do an experiment to measure this and convince ourselves that it isn't
+that significant a risk.
 
 We assume that a large number of source files is associated with increased
 reusability (Section~\ref{reusabilityresults}), but this is not necessarily the
@@ -2368,46 +2447,6 @@ Tool usage: Interviews with the developers revealed a potentially more frequent
 use of both unit testing and continuous integration, compared to what was
 observed from studying the repository artifacts.
 
-\subsection{Future State Of The Practice Assessments} \label{futuresop}
-
-As mentioned in Section~\ref{threats}, the measures listed in our measurement
-template may not be broad enough to accurately capture some qualities. Adding or
-extending measures is worth considering. For example, usability experiments and
-performance benchmarks could be incorporated into the assessment.
-
-Section~\ref{SecReproducibility} noted that developers were not asked to comment
-on the reproducibility of their source code from their requirements
-specifications and design documentation. Adding this question to the interview
-guide should be considered in the next iteration of state of the practice
-assessments. Furthermore, as mentioned in Section~\ref{threats}, it was found
-that some pertinent information was not specified in public artifacts. The use
-of unit testing and continuous integration by several packages (OpenLB, pyLBM,
-TCLB) was only discovered during interviews with developers. Adding further
-questions to the interview guide regarding the measures that are on the
-measurement template could reduce instances of incorrect data being collected.
-This additional interview data could be analyzed and incorporated into the AHP
-ranking, ensuring quality designations more accurate represent the true quality
-of the software packages.  \wss{clarify the distinction between usability and
-understandability.}
-
-For the current project, we did not assess the stronger form of
-``reproducibility'' known as replicability.  A software project is considered
-replicable if the documentation alone (without the code) is sufficiently precise
-and complete to allow a third-part to re-obtain the results of the original code
-\citep{BenureauAndRougier2017}.  Replicability is difficult to achieve with
-current documentation practices.  This question should be considered in the next
-iteration of state of the practice assessments. 
-
-The final result of the domain analysis will be tables of commonalities,
-variabilities, and parameters of variation of a program family.
-\cite{smith2008commonality} present a template for conducting a commonality
-analysis, which was referred to when conducting this work.
-\cite{weiss1998commonality} describes another commonality analysis technique for
-deciding the members of a program family. \cite{SmithAndChen2004} and
-\cite{SmithMcCutchanAndCarette2017} are examples of a commonality analysis for a
-family of mesh generating software and a family of material models,
-respectively. The steps to produce a commonality analysis are:
-
 \section{Conclusion} \label{conclusion}
 
 We analyzed the state of the practice of software development in the Lattice
@@ -2427,6 +2466,14 @@ top 10 ranked packages are ranked highly by a domain expert. Recommendations for
 improving software along quality metrics were made... The findings of this
 report can be used to guide future development of SCS, specifically along
 quality attributes, and to reduce software quality failures.
+
+Recommendations, starting from current best practices.
+
+\begin{enumerate}
+	\item \textbf{Follow the example of LBM packages that already follow best practices.}  Point to the table summarizing the winners for each quality.  Review the practices from the previous section.  Addresses PP?.
+	\item \textbf{Continuous integration.} Addresses PP?.
+	\item \textbf{Document API.} Addresses PP?.
+\end{enumerate}
 
 \begin{table}
 	\begin{center}
@@ -2468,9 +2515,6 @@ other aspects. Our goal was to highlight software quality successes through an
 evaluation of the entire domain software family. Furthermore, threats to the
 validity of the findings are highlighted in Section~\ref{threats}. 
 
-Recommendations for future state of the practice assessments are made in Section
-~\ref{futuresop}.
-
 Our comparison may point out areas where some LBM software packages fall short
 of current best practices.  This is not intended to be a criticism of any
 existing packages, especially since in practice not every project needs to
@@ -2504,6 +2548,51 @@ manually duplicate knowledge into multiple artifacts \citep{SzymczakEtAl2016}.
 Include a table that summarizes the top 4 projects for each quality, but an
 asterisk if still alive.
 
+Future State Of The Practice Assessments
+
+As mentioned in Section~\ref{threats}, the measures listed in our measurement
+template may not be broad enough to accurately capture some qualities. Adding or
+extending measures is worth considering. For example, usability experiments and
+performance benchmarks could be incorporated into the assessment.
+
+Section~\ref{SecReproducibility} noted that developers were not asked to comment
+on the reproducibility of their source code from their requirements
+specifications and design documentation. Adding this question to the interview
+guide should be considered in the next iteration of state of the practice
+assessments. Furthermore, as mentioned in Section~\ref{threats}, it was found
+that some pertinent information was not specified in public artifacts. The use
+of unit testing and continuous integration by several packages (OpenLB, pyLBM,
+TCLB) was only discovered during interviews with developers. Adding further
+questions to the interview guide regarding the measures that are on the
+measurement template could reduce instances of incorrect data being collected.
+This additional interview data could be analyzed and incorporated into the AHP
+ranking, ensuring quality designations more accurate represent the true quality
+of the software packages.  \wss{clarify the distinction between usability and
+understandability.}
+
+For the current project, we did not assess the stronger form of
+``reproducibility'' known as replicability.  A software project is considered
+replicable if the documentation alone (without the code) is sufficiently precise
+and complete to allow a third-part to re-obtain the results of the original code
+\citep{BenureauAndRougier2017}.  Replicability is difficult to achieve with
+current documentation practices.  This question should be considered in the next
+iteration of state of the practice assessments. 
+
+The final result of the domain analysis will be tables of commonalities,
+variabilities, and parameters of variation of a program family.
+\cite{smith2008commonality} present a template for conducting a commonality
+analysis, which was referred to when conducting this work.
+\cite{weiss1998commonality} describes another commonality analysis technique for
+deciding the members of a program family. \cite{SmithAndChen2004} and
+\cite{SmithMcCutchanAndCarette2017} are examples of a commonality analysis for a
+family of mesh generating software and a family of material models,
+respectively. The steps to produce a commonality analysis are:
+
+\section*{Acknowledgements}
+
+We would like to thank Ao Dong and Oluwaseun Owojaiye for many fruitful
+discussions on topics relevant to this paper.
+
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{LatticeBoltz_SOP}
 
@@ -2511,12 +2600,8 @@ asterisk if still alive.
 
 TO DO
 
-- data on Mendeley
-
-- make recommendations in order of conservative to ``bleeding edge''
-- add pointer to project checklists (as sent to Jacques, as promoted during workshop)
-
-- value of tools to enforce good behaviour of developers, like R, like MOOSE infrastructure
+- value of tools to enforce good behaviour of developers, like R, like MOOSE
+infrastructure
 
 - introduce the idea of using our measurement template as a checklist, instead
 of, or in addition to other checklists - cite the other checklists
@@ -2534,3 +2619,8 @@ Form}{https://docs.google.com/forms/d/e/1FAIpQLSf0ccsVdN-nXJCHLluJ-hANZlp8rDKgpr
 
 - should look at ReinerEtAl2022 on Domain of Ocean Modelling software to
 contrast to the state of the practice of LBM software
+
+- ``unique challenges of scientific research (e.g., the frequent and unforeseen
+changes in requirements ...)'' \citep{PintoEtAl2018}. We can point out that in
+the future this viewpoint could change and why.  Not really a unique challenge.
+Cite Smith 2016?
