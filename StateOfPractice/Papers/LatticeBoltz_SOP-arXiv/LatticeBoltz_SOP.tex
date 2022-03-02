@@ -2312,12 +2312,12 @@ system tests are as follows \citep{Smith2016}:
   the output flow rate increases as the input flow rate increases.
 \end{itemize}
 
-\subsection{Augment Theory Manual to Include Requirements}
+\subsection{Augment Theory Manual to Include Requirements Information}
 
 As discussed in Section~\ref{Sec_CompareArtifacts}, requirements specifications
 are rarely written for research software. Although a full requirements
 specification has advantages \citep{SmithEtAl2007, SmithAndLai2005},
-given the lack of development time (\ref{P_LackDevTime}), we recommend the
+given the lack of development time (\ppref{P_LackDevTime}), we recommend the
 intermediate step of augmenting the existing theory manuals with some
 requirements information.  Table~\ref{artifactspresent} shows that theory
 documentation is common.  We observed 17 of 24 packages had at least some theory
@@ -2338,21 +2338,66 @@ incorporate additional information in the theory manuals should help address the
 quality of existing documentation (\ref{P_Documentation})  and improve the
 software's usability (\ref{P_Usability}).
 
-\subsection{Improve Repeatability, Reproducibility and Replicability}
+\subsection{Improve Re-runnability, Repeatability, Reproducibility and Replicability}
 
+- part of correctness (\ppref{P_Correctness})
 - requirements are needed for the goal of replicability
 \citep{BenureauAndRougier2017}.
 
-- say what PPs are addressed
-- record versions of everything
-- Docker, Virtual machines
+\begin{description}
 
-Repeatability - A correct output may not be exactly reproducible, as it may be
-dependent on a probability distribution, so strictly comparing results may not
-be appropriate. \wss{Ideas for dealing with reproducibility in these situations
-will be explored in the recommendations section (like properties of the
-solution, such as conservation of mass).  5R paper mentions repeatability -
-design it so that the random number seed can be set.}
+	\item[Re-runnability] ``A re-runnable code is one that can be run again when
+	needed, and in particular more than the one time that was needed to produce
+	the results. It is important to notice that the re-runnability of a code is
+	not an intrinsic property. Rather, it depends on the context, and becomes
+	increasingly difficult as the code ages. Therefore, to be and remain
+	re-runnable on other researchers' computers, a re-runnable code should
+	describe---with enough details to be recreated---an execution environment in
+	which it is executable.''  - record versions of everything - Docker, Virtual
+	machines
+	
+	\item[Repeatability] Repeatability - A correct output may not be exactly
+	reproducible, as it may be dependent on a probability distribution, so
+	strictly comparing results may not be appropriate.  ``The code is running
+	and producing the expected results. The next step is to make sure that you
+	can produce the same output over successive runs of your program. In other
+	words, the next step is to make your program deterministic, producing
+	repeatable output. Repeatability is valuable. If a run of the program
+	produces a particularly puzzling result, repeatability allows you to
+	scrutinize any step of the execution of the program by re-running it again
+	with extraneous prints, or inside a debugger. Repeatability is also useful
+	to prove that the program did indeed produce the published results.
+	Repeatability is not always possible or easy. But for sequential programs
+	not depending on analog inputs, it often comes down to controlling the
+	initialization of the pseudo- random number generators (RNG).''
+
+	\item[Reproducibility] ``To recap, reproducibility implies re-runnability
+	and repeatability and availability, yet imposes additional conditions.
+	Dependencies and platforms must be described as precisely and as
+	specifically as possible. Parameters values and inputs should accompany the
+	result files. The data and scripts behind the graphs must be published. Unit
+	tests are a good way to embed self-diagnostics of reproducibility in the
+	code. Reproducibility is hard, yet tremendously necessary.''
+
+	\item[Replicability] ``Replicability is the implicit assumption that any
+	article that does not provide the code source makes: that the description it
+	provides of the algorithms is sufficiently precise and complete to re-obtain
+	the results it presents.'' Requires requirements.  For the current project,
+	we did not assess the stronger form of ``reproducibility'' known as
+	replicability.  A software project is considered replicable if the
+	documentation alone (without the code) is sufficiently precise and complete
+	to allow a third-part to re-obtain the results of the original code
+	\citep{BenureauAndRougier2017}.  Replicability is difficult to achieve with
+	current documentation practices.  This question should be considered in the
+	next iteration of state of the practice assessments. 
+	
+	As an example, \citet{IonescuAndJansson2013} summarize the problem that
+	researchers had in reproducing the economic theory results obtained by Gintis in
+	2006.  The scientific method requires that another researcher be able to
+	independently replicate previous research results.
+	
+
+\end{description}
 
 \subsection{Generate All Things}
 
