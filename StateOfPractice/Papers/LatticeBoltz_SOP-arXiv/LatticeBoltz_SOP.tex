@@ -2363,7 +2363,8 @@ prioritizing 4 increasingly sophisticated levels of replication.
 	proposed goal for the future is for all results to be reproducible, which
 	means documenting dependencies, platforms, parameter values and input files.
 	The data and scripts behind the graphs should be published
-	\citep{BenureauAndRougier2017}.
+	\citep{BenureauAndRougier2017}.  Some tools and techniques for computational
+	reproducibility are summarized in \citet{PiccoloAndFrampton2016}.
 
 	\item[Replicability] means that the documentation provided for the software,
 	not the software itself, is sufficient for an independent third party to
@@ -2515,31 +2516,35 @@ standards yields a higher-quality product \citep[p.\ 112]{VanVliet2000}.
 
 \section{Conclusion} \label{conclusion}
 
-We analyzed the state of the practice of software development in the Lattice
-Boltzmann Methods software domain by quantitatively and qualitatively measuring,
-and comparing, 24 software packages along quality attributes. The software
-qualities that were assessed in this report are listed in
-Section~\ref{softwarequalities}. A methodology for assessing the state of the
-practice of software development in scientific domains was presented. Domain
-packages were assessed to answer the software development related research
-questions listed in Section~\ref{secIntro} to understand how software quality is
-impacted by software development choices, including principles, processes, and
-tools. Software developers were interviewed to identify development pain points,
-and to identify how software quality is ensured. Quantitative data was used to
-rank the software packages using the AHP. The ranking designations were compared
-with rankings from the software development community, and we found that many of
-our top 10 ranked packages are ranked highly by a domain expert. Recommendations
-for improving software along quality metrics were made... The findings of this
-report can be used to guide future development of research software,
-specifically along quality attributes, and to reduce software quality failures.
+To potentially improve the quality of LBM software, and help future users select
+the right package, our goal was to analyze the current state of LBM software
+development, including determining how well current best practices are followed
+and finding pain points for developers.  We compared the state of the practice
+for LBM software to the development practices recommended and employed for
+research software in general. To improve the quality of LBM software we looked
+for examples where developers have been successful so that we can share these
+with the LBM community, and with the broader research software community.  We
+also aimed to identify potential approaches for mitigating the identified pain
+points in the future.
 
-Recommendations, starting from current best practices.
+Our methodology involved the following steps: i) Identify a list of 45 candidate
+software packages; ii) Filter the list to a length of 24 packages; iii) Collect
+repository related data on each software package, like number of stars, number
+of open issues, number of lines of code; iv) Fill in the measurement template
+(the template consists of 108 questions to assess 9 qualities (installability,
+correctness/verifiability, reliability, robustness, usability, maintainability,
+reusability, understandability, and visibility/transparency)   The repository
+data is collected by filling in a 108 question measurement template, which
+requires installing the software on a VM, running simple tests (like completing
+the getting started instructions (if present)), and searching the code,
+documentation and test files.; v) Rank the software using the Analytic Hierarchy
+Process (AHP); vi) Interview developers (the interview consists of 20 questions
+and takes about an hour); and, vii) Conduct a domain analysis. The collected
+data is analyzed by: a) comparing the ranking by best practices against the
+ranking by popularity; b) comparing artifacts, tools and processes to current
+research software development guidelines; and, c) exploring pain points.
 
-\begin{enumerate}
-	\item \textbf{Follow the example of LBM packages that already follow best practices.}  Point to the table summarizing the winners for each quality.  Review the practices from the previous section.  Addresses PP?.
-	\item \textbf{Continuous integration.} Addresses PP?.
-	\item \textbf{Document API.} Addresses PP?.
-\end{enumerate}
+Table~\ref{topperformerstable} summarizes the top 5 performers for each of the qualities that we assessed.
 
 \begin{table}
 	\begin{center}
@@ -2571,6 +2576,28 @@ Recommendations, starting from current best practices.
 		\caption{Top performers for each quality (all packages were alive at the time of measurement, except for those marked by an asterisk (*))} \label{topperformerstable}
 	\end{center}
 \end{table}
+
+Comparison to community.
+
+Comparison of artifacts.
+
+Comparison of tools.
+
+Comparison of processes.
+
+Developer pain Points
+
+Lessons from developers
+
+Recommendations, starting from current best practices.
+
+\begin{enumerate}
+	\item \textbf{Follow the example of LBM packages that already follow best practices.}  Point to the table summarizing the winners for each quality.  Review the practices from the previous section.  Addresses PP?.
+	\item \textbf{Continuous integration.} Addresses PP?.
+	\item \textbf{Document API.} Addresses PP?.
+\end{enumerate}
+
+Future work
 
 \wss{More on the lessons to learn from the top packages.  The comparison to
 common practice - is LBM ahead or behind?  More on best practices comparison.
@@ -2614,9 +2641,6 @@ Framework consists of a collection of Domain Specific Languages (DSL) for
 capturing scientific documents, structures, and computing knowledge, and then
 transforming this knowledge into relevant software artifacts without having to
 manually duplicate knowledge into multiple artifacts \citep{SzymczakEtAl2016}.
-
-Include a table that summarizes the top 4 projects for each quality, but an
-asterisk if still alive.
 
 Future State Of The Practice Assessments
 
@@ -2670,29 +2694,7 @@ discussions on topics relevant to this paper.
 
 TO DO
 
-- value of tools to enforce good behaviour of developers, like R, like MOOSE
-infrastructure
-
-- introduce the idea of using our measurement template as a checklist, instead
-of, or in addition to other checklists - cite the other checklists
-\citep{SchlauchEtAl2018, BrettEtAl2021, vanGompelEtAl2016}, \href{Software
-Sustainability Institute Online
-Form}{https://docs.google.com/forms/d/e/1FAIpQLSf0ccsVdN-nXJCHLluJ-hANZlp8rDKgprJa0oTYiLZSDxh3DA/viewform}
-
-- mention flake8 for Python?
-
-- mention \href{https://joss.theoj.org/}{The Journal of Open Source Software}
-
-- reproducibility - can point to the PiccoloAndFrampton2016 paper
-
-- AlNoamanyAndBorghi2018 lists the most popular languages, Python is number 1
-
 - should look at ReinerEtAl2022 on Domain of Ocean Modelling software to
 contrast to the state of the practice of LBM software
-
-- ``unique challenges of scientific research (e.g., the frequent and unforeseen
-changes in requirements ...)'' \citep{PintoEtAl2018}. We can point out that in
-the future this viewpoint could change and why.  Not really a unique challenge.
-Cite Smith 2016?
 
 - mention MOOSE when mention CRAN for improving quality
