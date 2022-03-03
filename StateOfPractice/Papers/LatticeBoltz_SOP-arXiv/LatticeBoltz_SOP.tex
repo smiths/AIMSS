@@ -406,13 +406,6 @@ these qualities. The following section (Section~\ref{Sec_OverallProcess})
 provides an overview of the steps we used to select, measure and compare LBM
 software.  The remaining sections provide details on each step of the steps in
 the methodology. 
-% of the next sections provide an overview of the specifics of identifying
-% (Section~\ref{identifysoftware}) and filtering (Section~\ref{filtersoftware})
-% the candidate software, our quantitative measurements
-% (Section~\ref{empiricalmeasures}), the AHP ranking process
-% (Section~\ref{AHP}), developer interviews (Section~\ref{SecSurvey}), and
-% interactions with one of the key members of the assessment team -- the Domain
-% Expert (Section~\ref{sec_vet_software_list}).
 
 \subsection{Software Qualities} \label{softwarequalities}
 
@@ -2446,100 +2439,79 @@ rather than an afterthought. and quality of documentation
 
 \section{Threats To Validity} \label{threats}
 
-This section examines potential threats to the validity of this state of the
-practice assessment. These can be categorized into methodology and data
-collection issues. The goal of this assessment isn't to rank the software, but
-to use the ranking exercise as a means to understand the state of the practice
-of LBM software development.
+The threats to validity can be categorized into methodology and data collection
+issues.  With respect to our methodology, the measurement template may not be
+detailed enough to accurately capture some qualities. For example, there are
+only two measures of surface robustness. The measurement of robustness could be
+expanded, as it currently only measures unexpected input. Other intentional
+faults could be introduced to assess robustness, but this would require a larger
+investment of measurement time. Similarly, reusability
+(Section~\ref{reusabilityresults}) is assessed via the number of code files and
+LOC per file. While this measure is indicative of modularity, it is possible
+that some packages have many files, with few LOC, but the files do not contain
+source code that is easily reusable. The files may be poorly formatted, or the
+source code may be vague and have ambiguous identifiers. Maintainability may
+also be incorrectly estimated, since it is assumed to be improved by a higher
+ratio of comments to source code (Section~\ref{Sec_Maintainability}), but this
+is not necessarily true. Furthermore, the measurement of understandability
+(Section~\ref{Sec_SurfUnderstandability}) relies on 10 random source code files.
+By random chance, the 10 files that were chosen may not be a good representation
+of the understandability of that package. 
 
-The measures listed in our measurement template may not be broad enough to
-accurately capture some qualities. For example, there are only two measures of
-surface robustness. The measurement of robustness could be expanded, as it
-currently only measures unexpected input. Other faults could be introduced, but
-could require a large investment of time to develop, and might not be a fair
-measure for all packages. Similarly, reusability is assessed along the number of
-code files and LOC per file. While this measure is indicative of modularity, it
-is possible that some packages have many files, with few LOC, but the files do
-not contain source code that is easily reusable. The files may be poorly
-formatted, or the source code may be vague and have ambiguous identifiers.
-Furthermore, the measurement of understandability relies on 10 random source
-code files. It is possible that the 10 files that were chosen to represent a
-software package may not be a good representation of the understandability of
-that package.
+In our methodology one individual measures each package and the beginning and
+ending of the measurement phase is separated by several months.  There is a
+threat that the measurement may include unconscious biases, or the reviewers
+judgement may drift over time.  In previous work \citep{SmithEtAl2016}, we
+demonstrated that the measurement process is reasonably reproducible by having 5
+products graded by a second reviewer. The ranking via this independent review
+was almost identical to the original ranking. As long as each grader uses
+consistent definitions, the relative comparisons in the AHP results will be
+consistent between graders.
 
 Regarding data collection, a risk to the validity of this assessment is missing
-or incorrect data. Some software package data may not have been measured due to
-technology issues like broken links. This issue arose with the measurement of
-Palabos, which had a broken link to its user manual, as noted in
-Section~\ref{Sec_CompareArtifacts}. 
-
+or incorrect data. Some data may not have been measured due to technology issues
+like broken links. This issue arose with the measurement of Palabos, which had a
+broken link to its user manual, as noted in Section~\ref{Sec_CompareArtifacts}.
 Some pertinent data may not have been specified in public artifacts, or may be
-obscure within an artifact or web-page. The use of unit testing and continuous
-integration was mentioned in the artifacts of only three (ESPResSo, Ludwig,
-Musubi) packages. However, interviews suggested a more frequent use of both unit
-testing and continuous integration in the development processes than what was
-observed from the initial survey of the artifacts. For example, OpenLB, pyLBM,
-and TCLB use such methods during development despite this not being explicitly
-clear from an analysis of the material available online. 
+obscure within an artifact or web-page. For instance, the use of unit testing
+and continuous integration was mentioned in the artifacts of only three
+(ESPResSo, Ludwig, Musubi) packages (Section~\ref{SecSurfCorrectAndVerifiab}).
+However, interviews suggested a more frequent use of both unit testing and
+continuous integration. For example, OpenLB, pyLBM, and TCLB use such methods
+during development despite this not being explicit from an analysis of the
+material available online. 
 
 Furthermore, design documentation was measured to be a ``less common'' artifact
 in this assessment, but it is probable that such documentation is part of all
-LBM packages. After all, developing SCS is not a trivial endeavour. It is likely
-that many packages have such documentation but did not make it public, and due
-to this the measured data is not a true reflection of software package quality.
+LBM packages. After all, developing research software is not a trivial
+endeavour. It is likely that many packages have such documentation but did not
+make it public, and due to this the measured data may not be a true reflection
+of software package quality.
 
-\wss{There are more threats to validity.  Brainstorm.  Watch for them while 
-editing.  Look at Ao paper.}
+Another data collection concern is the gap between measurement of Musubi and the
+measurement of all other packages (Section~\ref{identifysoftware}).
+Unfortunately we were not aware of the existence of Musubi until after the
+primary data collection period was completed. This gap has a secondary effect
+because it caused a mismatch between the time of manual and automated data
+collection (Section~\ref{repmetrics}).  With time and resource constraints we
+could not redo the manual measurement, but we did update the automated measures
+(like the number of files, LOC, etc.) when Musubi was added.
 
-Problems with the measurement of qualities:
-
-\begin{itemize}
-\item The assumption that more code files is an indicator of reusability
-(Section~\ref{reusabilityresults}) may not be a valid assumption.
-\item Understandability was measured using only 10 random files
-(Section~\ref{Sec_SurfUnderstandability}).  This could be improved.
-\end{itemize}
-
-Overall ranking with equally weighted qualities isn't realistic
+Our comparison between our ranking and the community's ranking
+(Section~\ref{repmetrics}) may not be valid.  Using stars to estimate the
+community's ranking is not necessarily accurate.  Moreover, our overall AHP
+ranking makes the unrealistic assumption of equal weighting between qualities
 (Section~\ref{Sec_OverallQuality}).
 
-Threat to validity - the gap between measures of everything else and Musubi
-(Section~\ref{identifysoftware}), and then the gap between the manual measures
-and the automated measures (Section~\ref{repmetrics}).
-
-From Section~\ref{Sec_CompareTools}: ``Interviews with the developers revealed a
-potentially more frequent use of both unit testing and continuous integration,
-compared to what was observed from studying the repository artifacts.''
-
-Interviews suggested a more frequent use of both unit testing and continuous
-integration in the development processes than what was observed from the initial
-survey. For example, OpenLB, pyLBM, and TCLB use such methods during
-development, despite this not being explicitly clear from an analysis of the
-material available online.  The correctness and verifiability of such packages
-is not measured well using surface analysis.
-
-Section~\ref{repmetrics} compares ranking by best practices to the community's
-ranking.  Using stars to estimate the community's ranking is not necessarily
-accurate.
-
-Tool usage: Interviews with the developers revealed a potentially more frequent
-use of both unit testing and continuous integration, compared to what was
-observed from studying the repository artifacts.
-
-Maintainability is assumed to be improved by a higher ratio of comments to
-source code (Section~\ref{Sec_Maintainability}), but this is not necessarily
-true.
-
-a threat to validity is that we have implicitly assumed documentation is
-valuable when measuring quality.
-
-threat to validity is the person doing the measuring.  In the previous exercise
-we did do an experiment to measure this and convince ourselves that it isn't
-that significant a risk.
-
-We assume that a large number of source files is associated with increased
-reusability (Section~\ref{reusabilityresults}), but this is not necessarily the
-case.
+A final threat to validity is conceptual.  Our work assumes that following best
+practices leads to improved software quality.  As the advice in software
+engineering guidelines show, we are not alone in this assumption.  Ideally
+software qualities should be measured directly and then the impact of best
+practices on those qualities should be assessed.  However, researchers in this
+domain always face the challenge that many qualities, like maintainability,
+reusability and verifiability, are difficult to measure directly.  Therefore, we
+follow the usual approach of assuming that following procedures and adhering to
+standards yields a higher-quality product \citep[p.\ 112]{VanVliet2000}.
 
 \section{Conclusion} \label{conclusion}
 
@@ -2548,18 +2520,18 @@ Boltzmann Methods software domain by quantitatively and qualitatively measuring,
 and comparing, 24 software packages along quality attributes. The software
 qualities that were assessed in this report are listed in
 Section~\ref{softwarequalities}. A methodology for assessing the state of the
-practice of software development in SCS domains was presented. Domain packages
-were assessed to answer the software development related research questions
-listed in Section~\ref{secIntro} to understand how software quality is impacted
-by software development choices, including principles, processes, and tools.
-Software developers were interviewed to identify development pain points, and to
-identify how software quality is ensured. Quantitative data was used to rank the
-software packages using the AHP. The ranking designations were compared with
-rankings from the software development community, and we found that many of our
-top 10 ranked packages are ranked highly by a domain expert. Recommendations for
-improving software along quality metrics were made... The findings of this
-report can be used to guide future development of SCS, specifically along
-quality attributes, and to reduce software quality failures.
+practice of software development in scientific domains was presented. Domain
+packages were assessed to answer the software development related research
+questions listed in Section~\ref{secIntro} to understand how software quality is
+impacted by software development choices, including principles, processes, and
+tools. Software developers were interviewed to identify development pain points,
+and to identify how software quality is ensured. Quantitative data was used to
+rank the software packages using the AHP. The ranking designations were compared
+with rankings from the software development community, and we found that many of
+our top 10 ranked packages are ranked highly by a domain expert. Recommendations
+for improving software along quality metrics were made... The findings of this
+report can be used to guide future development of research software,
+specifically along quality attributes, and to reduce software quality failures.
 
 Recommendations, starting from current best practices.
 
@@ -2603,6 +2575,10 @@ Recommendations, starting from current best practices.
 \wss{More on the lessons to learn from the top packages.  The comparison to
 common practice - is LBM ahead or behind?  More on best practices comparison.
 Future practices.}
+
+The goal of this assessment isn't to rank the software, but to use the ranking
+exercise as a means to understand the state of the practice of LBM software
+development.
 
 We understand that software packages vary in goals, developers, funding, and
 other aspects. Our goal was to highlight software quality successes through an
