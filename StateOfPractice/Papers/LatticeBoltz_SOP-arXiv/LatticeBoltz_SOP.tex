@@ -185,31 +185,33 @@ Department},%Department and Organization
 \begin{abstract}
 
     We analyze the state of software development practice for Lattice Boltzmann
-    solvers by quantitatively and qualitatively measuring and comparing 24
-    software packages for 10 software qualities (installability, correctness/
+    solvers and find by quantitatively and qualitatively measuring and comparing
+    24 software packages for 10 software qualities (installability, correctness/
     verifiability, reliability, robustness, usability, maintainability,
     reusability, understandability, visibility/transparency and
     reproducibility). Our reproducible analysis method employs a measurement
-    template (containing 103 measures that are manually and automatically
+    template (containing 108 measures that are manually and automatically
     extracted from the project repository) and developer interviews (consisting
     of a set of 20 questions). From the measurement results, we ranked the
     software using the Analytic Hierarchy Process (AHP). Our ranking was roughly
     consistent with ranking the repositories by the number of GitHub stars,
     although the number one project by star count (Sailfish) is ranked 9th by
-    our methodology. Our top three packages were ESPResSo, Ludwig, and Palabos
-    (all in the top 10 by star count). We interviewed 4 developers to gain
-    insight into their current pain points. Identified challenges include lack
-    of development time, lack of funding, and difficulty with ensuring
-    correctness.  Based on our assessment, we make the following recommendations
-    for current and future LBM projects: provide a detailed user manual and
-    tutorials, explicitly state the limits of the software, use user-friendly
-    programming languages, consider a peer review process, communicate
-    development and contribution information, and use continuous integration and
-    project management tools.  \wss{Change the abstract to discuss how LBM
-    compares to common practices and best practices. Highlight some future
-    practices.  \wss{Follow the general research software trend of increasing
-    use of version control systems and project management on GitHub or
-    similar.}}
+    our methodology. Our finding is that the state of the practice is healthy
+    with 67\% of the measured packages ranking in the top 5 for at least one
+    quality, the majority of LBM generated artifacts corresponding to general
+    recommendations from research software developers, common utilization (67\%
+    of packages) of version control and adoption of a quasi-agile development
+    process.Areas of best practice to potentially improve include adoption of
+    continuous integration, API documentation and enforcement of programming
+    style guides.  We interviewed 4 developers to gain insight into their
+    current pain points. Identified challenges include lack of development time,
+    lack of funding, and difficulty with ensuring correctness.  Developers are
+    addressing these pain points by designing for change, circumventing the
+    oracle problem and prioritizing documentation and usability.  For future the
+    best practices of the future, we suggest the community consider: employing
+    linters, conducing rigorous peer reviews, writing and submitting more papers
+    on software, growing the number of contributors and augmenting the theory
+    manuals to include more requirements relevant information.
 
 \end{abstract}
 
@@ -2516,16 +2518,24 @@ standards yields a higher-quality product \citep[p.\ 112]{VanVliet2000}.
 
 \section{Conclusion} \label{conclusion}
 
-To potentially improve the quality of LBM software, and help future users select
-the right package, our goal was to analyze the current state of LBM software
-development, including determining how well current best practices are followed
-and finding pain points for developers.  We compared the state of the practice
-for LBM software to the development practices recommended and employed for
-research software in general. To improve the quality of LBM software we looked
-for examples where developers have been successful so that we can share these
-with the LBM community, and with the broader research software community.  We
-also aimed to identify potential approaches for mitigating the identified pain
-points in the future.
+To help users select the right LBM package for their needs, and to potentially
+provide direction for future LBM software development, our goal was to analyze
+the current state of LBM software development.  We aimed to determine how well
+best practices are followed and to understand current developer pain points.  We
+compared the state of the practice for LBM software to the development practices
+recommended and employed for research software in general. To improve the
+quality of LBM software we looked for examples where developers have been
+successful so that we can share these with the LBM community, and with the
+broader research software community.  We also aimed to identify potential
+approaches for mitigating the identified pain points in the future.
+
+Our analysis points to areas where some LBM software packages fall short of
+current best practices.  This is not intended to be a criticism of any existing
+packages, especially since in practice not every project needs to achieve the
+highest possible quality.  However, rather than delve into the nuances of which
+software can justify compromising which practice we conducted our comparison
+under the ideal assumption that every project can have sufficient resources to
+match best practices.
 
 Our methodology involved the following steps: i) Identify a list of 45 candidate
 software packages; ii) Filter the list to a length of 24 packages; iii) Collect
@@ -2533,32 +2543,49 @@ repository related data on each software package, like number of stars, number
 of open issues, number of lines of code; iv) Fill in the measurement template
 (the template consists of 108 questions to assess 9 qualities (installability,
 correctness/verifiability, reliability, robustness, usability, maintainability,
-reusability, understandability, and visibility/transparency)   The repository
-data is collected by filling in a 108 question measurement template, which
-requires installing the software on a VM, running simple tests (like completing
-the getting started instructions (if present)), and searching the code,
-documentation and test files.; v) Rank the software using the Analytic Hierarchy
-Process (AHP); vi) Interview developers (the interview consists of 20 questions
-and takes about an hour); and, vii) Conduct a domain analysis. The collected
-data is analyzed by: a) comparing the ranking by best practices against the
-ranking by popularity; b) comparing artifacts, tools and processes to current
-research software development guidelines; and, c) exploring pain points.
+reusability, understandability, and visibility/transparency).  Filling in the
+template requires installing the software on a VM, running simple tests (like
+completing the getting started instructions (if present)), and searching the
+code, documentation and test files; v) Rank the software using the Analytic
+Hierarchy Process (AHP); vi) Interview developers (the interview consists of 20
+questions and takes about an hour); and, vii) Conduct a domain analysis. The
+collected data was analyzed by: a) comparing the ranking by best practices
+against the ranking by popularity; b) comparing artifacts, tools and processes
+to current research software development guidelines; and, c) exploring pain
+points.  Our ranking was roughly consistent with ranking the repositories by the
+number of GitHub stars, although the number one project by star count (Sailfish)
+is ranked 9th by our methodology.
 
-Table~\ref{topperformerstable} summarizes the top 5 performers for each of the qualities that we assessed.
+Current LBM software provides many examples of following best practices, to the
+benefit of users and developers.  This is illustrated by
+Table~\ref{topperformerstable}, which summarizes the top 5 performers for each of
+the identified qualities and for the overall quality. Taking the union of all
+entries in the table, we have 16 top performers: ESPREsSo, MechSys, OpenLB,
+DL\_MESO, Sailfish, Ludwig, Musubi, pyLBM, waLBerla, laboetie, lettuce,
+ESPREsSo++, LUMA, MP-LABS, Palabos, and HemeLB.  Therefore, two thirds (67\%) of
+the 24 measured packages appear in the top 5 for at least one quality.  Of these
+entries almost all of them are classified as alive, except for three packages:
+laboetie, MP-LABS, and HemeLB.  This suggests that alive packages are in a
+healthy state with respect to adopting best practices.
 
 \begin{table}
 	\begin{center}
 		\begin{tabular}{ p{3cm}p{1.9cm}p{1.9cm}p{1.9cm}p{1.9cm}p{1.9cm} }
 			\toprule
-			Quality & Ranked 1st & Ranked 2nd & Ranked 3rd & Ranked 4th & Ranked 5th\\
+			Quality & Ranked 1st & Ranked 2nd & Ranked 3rd & Ranked 4th & Ranked
+			5th\\
 			\midrule
-			Installability & ESPResSo & MechSys & OpenLB & DL\_MESO (LBE) & Sailfish\\
+			Installability & ESPResSo & MechSys & OpenLB & DL\_MESO (LBE) &
+			Sailfish\\
 			\addlinespace[0.4cm]
-			\pbox{3.0cm}{Surface Correctness \\ and Verifiability} & Ludwig & Musubi & pyLBM & OpenLB & waLBerla\\
+			\pbox{3.0cm}{Surface Correctness \\ and Verifiability} & Ludwig &
+			Musubi & pyLBM & OpenLB & waLBerla\\
 			\addlinespace[0.4cm]
-			Surface Reliability & DL\_MESO (LBE) & laboetie* & lettuce & MechSys & Musubi \\
+			Surface Reliability & DL\_MESO (LBE) & laboetie* & lettuce & MechSys
+			& Musubi \\
 			\addlinespace[0.4cm]
-			Surface Robustness & DL\_MESO (LBE) & ESPResSo++ & lettuce & LUMA & OpenLB \\
+			Surface Robustness & DL\_MESO (LBE) & ESPResSo++ & lettuce & LUMA &
+			OpenLB \\
 			\addlinespace[0.4cm]
 			Surface Usability & laboetie* & ESPResSo & OpenLB & Ludwig & Sailfish\\
 			\addlinespace[0.4cm]
@@ -2566,9 +2593,11 @@ Table~\ref{topperformerstable} summarizes the top 5 performers for each of the q
 			\addlinespace[0.4cm]
 			Reusability & ESPResSo & waLBerla & ESPResSo++ & Sailfish & HemeLB*\\
 			\addlinespace[0.4cm]
-			\pbox{3.0cm}{Surface \\Understandability} & LUMA & Palabos & pyLBM & DL\_MESO (LBE)& MechSys\\
+			\pbox{3.0cm}{Surface \\Understandability} & LUMA & Palabos & pyLBM &
+			DL\_MESO (LBE)& MechSys\\
 			\addlinespace[0.4cm]
-			\pbox{3.0cm}{Visibility and \\Transparency} & Ludwig & Palabos & LUMA & ESPResSo & MP-LABS*\\
+			\pbox{3.0cm}{Visibility and \\Transparency} & Ludwig & Palabos &
+			LUMA & ESPResSo & MP-LABS*\\
 			\addlinespace[0.4cm]
 			Overall Quality & ESPResSo & Ludwig & Palabos & OpenLB & LUMA\\
 			\bottomrule
@@ -2577,115 +2606,88 @@ Table~\ref{topperformerstable} summarizes the top 5 performers for each of the q
 	\end{center}
 \end{table}
 
-Comparison to community.
+Further evidence of the healthy state of the practice can be seen by comparing
+the observed software artifacts versus those recommended by software engineering
+guidelines.  As Section~\ref{Sec_CompareArtifacts} shows, the majority of LBM
+generated artifacts correspond to general recommendations from research software
+developers.  LBM software even seems to be ahead of best practices with an
+example of a video user guide for one of the packages.  Comparing LBM with
+respect to tool usage (Section~\ref{Sec_CompareTools}) shows that LBM is keeping
+pace with other research software, with 67\% of the surveyed tools using version
+control.  The state of the practice for the software development process of LBM
+software matches the quasi-agile process generally adopted for research software
+(Section~\ref{Sec_CompareMethodologies}).  The best practice process of peer
+review is employed by some LBM developers.
 
-Comparison of artifacts.
+Although the state of the practice for LBM software is healthy, we have noted
+areas for potential improvement in the adoption of best practices, as follows:
 
-Comparison of tools.
+\begin{itemize}
+	\item Increase the utilization of continuous integration.
+	\item Increase the amount of API documentation.
+	\item Add roadmap documentation showing what is planned for the future.
+	\item Add a code of conduct to explicitly show how developers should treat
+	one another.
+	\item Increase the use and enforcement of programming style guides.
+	\item Use checklists to ensure best practices are followed by developers.
+	\item Include uninstall instructions.
+	\item Explicitly document the software's motivation and design principles.
+\end{itemize}
 
-Comparison of processes.
-
-Developer pain Points
-
-Lessons from developers
-
-Recommendations, starting from current best practices.
+To advance the state of the practice beyond current best practices toward future
+best practices, we interviewed 4 developers to learn about their pain points
+(Section~\ref{painpoints}).  The identified pain points include lack of
+development time, lack of software development experience, lack of incentive and
+funding, lack of external support, technology hurdles, ensuring correctness,
+usability, technical debt and documentation quality.  We found
+(Section~\ref{Sec_AddressConcerns} that developers are currently creating
+practices to address these pain points, including: designing for change,
+circumventing the oracle testing problem, and prioritizing documentation and
+usability.  To further plan for future best practices, we identified eight
+potential directions (Section~\ref{Sec_Recommendations}), in order of increasing
+novelty:
 
 \begin{enumerate}
-	\item \textbf{Follow the example of LBM packages that already follow best practices.}  Point to the table summarizing the winners for each quality.  Review the practices from the previous section.  Addresses PP?.
-	\item \textbf{Continuous integration.} Addresses PP?.
-	\item \textbf{Document API.} Addresses PP?.
+	\item Employ linters.
+	\item Conduct rigorous peer reviews.
+	\item Write and submit papers on software.
+	\item Grow the number of contributors.
+	\item Further address the oracle problem for testing.
+	\item Augment theory manuals to include requirements information.
+	\item Improve re-runnability, repeatability, reproducibility and
+	replicability.
+	\item Generate all things.
 \end{enumerate}
 
-Future work
+Future work can be done to address the threats to validity mentioned in
+Section~\ref{threats}.  For instance, the measures listed in our measurement
+template could be broadened to better capture some qualities. For example,
+usability experiments and performance benchmarks could be incorporated into the
+assessment.  Section~\ref{threats} also mentions that some pertinent information
+on continuous integration and unit testing was not specified in public
+artifacts. Adding further questions to the interview guide regarding the
+measures that are on the measurement template could reduce instances of
+incomplete data. This additional interview data could be analyzed and
+incorporated into the AHP ranking, ensuring quality designations more accurate
+represent the true quality of the software packages. In the future we could also
+expand the interview questions to go beyond reproducibility to also discuss
+replicability. Furthermore, in future interviews we would like to clarify the
+distinction between usability and understandability.
 
-\wss{More on the lessons to learn from the top packages.  The comparison to
-common practice - is LBM ahead or behind?  More on best practices comparison.
-Future practices.}
-
-The goal of this assessment isn't to rank the software, but to use the ranking
-exercise as a means to understand the state of the practice of LBM software
-development.
-
-We understand that software packages vary in goals, developers, funding, and
-other aspects. Our goal was to highlight software quality successes through an
-evaluation of the entire domain software family. Furthermore, threats to the
-validity of the findings are highlighted in Section~\ref{threats}. 
-
-Our comparison may point out areas where some LBM software packages fall short
-of current best practices.  This is not intended to be a criticism of any
-existing packages, especially since in practice not every project needs to
-achieve the highest possible quality.  However, rather than delve into the
-nuances of which software can justify compromising which practice we will write
-our comparison under the ideal assumption that every project can have sufficient
-resources to match best practices.
-
-Many software packages would benefit from a rewrite or reorganization of
-installation instructions. A single location for installation instructions would
-improve their maintainability and correctness. Listing compatible operating
-system and dependency versions would decrease installation time and errors, as
-would adding instructions on installing dependencies. Installation process
-errors should prompt the system to display detailed messages. Once a software
-package is installed, either an automatic validation needs to be performed or
-the user needs to be able to perform a manual validation using test examples
-that include expected output. Finally, uninstallation instructions should be
-included in the documentation. \wss{Have to decide how much to emphasizse
-installability.}  \wss{Maybe at some point should mention more modern
-installation support, since most of the projects use make, and there are other
-options.}
-
-Ensuring software quality can take significant time. An inability to develop
-high quality documentation due to time constraints could be mitigated in the
-future by the use of automatic document generation tools like Drasil. The Drasil
-Framework consists of a collection of Domain Specific Languages (DSL) for
-capturing scientific documents, structures, and computing knowledge, and then
-transforming this knowledge into relevant software artifacts without having to
-manually duplicate knowledge into multiple artifacts \citep{SzymczakEtAl2016}.
-
-Future State Of The Practice Assessments
-
-As mentioned in Section~\ref{threats}, the measures listed in our measurement
-template may not be broad enough to accurately capture some qualities. Adding or
-extending measures is worth considering. For example, usability experiments and
-performance benchmarks could be incorporated into the assessment.
-
-Section~\ref{SecReproducibility} noted that developers were not asked to comment
-on the reproducibility of their source code from their requirements
-specifications and design documentation. Adding this question to the interview
-guide should be considered in the next iteration of state of the practice
-assessments. Furthermore, as mentioned in Section~\ref{threats}, it was found
-that some pertinent information was not specified in public artifacts. The use
-of unit testing and continuous integration by several packages (OpenLB, pyLBM,
-TCLB) was only discovered during interviews with developers. Adding further
-questions to the interview guide regarding the measures that are on the
-measurement template could reduce instances of incorrect data being collected.
-This additional interview data could be analyzed and incorporated into the AHP
-ranking, ensuring quality designations more accurate represent the true quality
-of the software packages.  \wss{clarify the distinction between usability and
-understandability.}
-
-For the current project, we did not assess the stronger form of
-``reproducibility'' known as replicability.  A software project is considered
-replicable if the documentation alone (without the code) is sufficiently precise
-and complete to allow a third-part to re-obtain the results of the original code
-\citep{BenureauAndRougier2017}.  Replicability is difficult to achieve with
-current documentation practices.  This question should be considered in the next
-iteration of state of the practice assessments. 
-
-The final result of the domain analysis will be tables of commonalities,
-variabilities, and parameters of variation of a program family.
-\cite{smith2008commonality} present a template for conducting a commonality
-analysis, which was referred to when conducting this work.
-\cite{weiss1998commonality} describes another commonality analysis technique for
-deciding the members of a program family. \cite{SmithAndChen2004} and
+Our domain analysis (Section~\ref{SecDomainAnalysis} was relatively shallow.  In
+the future we would like to dig more deeply into this analysis.  We would like
+to produce tables of commonalities, variabilities, and parameters of variation
+for the family of LBM solvers. We could follow the template from
+\citep{smith2008commonality}, or adopt the analysis techniques from
+\citep{weiss1998commonality}. \cite{SmithAndChen2004} and
 \cite{SmithMcCutchanAndCarette2017} are examples of a commonality analysis for a
 family of mesh generating software and a family of material models,
-respectively. The steps to produce a commonality analysis are:
+respectively.
 
 \section*{Acknowledgements}
 
-We would like to thank Ao Dong and Oluwaseun Owojaiye for many fruitful
-discussions on topics relevant to this paper.
+We would like to thank Ao Dong, Oluwaseun Owojaiye, Mohammad Ali Daeian and Reza
+Sadeghi for fruitful discussions on topics relevant to this paper.
 
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{LatticeBoltz_SOP}
