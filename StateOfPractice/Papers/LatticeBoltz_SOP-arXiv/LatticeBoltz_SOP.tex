@@ -397,15 +397,14 @@ to~\ref{Sec_AddressConcerns}).  Finally, we summarize the threats to validity
 \section{Methodology} \label{methodology}
 
 We developed a methodology for evaluating the state of the practice of
-research software \citep{SmithEtAl2021}. This methodology can be instantiated
-for a specific domain of research software, which in the current case is LBM
+research software \citep{SmithEtAl2021}. This methodology can be applied
+to a specific domain of research software, which in the current case is LBM
 software.  Since we group best practices around conventional software qualities,
 the first section below provides definitions for the qualities of interest
 (Section~\ref{softwarequalities}), along with information on how we assessed
 these qualities. The following section (Section~\ref{Sec_OverallProcess})
 provides an overview of the steps we used to select, measure and compare LBM
-software.  The remaining sections provide details on each step of the steps in
-the methodology. 
+software.  The remaining sections provide details on each step in the methodology. 
 
 \subsection{Software Qualities} \label{softwarequalities}
 
@@ -417,7 +416,7 @@ with comments regarding their measurement.
 	\item[Installability] Installability is measured by the effort required for
 	the installation, uninstallation or reinstallation of a software product in
 	a specified environment \citep{ISO/IEC25010, lenhard2013measuring}. In our
-	case effort includes the time spent finding and understanding the
+	case, effort includes the time spent finding and understanding the
 	installation instructions, the person-time and resources spent performing
 	the installation procedure, and the absence or ease of overcoming system
 	compatibility issues. An installability score improves if the software has a
@@ -427,7 +426,7 @@ with comments regarding their measurement.
 	its stated specifications \citep[p.\ 17]{GhezziEtAl2003}. This requires that
 	the specification is available. Research software is unlikely to have an
 	explicit specification, since this is not common practice in the field. As a
-	consequence, the correctness of software cannot often be measured directly.
+	consequence, the correctness of software often cannot be measured directly.
 	We assess correctness indirectly by looking for the following: availability
 	of a requirements specification, reference to domain theory, and explicit
 	use of tools and/or techniques for building confidence, such as
@@ -482,7 +481,7 @@ with comments regarding their measurement.
 	\item[Maintainability] A measure of maintainability is the effort with which
 	a software system or component can be modified to correct faults, improve
 	performance or other attributes, and satisfy new requirements
-	\citep{IEEEStdGlossarySET1990, boehm2007software}. In the current work
+	\citep{IEEEStdGlossarySET1990, boehm2007software}. In the current work,
 	maintainability is measured by the quality of the documentation artifacts,
 	and the presence of version control and issue tracking. These artifacts can
 	greatly decrease the effort needed to modify software. There are many
@@ -496,7 +495,7 @@ with comments regarding their measurement.
 	Instead, developers were asked in interviews if they considered the ease of
 	future changes when developing the software packages, specifically changes
 	to the structure of the system, modules and code blocks. A follow up
-	question is asked if any measures have been taken.
+	question asked if any measures have been taken to ensure the ease of future changes.
 	
 	\item[Reusability] Reusability refers to the extent to which components of a
 	software package can be used with or without adaptation in other software
@@ -602,16 +601,15 @@ have publicly available source code, or to be incomplete projects.
 \subsection{Filter the Software List} \label{filtersoftware}
 
 To reduce the length of the list of software packages and to
-answer~\rqref{RQ_WhatProjects}, we filter the initial list of 45.  The following
-filters were applied in the priority order listed.
+answer~\rqref{RQ_WhatProjects}, we filter the initial list of 45 packages.  The following filters were applied in the priority order listed.
 
 \begin{enumerate}
 	\item Scope: Software is removed by narrowing what functionality is
 	considered to be within the scope of the domain.
-	\item Usage: Software packages were eliminated if their installation
+	\item Usage: Software packages are eliminated if their installation
 	procedure was missing or not clear and easy to follow.
 	\item Age: The older software packages (age being measured by the last date
-	when a change was made) were eliminated, except in the cases where an older
+	when a change was made) are eliminated, except in the cases where an older
 	software package appears to be highly recommended and currently in use. 
 \end{enumerate}
 
@@ -752,8 +750,7 @@ Several of the qualities use the word ``surface''.  This is to highlight that,
 for these qualities in particular, the best that we can do is a shallow measure.
 For instance, we do not conduct experiments to measure usability. Instead, we
 are looking for an indication that usability was considered by the developers by
-looking for cues in the documentation, such as getting started instructions, a
-user manual or documentation of expected user characteristics.
+looking for cues in the documentation, such as the presence of getting started instructions, a user manual or documentation of expected user characteristics.
 
 Tools were used to find some of the measurements, such as the number of files,
 number of lines of code (LOC), percentage of issues that are closed, etc. The
@@ -772,10 +769,10 @@ deleted, without any impact on the host operating system. The most significant
 advantage of using VMs is to level the playing field. Every software install
 starts from a clean slate, which removes ``works-on-my-computer'' errors.
 
-\subsection{Analytical Hierarchy Process} \label{AHP}
+\subsection{Analytic Hierarchy Process} \label{AHP}
 
 Once we have measured each package, we still need to rank them to answer
-\rqref{RQ_HighestQuality}.  To do this, we used the Analytical Hierarchy Process
+\rqref{RQ_HighestQuality}.  To do this, we used the Analytic Hierarchy Process
 (AHP), a decision-making technique that is used to compare multiple options by
 multiple criteria. AHP was used for comparing and ranking the LBM software
 packages using the overall impression quality scores that were gathered in the
@@ -804,7 +801,7 @@ We ask the developers how they organize their projects. We also ask about their
 understanding of the users. Some questions focus on the current and past
 difficulties, and the solutions the team has found, or will try. We also discuss
 the importance of, and the current situation for, documentation. A few questions
-are about specific software qualities, such as maintainability,
+focus on specific software qualities, such as maintainability,
 understandability, usability, and reproducibility. The interviews are
 semi-structured based on the question list; we ask follow-up questions when
 necessary. Based on our experience, the interviewees often bring up exciting and
@@ -814,8 +811,7 @@ We requested interviews with developers for all 24 packages, except Munubi,
 since Munubi was added after our ethics approved had expired.  We were able to
 recruit 4 developers to participate in our study.  Our potential interview
 subjects were found from project websites, code repositories, publications, and
-biographic information on institution web-pages. Meeting were held using on-line
-meeting software (either Zoom or Teams), which facilitated recording and
+biographic information on institution web-pages. Meetings were held using on-line meeting software (either Zoom or Teams), which facilitated recording and
 automatic transcription.  Each meeting lasted about an hour. The interview
 process was approved by the McMaster University Research Ethics Board under the
 application number 
