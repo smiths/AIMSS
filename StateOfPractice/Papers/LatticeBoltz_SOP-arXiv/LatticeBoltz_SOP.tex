@@ -1634,7 +1634,9 @@ column, some LBM developers include an FAQ (Frequently Asked Questions) document
 as recommended by \citep{OrvizEtAl2017}, \citep{ThielEtAl2020} and
 \citep{vanGompelEtAl2016}. LBM developers also follow the ubiquitous
 recommendation to have a README file, although, as for other software, the
-content of README files is not standardized \citep{PranaEtAl2018}.
+content of README files is not standardized \citep{PranaEtAl2018}.  Compared to
+ocean modelling software \citep{JungEtAl2022}, LBM software pays more
+attention to artifacts related to testing.
 
 Three of the items that appear in Table~\ref{artifactspresent} do not explicitly
 appear in the software development guidelines: i) list of related publications,
@@ -1775,6 +1777,14 @@ where the developers use the platform to help manage their projects, especially
 bug related issues. Most of the projects appear to use change tracking and
 version control tools. Document generation tools are mentioned in 12 of the 24
 projects. The tools Sphinx and Doxygen are explicitly used in this capacity.
+
+Based on information provided by \citet{JungEtAl2022}, tool utilization for
+LBM software has much in common with tool utilization for ocean modelling
+software.  Both use tools for editing, compiling, code management, testing,
+building and project management.  From the data available, ocean modelling
+differs from LBM software in its use of Kanban boards for project management.
+LBM software difference from the ocean domain through the use of continuous
+integration, and document generation tools.
 
 The poor adoption of version control tools that Wilson lamented in 2006
 \citep{Wilson2006} has greatly improved in the intervening years.  From
@@ -2045,7 +2055,8 @@ decomposition is a good design for supporting change, as shown by
 \citet{Parnas1972a}.  A design with low cohesion and high coupling \citep[p.\
 48]{GhezziEtAl2003} will make change difficult. Especially in research software,
 where change is inevitable, designers need to produce a modularization that
-supports change. 
+supports change. Ocean modelling software is currently feeling the pain of
+not emphasizing modularization in legacy code \citep{Reiner2022}.
 
 Interviewed LBM developers highlighted cases where their modularizations
 anticipated future changes.  The developer of pyLBM mentioned that the
@@ -2679,7 +2690,8 @@ expand the interview questions to go beyond reproducibility to also discuss
 replicability. Furthermore, in future interviews we would look to clarify the
 distinction between usability and understandability
 (Section~\ref{softwarequalities}), since the distinction confused some
-participants.
+participants.  Analysis of future interview data would likely benefit from a
+more rigorous process, like a thematic domain analysis \citep{JungEtAl2022}.
 
 Our domain analysis (Section~\ref{SecDomainAnalysis} was relatively shallow.  In
 the future we would like to dig more deeply into this analysis.  We would like
@@ -2700,8 +2712,3 @@ Sadeghi for fruitful discussions on topics relevant to this paper.
 \bibliography{LatticeBoltz_SOP}
 
 \end{document}
-
-TO DO
-
-- should look at ReinerEtAl2022 on Domain of Ocean Modelling software to
-contrast to the state of the practice of LBM software
