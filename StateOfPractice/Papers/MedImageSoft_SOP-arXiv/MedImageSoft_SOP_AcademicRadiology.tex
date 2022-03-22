@@ -15,7 +15,7 @@
 %% given in the file `manifest.txt'.
 %% 
 %% Template article for Elsevier's document class `elsarticle'
-%% with harvard style bibliographic references
+%% with Harvard style bibliographic references
 
 %\documentclass[preprint,12pt,authoryear]{elsarticle}
 %\documentclass[3p, 12pt,authoryear]{elsarticle}
@@ -73,6 +73,14 @@
 
 \newcommand{\notdone}[1]{\textcolor{red}{#1}}
 \newcommand{\done}[1]{\textcolor{black}{#1}}
+
+\newcounter{rqnum} %research question number
+\newcommand{\rqtherqnum}{RQ`'\therqnum}
+\newcommand{\rqref}[1]{RQ\ref{#1}}
+
+\newcounter{pnum} %pain point number
+\newcommand{\ppthepnum}{P`'\thepnum}
+\newcommand{\ppref}[1]{P\ref{#1}}
 
 \journal{Academic Radiology}
 
@@ -146,24 +154,23 @@
 
 \begin{abstract}
 
-We present a general method to assess the state of the practice for Scientific
-Computing (SC) software and apply this method to Medical Imaging (MI) software.
-We selected 29 MI software projects from 48 candidates, assessed 10 software
-qualities (installability, correctness/ verifiability, reliability, robustness,
-usability, maintainability, reusability, understandability,
-visibility/transparency and reproducibility) by answering 103 questions for each
-software project, and interviewed 8 of the 29 development teams. Based on the
-quantitative data for the first 9 qualities, we ranked the MI software with the
-Analytic Hierarchy Process (AHP). The top three software products were
-\textit{3D Slicer}, \textit{ImageJ}, and \textit{OHIF Viewer}. By interviewing
-the developers, we identified three major pain points: i) lack of resources; ii)
-difficulty balancing between compatibility, maintainability, performance, and
-security; and, iii) lack of access to real-world datasets for testing. For
-future MI software projects, we propose adopting test-driven development, using
-continuous integration and continuous delivery (CI/CD), using git and GitHub,
-maintaining good documentation, supporting third-party plugins or extensions,
-considering web application solutions, and improving collaboration between
-different MI software projects.
+We present the state of the practice for Medical Imaging software. We selected
+29 medical imaging projects from 48 candidates, assessed 10 software qualities
+(installability, correctness/ verifiability, reliability, robustness, usability,
+maintainability, reusability, understandability, visibility/transparency and
+reproducibility) by answering 108 questions for each software project, and
+interviewed 8 of the 29 development teams. Based on the quantitative data for
+the first 9 qualities, we ranked the MI software with the Analytic Hierarchy
+Process (AHP). The top three software products were \textit{3D Slicer},
+\textit{ImageJ}, and \textit{OHIF Viewer}. By interviewing the developers, we
+identified three major pain points: i) lack of resources; ii) difficulty
+balancing between compatibility, maintainability, performance, and security;
+and, iii) lack of access to real-world datasets for testing. For future MI
+software projects, we propose adopting test-driven development, using continuous
+integration and continuous delivery (CI/CD), using git and GitHub, maintaining
+good documentation, supporting third-party plugins or extensions, considering
+web application solutions, and improving collaboration between different MI
+software projects. \wss{Update after the paper has been revised.}
 
 \end{abstract}
 
@@ -179,7 +186,7 @@ different MI software projects.
 %\end{highlights}
 
 \begin{keyword}
-	medical imaging, scientific computing, software engineering, software
+	medical imaging, research software, software engineering, software
 	quality, Analytic Hierarchy Process, developer interviews
 \end{keyword}
 
@@ -194,72 +201,98 @@ We aim to study the state of software development practice for Medical Imaging
 such as Magnetic Resonance Imaging (MRI), Computed Tomography (CT), Positron
 Emission Tomography (PET) and Ultrasound) to provide information for diagnostic,
 analytic, and medical applications \citep{FDA2021, enwiki:1034887445,
-Zhang2008}.  Given the importance of MI software and the high number of
-competing software projects, we wish to understand the merits and drawbacks of
-the current development processes, tools and methodologies.  We aim to assess
-through a software engineering lens the quality of the existing software with
-the hope of highlighting standout examples, understanding current pain points
-and providing guidelines and recommendations for future development.
+Zhang2008}.  An example medical image is provided in Figure~\ref{Fig_Example}.
+Given the importance of MI software and the high number of competing software
+projects, we wish to understand the merits and drawbacks of the current
+development processes, tools and methodologies.  We aim to assess through a
+software engineering lens the quality of the existing software with the hope of
+highlighting standout examples, understanding current pain points and providing
+guidelines and recommendations for future development.
 
-\subsection{Purpose} \label{sec_motivation}
+\begin{figure}[!ht]
+    \begin{center}
+        \includegraphics[scale=0.42]{figures/Example_Aorta.png}        
+    \end{center}
+    \caption{Example medical image showing the segmentation of an aorta}
+    \label{Fig_Example}
+\end{figure}
+    
+\subsection{Research Questions} \label{sec_motivation}
 
 Not only do we wish to gain insight into the state of the practice for MI
 software, we also wish to understand the development of research software in
 general. We wish to understand the impact of the often cited gap, or chasm,
-between software engineering and scientific programming \citep{Storer2017}.
-Although scientists spend a substantial proportion of their working hours on
-software development \citep{Hannay2009, Prabhu2011}, many developers learn
-software engineering skills by themselves or from their peers, instead of from
-proper training \citep{Hannay2009}. \citet{Hannay2009} observe that many
+between software engineering and scientific programming \citep{Kelly2007,
+Storer2017}. Although scientists spend a substantial proportion of their working
+hours on software development \citep{Hannay2009, Prabhu2011}, many developers
+learn software engineering skills by themselves or from their peers, instead of
+from proper training \citep{Hannay2009}. \citet{Hannay2009} observe that many
 scientists showed ignorance and indifference to standard software engineering
 concepts. For instance, according to a survey by \citet{Prabhu2011}, more than
-half of their 114 subjects did not use any proper debugger for their software.
+half of their 114 subjects did not use a proper debugger when coding.
 
-To gain insights, we devised five research questions, which can be applied to
-MI, as well as to other domains, of research software \citep{SmithEtAl2021}. The
+To gain insights, we devised 10 research questions, which can be applied to MI,
+as well as to other domains, of research software \citep{SmithEtAl2021}.  The
 questions are designed to learn about the community's interest in, and
 experience with, artifacts, tools, principles, processes, methodologies and
-qualities.  When we mention artifacts we mean documents, scripts and code that
-constitutes a software development project. Example artifacts include
+qualities.  When we mention artifacts we mean the documents, scripts and code
+that constitutes a software development project. Example artifacts include
 requirements, specifications, user manuals, unit tests, system tests, usability
 tests, build scripts, API (Application Programming Interface) documentation,
-READMEs, license documents, process documents, and code.  We aimed to collect
-enough information to understand the current pain points experienced by the MI
-software development community so that we can make some preliminary
-recommendations for future improvements.
+READMEs, license documents, process documents, and code.  Once we have learned
+what MI developers do, we then put this information in context by contrasting MI
+software against the trends shown by developers in other research software
+communities.  Our aim is to collect enough information to understand the current
+pain points experienced by the MI software development community so that we can
+make some preliminary recommendations for future improvements. 
 
-\begin{description}
+The questions are used to structure the discussion in the paper, so for each
+research question below we point to the section that contains our answer.  We
+start with identifying the relevant examples of MI software:
 
-\item[RQ1.] \hypertarget{rq1}What artifacts are present in current MI software
-projects? What role does documentation play in the projects? What are the
-developers' attitude toward it?
-\item[RQ2.] \hypertarget{rq2}What tools are used in the development of MI packages?
-\item[RQ3.] \hypertarget{rq3}What principles, processes, and methodologies are
-used in the development of current MI packages?
-\item[RQ4.] \hypertarget{rq4}What are the pain points for developers working on
-MI software projects? What aspects of the existing processes, methodologies, and
-tools do they consider as potentially needing improvement? What changes to
-processes, methodologies, and tools can improve software development and
-software quality?
-\item[RQ5.] \hypertarget{rq5}What is the current status of the following
-software qualities for LBM projects? What actions have the developers taken to
-address them?  (Section~\ref{ch_background} provides definitions of the software
-qualities.)
-\begin{itemize}
-	\item Installability
-	\item Correctness \& Verifiability
-	\item Reliability
-	\item Robustness
-	\item Usability
-	\item Maintainability
-	\item Reusability
-	\item Understandability
-	\item Visibility/Transparency
-	\item Reproducibility
-\end{itemize}
-\item[RQ6.] \hypertarget{rq6}How does software designated as high quality by
-this methodology compare with top-rated software by the community?
-\end{description}
+\begin{enumerate}
+	\item[RQ\refstepcounter{rqnum}\therqnum \label{RQ_WhatProjects}:] What MI
+	software projects exist, with the constraint that the source code must be
+	available for all identified projects? (Section~\ref{ch_results})
+	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_HighestQuality}:] Which
+	of the projects identified in \rqref{RQ_WhatProjects} follow current best
+	practices, based on evidence found by experimenting with the software and
+	searching the artifacts available in each project's repository?
+	(Section~\ref{ch_results})
+	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_CompareHQ2Popular}:] How
+	similar is the list of top projects identified in \rqref{RQ_HighestQuality}
+	to the most popular projects, as viewed by the scientific community?
+	(Section~\ref{Sec_VsCommunityRanking})
+    \item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_CompareArtifacts}:] How
+	do MI projects compare to research software in general with respect to the
+	artifacts present in their repositories?
+	(Section~\ref{Sec_CompareArtifacts})
+	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_CompareToolsProjMngmnt}:]
+	How do MI projects compare to research software in general with respect to
+	the use of tools (Section~\ref{Sec_CompareTools}) for:
+	\begin{enumerate} 
+		\item [\rqref{RQ_CompareToolsProjMngmnt}.a] development; and,
+		\item [\rqref{RQ_CompareToolsProjMngmnt}.b] project management?
+	\end{enumerate}
+	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_CompareMethodologies}:]
+	How do MI projects compare to research software in general with respect to
+	principles, processes and methodologies used?
+	(Section~\ref{Sec_CompareMethodologies})
+	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_PainPoints}:] What are
+	the pain points for developers working on MI software projects?
+	(Section~\ref{ch_interview})
+	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_ComparePainPoints}:] How
+	do the pain points of developers from MI compare to the pain points
+	for research software in general? (Section~\ref{ch_interview})
+	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_Concerns}:] For MI
+	developers what specific best practices are taken to address the pain points
+	and software quality concerns? (Section~\ref{ch_interview})
+	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_Recommend}:]
+	What research software development practice could potentially address the
+	pain point concerns identified in \rqref{RQ_PainPoints}).
+	(Section~\ref{ch_recommendations})
+
+\end{enumerate}
 
 \subsection{Scope} \label{sec_scope}
 
@@ -277,56 +310,16 @@ Finally, Picture Archiving and Communication System (PACS), which helps users to
 economically store and conveniently access images \citep{Choplin1992}, are
 considered out of scope. 
 
-% Based on our literature survey, we divided MI software into five sub-groups and
-% several sub-sub-groups by their major functions, as shown in
-% Figure~\ref{fig_mi_functions}. 
-
-% \begin{figure}[!ht]
-% \centering
-% \includegraphics[scale=0.5]{figures/FunctionsOfMiSoftware.pdf}
-% \caption{Major functions of MI Software} \label{fig_mi_functions}
-% \end{figure}
-
-% \begin{figure}[!ht]
-% \centering
-% \begin{tikzpicture}[mindmap, grow cyclic, every node/.style=concept, concept
-% color=orange!40,
-% level 1/.append style={level distance=5cm,sibling angle=72},
-% level 2/.append style={level distance=3cm,sibling angle=90},
-% level 3/.style={level distance=2.3cm,sibling angle=90}]
-% \node{MI software}
-% child[concept color=teal!40] { node {Enhancement}}
-% child[concept color=teal!40] { node {Analysis}
-%     child[concept color=blue!30] { node {Registration}}
-%     child[concept color=blue!30,] { node {Segmentation}}
-%     child[concept color=blue!30] { node {Statistical Analysis}
-%     child[concept color=blue!20] { node {Feature Extraction}}
-%     child[concept color=blue!20] { node {Classification}}
-%     child[concept color=blue!20] { node {Interpretation}}
-%     }}
-% child[concept color=teal!40] { node {Simulation/\\Modeling}}
-% child[concept color=teal!40] { node {Supporting}
-%     child[concept color=blue!30] { node {Tool Kit}}
-%     child[concept color=blue!30] { node {PACS}}
-% }
-% child[concept color=teal!40] { node {Visualization}
-%     child[concept color=blue!30] { node {2D Display}}
-%     child[concept color=blue!30] { node {3D Rendering}}
-%     child[concept color=blue!30] { node {Reformatted Views}}
-% };
-% \end{tikzpicture}
-% \caption{Major functions of MI software}
-% \label{fig_mi_functions}
-% \end{figure}
-
 \subsection{Methodology Overview}
 
 We designed a general methodology to assess the state of the practice for SC
-software \citep{SmithEtAl2021}. Details can be found in Section~\ref{ch_methods}
-and in \citep{Dong2021}.  This methodology builds off prior work to assess the
-state of the practice for such domains as Geographic Information Systems
-\citep{smith2018state}, Mesh Generators \citep{smith2016state}, Seismology
-software \citep{Smith2018Seismology}, and Statistical software for psychology
+software \citep{SmithEtAl2021}. Details can be found in
+Section~\ref{ch_methods}.  Our methodology has been applied to MI software
+\citet{Dong2021} and Lattice Boltzmann Solvers \citet{Michalski2021}.  This
+methodology builds off prior work to assess the state of the practice for such
+domains as Geographic Information Systems \citep{smith2018state}, Mesh
+Generators \citep{smith2016state}, Seismology software
+\citep{Smith2018Seismology}, and Statistical software for psychology
 \citep{smith2018statistical}.  In keeping with the previous methodology, we have
 maintained the constraint that the work load for measuring a given domain should
 be feasible for a team as small as one person, and for a short time, ideally
@@ -344,18 +337,14 @@ quantitative data in the grading template, we rank the software with the
 Analytic Hierarchy Process (AHP) (Details are found in
 Section~\ref{ch_background}). After this, as another addition to our previous
 methodology, we interview some of the development teams to further understand
-the status of their development process. Finally, we summarize the measurements
-(Section~\ref{ch_results}), summarize the interview answers
-(Section~\ref{ch_interview}), answer the research questions
-(Section~\ref{ch_answers}) and propose recommendations
-(Section~\ref{ch_recommendations}) for future SC software development.
+the status of their development process.
 
 \section{Background} \label{ch_background}
 
 In this section, we introduce the relevant software categories (Section
 \ref{sec_software_categories}). The categories will be used when collecting and
 assessing the software packages.  We also review the definitions of software
-qualities (Section \ref{sec_software_quality}) and provide an overview of the
+qualities (Section \ref{sec_software_quality}) and provide an overview of 
 AHP (Section \ref{sec_AHP}).
 
 \subsection{Software Categories} \label{sec_software_categories}
@@ -403,7 +392,8 @@ as summarized in \citet{SmithEtAl2021-QDef}.  The order of the qualities follows
 the order used in \cite{GhezziEtAl2003}, which puts related qualities (like
 correctness and reliability) together.  Moreover, the order is roughly the same
 as the order qualities are considered in practice.  \wss{To be completed - not
-currently in sync with QDef paper, QDef paper not completely done.}
+currently in sync with QDef paper, QDef paper not completely done.  Look at LBM
+paper too.}
 
 \begin{itemize}
 	\item \textbf{Installability} The effort required for the installation
@@ -489,7 +479,7 @@ If there are $n$ alternatives, for criterion $i = 1, 2, ... , m$, we can create
 an $n\times n$ matrix $B_i$ to record the relative preferences between these
 choices for each criterion. The way of generating $B_i$ is similar to the one
 for $A$. However, rather than comparing the importance between criteria, we
-pairwise decide how much we favor one alternative over the other. We use the
+pairwise decide how much we favour one alternative over the other. We use the
 same method to calculate the local priority vector for each $B_i$.  The local
 priority vector in this case ranks the $n$ alternatives for criterion $i$.
 
@@ -561,7 +551,7 @@ on their time.  For the current assessment, our Domain Expert (and paper
 co-author) is Dr.\ Michael Noseworthy, Professor of Electrical and Computer
 Engineering at McMaster University, Co-Director of the McMaster School of
 Biomedical Engineering, and Director of Medical Imaging Physics and Engineering
-at St. Joseph’s Healthcare, Hamilton, Ontario, Canada.  
+at St. Joseph's Healthcare, Hamilton, Ontario, Canada.  
 
 In advance of the first meeting with the Domain Expert, the expert is asked to
 create a list of top software packages in the domain.  This is done to help
@@ -688,7 +678,8 @@ results, we follow it to check the correctness of the output.
 \item \textbf{Surface Reliability} We check the following: 
 \begin{inparaenum}[i)]
     \item whether the software breaks during installation;
-    \item the operation of the software following the getting started tutorial (if present);
+    \item the operation of the software following the getting started tutorial
+    (if present);
     \item whether the error messages are descriptive; and,
     \item whether we can recover the process after an error.
 \end{inparaenum}
@@ -770,14 +761,14 @@ GitHub data can be found using its the GitHub Application Program Interface
 repository has been on GitHub helps us understand the average change of metrics
 over time, like the average new stars per month. 
 
-The repository measures help us in wo ways. Firstly, they help us with get a
-fast and accurate project overview. For example, the number of commits over the
-last 12 months shows how active a project has been, and the number of stars and
-forks may reveal its popularity. Secondly, the results may affect our decisions
+The repository measures help us in many ways. Firstly, they help us get a fast
+and accurate project overview. For example, the number of commits over the last
+12 months shows how active a project has been, and the number of stars and forks
+may reveal its popularity. Secondly, the results may affect our decisions
 regarding the grading scores for some software qualities. For example, if the
-percentage of comment lines is low, we double-check the
-understandability of the code; if the ratio of open versus closed pull
-requests is high, we pay more attention to maintainability.
+percentage of comment lines is low, we double-check the understandability of the
+code; if the ratio of open versus closed pull requests is high, we pay more
+attention to maintainability.
 
 As in \citet{SmithEtAl2016}, Virtual machines (VMs) were used to provide an
 optimal testing environments for each package. VMs were used because it is
@@ -855,7 +846,8 @@ Ginkgo CADx \citep{Wollny2020} & 2010 & 2019-05 &  & 3 & 257144 & X & X & X &  \
 GATE \citep{Jan2004} & 2011 & 2020-10 &  & 45 & 207122 &  & X & X &  \\
 3DimViewer \citep{TESCAN2020} & ? & 2020-03 & X & 3 & 178065 & X & X &  &  \\
 medInria \citep{Fillard2012} & 2009 & 2020-11 &  & 21 & 148924 & X & X & X &  \\
-BioImage Suite Web \citep{Papademetris2005} & 2018 & 2020-10 & X & 13 & 139699 & X & X & X & X \\
+BioImage Suite Web \citep{Papademetris2005} & 2018 & 2020-10 & X & 13 & 139699 &
+X & X & X & X \\
 Weasis \citep{Roduit2021} & 2010 & 2020-08 &  & 8 & 123272 & X & X & X &  \\
 AMIDE \citep{Loening2017} & 2006 & 2017-01 &  & 4 & 102827 & X & X & X &  \\
 XMedCon \citep{Nolf2003} & 2000 & 2020-08 &  & 2 & 96767 & X & X & X &  \\
@@ -882,7 +874,7 @@ Figure \ref{fig_language} shows the primary languages versus the number of
 projects using them.  The primary language is the language used for the majority
 of the project's code; in most cases projects also use other languages.  The
 most popular language is C++, with almost 40\% of projects (11 of 29).  The two
-least popular choices are Pascal and  Matlab, with around 3\% of projects each
+least popular choices are Pascal and Matlab, with around 3\% of projects each
 (1 of 29).
 
 \begin{figure}[!ht]
@@ -1254,6 +1246,161 @@ surface usability, maintainability, and reusability. Given the installation
 problems, we may have underestimated the scores on reliability and robustness
 for \textit{DICOM Viewer}, but we compared it equally for the other seven
 qualities.
+
+\section{Comparison to Community Ranking} \label{Sec_VsCommunityRanking}
+
+To address \rqref{RQ_CompareHQ2Popular}, Table~\ref{tab_ranking_vs_GitHub}
+compares our LBM software package rankings against their popularity in the
+research community, as estimated by repository stars and watches. We answer this
+question by grading the qualities of the software, collecting ratings from the
+MI community, then conducting two comparisons:
+\begin{itemize}
+\item comparing our ranking with the community ratings on GitHub, such as GitHub
+stars, number of forks, and number of people watching the projects (Section~\ref{sec_grading_software});
+\item comparing top-rated software designated by our methodology with the ones
+recommended by our domain experts (Section \ref{sec_software_selection}).
+\end{itemize}
+
+Table~\ref{tab_ranking_vs_GitHub} shows our ranking of the 29 MI projects, and
+their GitHub metrics, if applicable. As mentioned in
+Section~\ref{sec_score_maintainability}, 24 projects used GitHub. Since GitHub
+repositories have different creation dates, we collect the number of months each
+stayed on GitHub, and calculate the average number of new stars, people
+watching, and forks per 12 months. The method of getting the creation date is
+described in Section~\ref{sec_grading_software}.  We obtained these
+measures in July, 2021.
+
+In Table~\ref{tab_ranking_vs_GitHub}, we used the average number of new stars
+per 12 months as an indicator of the GitHub popularity, and listed the items in
+the descending order of this number. We ordered the non-GitHub items by our
+ranking. Generally speaking, most of the top-ranking MI software projects also
+received greater attention and popularity on GitHub. Between our ranking and the
+GitHub stars-per-year ranking, four of the top five software projects are the
+same.
+
+Project \textit{dwv} was popular on GitHub, but we ranked it low. As mentioned
+in Section~\ref{sec_result_installability}, we failed to build it locally, and
+used the test version on its websites for the measurements. We followed the
+instructions and tried to run the command ``yarn run test'' locally, which did
+not work. In addition, the test version did not detect a broken DICOM file and
+displayed a blank image as described in Section \ref{sec_result_robustness}. We
+might underestimate the scores for \textit{dwv} due to uncommon technical
+issues. We also ranked \textit{DICOM Viewer} much lower than its popularity. As
+mentioned in Section \ref{sec_result_installability} it depended on the
+NextCloud platform that we could not successfully install. Thus, we might
+underestimate the scores of its surface reliability and surface
+robustness. We weighted all qualities equally, which is not likely to be the
+case with all users. As a result, some projects with high popularity may not
+perform well in all qualities.
+
+\begingroup
+\renewcommand{\arraystretch}{0.85}
+\begin{table}[!ht]
+\centering
+\begin{tabular}{lllll}
+\hline
+Software & Our ranking & Stars/yr & Watches/yr & Forks/yr \\ \hline
+3D Slicer & 1 & 284 & 19 & 128 \\
+OHIF Viewer & 3 & 277 & 19 & 224 \\
+dwv & 23 & 124 & 12 & 51 \\
+ImageJ & 2 & 84 & 9 & 30 \\
+ParaView & 5 & 67 & 7 & 28 \\
+Horos & 12 & 49 & 9 & 18 \\
+Papaya & 17 & 45 & 5 & 20 \\
+Fiji & 4 & 44 & 5 & 21 \\
+DICOM Viewer & 29 & 43 & 6 & 9 \\
+INVESALIUS 3 & 10 & 40 & 4 & 17 \\
+Weasis & 6 & 36 & 5 & 19 \\
+dicompyler & 26 & 35 & 5 & 14 \\
+OsiriX Lite & 9 & 34 & 9 & 24 \\
+MRIcroGL & 18 & 24 & 3 & 3 \\
+GATE & 25 & 19 & 6 & 26 \\
+Ginkgo CADx & 14 & 19 & 4 & 6 \\
+BioImage Suite Web & 8 & 18 & 5 & 7 \\
+Drishti & 27 & 16 & 4 & 4 \\
+Slice:Drop & 20 & 10 & 2 & 5 \\
+ITK-SNAP & 15 & 9 & 1 & 4 \\
+medInria & 7 & 7 & 3 & 6 \\
+SMILI & 13 & 3 & 1 & 2 \\
+MatrixUser & 28 & 2 & 0 & 0 \\
+MicroView & 16 & 1 & 1 & 1 \\
+Gwyddion & 11 & n/a & n/a & n/a \\
+XMedCon & 19 & n/a & n/a & n/a \\
+DicomBrower & 21 & n/a & n/a & n/a \\
+AMIDE & 22 & n/a & n/a & n/a \\
+3DimViewer & 24 & n/a & n/a & n/a \\ \hline
+\end{tabular}
+\caption{\label{tab_ranking_vs_GitHub}Software ranking versus GitHub metrics}
+\end{table}
+\endgroup
+
+As shown in Section~\ref{sec_software_selection}, our domain experts recommended
+a list of top software with 12 software products.  All of the top 4 software
+from the Domain Expert's list are among the top 12 ranked by our methodology. 3
+of the top 4 on both lists are the same: \textit{3D Slicer}, \textit{ImageJ},
+and \textit{Fiji}. \textit{3D Slicer} is top project by both rankings (and by
+the GithHub stars measure as well).  The Domain Expert ranked \textit{Horos} as
+their second choice, while we ranked it twelfth.  Our third ranked project,
+\textit{OHIF Viewer} was not listed by the Domain Expert.  Neither were the
+software packages that we ranked from fifth to eleventh (\textit{ParaView},
+\textit{Weasis}, \textit{medInria}, \textit{BioImage Suite Web}, \textit{OsiriX
+Lite}, \textit{INVESALIUS}, and \textit{Gwyddion}).  The software mentioned by
+the Domain Expert that we did not rank were the six recommended packages that
+did not have visualization as the primary function (as discussed in
+Section~\ref{sec_software_selection}).  The differences between the list
+recommended by our methodology and the Domain Expert are not surprising.  As
+mentioned above, the methodology weights all qualities equally, but that may not
+be the case for the Domain Expert's impressions.  Moreover, although the Domain
+Expert has significant experience with MI software, he has not used every one of
+the 29 packages.
+
+\section{Comparison Between LBM and Research Software for Artifacts}
+\label{Sec_CompareArtifacts}
+
+As part of filling in the measurement template the LBM packages were examined
+for the presence of artifacts, which were then categorized by frequency. We have
+grouped them into common, less common, and rare artifacts in
+Table~?. Common artifacts were found in 16 to 24 ($>$63\%)
+of the software packages. Less common artifacts were found in 8 to 15 (30-63\%)
+of the software packages. Rare artifacts were found in 1 to 7 ($<$30\%) of the
+software packages.  In this section we answer \rqref{RQ_CompareArtifacts} by
+comparing the artifacts that we observed in LBM repositories to those observed
+and recommended for research software in general. Our comparison may point out
+areas where some LBM software packages fall short of current best practices.
+This is not intended to be a criticism of any existing packages, especially
+since in practice not every project needs to achieve the highest possible
+quality.  However, rather than delve into the nuances of which software can
+justify compromising which practices we will write our comparison under the
+ideal assumption that every project has sufficient resources to match best
+practices.
+
+\section{Comparison of Tool Usage Between LBM and Other Research Software}
+\label{Sec_CompareTools}
+
+Software tools are used to support the development, verification, maintenance,
+and evolution of software, software processes, and artifacts \citep[p.\
+501]{GhezziEtAl2003}. Many tools are used by LBM software packages, as
+summarized in Table~?.  The tools are subdivided into development
+tools, dependencies, and project management tools.  In this section we answer
+\rqref{RQ_CompareToolsProjMngmnt} by comparing aspects of tool usage in LBM
+software packages to their utilization in the research software community in
+general.
+
+\section{Comparison of Principles, Process and Methodologies to Research Software in General} \label{Sec_CompareMethodologies}
+
+This section answers research question \rqref{RQ_CompareMethodologies} by
+comparing the principles, processes and methodologies used for LBM software to
+what can be gleaned from the literature on research software in general. In our
+data collection for LBM software, the software development process is not
+explicitly indicated in the artifacts for most of the packages. However, during
+our interviews one developer (ESPResSo) told us their non-rigorous development
+model is like a combination of agile and waterfall. Employing a loosely defined
+process makes sense for LBM software, given that the teams are generally small
+and self-contained.  Although eleven of the packages explicitly convey that they
+would accept outside contributors, generally the teams are centralized, often
+working at the same institution.  Working at the same institution means that an
+informal process can show success, since informal conversations are relatively
+easy to have.
 
 \section{Interviews with Developers} \label{ch_interview}
 
@@ -1748,7 +1895,7 @@ the other hand, the interviewees believed that testing (including usability
 tests with users) was the top solution to improve correctness, usability, and
 reproducibility. One pain point in the development process is the lack of access
 to real-world datasets for testing. The developers' strategies to address this
-are summarized in Section~\ref{sec_pain_points_3} \ad{to be fixed}. One threat to correctness is:
+are summarized in Section~\ref{ch_interview} \ad{to be fixed}. One threat to correctness is:
 with huge datasets for testing, the tests are expensive and time-consuming.
 Three interviewees endorsed self tests / automated tests, which may save time
 for testing.
@@ -1790,111 +1937,6 @@ reproducibility are explored in Section~\ref{ch_interview}.
 \item[RQ6.] How does software designated as high quality by this methodology
 compare with top-rated software by the community?
 \end{description}
-
-We answer this question by grading the qualities of the software, collecting
-ratings from the MI community, then conducting two comparisons:
-\begin{itemize}
-\item comparing our ranking with the community ratings on GitHub, such as GitHub
-stars, number of forks, and number of people watching the projects (Section~\ref{sec_grading_software});
-\item comparing top-rated software designated by our methodology with the ones
-recommended by our domain experts (Section \ref{sec_software_selection}).
-\end{itemize}
-
-Table~\ref{tab_ranking_vs_GitHub} shows our ranking of the 29 MI projects, and
-their GitHub metrics, if applicable. As mentioned in
-Section~\ref{sec_score_maintainability}, 24 projects used GitHub. Since GitHub
-repositories have different creation dates, we collect the number of months each
-stayed on GitHub, and calculate the average number of new stars, people
-watching, and forks per 12 months. The method of getting the creation date is
-described in Section~\ref{sec_grading_software}.  We obtained these
-measures in July, 2021.
-
-In Table~\ref{tab_ranking_vs_GitHub}, we used the average number of new stars
-per 12 months as an indicator of the GitHub popularity, and listed the items in
-the descending order of this number. We ordered the non-GitHub items by our
-ranking. Generally speaking, most of the top-ranking MI software projects also
-received greater attention and popularity on GitHub. Between our ranking and the
-GitHub stars-per-year ranking, four of the top five software projects are the
-same.
-
-Project \textit{dwv} was popular on GitHub, but we ranked it low. As mentioned
-in Section~\ref{sec_result_installability}, we failed to build it locally, and
-used the test version on its websites for the measurements. We followed the
-instructions and tried to run the command ``yarn run test'' locally, which did
-not work. In addition, the test version did not detect a broken DICOM file and
-displayed a blank image as described in Section \ref{sec_result_robustness}. We
-might underestimate the scores for \textit{dwv} due to uncommon technical
-issues. We also ranked \textit{DICOM Viewer} much lower than its popularity. As
-mentioned in Section \ref{sec_result_installability} it depended on the
-NextCloud platform that we could not successfully install. Thus, we might
-underestimate the scores of its surface reliability and surface
-robustness. We weighted all qualities equally, which is not likely to be the
-case with all users. As a result, some projects with high popularity may not
-perform well in all qualities.
-
-\begingroup
-\renewcommand{\arraystretch}{0.85}
-\begin{table}[!ht]
-\centering
-\begin{tabular}{lllll}
-\hline
-Software & Our ranking & Stars/yr & Watches/yr & Forks/yr \\ \hline
-3D Slicer & 1 & 284 & 19 & 128 \\
-OHIF Viewer & 3 & 277 & 19 & 224 \\
-dwv & 23 & 124 & 12 & 51 \\
-ImageJ & 2 & 84 & 9 & 30 \\
-ParaView & 5 & 67 & 7 & 28 \\
-Horos & 12 & 49 & 9 & 18 \\
-Papaya & 17 & 45 & 5 & 20 \\
-Fiji & 4 & 44 & 5 & 21 \\
-DICOM Viewer & 29 & 43 & 6 & 9 \\
-INVESALIUS 3 & 10 & 40 & 4 & 17 \\
-Weasis & 6 & 36 & 5 & 19 \\
-dicompyler & 26 & 35 & 5 & 14 \\
-OsiriX Lite & 9 & 34 & 9 & 24 \\
-MRIcroGL & 18 & 24 & 3 & 3 \\
-GATE & 25 & 19 & 6 & 26 \\
-Ginkgo CADx & 14 & 19 & 4 & 6 \\
-BioImage Suite Web & 8 & 18 & 5 & 7 \\
-Drishti & 27 & 16 & 4 & 4 \\
-Slice:Drop & 20 & 10 & 2 & 5 \\
-ITK-SNAP & 15 & 9 & 1 & 4 \\
-medInria & 7 & 7 & 3 & 6 \\
-SMILI & 13 & 3 & 1 & 2 \\
-MatrixUser & 28 & 2 & 0 & 0 \\
-MicroView & 16 & 1 & 1 & 1 \\
-Gwyddion & 11 & n/a & n/a & n/a \\
-XMedCon & 19 & n/a & n/a & n/a \\
-DicomBrower & 21 & n/a & n/a & n/a \\
-AMIDE & 22 & n/a & n/a & n/a \\
-3DimViewer & 24 & n/a & n/a & n/a \\ \hline
-\end{tabular}
-\caption{\label{tab_ranking_vs_GitHub}Software ranking versus GitHub metrics}
-\end{table}
-\endgroup
-
-As shown in Section~\ref{sec_software_selection}, our domain experts recommended
-a list of top software with 12 software products.  All of the top 4 software
-from the Domain Expert's list are among the top 12 ranked by our methodology. 3
-of the top 4 on both lists are the same: \textit{3D Slicer}, \textit{ImageJ},
-and \textit{Fiji}. \textit{3D Slicer} is top project by both rankings (and by
-the GithHub stars measure as well).  The Domain Expert ranked \textit{Horos} as
-their second choice, while we ranked it twelfth.  Our third ranked project,
-\textit{OHIF Viewer} was not listed by the Domain Expert.  Neither were the
-software packages that we ranked from fifth to eleventh (\textit{ParaView},
-\textit{Weasis}, \textit{medInria}, \textit{BioImage Suite Web}, \textit{OsiriX
-Lite}, \textit{INVESALIUS}, and \textit{Gwyddion}).  The software mentioned by
-the Domain Expert that we did not rank were the six recommended packages that
-did not have visualization as the primary function (as discussed in
-Section~\ref{sec_software_selection}).  The differences between the list
-recommended by our methodology and the Domain Expert are not surprising.  As
-mentioned above, the methodology weights all qualities equally, but that may not
-be the case for the Domain Expert's impressions.  Moreover, although the Domain
-Expert has significant experience with MI software, he has not used every one of
-the 29 packages.
-
-\wss{In the shorter journal paper version, the focus could be just on answering the 
-research questions and deleting the previous two sections.}
 
 \section{Threats to Validity} \label{sec_threats_to_validity}
 
@@ -2249,7 +2291,7 @@ specific testing requirements.
 
 \item \textbf{Remove privacy from sensitive data.} For data with sensitive
 information, a team can ask the data owner to remove such information or add
-noise to protect privacy. One example is using deidentified copies of medical
+noise to protect privacy. One example is using de-identified copies of medical
 images for testing.
 
 \item \textbf{Establish community collaboration in the domain.} During our
@@ -2440,7 +2482,7 @@ simulate mathematical models of real world systems of engineering or scientific
 importance so that we can better understand and predict the system’s behaviour''
 \citep{Smith2006}. Many researchers consider SC as the third pillar of science
 and engineering, along with theory and experiment \citep{Landau2005}. Almost all
-areas in science and engineering use computers for modeling \citep{Golub2014},
+areas in science and engineering use computers for modelling \citep{Golub2014},
 and software plays an essential role in modern scientific research
 \citep{Hannay2009, Wilson2014}.  Software development in SC depends on three
 fields of knowledge: engineering or scientific domain knowledge, mathematical
