@@ -201,19 +201,19 @@ We aim to study the state of software development practice for Medical Imaging
 such as Magnetic Resonance Imaging (MRI), Computed Tomography (CT), Positron
 Emission Tomography (PET) and Ultrasound) to provide information for diagnostic,
 analytic, and medical applications \citep{FDA2021, enwiki:1034887445,
-Zhang2008}.  An example medical image is provided in Figure~\ref{Fig_Example}.
-Given the importance of MI software and the high number of competing software
-projects, we wish to understand the merits and drawbacks of the current
-development processes, tools and methodologies.  We aim to assess through a
-software engineering lens the quality of the existing software with the hope of
-highlighting standout examples, understanding current pain points and providing
-guidelines and recommendations for future development.
+Zhang2008}.  An example medical image of the brain is provided in
+Figure~\ref{Fig_Example}. Given the importance of MI software and the high
+number of competing software projects, we wish to understand the merits and
+drawbacks of the current development processes, tools and methodologies.  We aim
+to assess through a software engineering lens the quality of the existing
+software with the hope of highlighting standout examples, understanding current
+pain points and providing guidelines and recommendations for future development.
 
 \begin{figure}[!ht]
     \begin{center}
-        \includegraphics[scale=0.42]{figures/Example_Aorta.png}        
+        \includegraphics[scale=0.25]{figures/MPR.png}        
     \end{center}
-    \caption{Example medical image showing the segmentation of an aorta}
+    \caption{Example brain image showing a multi-planar reformat using Horos (free open-source medical imaging/DICOM viewer for OSX, based on OsiriX)}
     \label{Fig_Example}
 \end{figure}
     
@@ -315,7 +315,7 @@ considered out of scope.
 We designed a general methodology to assess the state of the practice for SC
 software \citep{SmithEtAl2021}. Details can be found in
 Section~\ref{ch_methods}.  Our methodology has been applied to MI software
-\citet{Dong2021} and Lattice Boltzmann Solvers \citet{Michalski2021}.  This
+\citep{Dong2021} and Lattice Boltzmann Solvers \citep{Michalski2021}.  This
 methodology builds off prior work to assess the state of the practice for such
 domains as Geographic Information Systems \citep{smith2018state}, Mesh
 Generators \citep{smith2016state}, Seismology software
@@ -341,18 +341,21 @@ the status of their development process.
 
 \section{Background} \label{ch_background}
 
-In this section, we introduce the relevant software categories (Section
-\ref{sec_software_categories}). The categories will be used when collecting and
-assessing the software packages.  We also review the definitions of software
-qualities (Section \ref{sec_software_quality}) and provide an overview of 
-AHP (Section \ref{sec_AHP}).
+To measure the existing MI software we need two sets of definitions: i) the
+definitions of relevant software license models (Section
+\ref{sec_software_categories}); and, ii) the definitions of the software
+qualities that we will be assessing (Section \ref{sec_software_quality}). In our
+assessment we rank the software packages for each quality; therefore, this
+section also provides the background on our ranking process -- the Analytic
+Hierarchy Process (Section \ref{sec_AHP}).
 
 \subsection{Software Categories} \label{sec_software_categories}
 
 When assessing software packages, we need to know what license the software is
 distributed under.  In particular, we need to know whether the source code will
 be available to us or not.  In this section, we present three common software
-categories:
+categories.  We will only assess software that fits under the Open Source
+Software license.
 
 \begin{itemize}
 
@@ -367,11 +370,11 @@ product. Thus, it brings much more convenience to researchers analyzing the
 qualities of the project.
 
 \item \textbf{Freeware} Freeware is software that can be used free of charge.
-Unlike with OSS, the authors of do not allow users to access or modify the
-source code \citep{LINFO2006}. To many end-users, the differences between
-freeware and OSS may not be relevant. However, software developers, end-users
-who wish to modify the source code, and researchers looking for insight into
-software development process may find the inaccessible source code a problem. 
+Unlike OSS, the authors of do not allow access or modify the source code
+\citep{LINFO2006}. To many end-users, the differences between freeware and OSS
+may not be relevant. However, software developers who wish to modify the source
+code, and researchers looking for insight into software development process may
+find the inaccessible source code a problem. 
 
 \item \textbf{Commercial Software} ``Commercial software is software developed
 by a business as part of its business'' \citep{GNU2019}. Typically speaking, the
@@ -387,34 +390,31 @@ software products are not OSS.
 Quality is defined as a measure of the excellence or worth of an entity.  As is
 common practice, we do not think of quality as a single measure, but rather as a
 set of measures.  That is, quality is a collection of different qualities, often
-called ``ilities.''  Below we list the 10 qualities of interest for this study,
-as summarized in \citet{SmithEtAl2021-QDef}.  The order of the qualities follows
-the order used in \cite{GhezziEtAl2003}, which puts related qualities (like
-correctness and reliability) together.  Moreover, the order is roughly the same
-as the order qualities are considered in practice.  \wss{To be completed - not
-currently in sync with QDef paper, QDef paper not completely done.  Look at LBM
-paper too.}
+called ``ilities.''  Below we list the 10 qualities of interest for this study.
+The order of the qualities follows the order used in \citet{GhezziEtAl2003},
+which puts related qualities (like correctness and reliability) together.
+Moreover, the order is roughly the same as the order qualities are considered in
+practice.
 
 \begin{itemize}
 	\item \textbf{Installability} The effort required for the installation
-    and/or uninstallation of software in a specified environment.
+    and/or uninstallation of software in a specified environment
+    \citep{ISO/IEC25010, lenhard2013measuring}.
 
 	\item \textbf{Correctness \& Verifiability} A program is correct if it
-    matches its specification.  The specification can either be explicitly or
-    implicitly stated.  Verifiability is the extent to which the software
-    components or the integrated product can be evaluated to demonstrate whether
-    the system functions as expected.
+    matches its specification \citep[p.\ 17]{GhezziEtAl2003}.  The specification
+    can either be explicitly or implicitly stated.  The related quality of
+    verifiability is the ease with which the software components or the
+    integrated product can be checked to demonstrate its correctness. 
 
 	\item \textbf{Reliability} The probability of failure-free operation of a
-	computer program in a specified environment for a specified time, i.e., the
-	average time interval between two failures also known as the mean time to
-	failure (MTTF) \citep{musa1987software} \citep{GhezziEtAl2003}.
+	computer program in a specified environment for a specified time \citep{musa1987software}, \citep[p.\ 357]{GhezziEtAl2003}.
 
 	\item \textbf{Robustness} Software possesses the characteristic of
 	robustness if it behaves ``reasonably'' in two situations: i) when it
 	encounters circumstances not anticipated in the requirements specification,
 	and ii) when the assumptions in its requirements specification are violated
-	\citep{ghezzi1991fundamentals} \citep{boehm2007software}.
+	\citep[p.\ 19]{GhezziEtAl2003}, \citep{boehm2007software}.
 
 	\item \textbf{Usability} ``The extent to which a product can be used by
 	specified users to achieve specified goals with effectiveness, efficiency,
@@ -424,7 +424,7 @@ paper too.}
 	\item \textbf{Maintainability} The effort with which a software system or
 	component can be modified to i) correct faults; ii) improve performance or
 	other attributes; iii) satisfy new requirements
-	\citep{IEEEStdGlossarySET1990} \citep{boehm2007software}.
+	\citep{IEEEStdGlossarySET1990}, \citep{boehm2007software}.
 
 	\item \textbf{Reusability} ``The extent to which a software component can be
 	used with or without adaptation in a problem solution other than the one for
@@ -436,39 +436,40 @@ paper too.}
 
 	\item \textbf{Visibility/Transparency} The extent to which all of the steps
 	of a software development process and the current status of it are conveyed
-	clearly \citep{ghezzi1991fundamentals}.
+	clearly \citep[p.\ 32]{GhezziEtAl2003}.
 
 	\item \textbf{Reproducibility} ``A result is said to be reproducible if
 	another researcher can take the original code and input data, execute it,
 	and re-obtain the same result'' \citep{BenureauAndRougier2017}.
 \end{itemize}
 
-\subsection{Analytic Hierarchy Process} \label{sec_AHP}
+\subsection{Analytic Hierarchy Process (AHP)} \label{sec_AHP}
 
-AHP is used to generate a ranking for a set of software packages. Thomas L.\
-Saaty developed AHP in the 1970s, and people have widely used it since to make
-and analyze multiple criteria decisions \citep{VaidyaEtAl2006}. AHP organizes
-multiple criteria factors in a hierarchical structure and uses pairwise
-comparisons between alternatives to calculate relative ratios \citep{Saaty1990}.
+Thomas L.\ Saaty developed AHP in the 1970s, and people have widely used it
+since to make and analyze multiple criteria decisions \citep{VaidyaEtAl2006}.
+AHP organizes multiple criteria factors in a hierarchical structure and uses
+pairwise comparisons between alternatives to calculate relative ratios
+\citep{Saaty1990}. We use AHP to generate a ranking for a set of software
+packages.
 
-For a project with $m$ criteria, we can use an $m\times m$ matrix $A$ to record
+For a project with $m$ criteria, we can use an $m \times m$ matrix $A$ to record
 the relative importance between factors. When comparing criterion $i$ and
 criterion $j$, the value of $A_{ij}$ is decided as follows, with the value of
-$A_{ji}$ generally as $1/A_{ij}$ \citep{Saaty1990}.  $A_{ij} = 1$ if criterion
-$i$ and criterion $j$ are equally important, while $A_{ij} = 9$ if criterion $i$
-is extremely more important than criterion $j$.  The natural numbers between 1
-and 9 are used to show the different levels of relative importance between these
-two extremes. The above assumes that criterion $i$ is not less important than
-criterion $j$.  If that is not the case, we reverse $i$ and $j$ and determine
-$A_{ji}$ first, then $A_{ij} = 1/A_{ji}$.
+$A_{ji}$ generally equal to $1/A_{ij}$ \citep{Saaty1990}: $A_{ij} = 1$ if
+criterion $i$ and criterion $j$ are equally important, while $A_{ij} = 9$ if
+criterion $i$ is extremely more important than criterion $j$.  The natural
+numbers between 1 and 9 are used to show the different levels of relative
+importance between these two extremes. The above assumes that criterion $i$ is
+not less important than criterion $j$.  If that is not the case, we reverse $i$
+and $j$ and determine $A_{ji}$ first, then $A_{ij} = 1/A_{ji}$.
 
 The priority vector $w$, which ranks the criteria by their importance, can be
 calculated by solving the equation \citep{Saaty1990}:
 \begin{equation} 
-    A w = \lambda_{max} w,
+    A w = \lambda_{\text{max}} w,
 \end{equation}
-where $\lambda_{max}$ is the maximal eigenvalue of $A$.  In this project, $w$ is
-approximated with the classic \textit{mean of normalized values} approach
+where $\lambda_{\text{max}}$ is the maximal eigenvalue of $A$.  In this project,
+$w$ is approximated with the classic \textit{mean of normalized values} approach
 \citep{AlessioEtAl2006}:
 
 \begin{equation}
@@ -477,15 +478,15 @@ w_i = \frac{1}{m}\sum_{j=1}^{m}\frac{A_{ij}}{\sum_{k=1}^{m}A_{kj}}
 
 If there are $n$ alternatives, for criterion $i = 1, 2, ... , m$, we can create
 an $n\times n$ matrix $B_i$ to record the relative preferences between these
-choices for each criterion. The way of generating $B_i$ is similar to the one
-for $A$. However, rather than comparing the importance between criteria, we
-pairwise decide how much we favour one alternative over the other. We use the
+choices for each of the $m$ criterion. The way of generating $B_i$ is similar to
+the one for $A$. However, rather than comparing the importance between criteria,
+we pairwise decide how much we favour one alternative over the other. We use the
 same method to calculate the local priority vector for each $B_i$.  The local
 priority vector in this case ranks the $n$ alternatives for criterion $i$.
 
 In this project, the first nine software qualities mentioned in Section
 \ref{sec_software_quality} are the criteria ($m = 9$), while 29 software
-packages ($n = 29$) are compared for each of the $m$ criteria. The software are
+packages ($n = 29$) are compared for each of the $m$ criteria. The packages are
 evaluated with the grading template in Section~\ref{sec_grading_software}, which
 includes a subjective score from $1$ to $10$ for each quality for each package.
 For each quality, for a pair of packages $i$ and $j$, with $\mathit{score}_i >=
@@ -511,12 +512,13 @@ A_{ij} = \text{min}(\mathit{score}_i - \mathit{score}_j + 1, 9)
 
 \section{Methodology} \label{ch_methods}
 
-We developed a methodology for evaluating the state of the practice of SC
+We developed a methodology for evaluating the state of the practice of research
 software \citep{SmithEtAl2021}.  The  methodology can be instantiated for a
 specific domain of scientific software, which in the current case is medical
 imaging software for visualization.  Our methodology involves and engages a
 domain expert partner throughout, as discussed in
-Section~\ref{sec_vet_software_list}.  The four main steps of the methodology are:
+Section~\ref{sec_vet_software_list}.  The four main steps of the methodology
+are:
 
 \begin{enumerate}
 \item Identify list of representative software packages
