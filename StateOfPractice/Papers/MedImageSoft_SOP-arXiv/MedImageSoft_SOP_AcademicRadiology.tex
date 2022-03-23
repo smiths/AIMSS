@@ -513,7 +513,7 @@ A_{ij} = \text{min}(\mathit{score}_i - \mathit{score}_j + 1, 9)
 \section{Methodology} \label{ch_methods}
 
 We developed a methodology for evaluating the state of the practice of research
-software \citep{SmithEtAl2021}.  The  methodology can be instantiated for a
+software \citep{SmithEtAl2021}.  The methodology can be instantiated for a
 specific domain of scientific software, which in the current case is medical
 imaging software for visualization.  Our methodology involves and engages a
 domain expert partner throughout, as discussed in
@@ -608,17 +608,17 @@ visualization.  The Domain Expert agreed with our final choice of 29 packages.
 
 \subsection{Grading Software} \label{sec_grading_software}
 
-We grade the selected software using the measurement template summarized
-in~\citet{SmithEtAl2021}.  The template provides measures of the qualities
-listed in Section~\ref{sec_software_quality}, except for reproducibility, which
-is assessed through the developer interviews
-(Section~\ref{sec_interview_methods}). For each software package, we fill-in the
-template questions. This process can take between 1 to 4 hours for each package.
-Project developers can be contacted for help regarding installation, if
-necessary, but a cap of about 2 hours is imposed on the installation process, to
-keep the overall measurement time feasible. An excerpt of the spreadsheet is
-shown in Figure~\ref{fg_grading_template_example}.  A column is included for
-each measured software package.
+We grade the selected software using the measurement template summarized in
+\citet{SmithEtAl2021}.  The template provides measures of the qualities listed
+in Section~\ref{sec_software_quality}, except for reproducibility, which is
+assessed through the developer interviews (Section~\ref{sec_interview_methods}).
+For each software package, we fill-in the template questions. To stay within the
+target of 160 person hours to measure the domain, we allocated between 1 to 4
+hours for each package. Project developers can be contacted for help regarding
+installation, if necessary, but a cap of about 2 hours is imposed on the
+installation process, to keep the overall measurement time feasible. An excerpt
+of the spreadsheet is shown in Figure~\ref{fg_grading_template_example}.  A
+column is included for each measured software package.
 
 \begin{figure}[!ht]
 \includegraphics[scale=0.67]{figures/template.pdf}
@@ -653,7 +653,8 @@ instance, we are not currently doing any experiments to measure usability.
 Instead, we are looking for an indication that usability was considered by the
 developers.  We do this by looking for cues in the documentation, like a getting
 started manual, a user manual and documentation of expected user
-characteristics.  Below is a summary of how each quality is measured.
+characteristics.  Below is a summary of how we assess adoption of best practices
+by measuring each quality.
 
 \begin{itemize}
 
@@ -698,27 +699,27 @@ checking for the presence of getting started tutorials and/or a user manual. We
 also check whether users have channels to request support, such as an e-mail
 address, or issue tracker. Our impressions of usability are based on our
 interaction with the software during testing.  In general, an easy-to-use
-graphical user interface scores higher.
+graphical user interface will score high.
 
 \item \textbf{Maintainability} We believe that the artifacts of a project,
 including source code, documents, and building scripts, significantly influence
 its maintainability. Thus we check each project for the presence of such
 artifacts as API documentation, bug tracker information, release notes, test
-cases, and build files. We also check for the use of tools supporting issue
+cases, and build scripts. We also check for the use of tools supporting issue
 tracking and version control, the percentages of closed issues, and the
 proportion of comment lines in the code.
 
 \item \textbf{Reusability} We count the total number of code files for each
 project. Projects with a large number of components potentially provide more
 choices for reuse. Furthermore, well-modularized code, which tends to have
-smaller parts in separate files, is typically easier to reuse. Thus, we consider
-the projects with more code files and less Lines of Code (LOC) per file to be
+smaller parts in separate files, is typically easier to reuse. Thus, we assume
+that projects with more code files and less Lines of Code (LOC) per file are
 more reusable. We also consider projects with API documentation as delivering
 better reusability.
 
 \item \textbf{Surface Understandability} Given that time is a constraint, we
 cannot look at all code files for each project; therefore, we randomly examine
-10 code files for their understandability. We check the code’s style within each
+10 code files for their understandability. We check the code's style within each
 file, such as whether the identifiers, parameters, indentation, and formatting
 are consistent, whether the constants (other than 0 and 1) are hardcoded, and
 whether the code is modularized. We also check the descriptive information for
@@ -751,13 +752,13 @@ identical results. From our understanding, this minor difference is due to the
 different techniques to detect if a file is text-based or binary.
 
 For projects on GitHub we manually collect additional information, such as the
-numbers of stars, forks, people watching this repository, and open pull requests
-on GitHub. A git repository can have a creation date much earlier than the first
-pull, closed pull requests, and the number of months a repository has been on
-GitHub. For example, the developers created the git repository for \textit{3D
-Slicer} in 2002, but did not upload a copy of it to GitHub until 2020. Some
-GitHub data can be found using its the GitHub Application Program Interface
-(API) via the following url:
+numbers of stars, forks, people watching this repository, open pull requests,
+closed pull requests, and the number of months a repository has been on GitHub.
+We need to take care with the project creation date, since a repository can have
+a creation date much earlier than the first day on GitHub.  For example, the
+developers created the git repository for \textit{3D Slicer} in 2002, but did
+not upload a copy of it to GitHub until 2020. Some GitHub data can be found
+using its the GitHub Application Program Interface (API) via the following url:
 \textit{https://api.github.com/repos/[owner]/[repository]} where [owner] and
 [repository] are replaced by the repo specific values. The number of months a
 repository has been on GitHub helps us understand the average change of metrics
@@ -766,11 +767,11 @@ over time, like the average new stars per month.
 The repository measures help us in many ways. Firstly, they help us get a fast
 and accurate project overview. For example, the number of commits over the last
 12 months shows how active a project has been, and the number of stars and forks
-may reveal its popularity. Secondly, the results may affect our decisions
-regarding the grading scores for some software qualities. For example, if the
-percentage of comment lines is low, we double-check the understandability of the
-code; if the ratio of open versus closed pull requests is high, we pay more
-attention to maintainability.
+may reveal its popularity (used to assess \rqref{RQ_CompareHQ2Popular}).
+Secondly, the results may affect our decisions regarding the grading scores for
+some software qualities. For example, if the percentage of comment lines is low,
+we double-check the understandability of the code; if the ratio of open versus
+closed pull requests is high, we pay more attention to maintainability.
 
 As in \citet{SmithEtAl2016}, Virtual machines (VMs) were used to provide an
 optimal testing environments for each package. VMs were used because it is
@@ -780,35 +781,34 @@ deleted, without any impact on the host operating system. The most significant
 advantage of using VMs is to level the playing field. Every software install
 starts from a clean slate, which removes ``works-on-my-computer'' errors. When
 filling in the measurement template spreadsheet, the details for each VM
-should be noted, including hypervisor and operating system version.
+are noted, including hypervisor and operating system version.
 
 When grading the software, we found 27 out of the 29 packages are compatible
-with two or three different OS such as Windows, macOS, and Linux, and 5 of them
-are browser-based, making them platform-independent. However, in the interest of
-time, we only performed the measurements for each project by installing it on
-one of the platforms.  When it was an option, we selected Windows as the host
-OS.
+with two or three different OSes, such as Windows, macOS, and Linux, and 5 of
+them are browser-based, making them platform-independent. However, in the
+interest of time, we only performed the measurements for each project by
+installing it on one of the platforms.  When it was an option, we selected
+Windows as the host OS.
 
 \subsection{Interview Methods} \label{sec_interview_methods}
 
-We designed a list of 20 questions to guide our interviews, which can be found
-in \citet{SmithEtAl2021}. Some questions are about the background of
-the software, the development teams, the interviewees, and how they organize the
-projects. We also ask about the developer's understandings of the users. Some
-questions focus on the current and past difficulties, and the solutions the team
-has found, or will try. We also discuss the importance and current situations of
+Our interviews were guided by a list of 20 questions, which can be found in
+\citet{SmithEtAl2021}. Some questions are about the background of the software,
+the development teams, the interviewees, and how they organize the projects. We
+also ask about the developer's understandings of the users. Some questions focus
+on the current and past difficulties, and the solutions the team has found, or
+will try. We also discuss the importance and current situations of
 documentation. A few questions are about specific software qualities, such as
 maintainability, understandability, usability, and reproducibility. The
 interviews are semi-structured based on the question list; we ask follow-up
 questions when necessary. Based on our experience, the interviewees usually
-bring up some exciting ideas that we did not expect, and it is worth expanding
-on these topics.
+brought up unexpected and exciting ideas.
 
 We sent out interview requests to all 29 projects, with 9 projects responding.
 In some cases multiple developers from the same project agreed to be
 interviewed. We found contact information from projects websites, code
-repository, publications, and from biographic pages at the teams’ institutions.
-Meetings were held on-line using either Zoom or Teams, which facilitates
+repository, publications, and from biographic pages at the teams's institutions.
+Meetings were held on-line using either Zoom or Teams, which facilitated
 recording and automatic transcription of the meetings.  The interview process
 presented here was approved by the McMaster University Research Ethics Board
 under the application number 
@@ -1415,7 +1415,7 @@ developers from eight of the 29 MI software projects. The eight projects are
 \textit{3D Slicer}, \textit{INVESALIUS 3}, \textit{dwv}, \textit{BioImage Suite
 Web}, \textit{ITK-SNAP}, \textit{MRIcroGL}, \textit{Weasis}, and \textit{OHIF}.
 We spent about 90 minutes for each interview and asked 20 prepared questions
-(summarized in~\citet{SmithEtAl2021}). We also asked following-up questions as
+(summarized in \citet{SmithEtAl2021}). We also asked following-up questions as
 the conversation dictated. One participant was too busy to have an interview, so
 they wrote down their answers. The interviewees may have provided multiple
 answers to each question. Thus, when we summarize the frequency of different
