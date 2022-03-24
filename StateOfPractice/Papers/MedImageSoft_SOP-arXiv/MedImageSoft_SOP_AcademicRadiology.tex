@@ -1262,16 +1262,16 @@ qualities.
 
 \section{Comparison to Community Ranking} \label{Sec_VsCommunityRanking}
 
-To address \rqref{RQ_CompareHQ2Popular}, Table~\ref{tab_ranking_vs_GitHub}
-compares our LBM software package rankings against their popularity in the
-research community, as estimated by repository stars and watches. We answer this
-question by grading the qualities of the software, collecting ratings from the
-MI community, then conducting two comparisons:
+To address~\rqref{RQ_CompareHQ2Popular} about how our ranking compares to the
+popularity of projects as judged by the scientific community, we make two
+comparisons:
 \begin{itemize}
-\item comparing our ranking with the community ratings on GitHub, such as GitHub
-stars, number of forks, and number of people watching the projects (Section~\ref{sec_grading_software});
-\item comparing top-rated software designated by our methodology with the ones
-recommended by our domain experts (Section \ref{sec_software_selection}).
+\item A comparison of our ranking (from Section~\ref{ch_results}) with the
+community ratings on GitHub, as shown by GitHub stars, number of forks, and
+number of people watching the projects; and,
+\item A comparison of top-rated software from our methodology with the top
+recommendations from our domain experts (as mentioned in
+Section~\ref{sec_software_selection}).
 \end{itemize}
 
 Table~\ref{tab_ranking_vs_GitHub} shows our ranking of the 29 MI projects, and
@@ -1280,31 +1280,37 @@ Section~\ref{sec_score_maintainability}, 24 projects used GitHub. Since GitHub
 repositories have different creation dates, we collect the number of months each
 stayed on GitHub, and calculate the average number of new stars, people
 watching, and forks per 12 months. The method of getting the creation date is
-described in Section~\ref{sec_grading_software}.  We obtained these
-measures in July, 2021.
+described in Section~\ref{sec_grading_software}.  The items in
+Table~\ref{tab_ranking_vs_GitHub} are listed in descending order of the average
+number of new stars per year.  The non-GitHub items are listed in the order of
+our ranking.  All GitHub statistics were collected in July, 2021.  
 
-In Table~\ref{tab_ranking_vs_GitHub}, we used the average number of new stars
-per 12 months as an indicator of the GitHub popularity, and listed the items in
-the descending order of this number. We ordered the non-GitHub items by our
-ranking. Generally speaking, most of the top-ranking MI software projects also
-received greater attention and popularity on GitHub. Between our ranking and the
-GitHub stars-per-year ranking, four of the top five software projects are the
-same.
+Generally speaking, most of the top-ranking MI software projects also received
+greater attention and popularity on GitHub. Between our ranking and the GitHub
+stars-per-year ranking, four of the top five software projects are the same.
+Any more stats?
 
-Project \textit{dwv} was popular on GitHub, but we ranked it low. As mentioned
-in Section~\ref{sec_result_installability}, we failed to build it locally, and
-used the test version on its websites for the measurements. We followed the
-instructions and tried to run the command ``yarn run test'' locally, which did
-not work. In addition, the test version did not detect a broken DICOM file and
-displayed a blank image as described in Section \ref{sec_result_robustness}. We
-might underestimate the scores for \textit{dwv} due to uncommon technical
-issues. We also ranked \textit{DICOM Viewer} much lower than its popularity. As
-mentioned in Section \ref{sec_result_installability} it depended on the
-NextCloud platform that we could not successfully install. Thus, we might
-underestimate the scores of its surface reliability and surface
-robustness. We weighted all qualities equally, which is not likely to be the
-case with all users. As a result, some projects with high popularity may not
-perform well in all qualities.
+In some cases projects are popular in the community, but our methodology ranked
+them low.  This is the case for \textit{dwv}. The reason for the low ranking is
+that, as mentioned in Section~\ref{sec_result_installability}, we failed to
+build it locally, and used the test version on its websites for the
+measurements. We followed the instructions and tried to run the command ``yarn
+run test'' locally, which did not work. In addition, the test version did not
+detect a broken DICOM file and displayed a blank image as described in
+Section~\ref{sec_result_robustness}. We might underestimate the scores for
+\textit{dwv} due to uncommon technical issues. We also ranked \textit{DICOM
+Viewer} much lower than its popularity. As mentioned in
+Section~\ref{sec_result_installability} it depended on the NextCloud platform
+that we could not successfully install. Thus, we might underestimate the scores
+of its surface reliability and surface robustness. In addition, we weighted all
+qualities equally, which is not likely to be the case with all users. As a
+result, some projects with high community popularity may have scored lower with
+our method because of poor scores for some qualities.  A further explanation for
+discrepancies between our measures and the star measures may also be due to
+inaccuracy with using stars to approximate popularity.  Stars are not an idea
+measure because stars represent the community's feeling in the past more than
+current preferences \citep{Szulik2017}, since stars tend only to be added, not
+removed.
 
 \begingroup
 \renewcommand{\arraystretch}{0.85}
@@ -1345,16 +1351,16 @@ AMIDE & 22 & n/a & n/a & n/a \\
 3DimViewer & 24 & n/a & n/a & n/a \\ 
 \bottomrule
 \end{tabular}
-\caption{\label{tab_ranking_vs_GitHub}Software ranking versus GitHub metrics
-(Sorted in descending order of GitHub popularity, as estimated by the number of
-new stars per year)}
+\caption{Software ranking versus GitHub metrics (Sorted in descending order of
+GitHub popularity, as estimated by the number of new stars per year)}
+\label{tab_ranking_vs_GitHub}
 \end{table}
 \endgroup
 
 As shown in Section~\ref{sec_software_selection}, our domain experts recommended
-a list of top software with 12 software products.  All of the top 4 software
-from the Domain Expert's list are among the top 12 ranked by our methodology. 3
-of the top 4 on both lists are the same: \textit{3D Slicer}, \textit{ImageJ},
+a list of top software with 12 software products.  All of the top 4 entries from
+the Domain Expert's list are among the top 12 ranked by our methodology. Three
+of the top four on both lists are the same: \textit{3D Slicer}, \textit{ImageJ},
 and \textit{Fiji}. \textit{3D Slicer} is top project by both rankings (and by
 the GithHub stars measure as well).  The Domain Expert ranked \textit{Horos} as
 their second choice, while we ranked it twelfth.  Our third ranked project,
@@ -1369,7 +1375,16 @@ recommended by our methodology and the Domain Expert are not surprising.  As
 mentioned above, the methodology weights all qualities equally, but that may not
 be the case for the Domain Expert's impressions.  Moreover, although the Domain
 Expert has significant experience with MI software, he has not used every one of
-the 29 packages.
+the 29 packages that were measured.
+
+Although our ranking and the estimate of the community's ranking are not perfect
+measures, they do suggest a correlation between best practices and popularity.
+We do not know which comes first, the use of best practices or popularity, but
+we do know that the top ranked packages tend to incorporate best practices. The
+next sections will explore how the practices of the MI community compare to the
+broader research software community. We will also investigate the practices from
+the top projects that others within the MI community, and within the broader
+research software community, can potentially adopt.
 
 \section{Comparison Between LBM and Research Software for Artifacts}
 \label{Sec_CompareArtifacts}
