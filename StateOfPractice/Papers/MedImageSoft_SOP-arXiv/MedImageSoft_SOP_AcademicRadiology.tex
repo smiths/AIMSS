@@ -54,6 +54,7 @@
 \usepackage{pgfplots}
 \usepackage{arydshln}
 \usepackage{paralist}
+\usepackage{booktabs}
 
 %% Comments
 \newif\ifcomments\commentstrue
@@ -835,9 +836,9 @@ packages is available in \citet{Dong2021-Data}.
 \begin{table}[!ht]
 \centering
 \begin{tabular}{p{6cm}lllllllll}
-\hline
+\toprule
 \multirow{2}{*}{Software} & \multirow{2}{*}{Rlsd} & \multirow{2}{*}{Updated} & \multirow{2}{*}{Fnd} & \multirow{2}{*}{NOC} & \multirow{2}{*}{LOC} & \multicolumn{3}{c}{OS} & \multirow{2}{*}{Web} \\ \cline{7-9}
- &  &  &  &  &  & W & M & L &  \\ \hline
+ &  &  &  &  &  & W & M & L &  \\ \midrule
 ParaView \citep{Ahrens2005} & 2002 & 2020-10 & X & 100 & 886326 & X & X & X & X \\
 Gwyddion \citep{Nevcas2012} & 2004 & 2020-11 &  & 38 & 643427 & X & X & X &  \\
 Horos \citep{horosproject2020} & ? & 2020-04 &  & 21 & 561617 &  & X &  &  \\
@@ -867,7 +868,7 @@ dicompyler \citep{Panchal2010} & 2009 & 2020-01 &  & 2 & 15941 & X & X &  &  \\
 Fiji \citep{Schindelin2012} & 2011 & 2020-08 & X & 55 & 10833 & X & X & X &  \\
 ImageJ \citep{Rueden2017} & 1997 & 2020-08 & X & 18 & 9681 & X & X & X &  \\
 MRIcroGL \citep{Rorden2021} & 2015 & 2020-08 &  & 2 & 8493 & X & X & X &  \\
-DicomBrowser \citep{Archie2012} & 2012 & 2020-08 &  & 3 & 5505 & X & X & X &  \\ \hline
+DicomBrowser \citep{Archie2012} & 2012 & 2020-08 &  & 3 & 5505 & X & X & X &  \\ \bottomrule
 \end{tabular}
 \caption{Final software list (sorted in descending order of the number of Lines
 Of Code (LOC))}
@@ -894,14 +895,14 @@ Figure \ref{fg_installability_scores} lists the installability scores.  We found
 installation instructions for 16 projects. Among the ones without instructions,
 \textit{BioImage Suite Web} and \textit{Slice:Drop} do not need installation,
 since they are web applications. Installing 10 of the projects required extra
-dependencies. Five of them are the web applications (as shown in
-Table~\ref{tab_final_list}) and depended on a browser; \textit{dwv},
-\textit{OHIF Viewer}, and \textit{GATE} needed extra dependencies to build;
-\textit{ImageJ} and	\textit{Fiji} needed an unzip tool; \textit{MatrixUser} was
-based on Matlab; \textit{DICOM Viewer} needed to work on a Nextcloud platform.
+dependencies. Five of them are web applications (as shown in
+Table~\ref{tab_final_list}) and depend on a browser; \textit{dwv}, \textit{OHIF
+Viewer}, and \textit{GATE} needs extra dependencies to build; \textit{ImageJ}
+and	\textit{Fiji} need an unzip tool; \textit{MatrixUser} is based on Matlab;
+\textit{DICOM Viewer} needs to work on a Nextcloud platform.
 
 \begin{figure}[!ht]
-\includegraphics[scale=0.38]{figures/installability_scores.png}
+\includegraphics[scale=0.48]{figures/installability_scores.pdf}
 \caption{AHP installability scores}
 \label{fg_installability_scores}
 \end{figure}
@@ -912,10 +913,10 @@ and frustration-free, with all dependencies automatically added. There were also
 no errors during the installation and uninstallation steps. Many other software
 packages also had installation instructions and automated installers, and we had
 no trouble installing them, such as \textit{INVESALIUS 3}, \textit{Gwyddion},
-\textit{XMedCon}, and \textit{MicroView}. We gave them various scores based on
+\textit{XMedCon}, and \textit{MicroView}. We determined their scores based on
 the understandability of the instructions, installation steps, and user
 experience. Since \textit{BioImage Suite Web} and \textit{Slice:Drop} needed no
-installation, we gave them higher scores. \textit{BioImage Suite Web} also
+installation, we gave them high scores. \textit{BioImage Suite Web} also
 provided an option to download cache for offline usage, which was easy
 to apply.
 
@@ -933,14 +934,14 @@ require installation.
 \textit{MatrixUser} has a lower score because it depended on Matlab. We assessed
 the score from the point of view of a user that would have to install Matlab and
 acquire a license.  Of course, for users that already work within Matlab, the
-installability score would be higher.
+installability score should be higher.
 
 \subsection{Correctness \& Verifiability} \label{sec_result_correctness_verifiability}
 
 The scores of correctness \& verifiability are shown in
 Figure~\ref{fg_correctness_verifiability_scores}. Generally speaking, the
 packages with higher scores adopted more techniques to improve correctness, and
-had better documentation for us to verify this.  For instance, we looked for
+had better documentation for us to verify against.  For instance, we looked for
 evidence of unit testing, since it benefits most parts of the software's life
 cycle, such as designing, coding, debugging, and optimization
 \citep{Hamill2004}.  We only found evidence of unit testing for about half of
@@ -948,7 +949,7 @@ the projects. We identified five projects using CI/CD tools: \textit{3D Slicer},
 \textit{ImageJ}, \textit{Fiji}, \textit{dwv}, and \textit{OHIF Viewer}.
 
 \begin{figure}[!ht]
-\includegraphics[scale=0.38]{figures/correctness_verifiability_scores.png}
+\includegraphics[scale=0.48]{figures/correctness_verifiability_scores.pdf}
 \caption{AHP correctness \& verifiability scores}
 \label{fg_correctness_verifiability_scores}
 \end{figure}
@@ -958,10 +959,6 @@ specifications and theory manuals were still missing.  We could not identify
 theory manuals for all projects and we did not find requirements specifications
 for most projects. The only document we found was a road map of \textit{3D
 Slicer}, which contained design requirements for upcoming changes.
-
-% In this section, the information about CI/CD tools is part of the answers to
-% \hyperlink{rq2}{RQ2}, and the information about software testing and
-% documentation is part of the answers to \hyperlink{rq3}{RQ3}.
 
 \subsection{Surface Reliability} \label{sec_result_reliability}
 
@@ -980,7 +977,7 @@ On the other hand, we did not find any problems with the online version of
 \textit{dwv}.
 
 \begin{figure}[!ht]
-\includegraphics[scale=0.38]{figures/reliability_scores.png}
+\includegraphics[scale=0.48]{figures/reliability_scores.pdf}
 \caption{AHP surface reliability scores}
 \label{fg_reliability_scores}
 \end{figure}
@@ -994,7 +991,7 @@ score of \textit{OHIF Viewer}, since we needed further customization to load
 data.
 
 \begin{figure}[!ht]
-\includegraphics[scale=0.38]{figures/robustness_scores.png}
+\includegraphics[scale=0.48]{figures/robustness_scores.pdf}
 \caption{AHP surface robustness scores}
 \label{fg_robustness_scores}
 \end{figure}
@@ -1003,15 +1000,15 @@ Digital Imaging and Communications in Medicine (DICOM) ``defines the formats for
 medical images that can be exchanged with the data and quality necessary for
 clinical use'' \citep{MITA2021}. According to their documentation, all 29
 software packages should support the DICOM standard. To test robustness, we
-prepared two types of image files: correct format and broken format (created by
-relabelled a text file to have the ``.dcm'' extension).  All software packages
-loaded the correct format image, except for \textit{GATE}, which failed for
-unknown reasons.  For the broken format, \textit{MatrixUser}, \textit{dwv}, and
-\textit{Slice:Drop} ignored the incorrect format of the file and loaded it
-regardless. They did not show any error message and displayed a blank image.
-\textit{MRIcroGL} behaved similarly except that it showed a meaningless image
-with noise pixels. \textit{Drishti} successfully detected the broken format of
-the file, but the software crashed as a result.
+prepared two types of image files: correct and incorrect formats (with the
+incorrect format created by relabelled a text file to have the ``.dcm''
+extension).  All software packages loaded the correct format image, except for
+\textit{GATE}, which failed for unknown reasons.  For the broken format,
+\textit{MatrixUser}, \textit{dwv}, and \textit{Slice:Drop} ignored the incorrect
+format of the file and loaded it regardless. They did not show any error message
+and displayed a blank image. \textit{MRIcroGL} behaved similarly except that it
+showed a meaningless image. \textit{Drishti} successfully detected the broken
+format of the file, but the software crashed as a result.
 
 \subsection{Surface Usability} \label{sec_result_usability}
 
@@ -1025,29 +1022,30 @@ manual for 22 projects. \textit{MRIcroGL} was the only project that explicitly
 documented expected user characteristics.
 
 \begin{figure}[!ht]
-\includegraphics[scale=0.38]{figures/usability_scores.png}
+\includegraphics[scale=0.48]{figures/usability_scores.pdf}
 \caption{AHP surface usability scores}
 \label{fg_usability_scores}
 \end{figure}
  
 Table~\ref{tab_user_support_model} summarizes the user support models by the
-number of projects using them. We do not know whether the prevalent use of
-GitHub issues for user support is by design, or whether this just naturally
-happened as users sought help.
-%  This table contains part of the answers to \hyperlink{rq2}{RQ2}.
+number of projects using them (projects may use more than one support model). We
+do not know whether the prevalent use of GitHub issues for user support is by
+design, or whether this just naturally happened as users sought help.
 
 \begin{table}[!ht]
 \centering
-\begin{tabular}{ll}
-\hline
-\multicolumn{1}{c}{User support model} & Number of projects \\ \hline
+\begin{tabular}{lc}
+\toprule
+\multicolumn{1}{c}{User support model} & Num.\ projects \\
+\midrule
 GitHub issue & 24 \\
 Frequently Asked Questions (FAQ) & 12 \\
 Forum & 10 \\
 E-mail address & 9 \\
 GitLab issue, SourceForge discussions & 2 \\
 Troubleshooting & 2 \\
-Contact form & 1 \\ \hline
+Contact form & 1 \\ 
+\bottomrule
 \end{tabular}
 \caption{\label{tab_user_support_model}User support models by number of projects}
 \end{table}
@@ -1055,7 +1053,7 @@ Contact form & 1 \\ \hline
 \subsection{Maintainability} \label{sec_score_maintainability}
 
 Figure~\ref{fg_maintainability_scores} shows the ranking results for
-maintainability. We marked \textit{3D Slicer} with a higher score because
+maintainability. We marked \textit{3D Slicer} with the highest score because
 we found it to have the most comprehensive artifacts. For example, as far as we
 could find, only a few of the 29 projects had a project plan, developer's
 manual, or API documentation, and only \textit{3D Slicer}, \textit{ImageJ},
@@ -1064,19 +1062,19 @@ much higher percentage of closed issues (91.65\%) compared to \textit{ImageJ}
 (52.49\%) and \textit{Fiji} (63.79\%). Table~\ref{tab_maintainability_docs}
 shows which projects had these documents, in the descending order of their
 maintainability scores. 
-% This table contains part of the answers to \hyperlink{rq1}{RQ1} and \hyperlink{rq3}{RQ3}.
 
 \begin{figure}[!ht]
-\includegraphics[scale=0.38]{figures/maintainability_scores.png}
+\includegraphics[scale=0.48]{figures/maintainability_scores.pdf}
 \caption{AHP maintainability scores}
 \label{fg_maintainability_scores}
 \end{figure}
 
 \begin{table}[!ht]
 \centering
-\begin{tabular}{llll}
-\hline
-\multicolumn{1}{c}{Software} & Proj plan & Dev manual & API doc \\ \hline
+\begin{tabular}{lccc}
+\toprule
+\multicolumn{1}{c}{Software} & Proj.\ plan & Dev.\ manual & API doc. \\ 
+\midrule
 3D Slicer & X & X & X \\
 ImageJ & X & X & X \\
 Weasis &  & X &  \\
@@ -1088,17 +1086,18 @@ medInria &  & X &  \\
 INVESALIUS 3 & X &  &  \\
 dwv &  &  & X \\
 BioImage Suite Web &  & X &  \\
-Gwyddion &  & X & X \\ \hline
+Gwyddion &  & X & X \\ 
+\bottomrule
 \end{tabular}
-\caption{\label{tab_maintainability_docs}Software with the maintainability documents}
+\caption{Software with the maintainability documents (listed in descending order of 
+maintainability score)}
+\label{tab_maintainability_docs}
 \end{table}
 
 27 of the 29 projects used git as the version control tool, with 24 of these
 using GitHub. \textit{AMIDE} used Mercurial and \textit{Gwyddion} used
 Subversion. \textit{XMedCon}, \textit{AMIDE}, and \textit{Gwyddion} used
 SourceForge. \textit{DicomBrowser} and \textit{3DimViewer} used BitBucket. 
-% The information about version control tools is part of the answers to
-% \hyperlink{rq2}{RQ2}.
 
 \subsection{Reusability} \label{sec_result_reusability}
 
@@ -1113,7 +1112,7 @@ comments and blanks), LOC, and average LOC per file. We arranged the items in
 descending order of their reusability scores.
 
 \begin{figure}[!ht]
-\includegraphics[scale=0.38]{figures/reusability_scores.png}
+\includegraphics[scale=0.48]{figures/reusability_scores.pdf}
 \caption{AHP reusability scores}
 \label{fg_reusability_scores}
 \end{figure}
@@ -1121,9 +1120,10 @@ descending order of their reusability scores.
 \begin{table}[!ht]
 \centering
 \begin{tabular}{lllll}
-\hline
+\toprule
 \multirow{2}{*}{Software} & \multirow{2}{*}{Text files} & \multirow{2}{*}{Total lines} & \multirow{2}{*}{LOC} & \multirow{2}{*}{LOC/file} \\
- &  &  &  &  \\ \hline
+ &  &  &  &  \\ 
+\midrule
 OHIF Viewer & 1162 & 86306 & 63951 & 55 \\
 3D Slicer & 3386 & 709143 & 501451 & 148 \\
 Gwyddion & 2060 & 787966 & 643427 & 312 \\
@@ -1152,7 +1152,8 @@ XMedCon & 202 & 129991 & 96767 & 479 \\
 MRIcroGL & 97 & 50445 & 8493 & 88 \\
 Slice:Drop & 77 & 25720 & 19020 & 247 \\
 DicomBrowser & 54 & 7375 & 5505 & 102 \\
-dicompyler & 48 & 19201 & 15941 & 332 \\ \hline
+dicompyler & 48 & 19201 & 15941 & 332 \\ 
+\bottomrule
 \end{tabular}
 \caption{Number of files and lines (entries are sorted in descending order of
 their reusability scores)}
@@ -1174,7 +1175,7 @@ Suite Web}, \textit{Slice:Drop}, \textit{MatrixUser}, \textit{DICOM Viewer},
 \textit{dicompyler}, and \textit{Papaya}. 
 
 \begin{figure}[!ht]
-\includegraphics[scale=0.38]{figures/understandability_scores.png}
+\includegraphics[scale=0.48]{figures/understandability_scores.pdf}
 \caption{AHP surface understandability scores}
 \label{fg_surface_understandability_scores}
 \end{figure}
@@ -1190,7 +1191,7 @@ notes, in the descending order of their visibility/transparency scores.
 %This table contains part of the answers to \hyperlink{rq1}{RQ1} and \hyperlink{rq3}{RQ3}.
 
 \begin{figure}[!ht]
-\includegraphics[scale=0.38]{figures/visibility_transparency_scores.png}
+\includegraphics[scale=0.48]{figures/visibility_transparency_scores.pdf}
 \caption{AHP visibility/transparency scores}
 \label{fg_visibility_transparency_scores}
 \end{figure}
@@ -1198,8 +1199,9 @@ notes, in the descending order of their visibility/transparency scores.
 \begin{table}[!ht]
 \centering
 \begin{tabular}{lllll}
-\hline
-Software & Dev process & Proj status & Dev env & Rls notes \\ \hline
+\toprule
+Software & Dev process & Proj status & Dev env & Rls notes \\ 
+\midrule
 3D Slicer & X & X & X & X \\
 ImageJ & X & X & X & X \\
 Fiji & X & X & X &  \\
@@ -1220,7 +1222,8 @@ BioImage Suite Web &  &  & X &  \\
 ITK-SNAP &  &  &  & X \\
 Horos &  &  &  & X \\
 dwv &  &  &  & X \\
-Gwyddion &  &  &  & X \\ \hline
+Gwyddion &  &  &  & X \\ 
+\bottomrule
 \end{tabular}
 \caption{\label{tab_Visibility/Transparency_docs}Software with the visibility/transparency documents}
 \end{table}
@@ -1235,7 +1238,7 @@ order. Since we produced the scores from the AHP process, the total sum of the
 29 scores is precisely 1.
 
 \begin{figure}[!ht]
-\includegraphics[scale=0.38]{figures/overall_scores.png}
+\includegraphics[scale=0.48]{figures/overall_scores.pdf}
 \caption{Overall AHP scores for all 9 software qualities}
 
 \label{fg_overall_scores}
@@ -1304,8 +1307,9 @@ perform well in all qualities.
 \begin{table}[!ht]
 \centering
 \begin{tabular}{lllll}
-\hline
-Software & Our ranking & Stars/yr & Watches/yr & Forks/yr \\ \hline
+\toprule
+Software & Our ranking & Stars/yr & Watches/yr & Forks/yr \\ 
+\midrule
 3D Slicer & 1 & 284 & 19 & 128 \\
 OHIF Viewer & 3 & 277 & 19 & 224 \\
 dwv & 23 & 124 & 12 & 51 \\
@@ -1334,7 +1338,8 @@ Gwyddion & 11 & n/a & n/a & n/a \\
 XMedCon & 19 & n/a & n/a & n/a \\
 DicomBrower & 21 & n/a & n/a & n/a \\
 AMIDE & 22 & n/a & n/a & n/a \\
-3DimViewer & 24 & n/a & n/a & n/a \\ \hline
+3DimViewer & 24 & n/a & n/a & n/a \\ 
+\bottomrule
 \end{tabular}
 \caption{\label{tab_ranking_vs_GitHub}Software ranking versus GitHub metrics
 (Sorted in descending order of GitHub popularity, as estimated by the number of
@@ -1454,22 +1459,27 @@ and \textit{testing}. We put the less mentioned ones into the category
 \begin{table}[!ht]
 \centering
 \begin{tabular}{llll}
-\hline
+\toprule
 \multirow{2}{*}{Category} & \multirow{2}{*}{Obstacle} & \multicolumn{2}{c}{Num ans.} \\ \cline{3-4} 
- &  & current & past \\ \hline
+ &  & current & past \\ 
+\midrule
 \multirow{2}{*}{Resource} & Lack of fundings & 3 &  \\
- & Lack of time to devote to the project & 2 & 1 \\ \hdashline
+ & Lack of time to devote to the project & 2 & 1 \\ 
+\midrule
 \multirow{3}{*}{Balance} & Hard to keep up with changes in OS and libraries & 1 &  \\
  & Hard to support multiple OS & 2 &  \\
- & Hard to support lower-end computers & 1 & 2 \\ \hdashline
-Testing & Lack of access to real-world datasets for testing & 3 & 2 \\ \hdashline
+ & Hard to support lower-end computers & 1 & 2 \\ 
+\midrule
+Testing & Lack of access to real-world datasets for testing & 3 & 2 \\ 
+\midrule
 \multirow{7}{*}{Others}
  & Hard to have a high level roadmap from the start & 1 &  \\
  & Not enough participants for usability tests & 1 &  \\
  & Only a few people fully understand the large codebase & 1 &  \\
  & Hard to transfer to new technologies & & 2 \\
  & Hard to understand users' needs & & 1 \\
- & Hard to maintain good documentations & & 1 \\ \hline
+ & Hard to maintain good documentations & & 1 \\ 
+\bottomrule
 \end{tabular}
 \caption{\label{tab_obstacles}Current and past obstacles by the numbers of interviewees with the answers}
 \end{table}
@@ -1528,8 +1538,9 @@ differences between the two choices with the interviewees.
 \begin{table}[!ht]
 \centering
 \begin{tabular}{lll}
-\hline
-Software team & Native application & Web application \\ \hline
+\toprule
+Software team & Native application & Web application \\ 
+\midrule
 3D Slicer & X & \\
 INVESALIUS 3 & X & \\
 dwv & & X \\
@@ -1537,12 +1548,14 @@ BioImage Suite Web & & X \\
 ITK-SNAP & X & \\
 MRIcroGL & X & \\
 Weasis & X & \\
-OHIF & & X \\ \hdashline
+OHIF & & X \\ 
+\midrule
 Total number among the eight teams & 5 & 3 \\
-Total number among the 29 teams & 24 & 5 \\ \hline
+Total number among the 29 teams & 24 & 5 \\ 
+\bottomrule
 \end{tabular}
-\caption{\label{tab_native_vs_web}Teams' choices between native application and
-web application}
+\caption{Teams' choices between native application and web application}
+\label{tab_native_vs_web}
 \end{table}
 
 The advantage for native applications is higher performance, while web
@@ -1599,15 +1612,17 @@ documentations conveyed information clearly enough.
 \begin{table}[!ht]
 \centering
 \begin{tabular}{ll}
-\hline
-Opinion on documentation & Num ans. \\ \hline
-Documentation is vital to the project& 8 \\
+\toprule
+Opinion on documentation & Num ans. \\ 
+\midrule
+Documentation is vital to the project & 8 \\
 Documentation of the project needs improvements & 7 \\
 Referring to documentation saves time to answer questions & 6 \\
 Lack of time to maintain good documentation & 4 \\
 Documentation of the project conveys information clearly & 3 \\
 Coding is more fun than documentation & 2 \\
-Users help each other by referring to documentation & 1 \\ \hline
+Users help each other by referring to documentation & 1 \\ 
+\bottomrule
 \end{tabular}
 \caption{\label{tab_opinion_doc}Opinions on documentation by the numbers of
 interviewees with the answers}
