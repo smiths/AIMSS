@@ -1386,7 +1386,7 @@ broader research software community. We will also investigate the practices from
 the top projects that others within the MI community, and within the broader
 research software community, can potentially adopt.
 
-\section{Comparison Between LBM and Research Software for Artifacts}
+\section{Comparison Between MI and Research Software for Artifacts}
 \label{Sec_CompareArtifacts}
 
 As part of filling in the measurement template the LBM packages were examined
@@ -1406,7 +1406,31 @@ justify compromising which practices we will write our comparison under the
 ideal assumption that every project has sufficient resources to match best
 practices.
 
-\section{Comparison of Tool Usage Between LBM and Other Research Software}
+    
+We answered this question by examining and analyzing the repositories for each
+of the 29 projects.  In particular, as part of assessing maintainability, we
+listed the artifacts (documents, test scripts etc.) that appear in each project.
+The full measurement results are summarized in \citet{Dong2021-Data}.  The
+artifacts found were as follows (with the number of occurrences in brackets):
+Source code (29), README (29), Version Control (29), License (28), Bug tracker
+(28), Change request (28), User Manual (22), Release notes (22), Build file
+(18), Tutorials (18), Installation Guide (16), Test cases (15), Authors (14),
+FAQ (14), Acknowledgements (12), Executable files (10), Developer's Manual (8),
+API documentation (7), Troubleshooting guide (6), Project Plan (5).  The
+traceability of some document types to the projects in which they occur was
+previously presented in Table~\ref{tab_maintainability_docs} for maintainability
+related documents, and Table~\ref{tab_Visibility/Transparency_docs} for
+visibility/transparency related documents.
+    
+The list in the previous paragraph shows that some types of software engineering
+recommended artifacts are missing in MI projects.  For instance, we did not find
+evidence of user stories (an Agile software development tool for capturing
+software features from an end-user perspective), user requirements, test plans,
+test code coverage, etc.  Our preliminary work suggests that this is not unique
+to MI software.  A gap exists in scientific computing development practices and
+software engineering recommendations \citep{OwojaiyeEtAl2021_CSE}.
+    
+\section{Comparison of Tool Usage Between MI and Other Research Software}
 \label{Sec_CompareTools}
 
 Software tools are used to support the development, verification, maintenance,
@@ -1434,7 +1458,17 @@ working at the same institution.  Working at the same institution means that an
 informal process can show success, since informal conversations are relatively
 easy to have.
 
-\section{Interviews with Developers} \label{ch_interview}
+\section{Developer Pain Points} \label{painpoints}
+
+Based on interviews with four developers, this section aims to answer the
+research questions: i) What are the pain points for developers working on
+research software projects (\rqref{RQ_PainPoints})?; and, ii) How do the pain
+points of developers from LBM compare to the pain points for research software
+in general (\rqref{RQ_ComparePainPoints})?  Below we go through each of the
+identified pain points and include citations that contrast the LBM experience
+with observations from researchers in other domains.  Potential ways to address
+the pain points are covered in Section~\ref{Sec_AddressConcerns}. The full
+interview questions are found in \citet{SmithEtAl2021}.
 
 The measurement results in Section \ref{ch_results} are based on information we
 collected from on-line resources. This information is incomplete because it
@@ -1455,7 +1489,7 @@ The full interview answers can be found in \citet{Dong2021}.  Selected questions
 and answers are highlighted and analyzed below.  The question numbers refer to
 the numbering in \citet{SmithEtAl2021}.
 
-\subsection{Current and Past Pain Points} \label{sec_interview_pain_points}
+%\label{sec_interview_pain_points}
 
 The pain points include current and past obstacles, as explored via the
 following questions:
@@ -1479,8 +1513,8 @@ and \textit{testing}. We put the less mentioned ones into the category
 \centering
 \begin{tabular}{llll}
 \toprule
-\multirow{2}{*}{Category} & \multirow{2}{*}{Obstacle} & \multicolumn{2}{c}{Num ans.} \\ \cline{3-4} 
- &  & current & past \\ 
+\multirow{2}{*}{Category} & \multirow{2}{*}{Obstacle} & \multicolumn{2}{c}{Num
+ ans.} \\ \cline{3-4} &  & current & past \\ 
 \midrule
 \multirow{2}{*}{Resource} & Lack of fundings & 3 &  \\
  & Lack of time to devote to the project & 2 & 1 \\ 
@@ -1607,6 +1641,9 @@ special dataset over time.
 No interviewee provided a perfect solution to the testing problem. However,
 increased connections between the development team and medical
 professionals/institutions could ease the pain.
+
+\section{Interviews with Developers} \label{ch_interview}
+
 
 \subsection{Documents in the Projects} \label{sec_interview_documents}
 
@@ -1869,32 +1906,6 @@ This section answers the research questions from
 Section~\ref{sec_motivation}.  We will go through each of the questions
 in turn.
 
-\begin{description}
-\item[RQ1.] What artifacts are present in current software projects?
-\end{description}
-
-We answered this question by examining and analyzing the repositories for each
-of the 29 projects.  In particular, as part of assessing maintainability, we
-listed the artifacts (documents, test scripts etc.) that appear in each project.
-The full measurement results are summarized in \citet{Dong2021-Data}.  The
-artifacts found were as follows (with the number of occurrences in brackets):
-Source code (29), README (29), Version Control (29), License (28), Bug tracker
-(28), Change request (28), User Manual (22), Release notes (22), Build file
-(18), Tutorials (18), Installation Guide (16), Test cases (15), Authors (14),
-FAQ (14), Acknowledgements (12), Executable files (10), Developer's Manual (8),
-API documentation (7), Troubleshooting guide (6), Project Plan (5).  The
-traceability of some document types to the projects in which they occur was
-previously presented in Table~\ref{tab_maintainability_docs} for maintainability
-related documents, and Table~\ref{tab_Visibility/Transparency_docs} for
-visibility/transparency related documents.
-
-The list in the previous paragraph shows that some types of software engineering
-recommended artifacts are missing in MI projects.  For instance, we did not find
-evidence of user stories (an Agile software development tool for capturing
-software features from an end-user perspective), user requirements, test plans,
-test code coverage, etc.  Our preliminary work suggests that this is not unique
-to MI software.  A gap exists in scientific computing development practices and
-software engineering recommendations \citep{OwojaiyeEtAl2021_CSE}.
 
 \begin{description}
 \item[RQ2.] What tools are used in the development of current software packages?
