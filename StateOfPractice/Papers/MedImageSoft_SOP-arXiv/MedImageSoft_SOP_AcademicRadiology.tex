@@ -281,13 +281,13 @@ start with identifying the relevant examples of MI software:
 	(Section~\ref{Sec_CompareMethodologies})
 	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_PainPoints}:] What are
 	the pain points for developers working on MI software projects?
-	(Section~\ref{ch_interview})
+	(Section~\ref{painpoints})
 	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_ComparePainPoints}:] How
 	do the pain points of developers from MI compare to the pain points
-	for research software in general? (Section~\ref{ch_interview})
+	for research software in general? (Section~\ref{painpoints})
 	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_Concerns}:] For MI
 	developers what specific best practices are taken to address the pain points
-	and software quality concerns? (Section~\ref{ch_interview})
+	and software quality concerns? (Section~\ref{Sec_AddressConcerns})
 	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_Recommend}:]
 	What research software development practice could potentially address the
 	pain point concerns identified in \rqref{RQ_PainPoints}).
@@ -1442,6 +1442,24 @@ tools, dependencies, and project management tools.  In this section we answer
 software packages to their utilization in the research software community in
 general.
 
+We answer this question by measuring the qualities and interviewing the
+developers. We learned that developers use tools for CI/CD
+(Section~\ref{sec_result_correctness_verifiability}), user support
+(Table~\ref{tab_user_support_model}), version control
+(Section~\ref{sec_score_maintainability}), documentation
+(Section~\ref{sec_contribution_pm}), contribution management
+(Section~\ref{sec_contribution_pm}), and project management
+(Section~\ref{sec_contribution_pm}).
+    
+As mentioned in Section \ref{sec_result_correctness_verifiability}, we
+identified five projects using CI/CD tools: \textit{3D Slicer} and \textit{OHIF
+Viewer} use CircleCI; \textit{ImageJ}, \textit{Fiji}, and \textit{dwv} use
+Travis. We identified the above projects and tools by examining the
+documentation and source code of all projects. Not all tools leave identifiable
+artifacts in the repositories; therefore, we may have missed the use of some
+tools. According to the interviews with developers, \textit{dwv} and
+\textit{Weasis} used GitHub Actions.
+
 \section{Comparison of Principles, Process and Methodologies to Research Software in General} \label{Sec_CompareMethodologies}
 
 This section answers research question \rqref{RQ_CompareMethodologies} by
@@ -1457,6 +1475,147 @@ would accept outside contributors, generally the teams are centralized, often
 working at the same institution.  Working at the same institution means that an
 informal process can show success, since informal conversations are relatively
 easy to have.
+
+We answer this question by measuring the qualities and interviewing the
+developers. We previously summarized principles, processes, and methodologies in
+software testing (Section~\ref{Sec_CompareMethodologies}), documentation
+(Section~\ref{sec_interview_documents}, Table~\ref{tab_maintainability_docs},
+Table~\ref{tab_Visibility/Transparency_docs}, contribution management
+(Section~\ref{sec_contribution_pm}), and project management
+(Section~\ref{sec_contribution_pm}). 
+    
+We identified the use of unit testing in less than half of the 29 projects. On
+the other hand, the interviewees believed that testing (including usability
+tests with users) was the top solution to improve correctness, usability, and
+reproducibility. One pain point in the development process is the lack of access
+to real-world datasets for testing. The developers' strategies to address this
+are summarized in Section~\ref{Sec_AddressConcerns} \ad{to be fixed}. One threat to
+correctness is: with huge datasets for testing, the tests are expensive and
+time-consuming. Three interviewees endorsed self tests / automated tests, which
+may save time for testing.
+    
+Documentation is apparently not emphasized in any of the 29 projects.  None of
+them had theory manuals, although we did identify a road map in the \textit{3D
+Slicer} project.  No requirements specifications were found. Eight of the nine
+interviewees thought that documentation was essential to their projects.
+However, they hold the common opinion that their documentation needed
+improvements. Nearly half of them also believed that the lack of time prevented
+them from improving the documentation.
+
+\subsection{Documents in the Projects} \label{sec_interview_documents}
+
+We tried to understand the interviewees' opinions on documentation and the
+quality of documentations with two questions:
+
+\begin{description}
+\item[Q11.] How does documentation fit into your development process? Would
+improved documentation help with the obstacles you typically face?
+\item[Q19.] Do you think the current documentation can clearly convey all
+necessary knowledge to the users? If yes, how did you successfully achieve it?
+If no, what improvements are needed?
+\end{description}
+
+Table~\ref{tab_opinion_doc} summarizes interviewees' opinions on documentation.
+Interviewees from each of the eight projects thought that documentation was
+important to their projects, and most of them said that it could save their time
+to answer questions from users and developers. Most of them saw the need to
+improve their documentation, and only three of them thought that their
+documentations conveyed information clearly enough. 
+
+\begin{table}[!ht]
+\centering
+\begin{tabular}{ll}
+\toprule
+Opinion on documentation & Num ans. \\ 
+\midrule
+Documentation is vital to the project & 8 \\
+Documentation of the project needs improvements & 7 \\
+Referring to documentation saves time to answer questions & 6 \\
+Lack of time to maintain good documentation & 4 \\
+Documentation of the project conveys information clearly & 3 \\
+Coding is more fun than documentation & 2 \\
+Users help each other by referring to documentation & 1 \\ 
+\bottomrule
+\end{tabular}
+\caption{\label{tab_opinion_doc}Opinions on documentation by the numbers of
+interviewees with the answers}
+\end{table}
+
+For documentation tools and methods mentioned by the interviewees, the most
+popular (mentioned by about 30\% of developers) were forum discussions and
+videos.  The second most popular options (mentioned by about 20\% of developers)
+were GitHub, wiki pages, workshops, and social media.  The least frequently
+mentioned options (about 10\% of developers) included writing books, google
+forms and state management.
+
+\subsection{Project Management} \label{sec_contribution_pm}
+
+To investigate project management we asked three questions:
+
+\begin{description}
+\item[Q5.] Do you have a defined process for accepting new contributions into
+your team?
+\item[Q13.] What is your software development model? For example, waterfall,
+agile, etc.
+\item[Q14.] What is your project management process? Do you
+think improving this process can tackle the current problem? Were any project
+management tools used?
+\end{description}
+
+Although teams may have a process for accepting new contributions, no one
+discussed this during their interview. However, most teams (8 of 9) mentioned
+using GitHub and pull requests to manage contributions from the community. The
+interviewees generally gave very positive feedback on using GitHub. Some teams
+previously used a different approach to version control and eventually
+transferred to git and GitHub.  The past approaches included contributions
+from e-mail (3 teams), contributions from forums (1 team) and sharing the
+git repository via e-mail (1 team).  \wss{I do not know what this last one means.
+Should ask Ao.} \ad{The last one happened when cloud-based repositories (Github,
+Gitlab, Bitbucket, etc.) were not widely used. The project git repository was
+stored locally on the project owner's local computer. The owner shared the whole
+git repo to team members and other individuals who wanted to contribute. The
+contributors made changes to the repo, and sent it back. They transferred the
+repo back and forth by email.}
+
+For managing contributions, the \textit{3D Slicer} team encouraged users to
+develop their extensions for specific use cases, while the \textit{OHIF} team
+enabled the use of plug-ins.  The interviewee from the \textit{ITK-SNAP} team
+said one way of accepting new team members was through funded academic projects.
+
+For the most part, the responses about development model were vague, with only
+two interviewees following a definite development model. In some cases the
+interviewees felt their process was similar to an existing development model.
+Three teams (about 38\%) either followed agile, or something similar to agile.
+Two teams (25\%) either followed a waterfall process, or something similar.
+Three teams (about 38\%) explicitly stated that their process was undefined or
+self-directed.
+
+Some interviewees mentioned the project management tools they used. Generally
+speaking, the interviewees talked about two types of tools:
+\begin{inparaenum}[i)]
+\item trackers, including GitHub, issue trackers, bug trackers and Jira; and,
+\item documentation tools, including GitHub, Wiki page, Google Doc, and Confluence.
+\end{inparaenum}
+Of the specifically named tools in the above lists, GitHub was mentioned 3
+times, while each of the other tools was only mentioned once.
+
+No interviewee introduced any strictly defined project management process. The
+most common approach was following the issues, such as bugs and feature requests.
+Additionally, the \textit{3D Slicer} team had weekly meetings to discuss the
+goals for the project; the \textit{INVESALIUS 3} team relied on the GitHub
+process for their project management; the \textit{ITK-SNAP} team had a fixed
+six-month release pace; only the interviewee from the \textit{OHIF} team
+mentioned that the team has a project manager; the \textit{3D Slicer} team and
+\textit{BioImage Suite Web} team do nightly builds and tests.
+
+Most interviewees skipped the part of the last question asking ``Do you think
+improving this process can tackle the current problem?''. In retrospect, we
+should not have asked a yes-or-no question, since a binary answer is not very
+informative. The interviewee from the \textit{OHIF} team gave a positive answer
+to this question. They believed that a better project management process can
+improve the efficiency of junior developers. They also improved the project
+management tools (from public Jira to public GitHub repository plus private
+Jira), so they could better communicate externally and internally.
 
 \section{Developer Pain Points} \label{painpoints}
 
@@ -1642,124 +1801,6 @@ No interviewee provided a perfect solution to the testing problem. However,
 increased connections between the development team and medical
 professionals/institutions could ease the pain.
 
-\section{Interviews with Developers} \label{ch_interview}
-
-
-\subsection{Documents in the Projects} \label{sec_interview_documents}
-
-We tried to understand the interviewees' opinions on documentation and the
-quality of documentations with two questions:
-
-\begin{description}
-\item[Q11.] How does documentation fit into your development process? Would
-improved documentation help with the obstacles you typically face?
-\item[Q19.] Do you think the current documentation can clearly convey all
-necessary knowledge to the users? If yes, how did you successfully achieve it?
-If no, what improvements are needed?
-\end{description}
-
-Table~\ref{tab_opinion_doc} summarizes interviewees' opinions on documentation.
-Interviewees from each of the eight projects thought that documentation was
-important to their projects, and most of them said that it could save their time
-to answer questions from users and developers. Most of them saw the need to
-improve their documentation, and only three of them thought that their
-documentations conveyed information clearly enough. 
-
-\begin{table}[!ht]
-\centering
-\begin{tabular}{ll}
-\toprule
-Opinion on documentation & Num ans. \\ 
-\midrule
-Documentation is vital to the project & 8 \\
-Documentation of the project needs improvements & 7 \\
-Referring to documentation saves time to answer questions & 6 \\
-Lack of time to maintain good documentation & 4 \\
-Documentation of the project conveys information clearly & 3 \\
-Coding is more fun than documentation & 2 \\
-Users help each other by referring to documentation & 1 \\ 
-\bottomrule
-\end{tabular}
-\caption{\label{tab_opinion_doc}Opinions on documentation by the numbers of
-interviewees with the answers}
-\end{table}
-
-For documentation tools and methods mentioned by the interviewees, the most
-popular (mentioned by about 30\% of developers) were forum discussions and
-videos.  The second most popular options (mentioned by about 20\% of developers)
-were GitHub, wiki pages, workshops, and social media.  The least frequently
-mentioned options (about 10\% of developers) included writing books, google
-forms and state management.
-
-\subsection{Project Management} \label{sec_contribution_pm}
-
-To investigate project management we asked three questions:
-
-\begin{description}
-\item[Q5.] Do you have a defined process for accepting new contributions into
-your team?
-\item[Q13.] What is your software development model? For example, waterfall,
-agile, etc.
-\item[Q14.] What is your project management process? Do you
-think improving this process can tackle the current problem? Were any project
-management tools used?
-\end{description}
-
-Although teams may have a process for accepting new contributions, no one
-discussed this during their interview. However, most teams (8 of 9) mentioned
-using GitHub and pull requests to manage contributions from the community. The
-interviewees generally gave very positive feedback on using GitHub. Some teams
-previously used a different approach to version control and eventually
-transferred to git and GitHub.  The past approaches included contributions
-from e-mail (3 teams), contributions from forums (1 team) and sharing the
-git repository via e-mail (1 team).  \wss{I do not know what this last one means.
-Should ask Ao.} \ad{The last one happened when cloud-based repositories (Github,
-Gitlab, Bitbucket, etc.) were not widely used. The project git repository was
-stored locally on the project owner's local computer. The owner shared the whole
-git repo to team members and other individuals who wanted to contribute. The
-contributors made changes to the repo, and sent it back. They transferred the
-repo back and forth by email.}
-
-For managing contributions, the \textit{3D Slicer} team encouraged users to
-develop their extensions for specific use cases, while the \textit{OHIF} team
-enabled the use of plug-ins.  The interviewee from the \textit{ITK-SNAP} team
-said one way of accepting new team members was through funded academic projects.
-
-For the most part, the responses about development model were vague, with only
-two interviewees following a definite development model. In some cases the
-interviewees felt their process was similar to an existing development model.
-Three teams (about 38\%) either followed agile, or something similar to agile.
-Two teams (25\%) either followed a waterfall process, or something similar.
-Three teams (about 38\%) explicitly stated that their process was undefined or
-self-directed.
-
-Some interviewees mentioned the project management tools they used. Generally
-speaking, the interviewees talked about two types of tools:
-\begin{inparaenum}[i)]
-\item trackers, including GitHub, issue trackers, bug trackers and Jira; and,
-\item documentation tools, including GitHub, Wiki page, Google Doc, and Confluence.
-\end{inparaenum}
-Of the specifically named tools in the above lists, GitHub was mentioned 3
-times, while each of the other tools was only mentioned once.
-
-No interviewee introduced any strictly defined project management process. The
-most common approach was following the issues, such as bugs and feature requests.
-Additionally, the \textit{3D Slicer} team had weekly meetings to discuss the
-goals for the project; the \textit{INVESALIUS 3} team relied on the GitHub
-process for their project management; the \textit{ITK-SNAP} team had a fixed
-six-month release pace; only the interviewee from the \textit{OHIF} team
-mentioned that the team has a project manager; the \textit{3D Slicer} team and
-\textit{BioImage Suite Web} team do nightly builds and tests.
-
-Most interviewees skipped the part of the last question asking ``Do you think
-improving this process can tackle the current problem?''. In retrospect, we
-should not have asked a yes-or-no question, since a binary answer is not very
-informative. The interviewee from the \textit{OHIF} team gave a positive answer
-to this question. They believed that a better project management process can
-improve the efficiency of junior developers. They also improved the project
-management tools (from public Jira to public GitHub repository plus private
-Jira), so they could better communicate externally and internally.
-
 \subsection{Discussions on Software Qualities} \label{sec_interview_software_qualities}
 
 Questions 15--18, and 20 cover the software qualities of correctness,
@@ -1876,7 +1917,7 @@ images to consume less memory, and an option to load only part of the data to
 boost performance.
 
 \begin{description}
-\item[Q20.] Do you have any concern that your computational results won’t be
+\item[Q20.] Do you have any concern that your computational results won't be
 reproducible in the future? Have you taken any steps to ensure reproducibility?
 \end{description}
 
@@ -1900,96 +1941,15 @@ benchmarking the software against other software that overlaps in functionality.
 Specifically one interviewee suggested using \textit{3D Slicer} as the benchmark
 to test their reproducibility.
 
-\section{Answers to Research Questions} \label{ch_answers}
+\section{Lessons from MI Developers} \label{Sec_AddressConcerns}
 
-This section answers the research questions from
-Section~\ref{sec_motivation}.  We will go through each of the questions
-in turn.
-
-
-\begin{description}
-\item[RQ2.] What tools are used in the development of current software packages?
-\end{description}
-
-We answer this question by measuring the qualities and interviewing the
-developers. We learned that developers use tools for CI/CD
-(Section~\ref{sec_result_correctness_verifiability}), user support
-(Table~\ref{tab_user_support_model}), version control
-(Section~\ref{sec_score_maintainability}), documentation
-(Section~\ref{sec_contribution_pm}), contribution management
-(Section~\ref{sec_contribution_pm}), and project management
-(Section~\ref{sec_contribution_pm}).
-
-As mentioned in Section \ref{sec_result_correctness_verifiability}, we
-identified five projects using CI/CD tools: \textit{3D Slicer} and \textit{OHIF
-Viewer} use CircleCI; \textit{ImageJ}, \textit{Fiji}, and \textit{dwv} use
-Travis. We identified the above projects and tools by examining the
-documentation and source code of all projects. Not all tools leave identifiable
-artifacts in the repositories; therefore, we may have missed the use of some
-tools. According to the interviews with developers, \textit{dwv} and
-\textit{Weasis} used GitHub Actions.
-
-\begin{description}
-\item[RQ3.] What principles, processes, and methodologies are used in the
-development of current software packages?
-\end{description}
-
-We answer this question by measuring the qualities and interviewing the
-developers. We previously summarized principles, processes, and methodologies in
-software testing (Section~\ref{sec_interview_pain_points} and
-Section~\ref{sec_interview_software_qualities}), documentation
-(Section~\ref{sec_interview_documents}, Table~\ref{tab_maintainability_docs},
-Table~\ref{tab_Visibility/Transparency_docs}, and Section~\ref{ch_answers}),
-contribution management (Section~\ref{sec_contribution_pm}), and project
-management (Section~\ref{sec_contribution_pm}). 
-
-We identified the use of unit testing in less than half of the 29 projects. On
-the other hand, the interviewees believed that testing (including usability
-tests with users) was the top solution to improve correctness, usability, and
-reproducibility. One pain point in the development process is the lack of access
-to real-world datasets for testing. The developers' strategies to address this
-are summarized in Section~\ref{ch_interview} \ad{to be fixed}. One threat to correctness is:
-with huge datasets for testing, the tests are expensive and time-consuming.
-Three interviewees endorsed self tests / automated tests, which may save time
-for testing.
-
-Documentation is apparently not emphasized in any of the 29 projects.  None of
-them had theory manuals, although we did identify a road map in the \textit{3D
-Slicer} project.  No requirements specifications were found. Eight of the nine
-interviewees thought that documentation was essential to their projects.
-However, they hold the common opinion that their documentation needed
-improvements. Nearly half of them also believed that the lack of time prevented
-them from improving the documentation.
-
-\begin{description}
-\item[RQ4.] What are the pain points for developers working on research software
-projects? What aspects of the existing processes, methodologies, and tools do
-they consider as potentially needing improvement? What changes to processes,
-methodologies, and tools can improve software development and software quality?
-\end{description}
-
-We answer this question by interviewing the developers. The answers to this
-question, including the pain points and the solutions proposed by the
-developers, are in Section~\ref{sec_interview_pain_points}.
-
-\begin{description}
-\item[RQ5.] What is the current status of the following
-software qualities for the projects? What actions have the developers taken to
-address them?
-\end{description}
-
-The current status of the software qualities was assessed through filling in the
-measurement template \citep{Dong2021-Data}.  A summary of the comparison between
-all projects can be found in Section~\ref{ch_results}.  We explored some of the
-qualities more deeply, especially with respect to techniques addressing quality
-concerns, through the interview questions.  Specifically, the qualities of
-correctness \& verifiability, usability, maintainability, understandability and
-reproducibility are explored in Section~\ref{ch_interview}.
-
-\begin{description}
-\item[RQ6.] How does software designated as high quality by this methodology
-compare with top-rated software by the community?
-\end{description}
+This section summarizes the best practices from LBM developers that are taken to
+address the pain points mentioned in Section~\ref{painpoints}.  The main source
+of information is the qualitative data from developer interviews
+(Section~\ref{sec_interview_methods}).  The practices summarized in this section
+can potentially be emulated by the LBM software packages that do not currently
+follow them.  Moreover, these practices may also provide examples that can be
+followed by other research software domains.
 
 \section{Threats to Validity} \label{sec_threats_to_validity}
 
@@ -2018,7 +1978,7 @@ of the information for each project from the artifacts available on the
 Internet. In some cases this source of data may mean we did not find evidence of
 something, like unit testing, not because the project didn't do it, but because
 no artifacts of this activity remained in the publicly available repository.
-\item As mentioned in Section~\ref{ch_interview}, one interviewee was too busy
+\item As mentioned in Section~\ref{painpoints}, one interviewee was too busy
 to participate in a full interview, so they provided a version of written answers
 to us. Since we did not have the chance to explain our questions or ask them
 follow-up questions, there is a possibility of misinterpretation of the
@@ -2098,14 +2058,14 @@ potentially improve the ten software qualities.
 Sections~\ref{sec_recommendations_limited_resources},
 \ref{sec_recommendations_tech_stack}, and
 \ref{sec_recommendations_testing_dataset} are based on the primary pain points
-(from Section~\ref{sec_interview_pain_points}) collected from developers in the
+(from Section~\ref{painpoints}) collected from developers in the
 MI domain.
 
 \subsection{Recommendations on Improving Software Qualities}
 \label{sec_recommendations_qualities}
 
 Based on our quality measurements in Section~\ref{ch_results} and discussions
-with the developers in Section~\ref{ch_interview}, we collected key points for
+with the developers in Section~\ref{painpoints}, we collected key points for
 improving software qualities. These points should be considered for new and
 existing projects, but we are not saying that every project should do everything
 on our list.  All projects will have finite resources, so strategies will have
@@ -2206,10 +2166,10 @@ that that recommendation helps with - this would reduce repetition.}
 
 The limitation of resources has many faces, with the key manifestations being
 lack of fundings, time, and developers. We summarized our discussion with the MI
-software developers in Section~\ref{sec_interview_pain_points}.  Many of our
-recommendations involve investing more effort into processes, tools and methods,
-so that the limited resources can be used more effectively.  Our recommendations
-are as follows:
+software developers in Section~\ref{painpoints}.  Many of our recommendations
+involve investing more effort into processes, tools and methods, so that the
+limited resources can be used more effectively.  Our recommendations are as
+follows:
 
 \begin{itemize}
 \item \textbf{Identify the root cause.} More fundings or developers may not
@@ -2256,13 +2216,13 @@ the community.
 \label{sec_recommendations_tech_stack}
 
 A tech stack refers to a set of technologies used by a team to build software
-and manage the project. Section~\ref{sec_interview_pain_points} lists the
-advantages and disadvantages between native and web applications. In this
-section, we give further suggestions on the choice of a tech stack to improve
-the four priority factors identified by developers: compatibility,
-maintainability, performance and security.  The suggestions are intended to
-provide ideas and avenues for exploration; not all of the suggestions will be
-the right fit for all projects and all teams.
+and manage the project. Section~\ref{painpoints} lists the advantages and
+disadvantages between native and web applications. In this section, we give
+further suggestions on the choice of a tech stack to improve the four priority
+factors identified by developers: compatibility, maintainability, performance
+and security.  The suggestions are intended to provide ideas and avenues for
+exploration; not all of the suggestions will be the right fit for all projects
+and all teams.
 
 \begin{itemize}
 \item \textbf{Identify the priorities between the factors.} Simultaneously
@@ -2311,7 +2271,7 @@ generally help team members to contribute more and make fewer mistakes.
 \subsection{Recommendations on Enriching the Testing Datasets} 
 \label{sec_recommendations_testing_dataset}
 
-As described in Section~\ref{sec_interview_pain_points}, it is difficult for
+As described in Section~\ref{painpoints}, it is difficult for
 software development teams to access real-world medical imaging datasets. This
 problem restricts their capability and flexibility for testing. We provide some
 suggestions as follows:
@@ -2363,17 +2323,16 @@ maintains large datasets, tests OSS in the domain, and protects privacy.
 
 We analyzed the state of the practice for the MI domain with the goal of
 understanding current practice, answering our six research questions
-(Section~\ref{sec_motivation}) and providing recommendations for current
-and future projects.  Our methods in Section~\ref{ch_methods} form a general
-process to evaluate domain-specific software, that we apply to the specific
-domain of MI software. We identified 48 MI software candidates, then, with the
-help of the Domain Expert selected 29 of them to our final list.
-Section~\ref{ch_results} lists our measurements to nine software qualities for
-the 29 projects, and Section~\ref{ch_interview} contains our interviews with
-eight of the 29 teams, discussing their development process and five software
-qualities.  We answered our six research questions in Section~\ref{ch_answers}.
-In addition, Section~\ref{ch_recommendations} presents our recommendations on SC
-software development.
+(Section~\ref{sec_motivation}) and providing recommendations for current and
+future projects.  Our methods in Section~\ref{ch_methods} form a general process
+to evaluate domain-specific software, that we apply to the specific domain of MI
+software. We identified 48 MI software candidates, then, with the help of the
+Domain Expert selected 29 of them to our final list. Section~\ref{ch_results}
+lists our measurements to nine software qualities for the 29 projects, and
+Section~\ref{painpoints} contains our interviews with eight of the 29 teams,
+discussing their development process and five software qualities.  We answered
+our research questions. In addition, Section~\ref{ch_recommendations} presents
+our recommendations on SC software development.
 
 \subsection{Key Findings}
 
@@ -2382,7 +2341,7 @@ current status of MI software development. We ranked the 29 software projects in
 nine qualities.  Based on on the grading scores \textit{3D Slicer},
 \textit{ImageJ}, and \textit{OHIF Viewer} are the top three software packages.
 
-The interview results in Section~\ref{ch_interview} show some merits, drawbacks,
+The interview results in Section~\ref{painpoints} show some merits, drawbacks,
 and pain points within the development process. The three primary categories of
 pain points are:
 \begin{itemize}
@@ -2402,13 +2361,13 @@ pull requests to manage contributions.  Very few teams used a specific
 development model.  It appears that the development process is more ad hoc than
 planned for the majority of projects.
 
-Our answers to the research questions (Section~\ref{ch_answers}) are based on
-the above findings. We identified the existing artifacts, tools, principles,
-processes, and methodologies in the 29 projects. By comparisons with the implied
-popularity of existing projects we found: 1) four of the top five software
-projects in our ranking were also among the top five ones receiving the most
-GitHub stars per year (Table~\ref{tab_ranking_vs_GitHub}); 2) three of the top
-four in our ranking were among the top four provided by the domain experts.
+Our answers to the research questions are based on the above findings. We
+identified the existing artifacts, tools, principles, processes, and
+methodologies in the 29 projects. By comparisons with the implied popularity of
+existing projects we found: 1) four of the top five software projects in our
+ranking were also among the top five ones receiving the most GitHub stars per
+year (Table~\ref{tab_ranking_vs_GitHub}); 2) three of the top four in our
+ranking were among the top four provided by the domain experts.
 
 Section~\ref{ch_recommendations} presents our recommendations on improving
 software qualities and easing pain points during development. Some highlighted
