@@ -1287,13 +1287,14 @@ our ranking.  All GitHub statistics were collected in July, 2021.
 
 Generally speaking, most of the top-ranking MI software projects also received
 greater attention and popularity on GitHub. Between our ranking and the GitHub
-stars-per-year ranking, four of the top five software projects are the same.
-Any more stats?
+stars-per-year ranking, four of the top five software projects appear in both
+lists.Our top 5 packages are scattered among the first 8 positions on the GitHub
+list. However, as discussed below there are discrepancies between the two lists.
 
-In some cases projects are popular in the community, but our methodology ranked
-them low.  This is the case for \textit{dwv}. The reason for the low ranking is
-that, as mentioned in Section~\ref{sec_result_installability}, we failed to
-build it locally, and used the test version on its websites for the
+In some cases projects are popular in the community, but were assigned a low
+rank by our methodology.  This is the case for \textit{dwv}. The reason for the
+low ranking is that, as mentioned in Section~\ref{sec_result_installability}, we
+failed to build it locally, and used the test version on its websites for the
 measurements. We followed the instructions and tried to run the command ``yarn
 run test'' locally, which did not work. In addition, the test version did not
 detect a broken DICOM file and displayed a blank image as described in
@@ -1305,54 +1306,58 @@ that we could not successfully install. Thus, we might underestimate the scores
 of its surface reliability and surface robustness. In addition, we weighted all
 qualities equally, which is not likely to be the case with all users. As a
 result, some projects with high community popularity may have scored lower with
-our method because of poor scores for some qualities.  A further explanation for
-discrepancies between our measures and the star measures may also be due to
-inaccuracy with using stars to approximate popularity.  Stars are not an idea
-measure because stars represent the community's feeling in the past more than
-current preferences \citep{Szulik2017}, since stars tend only to be added, not
-removed.
+our method because of a relatively higher (compared to the scientific
+community's implicit ranking) weighting of the poor scores for some qualities. A
+further explanation for discrepancies between our measures and the star measures
+may also be due to inaccuracy with using stars to approximate popularity.  Stars
+are not an ideal measure because stars represent the community's feeling in the
+past more than they measure current preferences \citep{Szulik2017}.  The issue
+with stars is that they tend only to be added, not removed.  A final reason for
+inconsistencies between our ranking and the community's ranking is that, as for
+consumer products, more factors influence popularity than just quality.
 
 \begingroup
 \renewcommand{\arraystretch}{0.85}
 \begin{table}[!ht]
 \centering
-\begin{tabular}{lllll}
+\begin{tabular}{llllll}
 \toprule
-Software & Our ranking & Stars/yr & Watches/yr & Forks/yr \\ 
+Software & Comm.\ rank & Our rank & Stars/yr & Watches/yr & Forks/yr \\ 
 \midrule
-3D Slicer & 1 & 284 & 19 & 128 \\
-OHIF Viewer & 3 & 277 & 19 & 224 \\
-dwv & 23 & 124 & 12 & 51 \\
-ImageJ & 2 & 84 & 9 & 30 \\
-ParaView & 5 & 67 & 7 & 28 \\
-Horos & 12 & 49 & 9 & 18 \\
-Papaya & 17 & 45 & 5 & 20 \\
-Fiji & 4 & 44 & 5 & 21 \\
-DICOM Viewer & 29 & 43 & 6 & 9 \\
-INVESALIUS 3 & 10 & 40 & 4 & 17 \\
-Weasis & 6 & 36 & 5 & 19 \\
-dicompyler & 26 & 35 & 5 & 14 \\
-OsiriX Lite & 9 & 34 & 9 & 24 \\
-MRIcroGL & 18 & 24 & 3 & 3 \\
-GATE & 25 & 19 & 6 & 26 \\
-Ginkgo CADx & 14 & 19 & 4 & 6 \\
-BioImage Suite Web & 8 & 18 & 5 & 7 \\
-Drishti & 27 & 16 & 4 & 4 \\
-Slice:Drop & 20 & 10 & 2 & 5 \\
-ITK-SNAP & 15 & 9 & 1 & 4 \\
-medInria & 7 & 7 & 3 & 6 \\
-SMILI & 13 & 3 & 1 & 2 \\
-MatrixUser & 28 & 2 & 0 & 0 \\
-MicroView & 16 & 1 & 1 & 1 \\
-Gwyddion & 11 & n/a & n/a & n/a \\
-XMedCon & 19 & n/a & n/a & n/a \\
-DicomBrower & 21 & n/a & n/a & n/a \\
-AMIDE & 22 & n/a & n/a & n/a \\
-3DimViewer & 24 & n/a & n/a & n/a \\ 
+3D Slicer & 1 & 1 & 284 & 19 & 128 \\
+OHIF Viewer & 2 & 3 & 277 & 19 & 224 \\
+dwv & 3 & 23 & 124 & 12 & 51 \\
+ImageJ & 4 & 2 & 84 & 9 & 30 \\
+ParaView & 5 & 5 & 67 & 7 & 28 \\
+Horos & 6 & 12 & 49 & 9 & 18 \\
+Papaya & 7 & 17 & 45 & 5 & 20 \\
+Fiji & 8 & 4 & 44 & 5 & 21 \\
+DICOM Viewer & 9 & 29 & 43 & 6 & 9 \\
+INVESALIUS 3 & 10 & 10 & 40 & 4 & 17 \\
+Weasis & 11 & 6 & 36 & 5 & 19 \\
+dicompyler & 12 & 26 & 35 & 5 & 14 \\
+OsiriX Lite & 13 & 9 & 34 & 9 & 24 \\
+MRIcroGL & 14 & 18 & 24 & 3 & 3 \\
+GATE & 15 & 25 & 19 & 6 & 26 \\
+Ginkgo CADx & 16 & 14 & 19 & 4 & 6 \\
+BioImage Suite Web & 17 & 8 & 18 & 5 & 7 \\
+Drishti & 18 & 27 & 16 & 4 & 4 \\
+Slice:Drop & 19 & 20 & 10 & 2 & 5 \\
+ITK-SNAP & 20 & 15 & 9 & 1 & 4 \\
+medInria & 21 & 7 & 7 & 3 & 6 \\
+SMILI & 22 & 13 & 3 & 1 & 2 \\
+MatrixUser & 23 & 28 & 2 & 0 & 0 \\
+MicroView & 24 & 16 & 1 & 1 & 1 \\
+Gwyddion & 25 & 11 & n/a & n/a & n/a \\
+XMedCon & 26 & 19 & n/a & n/a & n/a \\
+DicomBrower & 27 & 21 & n/a & n/a & n/a \\
+AMIDE & 28 & 22 & n/a & n/a & n/a \\
+3DimViewer & 29 & 24 & n/a & n/a & n/a \\ 
 \bottomrule
 \end{tabular}
-\caption{Software ranking versus GitHub metrics (Sorted in descending order of
-GitHub popularity, as estimated by the number of new stars per year)}
+\caption{Software ranking by our methodology versus the community (Comm.)
+ranking using GitHub metrics (Sorted in descending order of community
+popularity, as estimated by the number of new stars per year)}
 \label{tab_ranking_vs_GitHub}
 \end{table}
 \endgroup
@@ -1405,8 +1410,7 @@ quality.  However, rather than delve into the nuances of which software can
 justify compromising which practices we will write our comparison under the
 ideal assumption that every project has sufficient resources to match best
 practices.
-
-    
+  
 We answered this question by examining and analyzing the repositories for each
 of the 29 projects.  In particular, as part of assessing maintainability, we
 listed the artifacts (documents, test scripts etc.) that appear in each project.
