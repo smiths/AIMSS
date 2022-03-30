@@ -354,9 +354,8 @@ Hierarchy Process (Section \ref{sec_AHP}).
 
 When assessing software packages, we need to know what license the software is
 distributed under.  In particular, we need to know whether the source code will
-be available to us or not.  In this section, we present three common software
-categories.  We will only assess software that fits under the Open Source
-Software license.
+be available to us or not.  We define three common software categories.  We will
+only assess software that fits under the Open Source Software license.
 
 \begin{itemize}
 
@@ -1394,57 +1393,201 @@ research software community, can potentially adopt.
 \section{Comparison Between MI and Research Software for Artifacts}
 \label{Sec_CompareArtifacts}
 
-As part of filling in the measurement template the LBM packages were examined
-for the presence of artifacts, which were then categorized by frequency. We have
+As part of filling in the measurement template the MI packages were examined for
+the presence of artifacts, which were then categorized by frequency. We have
 grouped them into common, less common, and rare artifacts in
-Table~?. Common artifacts were found in 16 to 24 ($>$63\%)
-of the software packages. Less common artifacts were found in 8 to 15 (30-63\%)
-of the software packages. Rare artifacts were found in 1 to 7 ($<$30\%) of the
-software packages.  In this section we answer \rqref{RQ_CompareArtifacts} by
-comparing the artifacts that we observed in LBM repositories to those observed
-and recommended for research software in general. Our comparison may point out
-areas where some LBM software packages fall short of current best practices.
-This is not intended to be a criticism of any existing packages, especially
-since in practice not every project needs to achieve the highest possible
-quality.  However, rather than delve into the nuances of which software can
-justify compromising which practices we will write our comparison under the
-ideal assumption that every project has sufficient resources to match best
-practices.
-  
-We answered this question by examining and analyzing the repositories for each
-of the 29 projects.  In particular, as part of assessing maintainability, we
-listed the artifacts (documents, test scripts etc.) that appear in each project.
-The full measurement results are summarized in \citet{Dong2021-Data}.  The
-artifacts found were as follows (with the number of occurrences in brackets):
-Source code (29), README (29), Version Control (29), License (28), Bug tracker
-(28), Change request (28), User Manual (22), Release notes (22), Build file
-(18), Tutorials (18), Installation Guide (16), Test cases (15), Authors (14),
-FAQ (14), Acknowledgements (12), Executable files (10), Developer's Manual (8),
-API documentation (7), Troubleshooting guide (6), Project Plan (5).  The
-traceability of some document types to the projects in which they occur was
-previously presented in Table~\ref{tab_maintainability_docs} for maintainability
-related documents, and Table~\ref{tab_Visibility/Transparency_docs} for
-visibility/transparency related documents.
+Table~\ref{artifactspresent}. Common artifacts were found in 20 to 29 ($>$67\%)
+of the software packages. Uncommon and rare artifacts were found in
+10 to 19 (33-67\%) and 1 to 9 ($<$33\%) of the software packages, respectively.
+The full measurements are summarized in \citet{Dong2021-Data}.  The details on
+which projects use which types of artifacts is summarized in
+Tables~\ref{tab_maintainability_docs} and~\ref{tab_Visibility/Transparency_docs}
+for documents related to maintainability and visibility, respectively.
+
+\begin{table}[ht!]
+    \begin{center}
+    \begin{tabular}{ p{4.6 cm} p{5.6 cm} p{5 cm}}
+    \toprule
+    \textbf{Common} & \textbf{Uncommon} & \textbf{Rare} \\
+    \midrule
+    README (29) & Build scripts (18) & Developer's manual (8)\\
+    Version control (29) & Tutorials (18) & API documentation (7)\\
+    License (28) & Installation guide (16) & Troubleshooting guide (6)\\
+    Issue tracker (28) & Test cases (15) & Product roadmap (5)\\
+    Change request (28) & Authors (14) & \\
+    User manual (22) & Frequently Asked Questions (FAQ) (14) & \\
+    Release info. (22) & Acknowledgements (12) & \\
+    \bottomrule
+    \end{tabular}
+    \caption{Artifacts Present in MI Packages, Classified by Frequency (The number in brackets is the number of occurrences)}
+    \label{artifactspresent}
+    \end{center}
+\end{table}
+
+We answer \rqref{RQ_CompareArtifacts} by comparing the artifacts that we
+observed in MI repositories to those observed and recommended for research
+software in general. Our comparison may point out areas where some MI software
+packages fall short of current best practices. This is not intended to be a
+criticism of any existing packages, especially since in practice not every
+project needs to achieve the highest possible quality. However, rather than
+delve into the nuances of which software can justify compromising which
+practices we will write our comparison under the ideal assumption that every
+project has sufficient resources to match best practices.
     
-The list in the previous paragraph shows that some types of software engineering
-recommended artifacts are missing in MI projects.  For instance, we did not find
-evidence of user stories (an Agile software development tool for capturing
-software features from an end-user perspective), user requirements, test plans,
-test code coverage, etc.  Our preliminary work suggests that this is not unique
-to MI software.  A gap exists in scientific computing development practices and
-software engineering recommendations \citep{OwojaiyeEtAl2021_CSE}.
+Table~\ref{artifactspresent} shows that some types of software engineering
+recommended artifacts are missing in MI projects.  
+  A gap exists in scientific
+computing development practices and software engineering recommendations
+\citep{OwojaiyeEtAl2021_CSE}.
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabular}{ p{2.5cm}p{1cm}p{1cm}p{1cm}p{1cm}p{1cm}p{1cm}p{1cm}p{1.2cm}p{1cm}p{0.8cm} }
+\toprule
+~ \ & \cite{USGS2019} & \cite{TobiasEtAl2018} & \cite{BrettEtAl2021} & \cite{WilsonEtAl2016} & \cite{SmithAndRoscoe2018} & \cite{HerouxEtAl2008} & \cite{ThielEtAl2020} & \cite{vanGompelEtAl2016} & \cite{OrvizEtAl2017} & MI\\
+\midrule
+LICENSE & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & & \checkmark & \checkmark & \checkmark & C\\
+README &  & \checkmark & \checkmark & \checkmark & \checkmark & & \checkmark & \checkmark & \checkmark & C\\
+CONTRIBUTING &  & \checkmark & \checkmark & \checkmark & \checkmark & & \checkmark & \checkmark & \checkmark \\
+CITATION &  &  &  & \checkmark & & & & \checkmark & \checkmark &  \\
+CHANGELOG &  & \checkmark &  & \checkmark & \checkmark & & \checkmark &  &  &  \\
+INSTALL &  &  &  &  & \checkmark & & \checkmark & \checkmark & \checkmark & U\\
+\midrule
+Uninstall &  &  &  &  & & & & \checkmark & &  \\
+Dependency List &  &  & \checkmark & & \checkmark & & & \checkmark &  &  \\
+Authors &  &  &  &  &  &  & \checkmark & \checkmark & \checkmark & U\\
+Code of Conduct &  &  &  &  & & & \checkmark & & &  \\
+Acknowledgements &  &  &  &  &  &  & \checkmark & \checkmark & \checkmark & U\\
+Code Style Guide &  & \checkmark &  &  & & & \checkmark & \checkmark & \checkmark &\\
+Release Info. &  & \checkmark &  &  & & \checkmark & \checkmark & & & C\\
+Prod.\ Roadmap &  &  &  &  & & \checkmark & \checkmark & \checkmark & & R\\
+\midrule
+Getting started &  &  &  &  & \checkmark & & \checkmark & \checkmark & \checkmark &  \\
+User manual &  &  & \checkmark &  & & & \checkmark & & & C\\
+Tutorials &  &  &  &  & & & \checkmark & & & U\\
+FAQ &  &  &  &  & & & \checkmark & \checkmark & \checkmark & U\\
+\midrule
+Issue Track &  & \checkmark & \checkmark & & \checkmark & \checkmark & \checkmark & & \checkmark & C\\
+Version Control &  & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & C\\ 
+Build Scripts &  & \checkmark &  & \checkmark & \checkmark & \checkmark & \checkmark & & \checkmark & U\\
+\midrule
+Requirements &  & \checkmark &  &  & & \checkmark &  &  & \checkmark &  \\
+Design Doc.\ &  & \checkmark  & \checkmark &  & \checkmark & & \checkmark & \checkmark& \checkmark & \\
+API Doc. &  &  &  &  & \checkmark & & \checkmark & \checkmark & \checkmark & R\\
+Test Plan &  & \checkmark &  &  & & \checkmark & & & &  \\
+Test Cases & \checkmark & \checkmark & \checkmark &  & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & U\\
+\bottomrule
+\end{tabular}
+\caption{Comparison of Recommended Artifacts in Software Development Guidelines
+to Artifacts in MI Projects (C for Common, U for Uncommon and R for Rare)}
+\label{Tbl_Guidelines}
+    \end{center}
+\end{table}
     
+The majority of MI generated artifacts correspond to general recommendations
+from research software developers.  A union of the three columns in
+Table~\ref{artifactspresent} mostly corresponds to recommendations made by the
+research software community.  Most of the items in Table~\ref{artifactspresent}
+are included in guidelines for writing research software, such as the DLR
+(German Aerospace Centre) Software Engineering Guidelines
+\citep{TobiasEtAl2018}, xSDK (Extreme-scale Scientific Software Development Kit)
+Community Package Policies \citep{SmithAndRoscoe2018}, the EURISE (European
+Research Infrastructure Software Engineers') Network Technical Reference
+\cite{ThielEtAl2020} and CLARIAH (Common Lab Research Infrastructure for the
+Arts and Humanities) Guidelines for Software Quality \citep{vanGompelEtAl2016}.
+As an example, MI developers commonly list the external libraries on which the
+software depends, as recommended by \citet{BrettEtAl2021},
+\citet{SmithAndRoscoe2018} and \citet{vanGompelEtAl2016}. Although in the rare
+column, some MI developers include an FAQ (Frequently Asked Questions) document
+as recommended by \citep{OrvizEtAl2017}, \citep{ThielEtAl2020} and
+\citep{vanGompelEtAl2016}. MI developers also follow the ubiquitous
+recommendation to have a README file, although, as for other software, the
+content of README files is not standardized \citep{PranaEtAl2018}.  Compared to
+ocean modelling software \citep{JungEtAl2022}, MI software pays more
+attention to artifacts related to testing.
+
+Three of the items that appear in Table~\ref{artifactspresent} do not explicitly
+appear in the software development guidelines: i) list of related publications,
+ii) performance information and iii) video guides.  The occurrence of the first
+two items in this list are likely more a consequence of how we collected our
+list of MI artifacts, rather than being a unique practice of MI developers. We
+highlighted publications and performance information because we were explicitly
+looking for both as part of filling in our measurement template. Related
+publications and performance information certainly appear in other research
+software projects; the practices just aren't highlighted in guidelines because
+they are implicit in other documentation recommendations, such as theory
+documentation and user guides. The observation of a video guide artifact is more
+novel.  \citet{Fogel2005} recommends videos for open source projects, and other
+projects likely use them, but the practice has apparently not yet made it into
+research software community's guidelines.  Putting aside the debate of the
+effectiveness of learning from print versus video, video documentation is
+growing in popularity, with a majority of Generation Z learners preferring video
+to print \citep{Genota2018}.
+
+Although the MI community participates in most of the practices we found listed
+in the general research software guidelines, some recommended practices were not
+observed or rarely observed. For instance API documentation was rarely observed
+for MI software, but it is a frequently recommended artifact
+\citep{SmithAndRoscoe2018, ThielEtAl2020, vanGompelEtAl2016, OrvizEtAl2017,
+SSI2022, Zadka2018}.  In addition to the items in the last column of
+Table~\ref{artifactspresent}, we can add the following community recommended
+items that we rarely, if ever, observed:
+
+\begin{itemize}
+\item A roadmap showing what is planned for the future \citep{Yo2021,
+ThielEtAl2020, vanGompelEtAl2016}.  We did see this information mentioned in
+some repos, but we did not observe a specific artifact devoted to this purpose.
+\item A code of conduct to explicitly say how developers should treat one
+another \citep{Yo2021, ThielEtAl2020}.  We did not observe a policy of this
+sort, possibly because the number of developers for each MI project is small.
+\item Programming style guidelines so that programming labels and formatting are
+consistent \citep{TobiasEtAl2018, ThielEtAl2020, OrvizEtAl2017, Zadka2018,
+vanGompelEtAl2016, WilsonEtAl2014}.  We saw this information as part of
+some developer guides, but only rarely.
+\item Checklists can be used in projects to ensure that best practices are
+followed by all developers.  Some examples include checklists merging branches
+into master \citep{Brown2015}, checklists for saving and sharing changes to the
+project \citep{WilsonEtAl2016}, checklists for new and departing team members
+\citep{HerouxAndBernholdt2018}, checklists for processes related to commits and
+releases \citep{HerouxEtAl2008} and checklists for overall software quality
+\citep{ThielEtAl2020, SSI2022}.  For MI software, ESPResSo has a checklist for
+managing releases, but otherwise they are used only rarely for MI.
+\item Uninstall instructions \citep{vanGompelEtAl2016} were not observed for any
+of the MI projects.
+\end{itemize}
+
+The above discussion shows that, taken together, MI projects fall short of
+recommended best practices for research software.  However, MI software is not
+alone in this.  Many, if not most, research projects fall short of best
+practices.  Software requirements documentation provides a good example of the
+common deviation between recommendations and practice.  Although requirements
+documentation is recommended by some \citep{TobiasEtAl2018, HerouxEtAl2008,
+SmithAndKoothoor2016}, in practice research software developers often do not
+produce a proper requirements specification \citep{HeatonAndCarver2015}.
+\citet{SandersAndKelly2008} interviewed 16 scientists from 10 disciplines and
+found that none of the scientists created requirements specifications, unless
+regulations in their field mandated such a document. \citet{Nguyen-HoanEtAl2010}
+showed requirements are the least commonly produced type of documentation for
+research software in general. When looking at the pain points for research
+software developers, \citet{WieseEtAl2019} found that software requirements and
+management is the software engineering discipline that most hurts scientific
+developers, accounting for 23\% of the technical problems reported by study
+participants.  The lack of support for requirements is likely due to the
+perception that up-front requirements are impossible for research software
+\citep{CarverEtAl2007,SegalAndMorris2008}, but when the instance on ``up-front''
+requirements is dropped, allowing the requirements to be written iteratively and
+incrementally, requirements are feasible \citep{Smith2016}.
+
 \section{Comparison of Tool Usage Between MI and Other Research Software}
 \label{Sec_CompareTools}
 
 Software tools are used to support the development, verification, maintenance,
 and evolution of software, software processes, and artifacts \citep[p.\
-501]{GhezziEtAl2003}. Many tools are used by LBM software packages, as
-summarized in Table~?.  The tools are subdivided into development
-tools, dependencies, and project management tools.  In this section we answer
-\rqref{RQ_CompareToolsProjMngmnt} by comparing aspects of tool usage in LBM
-software packages to their utilization in the research software community in
-general.
+501]{GhezziEtAl2003}. Many tools are used by MI software packages, as summarized
+in Table~?.  The tools are subdivided into development tools, dependencies, and
+project management tools.  We answer \rqref{RQ_CompareToolsProjMngmnt} by
+comparing aspects of tool usage in MI software packages to their utilization in
+the research software community in general.
 
 We answer this question by measuring the qualities and interviewing the
 developers. We learned that developers use tools for CI/CD
@@ -1467,13 +1610,13 @@ tools. According to the interviews with developers, \textit{dwv} and
 \section{Comparison of Principles, Process and Methodologies to Research Software in General} \label{Sec_CompareMethodologies}
 
 This section answers research question \rqref{RQ_CompareMethodologies} by
-comparing the principles, processes and methodologies used for LBM software to
+comparing the principles, processes and methodologies used for MI software to
 what can be gleaned from the literature on research software in general. In our
-data collection for LBM software, the software development process is not
+data collection for MI software, the software development process is not
 explicitly indicated in the artifacts for most of the packages. However, during
 our interviews one developer (ESPResSo) told us their non-rigorous development
 model is like a combination of agile and waterfall. Employing a loosely defined
-process makes sense for LBM software, given that the teams are generally small
+process makes sense for MI software, given that the teams are generally small
 and self-contained.  Although eleven of the packages explicitly convey that they
 would accept outside contributors, generally the teams are centralized, often
 working at the same institution.  Working at the same institution means that an
@@ -1626,9 +1769,9 @@ Jira), so they could better communicate externally and internally.
 Based on interviews with four developers, this section aims to answer the
 research questions: i) What are the pain points for developers working on
 research software projects (\rqref{RQ_PainPoints})?; and, ii) How do the pain
-points of developers from LBM compare to the pain points for research software
+points of developers from MI compare to the pain points for research software
 in general (\rqref{RQ_ComparePainPoints})?  Below we go through each of the
-identified pain points and include citations that contrast the LBM experience
+identified pain points and include citations that contrast the MI experience
 with observations from researchers in other domains.  Potential ways to address
 the pain points are covered in Section~\ref{Sec_AddressConcerns}. The full
 interview questions are found in \citet{SmithEtAl2021}.
@@ -1947,13 +2090,13 @@ to test their reproducibility.
 
 \section{Lessons from MI Developers} \label{Sec_AddressConcerns}
 
-This section summarizes the best practices from LBM developers that are taken to
-address the pain points mentioned in Section~\ref{painpoints}.  The main source
-of information is the qualitative data from developer interviews
-(Section~\ref{sec_interview_methods}).  The practices summarized in this section
-can potentially be emulated by the LBM software packages that do not currently
-follow them.  Moreover, these practices may also provide examples that can be
-followed by other research software domains.
+The best practices from MI developers are taken to address the pain points
+mentioned in Section~\ref{painpoints}.  We found the practices as part of the
+qualitative data from developer interviews
+(Section~\ref{sec_interview_methods}).  The practices we summarize can
+potentially be emulated by the MI software packages that do not currently follow
+them.  Moreover, these practices may also provide examples that can be followed
+by other research software domains.
 
 \section{Threats to Validity} \label{sec_threats_to_validity}
 
@@ -2221,12 +2364,11 @@ the community.
 
 A tech stack refers to a set of technologies used by a team to build software
 and manage the project. Section~\ref{painpoints} lists the advantages and
-disadvantages between native and web applications. In this section, we give
-further suggestions on the choice of a tech stack to improve the four priority
-factors identified by developers: compatibility, maintainability, performance
-and security.  The suggestions are intended to provide ideas and avenues for
-exploration; not all of the suggestions will be the right fit for all projects
-and all teams.
+disadvantages between native and web applications. We give further suggestions
+on the choice of a tech stack to improve the four priority factors identified by
+developers: compatibility, maintainability, performance and security.  The
+suggestions are intended to provide ideas and avenues for exploration; not all
+of the suggestions will be the right fit for all projects and all teams.
 
 \begin{itemize}
 \item \textbf{Identify the priorities between the factors.} Simultaneously
