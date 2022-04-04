@@ -1598,6 +1598,110 @@ Version Control & & \\
 \end{center}
 \end{table}
 
+Table~\ref{Tbl_Guidelines} (based on data from \citep{SmithAndMichalski2022})
+shows that MI artifacts generally match the recommendations found in nine
+current research software development guidelines:
+\begin{itemize}
+\item United States Geological Survey Software Planning Checklist
+\citep{USGS2019},
+\item DLR (German Aerospace Centre) Software Engineering Guidelines
+\citep{TobiasEtAl2018}, 
+\item Scottish Covid-19 Response Consortium Software Checklist
+\citep{BrettEtAl2021},
+\item Good Enough Practices in Scientific Computing \citep{WilsonEtAl2016},
+\item xSDK (Extreme-scale Scientific Software Development Kit) Community Package
+Policies \citep{SmithAndRoscoe2018},
+\item Trilinos Developers Guide \citep{HerouxEtAl2008},
+\item EURISE (European Research Infrastructure Software Engineers') Network
+Technical Reference \citep{ThielEtAl2020},
+\item CLARIAH (Common Lab Research Infrastructure for the Arts and Humanities)
+Guidelines for Software Quality \citep{vanGompelEtAl2016}, and
+\item A Set of Common Software Quality Assurance Baseline Criteria for Research
+Projects \citep{OrvizEtAl2017}.
+\end{itemize}
+
+In Table~\ref{Tbl_Guidelines} each row corresponds to an artifact.  For a given
+row, a checkmark in one of the columns means that the corresponding guideline
+recommends this artifact.  The last column shows whether the artifact appears in
+the measured set of MI software, either not at all (blank), commonly (C),
+uncommonly (U) or rarely (R).  We did our best to interpret the meaning of each
+artifact consistently between guidelines and specific MI software, but the
+terminology and the contents of artifacts are not standardized.  The challenge
+even exists for the ubiquitous README file.  As illustrated by
+\citet{PranaEtAl2018}, the content of README files shows significant variation
+between projects.  Although some content is reasonably consistent, with 97\% of
+README files contain at least one section describing the `What` of the
+repository and 88.5 \% offering some `How` content, other categories are more
+variable.  For instance, information on `Contribution`, `Why`', and `Who`,
+appear in 27.8\%, 25.7\% and 52.9\% of the analyzed files, respectively
+\citep{PranaEtAl2018}.  
+
+The frequency of checkmarks in Table~\ref{Tbl_Guidelines} indicates the
+popularity of recommending a given artifact, but it does not imply that the most
+commonly recommended artifacts are the most important artifacts. Just because an
+artifact is not explicitly recommended in a given guidelines, does not mean that
+the artifact is not valued by the guideline authors.  They may have exluded it
+because it is out of the scope of their recommendations, or outside of their
+experience.  For instance, an artifact related to uninstall is only explicitly
+mentioned by \citep{vanGompelEtAl2016}), but other guideline authors would
+likely see its value.  They may simply feel that uninstall is implied by
+install, or they may have never asked themselves whether separate uninstall
+instructions are needed.
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabular}{ p{2.5cm}p{1cm}p{1cm}p{1cm}p{1cm}p{1cm}p{1cm}p{1cm}p{1.2cm}p{1cm}p{0.8cm} }
+\toprule
+~ \ & \cite{USGS2019} & \cite{TobiasEtAl2018} & \cite{BrettEtAl2021} &
+\cite{WilsonEtAl2016} & \cite{SmithAndRoscoe2018} & \cite{HerouxEtAl2008} &
+\cite{ThielEtAl2020} & \cite{vanGompelEtAl2016} & \cite{OrvizEtAl2017} & LBM\\
+\midrule
+LICENSE & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & &
+\checkmark & \checkmark & \checkmark & C\\
+README &  & \checkmark & \checkmark & \checkmark & \checkmark & & \checkmark &
+\checkmark & \checkmark & C\\
+CONTRIBUTING &  & \checkmark & \checkmark & \checkmark & \checkmark & &
+\checkmark & \checkmark & \checkmark & R\\
+CITATION &  &  &  & \checkmark & & & & \checkmark & \checkmark & U\\
+CHANGELOG &  & \checkmark &  & \checkmark & \checkmark & & \checkmark &  &  & U\\
+INSTALL &  &  &  &  & \checkmark & & \checkmark & \checkmark & \checkmark & U\\
+\midrule
+Uninstall &  &  &  &  & & & & \checkmark & &  \\
+Dependency List &  &  & \checkmark & & \checkmark & & & \checkmark &  & R\\
+Authors &  &  &  &  &  &  & \checkmark & \checkmark & \checkmark & U\\
+Code of Conduct &  &  &  &  & & & \checkmark & & & R\\
+Acknowledgements &  &  &  &  &  &  & \checkmark & \checkmark & \checkmark & U\\
+Code Style Guide &  & \checkmark &  &  & & & \checkmark & \checkmark & \checkmark & R\\
+Release Info. &  & \checkmark &  &  & & \checkmark & \checkmark & & & C\\
+Prod.\ Roadmap &  &  &  &  & & \checkmark & \checkmark & \checkmark & & R\\
+\midrule
+Getting started &  &  &  &  & \checkmark & & \checkmark & \checkmark & \checkmark & R\\
+User manual &  &  & \checkmark &  & & & \checkmark & & & C\\
+Tutorials &  &  &  &  & & & \checkmark & & & U\\
+FAQ &  &  &  &  & & & \checkmark & \checkmark & \checkmark & U\\
+\midrule
+Issue Track &  & \checkmark & \checkmark & & \checkmark & \checkmark &
+\checkmark & & \checkmark & C\\
+Version Control &  & \checkmark & \checkmark & \checkmark & \checkmark &
+\checkmark & \checkmark & \checkmark & \checkmark & C\\ 
+Build Scripts &  & \checkmark &  & \checkmark & \checkmark & \checkmark &
+\checkmark & & \checkmark & U\\
+\midrule
+Requirements &  & \checkmark &  &  & & \checkmark &  &  & \checkmark &  \\
+Design Doc.\ &  & \checkmark  & \checkmark &  & \checkmark & & \checkmark &
+\checkmark& \checkmark & R\\
+API Doc. &  &  &  &  & \checkmark & & \checkmark & \checkmark & \checkmark & R\\
+Test Plan &  & \checkmark &  &  & & \checkmark & & & &  \\
+Test Cases & \checkmark & \checkmark & \checkmark &  & \checkmark & \checkmark &
+\checkmark & \checkmark & \checkmark & U\\
+\bottomrule
+\end{tabular}
+\caption{Comparison of Recommended Artifacts in Software Development Guidelines
+to Artifacts in MI Projects (C for Common, U for Uncommon and R for Rare)}
+\label{Tbl_Guidelines}
+\end{center}
+\end{table}
+
 The top four packages, ESPREsSo, Ludwig, Palabos, and OpenLB, have all of the
 common artifacts, except Palabos does not have theory notes and only three
 (ESPREsSo, Ludwig, Palabos) of the packages appear to use a version control
