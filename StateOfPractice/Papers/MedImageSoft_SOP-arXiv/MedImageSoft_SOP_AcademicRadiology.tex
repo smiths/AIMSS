@@ -1393,13 +1393,13 @@ research software community, can potentially adopt.
 \section{Comparison Between MI and Research Software for Artifacts}
 \label{Sec_CompareArtifacts}
 
-As part of filling in the measurement template the MI packages were examined for
-the presence of artifacts, which were then categorized by frequency.
-Table~\ref{artifactspresent} groups them into categories of common (20 to 29
-($>$67\%) packages), uncommon (10 to 19 (33-67\%) packages), and rare (1 to 9
-($<$33\%) packages). The full measurements are summarized in
-\citet{Dong2021-Data}.  The details on which projects use which types of
-artifacts are summarized in Tables~\ref{tab_maintainability_docs}
+As part of filling in the measurement template (from
+Section~\ref{sec_grading_software}) we summarized the artifacts observed in each
+MI package. Table~\ref{artifactspresent} groups the artifacts by frequency into
+categories of common (20 to 29 ($>$67\%) packages), uncommon (10 to 19 (33-67\%)
+packages), and rare (1 to 9 ($<$33\%) packages). The full measurements are
+summarized in \citet{Dong2021-Data}.  The details on which projects use which
+types of artifacts are summarized in Tables~\ref{tab_maintainability_docs}
 and~\ref{tab_Visibility/Transparency_docs} for documents related to
 maintainability and visibility, respectively.
 
@@ -1413,20 +1413,21 @@ maintainability and visibility, respectively.
     Version control (29) & Tutorials (18) & Developer's manual (8)\\
     License (28) & Installation guide (16) & Contributing (8)\\
     Issue tracker (28) & Test cases (15) & API documentation (7)\\
-    Change request (28) & Authors (14) & Dependency List (7)\\
-    User manual (22) & Frequently Asked Questions (FAQ) (14) & Troubleshooting guide (6)\\
-    Release info. (22) & Acknowledgements (12) & Product roadmap (5)\\
-     & Changelog (12) & Design Documentation (5)\\
-     & Citation (11) & Code Style Guide (3)\\
-     & & Code of Conduct (1)\\
+    User manual (22) & Authors (14) & Dependency list (7)\\
+    Release info. (22) & Frequently Asked Questions (FAQ) (14) & Troubleshooting guide (6)\\
+     & Acknowledgements (12) & Product roadmap (5)\\
+     & Changelog (12) & Design documentation (5)\\
+     & Citation (11) & Code style guide (3)\\
+     & & Code of conduct (1)\\
     \bottomrule
     \end{tabular}
-    \caption{Artifacts Present in MI Packages, Classified by Frequency (The number in brackets is the number of occurrences)}
+    \caption{Artifacts Present in MI Packages, Classified by Frequency (The number 
+    in brackets is the number of occurrences)}
     \label{artifactspresent}
     \end{center}
 \end{table}
 
-We answer \rqref{RQ_CompareArtifacts} by comparing the artifacts that we
+We answer~\rqref{RQ_CompareArtifacts} by comparing the artifacts that we
 observed in MI repositories to those observed and recommended for research
 software in general. Our comparison may point out areas where some MI software
 packages fall short of current best practices. This is not intended to be a
@@ -1436,8 +1437,10 @@ delve into the nuances of which software can justify compromising which
 practices we will write our comparison under the ideal assumption that every
 project has sufficient resources to match best practices.
     
-Table~\ref{Tbl_Guidelines} shows that the MI artifacts generally match the recommendations found in nine current research software development guidelines:
-\begin{inparaenum}[i)]
+Table~\ref{Tbl_Guidelines} (based on data from \citep{SmithAndMichalski2022})
+shows that MI artifacts generally match the recommendations found in nine
+current research software development guidelines:
+\begin{itemize}
 \item United States Geological Survey Software Planning Checklist
 \citep{USGS2019},
 \item DLR (German Aerospace Centre) Software Engineering Guidelines
@@ -1454,26 +1457,50 @@ Technical Reference \citep{ThielEtAl2020},
 Guidelines for Software Quality \citep{vanGompelEtAl2016}, and
 \item A Set of Common Software Quality Assurance Baseline Criteria for Research
 Projects \citep{OrvizEtAl2017}.
-\end{inparaenum}
-As examples of compliance with most guidelines, MI developers commonly include
-the almost ubiquitous advice to have LICENSE files and README files. , although,
-as for other software, the content of README files is not standardized
-\citep{PranaEtAl2018}. 15 of 26 artifacts (58\%).  Although in the rare column, some MI developers include
-an FAQ (Frequently Asked Questions) document as recommended by
-\citep{OrvizEtAl2017}, \citep{ThielEtAl2020} and \citep{vanGompelEtAl2016}. MI
-developers also follow the ubiquitous recommendation to have a README file
-Compared to ocean modelling software \citep{JungEtAl2022}, MI software pays more
-attention to artifacts related to testing.
+\end{itemize}
+
+In Table~\ref{Tbl_Guidelines} each row corresponds to an artifact.  For a given
+row, a checkmark in one of the columns means that the corresponding guideline
+recommends this artifact.  The last column shows whether the artifact appears in
+the measured set of MI software, either not at all (blank), commonly (C),
+uncommonly (U) or rarely (R).  We did our best to interpret the meaning of each
+artifact consistently between guidelines and specific MI software, but the
+terminology and the contents of artifacts are not standardized.  The challenge
+even exists for the ubiquitous README file.  As illustrated by
+\citet{PranaEtAl2018}, the content of README files shows significant variation
+between projects.  Although some content is reasonably consistent, with 97\% of
+README files contain at least one section describing the `What` of the
+repository and 89\% offering some `How` content, other categories are more
+variable.  For instance, information on `Contribution`, `Why`', and `Who`,
+appear in 28\%, 26\% and 53\% of the analyzed files, respectively
+\citep{PranaEtAl2018}.  
+
+The frequency of checkmarks in Table~\ref{Tbl_Guidelines} indicates the
+popularity of recommending a given artifact, but it does not imply that the most
+commonly recommended artifacts are the most important artifacts. Just because an
+artifact is not explicitly recommended in a given guidelines, does not mean that
+the artifact is not valued by the guideline authors.  They may have exluded it
+because it is out of the scope of their recommendations, or outside of their
+experience.  For instance, an artifact related to uninstall is only explicitly
+mentioned by \citep{vanGompelEtAl2016}), but other guideline authors would
+likely see its value.  They may simply feel that uninstall is implied by
+install, or they may have never asked themselves whether separate uninstall
+instructions are needed.
 
 \begin{table}[!ht]
 \begin{center}
 \begin{tabular}{ p{2.5cm}p{1cm}p{1cm}p{1cm}p{1cm}p{1cm}p{1cm}p{1cm}p{1.2cm}p{1cm}p{0.8cm} }
 \toprule
-~ \ & \cite{USGS2019} & \cite{TobiasEtAl2018} & \cite{BrettEtAl2021} & \cite{WilsonEtAl2016} & \cite{SmithAndRoscoe2018} & \cite{HerouxEtAl2008} & \cite{ThielEtAl2020} & \cite{vanGompelEtAl2016} & \cite{OrvizEtAl2017} & MI\\
+~ \ & \cite{USGS2019} & \cite{TobiasEtAl2018} & \cite{BrettEtAl2021} &
+\cite{WilsonEtAl2016} & \cite{SmithAndRoscoe2018} & \cite{HerouxEtAl2008} &
+\cite{ThielEtAl2020} & \cite{vanGompelEtAl2016} & \cite{OrvizEtAl2017} & MI\\
 \midrule
-LICENSE & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & & \checkmark & \checkmark & \checkmark & C\\
-README &  & \checkmark & \checkmark & \checkmark & \checkmark & & \checkmark & \checkmark & \checkmark & C\\
-CONTRIBUTING &  & \checkmark & \checkmark & \checkmark & \checkmark & & \checkmark & \checkmark & \checkmark & R\\
+LICENSE & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & &
+\checkmark & \checkmark & \checkmark & C\\
+README &  & \checkmark & \checkmark & \checkmark & \checkmark & & \checkmark &
+\checkmark & \checkmark & C\\
+CONTRIBUTING &  & \checkmark & \checkmark & \checkmark & \checkmark & &
+\checkmark & \checkmark & \checkmark & R\\
 CITATION &  &  &  & \checkmark & & & & \checkmark & \checkmark & U\\
 CHANGELOG &  & \checkmark &  & \checkmark & \checkmark & & \checkmark &  &  & U\\
 INSTALL &  &  &  &  & \checkmark & & \checkmark & \checkmark & \checkmark & U\\
@@ -1492,15 +1519,20 @@ User manual &  &  & \checkmark &  & & & \checkmark & & & C\\
 Tutorials &  &  &  &  & & & \checkmark & & & U\\
 FAQ &  &  &  &  & & & \checkmark & \checkmark & \checkmark & U\\
 \midrule
-Issue Track &  & \checkmark & \checkmark & & \checkmark & \checkmark & \checkmark & & \checkmark & C\\
-Version Control &  & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & C\\ 
-Build Scripts &  & \checkmark &  & \checkmark & \checkmark & \checkmark & \checkmark & & \checkmark & U\\
+Issue Track &  & \checkmark & \checkmark & & \checkmark & \checkmark &
+\checkmark & & \checkmark & C\\
+Version Control &  & \checkmark & \checkmark & \checkmark & \checkmark &
+\checkmark & \checkmark & \checkmark & \checkmark & C\\ 
+Build Scripts &  & \checkmark &  & \checkmark & \checkmark & \checkmark &
+\checkmark & & \checkmark & U\\
 \midrule
 Requirements &  & \checkmark &  &  & & \checkmark &  &  & \checkmark &  \\
-Design Doc.\ &  & \checkmark  & \checkmark &  & \checkmark & & \checkmark & \checkmark& \checkmark & R\\
+Design Doc.\ &  & \checkmark  & \checkmark &  & \checkmark & & \checkmark &
+\checkmark& \checkmark & R\\
 API Doc. &  &  &  &  & \checkmark & & \checkmark & \checkmark & \checkmark & R\\
 Test Plan &  & \checkmark &  &  & & \checkmark & & & &  \\
-Test Cases & \checkmark & \checkmark & \checkmark &  & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & U\\
+Test Cases & \checkmark & \checkmark & \checkmark &  & \checkmark & \checkmark &
+\checkmark & \checkmark & \checkmark & U\\
 \bottomrule
 \end{tabular}
 \caption{Comparison of Recommended Artifacts in Software Development Guidelines
@@ -1509,82 +1541,82 @@ to Artifacts in MI Projects (C for Common, U for Uncommon and R for Rare)}
 \end{center}
 \end{table}
 
-A gap exists in scientific
-computing development practices and software engineering recommendations
-\citep{OwojaiyeEtAl2021_CSE}.
+Two of the items that appear in Table~\ref{artifactspresent} do not appear in
+the software development guidelines shown in Table~\ref{Tbl_Guidelines}:
+Troubleshooting guide and Developer's manual.  Although these two artifacts
+aren't specifically named in the guidelines that we found, the information
+contained within them overlaps with the recommended artifacts.  A
+Troubleshooting guideline contains information that would typically be found in
+a User manual.  A Developer's guide overlaps with information from the README,
+INSTALL, Uninstall, Dependency List, Release Information, API documentation and
+Design documentation.  In our current analysis, we have identified artifacts by
+the names given by the software guidelines and MI examples.  In the future, a
+more in-depth analysis would look at the knowledge fragments that are captured
+in the artifacts, rather than focusing on the names of the files that collect
+these fragments together.
 
+Although the MI community shows examples of 88\% (23 of 26) of the practices we
+found in research software guidelines (Table~\ref{Tbl_Guidelines}), three
+recommended artifacts were not observed: i) Unistall, ii) Test plans, and iii)
+Requirements.  Uninstall is likely an omission caused by the focus on installing
+software. Given the storage capacity of current hardware, developers and users
+do not generally concerned with uninstall. Moreover, as mentioned above,
+uninstall is not particularly emphasized in existing recommendations.  Test
+plans were not observed for MI software, but that doesn't mean they weren't
+created; it means that the plans are not under version control.  Test plans
+would have to at least be implicitly created, since test cases were observed
+with reasonable frequency for MI software (uncommon).
 
-Three of the items that appear in Table~\ref{artifactspresent} do not explicitly
-appear in the software development guidelines: i) list of related publications,
-ii) performance information and iii) video guides.  The occurrence of the first
-two items in this list are likely more a consequence of how we collected our
-list of MI artifacts, rather than being a unique practice of MI developers. We
-highlighted publications and performance information because we were explicitly
-looking for both as part of filling in our measurement template. Related
-publications and performance information certainly appear in other research
-software projects; the practices just aren't highlighted in guidelines because
-they are implicit in other documentation recommendations, such as theory
-documentation and user guides. The observation of a video guide artifact is more
-novel.  \citet{Fogel2005} recommends videos for open source projects, and other
-projects likely use them, but the practice has apparently not yet made it into
-research software community's guidelines.  Putting aside the debate of the
-effectiveness of learning from print versus video, video documentation is
-growing in popularity, with a majority of Generation Z learners preferring video
-to print \citep{Genota2018}.
-
-Although the MI community participates in most of the practices we found listed
-in the general research software guidelines, some recommended practices were not
-observed or rarely observed. For instance API documentation was rarely observed
-for MI software, but it is a frequently recommended artifact
-\citep{SmithAndRoscoe2018, ThielEtAl2020, vanGompelEtAl2016, OrvizEtAl2017,
-SSI2022, Zadka2018}.  In addition to the items in the last column of
-Table~\ref{artifactspresent}, we can add the following community recommended
-items that we rarely, if ever, observed:
-
-\begin{itemize}
-\item A roadmap showing what is planned for the future \citep{Yo2021,
-ThielEtAl2020, vanGompelEtAl2016}.  We did see this information mentioned in
-some repos, but we did not observe a specific artifact devoted to this purpose.
-\item A code of conduct to explicitly say how developers should treat one
-another \citep{Yo2021, ThielEtAl2020}.  We did not observe a policy of this
-sort, possibly because the number of developers for each MI project is small.
-\item Programming style guidelines so that programming labels and formatting are
-consistent \citep{TobiasEtAl2018, ThielEtAl2020, OrvizEtAl2017, Zadka2018,
-vanGompelEtAl2016, WilsonEtAl2014}.  We saw this information as part of
-some developer guides, but only rarely.
-\item Checklists can be used in projects to ensure that best practices are
-followed by all developers.  Some examples include checklists merging branches
-into master \citep{Brown2015}, checklists for saving and sharing changes to the
-project \citep{WilsonEtAl2016}, checklists for new and departing team members
-\citep{HerouxAndBernholdt2018}, checklists for processes related to commits and
-releases \citep{HerouxEtAl2008} and checklists for overall software quality
-\citep{ThielEtAl2020, SSI2022}.  For MI software, ESPResSo has a checklist for
-managing releases, but otherwise they are used only rarely for MI.
-\item Uninstall instructions \citep{vanGompelEtAl2016} were not observed for any
-of the MI projects.
-\end{itemize}
-
-The above discussion shows that, taken together, MI projects fall short of
-recommended best practices for research software.  However, MI software is not
-alone in this.  Many, if not most, research projects fall short of best
-practices.  Software requirements documentation provides a good example of the
-common deviation between recommendations and practice.  Although requirements
-documentation is recommended by some \citep{TobiasEtAl2018, HerouxEtAl2008,
-SmithAndKoothoor2016}, in practice research software developers often do not
-produce a proper requirements specification \citep{HeatonAndCarver2015}.
-\citet{SandersAndKelly2008} interviewed 16 scientists from 10 disciplines and
-found that none of the scientists created requirements specifications, unless
-regulations in their field mandated such a document. \citet{Nguyen-HoanEtAl2010}
-showed requirements are the least commonly produced type of documentation for
-research software in general. When looking at the pain points for research
-software developers, \citet{WieseEtAl2019} found that software requirements and
-management is the software engineering discipline that most hurts scientific
-developers, accounting for 23\% of the technical problems reported by study
-participants.  The lack of support for requirements is likely due to the
-perception that up-front requirements are impossible for research software
+MI software is like other research software in its neglect of requirements
+documentation.  Although requirements documentation is recommended by some
+\citep{TobiasEtAl2018, HerouxEtAl2008, SmithAndKoothoor2016}, in practice
+research software developers often do not produce a proper requirements
+specification \citep{HeatonAndCarver2015}. \citet{SandersAndKelly2008}
+interviewed 16 scientists from 10 disciplines and found that none of the
+scientists created requirements specifications, unless regulations in their
+field mandated such a document. \citet{Nguyen-HoanEtAl2010} showed requirements
+are the least commonly produced type of documentation for research software in
+general. When looking at the pain points for research software developers,
+\citet{WieseEtAl2019} found that software requirements and management is the
+software engineering discipline that most hurts scientific developers,
+accounting for 23\% of the technical problems reported by study participants.
+The lack of support for requirements is likely due to the perception that
+up-front requirements are impossible for research software
 \citep{CarverEtAl2007,SegalAndMorris2008}, but when the instance on ``up-front''
 requirements is dropped, allowing the requirements to be written iteratively and
-incrementally, requirements are feasible \citep{Smith2016}.
+incrementally, requirements are feasible \citep{Smith2016}.  
+
+Table~\ref{Tbl_Guidelines} shows several artifacts that are rarely observed in
+practice.  A theme amount these rare artifacts is that many of them are related
+to developers more than users.  For instance, the rare artifacts include
+Contributing, developer Code of conduct, Code Style Guide, Product roadmaps,
+Requirements, Design documentation, API documentation and a Test plan.  The rare
+artifacts for MI software are similar to the rare artifacts for Lattice
+Boltzmann solvers \citep{Michalski2021}.  However, MI software differs from
+ocean modelling software, since, according to \citep{JungEtAl2022}, the later
+pays relatively less attention to testing.
+
+To improve MI software in the future, an increased use of checklists could help.
+Checklists can be used in projects to ensure that best practices are followed by
+all developers.  Some examples include checklists merging branches into master
+\citep{Brown2015}, checklists for saving and sharing changes to the project
+\citep{WilsonEtAl2016}, checklists for new and departing team members
+\citep{HerouxAndBernholdt2018}, checklists for processes related to commits and
+releases \citep{HerouxEtAl2008} and checklists for overall software quality
+\citep{ThielEtAl2020, SSI2022}.  For instace, for Lattice Boltzmann solver
+software, ESPResSo has a checklist for managing releases \citep{Michalski2021}.
+
+The above discussion shows that, taken together, MI projects fall somewhat short
+of recommended best practices for research software.  However, MI software is
+not alone in this.  Many, if not most, research projects fall short of best
+practices.  A gap exists in scientific computing development practices and
+software engineering recommendations \citep{Storer2017, Kelly2007,
+OwojaiyeEtAl2021_CSE}. \citet{JohansonAndHasselbring2018} observe that the
+state-of-the-practice for SCS in industry and academia does not incorporate
+state-of-the-art SE tools and methods.  This causes sustainability and
+reliability problems \citep{FaulkEtAl2009}. Rather than benefit from capturing
+and reusing previous knowledge, projects waste time and energy ``reinventing the
+wheel'' \citep{deSouzaEtAl2019}.
 
 \section{Comparison of Tool Usage Between MI and Other Research Software}
 \label{Sec_CompareTools}
@@ -2111,6 +2143,9 @@ by other research software domains.
 Below we categorize and list the threats to validity that we have identified.
 The categories come from \citet{AmpatzoglouEtAl2019} and \citet{ZhouEtAl2016}.
 
+\wss{observed artifacts (Section~\ref{Sec_CompareArtifacts}) - human judgement,
+not always given the expected name, but the content is there.}
+
 \begin{description}
     \item[Construct Validity:] ``Defines how effectively a test or experiment measures
     up to its claims. This aspect deals with whether or not the researcher measures
@@ -2325,6 +2360,11 @@ software developers in Section~\ref{painpoints}.  Many of our recommendations
 involve investing more effort into processes, tools and methods, so that the
 limited resources can be used more effectively.  Our recommendations are as
 follows:
+
+\wss{Talk about increasing the number of developers.  CONTRIBUTING is rare
+(Table~\ref{artifactspresent}), but it doesn't have to be.  Related to this
+information for new developers is rare: Code Style Guide, Requirements, Design
+Doc, API.}
 
 \begin{itemize}
 \item \textbf{Identify the root cause.} More fundings or developers may not
