@@ -792,6 +792,13 @@ Windows as the host OS.
 
 \subsection{Interview Methods} \label{sec_interview_methods}
 
+The measurement results summarize to this point are based on information we
+collect from on-line resources. This information is incomplete because it
+doesn't generally capture the development process, the developer pain points,
+the perceived threats to software quality, and the developers' strategies to
+address these threats.  Therefore, part of our methodology is to interview
+developers.
+
 Our interviews were guided by a list of 20 questions, which can be found in
 \citet{SmithEtAl2021}. Some questions are about the background of the software,
 the development teams, the interviewees, and how they organize the projects. We
@@ -801,19 +808,22 @@ will try. We also discuss the importance and current situations of
 documentation. A few questions are about specific software qualities, such as
 maintainability, understandability, usability, and reproducibility. The
 interviews are semi-structured based on the question list; we ask follow-up
-questions when necessary. Based on our experience, the interviewees usually
-brought up unexpected and exciting ideas.
-
-We sent out interview requests to all 29 projects, with 9 projects responding.
-In some cases multiple developers from the same project agreed to be
-interviewed. We found contact information from projects websites, code
-repository, publications, and from biographic pages at the teams's institutions.
-Meetings were held on-line using either Zoom or Teams, which facilitated
-recording and automatic transcription of the meetings.  The interview process
-presented here was approved by the McMaster University Research Ethics Board
-under the application number 
+questions when necessary.  The interview process presented here was approved by
+the McMaster University Research Ethics Board under the application number 
 \href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/MACREM/Application.pdf}
 {MREB\#: 5219}.
+
+We sent interview requests to all 29 projects using contact information from
+projects websites, code repository, publications, and from biographic pages at
+the teams's institutions.  In the end nine developers from eight of the projects
+agreed to participate: \textit{3D Slicer}, \textit{INVESALIUS 3}, \textit{dwv},
+\textit{BioImage Suite Web}, \textit{ITK-SNAP}, \textit{MRIcroGL},
+\textit{Weasis}, and \textit{OHIF}. We spent about 90 minutes for each
+interview. One participant was too busy to have an interview, so they wrote down
+their answers. In one case two developers from the same project agreed to be
+interviewed. Meetings were held on-line using either Zoom or Teams, which
+facilitated recording and automatic transcription of the meetings. The full
+interview answers can be found in \citet{Dong2021}.
 
 \section{Measurement Results} \label{ch_results}
 
@@ -1203,8 +1213,8 @@ dwv &  &  &  & X \\
 Gwyddion &  &  &  & X \\ 
 \bottomrule
 \end{tabular}
-\caption{Software with the visibility/transparency documents (software is listed
-in descending order of visibility/transparency score)}
+\caption{Software with visibility/transparency related documents (software is
+listed in descending order of visibility/transparency score)}
 \label{tab_Visibility/Transparency_docs}
 \end{table}
 
@@ -1538,12 +1548,13 @@ found in research software guidelines (Table~\ref{Tbl_Guidelines}), three
 recommended artifacts were not observed: i) Unistall, ii) Test plans, and iii)
 Requirements.  Uninstall is likely an omission caused by the focus on installing
 software. Given the storage capacity of current hardware, developers and users
-do not generally concerned with uninstall. Moreover, as mentioned above,
+are not generally concerned with uninstall.  Moreover, as mentioned above,
 uninstall is not particularly emphasized in existing recommendations.  Test
 plans were not observed for MI software, but that doesn't mean they weren't
 created; it means that the plans are not under version control.  Test plans
 would have to at least be implicitly created, since test cases were observed
-with reasonable frequency for MI software (uncommon).
+with reasonable frequency for MI software (test cases are are categorized as
+uncommon).
 
 MI software is like other research software in its neglect of requirements
 documentation.  Although requirements documentation is recommended by some
@@ -1560,19 +1571,19 @@ software engineering discipline that most hurts scientific developers,
 accounting for 23\% of the technical problems reported by study participants.
 The lack of support for requirements is likely due to the perception that
 up-front requirements are impossible for research software
-\citep{CarverEtAl2007,SegalAndMorris2008}, but when the instance on ``up-front''
-requirements is dropped, allowing the requirements to be written iteratively and
-incrementally, requirements are feasible \citep{Smith2016}.  
+\citep{CarverEtAl2007, SegalAndMorris2008}, but when the instance on
+``up-front'' requirements is dropped, allowing the requirements to be written
+iteratively and incrementally, requirements are feasible \citep{Smith2016}.  
 
 Table~\ref{Tbl_Guidelines} shows several artifacts that are rarely observed in
-practice.  A theme amount these rare artifacts is that many of them are related
+practice.  A theme among these rare artifacts is that many of them are related
 to developers more than users.  For instance, the rare artifacts include
-Contributing, developer Code of conduct, Code Style Guide, Product roadmaps,
+Contributing, Developer code of conduct, Code style guide, Product roadmap,
 Requirements, Design documentation, API documentation and a Test plan.  The rare
 artifacts for MI software are similar to the rare artifacts for Lattice
-Boltzmann solvers \citep{Michalski2021}.  However, MI software differs from
-ocean modelling software, since, according to \citep{JungEtAl2022}, the later
-pays relatively less attention to testing.
+Boltzmann solvers \citep{Michalski2021}, except LBM software is more likely to
+have developer related artifacts, like Contributing, Dependency list, and Design
+documentation.
 
 To improve MI software in the future, an increased use of checklists could help.
 Checklists can be used in projects to ensure that best practices are followed by
@@ -1601,25 +1612,36 @@ wheel'' \citep{deSouzaEtAl2019}.
 
 Software tools are used to support the development, verification, maintenance,
 and evolution of software, software processes, and artifacts \citep[p.\
-501]{GhezziEtAl2003}. To tools used in MI software include tools for CI/CD, user
-support, version control, documentation and project management.  We answer
-\rqref{RQ_CompareToolsProjMngmnt} by comparing aspects of tool usage in MI
-software packages to their utilization in the research software community in
-general.
+501]{GhezziEtAl2003}. MI software uses tools for CI/CD, user support, version
+control, documentation and project management.  To answer
+\rqref{RQ_CompareToolsProjMngmnt} we summarize the tool usage in these
+categories, and compare this to the usage by the research software community.
 
-CI/CD paragraph.  As mentioned in
-Section~\ref{sec_result_correctness_verifiability}, we identified five projects
-using CI/CD tools: \textit{3D Slicer}, \textit{ImageJ}, \textit{Fiji},
-\textit{dwv}, and \textit{OHIF Viewer}. We identified the above projects and
-tools by examining the documentation and source code of all projects.
-Potentially not all tools leave identifiable artifacts in the repositories;
-therefore, we may have missed the use of some tools.
+As mentioned in Section~\ref{sec_result_correctness_verifiability}, we
+identified five projects using CI/CD tools (about 17\% of the assessed
+projects). CI/CD using projects were found by examining the documentation and
+source code of all projects. The count of CI/CD usage may actually be higher,
+since traces of CI/CD usage may not always appear in a repository.  This was the
+case for a study of LBM software, where interviews with developers showed that
+more projects used CI/CD than was evident from repository artifacts alone
+\citep{Michalski2021}.  The 17\% utilization for MI software contrasts with the
+high frequency with which continuous integration is recommended in research
+software development guidelines \citep{BrettEtAl2021, Brown2015, ThielEtAl2020,
+Zadka2018, vanGompelEtAl2016}. Although there is currently little data available
+on CI/CD utilization for research software, our impression is that CI/CD is not
+yet common practice, despite its recommendation.  For LBM software at least the
+situation is similar to MI software, with only 12.5\% of 24 LBM packages showing
+evidence of CI/CD in their repositories \citep{Michalski2021}.  \wss{add
+reference to CarverEtAl2022, once it is published.}
 
-user support paragraph. Table~\ref{tab_user_support_model} summarizes the user
-support models by the number of projects using them (projects may use more than
-one support model). We do not know whether the prevalent use of GitHub issues
-for user support is by design, or whether this just naturally happened as users
-sought help.
+Table~\ref{tab_user_support_model} summarizes the user support models by the
+number of projects using each model (projects may use more than one support
+model). We do not know whether the prevalent use of GitHub issues for user
+support is by design, or whether this just naturally happenes as users seek
+help. The common use of GitHub by MI developers is not surprising, given that
+GitHub is the largest code host in the world, with over 128 million public
+repositories and over 23 million users (as of roughly February 26, 2020)
+\citep{Kashyap2020}.
 
 \begin{table}[!ht]
 \centering
@@ -1639,104 +1661,116 @@ Contact form & 1 \\
 \caption{\label{tab_user_support_model}User support models by number of projects}
 \end{table}
 
-version control paragraph.  From Section~\ref{sec_score_maintainability}, 27 of
-the 29 projects used git as the version control tool, with 24 of these using
-GitHub. \textit{AMIDE} used Mercurial and \textit{Gwyddion} used Subversion.
-\textit{XMedCon}, \textit{AMIDE}, and \textit{Gwyddion} used SourceForge.
-\textit{DicomBrowser} and \textit{3DimViewer} used BitBucket.  Although teams
-may have a process for accepting new contributions, no one discussed this during
-their interview. However, most teams (8 of 9) mentioned using GitHub and pull
-requests to manage contributions from the community. The interviewees generally
-gave very positive feedback on using GitHub. Some teams previously used a
-different approach to version control and eventually transferred to git and
-GitHub.  The past approaches included contributions from e-mail (3 teams),
-contributions from forums (1 team) and sharing the git repository via e-mail (1
-team).  \wss{I do not know what this last one means. Should ask Ao.} \ad{The
-last one happened when cloud-based repositories (Github, Gitlab, Bitbucket,
-etc.) were not widely used. The project git repository was stored locally on the
-project owner's local computer. The owner shared the whole git repo to team
-members and other individuals who wanted to contribute. The contributors made
-changes to the repo, and sent it back. They transferred the repo back and forth
-by email.}
+From Section~\ref{sec_score_maintainability}, 27 of the 29 projects used git as
+the version control tool, 1 used Mercurial and 1 used Subversion.  The hosting
+is on GitHub for 24 packages, SourceForge for 3 and BitBucket for 2.  Although
+teams may have a process for accepting new contributions, no one discussed this
+during their interviews. However, most teams (8 of 9) mentioned using GitHub and
+pull requests to manage contributions from the community. The interviewees
+generally gave very positive feedback on using GitHub. Some teams previously
+used a different approach to version control and eventually transferred to git
+and GitHub.  The past approaches included contributions from e-mail (3 teams),
+contributions from forums (1 team) and e-mailing the git repository back and
+forth between developers (1 team).
 
-documentation paragraph. For documentation tools and methods mentioned by the
-interviewees, the most popular (mentioned by about 30\% of developers) were
-forum discussions and videos.  The second most popular options (mentioned by
-about 20\% of developers) were GitHub, wiki pages, workshops, and social media.
-The least frequently mentioned options (about 10\% of developers) included
-writing books, google forms and state management.
+The common use of version control for MI software illustrates considerable
+improvement from the poor adoption of version control tools that Wilson lamented
+in 2006 \citep{Wilson2006}.  The proliferation of version control tools for MI
+matches the increase in the broader research software community.  A little over
+10 years ago version control was estimated to be used in only 50\% of research
+software projects \citep{Nguyen-HoanEtAl2010}, but even at that time
+\citet{Nguyen-HoanEtAl2010} noted an increase from previous usage levels. A
+survey in 2018 shows 81\% of developers use a version control system
+\citep{AlNoamanyAndBorghi2018}. \citet{Smith2018} has similar results, showing
+version control usage for alive projects in mesh generation, geographic
+information systems and statistical software for psychiatry increasing from
+75\%, 89\% and 17\% (respectively) to 100\%, 95\% and 100\% (respectively) over
+a four year period ending in 2018. (For completeness the same study showed a
+decrease in version control usage for seismology software over the same time
+period, from 41\% down to 36\%).  Almost every software guide cited in
+Section~\ref{Sec_CompareArtifacts} includes the advice to use version control.
+The high usage of version control tools in MI software matches the trend in
+research software in general.
 
-project management paragraph. Some interviewees mentioned the project management
-tools they used. Generally speaking, the interviewees talked about two types of
-tools:
+For documentation tools and methods mentioned by the interviewees, the most
+popular (mentioned by about 30\% of developers) were forum discussions and
+videos.  The second most popular options (mentioned by about 20\% of developers)
+were GitHub, wiki pages, workshops, and social media. The least frequently
+mentioned options (about 10\% of developers) included writing books, google
+forms and state management.  In contrasting MI software with LBM software, the
+most significant documentation tool difference is that LBM software often uses
+document generation tools, like doxygen and sphinx \citep{Michalski2021}, while
+MI does not appear to use these tools. 
+
+Some interviewees mentioned the project management tools they used. Generally
+speaking, the interviewees talked about two types of tools:
 \begin{inparaenum}[i)]
 \item trackers, including GitHub, issue trackers, bug trackers and Jira; and,
-\item documentation tools, including GitHub, Wiki page, Google Doc, and Confluence.
+\item documentation tools, including GitHub, Wiki page, Google Doc, and
+Confluence.
 \end{inparaenum}
 Of the specifically named tools in the above lists, GitHub was mentioned 3
 times, while each of the other tools was only mentioned once.
 
+Based on information provided by \citet{JungEtAl2022}, tool utilization for MI
+software has much in common with tool utilization for ocean modelling software.
+Both use tools for editing, compiling, code management, testing, building and
+project management.  From the data available, ocean modelling differs from MI
+software in its use of Kanban boards for project management.
+
 \section{Comparison of Principles, Process and Methodologies to Research Software in General} \label{Sec_CompareMethodologies}
 
-This section answers research question \rqref{RQ_CompareMethodologies} by
-comparing the principles, processes and methodologies used for MI software to
-what can be gleaned from the literature on research software in general. In our
-data collection for MI software, the software development process is not
-explicitly indicated in the artifacts for most of the packages. However, during
-our interviews one developer (ESPResSo) told us their non-rigorous development
-model is like a combination of agile and waterfall. Employing a loosely defined
-process makes sense for MI software, given that the teams are generally small
-and self-contained.  Although eleven of the packages explicitly convey that they
-would accept outside contributors, generally the teams are centralized, often
-working at the same institution.  Working at the same institution means that an
-informal process can show success, since informal conversations are relatively
-easy to have.
+We answer research question \rqref{RQ_CompareMethodologies} by comparing the
+principles, processes and methodologies used for MI software to what can be
+gleaned from the literature on research software in general. In our interviews
+with developers the responses about development model were vague, with only two
+interviewees following a definite development model. In some cases the
+interviewees felt their process was similar to an existing development model.
+Three teams (about 38\%) either followed agile, or something similar to agile.
+Two teams (25\%) either followed a waterfall process, or something similar.
+Three teams (about 38\%) explicitly stated that their process was undefined or
+self-directed.
 
-We answer this question by measuring the qualities and interviewing the
-developers. We previously summarized principles, processes, and methodologies in
-software testing (Section~\ref{Sec_CompareMethodologies}), documentation
-(Section~\ref{sec_interview_documents}, Table~\ref{tab_maintainability_docs},
-Table~\ref{tab_Visibility/Transparency_docs}, contribution management
-(Section~\ref{sec_contribution_pm}), and project management
-(Section~\ref{sec_contribution_pm}). 
-    
+Our observations of an informally defined process, with elements of agile
+methods, matches what has been observed for research software in general.
+Scientific developers naturally use an agile philosophy \citep{AckroydEtAl2008,
+CarverEtAl2007, EasterbrookAndJohns2009, Segal2005, HeatonAndCarver2015}, or an
+amethododical process \citep{Kelly2013}, or a knowledge acquisition driven
+process \citep{Kelly2015}.  A waterfall like process can work for research
+software \citep{Smith2016}, especially if the developers work iteratively and
+incrementally, but externally document their work as if a rationale design
+process were followed \citep{parnas1986rational}.
+
+No interviewee introduced any strictly defined project management process. The
+most common approach was following the issues, such as bugs and feature
+requests. Additionally, the \textit{3D Slicer} team had weekly meetings to
+discuss the goals for the project; the \textit{INVESALIUS 3} team relied on the
+GitHub process for their project management; the \textit{ITK-SNAP} team had a
+fixed six-month release pace; only the interviewee from the \textit{OHIF} team
+mentioned that the team has a project manager; the \textit{3D Slicer} team and
+\textit{BioImage Suite Web} team do nightly builds and tests. The \textit{OHIF}
+developer believes that a better project management process can improve junior
+developer efficiency while also improving internal and external communication.
+
 We identified the use of unit testing in less than half of the 29 projects. On
 the other hand, the interviewees believed that testing (including usability
 tests with users) was the top solution to improve correctness, usability, and
-reproducibility. One pain point in the development process is the lack of access
-to real-world datasets for testing. The developers' strategies to address this
-are summarized in Section~\ref{Sec_AddressConcerns} \ad{to be fixed}. One threat to
-correctness is: with huge datasets for testing, the tests are expensive and
-time-consuming. Three interviewees endorsed self tests / automated tests, which
-may save time for testing.
-    
-Documentation is apparently not emphasized in any of the 29 projects.  None of
-them had theory manuals, although we did identify a road map in the \textit{3D
-Slicer} project.  No requirements specifications were found. Eight of the nine
-interviewees thought that documentation was essential to their projects.
-However, they hold the common opinion that their documentation needed
-improvements. Nearly half of them also believed that the lack of time prevented
-them from improving the documentation.
+reproducibility.  This level of testing matches what was observed for LBM
+software \citep{Michalski2021} and is apparently greater than the level of
+testing for ocean modelling software.  \citet{JungEtAl2022} reports that testing
+is underemphasized in ocean modelling.
 
-\subsection{Documents in the Projects} \label{sec_interview_documents}
-
-We tried to understand the interviewees' opinions on documentation and the
-quality of documentations with two questions:
-
-\begin{description}
-\item[Q11.] How does documentation fit into your development process? Would
-improved documentation help with the obstacles you typically face?
-\item[Q19.] Do you think the current documentation can clearly convey all
-necessary knowledge to the users? If yes, how did you successfully achieve it?
-If no, what improvements are needed?
-\end{description}
-
+As the observed artifacts in Table~\ref{artifactspresent} show, documentation is
+not emphasized as part of the development process in any of the 29 projects.
+None of them had theory manuals, although we did identify a road map in the
+\textit{3D Slicer} project.  No requirements specifications were found.
 Table~\ref{tab_opinion_doc} summarizes interviewees' opinions on documentation.
 Interviewees from each of the eight projects thought that documentation was
-important to their projects, and most of them said that it could save their time
+essential to their projects, and most of them said that it could save their time
 to answer questions from users and developers. Most of them saw the need to
 improve their documentation, and only three of them thought that their
-documentations conveyed information clearly enough. 
+documentations conveyed information clearly enough. Nearly half of developers
+also believed that the lack of time prevented them from improving documentation.
 
 \begin{table}[!ht]
 \centering
@@ -1753,105 +1787,39 @@ Coding is more fun than documentation & 2 \\
 Users help each other by referring to documentation & 1 \\ 
 \bottomrule
 \end{tabular}
-\caption{\label{tab_opinion_doc}Opinions on documentation by the numbers of
-interviewees with the answers}
+\caption{Opinions on documentation by the numbers of interviewees with the
+answers}
+\label{tab_opinion_doc}
 \end{table}
 
-\subsection{Project Management} \label{sec_contribution_pm}
-
-To investigate project management we asked three questions:
-
-\begin{description}
-\item[Q5.] Do you have a defined process for accepting new contributions into
-your team?
-\item[Q13.] What is your software development model? For example, waterfall,
-agile, etc.
-\item[Q14.] What is your project management process? Do you
-think improving this process can tackle the current problem? Were any project
-management tools used?
-\end{description}
-
-For managing contributions, the \textit{3D Slicer} team encouraged users to
-develop their extensions for specific use cases, while the \textit{OHIF} team
-enabled the use of plug-ins.  The interviewee from the \textit{ITK-SNAP} team
-said one way of accepting new team members was through funded academic projects.
-
-For the most part, the responses about development model were vague, with only
-two interviewees following a definite development model. In some cases the
-interviewees felt their process was similar to an existing development model.
-Three teams (about 38\%) either followed agile, or something similar to agile.
-Two teams (25\%) either followed a waterfall process, or something similar.
-Three teams (about 38\%) explicitly stated that their process was undefined or
-self-directed.
-
-No interviewee introduced any strictly defined project management process. The
-most common approach was following the issues, such as bugs and feature requests.
-Additionally, the \textit{3D Slicer} team had weekly meetings to discuss the
-goals for the project; the \textit{INVESALIUS 3} team relied on the GitHub
-process for their project management; the \textit{ITK-SNAP} team had a fixed
-six-month release pace; only the interviewee from the \textit{OHIF} team
-mentioned that the team has a project manager; the \textit{3D Slicer} team and
-\textit{BioImage Suite Web} team do nightly builds and tests.
-
-Most interviewees skipped the part of the last question asking ``Do you think
-improving this process can tackle the current problem?''. In retrospect, we
-should not have asked a yes-or-no question, since a binary answer is not very
-informative. The interviewee from the \textit{OHIF} team gave a positive answer
-to this question. They believed that a better project management process can
-improve the efficiency of junior developers. They also improved the project
-management tools (from public Jira to public GitHub repository plus private
-Jira), so they could better communicate externally and internally.
+As Table~\ref{Tbl_Guidelines} suggests, an emphasis on documentation, especially
+for new developers, is echoed in research software guidelines. Multiple
+guidelines recommend a document explaining how to contribute to a project, often
+named CONTRIBUTING. Tutorials, user guides and quick start examples are also
+recommended. \citet{SmithAndRoscoe2018} suggests including instructions
+specifically for on-boarding new developers. For open source software in general
+(not just research software), \citet{Fogel2005} recommends providing tutorial
+style examples, developer guidelines, demos and screenshots.
 
 \section{Developer Pain Points} \label{painpoints}
 
-Based on interviews with four developers, this section aims to answer the
-research questions: i) What are the pain points for developers working on
-research software projects (\rqref{RQ_PainPoints})?; and, ii) How do the pain
-points of developers from MI compare to the pain points for research software
-in general (\rqref{RQ_ComparePainPoints})?  Below we go through each of the
-identified pain points and include citations that contrast the MI experience
-with observations from researchers in other domains.  Potential ways to address
-the pain points are covered in Section~\ref{Sec_AddressConcerns}. The full
-interview questions are found in \citet{SmithEtAl2021}.
-
-The measurement results in Section \ref{ch_results} are based on information we
-collected from on-line resources. This information is incomplete because it
-doesn't generally capture the development process, the developer pain points,
-the perceived threats to software quality, and the developers' strategies to
-address these threats. To collect this information we interviewed nine
-developers from eight of the 29 MI software projects. The eight projects are
-\textit{3D Slicer}, \textit{INVESALIUS 3}, \textit{dwv}, \textit{BioImage Suite
-Web}, \textit{ITK-SNAP}, \textit{MRIcroGL}, \textit{Weasis}, and \textit{OHIF}.
-We spent about 90 minutes for each interview and asked 20 prepared questions
-(summarized in \citet{SmithEtAl2021}). We also asked following-up questions as
-the conversation dictated. One participant was too busy to have an interview, so
-they wrote down their answers. The interviewees may have provided multiple
-answers to each question. Thus, when we summarize the frequency of different
-responses, the total is sometimes larger than nine.
-
-The full interview answers can be found in \citet{Dong2021}.  Selected questions
-and answers are highlighted and analyzed below.  The question numbers refer to
-the numbering in \citet{SmithEtAl2021}.
-
-%\label{sec_interview_pain_points}
-
-The pain points include current and past obstacles, as explored via the
-following questions:
-
-\begin{description}
-\item[Q9.] \hypertarget{q9}Currently, what are the most significant obstacles in
-your development process?
-\item[Q10.] \hypertarget{q10}How might you change your development process to
-remove or reduce these obstacles?
-\item[Q12.] \hypertarget{q12}In the past, is there any major obstacle to your
-development process that has been solved? How did you solve it?
-\end{description}
+Based on interviews with nine developers (described in
+Section~\ref{sec_interview_methods}), we answer two research questions: i) What
+are the pain points for developers working on research software projects?
+(\rqref{RQ_PainPoints}); and, ii) How do the pain points of developers from MI
+compare to the pain points for research software in general?
+(\rqref{RQ_ComparePainPoints}).  We go through each of the identified pain
+points and include citations that contrast the MI experience with observations
+from researchers in other domains.  Potential ways to address the pain points
+are covered in Sections~\ref{Sec_AddressConcerns} and~\ref{ch_recommendations}.
 
 Table \ref{tab_obstacles} shows the number of times the interviewees mentioned
 the current and past obstacles in their projects.   We group these pain points
 into three major categories of obstacles: \textit{resource}, \textit{balance},
 and \textit{testing}. We put the less mentioned ones into the category
-\textit{Others}. 
+\textit{Others}. The interviewees may have provided multiple
+answers to each question. Thus, when we summarize the frequency of different
+responses, the total is sometimes larger than nine.
 
 \begin{table}[!ht]
 \centering
@@ -1863,7 +1831,8 @@ and \textit{testing}. We put the less mentioned ones into the category
 \multirow{2}{*}{Resource} & Lack of fundings & 3 &  \\
  & Lack of time to devote to the project & 2 & 1 \\ 
 \midrule
-\multirow{3}{*}{Balance} & Hard to keep up with changes in OS and libraries & 1 &  \\
+\multirow{3}{*}{Balance} & Hard to keep up with changes in OS and libraries & 1
+&  \\
  & Hard to support multiple OS & 2 &  \\
  & Hard to support lower-end computers & 1 & 2 \\ 
 \midrule
@@ -1963,8 +1932,14 @@ build process.  The lower performance disadvantage of web-applications can be
 improved with a server backend, but in this case there are disadvantages for
 privacy protection and the cost of the servers.
 
-For the pain point category of testing developers identified the the lack of access to
-real-world datasets.  Some proposed and proven solutions are as follows:
+For the pain point category of testing developers identified the the lack of
+access to real-world datasets.  One pain point in the development process is the
+lack of access to real-world datasets for testing. The developers' strategies to
+address this are summarized in Section~\ref{Sec_AddressConcerns} \ad{to be
+fixed}. One threat to correctness is: with huge datasets for testing, the tests
+are expensive and time-consuming. Three interviewees endorsed self tests /
+automated tests, which may save time for testing. Some proposed and proven
+solutions are as follows:
 
 \begin{itemize}
 \item Using open datasets
@@ -2136,106 +2111,6 @@ potentially be emulated by the MI software packages that do not currently follow
 them.  Moreover, these practices may also provide examples that can be followed
 by other research software domains.
 
-\section{Threats to Validity} \label{sec_threats_to_validity}
-
-Below we categorize and list the threats to validity that we have identified.
-The categories come from \citet{AmpatzoglouEtAl2019} and \citet{ZhouEtAl2016}.
-
-\wss{observed artifacts (Section~\ref{Sec_CompareArtifacts}) - human judgement,
-not always given the expected name, but the content is there.}
-
-\begin{description}
-    \item[Construct Validity:] ``Defines how effectively a test or experiment measures
-    up to its claims. This aspect deals with whether or not the researcher measures
-    what is intended to be measured'' \citep{AmpatzoglouEtAl2019}.
-\end{description}
-
-\begin{itemize}
-\item For practical considerations the time spent measuring each package had to
-be limited.  The time limit may have caused an assessment to have missed
-something something relevant.
-\item Our ranking is partly based on surface (shallow) measurement, which may
-not fully reveal the underlying qualities.
-\item The questions in the measurement template may not actually measure the
-qualities they are associated with.  For instance, we have assumed that
-maintainability is improved if a high percentage of identified issues are
-closed, but it is possible for a project with a wealth of ideas to have many
-open issues, and still be maintainable.
-\item With the exception of the interview data for 8 projects, we collected all
-of the information for each project from the artifacts available on the
-Internet. In some cases this source of data may mean we did not find evidence of
-something, like unit testing, not because the project didn't do it, but because
-no artifacts of this activity remained in the publicly available repository.
-\item As mentioned in Section~\ref{painpoints}, one interviewee was too busy
-to participate in a full interview, so they provided a version of written answers
-to us. Since we did not have the chance to explain our questions or ask them
-follow-up questions, there is a possibility of misinterpretation of the
-questions or answers.
-\item As mentioned in Section~\ref{sec_result_installability}, we could not
-install or build \textit{dwv}, \textit{GATE}, and \textit{DICOM Viewer}. We used
-a deployed online version for \textit{dwv}, a VM version for \textit{GATE}, but
-no alternative for \textit{DICOM Viewer}. We might underestimate their rank due
-to an uncommon technical issue.
-\end{itemize}
-
-\begin{description}
-    \item[Internal Validity:] ``This aspect relates to the examination of causal
-    relations. Internal validity examines whether an experimental
-    treatment/condition makes a difference or not, and whether there is evidence
-    to support the claim'' \citep{AmpatzoglouEtAl2019}.
-\end{description}
-
-\begin{itemize}
-    \item Many of the measurement template questions look for the presence of
-    certain artifacts, like a user manual, or a getting started tutorial.  We
-    have implicitly assumed that the presence of these artifacts is an
-    indication of a given quality, but this is an indirect measure.  It may be
-    possible to achieve qualities without the artifacts we sought.  A direct
-    measure of quality, like an usability experiment, would not have this
-    problem.
-    \item We compared our rankings to the rankings by the community and the
-    Domain Expert, but we have assumed all qualities are equally weighted.  The
-    community and the Domain Expert likely have a more complex weighting between
-    qualities.
-    \item We assumed there was a casual relationship between the number of files
-    and reusability, since we assumed multiple files implies modularity.  Of
-    course the code can be modular, and not divided into separate files.
-    Moreover, having many files does not immediately in itself imply a
-    decomposition based on sound design principles, like information hiding.
-\end{itemize}
-
-\begin{description}
-    \item[External Validity:] ``Define the domain to which a study's findings
-    can be generalized'' \citep{ZhouEtAl2016}.
-\end{description}
-
-\begin{itemize}
-\item We interviewed eight teams, which is a good proportion of the 29. However,
-there is still a risk that the subset of the entire group does not represent the
-whole MI software community.
-\item We identified qualities that we believe the community will be interested
-in, and we weighted these qualities equally, but the qualities we chose, and
-their weighting, may not match the external reality.
-\item The number of GitHub stars, watches, and forks are not ideal measures of
-popularity.  \wss{Can we find a reference for this?}
-\end{itemize}
-
-\begin{description}
-    \item[Conclusion Validity:] ``Demonstrate that the operations of a study
-    such as the data collection procedure can be repeated, with the same
-    results'' \citep{ZhouEtAl2016}.
-\end{description}
-
-\begin{itemize}
-\item The grading template included an entry for the reviewer's impression.  We
-aimed for objectivity, but there is a risk that some scores may be subjective
-and biased.
-\item The measurements are made at an instant in time, and the instant differs
-by a few weeks between projects, due to the time needed to measure them. For the
-most part, the projects are living and continually changing, which means if we
-measured at a different time, our results may change.
-\end{itemize}
-
 \section{Recommendations} \label{ch_recommendations}
 
 This section presents our recommendations on MI software development. Although
@@ -2251,6 +2126,12 @@ MI domain.
 
 \subsection{Recommendations on Improving Software Qualities}
 \label{sec_recommendations_qualities}
+
+Peer review --  One of the developers (ESPResSo) that was interviewed noted that
+an ad hoc peer review process is used to assess major changes and additions.
+Using peer review (also called technical review) matches with recommended
+practice for research software \citep{HerouxEtAl2008, Givler2020, OrvizEtAl2017,
+USGS2019}.
 
 Based on our quality measurements in Section~\ref{ch_results} and discussions
 with the developers in Section~\ref{painpoints}, we collected key points for
@@ -2463,9 +2344,9 @@ generally help team members to contribute more and make fewer mistakes.
 \subsection{Recommendations on Enriching the Testing Datasets} 
 \label{sec_recommendations_testing_dataset}
 
-As described in Section~\ref{painpoints}, it is difficult for
-software development teams to access real-world medical imaging datasets. This
-problem restricts their capability and flexibility for testing. We provide some
+As described in Section~\ref{painpoints}, it is difficult for software
+development teams to access real-world medical imaging datasets. This problem
+restricts their capability and flexibility for testing. We provide some
 suggestions as follows:
 
 \begin{itemize}
@@ -2509,6 +2390,106 @@ professionals can better offer voluntary support for testing. Ultimately, the
 community can establish a nonprofit organization as a third-party, which
 maintains large datasets, tests OSS in the domain, and protects privacy. 
 
+\end{itemize}
+
+\section{Threats to Validity} \label{sec_threats_to_validity}
+
+Below we categorize and list the threats to validity that we have identified.
+The categories come from \citet{AmpatzoglouEtAl2019} and \citet{ZhouEtAl2016}.
+
+\wss{observed artifacts (Section~\ref{Sec_CompareArtifacts}) - human judgement,
+not always given the expected name, but the content is there.}
+
+\begin{description}
+    \item[Construct Validity:] ``Defines how effectively a test or experiment measures
+    up to its claims. This aspect deals with whether or not the researcher measures
+    what is intended to be measured'' \citep{AmpatzoglouEtAl2019}.
+\end{description}
+
+\begin{itemize}
+\item For practical considerations the time spent measuring each package had to
+be limited.  The time limit may have caused an assessment to have missed
+something something relevant.
+\item Our ranking is partly based on surface (shallow) measurement, which may
+not fully reveal the underlying qualities.
+\item The questions in the measurement template may not actually measure the
+qualities they are associated with.  For instance, we have assumed that
+maintainability is improved if a high percentage of identified issues are
+closed, but it is possible for a project with a wealth of ideas to have many
+open issues, and still be maintainable.
+\item With the exception of the interview data for 8 projects, we collected all
+of the information for each project from the artifacts available on the
+Internet. In some cases this source of data may mean we did not find evidence of
+something, like unit testing, not because the project didn't do it, but because
+no artifacts of this activity remained in the publicly available repository.
+\item As mentioned in Section~\ref{painpoints}, one interviewee was too busy
+to participate in a full interview, so they provided a version of written answers
+to us. Since we did not have the chance to explain our questions or ask them
+follow-up questions, there is a possibility of misinterpretation of the
+questions or answers.
+\item As mentioned in Section~\ref{sec_result_installability}, we could not
+install or build \textit{dwv}, \textit{GATE}, and \textit{DICOM Viewer}. We used
+a deployed online version for \textit{dwv}, a VM version for \textit{GATE}, but
+no alternative for \textit{DICOM Viewer}. We might underestimate their rank due
+to an uncommon technical issue.
+\end{itemize}
+
+\begin{description}
+    \item[Internal Validity:] ``This aspect relates to the examination of causal
+    relations. Internal validity examines whether an experimental
+    treatment/condition makes a difference or not, and whether there is evidence
+    to support the claim'' \citep{AmpatzoglouEtAl2019}.
+\end{description}
+
+\begin{itemize}
+    \item Many of the measurement template questions look for the presence of
+    certain artifacts, like a user manual, or a getting started tutorial.  We
+    have implicitly assumed that the presence of these artifacts is an
+    indication of a given quality, but this is an indirect measure.  It may be
+    possible to achieve qualities without the artifacts we sought.  A direct
+    measure of quality, like an usability experiment, would not have this
+    problem.
+    \item We compared our rankings to the rankings by the community and the
+    Domain Expert, but we have assumed all qualities are equally weighted.  The
+    community and the Domain Expert likely have a more complex weighting between
+    qualities.
+    \item We assumed there was a casual relationship between the number of files
+    and reusability, since we assumed multiple files implies modularity.  Of
+    course the code can be modular, and not divided into separate files.
+    Moreover, having many files does not immediately in itself imply a
+    decomposition based on sound design principles, like information hiding.
+\end{itemize}
+
+\begin{description}
+    \item[External Validity:] ``Define the domain to which a study's findings
+    can be generalized'' \citep{ZhouEtAl2016}.
+\end{description}
+
+\begin{itemize}
+\item We interviewed eight teams, which is a good proportion of the 29. However,
+there is still a risk that the subset of the entire group does not represent the
+whole MI software community.
+\item We identified qualities that we believe the community will be interested
+in, and we weighted these qualities equally, but the qualities we chose, and
+their weighting, may not match the external reality.
+\item The number of GitHub stars, watches, and forks are not ideal measures of
+popularity.  \wss{Can we find a reference for this?}
+\end{itemize}
+
+\begin{description}
+    \item[Conclusion Validity:] ``Demonstrate that the operations of a study
+    such as the data collection procedure can be repeated, with the same
+    results'' \citep{ZhouEtAl2016}.
+\end{description}
+
+\begin{itemize}
+\item The grading template included an entry for the reviewer's impression.  We
+aimed for objectivity, but there is a risk that some scores may be subjective
+and biased.
+\item The measurements are made at an instant in time, and the instant differs
+by a few weeks between projects, due to the time needed to measure them. For the
+most part, the projects are living and continually changing, which means if we
+measured at a different time, our results may change.
 \end{itemize}
 
 \section{Conclusions} \label{ch_conclusions}
@@ -2574,7 +2555,8 @@ coding standards, development process, project status, development environment,
 and release notes);
 \item using CI/CD;
 \item using git and GitHub;
-\item modular approach with the design principle proposed by \citet{ParnasEtAl2000};
+\item modular approach with the design principle proposed by
+\citet{ParnasEtAl2000};
 \item considering newer technologies (e.g.\ web application and serverless
 solution);
 \item various ways of enriching the testing datasets, such as using existing
@@ -2602,11 +2584,12 @@ state of the practice assessments:
         \item surface usability: we can design usability tests and test
         all software projects with end-users. The end-users can be volunteers
         and domain experts.
-        \item surface understandability: our current method does not
-        require understanding the source code. As software engineers, perhaps we
-        can select a small module of each project, read the source code and
+        \item surface understandability: our current method does not require
+        understanding the source code. As software engineers, perhaps we can
+        select a small module of each project, read the source code and
         documentation, try to understand the logic, and score the ease of the
-        process.  Ideas for getting started are available in \citet{SmithEtAl2021}.
+        process.  Ideas for getting started are available in
+        \citet{SmithEtAl2021}.
         \item measure modifiability as part of the measurement of
         maintainability.  An experiment could be conducted asking participants
         to make modifications, observing the study subjects during the
@@ -2621,10 +2604,10 @@ state of the practice assessments:
 	\item the rubric for the grading standard can be made more explicit.
 	\item we can improve some interview questions. Some examples are:
 	\begin{itemize}
-	    \item in {Q14}, ``Do you think improving this process can
-	    tackle the current problem?'' is a yes-or-no question, which is not
-	    informative enough. As mentioned in Section~\ref{sec_contribution_pm},
-	    most interviewees ignored it. We can change it to ``By improving this
+	    \item in {Q14}, ``Do you think improving this process can tackle the
+	    current problem?'' is a yes-or-no question, which is not informative
+	    enough. As mentioned in Section~\ref{Sec_CompareMethodologies}, most
+	    interviewees ignored it. We can change it to ``By improving this
 	    process, what current problems can be tackled?''; 
 	    \item in {Q16}, we can ask for more details about the modular
 	    approach, such as ``What principles did you use to divide code into
@@ -2683,7 +2666,7 @@ state of the practice assessments:
 % Overview of scientific computing
 We define Scientific Computing (SC) as ``the use of computer tools to analyze or
 simulate mathematical models of real world systems of engineering or scientific
-importance so that we can better understand and predict the system’s behaviour''
+importance so that we can better understand and predict the system's behaviour''
 \citep{Smith2006}. Many researchers consider SC as the third pillar of science
 and engineering, along with theory and experiment \citep{Landau2005}. Almost all
 areas in science and engineering use computers for modelling \citep{Golub2014},
