@@ -1467,7 +1467,7 @@ The frequency of checkmarks in Table~\ref{Tbl_Guidelines} indicates the
 popularity of recommending a given artifact, but it does not imply that the most
 commonly recommended artifacts are the most important artifacts. Just because an
 artifact is not explicitly recommended in a given guidelines, does not mean that
-the artifact is not valued by the guideline authors.  They may have exluded it
+the artifact is not valued by the guideline authors.  They may have excluded it
 because it is out of the scope of their recommendations, or outside of their
 experience.  For instance, an artifact related to uninstall is only explicitly
 mentioned by \citep{vanGompelEtAl2016}), but other guideline authors would
@@ -1545,7 +1545,7 @@ these fragments together.
 
 Although the MI community shows examples of 88\% (23 of 26) of the practices we
 found in research software guidelines (Table~\ref{Tbl_Guidelines}), three
-recommended artifacts were not observed: i) Unistall, ii) Test plans, and iii)
+recommended artifacts were not observed: i) Uninstall, ii) Test plans, and iii)
 Requirements.  Uninstall is likely an omission caused by the focus on installing
 software. Given the storage capacity of current hardware, developers and users
 are not generally concerned with uninstall.  Moreover, as mentioned above,
@@ -1579,11 +1579,12 @@ Table~\ref{Tbl_Guidelines} shows several artifacts that are rarely observed in
 practice.  A theme among these rare artifacts is that many of them are related
 to developers more than users.  For instance, the rare artifacts include
 Contributing, Developer code of conduct, Code style guide, Product roadmap,
-Requirements, Design documentation, API documentation and a Test plan.  The rare
-artifacts for MI software are similar to the rare artifacts for Lattice
-Boltzmann solvers \citep{Michalski2021}, except LBM software is more likely to
-have developer related artifacts, like Contributing, Dependency list, and Design
-documentation.
+Requirements, Design documentation, API documentation and a Test plan.
+\wss{additional details are available in the LBM document for other missing
+parts, like code style guides.}  The rare artifacts for MI software are similar
+to the rare artifacts for Lattice Boltzmann solvers \citep{Michalski2021},
+except LBM software is more likely to have developer related artifacts, like
+Contributing, Dependency list, and Design documentation.
 
 To improve MI software in the future, an increased use of checklists could help.
 Checklists can be used in projects to ensure that best practices are followed by
@@ -1592,8 +1593,8 @@ all developers.  Some examples include checklists merging branches into master
 \citep{WilsonEtAl2016}, checklists for new and departing team members
 \citep{HerouxAndBernholdt2018}, checklists for processes related to commits and
 releases \citep{HerouxEtAl2008} and checklists for overall software quality
-\citep{ThielEtAl2020, SSI2022}.  For instace, for Lattice Boltzmann solver
-software, ESPResSo has a checklist for managing releases \citep{Michalski2021}.
+\citep{ThielEtAl2020, SSI2022}.  For instance, for Lattice Boltzmann solver
+software, ESPResSo has a checklist for managing releases \citep{Michalski2021}. 
 
 The above discussion shows that, taken together, MI projects fall somewhat short
 of recommended best practices for research software.  However, MI software is
@@ -1849,6 +1850,28 @@ Testing & Lack of access to real-world datasets for testing & 3 & 2 \\
 \end{tabular}
 \caption{\label{tab_obstacles}Current and past obstacles by the numbers of interviewees with the answers}
 \end{table}
+
+\citet{PintoEtAl2018} lists some pain points that did not come up in our
+conversations with LBM developers: Cross-platform compatibility, interruptions
+while coding, scope bloat, lack of user feedback, hard to collaborate on
+software projects, and aloneness. \citet{WieseEtAl2019} repeat some of the
+previous pain points and add the following: dependency management, data handling
+concerns (like data quality, data management and data privacy), reproducibility,
+and software scope determination. Although LBM developers did not mention these
+pain points, we cannot conclude that they are not relevant for LBM software
+development, since we only interviewed four LBM developers for about an hour each.
+
+\begin{enumerate}
+
+	\item[P\refstepcounter{pnum}\thepnum \label{P_LackDevTime}:] \textbf{Lack of
+	Development Time} A developer of pyLBM noted that their small development
+	team has a lack of time to implement new features. Small development teams
+	are common for LBM software packages (as shown in the measurement table
+	excerpt in Figure~\ref{measurement_template_image}). Lack of time is also
+	highlighted as a pain point by other research software developers
+	\citet{PintoEtAl2018, PintoEtAl2016, WieseEtAl2019}.
+
+\end{enumerate}
 
 Developers identified a resource related pain point caused by a lack of funding
 and time.  Potential and proven solutions suggested by the interviewees include:
