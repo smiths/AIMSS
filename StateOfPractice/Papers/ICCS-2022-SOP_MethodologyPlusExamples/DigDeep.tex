@@ -59,28 +59,32 @@ Peter Michalski\inst{1}}%\orcidID{1111-2222-3333-4444} \and
 %
 \begin{abstract}
 
-	We have developed a methodology for assessing the state of the software
-	development practice for a given research software domain. Our methodology
+	To improve the productivity of research software developers we need to first
+	understand their development practices.  Previous studies on this topic have
+	collected data by surveying as many developers as possible, across a broad
+	range of application domains.  We propose to dig deeper into the state of
+	the practice by instead looking at what developers in specific domains
+	create, as evidenced by the contents of their repositories.  Our methodology
 	prescribes the following steps: i) Identify the domain; ii) Identify a list
-	of candidate software packages; iii) Filter the list to a length of about 30
-	packages; iv) Collect repository related data on each software package, like
-	number of stars, number of open issues, number of lines of code; v) Fill in
-	the measurement template (the template consists of 108 questions to assess 9
+	of candidate software; iii) Filter the list to a length of about 30
+	packages; iv) Collect repository related data on each package, like number
+	of stars, number of open issues, number of lines of code; v) Fill in the
+	measurement template (the template consists of 108 questions to assess 9
 	qualities (including the qualities of installability, usability and
 	visibility)); vi) Rank the software using the Analytic Hierarchy Process
 	(AHP); vii) Interview developers (the interview consists of 20 questions and
 	takes about an hour); and, viii) Conduct a domain analysis. The collected
-	data is analyzed by: i) comparing the ranking by best practices against 
-	the ranking by popularity; ii) comparing artifacts, tools and processes to
+	data is analyzed by: i) comparing the ranking by best practices against the
+	ranking by popularity; ii) comparing artifacts, tools and processes to
 	current research software development guidelines; and, iii) exploring pain
-	points. We estimate the time to complete an assessment for a given domain at
-	173 person hours. The method is illustrated via the example of Lattice
-	Boltzmann Solvers, where we find that the top packages engaged in most of
-	recommended best practices, but still show room for improvement with respect
-	to providing API documentation, a roadmap, a code of conduct, programming
-	style guide, uninstall instructions and continuous integration.
+	points. We estimate the time to complete an assessment at 173 person hours.
+	The method is illustrated via the example of Lattice Boltzmann Solvers,
+	where we find that the top packages engaged in most of recommended best
+	practices, but still show room for improvement with respect to providing API
+	documentation, a roadmap, a code of conduct, programming style guide and
+	continuous integration.
 
-\keywords{research software \and software quality \and empirical measures \and analytic hierarchy process \and software artifacts \and developer pain points \and Lattice Boltzmann Method}
+\keywords{research software \and software quality \and empirical measures \and  software artifacts \and developer pain points \and Lattice Boltzmann Method}
 
 \end{abstract}
 
@@ -89,41 +93,58 @@ Peter Michalski\inst{1}}%\orcidID{1111-2222-3333-4444} \and
 Research software is critical for tackling problems in areas as diverse as
 manufacturing, financial planning, environmental policy and medical diagnosis
 and treatment.  However, developing reliable, reproducible, sustainable and fast
-research software to address new problems is challenging because of the
-complexity of the physical models and the nuances of floating point and parallel
-computation. The importance of research software and the difficulty with its
-development have prompted multiple researchers to investigate how developing
-this software differs from other classes of software.  Previous studies have
-focused on surveying developers
-\cite{HannayEtAl2009,Nguyen-HoanEtAl2010,PintoEtAl2018}, developer interviews
-\cite{Kelly2013} and case studies \cite{CarverEtAl2007,Segal2005}.  A
-valuable source of information that has received less attention is the data in
-publicly available software repositories.  We propose digging deeper into how
-well projects are applying best practices by using a new methodology that
-combines manual and automated techniques to extract repository-based
-information.
+research software is challenging because of the complexity of physical models
+and the nuances of floating point and parallel computation. The critical
+importance of research software, and the challenges with its development, have
+prompted multiple researchers to investigate the state of development practice.
+Understanding the creation of research software is critical for devising future
+methods and tools for reducing development time and improving software quality.
+
+Previous studies on the state of the practice for research software have often
+focused on surveying
+developers~\cite{HannayEtAl2009,Nguyen-HoanEtAl2010,PintoEtAl2018}. Although
+surveys provide valuable information, they are limited by their reliance on what
+developers say they do, rather than directly measuring what they actually do.
+Therefore, we propose a state of the practice assessment methodology that
+investigates the work products developers create by digging into the
+software repositories they create.
+
+Although other studies~\cite{GrannanEtAl2020,SoodEtAl2019} mine research
+software repositories to estimate productivity, code quality and project
+popularity, the other studies focus on automation and on code related artifacts.
+To gain deeper insight, at the expense of taking more time, we will relax the
+automation requirement and use manual investigation where necessary.  We will
+also expand our assessment beyond code to include other artifacts, where
+artifacts are the documents, scripts and code that we find in a project's public
+repository. Example artifacts include requirements, specifications, user
+manuals, unit test cases, system tests, usability tests, build scripts, API
+(Application Programming Interface) documentation, READMEs, license documents,
+and process documents.
 
 The surveys used in previous studies have tended to recruit participants from
-all domains of research software, possibly distinguishing them by programming
-language (for instance, R developers~\cite{PintoEtAl2018}), or by the role of
-the developers (for instance postdoctoral researchers \cite{UditAndKatz2017}).
-Case studies, on the other hand, have focused on a few specific examples at a
-time, as is the nature of case studies.  For our new methodology, we propose a
-scope between these two extremes.  Rather than focus on all research software,
-or just a few examples, we will focus on one domain at a time. The practical
-reason for this scope is that digging deep takes time, making a broad scope
-infeasible. We have imposed a practical constraint of one person month of effort
-per domain.\footnote{A person month is considered to be $20$ working days ($4$
-weeks in a month, with $5$ days of work per week) at $8$ person hours per day,
-or $20 \cdot 8 = 160$ person hours.} Focusing on one domain at a time has more
-than just practical advantages.  By restricting ourselves to a single domain we
-can bring domain knowledge and domain experts into the mix.  The domain
-customized insight provided by the assessment has the potential to help a
-specific domain as they adopt and develop new practices.  Moreover, measuring
-multiple different domains facilitates comparing and contrasting domain specific
-practices.
+all domains of research software.  This is what we will call \emph{research
+software in general}, as opposed to specific domain software. The surveys may
+distinguish participants by programming language (for instance, R
+developers~\cite{PintoEtAl2018}), or by the role of the developers (for instance
+postdoctoral researchers \cite{UditAndKatz2017}), but the usual goal is to cast
+as wide a net as possible. Case studies \cite{CarverEtAl2007,Segal2005}, on the
+other hand, go more in depth by focusing on a few specific examples at a time.
+For our new methodology, we propose a scope between these two extremes.  Rather
+than focus on assessing the state of the practice for research software in
+general, or just a few examples, we will focus on one scientific domain at a
+time. The practical reason for this scope is that digging deep takes time,
+making a broad scope infeasible. We have imposed a practical constraint of one
+person month of effort per domain.\footnote{A person month is considered to be
+$20$ working days ($4$ weeks in a month, with $5$ days of work per week) at $8$
+person hours per day, or $20 \cdot 8 = 160$ person hours.}  Focusing on one
+domain at a time has more than just practical advantages.  By restricting
+ourselves to a single domain we can bring domain knowledge and domain experts
+into the mix.  The domain customized insight provided by the assessment has the
+potential to help a specific domain as they adopt and develop new practices.
+Moreover, measuring multiple different domains facilitates comparing and
+contrasting domain specific practices.
 
-Our methodology is built around 10 research questions.  Assuming that the domain
+Our methodology is built around 8 research questions.  Assuming that the domain
 has been identified (Section~\ref{SecIdentifyDomain}), the first question is:
 
 \begin{enumerate}
@@ -134,24 +155,24 @@ has been identified (Section~\ref{SecIdentifyDomain}), the first question is:
 \end{enumerate}
 
 We next wish to assess the representative software to determine how well they
-apply current software development best practices.  At this point in the
-process, to remove potential user/developer bias, we will base our assessment
-only on publicly available artifacts, where artifacts are the documents, scripts
-and code that we find in a project's public repository. Example artifacts
-include requirements, specifications, user manuals, unit test cases, system
-tests, usability tests, build scripts, API (Application Programming Interface)
-documentation, READMEs, license documents, process documents, and code.
-Following best practices does not guarantee popularity, so we will also compare
-our ranking to how the user community itself ranks the identified projects.
+apply current software development best practices.  By \emph{best practices} we
+mean methods, techniques and tools that are generally believed to improve
+software development, like testing and documentation.  As we will discuss in
+Section~\ref{empiricalmeasures}, we will categorize our best practices around
+software qualities. Following best practices does not guarantee popularity, so
+we will also compare our ranking to how the user community itself ranks the
+identified projects.
 
 \begin{enumerate}
 	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_HighestQuality}:] Which
 	of the projects identified in \rqref{RQ_WhatProjects} follow current best
 	practices, based on evidence found by experimenting with the software and
-	searching the artifacts available in each project's repository? (Sections~\ref{empiricalmeasures})
+	searching the artifacts available in each project's repository?
+	(Sections~\ref{empiricalmeasures})
 	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_CompareHQ2Popular}:] How
 	similar is the list of top projects identified in \rqref{RQ_HighestQuality}
-	to the most popular projects, as viewed by the scientific community? (Section~\ref{repmetrics})
+	to the most popular projects, as viewed by the scientific community?
+	(Section~\ref{repmetrics})
 \end{enumerate}
 
 To understand the state of the practice we wish to learn the frequency with
@@ -165,23 +186,19 @@ questions about how the domain software compares to other research software.
 	artifacts present in their repositories? (Section~\ref{Sec_CompareArtifacts})
 	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_CompareToolsProjMngmnt}:]
 	How do domain projects compare to research software in general with respect to
-	the use of tools (Section~\ref{Sec_CompareTools}) for:
-	\begin{enumerate} 
-		\item [\rqref{RQ_CompareToolsProjMngmnt}.a] development; and,
-		\item [\rqref{RQ_CompareToolsProjMngmnt}.b] project management?
-	\end{enumerate}
+	the use of tools? (Section~\ref{Sec_CompareTools})
 	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_CompareMethodologies}:]
 	How do domain projects compare to research software in general with respect to
 	the processes used? (Section~\ref{Sec_CompareMethodologies})
 \end{enumerate}	
 
-Only so much information can be gleaned by digging into software repos.
-To gain additional insight, we need to interview developers
-(Section~\ref{SecSurvey}) to learn:
+Only so much information can be gleaned by digging into software repos. To gain
+additional insight, we need to interview developers (Section~\ref{SecSurvey}),
+as done in other state of the practice assessments \cite{Kelly2013}, to learn:
 
 \begin{enumerate}
 	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_PainPoints}:] What are
-	the pain points for developers working on domain software projects?
+	the pain points for developers?
 	(Section~\ref{painpoints})
 	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_ComparePainPoints}:] How
 	do the pain points of domain developers compare to the pain points
@@ -199,14 +216,11 @@ software \cite{SmithEtAl2018}, and statistical software for psychology
 \cite{SmithEtAl2018_StatSoft}.  Initial tests of the new methodology have been
 done for medical image analysis software \cite{Dong2021} and for Lattice
 Boltzmann Method (LBM) software \cite{Michalski2021}.  The LBM example will be
-used throughout this paper to illustrate the steps in the methodology.  The
-paper ends with a summary of potential threats to validity
-(Section~\ref{threats}) and our conclusions
-(Section~\ref{SecConcludingRemarks}).
+used to illustrate the steps in the methodology.
 
 \section{Methodology} \label{methodology}
 
-The assessment is conducted via the following steps.  The steps depend on
+The assessment is conducted via the following steps, which depend on
 interaction with a Domain Expert partner, as discussed in
 Section~\ref{sec_vet_software_list}.
 
@@ -216,38 +230,35 @@ Section~\ref{sec_vet_software_list}.
 	(Section~\ref{identifysoftware})
 	\item Filter the software package list. (Section~\ref{filtersoftware})
 	\item Gather the source code and documentation for each software package.
-	\item Collect quantitative measures from the project repositories.
-	(Section~\ref{empiricalmeasures})
 	\item Measure using the measurement template. (Section~\ref{empiricalmeasures})
 	\item Use AHP to rank the software packages. (Section~\ref{empiricalmeasures})
 	\item Interview the developers. (Section~\ref{SecSurvey})
     \item Domain analysis. (Section~\ref{SecDomainAnalysis})
-	\item Analyze the results and answer the research questions. (Sections~\ref{repmetrics}---\ref{painpoints}) %,~\ref{Sec_CompareArtifacts},~\ref{Sec_CompareTools},~\ref{Sec_CompareMethodologies},~\ref{painpoints},~\ref{Sec_AddressConcerns},
+	\item Analyze the results and answer the research questions.
+	(Sections~\ref{SecRanking}---\ref{painpoints})
 \end{enumerate}
 
 We estimate 173 hours to complete the assessment of a given
-domain~\cite{SmithEtAl2021}, which is close our goal of 160 person hours. This
-estimate assumes the domain has been decided, the Domain Expert has been
-recruited, and the pre-existing template spreadsheet and AHP
-tool~\cite{SmithEtAl2021}, will be utilized.
+domain~\cite{SmithEtAl2021}, which is close our goal of 160 person hours.
+% This estimate assumes the domain has been decided, the Domain Expert has been
+% recruited, and the pre-existing template spreadsheet and AHP
+% tool~\cite{SmithEtAl2021}, will be utilized.
 
 \subsection{How to Identify the Domain?} \label{SecIdentifyDomain} 
 
-To be applicable for the methodology described in this document, the chosen
-domain must have the following properties:
+To be applicable the chosen domain must have the following properties:
 
 \begin{enumerate}
-\item The domain must have well-defined and stable theoretical underpinning.
+\item The domain must have well-defined and stable theoretical underpinnings.
 \item There must be a community of people studying the domain.
 \item The software packages must have open source options.
-\item A preliminary search, or discussion with experts, suggests that there will
-  be around 30 or more candidate software packages.
+\item The domain expert says there will be at least 30 candidate packages.
 \end{enumerate}	
 
 \subsection{How to Identify Candidate Software from the Domain?}
 \label{identifysoftware}
 
-The candidate software to answer~\rqref{RQ_WhatProjects} should be found through
+The candidate software to answer \rqref{RQ_WhatProjects} should be found through
 search engine queries,  
 \href{https://github.com/} {GitHub}, \href{https://swmath.org/} {swMATH}
 and scholarly articles. The Domain Expert (Section~\ref{sec_vet_software_list})
@@ -278,9 +289,6 @@ rationale for shortening the list, should be kept for traceability purposes.
 	Domain Expert should be consulted on this question as necessary.)
 \end{enumerate}
 
-For the LBM example the initial list had 46 packages~\cite{Michalski2021}. This
-list was filtered by scope, usage, and age to decrease the length to 24.
-
 \subsection{Quantitative Measures} \label{empiricalmeasures}
 
 We rank the projects by how well they follow best practices
@@ -288,8 +296,7 @@ We rank the projects by how well they follow best practices
 each software package (each column in the template), we fill-in the rows. This
 process takes about 2 hours per package, with a cap of 4 hours.  An excerpt of
 the template is shown in Figure~\ref{measurement_template_image}.  In keeping
-with scientific transparency, all data should be made available in a public
-repository.
+with scientific transparency, all data should be made publicly available.
 
 \begin{figure}[!ht]
 	\begin{center}
@@ -327,12 +334,16 @@ documentation of expected user characteristics.
 
 Tools are used to find some of the measurements, such as the number of files,
 number of lines of code (LOC), percentage of issues that are closed, etc. The
-tool \href{https://github.com/tomgi/git_stats}{GitStats} is used to measure
-each software package's GitHub repository for the number of binary files, the
-number of added and deleted lines, and the number of commits over varying time
+tool \href{https://github.com/tomgi/git_stats}{GitStats} is used to measure each
+software package's GitHub repository for the number of binary files, the number
+of added and deleted lines, and the number of commits over varying time
 intervals. The tool \href{https://github.com/boyter/scc}{Sloc Cloc and Code
 (scc)} is used to measure the number of text based files as well as the number
-of total, code, comment, and blank lines in each GitHub repository.
+of total, code, comment, and blank lines in each GitHub repository.  At this
+time our focus is on simple metrics, so we do no need the static analysis
+capabilities of tools like
+\href{https://www.hello2morrow.com/products/sonargraph} {Sonargraph} or
+\href{https://www.sonarcloud.io}{SonarCloud}.
 
 Virtual machines (VMs) are used to provide an optimal testing environments for
 each package~\cite{SmithEtAl2016} because with a fresh VM there are no worries
@@ -349,17 +360,6 @@ performs a pairwise analysis between each of the 9 quality options for each of
 the (approximately) 30 software packages.  This results in a matrix, which is
 used to generate an overall score for each software package for the given
 criteria~\cite{SmithEtAl2016}.
-
-\begin{figure}[h!]
-	\centering
-		\includegraphics[width=1.0\textwidth]{./figures/finalscore_chart.pdf}
-		\caption{AHP Overall Score}
-		\label{Fig_OverallScore}
-\end{figure}
-
-Figure~\ref{Fig_OverallScore} shows the overall ranking of the LBM software
-packages. In the absence of other information on priorities, the overall ranking
-was calculated by assuming an equal weighting between all qualities.  The LBM data is available \href{https://data.mendeley.com/datasets/5dym63wn6z/1} {on-line}.
 
 \subsection{Interview Developers} \label{SecSurvey}
 
@@ -404,11 +404,17 @@ requirements are knowledge of the domain and a willingness to be involved.
 
 \subsection{Domain Analysis} \label{SecDomainAnalysis}
 
-For the current methodology time constraints necessitate a shallow domain
-analysis. For each domain a table should be constructed that distinguishes the
-programs under study by their variabilities.  In research software the
-variabilities are often assumptions. Table~\ref{tbl_features} shows the
-variabilities for LBM software~\cite{Michalski2021}.
+For each domain a table should be constructed that distinguishes the programs by
+their variabilities.  In research software the variabilities are often
+assumptions.
+
+\section{Measuring and Ranking the LBM Domain} \label{SecRanking}
+
+For the LBM example the initial list had 46 packages~\cite{Michalski2021}. To
+answer \rqref{RQ_WhatProjects}, this list was filtered by scope, usage, and age
+to decrease the length to 24 packages, as shown in Table~\ref{tbl_features}.
+This table also shows the domain analysis, in terms of variabilities, for LBM
+software~\cite{Michalski2021}.
 
 \begin{table}[h!]
 	\begin{center}
@@ -451,6 +457,20 @@ variabilities for LBM software~\cite{Michalski2021}.
 	\end{center}
 \end{table}
 
+To answer \rqref{RQ_HighestQuality} the 24 LBM packages were ranked for the 9
+qualities~\cite{Michalski2021}.  For space reasons we will only show the overall
+ranking in Figure~\ref{Fig_OverallScore}. In the absence of information on
+priorities, the overall ranking was calculated with an equal weight between all
+qualities.  The LBM data is available on
+\href{https://data.mendeley.com/datasets/5dym63wn6z/1} {Mendeley}.
+
+\begin{figure}[h!]
+	\centering
+		\includegraphics[width=1.0\textwidth]{./figures/finalscore_chart.pdf}
+		\caption{AHP Overall Score}
+		\label{Fig_OverallScore}
+\end{figure}
+
 \section{Comparison to Community Ranking} \label{repmetrics}
 
 To address \rqref{RQ_CompareHQ2Popular} we need to compare the ranking by best
@@ -463,16 +483,16 @@ following reasons:
 \begin{inparaenum}[i)]
 	\item the overall quality ranking via AHP makes the unrealistic assumption
 	of equal weighting between quality factors;
-	\item stars are known to not be a particularly good measure of popularity,
+	\item stars are not a particularly good measure of popularity,
 	because of how people use stars and because young projects have less time to
-	accumulate stars~\cite{Szulik2017}; 
+	accumulate them~\cite{Szulik2017}; 
 	\item and, as for consumer products, there are more factors influencing
 	popularity than just quality.
 \end{inparaenum}
 
 Table~\ref{repometrics} compares the AHP ranking of the LBM package to their
 popularity in the research community.  Nine packages do not use GitHub, so they
-do not have a measure of stars. Looking at the stars of the other 15 packages,
+do not have a star measure. Looking at the stars of the other 15 packages,
 we can observe a pattern where packages that have been highly ranked by our
 assessment tend to have more stars than lower ranked packages. The best ranked
 package by AHP (ESPResSo) has the second most stars, while the ninth ranked
@@ -490,26 +510,26 @@ correlation between best practices and popularity.
 			ESPResSo & 1 & 145 & 2 & 19& 2\\
 			Ludwig & 2 & 27 & 8 & 6& 7\\
 			Palabos & 3 & 34 & 6 & GitLab& GitLab\\
-			OpenLB & 4 & No Git & No Git & No Git& No Git\\
+			OpenLB & 4 & N/A & N/A & N/A& N/A\\
 			LUMA & 5 & 33 & 7 & 12& 4\\
 			pyLBM & 6 & 95 & 3 & 10& 5\\
-			DL\_MESO (LBE) & 7 & No Git & No Git & No Git & No Git\\
-			Musubi & 8 & No Git & No Git & No Git & No Git\\
+			DL\_MESO (LBE) & 7 & N/A & N/A & N/A & N/A\\
+			Musubi & 8 & N/A & N/A & N/A & N/A\\
 			Sailfish & 9 & 186 & 1 & 41& 1\\
-			waLBerla & 10 & 20 & 9 & GitLab& GitLab\\
-			laboetie & 11 & 4 & 13 & 5& 8\\
-			TCLB & 12 & 95 & 3 & 16& 3\\
-			% MechSys & 13 & No Git & No Git & No Git& No Git\\
+			% waLBerla & 10 & 20 & 9 & GitLab& GitLab\\
+			% laboetie & 11 & 4 & 13 & 5& 8\\
+			% TCLB & 12 & 95 & 3 & 16& 3\\
+			% % MechSys & 13 & N/A & N/A & N/A& N/A\\
 			% lettuce & 14 & 48 & 4 & 5& 8\\
 			% ESPResSo++ & 15 & 35 & 5 & 12& 4\\
 			% MP-LABS & 16 & 12 & 11 & 2& 9\\			
-			% SunlightLB & 17 & No Git & No Git & No Git& No Git\\
-			% LB3D & 18 & No Git & No Git & No Git& No Git\\			
-			% LIMBES & 19 & No Git & No Git & No Git& No Git\\
-			% LB2D-Prime & 20 & No Git & No Git & No Git& No Git\\		
+			% SunlightLB & 17 & N/A & N/A & N/A& N/A\\
+			% LB3D & 18 & N/A & N/A & N/A& N/A\\			
+			% LIMBES & 19 & N/A & N/A & N/A& N/A\\
+			% LB2D-Prime & 20 & N/A & N/A & N/A& N/A\\		
 			% HemeLB & 21 & 12 & 11 & 12& 4\\
 			% lbmpy & 22 &  11 & 12 & 2& 9\\	
-			% LB3D-Prime & 23 & No Git & No Git & No Git& No Git\\	
+			% LB3D-Prime & 23 & N/A & N/A & N/A& N/A\\	
 			... & ... & ... & ... & ... & ...\\				
 			LatBo.jl & 24 & 17 & 10 & 8& 6\\			
 			\bottomrule
@@ -526,86 +546,77 @@ We answer \rqref{RQ_CompareArtifacts} by comparing the artifacts that we observe
 to those observed and recommended for research software in general.  While
 filling in the measurement template (Section~\ref{empiricalmeasures}), the
 domain software is examined for the presence of artifacts, which are then
-categorized by frequency as: common (more than 2/3 of projects), less common
+categorized by frequency as: common (more than 2/3 of projects), uncommon
 (between 1/3 and 2/3), and rare (less than 1/3). The observed frequency of
 artifacts should then be compared to the artifacts recommended by research
 software guidelines, as summarized in Table~\ref{Tbl_Guidelines}.  
 
-\begin{table}[!ht]
-\begin{center}
-\begin{tabular}{ p{3cm}p{1cm}p{1cm}p{1cm}p{1cm}p{1cm}p{1cm}p{1cm}p{1cm}p{1cm} }
-\toprule
-~ \ & \cite{USGS2019} & \cite{TobiasEtAl2018} & \cite{BrettEtAl2021} & \cite{WilsonEtAl2016} & \cite{SmithAndRoscoe2018} & \cite{HerouxEtAl2008} & \cite{ThielEtAl2020} & \cite{vanGompelEtAl2016} & \cite{OrvizEtAl2017}\\
-\midrule
-LICENSE & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & & \checkmark & \checkmark & \checkmark \\
-README &  & \checkmark & \checkmark & \checkmark & \checkmark & & \checkmark & \checkmark & \checkmark\\
-CONTRIBUTING &  & \checkmark & \checkmark & \checkmark & \checkmark & & \checkmark & \checkmark & \checkmark \\
-CITATION &  &  &  & \checkmark & & & & \checkmark & \checkmark \\
-CHANGELOG &  & \checkmark &  & \checkmark & \checkmark & & \checkmark & & \\
-INSTALL &  &  &  &  & \checkmark & & \checkmark & \checkmark & \checkmark\\
-Uninstall &  &  &  &  & & & & \checkmark & \\
-Authors &  &  &  &  &  &  & \checkmark & \checkmark & \checkmark\\
-Getting started &  &  &  &  & \checkmark & & \checkmark & \checkmark & \checkmark\\
-User manual &  &  & \checkmark &  & & & \checkmark & & \\
-Tutorials &  &  &  &  &  &  & \checkmark & & \\
-FAQ &  &  &  &  & & & \checkmark & \checkmark & \checkmark\\
-Dependency List &  &  & \checkmark & & \checkmark & & & \checkmark & \\
-Issue Track &  & \checkmark & \checkmark & & \checkmark & \checkmark & \checkmark & & \checkmark \\
-Version Control &  & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark\\ 
-Requirements &  & \checkmark &  &  & & \checkmark &  &  & \checkmark \\
-Design &  & \checkmark  & \checkmark &  & \checkmark & & \checkmark & \checkmark& \checkmark\\
-API Doc. &  &  &  &  & \checkmark & & \checkmark & \checkmark & \checkmark\\
-Build Scripts &  & \checkmark &  & \checkmark & \checkmark & \checkmark & \checkmark & & \checkmark \\
-Test Plan &  & \checkmark &  &  & & \checkmark & & & \\
-Unit Tests & \checkmark & \checkmark & \checkmark &  & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark \\
-Integ. Tests &  & \checkmark & \checkmark &  & & & & \checkmark & \checkmark \\
-System Tests &  & \checkmark & \checkmark &  & & \checkmark & & \checkmark & \checkmark \\
-Acceptance Tests &  & \checkmark &  &  & & & & &  \\
-Regression Tests &  &  & \checkmark &  & & \checkmark & & & \checkmark \\
-Code Style Guide &  & \checkmark &  &  & & & \checkmark & \checkmark & \checkmark \\
-Release Info. &  & \checkmark &  &  & & \checkmark & \checkmark & & \\
-Product Roadmap &  &  &  &  & & \checkmark & \checkmark & \checkmark & \\
-Code of Conduct &  &  &  &  & & & \checkmark & & \\
-Acknowledgements &  &  &  &  &  &  & \checkmark & \checkmark & \checkmark\\
-\midrule
-\end{tabular}
-\caption{Commonly Recommended Artifacts in Software Development Guidelines} \label{Tbl_Guidelines}
-\end{center}
-\end{table}
+As Table~\ref{Tbl_Guidelines} shows, the majority of LBM generated artifacts
+correspond to general recommendations from research software developers.  Areas
+where LBM developers could improve include providing: API documentation, a
+product roadmap, a code of conduct, code style guide, and uninstall
+instructions.
 
-The majority of LBM generated artifacts (summarized below) correspond to general
-recommendations from research software developers.  For LBM, a union of the
-three categories mostly corresponds to general research software recommendations
-(Table~\ref{Tbl_Guidelines}). Areas where LBM developers could improve include
-providing: API documentation, a roadmap, a code of conduct, programming style
-guide, and uninstall instructions.
-
-\begin{description}
-	\item[Common:] Developer List, Issue Tracker, Dependency List, Installation
-	Guide, Theory Notes, Related Publications, Build Files, README File,
-	License, Tutorial, Version Control
-	\item[Less Common:] Change Log, Design Doc., Functional Spec., Performance
-	Info., Test Cases, User Manual
-	\item[Rare:] API Doc., Developer Manual, FAQ, Verification Plan, Video Guide,
-	Requirements Spec.
-\end{description}
-
+\begin{table}[!h]
+	\begin{center}
+	\begin{tabular}{ p{2.5cm}p{1cm}p{1cm}p{1cm}p{1cm}p{1cm}p{1cm}p{1cm}p{1cm}p{1cm}p{0.8cm} }
+	\toprule
+	~ \ & \cite{USGS2019} & \cite{TobiasEtAl2018} & \cite{BrettEtAl2021} & \cite{WilsonEtAl2016} & \cite{SmithAndRoscoe2018} & \cite{HerouxEtAl2008} & \cite{ThielEtAl2020} & \cite{vanGompelEtAl2016} & \cite{OrvizEtAl2017} & LBM\\
+	\midrule
+	LICENSE & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & & \checkmark & \checkmark & \checkmark & C\\
+	README &  & \checkmark & \checkmark & \checkmark & \checkmark & & \checkmark & \checkmark & \checkmark & C\\
+	CONTRIBUTING &  & \checkmark & \checkmark & \checkmark & \checkmark & & \checkmark & \checkmark & \checkmark & U\\
+	CITATION &  &  &  & \checkmark & & & & \checkmark & \checkmark & U\\
+	CHANGELOG &  & \checkmark &  & \checkmark & \checkmark & & \checkmark &  &  & U\\
+	INSTALL &  &  &  &  & \checkmark & & \checkmark & \checkmark & \checkmark & C\\
+	\midrule
+	Uninstall &  &  &  &  & & & & \checkmark & & R\\
+	Dependency List &  &  & \checkmark & & \checkmark & & & \checkmark &  & C\\
+	Authors &  &  &  &  &  &  & \checkmark & \checkmark & \checkmark & C\\
+	Code of Conduct &  &  &  &  & & & \checkmark & & & \\
+	Acknowledgements &  &  &  &  &  &  & \checkmark & \checkmark & \checkmark & R\\
+	Code Style Guide &  & \checkmark &  &  & & & \checkmark & \checkmark & \checkmark & R\\
+	Release Info. &  & \checkmark &  &  & & \checkmark & \checkmark & & & U\\
+	Prod.\ Roadmap &  &  &  &  & & \checkmark & \checkmark & \checkmark & & R\\
+	\midrule
+	Getting started &  &  &  &  & \checkmark & & \checkmark & \checkmark & \checkmark & C\\
+	User manual &  &  & \checkmark &  & & & \checkmark & & & U\\
+	Tutorials &  &  &  &  & & & \checkmark & & & C\\
+	FAQ &  &  &  &  & & & \checkmark & \checkmark & \checkmark & R\\
+	\midrule
+	Issue Track &  & \checkmark & \checkmark & & \checkmark & \checkmark & \checkmark & & \checkmark & C\\
+	Version Control &  & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & C\\ 
+	Build Scripts &  & \checkmark &  & \checkmark & \checkmark & \checkmark &
+	\checkmark & & \checkmark & C\\
+	\midrule
+	Requirements &  & \checkmark &  &  & & \checkmark &  &  & \checkmark &  \\
+	Design Doc.\ &  & \checkmark  & \checkmark &  & \checkmark & & \checkmark &
+	\checkmark& \checkmark & U\\
+	API Doc. &  &  &  &  & \checkmark & & \checkmark & \checkmark & \checkmark & R\\
+	Test Plan &  & \checkmark &  &  & & \checkmark & & & &  U\\
+	Test Cases & \checkmark & \checkmark & \checkmark &  & \checkmark & \checkmark &
+	\checkmark & \checkmark & \checkmark & U\\
+	\midrule
+	\end{tabular}
+	\caption{Comparison of Recommended Artifacts in Software Development Guidelines
+	to Artifacts in LBM Projects (C for Common, U for Uncommon and R for Rare)}
+	\label{Tbl_Guidelines}
+	\end{center}
+	\end{table}
+	
 \section{Comparison of Tools to Other Research Software}
 \label{Sec_CompareTools}
 
 Software tools are used to support the development, verification, maintenance,
 and evolution of software, software processes, and artifacts~\cite[p.\
-501]{GhezziEtAl2003}. Development tools support the development of end products,
-but do not become part of them, unlike dependencies that remain in the
-application once it is released \cite[p.\ 506]{GhezziEtAl2003}. To answer
-\rqref{RQ_CompareToolsProjMngmnt} we summarize tools that are visible in the
-repositories and that are mentioned during the developer interviews.  As an
-example, the tools found for LBM software packages are as follows:
+501]{GhezziEtAl2003}. To answer \rqref{RQ_CompareToolsProjMngmnt} we summarize
+tools that are visible in the repositories and that are mentioned during the
+developer interviews.  The tools for LBM are as follows:
 
 \begin{description}
-	\item[Development Tools:] Continuous Integration, Code Editors, Development
-	Environments, Runtime Environments, Compilers, Unit Testing Tools,
-	Correctness Verification Tools
+	\item[Development Tools:] Continuous Integration (CI), Code Editors,
+	Development Environments, Runtime Environments, Compilers, Unit Testing
+	Tools, Correctness Verification Tools
 	\item[Dependencies:] Build Automation Tools, Technical Libraries, Domain
 	Specific Libraries
 	\item[Project Management Tools:] Collaboration Tools, Email, Change Tracking
@@ -613,56 +624,50 @@ example, the tools found for LBM software packages are as follows:
 \end{description}
 
 Once the data on tools is collected, the use of two specific tools should be
-compared to research software norms: version control and continuous integration.
-A little over 10 years ago version control was estimated to be used in only 50\%
-of research software projects \cite{Nguyen-HoanEtAl2010}, but even at that time
-\cite{Nguyen-HoanEtAl2010} noted an increase from previous usage levels. More
-recently, version control usage rates for active mesh generation, geographic
-information system and statistical software packages were close to
-100\%~\cite{Smith2018}.  Almost every software guide cited in
-Table~\ref{Tbl_Guidelines} includes the advice to use version control. For LBM
-packages 67\% use version control (GitHub, GitLab or CVS). The high usage of
-version control tools in LBM software matches the trend in research software in
-general.
-
-Continuous integration is rarely used in LBM (3 of 24 packages or 12.5\%). This
-contrasts with the frequency with which continuous integration is recommended in
-research software development
-guidelines~\cite{BrettEtAl2021,vanGompelEtAl2016,ThielEtAl2020}. In this case,
-it seems likely that the recommendations are ahead of common practice.
+compared to research software norms: version control and CI. A little over 10
+years ago version control was estimated to be used in only 50\% of research
+software projects \cite{Nguyen-HoanEtAl2010}. More recently, version control
+usage rates for active mesh generation, geographic information system and
+statistical software packages were close to 100\%~\cite{Smith2018}.  Almost
+every software guide cited in Table~\ref{Tbl_Guidelines} includes the advice to
+use version control. For LBM packages 67\% use version control. The high usage
+in LBM software matches the trend in research software in general. CI is rarely
+used in LBM (3 of 24 packages or 12.5\%). This contrasts with the frequency with
+which CI is recommended in
+guidelines~\cite{BrettEtAl2021,vanGompelEtAl2016,ThielEtAl2020}.
 
 \section{Comparison of Processes to Other Research Software} \label{Sec_CompareMethodologies}
 
-The interview data on development processes is used to answer research question
+The interview data on development processes is used to answer
 \rqref{RQ_CompareMethodologies}.  This data should be contrasted with the
 development process used by research software in general. The literature
 suggests that scientific developers naturally use an agile philosophy
 \cite{CarverEtAl2007,Segal2005}, or an amethododical process \cite{Kelly2013}.
-Another point of comparison should be on the use of peer review, since peer
-review is frequently recommended~\cite{HerouxEtAl2008,OrvizEtAl2017,USGS2019}.
+Another point of comparison is on the use of the frequently recommended peer
+review approach~\cite{HerouxEtAl2008,OrvizEtAl2017,USGS2019}.
 
 The LBM example confirms an informal, agile-like, process. The development
 process is not explicitly indicated in the artifacts. However, during interviews
 one developer (ESPResSo) told us their non-rigorous development model is like a
-combination of agile and waterfall. Employing a loosely defined process makes
-sense for LBM software, given that the teams are generally small and
-self-contained. One of the developers (ESPResSo) also noted that they use an ad
-hoc peer review process.
+combination of agile and waterfall. A loosely defined process makes sense for
+LBM software, given the small self-contained teams. One of the developers
+(ESPResSo) also noted that they use an ad hoc peer review process.
 
 \section{Developer Pain Points} \label{painpoints}
 
-To answer \rqref{RQ_PainPoints}, we ask developers about their pain points and
-compare their responses to the literature~\cite{WieseEtAl2019,PintoEtAl2018}.
-Pain points to watch for include: cross-platform compatibility, scope bloat,
-lack of user feedback, dependency management, data handling concerns,
-reproducibility, and software scope. 
+To answer \rqref{RQ_PainPoints} and \rqref{RQ_ComparePainPoints}, we ask
+developers about their pain points and compare their responses to the
+literature~\cite{WieseEtAl2019,PintoEtAl2018}. Pain points to watch for include:
+cross-platform compatibility, scope bloat, lack of user feedback, dependency
+management, data handling concerns, reproducibility, and software scope. 
 
-An example pain point noted for LBM is a lack of development time. A developer
-of pyLBM noted that their small development team did not have enough time to
-implement new features. Small development teams are common for LBM software
-packages (as shown in Figure~\ref{measurement_template_image}).
+An example pain point noted for LBM is a lack of development time. Small
+development teams are common for LBM software packages
+(Figure~\ref{measurement_template_image}).  Lack of time is also highlighted by
+other research software developers
+\cite{PintoEtAl2018,PintoEtAl2016,WieseEtAl2019}.
 
-\section{Threats To Validity} \label{threats}
+\section{Threats To Validity} \label{SecThreats}
 
 The measures in the measurement template~\cite{SmithEtAl2021} may not be broad
 enough to accurately capture some qualities. For example, there are only two
@@ -672,16 +677,15 @@ files implies modularity. Furthermore, the measurement of understandability
 relies on 10 random source code files. It is possible that the 10 files that
 were chosen to represent a software package may not be representative.
 
-Another risk to the validity of the proposed approach is missing or incorrect
-data. Some software package data may have been missed due to technology
-issues like broken links. For the LBM example, this issue arose with the
-measurement of Palabos, which had a broken link to its user manual. Some
-pertinent data may not have been specified in public artifacts, or may be
-obscure within an artifact or web-page. For the LBM example, the use of unit
-testing and continuous integration was mentioned in the artifacts of only three
-(ESPResSo, Ludwig, Musubi) packages. However, interviews suggested a more
-frequent use of both unit testing and continuous integration in the development
-processes.
+Another risk is missing or incorrect data. Some software package data may have
+been missed due to technology issues like broken links. Some pertinent data may
+not have been specified in public artifacts, or may be obscure within an
+artifact or web-page. For the LBM example, the use of unit testing and CI was
+mentioned in the artifacts of only three (ESPResSo, Ludwig, Musubi) packages.
+However, interviews suggested a more frequent use of both unit testing and CI in
+the development processes.  Given that we could not interview a representative
+for every project, to keep the measures consistent we did not modify our initial
+repository inspection based CI count.
 
 \section{Concluding Remarks} \label{SecConcludingRemarks}
 
@@ -716,14 +720,13 @@ an assessment for a given domain at 173 person hours.
 For the running example of LBM we found that the top packages engaged in most of
 recommended best practices, including examples of practising peer review.
 However, we did find room for improvement with respect to providing API
-documentation, a roadmap, a code of conduct, programming style guide, and
-uninstall instructions.  In addition, the community could likely benefit by
-increased use of continuous integration.
+documentation, a roadmap, a code of conduct, programming style guide, uninstall
+instructions and CI.
 
-Building from the LBM example we can create a wealth of data on multiple
-domains.  The next step is a meta-analysis, where we look at how the different
-domains compare to answer new research questions like: What lessons from one
-domain could be applied in other domains? What (if any) differences exist in the
+In the future, we would like reduce measurement time down by increased
+automation.  We would also like to conduct a meta-analysis, where we look at how
+different domains compare to answer new research questions like: What lessons
+from one domain could be applied in other domains? What differences exist in the
 pain points between domains?  Are there differences in the tools, processes, and
 documentation between domains?
 
