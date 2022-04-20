@@ -478,8 +478,8 @@ they are measured.
 	correlated with the availability of a specification and with reference to
 	domain knowledge. A good measure of verifiability is further correlated with
 	the availability of well written tutorials that include expected output,
-	with software unit testing, and with evidence of continuous integration. In
-	our process we measure correctness and verifiability together.
+	with software unit testing, and with evidence of Continuous Integration
+	(CI). In our process we measure correctness and verifiability together.
 	
 	\item[Reliability] Reliability is measured by the probability of
 	failure-free operation of a computer program in a specified environment for
@@ -1071,10 +1071,10 @@ create tests with varying degrees of effort. These tests allow developers and
 users to verify the correctness of fragments of the source code, and in doing so
 better assess the correctness of the entire package.
 
-The use of continuous integration tools and techniques alludes to a more refined
-development process where faults are isolated and better recognized. Only three
-of the packages (ESPResSo, Ludwig, Musubi) mentioned applying the practice of
-continuous integration in their development process.
+The use of Continuous Integration (CI) tools and techniques alludes to a more
+refined development process where faults are isolated and better recognized.
+Only three of the packages (ESPResSo, Ludwig, Musubi) mentioned applying the
+practice of CI in their development process.
 
 \begin{figure}[h!]
 	\begin{center}
@@ -1091,7 +1091,7 @@ generation tool that helps with verification, thus building confidence in
 correctness. The top ranked software packages all include an easy to follow
 getting started tutorial, and most of these include expected output. The two top
 ranked packages, Ludwig and Musubi, indicate the use of unit testing in their
-documentation. They also incorporated continuous integration in the development
+documentation. They also incorporated CI in the development
 process. Furthermore, eight of the top 10 ranked packages are noted as being
 alive.
 
@@ -1657,9 +1657,10 @@ have never asked themselves whether separate uninstall instructions are needed.
 \begin{center}
 \begin{tabular}{ p{2.5cm}p{1cm}p{1cm}p{1cm}p{1cm}p{1cm}p{1cm}p{1cm}p{1.2cm}p{1cm}p{0.8cm} }
 \toprule
-~ \ & \cite{USGS2019} & \cite{TobiasEtAl2018} & \cite{BrettEtAl2021} &
-\cite{WilsonEtAl2016} & \cite{SmithAndRoscoe2018} & \cite{HerouxEtAl2008} &
-\cite{ThielEtAl2020} & \cite{vanGompelEtAl2016} & \cite{OrvizEtAl2017} & LBM\\
+~ \ & \citet{USGS2019} & \citet{TobiasEtAl2018} & \citet{BrettEtAl2021} &
+\citet{WilsonEtAl2016} & \citet{SmithAndRoscoe2018} & \citet{HerouxEtAl2008} &
+\citet{ThielEtAl2020} & \citet{vanGompelEtAl2016} & \citet{OrvizEtAl2017} &
+LBM\\
 \midrule
 LICENSE & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & & \checkmark & \checkmark & \checkmark & C\\
 README &  & \checkmark & \checkmark & \checkmark & \checkmark & & \checkmark & \checkmark & \checkmark & C\\
@@ -1821,8 +1822,14 @@ files that consume space and potentially pollute the users build system by
 causing conflicts when installing and using other software packages.  We did not
 observe uninstall instructions for any of the LBM projects.
 
-\item \textbf{API documentation} is \wss{fill in definition, examples and
-benefits.  talk about doxygen to support.}
+\item \textbf{API documentation} shows programmers the services or data provided
+by the software application (or library) through such resources as its methods
+or objects \citep{MengEtAl2018}.  API documentation has been found to be a
+critical factor for API understandability (Section~\ref{softwarequalities})
+\citep{MengEtAl2018}. Some API documentation can be generated using tools like
+Doxygen, but the when learning a new API developers mostly use code examples and
+tutorials \citep{MengEtAl2018}.  API documentation was rare within our sample of
+LBM packages.
 
 \end{itemize}
 
@@ -1901,7 +1908,7 @@ Development tools support the development of end products, but do not become
 part of them, unlike dependencies that remain in the application once it is
 released \citep[p.\ 506]{GhezziEtAl2003}. Although not shown in
 Table~\ref{tbl_tools}, debuggers were also likely used.  Only three (ESPResSo,
-Ludwig and Musubi) packages mentioned continuous integration tools, like Travis
+Ludwig and Musubi) packages mentioned CI tools, like Travis
 CI. Code editors and compilers were explicitly noted to have been used by
 several packages, and were likely used by all of them. One of the packages
 (Ludwig) explicitly noted the use of proprietary unit testing code written in C.
@@ -1940,6 +1947,8 @@ differs from LBM software in its use of Kanban boards for project management.
 LBM software difference from the ocean domain through the use of continuous
 integration, and document generation tools.
 
+\subsection{Version Control Usage Compared to Research Software in General}
+
 The poor adoption of version control tools that Wilson lamented in 2006
 \citep{Wilson2006} has greatly improved in the intervening years.  From
 Section~\ref{Sec_Maintainability}, 67\% of LBM packages use version control
@@ -1961,19 +1970,120 @@ Section~\ref{Sec_CompareArtifacts} includes the advice to use version control.
 The high usage of version control tools in LBM software matches the trend in
 research software in general.
 
-As mentioned in Section~\ref{SecSurfCorrectAndVerifiab}, continuous integration
-is rarely used in LBM software (3 of 24 packages or 12.5\%). This contrasts with
-the frequency with which continuous integration is recommended in research
-software development guidelines \citep{BrettEtAl2021, Brown2015, ThielEtAl2020,
-Zadka2018, vanGompelEtAl2016}.  \wss{why continuous integration.}  We could not
-find published data on the frequency with which continuous integration is used
-in general research software.  \wss{add reference to Carver paper.}  Our
-impression is that like LBM software, other research software packages lag
-behind the recommended best practice of employing continuous integration.
+\subsection{CI Usage Compared to Research Software in General}
 
-Interviews with the developers revealed a potentially more frequent use of both
-unit testing and continuous integration, compared to what was observed from
-studying the repository artifacts.
+As mentioned in Section~\ref{SecSurfCorrectAndVerifiab}, CI is rarely used in
+LBM software (3 of 24 packages or 12.5\%), although interviews with developers
+suggest that the actual rate might be higher. Low use of CI for LBM contrasts
+with how frequently it is recommended in research software development
+guidelines
+\citep{BrettEtAl2021, Brown2015, ThielEtAl2020, Zadka2018, vanGompelEtAl2016}
+and its popularity with non-research software. \citet{HiltonEtAl2016} show CI
+usage across a large sample of GitHub projects (34,544 projects) is at least
+40\%, with more popular projects (as measured by stars), having even higher
+usage rates. Moreover, \citet{HiltonEtAl2016} predict that CI adoption rates for
+open-source projects will increase even further in the future.  We could not
+find published data on the CI usage rates for research software in general.
+However, we saw 17\% utilization in the specific domain of imaging software
+\citep{Dong2021}, which is comparable to the LBM usage rate. Our impression is
+that medical imaging software and LBM software are not unique -- most research
+software domains likely lag behind the best practice recommendations, and
+non-research software usage rates, for continuous integration.
+
+CI is the process of building and testing software on every push to the code
+repository, with pushes done very frequently \citep[p.\ 13]
+{HumbleAndFarley2010}, \citep{ShahinEtAl2017, Fowler2006}.  CI consists of the
+following elements:
+\begin{itemize}
+	\item A version control system \citep{Fowler2006}. To be effective, all
+	files should be under version control, not just code files.  Anything that
+	is needed to build, install and run the software should be under version
+	control, including configuration files, build scripts, test harnesses, and
+	operating system configurations \citep[p. 19]{HumbleAndFarley2010}.
+	Fortunately for the LBM domain, as discussed above, most alive projects
+	(73\% of those assessed) use version control.
+	\item A fully automated build system \citep{Fowler2006}.  As \citet[p.\
+	5]{HumbleAndFarley2010} point out, deploying software manually is an
+	anti-pattern.  Fortunately, as discussed above, most LBM projects use build
+	automation.
+	\item An automated test system \citep{Fowler2006}. Building quality software
+	involves creating automated tests at the unit, component, and acceptance
+	test level, and executing these tests whenever a change is made to the code,
+	its configuration, the environment, or the software stack that it runs on
+	\citep[p.\ 83]{HumbleAndFarley2010}. As Table~\ref{artifactspresent} shows
+	test cases are in the uncommon category for LBM software artifacts, which
+	means that some LBM projects will need to increase their testing automation
+	if they wish to pursue CI.  The usual advice for CI is to keep the build and
+	test process short \citep[p.\ 60]{HumbleAndFarley2010}. Given that LBM can
+	be computationally expensive, the tests run with every check-in may need to
+	focus on simple code interface tests, saving larger more complex tests for
+	less frequent runs.  A more sophisticated option for when tests create a
+	bottleneck for merges is CIVET (Continuous Integration,
+	Verification, Enhancement, and Testing), which solves this problem by
+	intelligently pinning, canceling, and if necessary, restarting jobs as
+	merges occur, so that two merges are being tested at all times
+	\citep{SlaughterEtAl2021}.
+	\item An automated system for other tasks, such as code checking,
+	documentation building and web-site updating.  These other tasks are not
+	essential parts of CI, but they can be incorporated to improve the quality
+	of the code and the communication between developers and users. For
+	instance, a static analysis (possibly via linters) of the code may find poor
+	programming practice or lack of adherence to adopted coding standards.
+	\citet{SlaughterEtAl2021} provides another example of an automated task --
+	checking that a test specification includes the test's motivation, a test
+	description, and a design description for all changes. 
+	\item An integration build system to pull everything together.  Every time
+	there is a check-in (for instance a pull request), the integration server
+	automatically checks out the sources onto the integration machine, starts a
+	build, runs tests, and informs the committer of the results. 
+\end{itemize}
+
+Although CI can take some time and effort to set-up and integrate into a team's
+workflow, the benefits can be significant, as follows:
+
+\begin{itemize}
+	\item Headaches associated with a separate integration phase are eliminated
+	\citep{Fowler2006}, \citep[p.\ 20]{HumbleAndFarley2010}. If integration of
+	the work of different developers, or even separate chunks of work by the
+	same developer, is postponed, integration problems are inevitable.  By
+	continuously integrating problems are immediately obvious, and the source of
+	the problem can be isolated to the small increment that was just committed.
+	\item Bugs can be quickly detected and removed \citep{Fowler2006} via
+	automated testing.  To improve productivity, defects are best discovered and
+	fixed at the point where they are introduced \citep[p.\
+	23]{HumbleAndFarley2010}.  Errors are not just found in the code, but also
+	in the files and scripts related to configuration management \citep[p.\
+	18]{HumbleAndFarley2010}.
+	\item Developers are always working on a stable base, since the master
+	branch will always be working.  A stable base passes all tests and, if the
+	CI system is configured with generators and linters, it will also have up to
+	date documentation and coding standard compliant code.  A stable base
+	improves developer productivity, allowing them to focus on coding, testing
+	and documentation.
+\end{itemize}
+
+Although there are still challenges, setting up a CI system has never been
+easier than it is today.  The option of installing a dedicated CI server (either
+physically or virtually) exists with tools such as
+\href{https://www.jenkins.io/} {Jenkins}, \href{http://buildbot.net/}
+{Buildbot}, \href{https://www.gocd.org/} {Go}, and
+\href{http://integrity.github.io/} {Integrity}. However, installation on your
+own server is not necessary since there are many hosted CI tool solutions
+available, such as: \href{https://travis-ci.org/} {Travis CI},
+\href{https://github.com/features/actions} {GitHub Actions} and
+\href{https://circleci.com/} {CircleCI}.  Getting started with a hosted CI is
+straightforward.  All that is required to begin is editing a few lines of a
+simple YAML configuration file in the project's root directory.
+
+Challenges that exist for adopting CI include lack of awareness and
+transparency, coordination and collaboration challenges, lack of expertise and
+skills, more pressure and workload for team members, general resistance to
+change, scepticism and distrust on continuous practices \citep{ShahinEtAl2017}.
+The most common reason given for not adopting CI is that developers on my
+project are not familiar enough with CI \citep{HiltonEtAl2016}.  These problems
+can be mitigated via planning and documentation, promoting a team mindset,
+adopting new rules and policies, improving testing activities, and decomposing
+development into smaller units \citep{ShahinEtAl2017}.
 
 \section{Comparison of Principles, Process and Methodologies to Research Software in General} \label{Sec_CompareMethodologies}
 
@@ -1995,11 +2105,10 @@ Interviews with developers confirmed a similar project management process. In
 teams of only a couple of developers, additions of new features or major changes
 are discussed with the entire team. Projects with more than a couple developers
 have lead developer roles. These lead developers review potential additions to
-the software. One of the developers (ESPResSo) that was interviewed noted that
-an ad hoc peer review process is used to assess major changes and additions.
-Using peer review (also called technical review) matches with recommended
-practice for research software \citep{HerouxEtAl2008, Givler2020, OrvizEtAl2017,
-USGS2019}.
+the software. One of the developers (ESPResSo) noted that an ad hoc peer review
+process is used to assess major changes and additions. Using peer review (also
+called technical review) matches with recommended practice for research software
+\citep{HerouxEtAl2008, Givler2020, OrvizEtAl2017, USGS2019}.
 
 Two types of software changes were discussed during interviews with developers.
 One is feature additions, which arise from a scientific or functional need.
@@ -2016,6 +2125,8 @@ Scientific developers naturally use an agile philosophy \citep{AckroydEtAl2008,
 CarverEtAl2007, EasterbrookAndJohns2009, Segal2005, HeatonAndCarver2015}, or an
 amethododical process \citep{Kelly2013}, or a knowledge acquisition driven
 process \citep{Kelly2015}.
+
+\subsection{Design Principles and Priorities} \label{Sec_DesPrincipAndPriorities}
 
 Most of the software packages do not explicitly state the motivations or design
 principles that were considered when developing the software. One package,
@@ -2035,7 +2146,7 @@ priorities for any scientific project.  In earlier studies
 \citet{KellyAndSanders2008} and \citet{CarverEtAl2007} highlight how important
 correctness is for research software.
 
-\wss{how to doc motivations and design principles. examples. advantages.}
+\subsection{Documentation as Part of the Development Process}
 
 During our interviews, documentation was noted as playing a significant role in
 the development process, specifically with on-boarding new developers. A goal of
@@ -2053,6 +2164,49 @@ also recommended.  \citet{SmithAndRoscoe2018} suggests including instructions
 specifically for on-boarding new developers. For open source software in general
 (not just research software), \citet{Fogel2005} recommends providing tutorial
 style examples, developer guidelines, demos and screenshots.
+
+Although Table~\ref{Tbl_Guidelines} shows that design documentation is
+frequently suggested, the recommendations are often short on details. For
+instance, the guidelines usually encourage modular design, but are generally
+silent on what criteria to use for the modularization.  Little information is
+given on how to document the design itself. Some non-mutually exclusive ideas
+for documenting the design, roughly in order of increasing effort, are as
+follows:
+
+\begin{itemize}
+	\item Explicitly state the design goals and priorities, so that those using
+	and developing your software know part of the rationale for the design
+	decisions. Sailfish is an example where this has been done, as discussed in
+	Section~\ref{Sec_DesPrincipAndPriorities}.
+	\item Write down the likely changes that the design is intended to support.
+	Since most designs are implicitly (or explicitly) motivated to facilitate
+	future change, recording the likely changes can help readers understand the
+	design.
+	\item Explicitly record the philosophy or principle behind the
+	decomposition. One potential principle, related to the previously mentioned
+	list of likely changes, is the principle of information hiding
+	\citep{Parnas1972a}.  This principle supports design for change through the
+	``secrets'' of each module. A text blurb can be given for each module or
+	class to describe its secrets and the services it provides.
+	\item Rigorously document the design following the template for a Module
+	Guide (MG) \citep{ParnasEtAl1984}.  An MG organizes the modules in a
+	hierarchy by their secrets. The application of the Parnas approach to
+	scientific software has been illustrated by applying it to the example of a
+	mesh generator \citep{SmithAndYu2009}.
+	\item Graphically represent the design using Unified Modelling Language
+	class diagrams.  This approach is suited to object oriented design and
+	designs that use patterns \citep{Gamma1995}.
+	\item Explain the design using data flow diagrams to show typical use cases
+	for how inputs are transformed.
+	\item Using a textual description, list for each module (or class), the
+	state variables (if any), exported constants and all exported access
+	programs.  This shows the interface that can used to access each module's
+	services.
+	\item Document the Module Interface Specification (MIS)
+	\citep{HoffmanAndStrooper1995}. An MIS is an abstract model that 
+	formally shows the state variables, inputs and outputs
+	\citep{ElSheikhEtAl2004, SmithAndYu2009}.
+\end{itemize}
 
 \section{Developer Pain Points} \label{painpoints}
 
@@ -2127,10 +2281,10 @@ development, since we only interviewed four LBM developers for about an hour eac
 	
 	\item[P\refstepcounter{pnum}\thepnum \label{P_TechnologyHurdles}:]
 	\textbf{Technology Hurdles} Technology pain points for LBM developers
-	include setting up parallelization and continuous integration. The pain
+	include setting up parallelization and CI. The pain
 	point survey of \citep{WieseEtAl2019} also highlighted technical-related
 	problems like dependency management, cross-platform compatibility,
-	continuous integration, hardware issues and operating system issues.
+	CI, hardware issues and operating system issues.
 
 	\item[P\refstepcounter{pnum}\thepnum \label{P_Correctness}:]
 	\textbf{Ensuring Correctness} Difficulties with ensuring correctness were
@@ -2265,7 +2419,7 @@ by LBM developers:
 provided in Section~\ref{Sec_Recommendations}.
 
 Some LBM developers improve reproducibility via automating the verification
-tests and making them part of a continuous integration process (mentioned in
+tests and making them part of a CI process (mentioned in
 Section~\ref{Sec_CompareTools}).  Providing unit tests improves reproducibility
 because future developers will require a means to verify that they can obtain
 the same computational results as today.  Unit tests are a good way to embed
@@ -2319,7 +2473,7 @@ Section~\ref{painpoints} to answer~\rqref{RQ_Recommend}.  Our recommendations
 are not lists of criticisms for what should have been done in the past, or what
 should be done now; they are just suggestions for consideration in the future.
 We will not be repeating ideas here that have been discussed in previous
-sections, such as continuous integration, documentation of APIs, etc.  Our aim
+sections, such as CI, documentation of APIs, etc.  Our aim
 is to mention ideas that are at least somewhat beyond conventional best
 practices. The ideas listed here have the potential to become best practices in
 the medium to long-term. The ideas are presented roughly in the order of
@@ -2333,7 +2487,7 @@ potential to improve code quality at a relatively low cost.  A linter is a tool
 that statically analyzes code to find programming errors, stylistic
 inconsistencies and suspicious constructs \citep{Wikipedia2022_Lint}. Linters
 can be used to spot check code files, or even better as part of a continuous
-integration system.  
+integration system, as discussed in Section~\ref{Sec_CompareTools}.  
 
 A sample of the potential benefits of linters include: finding memory leaks,
 finding potential bugs, standardizing code with respect to formatting, improving
@@ -2613,81 +2767,128 @@ rather than an afterthought. and quality of documentation
 
 \section{Threats To Validity} \label{threats}
 
-The threats to validity can be categorized into methodology and data collection
-issues.  With respect to our methodology, the measurement template may not be
-detailed enough to accurately capture some qualities. For example, there are
-only two measures of surface robustness. The measurement of robustness could be
-expanded, as it currently only measures unexpected input. Other intentional
-faults could be introduced to assess robustness, but this would require a larger
-investment of measurement time. Similarly, reusability
-(Section~\ref{reusabilityresults}) is assessed via the number of code files and
-LOC per file. While this measure is indicative of modularity, it is possible
-that some packages have many files, with few LOC, but the files do not contain
-source code that is easily reusable. The files may be poorly formatted, or the
-source code may be vague and have ambiguous identifiers. Maintainability may
-also be incorrectly estimated, since it is assumed to be improved by a higher
-ratio of comments to source code (Section~\ref{Sec_Maintainability}), but this
-is not necessarily true. Furthermore, the measurement of understandability
-(Section~\ref{Sec_SurfUnderstandability}) relies on 10 random source code files.
-By random chance, the 10 files that were chosen may not be a good representation
-of the understandability of that package. 
+Our threats to validity categories come from an analysis of software engineering
+secondary studies by \citet{AmpatzoglouEtAl2019}.  We use the classification of
+\citep{AmpatzoglouEtAl2019} because studying a collection of software is a form
+of secondary study, where a secondary study analyses the data from a set of
+primary studies.  A common example of a secondary study is a systematic
+literature review.  Our methodology is essentially a systematic software review
+-- the primary studies are the software, and our work collects and analyzes
+these primary studies.
 
-In our methodology, one individual measures each package and the beginning and
-ending of the measurement phase is separated by several months.  There is a
-threat that the measurement may be affected by unconscious biases, or the
-reviewers judgement may drift over time.  In previous work
-\citep{SmithEtAl2016}, we demonstrated that the measurement process is
+\subsection{Reliability}
+
+A study is reliable if its data and analysis are independent of the specific
+researcher(s) doing the study.  That is, repetition of the study by a different
+researcher should achieve the same results, as long as the same methodology is
+used \citep{AmpatzoglouEtAl2019}.  For our study the identified reliability
+related threats include the following:
+
+\begin{itemize}
+\item In our methodology the manual measures are done by one individual for all
+packages. The measures may be influenced by the graders abilities, experience
+and biases.  
+\item Completing the manual measures of all packages took place over several
+months. During this time the contents of the software repositories may change
+and the reviewer's judgment may drift.
+\end{itemize}
+
+We investigated the risk of reviewer dependence in previous work
+\citep{SmithEtAl2016}, where we demonstrated that the measurement process is
 reasonably reproducible by having five products graded by a second reviewer. The
 ranking via this independent review was almost identical to the original
 ranking. As long as each grader uses consistent definitions, the relative
 comparisons in the AHP results will be consistent between graders.
 
-Regarding data collection, a risk to the validity of this assessment is missing
-or incorrect data. Some data may not have been measured due to technology issues
-like broken links. This issue arose with the measurement of Palabos, which had a
-broken link to its user manual, as noted in Section~\ref{Sec_CompareArtifacts}.
-Some pertinent data may not have been specified in public artifacts, or may be
-obscure within an artifact or web-page. For instance, the use of unit testing
-and continuous integration was mentioned in the artifacts of only three
-(ESPResSo, Ludwig, Musubi) packages (Section~\ref{SecSurfCorrectAndVerifiab}).
-However, interviews suggested a more frequent use of both unit testing and
-continuous integration. For example, OpenLB, pyLBM, and TCLB use such methods
-during development despite this not being explicit from an analysis of the
-material available online. Given that we could not interview a representative
-for every project, to keep the measures consistent we did not modify our initial
-repository inspection based CI count.
+\subsection{Construct Validity}
 
-Furthermore, design documentation was measured to be a ``less common'' artifact
-in this assessment, but it is probable that such documentation is part of all
-LBM packages. After all, developing research software is not a trivial
-endeavour. It is likely that many packages have such documentation but did not
-make it public, and due to this the measured data may not be a true reflection
-of software package quality.
+Construct validity is threatened if metrics are used that do not measure what
+they are intended to measure \citep{AmpatzoglouEtAl2019}. The construct
+validity related threats for the LBM study include the following:
 
-Another data collection concern is the gap between the measurement of Musubi and
-the measurement of all other packages (Section~\ref{identifysoftware}).
-Unfortunately we were not aware of the existence of Musubi until after the
-primary data collection period was completed. This gap has a secondary effect
-because it caused a mismatch between the time of manual and automated data
-collection (Section~\ref{repmetrics}).  With time and resource constraints we
-could not redo the manual measurement, but we did update the automated measures
-(like the number of files, LOC, etc.) when Musubi was added.
+\begin{itemize}
+\item Our approximation of popularity by stars and watches
+(Section~\ref{repmetrics}) may not be valid. 
+\item Our overall AHP ranking makes the unrealistic assumption of equal
+weighting between qualities (Section~\ref{Sec_OverallQuality}).
+\item Our measure of surface robustness in only based on two pieces of data per
+project. The measurement of robustness could be expanded, as it currently only
+measures the impact of unexpected input. Other intentional faults could be
+introduced, but this would require a larger investment of measurement time. 
+\item Reusability (Section~\ref{reusabilityresults}) is assessed via the number
+of code files and LOC per file. While this measure is indicative of modularity,
+it is possible that some packages have many files, with few LOC, but the files
+do not contain source code that is easily reusable. The files may be poorly
+formatted, or the source code may be vague and have ambiguous identifiers. 
+\item Maintainability may be incorrectly estimated, since it is assumed to be
+improved by a higher ratio of comments to source code
+(Section~\ref{Sec_Maintainability}). 
+\item The measurement of understandability
+(Section~\ref{Sec_SurfUnderstandability}) relies on 10 random source code files.
+By random chance, the 10 files that were chosen may not be representative. 
+\item We measure our software qualities indirectly, rather than directly.
+Unfortunately meaningful direct measures for qualities like maintainability,
+reusability and verifiability, are not available.  Therefore, we follow the
+usual approach of assuming that following procedures and adhering to standards
+yields a higher-quality product \citep[p.\ 112]{VanVliet2000}.
+\end{itemize}
 
-Our comparison between our ranking and the community's ranking
-(Section~\ref{repmetrics}) may not be valid.  Using stars to estimate the
-community's ranking is not necessarily accurate.  Moreover, our overall AHP
-ranking makes the unrealistic assumption of equal weighting between qualities
-(Section~\ref{Sec_OverallQuality}).
+\subsection{Internal Validity} \label{Sec_InternalValidity}
 
-A final threat to validity is conceptual.  Our work assumes that following best
-practices leads to improved software quality.  As the advice in software
-engineering guidelines show, we are not alone in this assumption.  Ideally
-software qualities should be measured directly and then the impact of best
-practices on those qualities should be assessed.  However, researchers in this
-domain always face the challenge that many qualities, like maintainability,
-reusability and verifiability, are difficult to measure directly.  Therefore, we
-follow the usual approach of assuming that following procedures and adhering to
-standards yields a higher-quality product \citep[p.\ 112]{VanVliet2000}.
+A study is internally valid if the discovered causal relations are trustworthy
+and cannot be explained by other factors \citep{AmpatzoglouEtAl2019}. The
+internal validity threats include the following:
+
+\begin{itemize}
+\item We may have missed a relevant software package in our search for LBM
+software packages (Section~\ref{identifysoftware}).
+\item A temporal gap exists between the manual measurement of Musubi and the
+measurement of all other packages (Section~\ref{identifysoftware}). This gap
+caused a mismatch between the time of manual and automated data collection
+(Section~\ref{repmetrics}), since we updated the automated measures (like the
+number of files, LOC, etc.) when Musubi was added.
+\item Our interviews were with a relatively small sample of four LBM developers.
+The pain points they expressed may not be representative of others in the
+community.
+\item In our manual measures of the software repositories some data may not have
+been measured due to technology issues like broken links. This issue arose with
+the measurement of Palabos, which had a broken link to its user manual, as noted
+in Section~\ref{Sec_CompareArtifacts}. 
+\item Our methodology assumes that artifacts will be present in the repositories
+to approach used for software development.  However, not all activities will
+necessarily leave a trace in the repositories. For instance, the use of unit
+testing and CI was mentioned in the artifacts of only three (ESPResSo, Ludwig,
+Musubi) packages (Section~\ref{SecSurfCorrectAndVerifiab}). However, interviews
+suggested a more frequent use of both unit testing and CI. For example, OpenLB,
+pyLBM, and TCLB use such methods during development despite this not being
+explicit from an analysis of the material available online.
+\end{itemize}
+
+Although we found that unit testing and CI were used more often than the
+repository artifacts suggested, we did not change the manual measurement
+results.  Given that we could not interview a representative for every project,
+we left the data as collected to keep our measures consistent.  Moreover, CI and
+unit testing done in private should not be counted as equivalent to the public
+versions we detected.  When CI and unit testing are done outside of the public
+repository, they are not as effective, since they are not available for others
+to inspect and reproduce.
+
+\subsection{External Validity}
+
+External validity concerns whether the results of the study can be generalized
+(applied) to other situations/cases \citep{AmpatzoglouEtAl2019}.  The scope of
+our work is LBM solvers.  We are confident that our search was exhaustive and
+that we did not miss any highly popular examples.  Therefore, our validity
+concerns about LBM software observations are internal
+(Section~\ref{Sec_InternalValidity}), not external.  However, our hope is that
+the trends observed and the lessons learned for LBM software can be applied to
+other research software.  With that in mind we identified the following threat
+to external validity:
+
+\begin{itemize}
+\item The development of LBM software is fundamentally different from other
+research software.
+\end{itemize}
 
 \section{Conclusion} \label{conclusion}
 
@@ -2798,7 +2999,7 @@ development guidelines, as follows:
 	\wss{reason} (Section~\ref{Sec_CompareArtifacts})
 	\item Include uninstall instructions. \wss{reason} (Section~\ref{Sec_CompareArtifacts})
 	\item Increase the amount of API documentation. \wss{reason} (Section~\ref{Sec_CompareArtifacts})
-	\item Increase the use of continuous integration. \wss{reason} (Section~\ref{Sec_CompareTools})
+	\item Increase the use of CI. \wss{reason} (Section~\ref{Sec_CompareTools})
 	\item Explicitly document the software's motivation and design principles.
 	\wss{reason - where is this discussed the first time - should add more
 	information there.} (Section~\ref{Sec_CompareMethodologies})
@@ -2806,15 +3007,17 @@ development guidelines, as follows:
 
 For insight into devising future methods and tools, we interviewed four
 developers to learn about their pain points (Section~\ref{painpoints}).  The
-identified pain points include lack of development time, lack of software
-development experience, lack of incentive and funding, lack of external support,
-technology hurdles, ensuring correctness, usability, technical debt and
-documentation quality.  We found (Section~\ref{Sec_AddressConcerns} that
-developers are currently creating practices to address these pain points,
-including: designing for change, circumventing the oracle testing problem, and
-prioritizing documentation and usability.  To plan for future best practices, we
-identified eight potential directions (Section~\ref{Sec_Recommendations}), in
-order of increasing development effort:
+identified pain points \wss{expand into bullet list} include lack of development
+time, lack of software development experience, lack of incentive and funding,
+lack of external support, technology hurdles, ensuring correctness, usability,
+technical debt and documentation quality.  We found
+(Section~\ref{Sec_AddressConcerns} that developers are currently creating
+practices to address these pain points, including \wss{expand into list}:
+designing for change \wss{what pain point? why? do the same for the others in
+the list}, circumventing the oracle testing problem, and prioritizing
+documentation and usability.  To plan for future best practices, we identified
+eight potential directions (Section~\ref{Sec_Recommendations}), in order of
+increasing development effort:
 
 \begin{enumerate}
 	\item Employ linters. \wss{reason}  (Section~\ref{Sec_Linters})
@@ -2822,8 +3025,9 @@ order of increasing development effort:
 	(Section~\ref{Sec_PeerReview})
 	\item Write and submit papers on software. \wss{reason}
 	(Section~\ref{Sec_MorePapers})
-	\item Grow the number of contributors. \wss{reason - change this to
-	documentation?} (Section~\ref{Sec_GrowContributors})
+	\item Apply advice from the open-source community on how to grow the number
+	of contributors. \wss{reason - change this to documentation?}
+	(Section~\ref{Sec_GrowContributors})
 	\item Further address the oracle problem for testing.  \wss{reason}
 	(Section~\ref{Sec_FurtherOracle})
 	\item Augment theory manuals to include requirements information.
@@ -2837,7 +3041,7 @@ Future work can be done to address the threats to validity
 (Section~\ref{threats}).  For instance, our measures could be broadened to
 better capture shallow qualities. For example, usability experiments and
 performance benchmarks could be incorporated into the assessment. The accuracy
-of our estimate of participation level for continuous integration and unit
+of our estimate of participation level for CI and unit
 testing, which is not always visible in public artifacts, can be improved by
 adding interview questions. This additional data could be incorporated into the
 AHP ranking, ensuring quality designations that are more representative of the
@@ -2854,9 +3058,9 @@ the future we would like to dig more deeply.  We would like to produce tables of
 commonalities, variabilities, and parameters of variation for the family of LBM
 solvers. We could follow the template from \citep{smith2008commonality}, or
 adopt the analysis techniques from \citep{weiss1998commonality}.
-\cite{SmithAndChen2004} and \cite{SmithMcCutchanAndCarette2017} provide examples
-that could be followed for a commonality analysis of a family of mesh generating
-software and a family of material models, respectively.
+\citet{SmithAndChen2004} and \citet{SmithMcCutchanAndCarette2017} provide
+examples that could be followed for a commonality analysis of a family of mesh
+generating software and a family of material models, respectively.
 
 \section*{Acknowledgements}
 
@@ -2870,6 +3074,7 @@ Sadeghi for fruitful discussions on topics relevant to this paper.
 
 TO do
 - check references
+- maybe add a continuous integration diagram?
 
 UNUSED Text
 
