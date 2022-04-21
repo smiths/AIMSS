@@ -274,32 +274,31 @@ procedure, improved parallelization, and robust handling of complex geometries
 	\end{center}
 \end{figure}
 
-A small sample of important applications of LBM includes the following:
-designing fuel cells \citep{ZhangEtAl2018}, modelling groundwater flow
-\citep{AnwarAndSukop2009}, and analyzing the flow of blood in the cardiovascular
-system \citep{SadeghiEtAl2022b, SadeghiEtAl2022, SadeghiEtAl2020}.  As these
-examples illustrate, LBM can be used for tackling problems that impact such
-areas as environmental policy, manufacturing, and health and safety.  Given the
-important applications of LBM, users of the libraries will be concerned with
-software qualities like reliability, robustness, reproducibility, performance,
-correctness and verifiability.  Since their time is valuable, developers that
-create or modify LBM libraries will have additional quality concerns, including
-maintainability, reusability, and understandability.  With the quality
-considerations in mind, and the potentially overwhelming number of choices for
-existing LBM libraries, the time is right to assess the state of the practice.
-The goal of this report is to analyze the current state of LBM software
-development and compare it to the development practices employed for research
-software in general.  We want to highlight success stories that LBM developers
-can share amongst their community, and with the broader research software
-community, while at the same time looking for areas for potential future
-improvement.
+A small sample of safety and mission-critical applications of LBM includes the
+following: designing fuel cells \citep{ZhangEtAl2018}, modelling groundwater
+flow \citep{AnwarAndSukop2009}, and analyzing the flow of blood in the
+cardiovascular system \citep{SadeghiEtAl2022b, SadeghiEtAl2022,
+SadeghiEtAl2020}.  As these examples illustrate, engineers and scientists use
+LBM for tackling problems that impact such areas as environmental policy,
+manufacturing, and health and safety. Given the critical applications of LBM,
+users of the libraries are concerned with software qualities like reliability,
+robustness, reproducibility, performance, correctness and verifiability.  Since
+their time is valuable, developers of LBM libraries have additional quality
+concerns, including maintainability, reusability, and understandability.  With
+the quality considerations in mind, and the potentially overwhelming number of
+choices for existing LBM libraries, the time is right to assess the state of the
+practice. Therefore, we analyze the current state of LBM
+software development and compare it to the development practices employed for
+research software in general.  We want to highlight success stories that LBM
+developers can share amongst their community, and with the broader research
+software community, while at the same time looking for areas for potential
+future improvement.
 
-To focus our efforts, we devised 10 research questions.  The questions are used
-to structure the discussion in the paper, so for each research question below we
-point to the section that contains our answer.  The questions are inspired by
-the research questions that underpin our data collection methodology
-\citep{SmithEtAl2021, SmithAndMichalski2022}. We start with identifying the
-examples of LBM software where we have access to the source code:
+We use ten research questions to structure and focus our discussion. Our data
+collection methodology \citep{SmithEtAl2021, SmithAndMichalski2022} inspires the
+questions.  For each question below, we point to the section that contains our
+answer.  We start with identifying the examples of LBM software where we have
+access to the source code:
 
 \begin{enumerate}
 	\item[RQ\refstepcounter{rqnum}\therqnum \label{RQ_WhatProjects}:] What LBM
@@ -308,19 +307,19 @@ examples of LBM software where we have access to the source code:
 \end{enumerate}
 
 We next wish to assess the representative software to determine how well they
-apply current software development best practices.  By \emph{best practices} we
+apply current software development best practices.  By \emph{best practices}, we
 mean methods, techniques and tools that are generally believed to improve
-software development, like testing and documentation.  As we will discuss in
-Section~\ref{empiricalmeasures}, we will categorize our best practices around
-software qualities.  At this point in the process, to remove potential
-user/developer bias, we will base our assessment only on publicly available
-artifacts, where artifacts are the documents, scripts and code that we find in a
-project's public repository. Example artifacts include requirements,
+software development, like testing and documentation.  We will categorize our
+best practices around software qualities, as we will discuss in
+Section~\ref{empiricalmeasures}.  At this point in the process, to remove
+potential user/developer bias, we will base our assessment only on publicly
+available artifacts, where artifacts are the documents, scripts and code that we
+find in a project's public repository. Example artifacts include requirements,
 specifications, user manuals, unit test cases, system tests, usability tests,
 build scripts, API (Application Programming Interface) documentation, READMEs,
 license documents, process documents, and code. Following best practices does
 not guarantee popularity, so we will also compare our ranking to how the user
-community itself ranks the identified projects.
+community ranks the identified projects.
 
 \begin{enumerate}
 	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_HighestQuality}:] Which
@@ -334,19 +333,18 @@ community itself ranks the identified projects.
 	(Section~\ref{repmetrics})
 \end{enumerate}
 
-To understand the state of the practice we wish to learn the frequency with
+To understand the state of the practice, we wish to learn the frequency with
 which different artifacts appear, the types of development tools used and the
 methodologies used for software development.  With this data, we can ask
 questions about how LBM software compares to other research software.  For cases
-where data is available, we will compare to other specific domains of research
+where data is available, we can compare to other specific domains of research
 software, like medical imaging \citep{Dong2021} and ocean modelling
 \citep{JungEtAl2022}.  However, most of the literature on the state of the
 practice does not focus on specific domains, but rather on all research software
 \citep{SmithAndMichalski2022}. We will refer to studies and guidelines that do
 not distinguish an application domain as \emph{research software in general}. By
-comparing LBM software to research software in general we can determine the ways
-LBM follows the trends from other developer communities, and ways in which it is
-different.
+comparing LBM software to research software in general we can determine how LBM
+follows the trends from other developer communities and how it is different.
 
 \begin{enumerate}
     \item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_CompareArtifacts}:] How
@@ -368,12 +366,11 @@ different.
 
 Only so much information can be gleaned by looking at software repositories.  To
 gain additional insight, we need to interview developers.  We need to learn
-their concerns, how they deal with these concerns; we need to learn what pain
-points exist for them.  We wish to know what practices are used by the top LBM
-projects, so that others can potentially emulate these practices. We also wish
-to identify new practices that LBM developers can adopt to improve their
-software in the future. The above points are covered by the questions outlined
-below:
+their concerns and how they deal with them; we need to understand their pain
+points. We wish to know what practices are used by the top LBM projects, so that
+others can potentially emulate these practices. We also wish to identify new
+practices that LBM developers can adopt to improve their software in the future.
+The question below cover these points: 
 
 \begin{enumerate}
 	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_PainPoints}:] What are
