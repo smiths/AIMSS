@@ -1,4 +1,3 @@
-%% 
 %% Copyright 2007-2020 Elsevier Ltd
 %% 
 %% This file is part of the 'Elsarticle Bundle'.
@@ -48,6 +47,14 @@
 %% \usepackage{lineno}
 
 \usepackage{hyperref}
+\usepackage{xcolor}
+\hypersetup{
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}
+}
+
 \usepackage{multirow}
 \usepackage{pgfplots}
 \usepackage{arydshln}
@@ -2391,9 +2398,9 @@ mirrors his recommendations \citep{Parnas1972a}.
 \label{SecReproducibility}
 
 The top LBM projects have adopted techniques for software verification that get
-around the oracle problem (mentioned earlier in Section~\ppref{P_Correctness}). In
-the absence of a general test oracle, the following techniques have been adopted
-by LBM developers:
+around the oracle problem (mentioned earlier in \ppref{P_Correctness}). In the
+absence of a general test oracle, the following techniques have been adopted by
+LBM developers:
 
 \begin{itemize}
 	\item Compare the calculated results against manually calculated results in
@@ -2552,7 +2559,7 @@ citation is provided by \citet{KatzEtAl2021}.  Another option is to use GitHub
 for citation, since it is relatively easy to add metadata to repositories and to
 generate citations for those repositories \citet{Smith2021-CitationsOnGitHub}.
 
-\subsection{Grow the Number of Contributors} \label{Sec_GrowContributors}
+\subsection{Follow Advice From the Open-Source Community to Grow the Number of Contributors} \label{Sec_GrowContributors}
 
 In our interviews with developers we heard they would like to have additional
 software contributors.  More developers would help with addressing the lack of
@@ -2989,52 +2996,86 @@ areas where the state of the practice does not match existing research software
 development guidelines, as follows:
 
 \begin{itemize}
-	\item Add roadmap documentation showing what is planned for the future.
-	\wss{reason} (Section~\ref{Sec_CompareArtifacts})
-	\item Add a code of conduct to explicitly show how developers should treat
-	one another. \wss{reason} (Section~\ref{Sec_CompareArtifacts})
-	\item Increase the use and enforcement of programming style guides.
-	\wss{reason} (Section~\ref{Sec_CompareArtifacts})
-	\item Use checklists to ensure best practices are followed by developers.
-	\wss{reason} (Section~\ref{Sec_CompareArtifacts})
-	\item Include uninstall instructions. \wss{reason} (Section~\ref{Sec_CompareArtifacts})
-	\item Increase the amount of API documentation. \wss{reason} (Section~\ref{Sec_CompareArtifacts})
-	\item Increase the use of CI. \wss{reason} (Section~\ref{Sec_CompareTools})
-	\item Explicitly document the software's motivation and design principles.
-	\wss{reason - where is this discussed the first time - should add more
-	information there.} (Section~\ref{Sec_CompareMethodologies})
+	\item Add roadmap documentation showing what is planned for the future to
+	provide continuity of purpose, facilitate stakeholder collaboration and
+	assist with prioritization. (Section~\ref{Sec_CompareArtifacts})
+	\item Add a code of conduct to improve inclusivity and attract a wider pool
+	of collaborators. (Section~\ref{Sec_CompareArtifacts})
+	\item Increase the use and enforcement of programming style guides to improve understandability and productivity. (Section~\ref{Sec_CompareArtifacts})
+	\item Use checklists to ensure best practices are followed by developers. (Section~\ref{Sec_CompareArtifacts})
+	\item Include uninstall instructions as a courtesy to users that wish to
+	save space and avoid polluting their build system.
+	(Section~\ref{Sec_CompareArtifacts})
+	\item Increase the amount of API documentation to improve API
+	understandability. (Section~\ref{Sec_CompareArtifacts})
+	\item Increase the use of CI to remove headaches associated with a separate
+	integration phase, quickly detect and remove bugs and improve productivity,
+	since developers will always working from a stable base.
+	(Section~\ref{Sec_CompareTools})
+	\item Explicitly document the software's motivation and design principles to
+	assist with on-boarding new developers.
+	(Section~\ref{Sec_CompareMethodologies})
 \end{itemize}
 
 For insight into devising future methods and tools, we interviewed four
 developers to learn about their pain points (Section~\ref{painpoints}).  The
-identified pain points \wss{expand into bullet list} include lack of development
-time, lack of software development experience, lack of incentive and funding,
-lack of external support, technology hurdles, ensuring correctness, usability,
-technical debt and documentation quality.  We found
-(Section~\ref{Sec_AddressConcerns} that developers are currently creating
-practices to address these pain points, including \wss{expand into list}:
-designing for change \wss{what pain point? why? do the same for the others in
-the list}, circumventing the oracle testing problem, and prioritizing
-documentation and usability.  To plan for future best practices, we identified
-eight potential directions (Section~\ref{Sec_Recommendations}), in order of
-increasing development effort:
+identified pain points include: 
+
+\begin{description}
+\item [\ppref{P_LackDevTime}] Lack of development time, %1
+\item [\ppref{P_LackSoftDevExp}] Lack of software development experience, %2
+\item [\ppref{P_LackFunding}] Lack of incentive and funding, %3
+\item [\ppref{P_LackExtSupport}] Lack of external support, %4
+\item [\ppref{P_TechnologyHurdles}] Technology hurdles, %5
+\item [\ppref{P_Correctness}] Ensuring correctness, %6
+\item [\ppref{P_Usability}] Usability, %7
+\item [\ppref{P_TechDebt}] Technical debt, and %8
+\item [\ppref{P_Documentation}] Documentation quality. %9
+\end{description}  
+
+We found (Section~\ref{Sec_AddressConcerns}) that developers are currently
+creating practices to address these pain points.  To address technical debt
+(\ppref{P_TechDebt}) some developers have committed to designing for change
+(Section~\ref{Sec_DesForChange}). To improve correctness (\ppref{P_Correctness})
+developers are finding ways to circumvent the oracle testing problem, such as
+using peer review and pseudo-oracles (Section~\ref{SecReproducibility}).
+Developers have prioritized documentation and usability
+(Section~\ref{Sec_RecommendDoc} to address the pain points of documentation and
+usability challenges (\ppref{P_Usability} and \ppref{P_Documentation}).  For the
+pain point related to external support (\ppref{P_LackExtSupport}), we found that
+this is currently addressed by groups like \href{https://bssw.io/} {Better
+Scientific Software (BSSw)},
+\href{https://www.software.ac.uk/} {Software Sustainability Institute}
+\citep{CrouchEtAl2013}, and \href{https://software-carpentry.org/}{Software
+Carpentry} \citep{WilsonAndLumsdaine2006, Wilson2016}. Other pain points do not
+seem to be addressed by current practices.  This motivates our eight
+recommendations for potential future directions
+(Section~\ref{Sec_Recommendations}), in order of increasing development effort:
 
 \begin{enumerate}
-	\item Employ linters. \wss{reason}  (Section~\ref{Sec_Linters})
-	\item Conduct rigorous peer reviews. \wss{reason}
-	(Section~\ref{Sec_PeerReview})
-	\item Write and submit papers on software. \wss{reason}
+	\item Employ linters to address \ppref{P_LackDevTime}, \ppref{P_LackSoftDevExp}, \ppref{P_TechnologyHurdles} and \ppref{P_TechDebt}. (Section~\ref{Sec_Linters})
+	\item Conduct rigorous peer reviews to address \ppref{P_LackDevTime},
+	\ppref{P_LackSoftDevExp}, \ppref{P_TechnologyHurdles} and
+	\ppref{P_TechDebt}.	(Section~\ref{Sec_PeerReview})
+	\item Write and submit papers on software to address \ppref{P_LackFunding}.
 	(Section~\ref{Sec_MorePapers})
 	\item Apply advice from the open-source community on how to grow the number
-	of contributors. \wss{reason - change this to documentation?}
+	of contributors to address \ppref{P_LackDevTime}.
 	(Section~\ref{Sec_GrowContributors})
-	\item Further address the oracle problem for testing.  \wss{reason}
-	(Section~\ref{Sec_FurtherOracle})
-	\item Augment theory manuals to include requirements information.
-	\wss{reason} (Section~\ref{Sec_AugTheoryMans})
+	\item Further address the oracle problem for testing, with techniques such as the method of manufactured solutions and metamorphic testing, to address
+	\ppref{P_Correctness}. (Section~\ref{Sec_FurtherOracle})
+	\item Augment theory manuals to include requirements information to address
+	\ppref{P_LackDevTime}, \ppref{P_Usability} and \ppref{P_Documentation}.
+	(Section~\ref{Sec_AugTheoryMans})
 	\item Improve re-runnability, repeatability, reproducibility and
-	replicability. \wss{reason}  (Section~\ref{Sec_Reproducibility})
-	\item Generate all things. \wss{reason}  (Section~\ref{Sec_GenAllThings})
+	replicability to improve \ppref{P_Correctness}.
+	(Section~\ref{Sec_Reproducibility})
+	\item Use Domain Specific Modelling to generate all LBM code, build scripts,
+	documentation, test cases from a stable knowledge base to address
+	\ppref{P_LackDevTime}, \ppref{P_LackSoftDevExp},
+	\ppref{P_TechnologyHurdles}, \ppref{P_Correctness}, \ppref{P_Usability},
+	\ppref{P_TechDebt} and \ppref{P_Documentation}.
+	(Section~\ref{Sec_GenAllThings})
 \end{enumerate}
 
 Future work can be done to address the threats to validity
