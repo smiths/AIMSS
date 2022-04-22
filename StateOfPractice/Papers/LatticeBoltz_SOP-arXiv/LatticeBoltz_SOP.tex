@@ -426,51 +426,50 @@ to~\ref{Sec_AddressConcerns}).  Finally, we summarize the threats to validity
 \section{Methodology} \label{methodology}
 
 We developed a methodology for evaluating the state of the practice of research
-software \citep{SmithEtAl2021, SmithAndMichalski2022}. This methodology can be
-applied to a specific domain of research software, which in the current case is
-LBM software.  Since we group best practices around conventional software
-qualities, the first section below provides definitions for the qualities of
-interest (Section~\ref{softwarequalities}), along with information on how to
-measure these qualities. The following section (Section~\ref{Sec_OverallProcess})
-provides an overview of the steps we used to select, measure and compare LBM
-software.  The remaining sections provide details on each step in the
-methodology. 
+software \citep{SmithEtAl2021, SmithAndMichalski2022} and applied it to the
+specific domain of LBM software.  Since we group best practices around
+conventional software qualities, the first section below provides definitions
+for the qualities of interest (Section~\ref{softwarequalities}), along with
+information on how to measure these qualities. The following section
+(Section~\ref{Sec_OverallProcess}) provides an overview of the steps we used to
+select, measure and compare LBM software.  The remaining sections provide
+details on each step in the methodology. 
 
 \subsection{Measuring Software Qualities} \label{softwarequalities}
 
-To ensure our assessment of best practices is organized and complete, our
-measurements are centred around software qualities.  For completeness we used
-the the list of software engineering qualities from \citet[p.\
-17--33]{GhezziEtAl2003}, excluding interoperability, productivity and
-timeliness.  We excluded interoperability because we are focusing on LBM
-software alone, not its interaction with other software.  The other two
-qualities were excluded because they are process qualities, and we are measuring
-product qualities.  To the list from \citet{GhezziEtAl2003} we added
-installability, since it is so critical to the success of any practical project,
-and reproducibility, since it is so important for research software. Below we
-provide information on each quality of interest, including information on how
-they are measured.
+To ensure our assessment of best practices is organized and complete, we centre
+our measurements around software qualities. For completeness, we use the list of
+software engineering qualities from \citet[p.\ 17--33]{GhezziEtAl2003},
+excluding interoperability, productivity and timeliness. We excluded
+interoperability because our focus is on LBM software alone, not its interaction
+with other software. Our exclusion of the other two qualities is because they
+are process qualities, and our focus is on product qualities. We added
+installability to our list since potential users will ignore software they
+cannot install.  Since the scientific method depends on reproducibility, we also
+added this quality. Below we provide information on each quality, including
+details on how they are measured. 
 
 \begin{description}
 
 	\item[Installability] Installability is measured by the effort required for
 	the installation, uninstallation or reinstallation of a software product in
 	a specified environment \citep{ISO/IEC25010, lenhard2013measuring}. In our
-	case, effort includes the time spent finding and understanding the
-	installation instructions, the person-time and resources spent performing
-	the installation procedure, and the absence or ease of overcoming system
-	compatibility issues. An installability score improves if the software has a
-	means to validate the installation and instructions for uninstallation.
+	case, the effort includes the following: time spent finding and
+	understanding the installation instructions, the person-time and resources
+	spent performing the installation procedure, and the absence or ease of
+	overcoming system compatibility issues. An installability score improves if
+	the software has means to validate the installation and instructions for
+	uninstallation.
 	
 	\item[Correctness] A software program is correct if it behaves according to
-	its stated specifications \citep[p.\ 17]{GhezziEtAl2003}. This requires that
-	the specification is available. Research software is unlikely to have an
-	explicit specification, since this is not common practice in the field. As a
-	consequence, the correctness of software often cannot be measured directly.
-	We assess correctness indirectly by looking for the following: availability
-	of a requirements specification, reference to domain theory, and explicit
-	use of tools and/or techniques for building confidence, such as
-	documentation generators and software analysis tools.
+	its stated specifications \citep[p.\ 17]{GhezziEtAl2003}. Therefore,
+	measuring correctness requires that a specification is available. However,
+	research software is unlikely to have an explicit specification. As a
+	consequence, correctness often cannot be measured directly. We assess
+	correctness indirectly by looking for the following: availability of a
+	requirements specification, reference to domain theory, and explicit use of
+	tools and/or techniques for building confidence, such as documentation
+	generators and software analysis tools.
 	
 	\item[Verifiability] An artifact (like code, or a theory manual) is
 	verifiable if, and only if, every statement therein is verifiable. A
@@ -480,9 +479,9 @@ they are measured.
 	specifications \citep{IEEE1998}). Similarly to correctness, verifiability is
 	correlated with the availability of a specification and with reference to
 	domain knowledge. A good measure of verifiability is further correlated with
-	the availability of well written tutorials that include expected output,
-	with software unit testing, and with evidence of Continuous Integration
-	(CI). In our process we measure correctness and verifiability together.
+	the following: availability of well-written tutorials that include expected
+	output, software unit tests, and evidence of Continuous Integration (CI).
+	Our process measures correctness and verifiability together.
 	
 	\item[Reliability] Reliability is measured by the probability of
 	failure-free operation of a computer program in a specified environment for
@@ -505,10 +504,10 @@ they are measured.
 	such as speed (database response times, for instance), throughput
 	(transactions per second), capacity (concurrent usage loads), and timing
 	(hard real-time demands) \citep{IEEEStdGlossarySET1990, wiegers2003softreq}.
-	In this state of the practice assessment performance was not directly
-	quantitatively measured. Instead the documentation of each software package
-	was observed for information alluding to consideration of performance, such
-	testing results, or parallelization instructions. 
+	In this state of the practice assessment performance is not directly
+	quantitatively measured. Instead we check the documentation for each
+	software package looking for information alluding to consideration of
+	performance, such as testing results or parallelization instructions. 
 	
 	\item[Usability] Usability is measured by the extent to which a software
 	product can be used by specified users to achieve specified goals with
@@ -521,48 +520,47 @@ they are measured.
 	\item[Maintainability] A measure of maintainability is the effort with which
 	a software system or component can be modified to correct faults, improve
 	performance or other attributes, and satisfy new requirements
-	\citep{IEEEStdGlossarySET1990, boehm2007software}. In the current work,
-	maintainability is measured by the quality of the documentation artifacts,
-	and the presence of version control and issue tracking. These artifacts can
-	greatly decrease the effort needed to modify software. There are many
-	documentation artifacts that can improve maintainability, including user and
-	developer manuals, specifications, README files, change logs, release notes,
+	\citep{IEEEStdGlossarySET1990, boehm2007software}. In the current work, we
+	measure maintainability by the quality of the documentation and the presence
+	of version control and issue tracking. There are many documentation
+	artifacts that can improve maintainability, including user and developer
+	manuals, specifications, README files, change logs, release notes,
 	publications, forums, and instructional websites. We also asked developers
 	if they considered the ease of future changes when developing the software
-	packages.
+	packages. 
 	
 	\item[Reusability] Reusability refers to the extent to which components of a
 	software package can be used with or without adaptation in other software
 	packages \citep{kalagiakos2003non}. A good indicator of reusability is a
 	large number of easily reusable components. Therefore, we look for high
-	modularization, which is defined as the presence of smaller components with
+	modularization, which we define as the presence of small components with
 	well defined interfaces. For this state of the practice assessment, we
-	assume that a good measure of reusability correlates with a high
-	number of code files, and the availability of API documentation.
+	assume that a good measure of reusability correlates with a high number of
+	code files, and the availability of API documentation. 
 	
 	\item[Understandability] Understandability is measured by the capability of
 	the software package to enable the user to understand its suitability and
 	function \citep{ISO9126}. It is an artifact-dependent quality.
-	Understandability is different for the user-interface, source code, and
+	Understandability is different for the user interface, source code, and
 	documentation. In this state of the practice analysis, understandability
-	focuses on the source code. It is measured by the consistency of a
-	formatting style, the extend of modularization, the explicit identification
-	of coding standards, the presence of meaningful identifiers, and the clarity
-	of comments. 
+	focuses on the source code. We  measure it by the consistency of  formatting
+	style, the extent of modularization, the explicit identification of coding
+	standards, the presence of meaningful identifiers, and the clarity of
+	comments.
 	
 	\item[Visibility and Transparency] Visibility and transparency refer to the
-	extent to which all of the steps of a software development process, and the
-	current status of it, are conveyed clearly \citep[p.\ 32]{GhezziEtAl2003}.
-	In this state of the practice assessment a good measure of visibility and
-	transparency correlates with a well defined development process,
+	extent to which all of the steps of a software development process, and its
+	current status, are conveyed clearly \citep[p.\ 32]{GhezziEtAl2003}. In this
+	state of the practice assessment a good measure of visibility and
+	transparency correlates with a well-defined development process,
 	documentation of the development process and environment, and software
 	version release notes.
 	
 	\item[Reproducibility] Software achieves reproducibility if another
 	developer can take the original code and input data, run it, and obtain the
 	original output \citep{BenureauAndRougier2017}. We measured reproducibility
-	qualitatively by asking developers if they have any concern that their
-	computational results won't be reproducible, and if they have taken any
+	qualitatively by asking developers if they have any concerns that their
+	computational results won't be reproducible and if they have taken any
 	steps to ensure reproducibility.
 					 
 \end{description}
@@ -591,16 +589,15 @@ discussed in Section~\ref{sec_vet_software_list}.
 
 \subsection{Identify Candidate Software} \label{identifysoftware}
 
-To answer~\rqref{RQ_WhatProjects} we needed to identify existing LBM projects.
-The candidate software was found through search engine queries targeting
-authoritative lists of software. We found LBM software listed on
-\href{https://github.com/} {GitHub} and \href{https://swmath.org/} {swMATH}, as
-well as through scholarly articles. The Domain Expert
-(Section~\ref{sec_vet_software_list}) was also engaged in selecting the
-candidate software.
+To answer~\rqref{RQ_WhatProjects} we identify existing LBM projects.
+We find the candidate software through search engine queries targeting
+authoritative lists. LBM software is listed on \href{https://github.com/}
+{GitHub} and \href{https://swmath.org/} {swMATH} and found in scholarly
+articles. The Domain Expert (Section~\ref{sec_vet_software_list}) helps with
+selecting the candidate software. 
 
-The following properties were considered when creating the list and reviewing
-the candidate software:
+We consider the following properties when creating the list and reviewing the
+candidate software:
 
 \begin{enumerate}
 	\item The software functionality must fall within the identified domain.
@@ -611,29 +608,29 @@ the candidate software:
 	development.
 \end{enumerate}
 
-The initial list had 45 packages, including a few that were later found to not
-have publicly available source code, or to be incomplete projects.
+The initial list had 45 packages, including some that we later found we could
+not use because of incompleteness or an absence of publicly available source
+code.
 
 \subsection{Filter the Software List} \label{filtersoftware}
 
 To reduce the length of the list of software packages and to
-answer~\rqref{RQ_WhatProjects}, we filter the initial list of 45 packages.  The
-following filters were applied in the priority order listed.
+answer~\rqref{RQ_WhatProjects}, we filter the initial list of 45 packages. We
+apply the following filters in the priority order listed. 
 
 \begin{enumerate}
-	\item Scope: Software is removed by narrowing what functionality is
-	considered to be within the scope of the domain.
-	\item Usage: Software packages are eliminated if their installation
-	procedure was missing or not clear and easy to follow.
-	\item Age: The older software packages (age being measured by the last date
-	when a change was made) are eliminated, except in the cases where an older
-	software package appears to be highly recommended and currently in use. 
+	\item Scope: We remove software by narrowing what functionality we
+    consider within the scope of the domain.
+	\item Usage: We eliminate software if its installation procedure is
+	missing or unclear.
+	\item Age: We eliminate the older software packages (with age measured by
+	the last date of a change), except when an older software package appears to
+	be highly recommended and currently in use. 
 \end{enumerate}
 
-For the third item in the above filter, software packages were characterized as
-`alive' if their related documentation had been updated within the last 18
-months. Packages were categorized as `dead' if the last update was more than 18
-month ago.
+For the third item in the above filter, we categorized software packages as
+`alive' if documentation updates happened within the last 18 months. Packages
+were categorized as `dead' if their last update were more than 18 month ago. 
 
 \begin{table}[ht!]
 	\begin{center}
@@ -663,37 +660,32 @@ month ago.
 \end{table}
 
 Filtering by scope, usage, and age decreased the size of the list to 23
-packages. Many of the 22 packages that were removed could not be tested as there
-was no installation guide, they were incomplete, source code was not publicly
-available, a license was needed, or the project was out of scope or not up to a
-standard that would support incorporating them into this study. These eliminated
-software packages are listed in the Appendix of \citet{Michalski2021}. Of the
-remaining 23 packages that were studied, some were kept on the list despite
-being marked as dead due to their prevalence on authoritative lists on LBM
-software and due to their surface excellence.  After the initial measurement
-exercise, which took place in mid 2020, we added one more package in January
-2022: Musubi.  Musubi did not come up in our initial search, but once we learned
-of it, we felt that this report was incomplete without including it.  With the
-addition of Musubi we did not update the manual collection of data for the
-previous packages, due to time constraints, but we did redo all data collection
-that was automated by tools.
+packages. We removed 22 packages for the following reasons: we cannot install
+them, they are incomplete, source code is not publicly available, a license is
+needed, or the project is out of scope. \citet{Michalski2021} lists the
+eliminated software packages. Of the remaining 23 packages, we kept some despite
+their `dead` status because of their presence on authoritative LBM software
+lists and because of their surface excellence. After the initial measurement
+exercise, which took place in mid-2020, we added one more package in January
+2022: Musubi. We found Musubi after our initial search, but we felt obliged to
+include it since it clearly fits our criteria. Time constraints meant we didn't
+update the previous manual data collection, but we did redo the automated data
+collection.
 
-The final list of 24 software packages that were analyzed in this project can be
-found in two tables. Table~\ref{alivepackages} lists packages that fell into the
-`alive' category as of mid 2020 (January 2022 for Musubi), and
-Table~\ref{deadpackages} lists packages that were `dead' at that time. The
-tables include a hyperlink to each project and, when available, citations for
-relevant publications.  The final list of software packages shows considerable
-variation in purpose, size, user interfaces, and programming languages. For
-example, the OpenLB software package is predominantly a \CC{} package that makes
-use of hybrid parallelization and was designed to address a range of CFD
-problems \citep{heuveline2009towards}. The software package pyLBM is an
-all-in-one Python language package for numerical simulations
-\citep{graille2017pylbm}. ESPResSo is an extensible simulation package that is
-specifically for research on soft matter, and is written in \CC{} and Python
-\citep{weik2019espresso}. The HemeLB package is used for efficient simulation of
-fluid flow in several medical domains, and is written predominantly in C, \CC,
-and Python \citep{mazzeo2008hemelb}.
+The final list of 24 software packages is in two tables.
+Table~\ref{alivepackages} lists packages that fell into the `alive' category as
+of mid-2020 (January 2022 for Musubi), and Table~\ref{deadpackages} lists
+packages that were `dead'. The tables include a hyperlink to each project and,
+when available, citations for relevant publications.  The final list of software
+packages shows considerable variation in purpose, size, user interfaces, and
+programming languages. For example, the OpenLB software package is predominantly
+a \CC{} package that uses hybrid parallelization and addresses many CFD problems
+\citep{heuveline2009towards}. The software package pyLBM is an all-in-one Python
+language package for numerical simulations \citep{graille2017pylbm}. ESPResSo
+consists of extensible \CC{} and Python code specifically for research on soft
+matter \citep{weik2019espresso}. The HemeLB package simulates fluid flow in
+several medical domains and is written predominantly in C, \CC, and Python
+\citep{mazzeo2008hemelb}.
 
 \begin{table}[ht!]
 	\begin{center}
@@ -1714,7 +1706,7 @@ the time of data collection, only one of the four packages (Palabos) did not
 have a user manual or guide, but there was a broken link on the package website
 indicating that such an artifact might exist. This broken link was later fixed,
 but this is not reflected in our data because it was not present at the time of
-data collection (mid 2020). Despite the broken link, Palabos does have a
+data collection (mid-2020). Despite the broken link, Palabos does have a
 detailed and informative website. As far as we could observe, Ludwig does not
 appear to have a publicly visible design and OpenLB does not appear to use a
 version control system. However, OpenLB's use of version numbers suggests that
