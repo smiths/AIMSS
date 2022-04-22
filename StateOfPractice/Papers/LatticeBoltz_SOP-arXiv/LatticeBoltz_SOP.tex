@@ -713,10 +713,10 @@ several medical domains and is written predominantly in C, \CC, and Python
 We rank the projects by how well they follow best practices
 (\rqref{RQ_HighestQuality}) via a measurement template, as described in
 \citet{SmithEtAl2021}.  For each software package (each column in the template),
-we fill-in the rows of the template. This process takes about two hours per
+we fill in the rows of the template. This process takes about two hours per
 package, with a cap of four hours. The time constraint is necessary so that the
-work load is feasible for a team as small as one, given our aim to cap the
-measurement phase at 160 person hours \citep{SmithEtAl2021}.  An excerpt of the
+workload is feasible for a team as small as one, given our aim to cap the
+measurement phase at 160 person-hours \citep{SmithEtAl2021}.  An excerpt of the
 template, in spreadsheet form, is shown in
 Figure~\ref{measurement_template_image}.
 
@@ -742,131 +742,122 @@ The full template consists of 108 questions categorized under nine qualities
 	\item visibility/transparency. 
 \end{inparaenum} 
 
-The questions were designed to be unambiguous, quantifiable and measurable with
-limited time and domain knowledge. The measures are grouped under headings for
-each quality, and one for summary information
-(Figure~\ref{measurement_template_image}). The summary section provides general
-information, such as the software name, number of developers, etc.  We follow
-the definitions given by \citet{gewaltig2012quality} for the software
-categories.  Public means software intended for public use.  Private means
-software aimed only at a specific group, while the concept category is used for
-software written simply to demonstrate algorithms or concepts. The three
-categories of development models are: open source, where source code is freely
-available under an open source license; free-ware, where a binary or executable
-is provided for free; and, commercial, where the user must pay for the software
-product.  
+We designed the questions to be unambiguous, quantifiable and measurable with
+limited time and domain knowledge. We categorize them by quality, with an extra
+category for summary information (Figure~\ref{measurement_template_image}). The
+summary section provides general data, such as the software name, number of
+developers, etc. \citet{gewaltig2012quality} provide us with our software
+categories. Public means software available to all, while private means software
+available only to a specific group.  The concept category defines software
+written to demonstrate algorithms or concepts. The three categories of
+development models are open source, where source code is freely available under
+an open-source license; free-ware, where a binary or executable is provided for
+free; and commercial, where the user must pay. 
 
-Several of the qualities use the word ``surface''.  This is to highlight that,
-for these qualities in particular, the best that we can do is a shallow measure.
-For instance, we do not conduct experiments to measure usability. Instead, we
-are looking for an indication that usability was considered by the developers by
-looking for cues in the documentation, such as the presence of getting started
-instructions, a user manual or documentation of expected user characteristics.
+Several of the qualities use the word ``surface'' to highlight that, for these
+qualities, the best that we can do is a shallow measure. For instance, we do not
+conduct experiments to measure usability directly. Instead, we look for an
+indication that usability is considered by searching for cues in the
+documentation, such as the presence of getting started instructions, a user
+manual or documentation of expected user characteristics. 
 
-Tools were used to find some of the measurements, such as the number of files,
-number of lines of code (LOC), percentage of issues that are closed, etc. The
-tool \href{https://github.com/tomgi/git_stats}{GitStats} was used to measure
-each software package's GitHub repository for the number of binary files, the
-number of added and deleted lines, and the number of commits over varying time
-intervals. The tool \href{https://github.com/boyter/scc}{Sloc Cloc and Code
-(scc)} was used to measure the number of text based files as well as the number
-of total, code, comment, and blank lines in each GitHub repository.
+We used tools to automatically measure the number of files, number of lines of
+code (LOC), percentage of closed issues, etc. GitStats measures each package's
+GitHub repository for the number of binary files, the number of added and
+deleted lines, and the number of commits over varying time intervals. Sloc Cloc
+and Code (scc) measures the number of text files and the number of total, code,
+comment, and blank lines in each GitHub repository. 
 
-As in \citet{SmithEtAl2016}, Virtual machines (VMs) were used to provide an
-optimal testing environment for each package. VMs were used because it is
-easier to start with a fresh environment without having to worry about existing
-libraries and conflicts. Moreover, when the tests are complete the VM can be
-deleted, without any impact on the host operating system. The most significant
-advantage of using VMs is to level the playing field. Every software install
-starts from a clean slate, which removes ``works-on-my-computer'' errors.
+As in \citet{SmithEtAl2016}, we used Virtual machines (VMs) to provide an
+optimal testing environment for each package. We used VMs to create fresh
+environments, eliminating worry about existing libraries and conflicts.
+Moreover, when the tests are complete, the VM can be deleted, without impacting
+the host operating system. The most significant advantage of using VMs is to
+level the playing field. Every software install starts from a clean slate, which
+removes ``works-on-my-computer'' errors.
 
 \subsection{Analytic Hierarchy Process} \label{AHP}
 
-Once we have measured each package, we still need to rank them to answer
-\rqref{RQ_HighestQuality}.  To do this, we used the Analytic Hierarchy Process
-(AHP), a decision-making technique that is used to compare multiple options by
-multiple criteria. AHP was used for comparing and ranking the LBM software
-packages using the overall impression quality scores that were gathered in the
-measurement template.  AHP performs a pairwise analysis using a matrix and
-generates an overall score as well as individual quality scores for each
-software package. \citep{SmithEtAl2016} shows how AHP is applied to ranking
-software based on quality measures. 
+Once we measure each package, we still need to rank them to answer
+\rqref{RQ_HighestQuality}. We do this via the Analytic Hierarchy Process (AHP),
+a decision-making technique that compares multiple options by multiple criteria.
+Our AHP algorithm uses the overall impression score, gathered via the
+measurement template, to compare and rank the LBM software. AHP performs a
+pairwise analysis using a matrix and generates an individual quality scores for
+each software package. \citet{SmithEtAl2016} shows the details on how AHP ranks
+software based on quality measures.
 
-This project used a tool we developed for conducting the AHP analysis. The tool
+Our ranking uses a tool we developed for conducting the AHP analysis. The tool
 includes a sensitivity analysis to ensure that the software package rankings are
 appropriate with respect to the uncertainty of the quality scores. For the
-sensitivity analysis we modified the score by 10\% for each package and verified
-that the overall ranking was stable.  The
+sensitivity analysis, we modified the score by 10\% for each package and
+verified that the overall ranking was stable.  The
 \href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/AHP2020/LBM/README.txt}{README}
-file of the tool includes requirements and usage information.
+file for the tool includes requirements and usage information.
 
 \subsection{Interview Developers} \label{SecSurvey}
 
 Several of the research question (\rqref{RQ_CompareToolsProjMngmnt},
 \rqref{RQ_CompareMethodologies}, \rqref{RQ_PainPoints}, \rqref{RQ_Concerns} and
 \rqref{RQ_Recommend}) require going beyond the quantitative data from the
-measurement template. To gain the required insight, we interviewed developers
-using a list of 20 questions from \citet{SmithEtAl2021}. The questions cover the
-background of the development teams, the interviewees, and the software itself.
-We ask the developers how they organize their projects. We also ask about their
+measurement template. To gain insight, we interviewed developers using a list of
+20 questions from \citet{SmithEtAl2021}. The questions cover the background of
+the development teams, the interviewees, and the software itself. We ask the
+developers how they organize their projects. We also ask about their
 understanding of the users. Some questions focus on the current and past
-difficulties, and the solutions the team has found, or will try. We also discuss
+difficulties, and the solutions the team has found or will try. We also discuss
 the importance of, and the current situation for, documentation. A few questions
 focus on specific software qualities, such as maintainability,
 understandability, usability, and reproducibility. The interviews are
 semi-structured based on the question list; we ask follow-up questions when
-necessary. Based on our experience, the interviewees often bring up exciting and
+necessary. Based on our experience, the interviewees often raise exciting and
 unexpected ideas.
 
 We requested interviews with developers for all 24 packages, except Munubi,
-since Munubi was added after our ethics approved had expired.  We were able to
-recruit four developers to participate in our study.  Our potential interview
-subjects were found from project websites, code repositories, publications, and
-biographic information on institution web-pages. Meetings were held using
-on-line meeting software (either Zoom or Teams), which facilitated recording and
-automatic transcription.  Each meeting lasted about an hour. The interview
-process was approved by the McMaster University Research Ethics Board under the
-application number 
+since we added Munubi after our ethics approval expired. We found the developers
+from project websites, code repositories, publications, and biographic
+information on institution webpages. Four developers agreed to participate in
+our study. We met with them online, using either Zoom or Teams to facilitate
+recording and automatic transcription. Each meeting lasted about an hour. The
+McMaster University Research Ethics Board approved the interview process under
+application number
 \href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/MACREM/Application.pdf}
 {MREB\#: 5219}.
 
 \subsection{Domain Analysis} \label{SecDomainAnalysis}
 
-Since the LBM domain has a reasonably small scope, we are able to view the
-software as constituting a program family.  The concept of a program family is
-defined by \citet{parnas1976design} as ``a set of programs whose common
-properties are so extensive that it is advantageous to study the common
-properties of the programs before analyzing individual members''. Studying the
-common properties within a family of related programs is termed a domain
-analysis.
+Since the LBM domain has a reasonably small scope, we can view the software as
+constituting a program family.  \citet{parnas1976design} defines a program
+family as ``a set of programs whose common properties are so extensive that it
+is advantageous to study the common properties of the programs before analyzing
+individual members.'' Studying the common properties within a family of related
+programs is termed a domain analysis.
 
 The domain analysis (also called a commonality analysis) consists of
 understanding the commonalities, variabilities and common terminology for a
 program family \citep{weiss1997defining}. Commonalities are goals, theories,
 models, definitions and assumptions that are common between family members.
 Variabilities are goals, theories, models, definitions and assumptions that
-differ between family members. Associated with each variability are its
-parameters of variation, which summarize the possible values for that
-variability, along with their potential binding time.  The binding time is when
-the value of the variability is set.  It could be set as specification time,
-build time (when the program is being compiled) or run time (when the code is
-executing). As an example, for the current assessment, the packages all have the
-commonality of using LBM techniques to simulate the motion of fluids.  For
-variabilities, the LBM packages can be distinguished by the dimension of
-problems they simulate, whether or not (and how) they support parallel
-computation, whether or not compressibility can be considered, whether reflexive
-boundaries can be employed, whether the simulation handles multi-fluids, whether
-the simulations handles turbulence, and whether complex geometries can be
-simulated.
+differ between family members. Associated with each variability are parameters
+of variation, which summarize the possible values for that variability, along
+with their potential binding time. The binding time is when the value of a
+variability is set. Variabilities are set at specification time, build time
+(when the program compiles) or run time (when the code executes). For the
+current assessment, the packages all have the commonality of using LBM
+techniques to simulate the motion of fluids. Variabilities for LBM packages
+include the following: the dimension of problems they simulate, whether or not
+(and how) they support parallel computation, whether or not compressibility can
+be considered, whether reflexive boundaries can be employed, whether the
+simulation handles multi-fluids, whether the simulations handles turbulence, and
+whether complex geometries can be simulated. 
 
 To keep the current presentation focused, we only present the results of our
-shallow domain analysis. For the LBM domain a table was constructed that
-distinguishes the programs by their variabilities.  In research software the
-variabilities are often assumptions, as shown in Table~\ref{tbl_features}. The
-variabilities are listed as columns in Table~\ref{tbl_features} with the
-software listed in alphabetical order. A more complete analysis of the
-commonalities and variabilities between LBM packages is provided in
-\citet{Michalski2021}.
+shallow domain analysis. For the LBM domain, a table was constructed that
+distinguishes the programs by their variabilities. In research software, the
+variabilities are often assumptions. Table~\ref{tbl_features} lists the
+variabilities as columns, with the software alphabetically ordered.
+\citet{Michalski2021} provides a detailed analysis of the commonalities and
+variabilities between LBM packages.
 
 \begin{table}[ht!]
 	\begin{center}
@@ -912,30 +903,28 @@ commonalities and variabilities between LBM packages is provided in
 \subsection{Interaction With Domain Expert} \label{sec_vet_software_list}
 
 We partnered with a Domain Expert to vet our list of projects
-(\rqref{RQ_WhatProjects}) and our ranking (\rqref{RQ_HighestQuality}).  The
-Domain Expert is an important member of the state of the practice assessment
-team. Pitfalls exist if non-experts attempt to acquire an authoritative list of
-software, or try to definitively rank the software. Non-experts have the problem
-that they can only rely on information available on-line, which has the
-following drawbacks:
+(\rqref{RQ_WhatProjects}) and our ranking (\rqref{RQ_HighestQuality}). The
+Domain Expert is a crucial member of the state of the practice assessment team.
+Pitfalls exist if non-experts attempt to acquire an authoritative list of
+software or try to rank the software. Non-experts rely on online information,
+which has the following drawbacks:
 \begin{inparaenum}[i)]
-  \item the on-line resources could have false or inaccurate information; and,
-  \item the on-line resources could leave out relevant information that is so
-in-grained with experts that nobody thinks to explicitly record it.
+  \item the online resources could have false or inaccurate information, and 
+  \item the online resources could leave out relevant information that is too
+  ingrained with experts for them to explicitly record it.
 \end{inparaenum}
 For the current assessment, our Domain Expert (and paper co-author) is Dr.\
 Zahra Keshavarz-Motamed, Assistant Professor of Mechanical Engineering at
 McMaster University, Hamilton, Ontario, Canada.  
 
-The Domain Expert has an important role with verifying the list of LBM packages.
-In advance of the first meeting with the Domain Expert, they were asked to
-create a list of top software packages in the domain.  This is done to help the
-expert get in the right mind set in advance of the meeting.  Moreover, by doing
-the exercise in advance, we avoid the potential pitfall of the expert approving
-the discovered list of software without giving it adequate thought.  The Domain
-Expert was also asked to vet the collected data and analysis.  In particular,
-they were asked to vet the proposed list of software packages and the AHP
-ranking.  These interactions were done via virtual meetings.
+The Domain Expert has a central role in verifying the list of LBM packages. In
+advance of the first meeting with the Domain Expert, we asked them to create a
+list of top software packages in the domain.  We did this to help the expert get
+in the right mindset for our meeting.  Moreover, by doing the exercise in
+advance, we avoid the potential pitfall of the expert approving the discovered
+list of software without giving it adequate thought. We asked the Domain Expert,
+via virtual meetings, to vet the collected data and analysis. In particular, we
+asked them to vet the proposed list of software packages and the AHP ranking.
 
 \section{Ranking Projects Based on Quality Measures} \label{AHPresults}
 
