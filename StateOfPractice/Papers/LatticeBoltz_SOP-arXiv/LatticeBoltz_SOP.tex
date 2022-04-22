@@ -108,6 +108,9 @@
 \newcommand{\CC}{C\nolinebreak\hspace{-.05em}\raisebox{.4ex}{\small\bf
 +}\nolinebreak\hspace{-.10em}\raisebox{.4ex}{\small\bf +}}
 
+\newcommand{\esp}{ESPResSo\nolinebreak\hspace{-.05em}\raisebox{.4ex}{\small\bf
++}\nolinebreak\hspace{-.10em}\raisebox{.4ex}{\small\bf +}}
+
 \newcounter{rqnum} %research question number
 \newcommand{\rqtherqnum}{RQ`'\therqnum}
 \newcommand{\rqref}[1]{RQ\ref{#1}}
@@ -867,7 +870,7 @@ variabilities between LBM packages.
 			\midrule
 			DL\_MESO (LBE) & 2, 3 & MPI/OMP & Y & Y & Y & Y & Y & W, M, L\\
 			ESPResSo & 1, 2, 3 & CUDA/MPI & Y & Y & Y & Y & Y & M, L\\
-			ESPResSo++ & 1, 2, 3 & MPI & Y & Y & Y & Y & Y & L\\
+			\esp{} & 1, 2, 3 & MPI & Y & Y & Y & Y & Y & L\\
 			HemeLB & 3 & MPI & Y & Y & Y & Y & Y & L\\
 			laboetie & 2, 3 & MPI & Y & Y & Y & Y & Y & L\\
 			LatBo.jl & 2, 3 & - & Y & Y & Y & N & Y & L\\
@@ -928,81 +931,76 @@ asked them to vet the proposed list of software packages and the AHP ranking.
 
 \section{Ranking Projects Based on Quality Measures} \label{AHPresults}
 
-In this section we answer \rqref{RQ_HighestQuality} by using AHP to rank the
-identified LBM software against best practices.  The sections below summarize
-how the software packages compare based on the qualities discussed in
+We answer \rqref{RQ_HighestQuality} by using AHP to rank the identified LBM
+software against best practices.  The sections below summarize how the software
+packages compare based on the qualities discussed in
 Section~\ref{softwarequalities}, as measured via the measurement template
-(Section~\ref{empiricalmeasures}).  For the purpose of discussion, the last
-subsection combines all the qualities into one ``global'' ranking.  The full LBM
-data is available publicly on Mendeley Data \citep{Smith2022}.
+(Section~\ref{empiricalmeasures}).  The last subsection combines all the
+qualities into one ``global'' ranking.  The full LBM data is available publicly
+on Mendeley Data \citep{Smith2022}.
 
 \subsection{Installability}
 
-All of the 24 software packages that were tested have installation instructions.
-Most have their installation instructions located in one place, often in an
-instruction manual or on a web-page. Sometimes, like with Ludwig, incomplete
-installation instructions are found on a homepage, with more detailed
-instructions located on another web-page, or within the documentation.
-Installability of the software, and maintainability and correctness of the
-instructions themselves, are improved if all the instructions are in one
-location. 
+All 24 software packages have installation instructions. Most have their
+installation instructions located in one place, often in an instruction manual
+or a webpage. Sometimes, like with Ludwig, we found incomplete installation
+instructions in one place, but complete instructions elsewhere. Installability
+of the software, and maintainability and correctness of the instructions
+themselves, are improved if all the instructions are in one location.
 
-All 24 packages on the short list can be installed on a Unix-like system. Eight
-packages could be installed on Windows, and five on macOS. Operating system
-requirements are listed in the documentation of 20 software packages, but
-compatible operating system versions are only specified in four packages
-(ESPResSo, LUMA, Mechsys, Sailfish). All but one of the software packages (TCLB)
-were tested on Ubuntu for this state of the practice assessment. TCLB was tested
-on CentOS, since CentOS is mentioned in its installation instructions.
+All 24 packages are installable on a Unix-like system. Eight packages are also
+installable on Windows, and five on macOS. Twenty packages list their operating
+system requirements, but only four (ESPResSo, LUMA, Mechsys, Sailfish) list
+compatible operating system versions. Ubuntu was used to test all but one of the
+packages. TCLB was tested on CentOS, as suggested by its installation
+instructions. 
 
 All but one of the software packages (LatBo.jl) have automated at least some of
 the installation process. Most of these packages, such as waLBerla and
 SunlightLB, use Make to automate the installation, and a few of them, like
 lbmpy, use custom scripts.
 
-Errors encountered during the installation process were often quickly fixed
+Errors encountered during the installation process were often quickly fixed,
 thanks to descriptive error messages. Systems that provided vague error
 messages, such as messages that did not specify which action or file was at
-fault, were more difficult to troubleshoot. Only three software packages
-(HemeLB, LB3D, lbmpy) that displayed a descriptive error message were not
-recoverable, and most of these instances were due to hardware and operating
-system incompatibility, such as the requirement of CUDA. Fourteen software
-packages broke during installation. Some packages, such as LB2D-Prime and
-LB3D-Prime, did not provide a definitive message of the success or failure of
-installation. In these instances, validating the installation required
-performing a tutorial or running a script, as described below, if these were
-available. 
+fault, were harder to troubleshoot. Only three software packages (HemeLB, LB3D,
+lbmpy) that displayed a descriptive error message were not recoverable, and most
+of these instances were due to hardware and operating system incompatibility,
+such as the requirement of CUDA. Fourteen software packages broke during
+installation. Some packages, such as LB2D-Prime and LB3D-Prime did not provide a
+definitive message of the success or failure of the installation. In these
+instances, validating the installation required performing a tutorial or running
+a script, as described below, if these were available. 
 
-About half of the installation instructions are written as if the person doing
-the installation has none of the dependent packages installed. Unfortunately,
-software packages, like ESPResSo++, Ludwig, and LUMA, frequently don't list all
-of their dependencies, or provide only a partial list. Sometimes only an error
-message during the installation process informs the user of the requirement of
-these additional packages. A detailed rewrite of the installation instructions
-from the point of view of installation on a clean operating system is suggested.
-A clean environment can be achieved for testing purposes by using a virtual
-machine.
+About half of the installation instructions assume the installation environment
+has not already installed dependent packages. Unfortunately, software packages,
+like \esp, Ludwig and LUMA, frequently don't list all their dependencies.
+Sometimes only an error message during the installation process informs the user
+of the requirement for additional packages. In case like this, we suggest a
+detailed rewrite of the installation instructions to accommodate a clean
+operating system. A virtual machine provides such an environment for testing
+purposes. 
 
-Seventeen software packages require less than 10 dependencies to be installed.
+Seventeen software packages require installation of less than ten dependencies.
 All but one software package (LatBo.jl) require less than 20 dependencies. Some
 packages may automatically install additional dependencies in the background.
 Twenty of the software packages do not explicitly indicate the versions of
 software dependencies. Some software package installation issues, specifically
-those occurring when manual installation of dependencies is required, may be
-avoided if versions of dependencies are specified. Sixteen software packages do
-not have detailed instructions for installing dependencies. Sixteen software
-packages have less than 10 manual installation steps. If dependencies are
-installed in one command then none of the software packages take more than 20
-steps to install. The average number of steps is about eight, and the fewest is
-two (LB3D-Prime). 
+those occurring when the manual installation of dependencies is required, might
+be avoided if versions of dependencies are specified. Sixteen software packages
+do not have detailed instructions for installing dependencies. Sixteen software
+packages have less than ten manual installation steps. If one command installs
+dependencies, then none of the software packages take more than 20 steps to
+install. The average number of steps is eight, and the fewest is two
+(LB3D-Prime).
 
 All but six (ESPResSo, HemeLB, laboetie, LB3D-Prime, lbmpy, waLBerla) of the
-software packages have a way to verify the installation. Most have some sort of
-tutorial examples that can be run by the user. Some other ways of installation
-validation include validation scripts (LB2D-Prime, lettuce, Ludwig, LUMA),
-automatic validation after the installation (LatBo.jl), and instructions to
-manually review the file system (LIMBES).  Uninstallation instructions were
-found for only one of the software packages: pyLBM.
+software packages have a way to verify the installation. Most have tutorial
+examples for the user to run. Some other approaches to installation validation
+include validation scripts (LB2D-Prime, lettuce, Ludwig, LUMA), automatic
+validation after the installation (LatBo.jl), and instructions to manually
+review the file system (LIMBES). Only one software package (pyLBM) has
+uninstallation instructions.
 
 \begin{figure}[h!]
 	\begin{center}
@@ -1013,18 +1011,16 @@ found for only one of the software packages: pyLBM.
 \end{figure}
 
 Figure~\ref{Fig_Installability} shows the installability ranking of the software
-packages. Software packages with a higher score (ESPResSo, MechSys, OpenLB,
-DL\_MESO, Palabos) tend to have one set of linear installation instructions
-written as if the person doing the installation has none of the dependencies
-installed. The instructions often list compatible operating system versions and
-include instructions for the installation of dependencies. The top ranked
-packages often incorporate some sort of automation of the installation process
-and have fewer manual installation steps. The number of dependencies a package
-has does not correlate with a higher score. The ability to validate the
-installation process, often through tutorials or test examples that include
-expected output, is correlated with a higher score. Active work on a project
-seems to improve installability, since the top seven ranked packages are all
-classified as alive. 
+packages. Software packages with a higher score (ESPResSo, MechSys, OpenLB, DL
+MESO, Palabos) tend to have one set of linear installation instructions written
+as if the person doing the installation has none of the dependencies installed.
+The instructions often list compatible operating system versions and include
+instructions for installing dependencies. The top-ranked packages often
+incorporate some automation of the installation process. The number of
+dependencies a package has does not correlate with a higher score. The ability
+to validate the installation process, say through tutorials or test cases, leads
+to a higher score. Apparently active work on a project improves installability
+since the top seven ranked packages are all classified as alive. 
  
 \subsection{Surface Correctness and Verifiability} \label{SecSurfCorrectAndVerifiab}
 
@@ -1034,7 +1030,7 @@ full and rigorous requirements specification, in the software engineering sense
 the projects. Software packages that include a subset of a requirements
 specification, such as DL\_MESO (LBE), keep the information brief and include it
 within other documents. When present, theory related information is generally
-found within a user manual, on a web-page, or in a cited publication. In the
+found within a user manual, on a webpage, or in a cited publication. In the
 latter case significant time may be needed to track down the information.
 
 Document generation tools are explicitly used by 13 software packages. Sphinx is
@@ -1096,7 +1092,7 @@ find external dependencies, encountered system incompatibilities, or displayed
 vague error messages.
 
 Of the 14 software packages that installed correctly and also have tutorials,
-four (pyLBM, ESPResSo++, LIMBES, Ludwig) broke during tutorial testing. All of
+four (pyLBM, \esp, LIMBES, Ludwig) broke during tutorial testing. All of
 these instances resulted in an error message being displayed. One error (pyLBM)
 was due to a missing tutorial dependency, another (Ludwig) was due to an invalid
 command despite following the tutorial, and the final two errors were vague
@@ -1173,8 +1169,8 @@ manual, documented user characteristics, and a user support model. In total 19
 software packages have a tutorial, 13 have a user manual, and 11 have both. The
 tutorials vary in scope and substance, and eight include expected output. Most
 user manuals are in the form of a file that can be downloaded, while some are
-rendered on a web-page. Some packages (waLBerla) do not have a user manual, but
-do have useful documentation distributed throughout their web-pages. Expected
+rendered on a webpage. Some packages (waLBerla) do not have a user manual, but
+do have useful documentation distributed throughout their webpages. Expected
 user characteristics are documented in five software packages (laboetie, LIMBES,
 Ludwig, Musubi, Palabos). Users are typically scientists or engineers. Their
 background is often physics, chemistry, biophysics, or mathematics. All but one
@@ -1209,7 +1205,7 @@ have source code release and documentation version numbers.
 When present, information on how code is reviewed, or how to contribute to the
 project was also noted. In total, 11 software packages have this information,
 which was found in various artifacts, including in developer guides, contributor
-guides, user guides, developer web-pages, and README files. 
+guides, user guides, developer webpages, and README files. 
 
 Issue tracking is used in 23 software packages, 15 of which use GitHub or GitLab
 to host their git repository, seven use email, and one (SunlightLB) uses
@@ -1239,7 +1235,7 @@ control, and seven packages do not appear to use any issue tracking system.
 			Palabos & 17.76 & 89.47 & Alive\\
 			SunlightLB & 17.67 & Not Git & Dead\\
 			LIMBES & 17.39 & Not Git & Dead\\
-			ESPResSo++ & 17.10 & 66.28 & Alive\\
+			\esp & 17.10 & 66.28 & Alive\\
 			HemeLB & 16.68 & No Issues & Dead\\
 			pyLBM & 16.12 & 66.67 & Alive\\
 			MechSys & 15.11 & Not Git & Alive\\
@@ -1269,7 +1265,7 @@ be more maintainable. Comments represent more than 10 percent of code files in
 All of the top five overall ranked packages have more than the average. LUMA has
 only 0.2 percent comments, the fewest of any package. This package has the most
 lines of source code, with over four million. The next largest package is
-ESPResSo++ with one million.
+\esp{} with one million.
 
 \begin{figure}[h!]
 	\begin{center}
@@ -1339,7 +1335,7 @@ components. Nine of the top 10 ranked packages are noted as being alive.
 			ESPResSo & 83 & 195083 & 1390& 140 \\
 			MP-LABS & 3 & 43124 & 307 & 140 \\
 			pyLBM & 108 & 37234 & 272 & 137 \\
-			ESPResSo++ & 30 & 165194 & 1406& 118 \\
+			\esp & 30 & 165194 & 1406& 118 \\
 			HemeLB & 44 & 123806 & 1102& 112 \\
 			Sailfish & 11 & 69398 & 632 & 110 \\
 			lettuce & 1 & 7660 & 73 & 105 \\
@@ -1476,7 +1472,7 @@ the scientific community.
 
 Notable exceptions to this trend occur for three projects that rank high by star
 count, but relatively low in the ``follow best practices'' ranking: TCLB (star
-rank 3, our rank 12), lettuce (star rank 4, our rank 14) and ESPResSo++ (star
+rank 3, our rank 12), lettuce (star rank 4, our rank 14) and \esp{} (star
 rank 5, our rank 15).  Part of the discrepancy is because all projects are
 ranked by our process, but not all projects are measured by stars.  Also, our
 process equally weights all qualities (Section~\ref{Sec_OverallQuality}), but
@@ -1485,7 +1481,7 @@ between our measures and the star measures may also be due to inaccuracy with
 using stars to approximate popularity, because of how people use stars, because
 young projects have less time to accumulate stars, and because stars represent
 the community's feeling in the past more than current preferences
-\citep{Szulik2017}. Older packages (like ESPResSo++ and TCLB) have had more time
+\citep{Szulik2017}. Older packages (like \esp{} and TCLB) have had more time
 to accumulate stars and watches. Young projects have less time to accumulate
 stars, like HemeLB, which only has 12 stars (at the time of measurement) having
 recently moved from a different GitHub repository.  Lettuce is a young project
@@ -1519,7 +1515,7 @@ quality.
 			TCLB & 12 & 95 & 3 & 16& 3\\
 			MechSys & 13 & N/A & N/A & N/A& N/A\\
 			lettuce & 14 & 48 & 4 & 5& 8\\
-			ESPResSo++ & 15 & 35 & 5 & 12& 4\\
+			\esp & 15 & 35 & 5 & 12& 4\\
 			MP-LABS & 16 & 12 & 11 & 2& 9\\			
 			SunlightLB & 17 & N/A & N/A & N/A& N/A\\
 			LB3D & 18 & N/A & N/A & N/A& N/A\\			
@@ -1911,7 +1907,7 @@ Open MPI, PyZMQ). Domain specific libraries include research software libraries
 Many of the software packages that were assessed were developed by teams of two
 or more people. Their work needed to be coordinated and managed.
 Table~\ref{tbl_tools} shows the types of project management tools that were
-explicitly noted in the artifacts, web-pages, or interviews with the developers.
+explicitly noted in the artifacts, webpages, or interviews with the developers.
 As with development tools and dependencies, it is possible that other types of
 project management tools are used, but they were not visible in the artifacts to
 which we had access.  Collaboration tools, most often email and video, are noted
@@ -2907,7 +2903,7 @@ Current LBM software mostly follows best practices as illustrated by
 Table~\ref{topperformerstable}, which summarizes the top five performers for
 each quality and for the overall quality. Taking the union of all entries in the
 table, we have 16 top performers: ESPREsSo, MechSys, OpenLB, DL\_MESO, Sailfish,
-Ludwig, Musubi, pyLBM, waLBerla, laboetie, lettuce, ESPREsSo++, LUMA, MP-LABS,
+Ludwig, Musubi, pyLBM, waLBerla, laboetie, lettuce, \esp, LUMA, MP-LABS,
 Palabos, and HemeLB.  Therefore, two thirds (67\%) of the 24 measured packages
 appear in the top five for at least one quality.  Of these entries almost all
 are classified as alive, except for three packages: laboetie, MP-LABS, and
@@ -2930,14 +2926,14 @@ practices.
 			Surface Reliability & DL\_MESO (LBE) & laboetie* & lettuce & MechSys
 			& Musubi \\
 			\addlinespace[0.4cm]
-			Surface Robustness & DL\_MESO (LBE) & ESPResSo++ & lettuce & LUMA &
+			Surface Robustness & DL\_MESO (LBE) & \esp & lettuce & LUMA &
 			OpenLB \\
 			\addlinespace[0.4cm]
 			Surface Usability & laboetie* & ESPResSo & OpenLB & Ludwig & Sailfish\\
 			\addlinespace[0.4cm]
-			Maintainability & Ludwig & MP-LABS* & ESPResSo++ & ESPResSo & Palabos\\
+			Maintainability & Ludwig & MP-LABS* & \esp & ESPResSo & Palabos\\
 			\addlinespace[0.4cm]
-			Reusability & ESPResSo & waLBerla & ESPResSo++ & Sailfish & HemeLB*\\
+			Reusability & ESPResSo & waLBerla & \esp & Sailfish & HemeLB*\\
 			\addlinespace[0.4cm]
 			\pbox{3.0cm}{Surface \\Understandability} & LUMA & Palabos & pyLBM &
 			DL\_MESO (LBE)& MechSys\\
