@@ -664,16 +664,16 @@ otherwise.
 
 Filtering by scope, usage, and age decreased the size of the list to 23
 packages. We removed 22 packages for the following reasons: we cannot install
-them, they are incomplete, source code is not publicly available, a license is
-needed, or the project is out of scope. \citet{Michalski2021} lists the
-eliminated software packages. Of the remaining 23 packages, we kept some despite
-their `dead` status because of their presence on authoritative LBM software
-lists and because of their surface excellence. After the initial measurement
-exercise, which took place in mid-2020, we added one more package in January
-2022: Musubi. We found Musubi after our initial search, but we felt obliged to
-include it since it clearly fits our criteria. Time constraints meant we didn't
-update the previous manual data collection, but we did redo the automated data
-collection.
+them, they are incomplete, source code is not publicly available, we are not
+licensed to use them, or the project is out of scope. \citet{Michalski2021}
+lists the eliminated software packages. Of the remaining 23 packages, we kept
+some despite their `dead` status because of their presence on authoritative LBM
+software lists and because of their surface excellence. After the initial
+measurement exercise, which took place in mid-2020, we added one more package in
+January 2022: Musubi. We found Musubi after our initial search, but we felt
+obliged to include it since it clearly fits our criteria. Time constraints meant
+we didn't update the previous manual data collection, but we did redo the
+automated data collection.
 
 The final list of 24 software packages is in two tables.
 Table~\ref{alivepackages} lists packages that fell into the `alive' category as
@@ -754,15 +754,15 @@ categories. Public means software available to all, while private means software
 available only to a specific group.  The concept category defines software
 written to demonstrate algorithms or concepts. The three categories of
 development models are open source, where source code is freely available under
-an open-source license; free-ware, where a binary or executable is provided for
-free; and commercial, where the user must pay. 
+an open-source license; free-ware, which freely provides a binary or executable,
+but not source code; and commercial, where the user must pay for the software. 
 
 Several of the qualities use the word ``surface'' to highlight that, for these
 qualities, the best that we can do is a shallow measure. For instance, we do not
-conduct experiments to measure usability directly. Instead, we look for an
-indication that usability is considered by searching for cues in the
-documentation, such as the presence of getting started instructions, a user
-manual or documentation of expected user characteristics. 
+conduct experiments to measure usability directly. Instead, we look for
+usability considerations by searching for cues in the documentation, such as the
+presence of getting started instructions, a user manual or documentation of
+expected user characteristics. 
 
 We used tools to automatically measure the number of files, number of lines of
 code (LOC), percentage of closed issues, etc. GitStats measures each package's
@@ -833,8 +833,8 @@ Since the LBM domain has a reasonably small scope, we can view the software as
 constituting a program family.  \citet{parnas1976design} defines a program
 family as ``a set of programs whose common properties are so extensive that it
 is advantageous to study the common properties of the programs before analyzing
-individual members.'' Studying the common properties within a family of related
-programs is termed a domain analysis.
+individual members.'' Domain analysis is the term for studying the common
+properties within a family of related programs.
 
 The domain analysis (also called a commonality analysis) consists of
 understanding the commonalities, variabilities, and common terminology for a
@@ -843,21 +843,20 @@ models, definitions, and assumptions that are common between family members.
 Variabilities are goals, theories, models, definitions, and assumptions that
 differ between family members. Associated with each variability are parameters
 of variation, which summarize the possible values for that variability, along
-with their potential binding time. The binding time is when the value of a
-variability is set. Variabilities are set at specification time, build time
-(when the program compiles) or run time (when the code executes). For the
+with their potential binding time. The binding time is when we specify a value
+for a variability. Binding time options include specification time, build time
+(when the program compiles) and run time (when the code executes). For the
 current assessment, the packages all have the commonality of using LBM
 techniques to simulate the motion of fluids. Variabilities for LBM packages
-include the following: the dimension of problems they simulate, whether 
-(and how) they support parallel computation, whether compressibility can
-be considered, whether reflexive boundaries can be employed, whether the
-simulation handles multi-fluids, whether the simulation handles turbulence, and
-whether complex geometries can be simulated. 
+include the following: the dimension of problems they simulate, whether (and
+how) they support parallel computation, whether compressibility can be
+considered, whether reflexive boundaries can be employed, whether the simulation
+handles multi-fluids, whether the simulation handles turbulence, and whether
+complex geometries can be simulated. 
 
 To keep the current presentation focused, we only present the results of our
-shallow domain analysis. For the LBM domain, a table was constructed that
-distinguishes the programs by their variabilities. In research software, the
-variabilities are often assumptions. Table~\ref{tbl_features} lists the
+shallow domain analysis. We distinguish programs by their variabilities, which
+for research software are often assumptions. Table~\ref{tbl_features} lists the
 variabilities as columns, with the software alphabetically ordered.
 \citet{Michalski2021} provides a detailed analysis of the commonalities and
 variabilities between LBM packages.
@@ -951,26 +950,26 @@ themselves, are improved if all the instructions are in one location.
 All 24 packages are installable on a Unix-like system. Eight packages are also
 installable on Windows, and five on macOS. Twenty packages list their operating
 system requirements, but only four (ESPResSo, LUMA, Mechsys, Sailfish) list
-compatible operating system versions. Ubuntu was used to test all but one of the
-packages. TCLB was tested on CentOS, as suggested by its installation
-instructions. 
+compatible operating system versions. Ubuntu provided the testing platform for
+all but one of the packages. TCLB was tested on CentOS, as suggested by its
+installation instructions. 
 
 All but one of the software packages (LatBo.jl) have automated at least part of
 the installation process. Most of these packages, such as waLBerla and
 SunlightLB, use Make to automate the installation, and a few of them, like
 lbmpy, use custom scripts.
 
-Errors encountered during the installation process were often quickly fixed,
-thanks to descriptive error messages. Systems that provided vague error
-messages, such as messages that did not specify which action or file was at
-fault, were harder to troubleshoot. Only three software packages (HemeLB, LB3D,
-lbmpy) that displayed a descriptive error message were not recoverable, and most
-of these instances were due to hardware and operating system incompatibility,
-such as the requirement of CUDA. Fourteen software packages broke during
-installation. Some packages, such as LB2D-Prime and LB3D-Prime did not provide a
-definitive message of the success or failure of the installation. In these
-instances, validating the installation required performing a tutorial or running
-a script, as described below, if these were available. 
+We quickly fixed errors encountered during the installation process, thanks to
+descriptive error messages. Systems that provided vague error messages, such as
+messages that did not specify which action or file was at fault, were harder to
+troubleshoot. Only three software packages (HemeLB, LB3D, lbmpy) that displayed
+a descriptive error message were not recoverable, and most of these instances
+were due to hardware and operating system incompatibility, such as the
+requirement of CUDA. Fourteen software packages broke during installation. Some
+packages, such as LB2D-Prime and LB3D-Prime did not provide a definitive message
+of the success or failure of the installation. In these instances, validating
+the installation required performing a tutorial or running a script, as
+described below, if these were available. 
 
 About half of the installation instructions assume the installation environment
 has not already installed dependent packages. Unfortunately, software packages,
@@ -985,10 +984,9 @@ Seventeen software packages require installation of less than ten dependencies.
 All but one software package (LatBo.jl) require less than 20 dependencies. Some
 packages may automatically install additional dependencies in the background.
 Twenty of the software packages do not explicitly indicate the versions of
-software dependencies. Some software package installation issues, specifically
-those occurring when the manual installation of dependencies is required, might
-be avoided if versions of dependencies are specified. Sixteen software packages
-do not have detailed instructions for installing dependencies. Sixteen software
+software dependencies. Some software package installation issues could have been
+avoided by providing a list of dependencies. Sixteen software packages do not
+have detailed instructions for installing dependencies. Sixteen software
 packages have less than ten manual installation steps. If one command installs
 dependencies, then none of the software packages take more than 20 steps to
 install. The average number of steps is eight, and the fewest is two
@@ -1029,21 +1027,19 @@ and rigorous requirements specification, in the software engineering sense
 \citep{IEEE1998, RobertsonAndRobertson1999Vol, ESA1991},  is absent from all
 projects. Software packages that include a subset of a requirements
 specification, such as DL\_MESO (LBE), keep the information brief and include it
-within other documents. When present, theory related information is generally
-found within a user manual, on a webpage, or in a cited publication. In the
-latter case tracking down the knowledge may take a significant time. 
+within other documents, such as a user manual, webpage, or a publication. In the
+latter case tracking down the knowledge may take significant time. 
 
-Document generation tools are explicitly used by 13 software packages. Sphinx is
-used by eight of them, and Doxygen is used by eight. Several of the packages use
-both.
+Thirteen software packages explicitly use document generation tools. Eight of
+them use Sphinx and the same number use Doxygen. Several packages use both.
 
 Tutorials are available for 19 of the software packages. Generally they are
 linearly written and easy to follow. However, only eight tutorials provide an
 expected output. It is not possible to verify the correctness of the output of
 the software packages that are missing this key information. In these cases the
-user may need to assume correctness if there are no visible errors.  A
-particularly  detailed tutorial that includes expected output is provided by
-\href{https://www.walberla.net/doxygen/index.html} {waLBerla}.
+user may need to assume correctness if there are no visible errors.
+\href{https://www.walberla.net/doxygen/index.html} {waLBerla} provides a
+particularly detailed tutorial, including expected output.
 
 Unit tests are only explicitly available for two of the software packages,
 Ludwig and Musubi. Code modularization of most packages allows for users to
@@ -1051,10 +1047,10 @@ create tests with varying degrees of effort. These tests allow developers and
 users to verify the correctness of fragments of the source code, and in doing so
 better assess the correctness of the entire package.
 
-The use of Continuous Integration (CI) tools and techniques alludes to a more
-refined development process where faults are isolated and better recognized.
-Only three of the packages (ESPResSo, Ludwig, Musubi) mentioned applying the
-practice of CI in their development process.
+The use of Continuous Integration (CI) tools and techniques alludes to a refined
+development process that quickly isolates and fixes faults. Only three of the
+packages (ESPResSo, Ludwig, Musubi) mentioned applying the practice of CI in
+their development process.
 
 \begin{figure}[h!]
 	\begin{center}
@@ -1072,7 +1068,7 @@ correctness. The top ranked software packages all include getting started
 tutorials, and most of these include expected output. The two top ranked
 packages, Ludwig and Musubi, indicate the use of unit testing in their
 documentation. They also incorporated CI in the development process.
-Furthermore, eight of the top 10 ranked packages are noted as being alive.
+Furthermore, eight of the top 10 ranked packages are alive.
 
 \subsection{Surface Reliability}
 
@@ -1083,20 +1079,20 @@ commands (even when following the installation guide), missing links, missing
 dependencies, and syntax errors in code files. In some instances the error
 messages were vague. Several automatic installation processes could not find or
 load dependencies. In these instances the installation tried to access outdated
-external repositories. Seven of the installations were recovered and verified,
-and one of the installations (LB3D-Prime) was assumed to be recovered due to the
+external repositories. We recovered and verified seven of the installations,
+and we assumed that one of the installations (LB3D-Prime) was recovered due to the
 absence of any way to verify otherwise. The installation of eight of the software
 packages could not be recovered. Most of these broken installations could not
 find external dependencies, encountered system incompatibilities, or displayed
 vague error messages.
 
 Of the 14 software packages that installed correctly and also have tutorials,
-four (pyLBM, \esp, LIMBES, Ludwig) broke during tutorial testing. All of
-these instances resulted in an error message being displayed. One error (pyLBM)
-was due to a missing tutorial dependency, another (Ludwig) was due to an invalid
-command despite following the tutorial, and the final two errors were vague
-execution errors. Of the four broken tutorial instances, only the one due to a
-missing dependency was recoverable. 
+four (pyLBM, \esp, LIMBES, Ludwig) broke during tutorial testing. All of these
+instances resulted in the display of an error message. One error (pyLBM) was due
+to a missing tutorial dependency, another (Ludwig) was due to an invalid command
+despite following the tutorial, and the final two errors were vague execution
+errors. Of the four broken tutorial instances, only the one due to a missing
+dependency was recoverable. 
 
 \begin{figure}[h!]
 	\begin{center}
@@ -1111,14 +1107,13 @@ software packages. Software packages with a high score either did not break
 during installation, or the broken installation was recoverable. All the top
 five ranked packages have tutorials. The package pyLBM broke during tutorial
 testing, but a descriptive error message helped in recovery. Nine of the top 10
-ranked packages are noted as being alive. 
+ranked packages are alive. 
 
 \subsection{Surface Robustness}
 
-The software packages were tested for handling unexpected input, including
-incorrect data types, empty input, and missing files or links. Success is
-predicated on a reasonable response from the system, including appropriate error
-messages and an absence of unrecoverable system failures. 
+Testing includes handling unexpected input, such as incorrect data types, empty
+input, and missing files or links. A reasonable response, including appropriate
+error messages and an absence of unrecoverable system failures, means success. 
 
 \begin{figure}[h!]
 	\begin{center}
@@ -1137,7 +1132,7 @@ install correctly, so their robustness score may not be a true reflection of
 runtime robustness. All successfully installed software packages that require a
 plain text input file correctly handled an unexpected change to these input
 files, including a replacement of new lines with carriage returns. Furthermore,
-nine of the top 10 ranked packages are noted as being alive.
+nine of the top 10 ranked packages are alive.
 
 \subsection{Surface Performance}
 
@@ -1145,33 +1140,33 @@ Although the software packages all apply LBM to solve scientific computing
 problems, the packages focus on varied CFD problems, with varying parameters,
 and are technically different from each other (as shown in
 Table~\ref{tbl_features}). Due to this, a comparison of run-time performance is
-not appropriate. Instead, we looked through each software package's artifacts for
-evidence that performance was considered. The artifacts of 18 software packages
+not appropriate. Instead, we looked through each software package's artifacts
+for evidence of considering performance. The artifacts of 18 software packages
 mentioned parallelization. This included GPU processing and the CUDA parallel
 computing platform, which were mentioned in the artifacts of six packages
 (ESPResSo, lbmpy, lettuce, pyLBM, Sailfish, TCLB). When a high degree of
-parallelization is possible GPUs provide superior speed compared to CPUs. The
+parallelization is possible, GPUs provide superior speed compared to CPUs. The
 software package TCLB is implemented in a highly efficient multi-GPU code to
 achieve performance suitable for model optimization \citep{rutkowski2020open}.
-In the Ludwig package, a so-called mixed mode approach is used where
-fine-grained parallelism is implemented on the GPU, and MPI is used for even
-larger scale parallelism \citep{gray2013ludwig}. While one software package
-(Sailfish) required CUDA and GPU processing, some (ESPResSo, lbmpy, lettuce,
-pyLBM, TCLB) have the option of using either the GPU or the CPU. In general, the
-packages that require GPU and CUDA have better performance at the expense of
+In the Ludwig package uses a so-called mixed mode approach implementing
+fine-grained parallelism on the GPU.  MPI is used for even larger scale
+parallelism \citep{gray2013ludwig}. While one software package (Sailfish)
+required CUDA and GPU processing, some (ESPResSo, lbmpy, lettuce, pyLBM, TCLB)
+have the option of using either the GPU or the CPU. In general, the packages
+that require GPU and CUDA have better performance at the expense of
 installability and surface reliability.
 
 \subsection{Surface Usability}
 
-Software package artifacts were reviewed for the presence of a tutorial, a user
+We reviewed software package artifacts for the presence of a tutorial, a user
 manual, documented user characteristics, and a user support model. In total 19
 software packages have a tutorial, 13 have a user manual, and 11 have both. The
 tutorials vary in scope and substance, and eight include expected output. Most
 user manuals are in the form of a file that can be downloaded, while some are
 rendered on a webpage. Some packages (waLBerla) do not have a user manual, but
-do have useful documentation distributed throughout their webpages. Expected
-user characteristics are documented in five software packages (laboetie, LIMBES,
-Ludwig, Musubi, Palabos). Users are typically scientists or engineers. Their
+do have useful documentation distributed throughout their webpages. Five
+software packages (laboetie, LIMBES, Ludwig, Musubi, Palabos) document expected
+user characteristics. Users are typically scientists or engineers. Their
 background is often physics, chemistry, biophysics, or mathematics. All but one
 of the packages (LIMBES) have a user support model, and many of them have
 multiple avenues of user support. The most popular avenue of support is Git,
@@ -1189,35 +1184,35 @@ Figure~\ref{Fig_Usability} shows the surface usability ranking of the software
 packages. Software packages with a high score have a tutorial and user manual,
 sometimes have documented user characteristics, and have at least one user
 support model. Many packages have several user support models. Furthermore, four
-of the top five packages are noted as being alive. 
+of the top five packages are alive. 
 
 \subsection{Maintainability} \label{Sec_Maintainability}
 
-Software packages were reviewed for the presence of artifacts. Every type of
-artifact or file that is not a code file was recorded. (The list of artifacts
-will be discussed further in Section~\ref{Sec_CompareArtifacts}.)  The software
-packages were also reviewed for software release and documentation version
-numbers. This information can be used to troubleshoot issues and organize
-documentation. All but three software packages (LatBo.jl, LB3D-Prime, MechSys)
-have source code release and documentation version numbers.
+We reviewed software packages for the presence of artifacts and recorded every
+type of artifact that is not a code file. (The list of artifacts will be
+discussed further in Section~\ref{Sec_CompareArtifacts}.)  We also reviewed the
+software packages for software release and documentation version numbers. This
+information can be used to troubleshoot issues and organize documentation. All
+but three software packages (LatBo.jl, LB3D-Prime, MechSys) have source code
+release and documentation version numbers.
 
-When present, information on how code is reviewed, or how to contribute to the
-project was also noted. In total, 11 software packages have this information,
-which was found in various artifacts, including in developer guides, contributor
-guides, user guides, developer webpages, and README files. 
+When present, we noted how the team reviews code, and how users can contribute
+to the project. In total, 11 software packages have this information, which was
+found in various artifacts, including in developer guides, contributor guides,
+user guides, developer webpages, and README files. 
 
-Issue tracking is used in 23 software packages, 15 of which use GitHub or GitLab
-to host their git repository, seven use email, and one (SunlightLB) uses
+Twenty-three packages use issue tracking, 15 of which use GitHub or GitLab to
+host their git repository, seven use email, and one (SunlightLB) uses
 SourceForge. Most software packages that use GitHub or GitLab have the majority
 of their issues closed, and only three (laboetie, lettuce, Sailfish) have less
-than 50 percent of their issues closed. All the top five overall ranked
-packages have most of their issues closed. Alive packages (11 use issue
-tracking) have 64\% of their issues closed, while dead packages (3 use issue
-tracking) have 71\% of their issues closed. This information is presented in
-Table~\ref{gitrepodata}. With respect to the host for the git repository, 13
-packages use GitHub and two (Palabos, waLBerla) use GitLab. Of the other
-packages, one package (SunlightLB) uses CVS for issue tracking and version
-control, and seven packages do not appear to use any issue tracking system.
+than 50 percent of their issues closed. All the top five overall ranked packages
+have most of their issues closed. Alive packages (11 use issue tracking) have
+64\% of their issues closed, while dead packages (3 use issue tracking) have
+71\% of their issues closed. Table~\ref{gitrepodata} presents this information.
+With respect to the host for the git repository, 13 packages use GitHub and two
+(Palabos, waLBerla) use GitLab. Of the other packages, one package (SunlightLB)
+uses CVS for issue tracking and version control, and seven packages do not
+appear to use any issue tracking system.
 
 \begin{table}[ht!]
 	\begin{center}
@@ -1256,15 +1251,14 @@ control, and seven packages do not appear to use any issue tracking system.
 	\end{center}
 \end{table}
 		
-Software package code files were further measured for the percentage of code
-that is comments. The findings are presented in Table~\ref{gitrepodata}, sorted
-by the percentage. Packages with a higher percentage of comments were assumed to
-be more maintainable. Comments represent more than 10 percent of code files in
-16 packages, and the average percentage of code comments is about 14 percent.
-All the top five overall ranked packages have more than the average. LUMA has
-only 0.2 percent comments, the fewest of any package. This package has the most
-lines of source code, with over four million. The next largest package is
-\esp{} with one million.
+Table~\ref{gitrepodata} shows the percentage of code that is comments, in
+decreasing order. Maintainability improves for packages with a
+higher percentage of comments. Comments represent more than 10 percent of code
+files in 16 packages, and the average percentage of code comments is about 14
+percent. All the top five overall ranked packages have more than the average.
+LUMA has only 0.2 percent comments, the fewest of any package. This package has
+the most lines of source code, with over four million. The next largest package
+is \esp{} with one million.
 
 \begin{figure}[h!]
 	\begin{center}
@@ -1279,8 +1273,8 @@ software packages. Software packages with a high score provide version numbers
 on documents and source code releases, have an abundance of high quality
 artifacts, and use an issue tracking tool and version control system. These
 packages also appear to manage their issue tracking, having most of their issues
-closed. Their code files are well commented with more than 10 percent of the
-code being comments. Four of the top five ranked packages are noted as being alive.
+closed. Maintainable packages by our ranking have more than 10 percent of the
+code as comments. Four of the top five ranked packages are alive.
 
 \subsection{Reusability} \label{reusabilityresults}
 
@@ -1307,7 +1301,7 @@ files and API documentation. The highest scoring packages, ESPResSo and
 waLBerla, have extensive functionality, including graphical visualizations and
 non-LBM modelling. For this reason, a comparison with other software packages is
 not on a level field. However, these packages do have an abundance of reusable
-components. Nine of the top 10 ranked packages are noted as being alive.
+components. Nine of the top 10 ranked packages are alive.
 
 \begin{table}[ht!]
 	\begin{center}
@@ -1391,7 +1385,7 @@ style, and consistent, distinctive, and meaningful code identifiers. They also
 have symbolic constants, and explicitly identify mathematical and LBM
 algorithms. Their comments are clear and indicate what is being done in the
 source code. The source code is well modularized and structured. All the top
-five ranked packages are noted as being alive.
+five ranked packages are alive.
 
 \subsection{Visibility and Transparency}
 
@@ -1423,7 +1417,7 @@ Figure~\ref{Fig_VisibilityTransparency} shows the visibility and transparency
 ranking of the software packages. Software packages with a high score have an
 explicit development model and defined development process. They also have
 detailed and easy to access notes accompanying software releases. Four of the
-top five ranked packages are noted as being alive.
+top five ranked packages are alive.
 
 \subsection{Overall Quality} \label{Sec_OverallQuality}
 
