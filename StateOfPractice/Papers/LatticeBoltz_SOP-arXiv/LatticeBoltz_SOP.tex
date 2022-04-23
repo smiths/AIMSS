@@ -479,9 +479,9 @@ details on how they are measured.
 	statement is verifiable if, and only if, there exists some finite
 	cost-effective process with which a person or machine can check that each
 	statement is correct (adapted from recommended practice for requirements
-	specifications \citep{IEEE1998}). Similarly to correctness, verifiability is
-	correlated with the availability of a specification and with reference to
-	domain knowledge. A good measure of verifiability is further correlated with
+	specifications \citep{IEEE1998}). Similar to correctness, verifiability
+	increases with the presence of a specification and with references and
+	pointers to domain knowledge. A good measure of verifiability results from
 	the following: availability of well-written tutorials that include expected
 	output, software unit tests, and evidence of Continuous Integration (CI).
 	Our process measures correctness and verifiability together.
@@ -489,13 +489,13 @@ details on how they are measured.
 	\item[Reliability] Reliability is measured by the probability of
 	failure-free operation of a computer program in a specified environment for
 	a specified time \citep[p.\ 357]{GhezziEtAl2003}, \citep{musa1987software}.
-	Reliability is thus positively correlated with the absence of errors during
-	installation and use. Recoverability from errors also improves reliability.
+	The absence of errors during installation and use increases the reliability
+	score. Recoverability from errors also improves reliability.
 	
 	\item[Robustness] Software possesses the characteristic of robustness if it
 	behaves ``reasonably'' in two situations: i) when it encounters
 	circumstances not anticipated in the requirements specification; and ii)
-	when the assumptions in its requirements specification are violated
+	when the software inputs violate the requirements specification assumptions
 	\citep{boehm2007software}, \citep[p.\ 19]{GhezziEtAl2003}. A good measure of
 	robustness correlates with a reasonable reaction to unexpected input,
 	including data of the wrong type, empty input, or missing files or links.
@@ -507,10 +507,10 @@ details on how they are measured.
 	such as speed (database response times, for instance), throughput
 	(transactions per second), capacity (concurrent usage loads), and timing
 	(hard real-time demands) \citep{IEEEStdGlossarySET1990, wiegers2003softreq}.
-	In this state of the practice assessment performance is not directly
-	quantitatively measured. Instead, we check the documentation for each
-	software package looking for information alluding to consideration of
-	performance, such as testing results or parallelization instructions. 
+	Our state of the practice assessment does not directly quantitatively
+	measure performance. Instead, we check the documentation for each software
+	package looking for information alluding to consideration of performance,
+	such as testing results or parallelization instructions. 
 	
 	\item[Usability] Usability is measured by the extent to which a software
 	product can be used by specified users to achieve specified goals with
@@ -570,7 +570,7 @@ details on how they are measured.
 
 \subsection{Overall Process} \label{Sec_OverallProcess}
 
-The assessment was conducted via the following steps: 
+Our assessment process consists of the following steps: 
 
 \begin{enumerate}
 	\item List candidate software packages for the domain.
@@ -592,12 +592,12 @@ discussed in Section~\ref{sec_vet_software_list}.
 
 \subsection{Identify Candidate Software} \label{identifysoftware}
 
-To answer~\rqref{RQ_WhatProjects} we identify existing LBM projects.
-We find the candidate software through search engine queries targeting
-authoritative lists. LBM software is listed on \href{https://github.com/}
-{GitHub} and \href{https://swmath.org/} {swMATH} and found in scholarly
-articles. The Domain Expert (Section~\ref{sec_vet_software_list}) helps with
-selecting the candidate software. 
+To answer~\rqref{RQ_WhatProjects} we identify existing LBM projects. We find the
+candidate software through search engine queries targeting authoritative lists.
+Scholarly articles, \href{https://github.com/} {GitHub} and
+\href{https://swmath.org/} {swMATH} provide candidate LBM software. The Domain
+Expert (Section~\ref{sec_vet_software_list}) helps with selecting the candidate
+software. 
 
 We consider the following properties when creating the list and reviewing the
 candidate software:
@@ -632,8 +632,8 @@ apply the following filters in the priority order listed.
 \end{enumerate}
 
 For the third item in the above filter, we categorized software packages as
-`alive' if documentation updates happened within the last 18 months. Packages
-were categorized as `dead' if their last update were more than 18 months ago. 
+`alive' if documentation updates happened within the last 18 months, and `dead'
+otherwise. 
 
 \begin{table}[ht!]
 	\begin{center}
@@ -2538,7 +2538,7 @@ software contributors.  More developers would help with addressing the lack of
 development time pain point (\ppref{P_LackDevTime}).  In investigating advice on
 increasing the number of contributors, we found that the advice usually starts
 with following best practices, including providing artifacts like those
-discussed in Section~\ref{Sec_CompareArtifacts} such as a contributor
+discussed in Section~\ref{Sec_CompareArtifacts}, such as a contributor
 guidelines, code style guidelines, a clear code of conduct and high quality code
 and documentation. This advice is logical, but in our assessment of LBM software
 we found examples of projects that already follow many best practices, but still
@@ -2630,13 +2630,13 @@ are invaluable in the design stage, since they provide developers guidance on
 how general the software needs to be.  For those wishing to maximize the value
 of a requirement specification, information could be added like prioritizing the
 nonfunctional requirements (to show the relative importance between qualities
-like portability, reliability and performance) and traceability information (to
+like portability, reliability, and performance) and traceability information (to
 show the consequences of changes to the assumptions). Spending time to
 incorporate additional information in the theory manuals should help address the
 quality of existing documentation (\ppref{P_Documentation})  and improve the
 software's usability (\ppref{P_Usability}).
 
-\subsection{Improve Re-runnability, Repeatability, Reproducibility and Replicability} 
+\subsection{Improve Re-runnability, Repeatability, Reproducibility, and Replicability} 
 \label{Sec_Reproducibility}
 
 Ensuring correctness was identified as a pain point by developers
@@ -2693,7 +2693,7 @@ prioritizing four increasingly sophisticated levels of replication.
 
 We propose automatically generating LBM code and its documentation, using a
 Domain Specific Modelling (DSM) approach. DSM means creating a knowledge base of
-models for physics, computing, mathematics, documentation and certification and
+models for physics, computing, mathematics, documentation, and certification and
 then writing explicit ``recipes'' that weave together this knowledge to generate
 the desired code, documentation, test cases, inspection reports and build
 scripts. This definition of DSM is more general than usual; in this
@@ -2705,7 +2705,7 @@ likelihood of errors is reduced and maintenance is automated. Moreover, a
 generative approach facilitates the inevitable exploration of LBM modelling
 assumptions.
 
-DSM provides a transformative technology for documentation, design and
+DSM provides a transformative technology for documentation, design, and
 verification \citep{JohansonAndHasselbring2018, Smith2018}. DSM allows
 scientists to focus on their science, not software.  A generative approach
 removes the maintenance nightmare of documentation duplicates and near
@@ -2765,7 +2765,7 @@ related threats include the following:
 
 \begin{itemize}
 \item In our methodology the manual measures are done by one individual for all
-packages. The measures may be influenced by the graders abilities, experience
+packages. The measures may be influenced by the graders abilities, experience,
 and biases.  
 \item Completing the manual measures of all packages took place over several
 months. During this time the contents of the software repositories may change
@@ -2893,7 +2893,7 @@ The collected data was analyzed by:
 \begin{inparaenum}[i)]
 	\item Comparing our ranking by best practices against the ranking by
 	popularity;
-	\item Comparing artifacts, tools and processes to current research software
+	\item Comparing artifacts, tools, and processes to current research software
 	development guidelines; and, 
 	\item Exploring pain points.
 \end{inparaenum}
@@ -2958,10 +2958,9 @@ even seems to be ahead of best practices with an example of a video user guide
 for one of the packages. LBM is mostly keeping pace with other research software
 with respect to tool usage (Section~\ref{Sec_CompareTools}), with 67\% of the
 surveyed tools using version control.  The state of the practice for the
-software development process of LBM software matches the quasi-agile process
-generally adopted for research software
-(Section~\ref{Sec_CompareMethodologies}).  The best practice process of peer
-review is employed by some LBM developers.
+development of LBM software matches the quasi-agile process generally adopted
+for research software (Section~\ref{Sec_CompareMethodologies}).  The best
+practice process of peer review is employed by some LBM developers.
 
 Although the state of the practice for LBM software is healthy, we have noted
 areas where the state of the practice does not match existing research software
@@ -3039,7 +3038,7 @@ recommendations for potential future directions
 	\item Augment theory manuals to include requirements information to address
 	\ppref{P_LackDevTime}, \ppref{P_Usability} and \ppref{P_Documentation}.
 	(Section~\ref{Sec_AugTheoryMans})
-	\item Improve re-runnability, repeatability, reproducibility and
+	\item Improve re-runnability, repeatability, reproducibility, and
 	replicability to improve \ppref{P_Correctness}.
 	(Section~\ref{Sec_Reproducibility})
 	\item Use Domain Specific Modelling to generate all LBM code, build scripts,
