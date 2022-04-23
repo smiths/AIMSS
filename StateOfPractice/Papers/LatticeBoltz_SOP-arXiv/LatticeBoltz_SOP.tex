@@ -288,9 +288,7 @@ users worry about with software qualities like reliability,
 robustness, reproducibility, performance, correctness, and verifiability.  Since
 their time is valuable, developers of LBM libraries have additional quality
 concerns, including maintainability, reusability, and understandability.  With
-the quality considerations in mind, and the potentially overwhelming number of
-choices for existing LBM libraries, the time is right to assess the state of the
-practice. Therefore, we analyze the current state of LBM
+these quality considerations in mind, and the potentially overwhelming number of choices for existing LBM libraries, the time is right to assess the state of the practice. Therefore, we analyze the current state of LBM
 software development and compare it to the development practices employed for
 research software in general.  We want to highlight success stories that LBM
 developers can share amongst their community, and with the broader research
@@ -1548,9 +1546,7 @@ Our comparison may point out areas where some LBM software packages fall short
 of current best practices. This is not intended to be a criticism of any
 existing packages, especially since in practice not every project needs to
 achieve the highest possible quality.  However, rather than delve into the
-nuances of which software can justify compromising which practices we will write
-our comparison under the ideal assumption that every project has sufficient
-resources to match best practices.
+nuances of which software can justify compromising which practices, we will write our comparison under the ideal assumption that every project has sufficient resources to match best practices.
 
 \begin{table}[ht!]
 \begin{center}
@@ -1599,7 +1595,7 @@ Guidelines for Software Quality \citep{vanGompelEtAl2016}, and
 Projects \citep{OrvizEtAl2017}.
 \end{itemize}
 
-In Table~\ref{Tbl_Guidelines} each row corresponds to an artifact.  For a given
+In Table~\ref{Tbl_Guidelines}, each row corresponds to an artifact.  For a given
 row, a checkmark in one of the columns means that the corresponding guideline
 recommends this artifact.  The last column shows whether the artifact appears in
 the measured set of LBM software, either not at all (blank), commonly (C),
@@ -1609,18 +1605,18 @@ terminology and the contents of artifacts are not standardized.  The challenge
 even exists for the ubiquitous README file.  As illustrated by
 \citet{PranaEtAl2018}, the content of README files shows significant variation
 between projects.  Although some content is reasonably consistent, with 97\% of
-README files contain at least one section describing the `What` of the
+README files containing at least one section describing the `What` of the
 repository and 88.5 \% offering some `How` content, other categories are more
-variable.  For instance, information on `Contribution`, `Why`', and `Who`,
+variable.  For instance, information on `Contribution`, `Why`, and `Who`,
 appear in 27.8\%, 25.7\% and 52.9\% of the analyzed files, respectively
 \citep{PranaEtAl2018}.  
 
 The frequency of checkmarks in Table~\ref{Tbl_Guidelines} indicates the
 popularity of recommending a given artifact, but it does not imply that the most
 commonly recommended artifacts are the most important artifacts. Just because an
-artifact is not explicitly recommended in a given guideline, does not mean that
+artifact is not explicitly recommended in a given guideline does not mean that
 the artifact is not valued.  The guideline authors may have excluded it because
-it is out of the scope of their recommendations, or outside their experience.
+it is out of the scope of their recommendations or outside their experience.
 For instance, an artifact related to uninstall is only explicitly mentioned by
 \citet{vanGompelEtAl2016}, but other guideline authors would likely see its
 value.  They may simply feel that uninstall is implied by install, or they may
@@ -1676,7 +1672,7 @@ to Artifacts in LBM Projects (C for Common, U for Uncommon and R for Rare)}
 \end{center}
 \end{table}
 
-The top four packages, ESPREsSo, Ludwig, Palabos, and OpenLB, have all the
+The top four packages (ESPREsSo, Ludwig, Palabos, and OpenLB) have all the
 common artifacts, except Palabos does not have theory notes and only three
 (ESPREsSo, Ludwig, Palabos) of the packages appear to use a version control
 system.  The top four packages also have most of the uncommon artifacts. At
@@ -1704,7 +1700,7 @@ list of LBM artifacts, rather than being a unique practice of LBM developers. We
 highlighted publications and performance information because we were explicitly
 looking for both as part of filling in our measurement template. Related
 publications and performance information certainly appear in other research
-software projects; the practices just aren't highlighted in guidelines because
+software projects; the practices just are not highlighted in guidelines because
 they are implicit in other documentation recommendations, such as theory
 documentation and user guides. The observation of a video guide artifact is more
 novel.  \citet{Fogel2005} recommends videos for open source projects, and other
@@ -1714,7 +1710,7 @@ effectiveness of learning from print versus video, video documentation is
 growing in popularity, with a majority of Generation Z learners preferring video
 to print \citep{Genota2018}.
 
-As Table~\ref{Tbl_Guidelines} shows the LBM community participates in most of
+As Table~\ref{Tbl_Guidelines} shows, the LBM community participates in most of
 the practices we found listed in the general research software guidelines;
 however, some recommended practices were not observed or rarely observed. For
 instance, API documentation was rarely observed for LBM software, but it is a
@@ -1729,14 +1725,14 @@ community recommended items that we rarely, if ever, observed:
 organization to map out the vision and direction for a product offering
 \citep{MunchEtAl2019}.  Roadmaps take different forms, but they all aim to
 address the following: \begin{inparaenum}[i)]
-	\item Where are we now?
-	\item Where are we going? and
+	\item Where are we now?,
+	\item Where are we going?, and
 	\item How can we get there? \end{inparaenum} \citep{PhaalEtAl2005}.
 Developers can create a roadmap by the following steps:
 \begin{inparaenum}[i)]
 	\item define and outline a strategic mission and product vision, 
 	\item scan the environment, 
-	\item revise and distill the product vision to write the product roadmap, 
+	\item revise and distill the product vision to write the product roadmap, and 
 	\item estimate the product life cycle and evaluate the mix of planned
 development efforts. \end{inparaenum} \citep{VahaniittyEtAl2002}.  A product
 roadmap has the benefits of providing continuity of purpose, facilitating
@@ -1753,7 +1749,7 @@ example, ethnicity, gender, or sexual orientation \citep{TouraniEtAl2017}. The
 top three most popular code's of conduct from \citet{TouraniEtAl2017} are:
 \href{https://ubuntu.com/community/code-of-conduct} {Ubuntu Code of Conduct},
 \href{https://www.contributor-covenant.org/version/2/1/code_of_conduct/}
-{Contributor Covenant}, \href{https://www.djangoproject.com/conduct/} {Django
+{Contributor Covenant}, and \href{https://www.djangoproject.com/conduct/} {Django
 Code of Conduct}. \citet{SinghEtAl2021} shows the value of adopting a code of
 conduct on the participation of women. Improved inclusivity means a wider pool
 of potential contributors. Moreover, a code of conduct facilitates meeting
@@ -1761,7 +1757,7 @@ ethical obligations for developers that abide by a code of ethics, such as the
 IEEE Code of Ethics \citep{IEEE1999}, or the Professional Engineers of Ontario
 code of ethics \citep[p.\ 23--24]{PEO2021}. For the LBM software, we did not
 observe any codes of conduct, possibly because the number of developers for each
-LBM project is small and because the idea hasn't yet occurred to any of the
+LBM project is small and because the idea has not yet occurred to any of the
 participants.
 
 \item \textbf{Code style guides} provide rules and guidance on writing code.
