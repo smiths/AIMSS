@@ -1277,13 +1277,12 @@ code as comments. Four of the top five ranked packages are alive.
 \subsection{Reusability} \label{reusabilityresults}
 
 We measured the total number of source code files for each project. We assume
-that numerous source files is associated with increased reusability,
-due to our assumption that this indicates increased modularization. Some
-packages have more features than others.  This is assumed to contribute to
-reusability, since they have more source code for potential reuse. The software
-packages were also reviewed for the presence of API documentation, which
-indicates that a software package was developed with interaction between other
-software applications in mind. 
+that numerous source files increases reusability, since more files implies
+increased modularization. Some packages have more features than others.  This is
+assumed to contribute to reusability, since they have more source code for
+potential reuse. We reviewed the software packages for the presence of API
+documentation, which suggests that the developers considered potential future
+reuse. 
 
 \begin{figure}[h!]
 	\begin{center}
@@ -1339,32 +1338,32 @@ components. Nine of the top 10 ranked packages are alive.
 
 Table~\ref{moduledata} shows file and Lines Of Code (LOC) data for the software
 packages. Packages with a high reusability score do not have as many LOC per
-text file, generally having a few hundred lines or fewer. This suggests that the
-source code of these packages is likely functionally modularized, and modules
-could be reused in other projects.
+text file, generally having a few hundred lines or fewer. We assume that
+relatively small files implies modularization.
 
 The package waLBerla scored high on reusability because of its focus on
-modularity.  The modularity in the waLBerla framework was included to enhance
-productivity, reusability, and maintainability \citep{bauer2021walberla}. The
-design of waLBerla has enabled it to be successfully applied in several projects
-as a basis for various extensions \citep{bauer2021walberla}.
+modularity.  The modularity in the waLBerla framework enhances productivity,
+reusability, and maintainability \citep{bauer2021walberla}. The design of
+waLBerla has enabled it to be successfully applied in several projects as a
+basis for various extensions \citep{bauer2021walberla}.
 
 \subsection{Surface Understandability} \label{Sec_SurfUnderstandability}
 
-Ten random source code files of each software package were reviewed for several
-measures. This assessment of surface understandability may not perfectly reflect
-each package, due to the practical limitation of only examining 10 files. 
+To measure understandability, we reviewed ten random source code files per
+package.  By using only 10 files we may incorrectly estimate understandability,
+but for practical consideration our time measuring each package has to be
+limited.
 
 All the packages appear to have consistent indentation and formatting. Only
 HemeLB, LUMA, and Musubi explicitly identify coding standards that are used
 during development. Generally, the software packages use consistent,
 distinctive, and meaningful code identifiers. Only four packages (LB2D-Prime,
 LB3D-Prime, LIMBES, MP-LABS) appear to use vague identifiers, such as single
-letters for variables. Symbolic constants were observed in the source code of 13
-packages. The constants are used for various parameters, mathematical constants,
-and matrix definitions. All the packages are reasonably well commented, with
-the comments clearly indicating what is being done (as opposed to how it is
-being done). Domain algorithms are noted in the source code of 11 packages.
+letters for variables. Thirteen source code files used symbolic constants. The
+constants are used for various parameters, mathematical constants, and matrix
+definitions. All the packages are reasonably well commented, with the comments
+clearly indicating what is being done (as opposed to how it is being done).
+Domain algorithms are noted in the source code of 11 packages.
 Table~\ref{moduledata} suggests that the software packages are modularized to
 various degrees. When observing the source code files, it was found that 14 of
 the packages have a consistent style and order of function parameters.
