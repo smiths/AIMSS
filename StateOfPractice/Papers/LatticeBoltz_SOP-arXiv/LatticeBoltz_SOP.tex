@@ -178,14 +178,14 @@
 \author[ME]{Zahra Keshavarz-Motamed}
 
 \affiliation[CAS]{organization={McMaster University, Computing and Software
-Department},%Department and Organization
+Department}, %Department and Organization
             addressline={1280 Main Street West}, 
             city={Hamilton},
             postcode={L8S 4K1}, 
             state={Ontario},
             country={Canada}}
 
-\affiliation[ME]{organization={McMaster University, Mechanical Engineering},%Department and Organization
+\affiliation[ME]{organization={McMaster University, Mechanical Engineering}, %Department and Organization
             addressline={1280 Main Street West}, 
             city={Hamilton},
             postcode={L8S 4K1}, 
@@ -202,7 +202,7 @@ Department},%Department and Organization
     reproducibility). Our reproducible analysis method employs a measurement
     template (containing 108 measures that are manually and automatically
     extracted from the project repository) and developer interviews (consisting
-    of 20 questions). After measuring we ranked the software using
+    of 20 questions). After measuring, we ranked the software using
     the Analytic Hierarchy Process (AHP). Our ranking was roughly consistent
     with GitHub stars ranking, suggesting at least a partial correlation
     between the use of best practices and popularity. We find the state of the
@@ -251,17 +251,17 @@ We analyze the development of Computational Fluid Dynamics (CFD) software
 packages that use the Lattice Boltzmann Method (LBM). LBM packages form a family
 of algorithms for simulating single-phase and multiphase fluid flows, often
 incorporating additional physical complexities \citep{chen1998lattice}, such as
-reflective and non-reflective boundaries. LBM considers the behaviour of a
+reflective and non-reflective boundaries. LBM solvers consider the behaviour of a
 collection of particles as a single unit at the mesoscopic scale, which lies
-between the nanoscopic and microscopic scales. LBM solvers predict the
+between the nanoscopic and microscopic scales. These solvers predict the
 positional probability of a collection of particles moving through a lattice
 structure following a two-step process: i) streaming, where the particles move
-along the lattice via links; and, ii) colliding, where energy and momentum are
-transferred among particles that collide \citep{bao2011lattice}. As an example
-of an important application of LBM, Figure~\ref{Fig_coarctation} shows the flow
-in a defective aorta pre and post-medical intervention. LBM has several
-advantages over conventional CFD methods, including a simple calculation
-procedure, improved parallelization, and robust handling of complex geometries
+along the lattice via links; and, ii) colliding, where particles transfer energy
+and momentum when they collide \citep{bao2011lattice}. As an example of an
+important application of LBM, Figure~\ref{Fig_coarctation} shows the flow in a
+defective aorta pre- and post-medical intervention. LBM has several advantages
+over conventional CFD methods, including a simple calculation procedure,
+improved parallelization, and robust handling of complex geometries
 \citep{ganji2015application}.
 
 \begin{figure}[h!]
@@ -284,8 +284,8 @@ cardiovascular system \citep{SadeghiEtAl2022b, SadeghiEtAl2022,
 SadeghiEtAl2020}.  As these examples illustrate, engineers and scientists use
 LBM for tackling problems that impact such areas as environmental policy,
 manufacturing, and health and safety. Given the critical applications of LBM,
-users of the libraries are concerned with software qualities like reliability,
-robustness, reproducibility, performance, correctness and verifiability.  Since
+users worry about with software qualities like reliability,
+robustness, reproducibility, performance, correctness, and verifiability.  Since
 their time is valuable, developers of LBM libraries have additional quality
 concerns, including maintainability, reusability, and understandability.  With
 the quality considerations in mind, and the potentially overwhelming number of
@@ -297,9 +297,9 @@ developers can share amongst their community, and with the broader research
 software community, while at the same time looking for areas for potential
 future improvement.
 
-We use ten research questions to structure and focus our discussion. Our data
-collection methodology \citep{SmithEtAl2021, SmithAndMichalski2022} inspires the
-questions.  For each question below, we point to the section that contains our
+We use ten research questions to structure and focus our discussion. Our
+methodology \citep{SmithEtAl2021, SmithAndMichalski2022} is driven by the
+questions. For each question below, we point to the section that contains our
 answer.  We start with identifying the examples of LBM software where we have
 access to the source code:
 
@@ -311,12 +311,12 @@ access to the source code:
 
 We next wish to assess the representative software to determine how well they
 apply current software development best practices.  By \emph{best practices}, we
-mean methods, techniques and tools that are generally believed to improve
+mean methods, techniques, and tools that are generally believed to improve
 software development, like testing and documentation.  We will categorize our
 best practices around software qualities, as we will discuss in
 Section~\ref{empiricalmeasures}.  At this point in the process, to remove
 potential user/developer bias, we will base our assessment only on publicly
-available artifacts, where artifacts are the documents, scripts and code that we
+available artifacts, where artifacts are the documents, scripts, and code that we
 find in a project's public repository. Example artifacts include requirements,
 specifications, user manuals, unit test cases, system tests, usability tests,
 build scripts, API (Application Programming Interface) documentation, READMEs,
@@ -337,7 +337,7 @@ community ranks the identified projects.
 \end{enumerate}
 
 To understand the state of the practice, we wish to learn the frequency with
-which different artifacts appear, the types of development tools used and the
+which different artifacts appear, the types of development tools used, and the
 methodologies used for software development.  With this data, we can ask
 questions about how LBM software compares to other research software.  For cases
 where data is available, we can compare to other specific domains of research
@@ -363,15 +363,15 @@ follows the trends from other developer communities and how it is different.
 	\end{enumerate}
 	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_CompareMethodologies}:]
 	How do LBM projects compare to research software in general with respect to
-	principles, processes and methodologies used?
+	principles, processes, and methodologies used?
 	(Section~\ref{Sec_CompareMethodologies})
 \end{enumerate}	
 
 Only so much information can be gleaned by looking at software repositories.  To
 gain additional insight, we need to interview developers.  We need to learn
 their concerns and how they deal with them; we need to understand their pain
-points. We wish to know what practices are used by the top LBM projects, so that
-others can potentially emulate these practices. We also wish to identify new
+points. We wish to know what practices top LBM projects use, so that
+others can potentially emulate these practices. Part of our goal is to identify new
 practices that LBM developers can adopt to improve their software in the future.
 The question below cover these points: 
 
@@ -383,11 +383,11 @@ The question below cover these points:
 	do the pain points of developers from LBM compare to the pain points
 	for research software in general? (Section~\ref{painpoints})
 	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_Concerns}:] For LBM
-	developers what specific best practices are taken to address the pain points
+	developers what specific best practices address the pain points
 	and software quality concerns? (Section~\ref{Sec_AddressConcerns})
 	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_Recommend}:]
-	What research software development practice could potentially address the
-	pain point concerns identified in \rqref{RQ_PainPoints}).
+	What research software development practices could potentially address the
+	pain point concerns identified in \rqref{RQ_PainPoints}.
 	(Section~\ref{Sec_Recommendations})
 \end{enumerate}
 
@@ -419,7 +419,7 @@ repository based metrics, such as the number of files, number of lines of code,
 percentage of issues that are closed, etc.  We rank the software with the
 Analytic Hierarchy Process (AHP), using the quantitative data from the grading
 template. After this, as another addition to our previous methodology, we
-interview some of the development teams to understand the status of their
+interview some development teams to understand the status of their
 development processes. We next answer the research questions using the collected
 quantitative and qualitative data (Sections~\ref{methodology}
 to~\ref{Sec_AddressConcerns}).  Finally, we summarize the threats to validity
@@ -443,7 +443,7 @@ details on each step in the methodology.
 To ensure our assessment of best practices is organized and complete, we centre
 our measurements around software qualities. For completeness, we use the list of
 software engineering qualities from \citet[p.\ 17--33]{GhezziEtAl2003},
-excluding interoperability, productivity and timeliness. We excluded
+excluding interoperability, productivity, and timeliness. We excluded
 interoperability because our focus is on LBM software alone, not its interaction
 with other software. Our exclusion of the other two qualities is because they
 are process qualities, and our focus is on product qualities. We added
@@ -455,7 +455,7 @@ details on how they are measured.
 \begin{description}
 
 	\item[Installability] Installability is measured by the effort required for
-	the installation, uninstallation or reinstallation of a software product in
+	the installation, uninstallation, or reinstallation of a software product in
 	a specified environment \citep{ISO/IEC25010, lenhard2013measuring}. In our
 	case, the effort includes the following: time spent finding and
 	understanding the installation instructions, the person-time and resources
@@ -508,7 +508,7 @@ details on how they are measured.
 	(transactions per second), capacity (concurrent usage loads), and timing
 	(hard real-time demands) \citep{IEEEStdGlossarySET1990, wiegers2003softreq}.
 	In this state of the practice assessment performance is not directly
-	quantitatively measured. Instead we check the documentation for each
+	quantitatively measured. Instead, we check the documentation for each
 	software package looking for information alluding to consideration of
 	performance, such as testing results or parallelization instructions. 
 	
@@ -534,12 +534,12 @@ details on how they are measured.
 	
 	\item[Reusability] Reusability refers to the extent to which components of a
 	software package can be used with or without adaptation in other software
-	packages \citep{kalagiakos2003non}. A good indicator of reusability is a
-	large number of easily reusable components. Therefore, we look for high
-	modularization, which we define as the presence of small components with
-	well defined interfaces. For this state of the practice assessment, we
-	assume that a good measure of reusability correlates with a high number of
-	code files, and the availability of API documentation. 
+	packages \citep{kalagiakos2003non}. A good indicator of reusability is many
+	easily reusable components. Therefore, we look for high modularization,
+	which we define as the presence of small components with well-defined
+	interfaces. For this state of the practice assessment, we assume that a good
+	measure of reusability correlates with a high number of code files, and the
+	availability of API documentation. 
 	
 	\item[Understandability] Understandability is measured by the capability of
 	the software package to enable the user to understand its suitability and
@@ -552,7 +552,7 @@ details on how they are measured.
 	comments.
 	
 	\item[Visibility and Transparency] Visibility and transparency refer to the
-	extent to which all of the steps of a software development process, and its
+	extent to which all the steps of a software development process, and its
 	current status, are conveyed clearly \citep[p.\ 32]{GhezziEtAl2003}. In this
 	state of the practice assessment a good measure of visibility and
 	transparency correlates with a well-defined development process,
@@ -633,7 +633,7 @@ apply the following filters in the priority order listed.
 
 For the third item in the above filter, we categorized software packages as
 `alive' if documentation updates happened within the last 18 months. Packages
-were categorized as `dead' if their last update were more than 18 month ago. 
+were categorized as `dead' if their last update were more than 18 months ago. 
 
 \begin{table}[ht!]
 	\begin{center}
@@ -745,7 +745,7 @@ The full template consists of 108 questions categorized under nine qualities
 	\item visibility/transparency. 
 \end{inparaenum} 
 
-We designed the questions to be unambiguous, quantifiable and measurable with
+We designed the questions to be unambiguous, quantifiable, and measurable with
 limited time and domain knowledge. We categorize them by quality, with an extra
 category for summary information (Figure~\ref{measurement_template_image}). The
 summary section provides general data, such as the software name, number of
@@ -816,8 +816,8 @@ semi-structured based on the question list; we ask follow-up questions when
 necessary. Based on our experience, the interviewees often raise exciting and
 unexpected ideas.
 
-We requested interviews with developers for all 24 packages, except Munubi,
-since we added Munubi after our ethics approval expired. We found the developers
+We requested interviews with developers for all 24 packages, except Musubi,
+since we added Musubi after our ethics approval expired. We found the developers
 from project websites, code repositories, publications, and biographic
 information on institution webpages. Four developers agreed to participate in
 our study. We met with them online, using either Zoom or Teams to facilitate
@@ -837,10 +837,10 @@ individual members.'' Studying the common properties within a family of related
 programs is termed a domain analysis.
 
 The domain analysis (also called a commonality analysis) consists of
-understanding the commonalities, variabilities and common terminology for a
+understanding the commonalities, variabilities, and common terminology for a
 program family \citep{weiss1997defining}. Commonalities are goals, theories,
-models, definitions and assumptions that are common between family members.
-Variabilities are goals, theories, models, definitions and assumptions that
+models, definitions, and assumptions that are common between family members.
+Variabilities are goals, theories, models, definitions, and assumptions that
 differ between family members. Associated with each variability are parameters
 of variation, which summarize the possible values for that variability, along
 with their potential binding time. The binding time is when the value of a
@@ -848,10 +848,10 @@ variability is set. Variabilities are set at specification time, build time
 (when the program compiles) or run time (when the code executes). For the
 current assessment, the packages all have the commonality of using LBM
 techniques to simulate the motion of fluids. Variabilities for LBM packages
-include the following: the dimension of problems they simulate, whether or not
-(and how) they support parallel computation, whether or not compressibility can
+include the following: the dimension of problems they simulate, whether 
+(and how) they support parallel computation, whether compressibility can
 be considered, whether reflexive boundaries can be employed, whether the
-simulation handles multi-fluids, whether the simulations handles turbulence, and
+simulation handles multi-fluids, whether the simulation handles turbulence, and
 whether complex geometries can be simulated. 
 
 To keep the current presentation focused, we only present the results of our
@@ -873,7 +873,7 @@ variabilities between LBM packages.
 			\esp{} & 1, 2, 3 & MPI & Y & Y & Y & Y & Y & L\\
 			HemeLB & 3 & MPI & Y & Y & Y & Y & Y & L\\
 			laboetie & 2, 3 & MPI & Y & Y & Y & Y & Y & L\\
-			LatBo.jl & 2, 3 & - & Y & Y & Y & N & Y & L\\
+			LatBo.jl & 2, 3 & — & Y & Y & Y & N & Y & L\\
 			LB2D-Prime & 2 & MPI & Y & Y & Y & Y & Y & W, L\\
 			LB3D & 3 & MPI & N & Y & Y & Y & Y & L\\
 			LB3D-Prime & 3 & MPI & Y & Y & Y & Y & Y & W, L\\
@@ -882,14 +882,14 @@ variabilities between LBM packages.
 			LIMBES & 2 & OMP & Y & Y & N & N & Y & L\\
 			Ludwig & 2, 3 & MPI & Y & Y & Y & Y & Y & L\\
 			LUMA & 2, 3 & MPI & Y & Y & Y & Y & Y & W, M, L\\
-			MechSys & 2, 3 & - & Y & Y & Y & Y & Y & L\\
+			MechSys & 2, 3 & — & Y & Y & Y & Y & Y & L\\
 			MP-LABS & 2, 3 & MPI/OMP & N & Y & Y & N & N & L\\
 			Musubi & 2, 3 & MPI & Y & Y & Y & Y & Y & W, L\\
 			OpenLB & 1, 2, 3 & MPI & Y & Y & Y & Y & Y & W, M, L\\
 			Palabos & 2, 3 & MPI & Y & Y & Y & Y & Y & W, L\\
 			pyLBM & 1, 2, 3 & MPI & Y & Y & N & Y & Y & W, M, L\\
 			Sailfish & 2, 3 & CUDA & Y & Y & Y & Y & Y & M, L\\
-			SunlightLB & 3 & - & Y & Y & N & N & Y & L\\
+			SunlightLB & 3 & — & Y & Y & N & N & Y & L\\
 			TCLB & 2, 3 & CUDA/MPI & Y & Y & Y & Y & Y & L\\
 			waLBerla & 2, 3 & MPI & Y & Y & Y & Y & Y & L\\
 			\bottomrule
@@ -917,7 +917,7 @@ which has the following drawbacks:
   ingrained with experts for them to explicitly record it.
 \end{inparaenum}
 For the current assessment, our Domain Expert (and paper co-author) is Dr.\
-Zahra Keshavarz-Motamed, Assistant Professor of Mechanical Engineering at
+ Zahra Keshavarz-Motamed, Assistant Professor of Mechanical Engineering at
 McMaster University, Hamilton, Ontario, Canada.  
 
 The Domain Expert has a central role in verifying the list of LBM packages. In
@@ -955,7 +955,7 @@ compatible operating system versions. Ubuntu was used to test all but one of the
 packages. TCLB was tested on CentOS, as suggested by its installation
 instructions. 
 
-All but one of the software packages (LatBo.jl) have automated at least some of
+All but one of the software packages (LatBo.jl) have automated at least part of
 the installation process. Most of these packages, such as waLBerla and
 SunlightLB, use Make to automate the installation, and a few of them, like
 lbmpy, use custom scripts.
@@ -1011,11 +1011,11 @@ uninstallation instructions.
 \end{figure}
 
 Figure~\ref{Fig_Installability} shows the installability ranking of the software
-packages. Software packages with a higher score (ESPResSo, MechSys, OpenLB, DL
-MESO, Palabos) tend to have one set of linear installation instructions written
-as if the person doing the installation has none of the dependencies installed.
-The instructions often list compatible operating system versions and include
-instructions for installing dependencies. The top-ranked packages often
+packages. Software packages with a higher score (ESPResSo, MechSys, OpenLB,
+DL\_MESO, Palabos) tend to have one set of linear installation instructions
+written as if the person doing the installation has none of the dependencies
+installed. The instructions often list compatible operating system versions and
+include instructions for installing dependencies. The top-ranked packages often
 incorporate some automation of the installation process. The number of
 dependencies a package has does not correlate with a higher score. The ability
 to validate the installation process, say through tutorials or test cases, leads
@@ -1024,14 +1024,14 @@ since the top seven ranked packages are all classified as alive.
  
 \subsection{Surface Correctness and Verifiability} \label{SecSurfCorrectAndVerifiab}
 
-Seventeen of the software packages explicitly reference domain theory, but a
-full and rigorous requirements specification, in the software engineering sense
-\citep{IEEE1998, RobertsonAndRobertson1999Vol, ESA1991}, is absent from all of
-the projects. Software packages that include a subset of a requirements
+Seventeen software packages explicitly reference domain theory, but a complete
+and rigorous requirements specification, in the software engineering sense
+\citep{IEEE1998, RobertsonAndRobertson1999Vol, ESA1991},  is absent from all
+projects. Software packages that include a subset of a requirements
 specification, such as DL\_MESO (LBE), keep the information brief and include it
 within other documents. When present, theory related information is generally
 found within a user manual, on a webpage, or in a cited publication. In the
-latter case significant time may be needed to track down the information.
+latter case tracking down the knowledge may take a significant time. 
 
 Document generation tools are explicitly used by 13 software packages. Sphinx is
 used by eight of them, and Doxygen is used by eight. Several of the packages use
@@ -1068,12 +1068,11 @@ Figure~\ref{Fig_CorrectnessVerifiability} shows the ranking for surface
 correctness and verifiability. Software packages with a higher score tend to
 have theory documentation. They also explicitly use at least one document
 generation tool that helps with verification, thus building confidence in
-correctness. The top ranked software packages all include an easy to follow
-getting started tutorial, and most of these include expected output. The two top
-ranked packages, Ludwig and Musubi, indicate the use of unit testing in their
-documentation. They also incorporated CI in the development
-process. Furthermore, eight of the top 10 ranked packages are noted as being
-alive.
+correctness. The top ranked software packages all include getting started
+tutorials, and most of these include expected output. The two top ranked
+packages, Ludwig and Musubi, indicate the use of unit testing in their
+documentation. They also incorporated CI in the development process.
+Furthermore, eight of the top 10 ranked packages are noted as being alive.
 
 \subsection{Surface Reliability}
 
@@ -1109,7 +1108,7 @@ missing dependency was recoverable.
 
 Figure~\ref{Fig_Reliability} shows the surface reliability ranking of the
 software packages. Software packages with a high score either did not break
-during installation, or the broken installation was recoverable. All of the top
+during installation, or the broken installation was recoverable. All the top
 five ranked packages have tutorials. The package pyLBM broke during tutorial
 testing, but a descriptive error message helped in recovery. Nine of the top 10
 ranked packages are noted as being alive. 
@@ -1131,7 +1130,7 @@ messages and an absence of unrecoverable system failures.
 
 Figure~\ref{Fig_Robustness} shows the surface robustness ranking of the software
 packages. Software packages with a high score behaved reasonably in response to
-unexpected input as described above. All of the software packages that installed
+unexpected input as described above. All the software packages that installed
 correctly passed this test. They output descriptive error messages or at least
 did not crash. Software packages with a lower surface robustness score did not
 install correctly, so their robustness score may not be a true reflection of
@@ -1146,7 +1145,7 @@ Although the software packages all apply LBM to solve scientific computing
 problems, the packages focus on varied CFD problems, with varying parameters,
 and are technically different from each other (as shown in
 Table~\ref{tbl_features}). Due to this, a comparison of run-time performance is
-not appropriate. Instead we looked through each software package's artifacts for
+not appropriate. Instead, we looked through each software package's artifacts for
 evidence that performance was considered. The artifacts of 18 software packages
 mentioned parallelization. This included GPU processing and the CUDA parallel
 computing platform, which were mentioned in the artifacts of six packages
@@ -1211,7 +1210,7 @@ Issue tracking is used in 23 software packages, 15 of which use GitHub or GitLab
 to host their git repository, seven use email, and one (SunlightLB) uses
 SourceForge. Most software packages that use GitHub or GitLab have the majority
 of their issues closed, and only three (laboetie, lettuce, Sailfish) have less
-than 50 percent of their issues closed. All of the top five overall ranked
+than 50 percent of their issues closed. All the top five overall ranked
 packages have most of their issues closed. Alive packages (11 use issue
 tracking) have 64\% of their issues closed, while dead packages (3 use issue
 tracking) have 71\% of their issues closed. This information is presented in
@@ -1262,7 +1261,7 @@ that is comments. The findings are presented in Table~\ref{gitrepodata}, sorted
 by the percentage. Packages with a higher percentage of comments were assumed to
 be more maintainable. Comments represent more than 10 percent of code files in
 16 packages, and the average percentage of code comments is about 14 percent.
-All of the top five overall ranked packages have more than the average. LUMA has
+All the top five overall ranked packages have more than the average. LUMA has
 only 0.2 percent comments, the fewest of any package. This package has the most
 lines of source code, with over four million. The next largest package is
 \esp{} with one million.
@@ -1286,7 +1285,7 @@ code being comments. Four of the top five ranked packages are noted as being ali
 \subsection{Reusability} \label{reusabilityresults}
 
 We measured the total number of source code files for each project. We assume
-that a large number of source files is associated with increased reusability,
+that numerous source files is associated with increased reusability,
 due to our assumption that this indicates increased modularization. Some
 packages have more features than others.  This is assumed to contribute to
 reusability, since they have more source code for potential reuse. The software
@@ -1348,7 +1347,7 @@ components. Nine of the top 10 ranked packages are noted as being alive.
 
 Table~\ref{moduledata} shows file and Lines Of Code (LOC) data for the software
 packages. Packages with a high reusability score do not have as many LOC per
-text file, generally having a few hundred lines or less. This suggests that the
+text file, generally having a few hundred lines or fewer. This suggests that the
 source code of these packages is likely functionally modularized, and modules
 could be reused in other projects.
 
@@ -1364,14 +1363,14 @@ Ten random source code files of each software package were reviewed for several
 measures. This assessment of surface understandability may not perfectly reflect
 each package, due to the practical limitation of only examining 10 files. 
 
-All of the packages appear to have consistent indentation and formatting. Only
+All the packages appear to have consistent indentation and formatting. Only
 HemeLB, LUMA, and Musubi explicitly identify coding standards that are used
 during development. Generally, the software packages use consistent,
 distinctive, and meaningful code identifiers. Only four packages (LB2D-Prime,
 LB3D-Prime, LIMBES, MP-LABS) appear to use vague identifiers, such as single
 letters for variables. Symbolic constants were observed in the source code of 13
 packages. The constants are used for various parameters, mathematical constants,
-and matrix definitions. All of the packages are reasonably well commented, with
+and matrix definitions. All the packages are reasonably well commented, with
 the comments clearly indicating what is being done (as opposed to how it is
 being done). Domain algorithms are noted in the source code of 11 packages.
 Table~\ref{moduledata} suggests that the software packages are modularized to
@@ -1391,7 +1390,7 @@ Software packages with a high score have a consistent indentation and formatting
 style, and consistent, distinctive, and meaningful code identifiers. They also
 have symbolic constants, and explicitly identify mathematical and LBM
 algorithms. Their comments are clear and indicate what is being done in the
-source code. The source code is well modularized and structured. All of the top
+source code. The source code is well modularized and structured. All the top
 five ranked packages are noted as being alive.
 
 \subsection{Visibility and Transparency}
@@ -1502,29 +1501,29 @@ quality.
 			Repository Watches & Repository Watch Rank\\
 			\midrule
 			ESPResSo & 1 & 145 & 2 & 19& 2\\
-			Ludwig & 2 & 27 & 8 & 6& 7\\
-			Palabos & 3 & 34 & 6 & GitLab& GitLab\\
+			Ludwig & 2 & 27 & 8 & 6 & 7\\
+			Palabos & 3 & 34 & 6 & GitLab & GitLab\\
 			OpenLB & 4 & N/A & N/A & N/A& N/A\\
 			LUMA & 5 & 33 & 7 & 12& 4\\
 			pyLBM & 6 & 95 & 3 & 10& 5\\
 			DL\_MESO (LBE) & 7 & N/A & N/A & N/A & N/A\\
 			Musubi & 8 & N/A & N/A & N/A & N/A\\
 			Sailfish & 9 & 186 & 1 & 41& 1\\
-			waLBerla & 10 & 20 & 9 & GitLab& GitLab\\
-			laboetie & 11 & 4 & 13 & 5& 8\\
-			TCLB & 12 & 95 & 3 & 16& 3\\
-			MechSys & 13 & N/A & N/A & N/A& N/A\\
-			lettuce & 14 & 48 & 4 & 5& 8\\
-			\esp & 15 & 35 & 5 & 12& 4\\
-			MP-LABS & 16 & 12 & 11 & 2& 9\\			
-			SunlightLB & 17 & N/A & N/A & N/A& N/A\\
-			LB3D & 18 & N/A & N/A & N/A& N/A\\			
-			LIMBES & 19 & N/A & N/A & N/A& N/A\\
-			LB2D-Prime & 20 & N/A & N/A & N/A& N/A\\		
-			HemeLB & 21 & 12 & 11 & 12& 4\\
-			lbmpy & 22 &  11 & 12 & 2& 9\\	
-			LB3D-Prime & 23 & N/A & N/A & N/A& N/A\\	
-			LatBo.jl & 24 & 17 & 10 & 8& 6\\			
+			waLBerla & 10 & 20 & 9 & GitLab & GitLab\\
+			laboetie & 11 & 4 & 13 & 5 & 8\\
+			TCLB & 12 & 95 & 3 & 16 & 3\\
+			MechSys & 13 & N/A & N/A & N/A & N/A\\
+			lettuce & 14 & 48 & 4 & 5 & 8\\
+			\esp & 15 & 35 & 5 & 12 & 4\\
+			MP-LABS & 16 & 12 & 11 & 2 & 9\\			
+			SunlightLB & 17 & N/A & N/A & N/A & N/A\\
+			LB3D & 18 & N/A & N/A & N/A & N/A\\			
+			LIMBES & 19 & N/A & N/A & N/A & N/A\\
+			LB2D-Prime & 20 & N/A & N/A & N/A & N/A\\		
+			HemeLB & 21 & 12 & 11 & 12 & 4\\
+			lbmpy & 22 &  11 & 12 & 2 & 9\\	
+			LB3D-Prime & 23 & N/A & N/A & N/A & N/A\\	
+			LatBo.jl & 24 & 17 & 10 & 8 & 6\\			
 			\bottomrule
 		\end{tabular}
 		\caption{Repository Ranking Metrics (Sorted by Our Ranking)} \label{repometrics}
@@ -1627,9 +1626,9 @@ popularity of recommending a given artifact, but it does not imply that the most
 commonly recommended artifacts are the most important artifacts. Just because an
 artifact is not explicitly recommended in a given guideline, does not mean that
 the artifact is not valued.  The guideline authors may have excluded it because
-it is out of the scope of their recommendations, or outside of their experience.
+it is out of the scope of their recommendations, or outside their experience.
 For instance, an artifact related to uninstall is only explicitly mentioned by
-\citep{vanGompelEtAl2016}), but other guideline authors would likely see its
+\citet{vanGompelEtAl2016}, but other guideline authors would likely see its
 value.  They may simply feel that uninstall is implied by install, or they may
 have never asked themselves whether separate uninstall instructions are needed.
 
@@ -1683,7 +1682,7 @@ to Artifacts in LBM Projects (C for Common, U for Uncommon and R for Rare)}
 \end{center}
 \end{table}
 
-The top four packages, ESPREsSo, Ludwig, Palabos, and OpenLB, have all of the
+The top four packages, ESPREsSo, Ludwig, Palabos, and OpenLB, have all the
 common artifacts, except Palabos does not have theory notes and only three
 (ESPREsSo, Ludwig, Palabos) of the packages appear to use a version control
 system.  The top four packages also have most of the uncommon artifacts. At
@@ -1724,7 +1723,7 @@ to print \citep{Genota2018}.
 As Table~\ref{Tbl_Guidelines} shows the LBM community participates in most of
 the practices we found listed in the general research software guidelines;
 however, some recommended practices were not observed or rarely observed. For
-instance API documentation was rarely observed for LBM software, but it is a
+instance, API documentation was rarely observed for LBM software, but it is a
 frequently recommended artifact \citep{SmithAndRoscoe2018, ThielEtAl2020,
 vanGompelEtAl2016, OrvizEtAl2017, SSI2022, Zadka2018}.  In addition to the items
 in the last column of Table~\ref{artifactspresent}, we can add the following
@@ -1734,7 +1733,7 @@ community recommended items that we rarely, if ever, observed:
 
 \item \textbf{A roadmap} is considered by some to be a critical document for an
 organization to map out the vision and direction for a product offering
-\citep{MunchEtAl2019}.  Roadmaps take different forms but they all aim to
+\citep{MunchEtAl2019}.  Roadmaps take different forms, but they all aim to
 address the following: \begin{inparaenum}[i)]
 	\item Where are we now?
 	\item Where are we going? and
@@ -1743,7 +1742,7 @@ Developers can create a roadmap by the following steps:
 \begin{inparaenum}[i)]
 	\item define and outline a strategic mission and product vision, 
 	\item scan the environment, 
-	\item revise and distil the product vision to write the product roadmap, 
+	\item revise and distill the product vision to write the product roadmap, 
 	\item estimate the product life cycle and evaluate the mix of planned
 development efforts. \end{inparaenum} \citep{VahaniittyEtAl2002}.  A product
 roadmap has the benefits of providing continuity of purpose, facilitating
@@ -1807,7 +1806,7 @@ by the software application (or library) through such resources as its methods
 or objects \citep{MengEtAl2018}.  API documentation has been found to be a
 critical factor for API understandability (Section~\ref{softwarequalities})
 \citep{MengEtAl2018}. Some API documentation can be generated using tools like
-Doxygen, but the when learning a new API developers mostly use code examples and
+Doxygen, but when learning a new API developers mostly use code examples and
 tutorials \citep{MengEtAl2018}.  API documentation was rare within our sample of
 LBM packages.
 
@@ -1899,10 +1898,10 @@ developing the other software packages.
 For the dependency tools (Table~\ref{tbl_tools}), we observed that most of the
 software packages use some sort of build automation tools, most commonly Make.
 They all use various technical and domain specific libraries. Technical
-libraries include visualization (e.g.\ Matplotlib, ParaView, Pygame, VTK), data
-analysis (e.g.\ Anaconda, Torch), and message passing libraries (e.g.\ MPICH,
+libraries include visualization (e.g.,\ Matplotlib, ParaView, Pygame, VTK), data
+analysis (e.g.,\ Anaconda, Torch), and message passing libraries (e.g.,\ MPICH,
 Open MPI, PyZMQ). Domain specific libraries include research software libraries
-(e.g.\ SciPy).
+(e.g.,\ SciPy).
 
 Many of the software packages that were assessed were developed by teams of two
 or more people. Their work needed to be coordinated and managed.
@@ -1912,17 +1911,17 @@ As with development tools and dependencies, it is possible that other types of
 project management tools are used, but they were not visible in the artifacts to
 which we had access.  Collaboration tools, most often email and video, are noted
 as being used when developing software projects. Project management software was
-not explicitly mentioned during our interviews, but it is possible that some of
-the projects use such software. Many of the projects are located on GitHub,
-where the developers use the platform to help manage their projects, especially
-bug related issues. Most of the projects appear to use change tracking and
-version control tools. Document generation tools are mentioned in 12 of the 24
-projects. The tools Sphinx and Doxygen are explicitly used in this capacity.
+not explicitly mentioned during our interviews, but it is possible that some
+projects use such software. Many of the projects are located on GitHub, where
+the developers use the platform to help manage their projects, especially bug
+related issues. Most of the projects appear to use change tracking and version
+control tools. Document generation tools are mentioned in 12 of the 24 projects.
+The tools Sphinx and Doxygen are explicitly used in this capacity.
 
 Based on information provided by \citet{JungEtAl2022}, tool usage for
 LBM software has much in common with tool usage for ocean modelling
 software.  Both use tools for editing, compiling, code management, testing,
-building and project management.  From the data available, ocean modelling
+building, and project management.  From the data available, ocean modelling
 differs from LBM software in its use of Kanban boards for project management.
 LBM software difference from the ocean domain through the use of continuous
 integration, and document generation tools.
@@ -1932,7 +1931,7 @@ integration, and document generation tools.
 The poor adoption of version control tools that Wilson lamented in 2006
 \citep{Wilson2006} has greatly improved in the intervening years.  From
 Section~\ref{Sec_Maintainability}, 67\% of LBM packages use version control
-(GitHub, GitLab or CVS).  (From Table~\ref{gitrepodata}, 11/15 or 73\% of alive
+(GitHub, GitLab, or CVS).  (From Table~\ref{gitrepodata}, 11/15 or 73\% of alive
 packages use version control.)  The proliferation of version control tools for
 LBM matches the increase in the broader research software community.  A little
 over 10 years ago version control was estimated to be used in only 50\% of
@@ -1943,7 +1942,7 @@ survey in 2018 shows 81\% of developers use a version control system
 version control usage for alive projects in mesh generation, geographic
 information systems and statistical software for psychiatry increasing from
 75\%, 89\% and 17\% (respectively) to 100\%, 95\% and 100\% (respectively) over
-a four year period ending in 2018.  (For completeness the same study showed a
+a 4-year period ending in 2018.  (For completeness the same study showed a
 decrease in version control usage for seismology software over the same time
 period, from 41\% down to 36\%).  Almost every software guide cited in
 Section~\ref{Sec_CompareArtifacts} includes the advice to use version control.
@@ -2000,7 +1999,7 @@ following elements:
 	less frequent runs.  A more sophisticated option for when tests create a
 	bottleneck for merges is CIVET (Continuous Integration,
 	Verification, Enhancement, and Testing), which solves this problem by
-	intelligently pinning, canceling, and if necessary, restarting jobs as
+	intelligently pinning, cancelling, and if necessary, restarting jobs as
 	merges occur, so that two merges are being tested at all times
 	\citep{SlaughterEtAl2021}.
 	\item An automated system for other tasks, such as code checking,
@@ -2018,7 +2017,7 @@ following elements:
 	build, runs tests, and informs the committer of the results. 
 \end{itemize}
 
-Although CI can take some time and effort to set-up and integrate into a team's
+Although CI can take some time and effort to set up and integrate into a team's
 workflow, the benefits can be significant, as follows:
 
 \begin{itemize}
@@ -2036,8 +2035,7 @@ workflow, the benefits can be significant, as follows:
 	18]{HumbleAndFarley2010}.
 	\item Developers are always working on a stable base, since the master
 	branch will always be working.  A stable base passes all tests and, if the
-	CI system is configured with generators and linters, it will also have up to
-	date documentation and coding standard compliant code.  A stable base
+	CI system is configured with generators and linters, it will also have current documentation and coding standard compliant code.  A stable base
 	improves developer productivity, allowing them to focus on coding, testing
 	and documentation.
 \end{itemize}
@@ -2096,7 +2094,7 @@ These changes involve formal discussions within the development team, and lead
 developer participation is mandatory. The other change type is code refactoring,
 which only sometimes involves formal discussions with the development team. New
 developers were noted to play an increased role in these changes compared to the
-former changes. Software bugs are typically addressed in a similar fashion as
+former changes. Software bugs are typically addressed similarly to
 code refactoring.  Issue tracking is commonly used to manage these changes.
 
 Our observations of an informally defined process, with elements of agile
@@ -2138,7 +2136,7 @@ especially for new developers, is echoed in research software guidelines.
 Multiple guidelines recommend a document explaining how to contribute to a
 project, often named CONTRIBUTING \citep{Yo2021, BrettEtAl2021, WilsonEtAl2016,
 ThielEtAl2020, vanGompelEtAl2016, OrvizEtAl2017, FLOSS2022, JimenezEtAl2017}.
-Tutorials \citep{ThielEtAl2020}, trouble shooting guides \citep{OrvizEtAl2017,
+Tutorials \citep{ThielEtAl2020}, troubleshooting guides \citep{OrvizEtAl2017,
 SSI2022} and quick start examples \citep{ThielEtAl2020, vanGompelEtAl2016} are
 also recommended.  \citet{SmithAndRoscoe2018} suggests including instructions
 specifically for on-boarding new developers. For open source software in general
@@ -2174,7 +2172,7 @@ follows:
 	scientific software has been illustrated by applying it to the example of a
 	mesh generator \citep{SmithAndYu2009}.
 	\item Graphically represent the design using Unified Modelling Language
-	class diagrams.  This approach is suited to object oriented design and
+	class diagrams.  This approach is suited to object-oriented design and
 	designs that use patterns \citep{Gamma1995}.
 	\item Explain the design using data flow diagrams to show typical use cases
 	for how inputs are transformed.
@@ -2203,12 +2201,13 @@ interview questions are found in \citet{SmithEtAl2021}.
 \citet{PintoEtAl2018} lists some pain points that did not come up in our
 conversations with LBM developers: Cross-platform compatibility, interruptions
 while coding, scope bloat, lack of user feedback, hard to collaborate on
-software projects, and aloneness. \citet{WieseEtAl2019} repeat some of the
-previous pain points and add the following: dependency management, data handling
-concerns (like data quality, data management and data privacy), reproducibility,
-and software scope determination. Although LBM developers did not mention these
-pain points, we cannot conclude that they are not relevant for LBM software
-development, since we only interviewed four LBM developers for about an hour each.
+software projects, and aloneness. \citet{WieseEtAl2019} repeat some previous
+pain points and add the following: dependency management, data handling concerns
+(like data quality, data management and data privacy), reproducibility, and
+software scope determination. Although LBM developers did not mention these pain
+points, we cannot conclude that they are not relevant for LBM software
+development, since we only interviewed four LBM developers for about an hour
+each.
 
 \begin{enumerate}
 
@@ -2270,7 +2269,7 @@ development, since we only interviewed four LBM developers for about an hour eac
 	\textbf{Ensuring Correctness} Difficulties with ensuring correctness were
 	noted by several developers. They alluded to difficulty with testing the
 	correctness of large numbers of features, and challenges with automated
-	automated testing. The TCLB developer commented that the amount of testing
+	testing. The TCLB developer commented that the amount of testing
 	data needed was sometimes problematic, since free testing services do not
 	offer adequate facilities for large amounts of data, which means in-house
 	testing solutions are needed.  Other research software domains point to the
@@ -2292,7 +2291,7 @@ development, since we only interviewed four LBM developers for about an hour eac
 	incorrect LBM method combinations to solve their problems. Furthermore, some
 	users think that the packages will work out of the box to solve their cases,
 	while in reality CFD knowledge needs to be applied to correctly modify the
-	packages for the new endeavour.  Some of the respondents in the survey of
+	packages for the new endeavour.  Some respondents in the survey of
 	\citep{WieseEtAl2019} also mentioned that users do not always have the
 	expertise required to install or use the software.
 	
@@ -2311,7 +2310,7 @@ development, since we only interviewed four LBM developers for about an hour eac
 	\textbf{Quality of Documentation}  The importance of documentation for both
 	users and developers was stressed throughout the interviews. However, it was
 	noted several times that a lack of time and funding (\ppref{P_LackDevTime})
-	has a negative affect on the documentation. Most of the developers are
+	has a negative effect on the documentation. Most of the developers are
 	scientific researchers evaluated on the scientific papers that they produce.
 	Writing and updating documentation is something that is done in their free
 	time, if that time arises. Inadequate research software documentation is
@@ -2387,7 +2386,7 @@ LBM developers:
 	\item Compare the calculated results against pseudo-oracle solutions for
 	verification benchmarks. The developer of ESPResSo mentioned the value of
 	``tests which compare implementations against each other'' where the tests
-	``rely on different principles and they've been written by different
+	``rely on different principles, and they've been written by different
 	people''. \citet{latt2021palabos} shows several benchmark tests comparing
 	Palabos solutions to other software solutions, such as solutions calculated
 	using AnSys.
@@ -2461,13 +2460,13 @@ increasing novelty.
 
 \subsection{Employ Linters} \label{Sec_Linters}
 
-With the exception of \citet{ThielEtAl2020}, the research software guidelines
-that we consulted do not mention linters.  However, we feel linters have the
-potential to improve code quality at a relatively low cost.  A linter is a tool
-that statically analyzes code to find programming errors, stylistic
-inconsistencies and suspicious constructs \citep{Wikipedia2022_Lint}. Linters
-can be used to spot check code files, or even better as part of a continuous
-integration system, as discussed in Section~\ref{Sec_CompareTools}.  
+Except for \citet{ThielEtAl2020}, the research software guidelines that we
+consulted do not mention linters.  However, we feel linters have the potential
+to improve code quality at a relatively low cost.  A linter is a tool that
+statically analyzes code to find programming errors, stylistic inconsistencies
+and suspicious constructs \citep{Wikipedia2022_Lint}. Linters can be used to
+spot check code files, or even better as part of a continuous integration
+system, as discussed in Section~\ref{Sec_CompareTools}.  
 
 A sample of the potential benefits of linters include: finding memory leaks,
 finding potential bugs, standardizing code with respect to formatting, improving
@@ -2503,7 +2502,7 @@ efficiency \citep{EbertAndJones2009, Jones2008}.  A formal code inspection
 involves asking the reviewer to either follow a review checklist (check
 consistency of variable names, look for terminating loops, etc.), or perform
 specific review tasks (like summarize the purpose of the code, create a data
-dictionary for the module assigned, cross reference the code to the technical
+dictionary for the module assigned, cross-reference the code to the technical
 manual, etc.) The task based inspection approach has been effectively used for
 research software, as described by \citet{KellyAndShepard2000}. Task based
 inspection is an ideal fit with an issue tracking system, like GitHub.  The
@@ -2513,7 +2512,7 @@ members to test installation instructions and getting-started tutorials.
 
 Rigorous peer review addresses the same pain points as linters
 (Section~\ref{Sec_Linters}): \ppref{P_LackDevTime}, \ppref{P_LackSoftDevExp},
-\ppref{P_TechnologyHurdles}), \ppref{P_TechDebt} and \ppref{P_Correctness}. Peer
+\ppref{P_TechnologyHurdles}, \ppref{P_TechDebt} and \ppref{P_Correctness}. Peer
 review addresses these pain points by efficiently searching for defects and
 problems.
 
@@ -2560,7 +2559,7 @@ as follows:
     contributions include documentation, fixing typos, issue reporting and test
     cases \citep{Jalan2016, Proffitt2017}.
     \item Reward and recognize new contributors, via small rewards like stickers
-    or shirts, or even just a simple shoutout or mention in a blogpost or on
+    or shirts, or even just a simple shoutout or mention in a blog post or on
     social media \citep{Jalan2016, Proffitt2017}.
     \item Recognize that open source is more about people than it will ever be
     about code \citep{Jalan2016}.
@@ -2706,7 +2705,7 @@ likelihood of errors is reduced and maintenance is automated. Moreover, a
 generative approach facilitates the inevitable exploration of LBM modelling
 assumptions.
 
-DSM provide a transformative technology for documentation, design and
+DSM provides a transformative technology for documentation, design and
 verification \citep{JohansonAndHasselbring2018, Smith2018}. DSM allows
 scientists to focus on their science, not software.  A generative approach
 removes the maintenance nightmare of documentation duplicates and near
@@ -2743,14 +2742,14 @@ are used for generation are written at a high level and are thus relatively easy
 to change.  With respect to pain points on usability (\ppref{P_Usability}) and
 documentation (\ppref{P_Documentation}), the generative approach we are
 proposing addresses these directly, since documentation is a primary concern,
-rather than an afterthought. and quality of documentation 
+rather than an afterthought.
 
 \section{Threats To Validity} \label{threats}
 
 Our threats to validity categories come from an analysis of software engineering
 secondary studies by \citet{AmpatzoglouEtAl2019}.  We use the classification of
 \citep{AmpatzoglouEtAl2019} because studying a collection of software is a form
-of secondary study, where a secondary study analyses the data from a set of
+of secondary study, where a secondary study analyzes the data from a set of
 primary studies.  A common example of a secondary study is a systematic
 literature review.  Our methodology is essentially a systematic software review
 -- the primary studies are the software, and our work collects and analyzes
@@ -2791,7 +2790,7 @@ validity related threats for the LBM study include the following:
 (Section~\ref{repmetrics}) may not be valid. 
 \item Our overall AHP ranking makes the unrealistic assumption of equal
 weighting between qualities (Section~\ref{Sec_OverallQuality}).
-\item Our measure of surface robustness in only based on two pieces of data per
+\item The measure of surface robustness in only based on two pieces of data per
 project. The measurement of robustness could be expanded, as it currently only
 measures the impact of unexpected input. Other intentional faults could be
 introduced, but this would require a larger investment of measurement time. 
@@ -2849,7 +2848,7 @@ repository artifacts suggested, we did not change the manual measurement
 results.  Given that we could not interview a representative for every project,
 we left the data as collected to keep our measures consistent.  Moreover, CI and
 unit testing done in private should not be counted as equivalent to the public
-versions we detected.  When CI and unit testing are done outside of the public
+versions we detected.  When CI and unit testing are done outside the public
 repository, they are not as effective, since they are not available for others
 to inspect and reproduce.
 
@@ -2861,7 +2860,7 @@ our work is LBM solvers.  We are confident that our search was exhaustive and
 that we did not miss any highly popular examples.  Therefore, our validity
 concerns about LBM software observations are internal
 (Section~\ref{Sec_InternalValidity}), not external.  However, our hope is that
-the trends observed and the lessons learned for LBM software can be applied to
+the trends observed, and the lessons learned for LBM software can be applied to
 other research software.  With that in mind we identified the following threat
 to external validity:
 
@@ -2983,7 +2982,7 @@ development guidelines, as follows:
 	understandability. (Section~\ref{Sec_CompareArtifacts})
 	\item Increase the use of CI to remove headaches associated with a separate
 	integration phase, quickly detect and remove bugs and improve productivity,
-	since developers will always working from a stable base.
+	since developers will always be working from a stable base.
 	(Section~\ref{Sec_CompareTools})
 	\item Explicitly document the software's motivation and design principles to
 	assist with on-boarding new developers.
@@ -3007,13 +3006,13 @@ identified pain points include:
 \end{description}  
 
 We found (Section~\ref{Sec_AddressConcerns}) that developers are currently
-creating practices to address these pain points.  To address technical debt
+creating practices that address these pain points.  To address technical debt
 (\ppref{P_TechDebt}) some developers have committed to designing for change
 (Section~\ref{Sec_DesForChange}). To improve correctness (\ppref{P_Correctness})
 developers are finding ways to circumvent the oracle testing problem, such as
 using peer review and pseudo-oracles (Section~\ref{SecReproducibility}).
 Developers have prioritized documentation and usability
-(Section~\ref{Sec_RecommendDoc} to address the pain points of documentation and
+(Section~\ref{Sec_RecommendDoc}) to address the pain points of documentation and
 usability challenges (\ppref{P_Usability} and \ppref{P_Documentation}).  For the
 pain point related to external support (\ppref{P_LackExtSupport}), we found that
 this is currently addressed by groups like \href{https://bssw.io/} {Better
@@ -3055,19 +3054,19 @@ Future work can be done to address the threats to validity
 (Section~\ref{threats}).  For instance, our measures could be broadened to
 better capture shallow qualities. For example, usability experiments and
 performance benchmarks could be incorporated into the assessment. The accuracy
-of our estimate of participation level for CI and unit
-testing, which is not always visible in public artifacts, can be improved by
-adding interview questions. This additional data could be incorporated into the
-AHP ranking, ensuring quality designations that are more representative of the
-truth. In the future we could also expand the interview questions to go beyond
-reproducibility to also discuss replicability. Furthermore, future interview
-guidelines should clarify the differences between usability and
-understandability (Section~\ref{softwarequalities}), since their answers suggest
-that not all participants understood the distinction.  Analysis of future
-interview data would likely benefit from a more rigorous process, like a
-thematic domain analysis \citep{JungEtAl2022}.
+of our estimate of participation level for CI and unit testing, which is not
+always visible in public artifacts, can be improved by adding interview
+questions. This additional data could be incorporated into the AHP ranking,
+ensuring quality designations that are more representative of the truth. In the
+future we could also expand the interview questions to go beyond reproducibility
+to also discuss replicability. Furthermore, future interview guidelines should
+clarify the differences between usability and understandability
+(Section~\ref{softwarequalities}), since their answers suggest that not all
+participants understood the distinction.  Analysis of future interview data
+would likely benefit from a more rigorous process, like a thematic domain
+analysis \citep{JungEtAl2022}.
 
-Our domain analysis (Section~\ref{SecDomainAnalysis} was relatively shallow.  In
+Our domain analysis (Section~\ref{SecDomainAnalysis}) was relatively shallow.  In
 the future we would like to dig more deeply.  We would like to produce tables of
 commonalities, variabilities, and parameters of variation for the family of LBM
 solvers. We could follow the template from \citep{smith2008commonality}, or
@@ -3078,7 +3077,7 @@ generating software and a family of material models, respectively.
 
 \section*{Acknowledgements}
 
-We would like to thank Ao Dong, Oluwaseun Owojaiye, Mohammad Ali Daeian and Reza
+We would like to thank Ao Dong, Oluwaseun Owojaiye, Mohammad Ali Daeian, and Reza
 Sadeghi for fruitful discussions on topics relevant to this paper.
 
 \bibliographystyle{ACM-Reference-Format}
@@ -3087,8 +3086,8 @@ Sadeghi for fruitful discussions on topics relevant to this paper.
 \end{document}
 
 TO do
-- check references
-- maybe add a continuous integration diagram?
+— check references
+— maybe add a continuous integration diagram?
 
 UNUSED Text
 
@@ -3097,7 +3096,7 @@ Conclusions Related
 To help users select the right LBM package for their needs, and to potentially
 provide direction for future LBM software development, our goal was to analyze
 the current state of LBM software development.  We determined how well best
-practices are followed and we investigated current developer pain points.  We
+practices are followed, and we investigated current developer pain points.  We
 compared the state of the practice for LBM software to the development practices
 recommended and employed for research software in general. To improve the
 quality of LBM software we looked for examples where developers have been
