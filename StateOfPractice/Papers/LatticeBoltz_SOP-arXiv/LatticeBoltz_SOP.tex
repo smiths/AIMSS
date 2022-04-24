@@ -238,7 +238,7 @@ Department}, %Department and Organization
 
 \begin{keyword}
 	Lattice Boltzmann Method (LBM), research software, software engineering,
-	software quality, Analytic Hierarchy Process
+	software quality, Analytic Hierarchy Process (AHP)
 \end{keyword}
 
 \end{frontmatter}
@@ -284,19 +284,20 @@ cardiovascular system \citep{SadeghiEtAl2022b, SadeghiEtAl2022,
 SadeghiEtAl2020}.  As these examples illustrate, engineers and scientists use
 LBM for tackling problems that impact such areas as environmental policy,
 manufacturing, and health and safety. Given the critical applications of LBM,
-users worry about with software qualities like reliability,
-robustness, reproducibility, performance, correctness, and verifiability.  Since
-their time is valuable, developers of LBM libraries have additional quality
-concerns, including maintainability, reusability, and understandability.  With
-these quality considerations in mind, and the potentially overwhelming number of choices for existing LBM libraries, the time is right to assess the state of the practice. Therefore, we analyze the current state of LBM
-software development and compare it to the development practices employed for
-research software in general.  We want to highlight success stories that LBM
-developers can share amongst their community, and with the broader research
-software community, while at the same time looking for areas for potential
-future improvement.
+users worry about software qualities like reliability, robustness,
+reproducibility, performance, correctness, and verifiability.  Since their time
+is valuable, developers of LBM libraries have additional quality concerns,
+including maintainability, reusability, and understandability.  With these
+quality considerations in mind, and the potentially overwhelming number of
+choices for existing LBM libraries, the time is right to assess the state of the
+practice. Therefore, we analyze the current state of LBM software development
+and compare it to the development practices employed for research software in
+general.  We want to highlight success stories that LBM developers can share
+amongst their community, and with the broader research software community, while
+at the same time looking for areas for potential future improvement.
 
 We use ten research questions to structure and focus our discussion. Our
-methodology \citep{SmithEtAl2021, SmithAndMichalski2022} is driven by the
+methodology \citep{SmithEtAl2021, SmithAndMichalski2022} is driven by these
 questions. For each question below, we point to the section that contains our
 answer.  We start with identifying the examples of LBM software where we have
 access to the source code:
@@ -310,17 +311,17 @@ access to the source code:
 We next wish to assess the representative software to determine how well they
 apply current software development best practices.  By \emph{best practices}, we
 mean methods, techniques, and tools that are generally believed to improve
-software development, like testing and documentation.  We will categorize our
-best practices around software qualities, as we will discuss in
-Section~\ref{empiricalmeasures}.  At this point in the process, to remove
-potential user/developer bias, we will base our assessment only on publicly
-available artifacts, where artifacts are the documents, scripts, and code that we
-find in a project's public repository. Example artifacts include requirements,
-specifications, user manuals, unit test cases, system tests, usability tests,
-build scripts, API (Application Programming Interface) documentation, READMEs,
-license documents, process documents, and code. Following best practices does
-not guarantee popularity, so we will also compare our ranking to how the user
-community ranks the identified projects.
+software development, like testing and documentation.  We categorize our best
+practices around software qualities (Section~\ref{softwarequalities}).  At this
+point in the process, to remove potential user/developer bias, we base our
+assessment only on publicly available artifacts, where artifacts are the
+documents, scripts, and code that we find in a project's public repository.
+Example artifacts include requirements, specifications, user manuals, unit test
+cases, system tests, usability tests, build scripts, API (Application
+Programming Interface) documentation, READMEs, license documents, process
+documents, and code. Following best practices does not guarantee popularity, so
+we also compare our ranking to how the user community ranks the identified
+projects.
 
 \begin{enumerate}
 	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_HighestQuality}:] Which
@@ -381,7 +382,7 @@ The question below cover these points:
 	do the pain points of developers from LBM compare to the pain points
 	for research software in general? (Section~\ref{painpoints})
 	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_Concerns}:] For LBM
-	developers what specific best practices address the pain points
+	developers what specific best practices address their pain points
 	and software quality concerns? (Section~\ref{Sec_AddressConcerns})
 	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_Recommend}:]
 	What research software development practices could potentially address the
@@ -420,7 +421,7 @@ template. After this, as another addition to our previous methodology, we
 interview some development teams to understand the status of their
 development processes. We next answer the research questions using the collected
 quantitative and qualitative data (Sections~\ref{methodology}
-to~\ref{Sec_AddressConcerns}).  Finally, we summarize the threats to validity
+to~\ref{Sec_Recommendations}).  Finally, we summarize the threats to validity
 (Section~\ref{threats}) and the final conclusions and recommendations
 (Section~\ref{conclusion}).
 
