@@ -202,26 +202,26 @@ Department}, %Department and Organization
     reproducibility). Our reproducible analysis method employs a measurement
     template (containing 108 measures that are manually and automatically
     extracted from the project repository) and developer interviews (consisting
-    of 20 questions). After measuring, we ranked the software using
-    the Analytic Hierarchy Process (AHP). Our ranking was roughly consistent
-    with GitHub stars ranking, suggesting at least a partial correlation
-    between the use of best practices and popularity. We find the state of the
-    practice to be healthy, with 67\% of the measured packages ranking in the
-    top five for at least one quality, the majority of LBM generated artifacts
-    corresponding to general recommendations from research software developers,
-    common use of version control (67\% of packages) and the adoption of a
-    quasi-agile development process.  Areas of best practice to potentially
-    improve include adoption of continuous integration, API documentation and
-    enforcement of programming style guides.  We interviewed four developers to
-    gain insight into their current pain points. Identified challenges include
-    lack of development time, lack of funding, and difficulty with ensuring
-    correctness.  Developers are addressing these pain points by designing for
-    change, circumventing the oracle problem and prioritizing documentation and
-    usability. For future improvements we suggest the following: employing
-    linters, conducting rigorous peer reviews, writing and submitting more
-    papers on software, growing the number of contributors by following current
-    recommendations for open source projects, and augmenting the theory manuals
-    to include more requirements relevant information.
+    of 20 questions). After measuring, we rank the software using the Analytic
+    Hierarchy Process (AHP). Our ranking is roughly consistent with GitHub stars
+    ranking, suggesting at least a partial correlation between the use of best
+    practices and popularity. We find the state of the practice to be healthy,
+    with 67\% of the measured packages ranking in the top five for at least one
+    quality, the majority of LBM generated artifacts corresponding to general
+    recommendations from research software developers, common use of version
+    control (67\% of packages) and the adoption of a quasi-agile development
+    process.  Areas of best practice to potentially improve include adoption of
+    continuous integration, API documentation and enforcement of programming
+    style guides.  We interviewed four developers to gain insight into their
+    current pain points. Identified challenges include lack of development time,
+    lack of funding, and difficulty with ensuring correctness.  Developers are
+    addressing these pain points by designing for change, circumventing the
+    oracle problem and prioritizing documentation and usability. For future
+    improvements we suggest the following: employing linters, conducting
+    rigorous peer reviews, writing and submitting more papers on software,
+    growing the number of contributors by following current recommendations for
+    open source projects, and augmenting the theory manuals to include more
+    requirements specification relevant information.
 
 \end{abstract}
 
@@ -1359,14 +1359,14 @@ HemeLB, LUMA, and Musubi explicitly identify coding standards that are used
 during development. Generally, the software packages use consistent,
 distinctive, and meaningful code identifiers. Only four packages (LB2D-Prime,
 LB3D-Prime, LIMBES, MP-LABS) appear to use vague identifiers, such as single
-letters for variables. Thirteen source code files used symbolic constants. The
-constants are used for various parameters, mathematical constants, and matrix
-definitions. All the packages are reasonably well commented, with the comments
-clearly indicating what is being done (as opposed to how it is being done).
-Domain algorithms are noted in the source code of 11 packages.
-Table~\ref{moduledata} suggests that the software packages are modularized to
-various degrees. When observing the source code files, it was found that 14 of
-the packages have a consistent style and order of function parameters.
+letters for variables. Thirteen source code files used symbolic constants for
+various parameters, mathematical constants, and matrix definitions. The code
+includes appropriate comments for all packages, with the comments clearly
+indicating what is being done (as opposed to how it is being done). The source
+code of 11 packages includes notes on domain algorithms. Table~\ref{moduledata}
+suggests that the software packages are modular to various degrees. When
+observing the source code files, 14 of the packages have a consistent style and
+order of function parameters.
 
 \begin{figure}[h!]
 	\begin{center}
@@ -1386,7 +1386,7 @@ five ranked packages are alive.
 
 \subsection{Visibility and Transparency}
 
-Software package artifacts were reviewed for the identification of a specific
+We reviewed the software package artifacts for the identification of a specific
 development model, like a waterfall or agile development model, and the presence
 of documentation recording the development process and standards. They were also
 reviewed for the identification of the development environment, and the presence
@@ -1399,8 +1399,8 @@ general development process, how to contribute, and the status of the package or
 its components. Eight of the packages have artifacts that note the development
 environment. While this information could help developers, and would improve
 transparency, the small close-knit nature of the development teams make
-explicitly specifying this information practically unnecessary. Version
-release notes were found in nine of the software packages.
+explicitly specifying this information practically unnecessary. Nine of the
+software packages included version release notes.
 
 \begin{figure}[h!]
 	\begin{center}
@@ -1426,9 +1426,9 @@ top five ranked packages are alive.
 \end{figure}
 
 Figure~\ref{Fig_OverallScore} shows the overall ranking of the software
-packages. In the absence of other information on priorities, the overall ranking
-was calculated by assuming an equal weighting between all qualities. If the
-qualities were weighed differently, the overall software package ranking would
+packages. In the absence of other information on priorities, we calculated the
+overall ranking by assuming an equal weighting between all qualities. If we
+weigh the qualities differently, the overall software package ranking will
 change. Software packages with an overall high score ranked high in at least
 several of the individual qualities that were quantitatively measured. 
 
@@ -1450,7 +1450,7 @@ repository stars of the other 15 packages, we can observe a pattern where
 packages that have been highly ranked by our assessment tend to have more stars
 than lower ranked packages. Our best ranked package (ESPResSo) has the second
 most stars, while our ninth ranked package (Sailfish) has the highest number of
-stars. The same correlation is observed in the repository watch column, although
+stars. The repository watch column shows the same correlation, although
 this column contains less data, since two of the packages (Palabos, waLBerla)
 use GitLab, which does not track watches. Consistent with the star measure, our
 ninth ranked package (Sailfish) has the highest number of watches and our best
@@ -1462,27 +1462,26 @@ the scientific community.
 
 Notable exceptions to this trend occur for three projects that rank high by star
 count, but relatively low in the ``follow best practices'' ranking: TCLB (star
-rank 3, our rank 12), lettuce (star rank 4, our rank 14) and \esp{} (star
-rank 5, our rank 15).  Part of the discrepancy is because all projects are
-ranked by our process, but not all projects are measured by stars.  Also, our
+rank 3, our rank 12), lettuce (star rank 4, our rank 14) and \esp{} (star rank
+5, our rank 15).  Part of the discrepancy is because our process ranks all
+projects, but the star measure does not apply to all projects.  Also, our
 process equally weights all qualities (Section~\ref{Sec_OverallQuality}), but
 for real users some qualities will be more important than others. Discrepancies
 between our measures and the star measures may also be due to inaccuracy with
 using stars to approximate popularity, because of how people use stars, because
 young projects have less time to accumulate stars, and because stars represent
 the community's feeling in the past more than current preferences
-\citep{Szulik2017}. Older packages (like \esp{} and TCLB) have had more time
-to accumulate stars and watches. Young projects have less time to accumulate
-stars, like HemeLB, which only has 12 stars (at the time of measurement) having
+\citep{Szulik2017}. Older packages (like \esp{} and TCLB) have had more time to
+accumulate stars and watches. Young projects have less time to accumulate stars,
+like HemeLB, which only has 12 stars (at the time of measurement) having
 recently moved from a different GitHub repository.  Lettuce is a young project
 (released in 2019) with a relatively high number of stars. The discrepancy in
-rankings here may be due to a mismatch between the time when lettuce was
-manually measured by our template and when the stars were counted. The late
-addition of Musubi meant a large gap between when projects were manually
-measured and the time when our automated data (like stars) was collected. A
-final reason for inconsistencies between our ranking and the community's ranking
-is that, as for consumer products, more factors influence popularity than just
-quality.
+rankings may be due to a mismatch between the time we manually measured lettuce
+and when we counted the stars. The late addition of Musubi meant a large gap
+between when we measured projects and the time when our automated data (like
+stars) was collected. A final reason for inconsistencies between our ranking and
+the community's ranking is that, as for consumer products, more factors
+influence popularity than just quality.
 
 \begin{table}[ht!]
 	\begin{center}
@@ -1527,25 +1526,26 @@ We do not know which comes first, the use of best practices or popularity, but
 we do know that the top ranked packages tend to incorporate best practices.  The
 next sections will explore how the practices of the LBM community compare to the
 broader research software community.  We will also investigate the practices
-from the top projects that others within the LBM community, and within the
-broader research software community, can potentially adopt.
+from the top projects that others within the LBM community and beyond can
+potentially adopt.
 
 \section{Comparison Between LBM and Other Research Software for Artifacts}
 \label{Sec_CompareArtifacts}
 
-As part of filling in the measurement template the LBM packages were examined
-for the presence of artifacts, which were then categorized by frequency. We have
-grouped the artifacts into common, uncommon, and rare categories in
-Table~\ref{artifactspresent}. Common artifacts were found in 16 to 24 ($>$63\%)
-of the software packages. Uncommon artifacts were found in 8 to 15 (30-63\%) and
-rare artifacts were found in 1 to 7 ($<$30\%) of the packages.  We answer
-\rqref{RQ_CompareArtifacts} by comparing the artifacts that we observed in LBM
-repositories to those observed and recommended for research software in general.
-Our comparison may point out areas where some LBM software packages fall short
-of current best practices. This is not intended to be a criticism of any
-existing packages, especially since in practice not every project needs to
-achieve the highest possible quality.  However, rather than delve into the
-nuances of which software can justify compromising which practices, we will write our comparison under the ideal assumption that every project has sufficient resources to match best practices.
+As part of filling in the measurement template, we listed the artifacts for each
+package, and we then categorized them by frequency. We group the artifacts into
+common, uncommon, and rare categories in Table~\ref{artifactspresent}. Common
+artifacts are in 16 to 24 ($>$63\%) of the software packages. Uncommon artifacts
+are in 8 to 15 (30-63\%) and rare artifacts are in 1 to 7 ($<$30\%) of the
+packages.  We answer \rqref{RQ_CompareArtifacts} by comparing the artifacts that
+we observed in LBM repositories to those observed and recommended for research
+software in general. Our comparison may point out areas where some LBM software
+packages fall short of current best practices. This is not intended to be a
+criticism of any existing packages, especially since in practice not every
+project needs to achieve the highest possible quality. However, rather than
+delve into the nuances of which software can justify compromising which
+practices, we will write our comparison under the ideal assumption that every
+project has sufficient resources to match best practices.
 
 \begin{table}[ht!]
 \begin{center}
@@ -1612,14 +1612,14 @@ appear in 27.8\%, 25.7\% and 52.9\% of the analyzed files, respectively
 
 The frequency of checkmarks in Table~\ref{Tbl_Guidelines} indicates the
 popularity of recommending a given artifact, but it does not imply that the most
-commonly recommended artifacts are the most important artifacts. Just because an
-artifact is not explicitly recommended in a given guideline does not mean that
-the artifact is not valued.  The guideline authors may have excluded it because
-it is out of the scope of their recommendations or outside their experience.
-For instance, an artifact related to uninstall is only explicitly mentioned by
+commonly recommended artifacts are the most important artifacts. Just because a
+guideline does not explicitly recommend an artifact does not mean that the
+artifact has no value.  The guideline authors may have excluded it because it is
+out of the scope of their recommendations or outside their experience. For
+instance, an artifact related to uninstall is only explicitly mentioned by
 \citet{vanGompelEtAl2016}, but other guideline authors would likely see its
 value.  They may simply feel that uninstall is implied by install, or they may
-have never asked themselves whether separate uninstall instructions are needed.
+have never asked themselves about the need for separate uninstall instructions.
 
 \begin{table}[!ht]
 \begin{center}
@@ -1674,16 +1674,16 @@ to Artifacts in LBM Projects (C for Common, U for Uncommon and R for Rare)}
 The top four packages (ESPREsSo, Ludwig, Palabos, and OpenLB) have all the
 common artifacts, except Palabos does not have theory notes and only three
 (ESPREsSo, Ludwig, Palabos) of the packages appear to use a version control
-system.  The top four packages also have most of the uncommon artifacts. At
-the time of data collection, only one of the four packages (Palabos) did not
-have a user manual or guide, but there was a broken link on the package website
-indicating that such an artifact might exist. This broken link was later fixed,
-but this is not reflected in our data because it was not present at the time of
-data collection (mid-2020). Despite the broken link, Palabos does have a
-detailed and informative website. As far as we could observe, Ludwig does not
-appear to have a publicly visible design and OpenLB does not appear to use a
+system.  The top four packages also have most of the uncommon artifacts. At the
+time of data collection, only one of the four packages (Palabos) did not have a
+user manual or guide, but there was a broken link on the package website
+indicating that such an artifact might exist. The developers later fixed this
+broken link, but this is not reflected in our data because it was not present at
+the time of data collection (mid-2020). Despite the broken link, Palabos does
+have a detailed and informative website. As far as we could observe, Ludwig does
+not appear to have a publicly visible design and OpenLB does not appear to use a
 version control system. However, OpenLB's use of version numbers suggests that
-version control may be used privately by the developers.
+its developers may privately use version control.
 
 The top four ranked packages do not have many of the rare artifacts. None of the
 top four packages have any explicit API documentation. Three of these packages
@@ -1711,8 +1711,8 @@ to print \citep{Genota2018}.
 
 As Table~\ref{Tbl_Guidelines} shows, the LBM community participates in most of
 the practices we found listed in the general research software guidelines;
-however, some recommended practices were not observed or rarely observed. For
-instance, API documentation was rarely observed for LBM software, but it is a
+however, we did not observe, or rarely observed, some recommended practices. For
+instance, we rarely saw API documentation for LBM software, but it is a
 frequently recommended artifact \citep{SmithAndRoscoe2018, ThielEtAl2020,
 vanGompelEtAl2016, OrvizEtAl2017, SSI2022, Zadka2018}.  In addition to the items
 in the last column of Table~\ref{artifactspresent}, we can add the following
@@ -1775,14 +1775,14 @@ used to automatically check that coding styles, in this case PEP8, are enforced.
 For LBM software we saw code style advice as part of some developer guides, but
 only rarely.
 
-\item \textbf{Checklists} can be used in projects to ensure that best practices
-are followed by all developers.  Some examples include checklists merging
-branches into master \citep{Brown2015}, checklists for saving and sharing
-changes to the project \citep{WilsonEtAl2016}, checklists for new and departing
-team members \citep{HerouxAndBernholdt2018}, checklists for processes related to
-commits and releases \citep{HerouxEtAl2008} and checklists for overall software
-quality \citep{ThielEtAl2020, SSI2022}.  For LBM software, ESPResSo has a
-checklist for managing releases, but we did not find any other examples.
+\item \textbf{Checklists} can be used to ensure that developers follow best
+practices.  Some examples include checklists merging branches into master
+\citep{Brown2015}, checklists for saving and sharing changes to the project
+\citep{WilsonEtAl2016}, checklists for new and departing team members
+\citep{HerouxAndBernholdt2018}, checklists for processes related to commits and
+releases \citep{HerouxEtAl2008} and checklists for overall software quality
+\citep{ThielEtAl2020, SSI2022}.  For LBM software, ESPResSo has a checklist for
+managing releases, but we did not find any other examples.
 
 \item \textbf{Uninstall instructions} tell a user how to remove the software and
 associated libraries from their system.  The advantage of uninstall is removing
@@ -1792,12 +1792,11 @@ observe uninstall instructions for any of the LBM projects.
 
 \item \textbf{API documentation} shows programmers the services or data provided
 by the software application (or library) through such resources as its methods
-or objects \citep{MengEtAl2018}.  API documentation has been found to be a
-critical factor for API understandability (Section~\ref{softwarequalities})
-\citep{MengEtAl2018}. Some API documentation can be generated using tools like
-Doxygen, but when learning a new API developers mostly use code examples and
-tutorials \citep{MengEtAl2018}.  API documentation was rare within our sample of
-LBM packages.
+or objects \citep{MengEtAl2018}.  API documentation is a critical factor for API
+understandability \citep{MengEtAl2018} (Section~\ref{softwarequalities}). Some
+API documentation can be generated using tools like Doxygen, but when learning a
+new API developers mostly use code examples and tutorials \citep{MengEtAl2018}.
+API documentation was rare within our sample of LBM packages.
 
 \end{itemize}
 
@@ -1821,8 +1820,8 @@ and reusing previous knowledge, projects waste time and energy ``reinventing the
 wheel'' \citep{deSouzaEtAl2019}. 
 
 Software requirements documentation provides a good example of the common
-deviation between recommendations and practice.  Although requirements
-documentation is recommended by some \citep{TobiasEtAl2018, HerouxEtAl2008,
+deviation between recommendations and practice.  Although some guidelines
+recommend requirements documentation \citep{TobiasEtAl2018, HerouxEtAl2008,
 SmithAndKoothoor2016}, in practice research software developers often do not
 produce a proper requirements specification \citep{HeatonAndCarver2015}.
 \citet{SandersAndKelly2008} interviewed 16 scientists from 10 disciplines and
@@ -1835,21 +1834,20 @@ management is the software engineering discipline that most hurts scientific
 developers, accounting for 23\% of the technical problems reported by study
 participants.  The lack of support for requirements is likely due to the
 perception that up-front requirements are impossible for research software
-\citep{CarverEtAl2007,SegalAndMorris2008}, but when the instance on ``up-front''
-requirements is dropped, allowing the requirements to be written iteratively and
-incrementally, requirements are feasible \citep{Smith2016}.
+\citep{CarverEtAl2007,SegalAndMorris2008}, but when we drop the insistence on
+``up-front'' requirements, allowing the requirements to be written
+iteratively and incrementally, requirements are feasible \citep{Smith2016}.
 
 \section{Comparison of Tool Usage Between LBM and Other Research Software}
 \label{Sec_CompareTools}
 
-Software tools are used to support the development, verification, maintenance,
-and evolution of software, software processes, and artifacts \citep[p.\
-501]{GhezziEtAl2003}. Many tools are used by LBM software packages, as
-summarized in Table~\ref{tbl_tools}.  The tools are subdivided into development
-tools, dependencies, and project management tools.  In this section we answer
-\rqref{RQ_CompareToolsProjMngmnt} by comparing aspects of tool usage in LBM
-software packages to their use in the research software community in
-general.
+Developers use software tools to support the development, verification,
+maintenance, and evolution of software, software processes, and artifacts
+\citep[p.\ 501]{GhezziEtAl2003}. Table~\ref{tbl_tools} summarizes the tools,
+subdivided into development tools, dependencies, and project management tools.
+In this section we answer \rqref{RQ_CompareToolsProjMngmnt} by comparing aspects
+of tool usage in LBM software packages to their use in the research software
+community in general.
 
 \begin{table}[ht!]
 	\begin{center}
@@ -1875,14 +1873,13 @@ general.
 Development tools support the development of end products, but do not become
 part of them, unlike dependencies that remain in the application once it is
 released \citep[p.\ 506]{GhezziEtAl2003}. Although not shown in
-Table~\ref{tbl_tools}, debuggers were also likely used.  Only three (ESPResSo,
-Ludwig and Musubi) packages mentioned CI tools, like Travis
-CI. Code editors and compilers were explicitly noted to have been used by
-several packages, and were likely used by all of them. One of the packages
-(Ludwig) explicitly noted the use of proprietary unit testing code written in C.
-Likewise, the use of proprietary code for verifying the correctness of output
-was noted by one of the developers (pyLBM). Similar tools were likely used when
-developing the other software packages.
+Table~\ref{tbl_tools}, developers also likely use debuggers.  Only three
+(ESPResSo, Ludwig and Musubi) packages mentioned CI tools, like Travis CI.
+Several packages explicitly noted code editors and compilers, but likely all
+packages use them. One of the packages (Ludwig) explicitly noted the use of
+proprietary unit testing code written in C. Likewise, one of the developers
+(pyLBM) noted the use of proprietary code for verifying the correctness of
+output. Developers of other packages likely used similar tools.
 
 For the dependency tools (Table~\ref{tbl_tools}), we observe that most of the
 software packages use some sort of build automation tools, most commonly Make.
@@ -1896,16 +1893,16 @@ Many of the software packages that were assessed were developed by teams of two
 or more people. Their work needed to be coordinated and managed.
 Table~\ref{tbl_tools} shows the types of project management tools that were
 explicitly noted in the artifacts, webpages, or interviews with the developers.
-As with development tools and dependencies, it is possible that other types of
-project management tools are used, but they were not visible in the artifacts to
-which we had access.  Collaboration tools, most often email and video, are noted
-as being used when developing software projects. Project management software was
-not explicitly mentioned during our interviews, but it is possible that some
-projects use such software. Many of the projects are located on GitHub, where
-the developers use the platform to help manage their projects, especially bug
+As with development tools and dependencies, developers may use other types of
+project management tools, but they were not visible in the artifacts to which we
+had access.  Collaboration tools, most often email and video, are noted as being
+used when developing software projects. Our interviewees did not mention project
+management software, but the sample is not large enough to rule out other
+projects using such software. GitHub is the home for many of the projects.
+Developers use the platform to help manage their projects, especially bug
 related issues. Most of the projects appear to use change tracking and version
-control tools. Document generation tools are mentioned in 12 of the 24 projects.
-The tools Sphinx and Doxygen are explicitly used in this capacity.
+control tools. Half of the packages mention document generation tools, like
+Sphinx and Doxygen.
 
 Based on information provided by \citet{JungEtAl2022}, tool usage for
 LBM software has much in common with tool usage for ocean modelling
@@ -1922,9 +1919,9 @@ The poor adoption of version control tools that Wilson lamented in 2006
 Section~\ref{Sec_Maintainability}, 67\% of LBM packages use version control
 (GitHub, GitLab, or CVS).  (From Table~\ref{gitrepodata}, 11/15 or 73\% of alive
 packages use version control.)  The proliferation of version control tools for
-LBM matches the increase in the broader research software community.  A little
-over 10 years ago version control was estimated to be used in only 50\% of
-research software projects \citep{Nguyen-HoanEtAl2010}, but even at that time
+LBM matches the increase in the broader research software community.
+\citet{Nguyen-HoanEtAl2010} estimated a little over 10 years ago that only 50\%
+of research software projects use version control, but even at that time
 \citet{Nguyen-HoanEtAl2010} noted an increase from previous usage levels. A
 survey in 2018 shows 81\% of developers use a version control system
 \citep{AlNoamanyAndBorghi2018}.  \citet{Smith2018} has similar results, showing
@@ -1940,8 +1937,8 @@ research software in general.
 
 \subsection{CI Usage Compared to Research Software in General}
 
-As mentioned in Section~\ref{SecSurfCorrectAndVerifiab}, CI is rarely used in
-LBM software (3 of 24 packages or 12.5\%), although interviews with developers
+As mentioned in Section~\ref{SecSurfCorrectAndVerifiab}, LBM developers rarely
+uses CI (3 of 24 packages or 12.5\%), although interviews with developers
 suggest that the actual rate might be higher. Low use of CI for LBM contrasts
 with how frequently it is recommended in research software development
 guidelines
@@ -1954,7 +1951,7 @@ open-source projects will increase even further in the future.  We could not
 find published data on the CI usage rates for research software in general.
 However, we saw 17\% utilization in the specific domain of imaging software
 \citep{Dong2021}, which is comparable to the LBM usage rate. Our impression is
-that medical imaging software and LBM software are not unique -- most research
+that medical imaging software and LBM software are not unique --- most research
 software domains likely lag behind the best practice recommendations, and
 non-research software usage rates, for continuous integration.
 
@@ -1976,17 +1973,17 @@ following elements:
 	automation.
 	\item An automated test system \citep{Fowler2006}. Building quality software
 	involves creating automated tests at the unit, component, and acceptance
-	test level, and executing these tests whenever a change is made to the code,
-	its configuration, the environment, or the software stack that it runs on
-	\citep[p.\ 83]{HumbleAndFarley2010}. As Table~\ref{artifactspresent} shows,
-	test cases are in the uncommon category for LBM software artifacts, which
-	means that some LBM projects will need to increase their testing automation
-	if they wish to pursue CI.  The usual advice for CI is to keep the build and
-	test process short \citep[p.\ 60]{HumbleAndFarley2010}. Given that LBM can
-	be computationally expensive, the tests run with every check-in may need to
-	focus on simple code interface tests, saving larger more complex tests for
-	less frequent runs.  A more sophisticated option for when tests create a
-	bottleneck for merges is CIVET (Continuous Integration,
+	test level, and executing these tests whenever someone makes a change to the
+	code, its configuration, the environment, or the software stack that it runs
+	on \citep[p.\ 83]{HumbleAndFarley2010}. As Table~\ref{artifactspresent}
+	shows, test cases are in the uncommon category for LBM software artifacts,
+	which means that some LBM projects will need to increase their testing
+	automation if they wish to pursue CI.  The usual advice for CI is to keep
+	the build and test process short \citep[p.\ 60]{HumbleAndFarley2010}. Given
+	that LBM can be computationally expensive, the tests run with every check-in
+	may need to focus on simple code interface tests, saving larger more complex
+	tests for less frequent runs.  A more sophisticated option for when tests
+	create a bottleneck for merges is CIVET (Continuous Integration,
 	Verification, Enhancement, and Testing), which solves this problem by
 	intelligently pinning, cancelling, and if necessary, restarting jobs as
 	merges occur, so that two merges are being tested at all times
@@ -1997,7 +1994,7 @@ following elements:
 	of the code and the communication between developers and users. For
 	instance, a static analysis (possibly via linters) of the code may find poor
 	programming practice or lack of adherence to adopted coding standards.
-	\citet{SlaughterEtAl2021} provides another example of an automated task --
+	\citet{SlaughterEtAl2021} provides another example of an automated task ---
 	checking that a test specification includes the test's motivation, a test
 	description, and a design description for all changes. 
 	\item An integration build system to pull everything together.  Every time
@@ -2010,7 +2007,7 @@ Although CI can take some time and effort to set up and integrate into a team's
 workflow, the benefits can be significant, as follows:
 
 \begin{itemize}
-	\item Headaches associated with a separate integration phase are eliminated
+	\item Elimination of headaches associated with a separate integration phase
 	\citep{Fowler2006}, \citep[p.\ 20]{HumbleAndFarley2010}. If integration of
 	the work of different developers, or even separate chunks of work by the
 	same developer, is postponed, integration problems are inevitable.  By
@@ -2019,14 +2016,15 @@ workflow, the benefits can be significant, as follows:
 	\item Bugs can be quickly detected and removed \citep{Fowler2006} via
 	automated testing.  To improve productivity, defects are best discovered and
 	fixed at the point where they are introduced \citep[p.\
-	23]{HumbleAndFarley2010}.  Errors are not just found in the code, but also
-	in the files and scripts related to configuration management \citep[p.\
-	18]{HumbleAndFarley2010}.
+	23]{HumbleAndFarley2010}.  Code is not the only source of errors; they are
+	also found in the files and scripts related to configuration management
+	\citep[p.\ 18]{HumbleAndFarley2010}.
 	\item Developers are always working on a stable base, since the master
 	branch will always be working.  A stable base passes all tests and, if the
-	CI system is configured with generators and linters, it will also have current documentation and coding standard compliant code.  A stable base
-	improves developer productivity, allowing them to focus on coding, testing
-	and documentation.
+	CI system uses generators and linters, it will also have current
+	documentation and coding standard compliant code.  A stable base improves
+	developer productivity, allowing them to focus on coding, testing, and
+	documentation.
 \end{itemize}
 
 Although there are still challenges, setting up a CI system has never been
@@ -2052,39 +2050,38 @@ can be mitigated via planning and documentation, promoting a team mindset,
 adopting new rules and policies, improving testing activities, and decomposing
 development into smaller units \citep{ShahinEtAl2017}.
 
-\section{Comparison of Principles, Process and Methodologies to Research Software in General} \label{Sec_CompareMethodologies}
+\section{Comparison of Principles, Process, and Methodologies to Research Software in General} \label{Sec_CompareMethodologies}
 
 We answer research question \rqref{RQ_CompareMethodologies} by comparing the
-principles, processes and methodologies used for LBM software to what can be
-gleaned from the literature on research software in general. In our data
-collection for LBM software, the software development process is not explicitly
-indicated in the artifacts for most of the packages. However, during our
-interviews one developer (ESPResSo) told us their non-rigorous development model
-is like a combination of agile and waterfall. Employing a loosely defined
-process makes sense for LBM software, given that the teams are generally small
-and self-contained.  Although eleven of the packages explicitly convey that they
-would accept outside contributors, generally the teams are centralized, often
-working at the same institution.  Working at the same institution means that an
-informal process can show success, since informal conversations are relatively
-easy to have.
+principles, processes, and methodologies used for LBM software to what can be
+gleaned from the literature on research software in general. Our measured data
+on LBM software artifacts does not explicitly indicate the development process.
+However, during our interviews one developer (ESPResSo) told us their
+non-rigorous development model is like a combination of agile and waterfall.
+Employing a loosely defined process makes sense for LBM software, given that the
+teams are generally small and self-contained.  Although eleven of the packages
+explicitly convey that they would accept outside contributors, teams are
+generally centralized, often working at the same institution. Working at the
+same institution means that an informal process can show success, since informal
+conversations are relatively easy to have.
 
 Interviews with developers confirmed a similar project management process. In
-teams of only a couple of developers, additions of new features or major changes
-are discussed with the entire team. Projects with more than a couple developers
-have lead developer roles. These lead developers review potential additions to
-the software. One of the developers (ESPResSo) noted that an ad hoc peer review
-process is used to assess major changes and additions. Using peer review (also
+teams of only a couple of developers, the entire team discusses additions of new
+features or major changes. Projects with more than a couple developers have lead
+developer roles. These lead developers review potential additions to the
+software. One of the developers (ESPResSo) noted that they use an ad hoc peer
+review process to assess major changes and additions. Using peer review (also
 called technical review) matches with recommended practice for research software
 \citep{HerouxEtAl2008, Givler2020, OrvizEtAl2017, USGS2019}.
 
-Two types of software changes were discussed during interviews with developers.
-One is feature additions, which arise from a scientific or functional need.
-These changes involve formal discussions within the development team, and lead
+During our interviews, we discussed two types of software changes. One is
+feature additions, which arise from a scientific or functional need. These
+changes involve formal discussions within the development team, and lead
 developer participation is mandatory. The other change type is code refactoring,
-which only sometimes involves formal discussions with the development team. New
-developers were noted to play an increased role in these changes compared to the
-former changes. Software bugs are typically addressed similarly to
-code refactoring.  Issue tracking is commonly used to manage these changes.
+which only sometimes involves formal discussions with the development team. We
+learned that new developers play a larger role with these changes compared to
+the former changes. Developers address software bugs similarly to code
+refactoring, and they manage change via issue tracking.
 
 Our observations of an informally defined process, with elements of agile
 methods, matches what has been observed for research software in general.
@@ -2097,30 +2094,29 @@ process \citep{Kelly2015}.
 
 Most of the software packages do not explicitly state the motivations or design
 principles that were considered when developing the software. One package,
-Sailfish, indicates in its artifacts that shortening the development time was
-considered in early stages of design, with the developers using Python and
-CUDA/OpenCL to achieve this without sacrificing performance. The Sailfish goals
-are explicitly listed as performance, scalability, agility and extendability,
-maintenance, and ease of use. The project scored well in these categories during
-our assessment.  The quality priorities for Sailfish roughly match the
-priorities observed for research software in general.
-\citet{Nguyen-HoanEtAl2010} surveyed developers to find the following list of
-qualities, in decreasing order of importance: reliability, functionality,
-maintainability, availability, performance, flexibility, testability, usability,
-reusability, traceability, and portability. The Sailfish list does not list
-reliability or functionality, but we can safely assume those are implicitly high
-priorities for any scientific project.  In earlier studies
-\citet{KellyAndSanders2008} and \citet{CarverEtAl2007} highlight how important
-correctness is for research software.
+Sailfish, indicates in its artifacts the explicit goal of shortening development
+time, with the developers using Python and CUDA/OpenCL to achieve this without
+sacrificing performance. The Sailfish documentation explicitly lists the goals
+of performance, scalability, agility and extendability, maintenance, and ease of
+use. The project scored well in these categories during our assessment.  The
+quality priorities for Sailfish roughly match the priorities observed for
+research software in general. \citet{Nguyen-HoanEtAl2010} surveyed developers to
+find the following list of qualities, in decreasing order of importance:
+reliability, functionality, maintainability, availability, performance,
+flexibility, testability, usability, reusability, traceability, and portability.
+The Sailfish list does not list reliability or functionality, but we can safely
+assume those are implicitly high priorities for any scientific project.  In
+earlier studies \citet{KellyAndSanders2008} and \citet{CarverEtAl2007} highlight
+how important correctness is for research software.
 
 \subsection{Documentation as Part of the Development Process}
 
-During our interviews, documentation was noted as playing a significant role in
-the development process, specifically with on-boarding new developers. A goal of
-documentation is to lower the entry barrier for these new contributors. The
-documentation provides information on how to get started, orients the user to
-artifacts and the source code, and explains how the system works, including the
-so-called simulation engine and interface.  This emphasis on documentation,
+During our interviews, developers noted that documentation plays a significant
+role in the development process, specifically with on-boarding new developers. A
+goal of documentation is to lower the entry barrier for these new contributors.
+The documentation provides information on how to get started, orients the user
+to artifacts and the source code, and explains how the system works, including
+the so-called simulation engine and interface.  This emphasis on documentation,
 especially for new developers, is echoed in research software guidelines.
 Multiple guidelines recommend a document explaining how to contribute to a
 project, often named CONTRIBUTING \citep{Yo2021, BrettEtAl2021, WilsonEtAl2016,
@@ -2130,15 +2126,15 @@ SSI2022} and quick start examples \citep{ThielEtAl2020, vanGompelEtAl2016} are
 also recommended.  \citet{SmithAndRoscoe2018} suggests including instructions
 specifically for on-boarding new developers. For open source software in general
 (not just research software), \citet{Fogel2005} recommends providing tutorial
-style examples, developer guidelines, demos and screenshots.
+style examples, developer guidelines, demos, and screenshots.
 
 Although Table~\ref{Tbl_Guidelines} shows that design documentation is
 frequently suggested, the recommendations are often short on details. For
 instance, the guidelines usually encourage modular design, but are generally
-silent on what criteria to use for the modularization.  Little information is
-given on how to document the design itself. Some non-mutually exclusive ideas
-for documenting the design, roughly in order of increasing effort, are as
-follows:
+silent on what criteria to use for the modularization.  The guidelines give
+little information on how to document the design itself. Some non-mutually
+exclusive ideas for documenting the design, roughly in order of increasing
+effort, are as follows:
 
 \begin{itemize}
 	\item Explicitly state the design goals and priorities, so that those using
@@ -2164,7 +2160,7 @@ follows:
 	class diagrams.  This approach is suited to object-oriented design and
 	designs that use patterns \citep{Gamma1995}.
 	\item Explain the design using data flow diagrams to show typical use cases
-	for how inputs are transformed.
+	for input transformation.
 	\item Using a textual description, list for each module (or class), the
 	state variables (if any), exported constants and all exported access
 	programs.  This shows the interface that can used to access each module's
@@ -2183,9 +2179,9 @@ research software projects (\rqref{RQ_PainPoints})?; and, ii) How do the pain
 points of developers from LBM compare to the pain points for research software
 in general (\rqref{RQ_ComparePainPoints})?  Below we go through each of the
 identified pain points and include citations that contrast the LBM experience
-with observations from researchers in other domains.  Potential ways to address
-the pain points are covered in Section~\ref{Sec_AddressConcerns}. The full
-interview questions are found in \citet{SmithEtAl2021}.
+with observations from researchers in other domains.
+Section~\ref{Sec_AddressConcerns} covers potential ways to address the pain
+points and \citet{SmithEtAl2021} provides the full interview questions.
 
 \citet{PintoEtAl2018} lists some pain points that did not come up in our
 conversations with LBM developers: Cross-platform compatibility, interruptions
@@ -2204,25 +2200,25 @@ each.
 	Development Time} A developer of pyLBM noted that their small development
 	team has a lack of time to implement new features. Small development teams
 	are common for LBM software packages (as shown in the measurement table
-	excerpt in Figure~\ref{measurement_template_image}). Lack of time is also
-	highlighted as a pain point by other research software developers
+	excerpt in Figure~\ref{measurement_template_image}). Other domains of
+	research software also experience the lack of time pain point
 	\citep{PintoEtAl2018, PintoEtAl2016, WieseEtAl2019}.
 
 	\item[P\refstepcounter{pnum}\thepnum \label{P_LackSoftDevExp}:] \textbf{Lack
-	of Software Development Experience} A lack of software development
-	experience was noted by the developer of TCLB, and others noted a need for
-	improving software engineering education. Many of the team members on their
-	project are domain experts, not computer scientists or software engineers.
-	This same trend is noted by \citet{Nguyen-HoanEtAl2010}, which showed only
-	23\% of research software survey respondents having a computing-related
-	background. Similarly, \citet{UditAndKatz2017} show that the majority (54\%)
-	of postdocs have not received training in software development.  The LBM
-	developer suggesting an increasing role for formal software education
-	matches the trend observed by \citet{PintoEtAl2018}, where their replication
-	of a previous study \citep{HannayEtAl2009}, shows a growing interest in
-	formal training (From 13\% of respondents in 2009 to 22\% in 2018).
-	\citet{PintoEtAl2018} found that some developers feel there is a mismatch
-	between coding skills and subject-matter skills. 
+	of Software Development Experience} The developer of TCLB noted a lack of
+	software development experience, and others noted a need for improving
+	software engineering education. Many of the team members are domain experts,
+	not computer scientists or software engineers. \citet{Nguyen-HoanEtAl2010}
+	noted this same trend, with only 23\% of research software survey
+	respondents having a computing-related background. Similarly,
+	\citet{UditAndKatz2017} show that the majority (54\%) of postdocs have not
+	received training in software development.  The LBM developer suggesting an
+	increasing role for formal software education matches the trend observed by
+	\citet{PintoEtAl2018}, where their replication of a previous study
+	\citep{HannayEtAl2009}, shows a growing interest in formal training (From
+	13\% of respondents in 2009 to 22\% in 2018). \citet{PintoEtAl2018} found
+	that some developers feel there is a mismatch between coding skills and
+	subject-matter skills. 
 	
 	\item[P\refstepcounter{pnum}\thepnum \label{P_LackFunding}:] \textbf{Lack of
 	Incentive and Funding} The TCLB developer noted a lack of incentives and
@@ -2237,10 +2233,11 @@ each.
 	formal reward system for research software.
 
 	\item[P\refstepcounter{pnum}\thepnum \label{P_LackExtSupport}:] \textbf{Lack
-	of External Support} A concern was raised that there are no organizations
-	helping with the development of good quality software.  This concern is not
-	echoed in the literature because there are such organizations, including
-	\href{https://bssw.io/} {Better Scientific Software (BSSw)},
+	of External Support} Interviewees raised a concern that there are no
+	organizations helping with the development of good quality software.  The
+	literature on research software does not tend to echo this concern because
+	there are such organizations, including \href{https://bssw.io/} {Better
+	Scientific Software (BSSw)},
 	\href{https://www.software.ac.uk/} {Software Sustainability Institute}
 	\citep{CrouchEtAl2013}, and \href{https://software-carpentry.org/}{Software
 	Carpentry} \citep{WilsonAndLumsdaine2006, Wilson2016}. Over time awareness
@@ -2255,17 +2252,17 @@ each.
 	CI, hardware issues and operating system issues.
 
 	\item[P\refstepcounter{pnum}\thepnum \label{P_Correctness}:]
-	\textbf{Ensuring Correctness} Difficulties with ensuring correctness were
-	noted by several developers. They alluded to difficulty with testing the
+	\textbf{Ensuring Correctness} Several developers noted difficulties with
+	ensuring correctness. They alluded to difficulty with testing the
 	correctness of large numbers of features, and challenges with automated
-	testing. The TCLB developer commented that the amount of testing
-	data needed was sometimes problematic, since free testing services do not
-	offer adequate facilities for large amounts of data, which means in-house
-	testing solutions are needed.  Other research software domains point to the
-	following problems with testing: i) \citep{PintoEtAl2018} mention the
-	problem of insufficient testing; ii) the survey of \citep{HannayEtAl2009}
-	shows that more developers think testing is important than the number that
-	believe they have a sufficient understanding of testing concepts; and, iii) previous studies
+	testing. The TCLB developer commented that the amount of testing data needed
+	was sometimes problematic, since free testing services do not offer adequate
+	facilities for large amounts of data, requiring in-house testing solutions.
+	Other research software domains point to the following problems with
+	testing: i) \citep{PintoEtAl2018} mention the problem of insufficient
+	testing; ii) the survey of \citep{HannayEtAl2009} shows that more developers
+	think testing is important than the number that believe they have a
+	sufficient understanding of testing concepts; and, iii) previous studies
 	\citep{HannayEtAl2009, KanewalaAndBieman2013, KellyEtAl2011, WieseEtAl2019}
 	point to the oracle problem, which occurs in research software when we do
 	not have a means to judge the correctness of the calculated solutions.  The
@@ -2285,25 +2282,25 @@ each.
 	expertise required to install or use the software.
 	
 	\item[P\refstepcounter{pnum}\thepnum \label{P_TechDebt}:] \textbf{Technical
-	Debt} The developer of ESPResSo said that their source code was written with
-	a specific application in mind, which later caused too much coupling between
-	components in the source code. This results in technical debt
-	\citep{KruchtenEtAl2012}, which has an impact on future maintainability and
-	reusability. Concern with technical debt is likely why researchers in the
-	survey of \citet{Nguyen-HoanEtAl2010} rated maintainability as the third
+	Debt} The developer of ESPResSo said that they originally wrote their source
+	code with a specific application in mind, which later caused too much
+	coupling between components in the source code. This results in technical
+	debt \citep{KruchtenEtAl2012}, which has an impact on future maintainability
+	and reusability. Concern with technical debt is likely why researchers in
+	the survey of \citet{Nguyen-HoanEtAl2010} rated maintainability as the third
 	most important software quality. More recently the push for sustainable
 	software \citep{deSouzaEtAl2019} is motivated by the pain that past
 	developers have had with accumulating too much technical debt.
 
 	\item[P\refstepcounter{pnum}\thepnum \label{P_Documentation}:]
-	\textbf{Quality of Documentation}  The importance of documentation for both
-	users and developers was stressed throughout the interviews. However, it was
-	noted several times that a lack of time and funding (\ppref{P_LackDevTime})
-	has a negative effect on the documentation. Most of the developers are
-	scientific researchers evaluated on the scientific papers that they produce.
-	Writing and updating documentation is something that is done in their free
-	time, if that time arises. Inadequate research software documentation is
-	also mentioned by others \citep{PintoEtAl2018, WieseEtAl2019} and the
+	\textbf{Quality of Documentation}  Interviewees stressed the importance of
+	documentation for both users and developers throughout the interviews.
+	However, it was noted several times that a lack of time and funding
+	(\ppref{P_LackDevTime}) has a negative effect on the documentation. Most of
+	the developers are scientific researchers evaluated on the scientific papers
+	that they produce. Writing and updating documentation is something that is
+	done in their free time, if that time arises. Others also mention inadequate
+	research software documentation \citep{PintoEtAl2018, WieseEtAl2019}.  The
 	problem also arises with non-research software \citep{LethbridgeEtAl2003}.
 	Recommendations on the development of research software state that
 	developers should critically evaluate their own development processes in
@@ -2342,14 +2339,14 @@ geometries and models of their system had been ``decoupled'', using abstraction
 and modularization of the source code, to make it ``very easy to add [new]
 features''.  The pyLBM design allows for independent changes to the geometry and
 the model.  We also learned that the package pyLBM redeveloped data structures
-to ease future changes. The developer of TCLB noted that their software package
-was designed to allow for the addition of some LBM features, but changes to
-major aspects of the system would be difficult. For example, ``implementing a
-new model will be an easy contribution'', but changes to the ``Cartesian mesh
-... will be a nightmare''.  The design of TCLB highlights that not every
-conceivable change needs to be supported, only the likely changes.
+to ease future changes. The developer of TCLB noted that their design allows for
+the addition of some LBM features, but changes to major aspects of the system
+would be difficult. For example, ``implementing a new model will be an easy
+contribution'', but changes to the ``Cartesian mesh … will be a nightmare''.
+The design of TCLB highlights that not every conceivable change needs to be
+supported, only the likely changes.
 
-As the LBM developers illustrate, design for changes is accomplished by first
+As the LBM developers illustrate, they accomplish design for change by first
 identifying likely changes, either implicitly or explicitly, and second by
 hiding each likely change behind a well-defined module interface.  Although it
 is unclear whether the developers are aware of Parnas's work, the approach
@@ -2383,8 +2380,8 @@ LBM developers:
 	mentioned in Section~\ref{Sec_CompareMethodologies} for ESPResSo. 
 \end{itemize}
 
-\noindent Additional strategies for getting around the oracle problem are
-provided in Section~\ref{Sec_Recommendations}.
+\noindent Section~\ref{Sec_Recommendations} provides additional strategies for
+getting around the oracle problem.
 
 Some LBM developers improve reproducibility via automating the verification
 tests and making them part of a CI process (mentioned in
@@ -2396,26 +2393,26 @@ self-diagnostics of reproducibility in the code \citep{BenureauAndRougier2017}.
 \subsection{Prioritize Documentation and Usability} \label{Sec_RecommendDoc}
 
 Although documentation is difficult (as mentioned under pain point
-\ppref{P_Documentation}), some LBM developers have realized that prioritizing time
-on documentation provides a justifiable return on investment. For instance, the
-interviewed developer of ESPResSo noted that all major additions to their
-package had accompanying changes to artifacts and documentation. They noted that
-considerable effort was put into their documentation. They further commented
-that their goal was to lower the entry barrier for new developers, which meant
-providing considerable developer documentation. This documentation informs
-developers on how to get started; orients them to the artifacts, source code,
-system architecture, and build system; and, explains the coupling between
-the simulation engine and the interface. In addition, ESPResSo developers
-included API documentation, although they are the only one of the top five
-packages to do so.
+\ppref{P_Documentation}), some LBM developers have realized that prioritizing
+time on documentation provides a justifiable return on investment. For instance,
+the interviewed developer of ESPResSo noted that all major additions to their
+package had accompanying changes to artifacts and documentation. They put
+considerable time into their documentation. They further commented that their
+goal was to lower the entry barrier for new developers, which meant providing
+considerable developer documentation. This documentation informs developers on
+how to get started; orients them to the artifacts, source code, system
+architecture, and build system; and, explains the coupling between the
+simulation engine and the interface. In addition, ESPResSo developers included
+API documentation, although they are the only one of the top five packages to do
+so.
 
-Furthermore, documentation is used by LBM developers to address usability
-challenges (\ppref{P_Usability}), as follows:
+Furthermore, LBM developers use documentation to address usability challenges
+(\ppref{P_Usability}), as follows:
 
 \begin{itemize}
 	\item Explicitly state appropriate fluid dynamics problems that the software
-	is designed to model and explicitly state the limits of the software. This
-	is done in the ESPResSo user guide.
+	uses in its models and explicitly state the software's limitations. This is
+	done in the ESPResSo user guide.
 	\item Provide documentation that details the background theory, or provide a
 	reference to such information. This was done by several top ranked packages,
 	including ESPResSo, Ludwig, LUMA, and OpenLB.
@@ -2426,8 +2423,8 @@ challenges (\ppref{P_Usability}), as follows:
 	\item Keep all documentation in one location. This was done by all top
 	ranked packages.
 	\item Use documentation generators, like Doxygen, as done (for instance) by
-	OpenLB.  More details on the packages that use generators is given in
-	Sections~\ref{SecSurfCorrectAndVerifiab} and~\ref{Sec_CompareTools}.
+	OpenLB.  Sections~\ref{SecSurfCorrectAndVerifiab} and~\ref{Sec_CompareTools}
+	give more details on the packages that use generators.
 	\item Provide an explanation of theoretical principles through the user interface.
 	\item Add guards in the code to test user inputs for compatibility before
 	proceeding with the calculations.
@@ -2439,13 +2436,12 @@ challenges (\ppref{P_Usability}), as follows:
 In this section we provide recommendations to address the pain points from
 Section~\ref{painpoints} to answer~\rqref{RQ_Recommend}.  Our recommendations
 are not lists of criticisms for what should have been done in the past, or what
-should be done now; they are suggestions for consideration in the future.
-We will not be repeating ideas here that have been discussed in previous
-sections, such as CI, documentation of APIs, etc.  Our aim
-is to mention ideas that are at least somewhat beyond conventional best
-practices. The ideas listed here have the potential to become best practices in
-the medium to long-term. The ideas are presented roughly in the order of
-increasing novelty.
+should be done now; they are suggestions for consideration in the future. We
+will not be repeating previously discussed ideas here, such as CI, documentation
+of APIs, etc.  Our aim is to mention ideas that are at least somewhat beyond
+conventional best practices. The ideas listed here have the potential to become
+best practices in the medium to long-term. The ideas below are roughly in the
+order of increasing novelty.
 
 \subsection{Employ Linters} \label{Sec_Linters}
 
@@ -2468,16 +2464,15 @@ Linters can address the pain points for LBM developers.  For instance, a linter
 can decrease the amount of development time (\ppref{P_LackDevTime}) by
 decreasing the number of mundane mistakes programmers have to catch.  Since the
 linter can include rules that capture the wisdom of senior programmers, it can
-help newer developers avoid common mistakes (\ppref{P_LackSoftDevExp}).  Although
-there do not appear to be many linters for checking parallel programming
-mistakes (\ppref{P_TechnologyHurdles}), Parallel Lint is an option for OpenMP.
-If a linter is used consistently this can guard against some technical debt
-(\ppref{P_TechDebt}). Although linters are thought of as tools for code
-analysis, similar ideas can be applied to documentation to ensure that at least
-the basic documentation rules are followed.  The use of tools to check
-documentation is a partial explanation for the relatively higher quality of
-statistical tools that are part of the Comprehensive R Archive Network (CRAN)
-\citep{SmithEtAl2018_StatSoft}.
+help newer developers avoid common mistakes (\ppref{P_LackSoftDevExp}).
+Although there do not appear to be many linters for checking parallel
+programming mistakes (\ppref{P_TechnologyHurdles}), Parallel Lint is an option
+for OpenMP. Consistently using a linter can guard against some technical debt
+(\ppref{P_TechDebt}). Although linters are tools for code analysis, similar
+ideas can be applied to ``lint'' documentation to ensure adherence to basic
+rules.  The use of tools to check documentation is a partial explanation for the
+relatively higher quality of statistical tools that are part of the
+Comprehensive R Archive Network (CRAN) \citep{SmithEtAl2018_StatSoft}.
 
 \subsection{Conduct Rigorous Peer Reviews} \label{Sec_PeerReview}
 
@@ -2515,9 +2510,9 @@ itself \citep{SmithEtAl2018-joss}.  \citet{SmithEtAl2016-softcite} presents a
 set of software citation principles that may encourage broad adoption of a
 consistent policy for software citation across disciplines and venues.
 \citet{ChueHongEtAl2019} provides a software citation checklist for developers
-to make a release of their software citable.  Further guidance on software
-citation is provided by \citet{KatzEtAl2021}.  Another option is to use GitHub
-for citation, since it is relatively easy to add metadata to repositories and to
+to make a release of their software citable.  \citet{KatzEtAl2021} provides
+further guidance on software citation.  Another option is to use GitHub for
+citation, since it is relatively easy to add metadata to repositories and to
 generate citations for those repositories \citet{Smith2021-CitationsOnGitHub}.
 
 \subsection{Follow Advice From the Open-Source Community to Grow the Number of Contributors} \label{Sec_GrowContributors}
@@ -2582,27 +2577,26 @@ system tests are as follows \citep{Smith2016}:
   $x$ are assumed, $b$ can be calculated as $b = A x$.  Following this, $A x^* =
   b$ can be solved and then $x$ and $x^*$, which should theoretically be equal,
   can be compared.  In the case of solving Partial Differential Equations
-  (PDEs), this approach is called the Method of Manufactured Solutions
+  (PDEs), the name for this approach is the Method of Manufactured Solutions
   \citep{Roache1998}.
 \item Use interval arithmetic to build test cases.  For testing purposes, the
   slow, but guaranteed correct, interval arithmetic \citep{Hickey2001} can be
-  employed. The faster floating point algorithm can then be verified by ensuring
-  that the calculated answers lie within the guaranteed bounds.
+  employed. Analysts can then verify the faster floating point algorithm by
+  ensuring that the calculated answers lie within the guaranteed bounds.
 \item Include convergence studies.  The discretization used in the numerical
   algorithm should be decreased (usually halved) and the change in the solution
   assessed.  This is very likely already done by LBM developers, but it did not
   come up during our interviews.
-\item Use \emph{metamorphic} testing, where the program is checked to see if it
-  satisfies a set of metamorphic relations, where a metamorphic relation is a
-  relationship between multiple inputs and output pairs
-  \citep{KanewalaAndLundgren2016}.  An example could be the relationship that
-  the output flow rate increases as the input flow rate increases.
+\item Use \emph{metamorphic} testing, which checks a program to see if it
+  satisfies a set of metamorphic relations, where a metamorphic relation relates
+  multiple inputs and output pairs \citep{KanewalaAndLundgren2016}.  An example
+  could be the relationship that the output flow rate increases as the input
+  flow rate increases.
 \end{itemize}
 
 \subsection{Augment Theory Manuals to Include Requirements Information} \label{Sec_AugTheoryMans}
 
-As discussed in Section~\ref{Sec_CompareArtifacts}, requirements specifications
-are rarely written for research software. Although a full requirements
+As discussed in Section~\ref{Sec_CompareArtifacts}, developers rarely write requirements specifications for research software. Although a full requirements
 specification has advantages \citep{SmithEtAl2007, SmithAndLai2005},
 given the lack of development time (\ppref{P_LackDevTime}), we recommend the
 intermediate step of augmenting the existing theory manuals with some
@@ -2628,7 +2622,7 @@ software's usability (\ppref{P_Usability}).
 \subsection{Improve Re-runnability, Repeatability, Reproducibility, and Replicability} 
 \label{Sec_Reproducibility}
 
-Ensuring correctness was identified as a pain point by developers
+Developers identified ensuring correctness as a pain point
 (\ppref{P_Correctness}).  Inspired by \citet{BenureauAndRougier2017}, we make
 recommendations to ensure that correctness can be maintained into the future by
 prioritizing four increasingly sophisticated levels of replication.
@@ -2652,14 +2646,14 @@ prioritizing four increasingly sophisticated levels of replication.
 	will likely require running a serial version of the code with full control
 	of the initialization of the pseudo-random number generators.
 
-	\item[Reproducibility] Once re-runnability and repeatability are achieved,
-	the next step is reproducibility.  Current work by LBM developers on
-	reproducibility is discussed in Section~\ref{SecReproducibility}.  The
-	proposed goal for the future is for all results to be reproducible, which
-	means documenting dependencies, platforms, parameter values and input files.
-	The data and scripts behind the graphs should be published
-	\citep{BenureauAndRougier2017}.  Some tools and techniques for computational
-	reproducibility are summarized in \citet{PiccoloAndFrampton2016}.
+	\item[Reproducibility] Once we achieve re-runnability and repeatability, the
+	next step is reproducibility.  Section~\ref{SecReproducibility} discusses
+	current work by LBM developers on reproducibility.  The proposed goal for
+	the future is for all results to be reproducible, which means documenting
+	dependencies, platforms, parameter values and input files. The data and
+	scripts behind the graphs should be published
+	\citep{BenureauAndRougier2017}.  \citet{PiccoloAndFrampton2016} summarizes
+	some tools and techniques for computational reproducibility.
 
 	\item[Replicability] means that the documentation provided for the software,
 	not the software itself, is sufficient for an independent third party to
@@ -2688,18 +2682,17 @@ the desired code, documentation, test cases, inspection reports and build
 scripts. This definition of DSM is more general than usual; in this
 recommendation DSM implies generation of all software artifacts, not just the
 code. DSM moves development to a higher level of abstraction; domain experts can
-work without concern for low-level implementation details. Using DSM, code and
-documentation can be optimally generated, redundancy is eliminated, the
-likelihood of errors is reduced and maintenance is automated. Moreover, a
-generative approach facilitates the inevitable exploration of LBM modelling
-assumptions.
+work without concern for low-level implementation details. Using DSM, we
+optimally generate code and documentation, eliminate redundancy, reduce the
+likelihood of errors, and automate maintenance. Moreover, a generative approach
+facilitates the inevitable exploration of LBM modelling assumptions.
 
 DSM provides a transformative technology for documentation, design, and
 verification \citep{JohansonAndHasselbring2018, Smith2018}. DSM allows
 scientists to focus on their science, not software.  A generative approach
 removes the maintenance nightmare of documentation duplicates and near
-duplicates \citep{LucivEtAl2018}, since knowledge is only captured once and
-transformed as needed.  Code generation has previously been applied to improve
+duplicates \citep{LucivEtAl2018}, since developers capture knowledge once and
+transform it as needed.  Code generation has previously been applied to improve
 research software.  For instance, ATLAS (Automatically Tuned Linear Algebra
 Software) \citep{WhaleyEtAl2001} and Blitz++ \citep{Veldhuizen1998} produces
 efficient and portable linear algebra software.  Spiral \citep{Pueschel2001}
@@ -2711,9 +2704,8 @@ Software) uses code generation when solving differential equations
 DSM to High Performance Computing (HPC), using UML (Unified Modelling Language)
 for their domain models. Unlike previous DSM work, the current recommendation
 focuses on generating all software artifacts (requirements, design, etc.), not
-just code.  Initial work on this ``generate all things'' approach is discussed
-in \citep{SzymczakEtAl2016} with a prototype available
-\citep{CaretteEtAl2021-Drasil}.
+just code.  \citet{SzymczakEtAl2016} presents initial work on this ``generate
+all things'' approach and \citep{CaretteEtAl2021-Drasil} provides a prototype.
 
 A DSM approach addresses multiple pain points.  For instance, once the
 infrastructure is in place, a DSM can decrease the amount of development time
@@ -2723,12 +2715,12 @@ development experience (\ppref{P_LackSoftDevExp}) will be less of an issue. The
 DSM approach can capture computing knowledge to mitigate the technology related
 pain points (\ppref{P_TechnologyHurdles}).  For ensuring correctness
 (\ppref{P_Correctness}) a generative approach can aim to be correct by
-construction.  In cases where mistakes are made, DSM has the advantage that the
-mistake is propagated throughout the generated artifacts, which greatly
-increases the chance that the mistake is noted.  Technical debt
-(\ppref{P_TechDebt}) is not a concern with a DSM approach since the recipes that
-are used for generation are written at a high level and are thus relatively easy
-to change.  With respect to pain points on usability (\ppref{P_Usability}) and
+construction.  If there are mistakes, DSM has the advantage that they are
+propagated throughout the generated artifacts, which greatly increases the
+chance that someone will notice the mistake.  Technical debt
+(\ppref{P_TechDebt}) is not a concern with a DSM approach since developers write
+the recipes used for generation at a high level making them relatively easy to
+change.  With respect to pain points on usability (\ppref{P_Usability}) and
 documentation (\ppref{P_Documentation}), the generative approach we are
 proposing addresses these directly, since documentation is a primary concern,
 rather than an afterthought.
@@ -2741,21 +2733,21 @@ secondary studies by \citet{AmpatzoglouEtAl2019}.  We use the classification of
 of secondary study, where a secondary study analyzes the data from a set of
 primary studies.  A common example of a secondary study is a systematic
 literature review.  Our methodology is essentially a systematic software review
--- the primary studies are the software, and our work collects and analyzes
+--- the primary studies are the software, and our work collects and analyzes
 these primary studies.
 
 \subsection{Reliability}
 
 A study is reliable if its data and analysis are independent of the specific
 researcher(s) doing the study.  That is, repetition of the study by a different
-researcher should achieve the same results, as long as the same methodology is
-used \citep{AmpatzoglouEtAl2019}.  For our study the identified reliability
-related threats include the following:
+researcher should achieve the same results, as long as they use the same
+methodology \citep{AmpatzoglouEtAl2019}.  For our study the identified
+reliability related threats include the following:
 
 \begin{itemize}
-\item In our methodology, the manual measures are done by one individual for all
-packages. The measures may be influenced by the grader's abilities, experience,
-and biases.  
+\item In our methodology, one individual does the manual measures for all
+packages. The grader's abilities, experiences, and biases may influence the
+results.  
 \item Completing the manual measures of all packages took place over several
 months. During this time the contents of the software repositories may change
 and the reviewer's judgment may drift.
@@ -2770,9 +2762,9 @@ comparisons in the AHP results will be consistent between graders.
 
 \subsection{Construct Validity}
 
-Construct validity is threatened if metrics are used that do not measure what
-they are intended to measure \citep{AmpatzoglouEtAl2019}. The construct
-validity related threats for the LBM study include the following:
+Construct validity means that adopted metrics represent what they are intended
+to measure \citep{AmpatzoglouEtAl2019}. The construct validity related threats
+for the LBM study include the following:
 
 \begin{itemize}
 \item Our approximation of popularity by stars and watches
@@ -2786,10 +2778,10 @@ introduced, but this would require a larger investment of measurement time.
 \item Reusability (Section~\ref{reusabilityresults}) is assessed via the number
 of code files and LOC per file. While this measure is indicative of modularity,
 it is possible that some packages have many files, with few LOC, but the files
-do not contain source code that is easily reusable. The files may be poorly
-formatted, or the source code may be vague and have ambiguous identifiers. 
-\item Maintainability may be incorrectly estimated, since it is assumed to be
-improved by a higher ratio of comments to source code
+do not contain source code that is easily reusable. The formatting may be poor,
+or the source code may be vague and have ambiguous identifiers. 
+\item We may have inaccurately estimated maintainability by assuming a higher
+ratio of comments to source code improves maintainability
 (Section~\ref{Sec_Maintainability}). 
 \item The measurement of understandability
 (Section~\ref{Sec_SurfUnderstandability}) relies on 10 random source code files.
@@ -2818,28 +2810,27 @@ number of files, LOC, etc.) when Musubi was added.
 \item Our interviews were with a relatively small sample of four LBM developers.
 The pain points they expressed may not be representative of others in the
 community.
-\item In our manual measures of the software repositories, some data may not have
-been measured due to technology issues like broken links. This issue arose with
-the measurement of Palabos, which had a broken link to its user manual, as noted
-in Section~\ref{Sec_CompareArtifacts}. 
+\item In our manual measures of the software repositories, we may have missed
+some data due to technology issues like broken links. This issue arose with the
+measurement of Palabos, which had a broken link to its user manual, as noted in
+Section~\ref{Sec_CompareArtifacts}. 
 \item Our methodology assumes that artifacts will be present in the repositories
-to approach used for software development.  However, not all activities will
-necessarily leave a trace in the repositories. For instance, the use of unit
-testing and CI was mentioned in the artifacts of only three (ESPResSo, Ludwig,
-Musubi) packages (Section~\ref{SecSurfCorrectAndVerifiab}). However, interviews
-suggested a more frequent use of both unit testing and CI. For example, OpenLB,
+to show the approach used for software development.  However, not all activities
+will necessarily leave a trace in the repositories. For instance, only three
+packages (ESPResSo, Ludwig, Musubi) show evidence in their artifacts of unit
+testing and CI (Section~\ref{SecSurfCorrectAndVerifiab}), even though interviews
+suggest a more frequent use of both unit testing and CI. For example, OpenLB,
 pyLBM, and TCLB use such methods during development despite this not being
 explicit from an analysis of the material available online.
 \end{itemize}
 
-Although we found that unit testing and CI were used more often than the
-repository artifacts suggested, we did not change the manual measurement
-results.  Given that we could not interview a representative for every project,
-we left the data as collected to keep our measures consistent.  Moreover, CI and
-unit testing done in private should not be counted as equivalent to the public
-versions we detected.  When CI and unit testing are done outside the public
-repository, they are not as effective since they are not available for others
-to inspect and reproduce.
+Although we found that unit testing and CI usage is likely higher than the
+repository artifacts suggest, we did not change the manual measurement results.
+Given that we could not interview a representative for every project, we left
+the data as collected to keep our measures consistent.  Moreover, CI and unit
+testing done in private should not be counted as equivalent to the public
+versions we detected.  When CI and unit testing are private, they are not as
+effective since they are not available for others to inspect and reproduce.
 
 \subsection{External Validity}
 
@@ -2863,22 +2854,22 @@ research software.
 This paper will help scientists select a suitable LBM package for their needs.
 However, its more fundamental purpose is to deepen our understanding of the
 state of the practice for developing LBM software. Understanding what artifacts
-are produced, what tools are used, what processes are employed and what pain
-points are experienced is the starting point for devising future methods and
-tools for reducing development time and improving software quality. 
+developers produce, what tools they use, what processes they employ, and what
+pain points they experience is the starting point for devising future methods
+and tools for reducing development time and improving software quality. 
 
 To assess the state of the practice, we followed five steps:
 \begin{inparaenum}[i)]
 	\item Identified a list of 24 LBM packages;
 	\item Measured the packages using a measurement template (the template
 	consists of 108 questions to assess 9 qualities (including the qualities of
-	installability, usability and visibility);
+	installability, usability and visibility));
 	\item Ranked the software using the Analytic Hierarchy Process (AHP);
 	\item Interviewed developers (each interview consisted of 20 questions and took
 	about an hour); and, 
 	\item Conducted a domain analysis. 
 \end{inparaenum}
-The collected data was analyzed by: 
+We analyzed the collected data by: 
 \begin{inparaenum}[i)]
 	\item Comparing our ranking by best practices against the ranking by
 	popularity;
@@ -2887,16 +2878,15 @@ The collected data was analyzed by:
 	\item Exploring pain points.
 \end{inparaenum}
 
-Current LBM software mostly follows best practices as illustrated by
+Current LBM software mostly follows best practices, as illustrated by
 Table~\ref{topperformerstable}, which summarizes the top five performers for
 each quality and for the overall quality. Taking the union of all entries in the
 table, we have 16 top performers: ESPREsSo, MechSys, OpenLB, DL\_MESO, Sailfish,
 Ludwig, Musubi, pyLBM, waLBerla, laboetie, lettuce, \esp, LUMA, MP-LABS,
 Palabos, and HemeLB.  Therefore, two thirds (67\%) of the 24 measured packages
-appear in the top five for at least one quality.  Of these entries almost all
-are classified as alive, except for three packages: laboetie, MP-LABS, and
-HemeLB.  Alive packages are in a healthy state with respect to adopting best
-practices.
+appear in the top five for at least one quality.  Almost all entries are alive,
+except for three packages: laboetie, MP-LABS, and HemeLB.  Alive packages are in
+a healthy state with respect to adopting best practices.
 
 \begin{table}[ht!]
 	\begin{center}
@@ -2939,17 +2929,18 @@ practices.
 	\end{center}
 \end{table}
 
-LBM software is shown to be in a healthy state when comparing artifacts, tools
-and processes, to research software guidelines and other research software.  The
-majority of LBM generated artifacts correspond to general recommendations from
-research software developers (Section~\ref{Sec_CompareArtifacts}).  LBM software
-even seems to be ahead of best practices with an example of a video user guide
-for one of the packages. LBM is mostly keeping pace with other research software
-with respect to tool usage (Section~\ref{Sec_CompareTools}), with 67\% of the
-surveyed tools using version control.  The state of the practice for the
-development of LBM software matches the quasi-agile process generally adopted
-for research software (Section~\ref{Sec_CompareMethodologies}).  The best
-practice process of peer review is employed by some LBM developers.
+LBM software is in a healthy state, as shown by comparing LBM artifacts, tools
+and processes, to current software guidelines and to other research software.
+The majority of LBM generated artifacts correspond to general recommendations
+from research software developers (Section~\ref{Sec_CompareArtifacts}).  LBM
+software even seems to be ahead of best practices with an example of a video
+user guide for one of the packages. LBM is mostly keeping pace with other
+research software with respect to tool usage (Section~\ref{Sec_CompareTools}),
+with 67\% of the surveyed tools using version control.  The state of the
+practice for the development of LBM software matches the quasi-agile process
+generally adopted for research software
+(Section~\ref{Sec_CompareMethodologies}).  Some LBM developers employ the best
+practice process of peer review.
 
 Although the state of the practice for LBM software is healthy, we have noted
 areas where the state of the practice does not match existing research software
@@ -2962,7 +2953,8 @@ development guidelines, as follows:
 	\item Add a code of conduct to improve inclusivity and attract a wider pool
 	of collaborators. (Section~\ref{Sec_CompareArtifacts})
 	\item Increase the use and enforcement of programming style guides to improve understandability and productivity. (Section~\ref{Sec_CompareArtifacts})
-	\item Use checklists to ensure best practices are followed by developers. (Section~\ref{Sec_CompareArtifacts})
+	\item Use checklists to ensure developers follow best practices.
+	(Section~\ref{Sec_CompareArtifacts})
 	\item Include uninstall instructions as a courtesy to users that wish to
 	save space and avoid polluting their build system.
 	(Section~\ref{Sec_CompareArtifacts})
@@ -3076,18 +3068,3 @@ Sadeghi for fruitful discussions on topics relevant to this paper.
 TO do
 — check references
 — maybe add a continuous integration diagram?
-
-UNUSED Text
-
-Conclusions Related
-
-To help users select the right LBM package for their needs, and to potentially
-provide direction for future LBM software development, our goal was to analyze
-the current state of LBM software development.  We determined how well best
-practices are followed, and we investigated current developer pain points.  We
-compared the state of the practice for LBM software to the development practices
-recommended and employed for research software in general. To improve the
-quality of LBM software we looked for examples where developers have been
-successful so that we can share these with the LBM community, and with the
-broader research software community.  We also aimed to identify potential
-approaches for mitigating the identified pain points in the future.
