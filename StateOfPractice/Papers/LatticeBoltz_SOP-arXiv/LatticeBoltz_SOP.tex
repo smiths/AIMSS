@@ -435,8 +435,8 @@ interest (Section~\ref{softwarequalities}), along with information on how to
 measure these qualities. The following section
 (Section~\ref{Sec_OverallProcess}) provides an overview of the steps we used to
 select, measure and compare LBM software.  The remaining sections
-(Sections~\ref{identifysoftware} to~\ref{SecDomainAnalysis}) provide details on
-each step in the methodology. 
+(Sections~\ref{identifysoftware} to~\ref{sec_vet_software_list}) provide details
+on each step in the methodology. 
 
 \subsection{Measuring Software Qualities} \label{softwarequalities}
 
@@ -581,9 +581,9 @@ Our assessment process consists of the following steps:
 	(Section~\ref{empiricalmeasures})
 	\item Measure using the measurement template.  The full measurement template
 	can be found in \citet{SmithEtAl2021}. (Section~\ref{empiricalmeasures})
-	\item Use AHP to rank the software packages. (Section~\ref{AHP})
+	\item Rank the software using AHP. (Section~\ref{AHP})
 	\item Interview the developers. (Section~\ref{SecSurvey})
-	\item Domain analysis. (Section~\ref{SecDomainAnalysis})
+	\item Analyze the domain. (Section~\ref{SecDomainAnalysis})
 	\item Analyze the results and answer the research questions.
 \end{enumerate}
 
@@ -592,15 +592,12 @@ discussed in Section~\ref{sec_vet_software_list}.
 
 \subsection{Identify Candidate Software} \label{identifysoftware}
 
-To answer~\rqref{RQ_WhatProjects} we identify existing LBM projects. We find the
-candidate software through search engine queries targeting authoritative lists.
-Scholarly articles, \href{https://github.com/} {GitHub} and
-\href{https://swmath.org/} {swMATH} provide candidate LBM software. The Domain
-Expert (Section~\ref{sec_vet_software_list}) helps with selecting the candidate
-software. 
-
-We consider the following properties when creating the list and reviewing the
-candidate software:
+To answer~\rqref{RQ_WhatProjects} we identify existing LBM projects through
+search engine queries targeting authoritative lists. We find the software in
+scholarly articles, \href{https://github.com/} {GitHub} and
+\href{https://swmath.org/} {swMATH}. The Domain Expert
+(Section~\ref{sec_vet_software_list}) also helps with selecting the candidate
+software.  We build our list based on the following criteria:
 
 \begin{enumerate}
 	\item The software functionality must fall within the identified domain.
@@ -611,15 +608,15 @@ candidate software:
 	development.
 \end{enumerate}
 
-The initial list had 45 packages, including some that we later found we could
-not use because of incompleteness or an absence of publicly available source
-code.
+\noindent Our initial list had 45 packages, including some that we later found
+to be unusable because of incompleteness, or an absence of publicly available
+source code.
 
 \subsection{Filter the Software List} \label{filtersoftware}
 
-To reduce the length of the list of software packages and to
-answer~\rqref{RQ_WhatProjects}, we filter the initial list of 45 packages. We
-apply the following filters in the priority order listed. 
+To reduce the length of the list and to answer~\rqref{RQ_WhatProjects}, we
+filter the initial list of 45 packages. We apply the following filters in the
+priority order listed. 
 
 \begin{enumerate}
 	\item Scope: We remove software by narrowing what functionality we
@@ -631,7 +628,7 @@ apply the following filters in the priority order listed.
 	be highly recommended and currently in use. 
 \end{enumerate}
 
-For the third item in the above filter, we categorized software packages as
+For the third item in the above filter, we categorize software packages as
 `alive' if documentation updates happened within the last 18 months, and `dead'
 otherwise. 
 
@@ -672,13 +669,13 @@ software lists and because of their surface excellence. After the initial
 measurement exercise, which took place in mid-2020, we added one more package in
 January 2022: Musubi. We found Musubi after our initial search, but we felt
 obliged to include it since it clearly fits our criteria. Time constraints meant
-we didn't update the previous manual data collection, but we did redo the
+we could not update the previous manual data collection, but we did redo the
 automated data collection.
 
 The final list of 24 software packages is in two tables.
-Table~\ref{alivepackages} lists packages that fell into the `alive' category as
+Table~\ref{alivepackages} lists packages that fall into the `alive' category as
 of mid-2020 (January 2022 for Musubi), and Table~\ref{deadpackages} lists
-packages that were `dead'. The tables include a hyperlink to each project and,
+packages that are `dead'. The tables include a hyperlink to each project and,
 when available, citations for relevant publications.  The final list of software
 packages shows considerable variation in purpose, size, user interfaces, and
 programming languages. For example, the OpenLB software package is predominantly
@@ -713,15 +710,14 @@ several medical domains and is written predominantly in C, \CC, and Python
 
 \subsection{Quantitative Measures} \label{empiricalmeasures}
 
-We rank the projects by how well they follow best practices
-(\rqref{RQ_HighestQuality}) via a measurement template, as described in
-\citet{SmithEtAl2021}.  For each software package (each column in the template),
-we fill in the rows of the template. This process takes about two hours per
-package, with a cap of four hours. The time constraint is necessary so that the
-workload is feasible for a team as small as one, given our aim to cap the
-measurement phase at 160 person-hours \citep{SmithEtAl2021}.  An excerpt of the
-template, in spreadsheet form, is shown in
-Figure~\ref{measurement_template_image}.
+We use a measurement template to rank the projects by how well they follow best
+practices (\rqref{RQ_HighestQuality}), as described in \citet{SmithEtAl2021}.
+For each software package (each column in the template), we fill in the rows of
+the template. This process takes about two hours per package, with a cap of four
+hours. The time constraint is necessary so that the workload is feasible for a
+team as small as one, given our aim to cap the measurement phase at 160
+person-hours \citep{SmithEtAl2021}.  An excerpt of the template, in spreadsheet
+form, is shown in Figure~\ref{measurement_template_image}.
 
 \begin{figure}[!ht]
 	\begin{center}
@@ -755,29 +751,31 @@ available only to a specific group.  The concept category defines software
 written to demonstrate algorithms or concepts. The three categories of
 development models are open source, where source code is freely available under
 an open-source license; free-ware, which freely provides a binary or executable,
-but not source code; and commercial, where the user must pay for the software. 
+but not source code; and commercial, where the user must pay. 
 
 Several of the qualities use the word ``surface'' to highlight that, for these
 qualities, the best that we can do is a shallow measure. For instance, we do not
 conduct experiments to measure usability directly. Instead, we look for
 usability considerations by searching for cues in the documentation, such as the
-presence of getting started instructions, a user manual or documentation of
+presence of getting started instructions, a user manual, or documentation of
 expected user characteristics. 
 
 We used tools to automatically measure the number of files, number of lines of
-code (LOC), percentage of closed issues, etc. GitStats measures each package's
-GitHub repository for the number of binary files, the number of added and
-deleted lines, and the number of commits over varying time intervals. Sloc Cloc
-and Code (scc) measures the number of text files and the number of total, code,
-comment, and blank lines in each GitHub repository. 
+code (LOC), percentage of closed issues, etc.
+\href{https://github.com/tomgi/git_stats}{GitStats} \citep{Gieniusz2019}
+measures each package's GitHub repository for the number of binary files, the
+number of added and deleted lines, and the number of commits over varying time
+intervals. \href{https://github.com/boyter/scc}{Sloc Cloc and Code (scc)}
+\citep{Boyter2021} measures the number of text files and the number of total,
+code, comment, and blank lines in each GitHub repository. 
 
-As in \citet{SmithEtAl2016}, we used Virtual machines (VMs) to provide an
+As in \citet{SmithEtAl2016}, we used Virtual Machines (VMs) to provide an
 optimal testing environment for each package. We used VMs to create fresh
-environments, eliminating worry about existing libraries and conflicts.
+environments, eliminating any worries about existing libraries and conflicts.
 Moreover, when the tests are complete, the VM can be deleted, without impacting
-the host operating system. The most significant advantage of using VMs is to
-level the playing field. Every software install starts from a clean slate, which
-removes ``works-on-my-computer'' errors.
+the host operating system. The most significant advantage of using VMs is that
+they level the playing field. Every software install starts from a clean slate,
+which removes ``works-on-my-computer'' errors.
 
 \subsection{Analytic Hierarchy Process} \label{AHP}
 
@@ -790,8 +788,8 @@ pairwise analysis using a matrix and generates an individual quality scores for
 each software package. \citet{SmithEtAl2016} shows the details on how AHP ranks
 software based on quality measures.
 
-Our ranking uses a tool we developed for conducting the AHP analysis. The tool
-includes a sensitivity analysis to ensure that the software package rankings are
+We use our own simple tool for conducting the AHP analysis. The tool includes a
+sensitivity analysis to ensure that the software package rankings are
 appropriate with respect to the uncertainty of the quality scores. For the
 sensitivity analysis, we modified the score by 10\% for each package and
 verified that the overall ranking was stable.  The
@@ -800,21 +798,19 @@ file for the tool includes requirements and usage information.
 
 \subsection{Interview Developers} \label{SecSurvey}
 
-Several of the research question (\rqref{RQ_CompareToolsProjMngmnt},
-\rqref{RQ_CompareMethodologies}, \rqref{RQ_PainPoints}, \rqref{RQ_Concerns} and
-\rqref{RQ_Recommend}) require going beyond the quantitative data from the
-measurement template. To gain insight, we interviewed developers using a list of
-20 questions from \citet{SmithEtAl2021}. The questions cover the background of
-the development teams, the interviewees, and the software itself. We ask the
-developers how they organize their projects. We also ask about their
-understanding of the users. Some questions focus on the current and past
-difficulties, and the solutions the team has found or will try. We also discuss
-the importance of, and the current situation for, documentation. A few questions
-focus on specific software qualities, such as maintainability,
-understandability, usability, and reproducibility. The interviews are
-semi-structured based on the question list; we ask follow-up questions when
-necessary. Based on our experience, the interviewees often raise exciting and
-unexpected ideas.
+Two of the research question (\rqref{RQ_PainPoints} and \rqref{RQ_Concerns})
+require going beyond the quantitative data from the measurement template. To
+gain insight, we interview developers using a list of 20 questions from
+\citet{SmithEtAl2021}. The questions cover the background of the development
+teams, the interviewees, and the software itself. We ask the developers how they
+organize their projects and about their understanding of the users. Some
+questions focus on the current and past difficulties, and the solutions the team
+has found or will try. We also discuss the importance of, and the current
+situation for, documentation. A few questions focus on specific software
+qualities, such as maintainability, understandability, usability, and
+reproducibility. The interviews are semi-structured based on the question list;
+we ask follow-up questions when necessary. Based on our experience, the
+interviewees often raise exciting and unexpected ideas.
 
 We requested interviews with developers for all 24 packages, except Musubi,
 since we added Musubi after our ethics approval expired. We found the developers
@@ -843,8 +839,8 @@ models, definitions, and assumptions that are common between family members.
 Variabilities are goals, theories, models, definitions, and assumptions that
 differ between family members. Associated with each variability are parameters
 of variation, which summarize the possible values for that variability, along
-with their potential binding time. The binding time is when we specify a value
-for a variability. Binding time options include specification time, build time
+with their potential binding time. The binding time is when a variability is
+assigned a value. Binding time options include specification time, build time
 (when the program compiles) and run time (when the code executes). For the
 current assessment, the packages all have the commonality of using LBM
 techniques to simulate the motion of fluids. Variabilities for LBM packages
@@ -854,12 +850,12 @@ considered, whether reflexive boundaries can be employed, whether the simulation
 handles multi-fluids, whether the simulation handles turbulence, and whether
 complex geometries can be simulated. 
 
-To keep the current presentation focused, we only present the results of our
-shallow domain analysis. We distinguish programs by their variabilities, which
-for research software are often assumptions. Table~\ref{tbl_features} lists the
-variabilities as columns, with the software alphabetically ordered.
-\citet{Michalski2021} provides a detailed analysis of the commonalities and
-variabilities between LBM packages.
+To focus the current presentation, we only present the results of our shallow
+domain analysis. We distinguish programs by their variabilities, which for
+research software are often assumptions. Table~\ref{tbl_features}, which is
+sorted alphabetically, lists the variabilities as columns. \citet{Michalski2021}
+provides a more detailed analysis of the commonalities and variabilities between
+LBM packages.
 
 \begin{table}[ht!]
 	\begin{center}
@@ -919,14 +915,14 @@ For the current assessment, our Domain Expert (and paper co-author) is Dr.\
  Zahra Keshavarz-Motamed, Assistant Professor of Mechanical Engineering at
 McMaster University, Hamilton, Ontario, Canada.  
 
-The Domain Expert has a central role in verifying the list of LBM packages. In
-advance of the first meeting with the Domain Expert, we asked them to create a
-list of top software packages in the domain.  We did this to help the expert get
+The Domain Expert has a central role in verifying the list of packages. In
+advance of the first meeting with the Domain Expert, we ask them to create a
+list of top software packages in the domain.  We do this to help the expert get
 in the right mindset for our meeting.  Moreover, by doing the exercise in
 advance, we avoid the potential pitfall of the expert approving the discovered
-list of software without giving it adequate thought. We asked the Domain Expert,
-via virtual meetings, to vet the collected data and analysis. In particular, we
-asked them to vet the proposed list of software packages and the AHP ranking.
+list of software without giving it adequate thought. We ask the Domain Expert to
+vet the collected data and analysis. In particular, we ask them to vet the
+proposed list of software packages and the AHP ranking.
 
 \section{Ranking Projects Based on Quality Measures} \label{AHPresults}
 
