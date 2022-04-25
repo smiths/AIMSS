@@ -1523,19 +1523,13 @@ potentially adopt.
 \label{Sec_CompareArtifacts}
 
 As part of filling in the measurement template, we listed the artifacts for each
-package, and we then categorized them by frequency. We group the artifacts into
+package, and then categorized them by frequency. We group the artifacts into
 common, uncommon, and rare categories in Table~\ref{artifactspresent}. Common
 artifacts are in 16 to 24 ($>$63\%) of the software packages. Uncommon artifacts
 are in 8 to 15 (30-63\%) and rare artifacts are in 1 to 7 ($<$30\%) of the
 packages.  We answer \rqref{RQ_CompareArtifacts} by comparing the artifacts that
 we observed in LBM repositories to those observed and recommended for research
-software in general. Our comparison may point out areas where some LBM software
-packages fall short of current best practices. This is not intended to be a
-criticism of any existing packages, especially since in practice not every
-project needs to achieve the highest possible quality. However, rather than
-delve into the nuances of which software can justify compromising which
-practices, we will write our comparison under the ideal assumption that every
-project has sufficient resources to match best practices.
+software in general.
 
 \begin{table}[ht!]
 \begin{center}
@@ -1590,7 +1584,7 @@ recommends this artifact.  The last column shows whether the artifact appears in
 the measured set of LBM software, either not at all (blank), commonly (C),
 uncommonly (U) or rarely (R).  We did our best to interpret the meaning of each
 artifact consistently between guidelines and specific MI software, but the
-terminology and the contents of artifacts are not standardized.  The challenge
+terminology and the contents of artifacts are not standardized.  This challenge
 even exists for the ubiquitous README file.  As illustrated by
 \citet{PranaEtAl2018}, the content of README files shows significant variation
 between projects.  Although some content is reasonably consistent, with 97\% of
@@ -1602,10 +1596,10 @@ appear in 27.8\%, 25.7\% and 52.9\% of the analyzed files, respectively
 
 The frequency of checkmarks in Table~\ref{Tbl_Guidelines} indicates the
 popularity of recommending a given artifact, but it does not imply that the most
-commonly recommended artifacts are the most important artifacts. Just because a
-guideline does not explicitly recommend an artifact does not mean that the
-artifact has no value.  The guideline authors may have excluded it because it is
-out of the scope of their recommendations or outside their experience. For
+commonly recommended artifacts are the most important artifacts. Moreover, just
+because a guideline does not explicitly recommend an artifact does not mean that
+the artifact has no value.  The guideline authors may have excluded it because
+it is out of the scope of their recommendations or outside their experience. For
 instance, an artifact related to uninstall is only explicitly mentioned by
 \citet{vanGompelEtAl2016}, but other guideline authors would likely see its
 value.  They may simply feel that uninstall is implied by install, or they may
@@ -1661,24 +1655,20 @@ to Artifacts in LBM Projects (C for Common, U for Uncommon and R for Rare)}
 \end{center}
 \end{table}
 
-The top four packages (ESPREsSo, Ludwig, Palabos, and OpenLB) have all the
-common artifacts, except Palabos does not have theory notes and only three
-(ESPREsSo, Ludwig, Palabos) of the packages appear to use a version control
-system.  The top four packages also have most of the uncommon artifacts. At the
-time of data collection, only one of the four packages (Palabos) did not have a
-user manual or guide, but there was a broken link on the package website
-indicating that such an artifact might exist. The developers later fixed this
-broken link, but this is not reflected in our data because it was not present at
-the time of data collection (mid-2020). Despite the broken link, Palabos does
-have a detailed and informative website. As far as we could observe, Ludwig does
-not appear to have a publicly visible design and OpenLB does not appear to use a
-version control system. However, OpenLB's use of version numbers suggests that
-its developers may privately use version control.
-
-The top four ranked packages do not have many of the rare artifacts. None of the
-top four packages have any explicit API documentation. Three of these packages
-(ESPREsSo, Ludwig, Palabos) have information on contributing to the project. Two
-of them (OpenLB, Palabos) have an FAQ section or forum. One (OpenLB) has
+The top four packages (ESPREsSo, Ludwig, Palabos, and OpenLB) include most of
+the common and uncommon artifacts, but not many of the rare artifacts.  They
+collectively have all the common artifacts, except Palabos does not have theory
+notes, and OpenLB does not appear to use version control.  The top four packages
+have most of the uncommon artifacts. Only one them (Ludwig) is missing design
+information, and only one (Palabos) does not have a user manual.  However, for
+Palabos there was a broken link on the package website indicating that such an
+artifact might exist. The developers later fixed this broken link, but this is
+not reflected in our data because it was not present at the time of data
+collection (mid-2020). Despite the broken link, Palabos does have a detailed and
+informative website. The top four ranked packages do not have many of the rare
+artifacts. None of them have any explicit API documentation. Three of them
+(ESPREsSo, Ludwig, Palabos) have information on contributing to the project and
+two (OpenLB, Palabos) have an FAQ section or forum. One (OpenLB) has
 verification and validation notes, and a video guide for the software. 
 
 Three of the items that appear in Table~\ref{artifactspresent} do not explicitly
@@ -1687,7 +1677,7 @@ ii) performance information and iii) video guides.  The occurrence of the first
 two items in this list are likely more a consequence of how we collected our
 list of LBM artifacts, rather than being a unique practice of LBM developers. We
 highlighted publications and performance information because we were explicitly
-looking for both as part of filling in our measurement template. Related
+looking for both as part of our measurement template. Related
 publications and performance information certainly appear in other research
 software projects; the practices just are not highlighted in guidelines because
 they are implicit in other documentation recommendations, such as theory
@@ -1699,9 +1689,9 @@ effectiveness of learning from print versus video, video documentation is
 growing in popularity, with a majority of Generation Z learners preferring video
 to print \citep{Genota2018}.
 
-As Table~\ref{Tbl_Guidelines} shows, the LBM community participates in most of
-the practices we found listed in the general research software guidelines;
-however, we did not observe, or rarely observed, some recommended practices. For
+As Table~\ref{Tbl_Guidelines} shows, the LBM community participates in most
+practices we found listed in the general research software guidelines; however,
+we did not observe, or rarely observed, some recommended practices. For
 instance, we rarely saw API documentation for LBM software, but it is a
 frequently recommended artifact \citep{SmithAndRoscoe2018, ThielEtAl2020,
 vanGompelEtAl2016, OrvizEtAl2017, SSI2022, Zadka2018}.  In addition to the items
@@ -1723,7 +1713,7 @@ Developers can create a roadmap by the following steps:
 	\item scan the environment, 
 	\item revise and distill the product vision to write the product roadmap, and 
 	\item estimate the product life cycle and evaluate the mix of planned
-development efforts. \end{inparaenum} \citep{VahaniittyEtAl2002}.  A product
+development efforts \end{inparaenum} \citep{VahaniittyEtAl2002}.  A product
 roadmap has the benefits of providing continuity of purpose, facilitating
 stakeholder collaboration and assisting with prioritization \citep{Pichler2012}.
 Although we saw some elements of a roadmap in the LBM projects, we did not
@@ -1738,16 +1728,15 @@ example, ethnicity, gender, or sexual orientation \citep{TouraniEtAl2017}. The
 top three most popular code's of conduct from \citet{TouraniEtAl2017} are:
 \href{https://ubuntu.com/community/code-of-conduct} {Ubuntu Code of Conduct},
 \href{https://www.contributor-covenant.org/version/2/1/code_of_conduct/}
-{Contributor Covenant}, and \href{https://www.djangoproject.com/conduct/} {Django
-Code of Conduct}. \citet{SinghEtAl2021} shows the value of adopting a code of
-conduct on the participation of women. Improved inclusivity means a wider pool
-of potential contributors. Moreover, a code of conduct facilitates meeting
-ethical obligations for developers that abide by a code of ethics, such as the
-IEEE Code of Ethics \citep{IEEE1999}, or the Professional Engineers of Ontario
-code of ethics \citep[p.\ 23--24]{PEO2021}. For the LBM software, we did not
-observe any codes of conduct, possibly because the number of developers for each
-LBM project is small and because the idea has not yet occurred to any of the
-participants.
+{Contributor Covenant}, and \href{https://www.djangoproject.com/conduct/}
+{Django Code of Conduct}. \citet{SinghEtAl2021} shows the value of adopting a
+code of conduct on the participation of women. Improved inclusivity means a
+wider pool of potential contributors. Moreover, a code of conduct facilitates
+meeting ethical obligations for developers that abide by a code of ethics, such
+as the IEEE Code of Ethics \citep{IEEE1999}, or the Professional Engineers of
+Ontario code of ethics \citep[p.\ 23--24]{PEO2021}. For the LBM software, we did
+not observe any codes of conduct, possibly because the number of developers for
+each project is small and because the idea has not yet occurred to them.
 
 \item \textbf{Code style guides} provide rules and guidance on writing code.
 Style guides standardize such elements as naming identifiers, formatting, code
@@ -1772,13 +1761,13 @@ practices.  Some examples include checklists merging branches into master
 \citep{HerouxAndBernholdt2018}, checklists for processes related to commits and
 releases \citep{HerouxEtAl2008} and checklists for overall software quality
 \citep{ThielEtAl2020, SSI2022}.  For LBM software, ESPResSo has a checklist for
-managing releases, but we did not find any other examples.
+managing releases, but we did not see any other examples.
 
 \item \textbf{Uninstall instructions} tell a user how to remove the software and
-associated libraries from their system.  The advantage of uninstall is removing
-files that consume space and potentially pollute the users build system by
-causing conflicts when installing and using other software packages.  We did not
-observe uninstall instructions for any of the LBM projects.
+associated libraries from their system.  Uninstall removes files that consume
+space and potentially pollute the user's build system with potential future
+compilation and linking conflicts.  Only one software package (pyLBM) has
+uninstallation instructions.
 
 \item \textbf{API documentation} shows programmers the services or data provided
 by the software application (or library) through such resources as its methods
@@ -1786,28 +1775,29 @@ or objects \citep{MengEtAl2018}.  API documentation is a critical factor for API
 understandability \citep{MengEtAl2018} (Section~\ref{softwarequalities}). Some
 API documentation can be generated using tools like Doxygen, but when learning a
 new API developers mostly use code examples and tutorials \citep{MengEtAl2018}.
-API documentation was rare within our sample of LBM packages.
+API documentation is rare within our sample of LBM packages.
 
 \end{itemize}
 
 Where data is available, LBM software artifacts can be compared to other
 research software domains.  Compared to ocean modelling software
-\citep{JungEtAl2022}, LBM software pays more attention to artifacts related to
-testing.  Compared to Medical Imaging Software \citep{Dong2021}, the artifact
-frequency is similar, except LBM software is more likely to have developer
-related artifacts, like Contributing, Dependency list, and Design documentation.
+\citep{JungEtAl2022}, LBM software seems to pay more attention to artifacts
+related to testing.  Compared to Medical Imaging Software \citep{Dong2021}, the
+artifact frequency is similar, except LBM software is more likely to have
+developer related artifacts, like Contributing, Dependency list, and Design
+documentation.
 
 Table~\ref{Tbl_Guidelines} shows that many LBM projects fall short of
 recommended best practices for research software.  However, LBM software is not
 alone in this.  Many, if not most, research projects fall short of best
-practices.   A gap exists in scientific computing development practices and
-software engineering recommendations \citep{Storer2017, Kelly2007,
-OwojaiyeEtAl2021_CSE}. \citet{JohansonAndHasselbring2018} observe that the
-state-of-the-practice for SCS in industry and academia does not incorporate
-state-of-the-art SE tools and methods.  This causes sustainability and
-reliability problems \citep{FaulkEtAl2009}. Rather than benefit from capturing
-and reusing previous knowledge, projects waste time and energy ``reinventing the
-wheel'' \citep{deSouzaEtAl2019}. 
+practices.  A gap exists in research software development practices and software
+engineering recommendations \citep{Storer2017, Kelly2007, OwojaiyeEtAl2021_CSE}.
+\citet{JohansonAndHasselbring2018} observe that the state-of-the-practice for
+research software in industry and academia does not incorporate state-of-the-art
+SE tools and methods.  This causes sustainability and reliability problems
+\citep{FaulkEtAl2009}. Rather than benefit from capturing and reusing previous
+knowledge, projects waste time and energy ``reinventing the wheel''
+\citep{deSouzaEtAl2019}. 
 
 Software requirements documentation provides a good example of the common
 deviation between recommendations and practice.  Although some guidelines
@@ -1817,14 +1807,14 @@ produce a proper requirements specification \citep{HeatonAndCarver2015}.
 \citet{SandersAndKelly2008} interviewed 16 scientists from 10 disciplines and
 found that none of the scientists created requirements specifications, unless
 regulations in their field mandated such a document. \citet{Nguyen-HoanEtAl2010}
-showed requirements are the least commonly produced type of documentation for
+shows requirements are the least commonly produced type of documentation for
 research software in general. When looking at the pain points for research
-software developers, \citet{WieseEtAl2019} found that software requirements and
+software developers, \citet{WieseEtAl2019} state that software requirements and
 management is the software engineering discipline that most hurts scientific
 developers, accounting for 23\% of the technical problems reported by study
 participants.  The lack of support for requirements is likely due to the
 perception that up-front requirements are impossible for research software
-\citep{CarverEtAl2007,SegalAndMorris2008}, but when we drop the insistence on
+\citep{CarverEtAl2007, SegalAndMorris2008}, but when we drop the insistence on
 ``up-front'' requirements, allowing the requirements to be written
 iteratively and incrementally, requirements are feasible \citep{Smith2016}.
 
