@@ -1207,7 +1207,8 @@ issues closed. Table~\ref{gitrepodata} presents this information. With respect
 to the host for the git repository, 13 packages use GitHub and two (Palabos,
 waLBerla) use GitLab. Of the other packages, one package (SunlightLB) uses CVS
 for issue tracking and version control, and seven do not appear to use any issue
-tracking system.
+tracking system.  Assuming the use of GitHub, GitLab or CVS implies the use of
+version control, 16 of 24 (67\%) of projects use version control.
 
 \begin{table}[ht!]
 	\begin{center}
@@ -1823,11 +1824,11 @@ iteratively and incrementally, requirements are feasible \citep{Smith2016}.
 
 Developers use software tools to support the development, verification,
 maintenance, and evolution of software, software processes, and artifacts
-\citep[p.\ 501]{GhezziEtAl2003}. Table~\ref{tbl_tools} summarizes the tools,
-subdivided into development tools, dependencies, and project management tools.
-In this section we answer \rqref{RQ_CompareToolsProjMngmnt} by comparing aspects
-of tool usage in LBM software packages to their use in the research software
-community in general.
+\citep[p.\ 501]{GhezziEtAl2003}. Table~\ref{tbl_tools} summarizes the observed
+tools, subdivided into development tools, dependencies, and project management
+tools. In this section we answer \rqref{RQ_CompareToolsProjMngmnt} by comparing
+aspects of tool usage in LBM software packages to their use in the research
+software community in general.
 
 \begin{table}[ht!]
 	\begin{center}
@@ -1854,12 +1855,12 @@ Development tools support the development of end products, but do not become
 part of them, unlike dependencies that remain in the application once it is
 released \citep[p.\ 506]{GhezziEtAl2003}. Although not shown in
 Table~\ref{tbl_tools}, developers also likely use debuggers.  Only three
-(ESPResSo, Ludwig and Musubi) packages mentioned CI tools, like Travis CI.
-Several packages explicitly noted code editors and compilers, but likely all
-packages use them. One of the packages (Ludwig) explicitly noted the use of
-proprietary unit testing code written in C. Likewise, one of the developers
-(pyLBM) noted the use of proprietary code for verifying the correctness of
-output. Developers of other packages likely used similar tools.
+(ESPResSo, Ludwig and Musubi) packages mention CI tools, like Travis CI. Several
+packages explicitly note code editors and compilers, but likely all packages use
+them. One of the packages (Ludwig) explicitly notes the use of proprietary unit
+testing code written in C. Likewise, one of the developers of pyLBM mentions the
+use of proprietary code for verifying the correctness of output. Developers of
+other packages likely use similar tools.
 
 For the dependency tools (Table~\ref{tbl_tools}), we observe that most of the
 software packages use some sort of build automation tools, most commonly Make.
@@ -1869,51 +1870,50 @@ analysis (e.g.,\ Anaconda, Torch), and message passing libraries (e.g.,\ MPICH,
 Open MPI, PyZMQ). Domain specific libraries include research software libraries
 (e.g.,\ SciPy).
 
-Many of the software packages that were assessed were developed by teams of two
-or more people. Their work needed to be coordinated and managed.
-Table~\ref{tbl_tools} shows the types of project management tools that were
-explicitly noted in the artifacts, webpages, or interviews with the developers.
-As with development tools and dependencies, developers may use other types of
-project management tools, but they were not visible in the artifacts to which we
-had access.  Collaboration tools, most often email and video, are noted as being
-used when developing software projects. Our interviewees did not mention project
-management software, but the sample is not large enough to rule out other
-projects using such software. GitHub is the home for many of the projects.
+Many of the software packages have teams of two or more. Their work needs to be
+coordinated and managed. Table~\ref{tbl_tools} shows the types of project
+management tools that were explicitly noted in the artifacts, webpages, or
+interviews with the developers. As with development tools and dependencies,
+developers may use other types of project management tools, but they were not
+visible in the artifacts to which we had access.  For collaboration tools the
+most often observed are email and video. Our interviewees did not mention
+project management software, but our sample is not large enough to rule out
+other projects using such software. GitHub is the home for many of the projects.
 Developers use the platform to help manage their projects, especially bug
 related issues. Most of the projects appear to use change tracking and version
 control tools. Half of the packages mention document generation tools, like
 Sphinx and Doxygen.
 
-Based on information provided by \citet{JungEtAl2022}, tool usage for
-LBM software has much in common with tool usage for ocean modelling
-software.  Both use tools for editing, compiling, code management, testing,
-building, and project management.  From the data available, ocean modelling
-differs from LBM software in its use of Kanban boards for project management.
-LBM software difference from the ocean domain through the use of continuous
-integration, and document generation tools.
+Based on information provided by \citet{JungEtAl2022}, tool usage for LBM
+software has much in common with tool usage for ocean modelling software.  Both
+use tools for editing, compiling, code management, testing, building, and
+project management.  From the data available, ocean modelling differs from LBM
+in its use of Kanban boards for project management. LBM software differs from
+the ocean modelling through the use of continuous integration, and document
+generation.
 
 \subsection{Version Control Usage Compared to Research Software in General}
 
 The poor adoption of version control tools that Wilson lamented in 2006
 \citep{Wilson2006} has greatly improved in the intervening years.  From
 Section~\ref{Sec_Maintainability}, 67\% of LBM packages use version control
-(GitHub, GitLab, or CVS).  (From Table~\ref{gitrepodata}, 11/15 or 73\% of alive
-packages use version control.)  The proliferation of version control tools for
-LBM matches the increase in the broader research software community.
-\citet{Nguyen-HoanEtAl2010} estimated a little over 10 years ago that only 50\%
-of research software projects use version control, but even at that time
-\citet{Nguyen-HoanEtAl2010} noted an increase from previous usage levels. A
-survey in 2018 shows 81\% of developers use a version control system
-\citep{AlNoamanyAndBorghi2018}.  \citet{Smith2018} has similar results, showing
-version control usage for alive projects in mesh generation, geographic
-information systems and statistical software for psychiatry increasing from
-75\%, 89\% and 17\% (respectively) to 100\%, 95\% and 100\% (respectively) over
-a 4-year period ending in 2018.  (For completeness the same study showed a
-decrease in version control usage for seismology software over the same time
-period, from 41\% down to 36\%).  Almost every software guide cited in
-Section~\ref{Sec_CompareArtifacts} includes the advice to use version control.
-The high usage of version control tools in LBM software matches the trend in
-research software in general.
+(GitHub, GitLab, or CVS). If we restrict our attention to alive packages,
+Table~\ref{gitrepodata}, shows 11/15 or 73\% of alive packages use version
+control. The proliferation of version control tools for LBM matches the increase
+in the broader research software community. \citet{Nguyen-HoanEtAl2010}
+estimated a little over 10 years ago that only 50\% of research software
+projects use version control, but even at that time they noted an increase from
+previous usage levels. A survey in 2018 shows 81\% of developers use a version
+control system \citep{AlNoamanyAndBorghi2018}. \citet{Smith2018} has similar
+results, showing version control usage for alive projects in mesh generation,
+geographic information systems and statistical software for psychiatry
+increasing from 75\%, 89\% and 17\% (respectively) to 100\%, 95\% and 100\%
+(respectively) over a 4-year period ending in 2018.  (For completeness the same
+study showed a decrease in version control usage for seismology software over
+the same time period, from 41\% down to 36\%).  Almost every software guide
+cited in Section~\ref{Sec_CompareArtifacts} includes the advice to use version
+control. The high usage of version control tools in LBM software matches the
+trend in research software in general.
 
 \subsection{CI Usage Compared to Research Software in General}
 
@@ -1925,18 +1925,18 @@ guidelines
 \citep{BrettEtAl2021, Brown2015, ThielEtAl2020, Zadka2018, vanGompelEtAl2016}
 and its popularity with non-research software. \citet{HiltonEtAl2016} show CI
 usage across a large sample of GitHub projects (34,544 projects) is at least
-40\%, with more popular projects (as measured by stars), having even higher
-usage rates. Moreover, \citet{HiltonEtAl2016} predict that CI adoption rates for
+40\%, with more popular projects (as measured by stars), having rates up to
+70\%. Moreover, \citet{HiltonEtAl2016} predict that CI adoption rates for
 open-source projects will increase even further in the future.  We could not
 find published data on the CI usage rates for research software in general.
 However, we saw 17\% utilization in the specific domain of imaging software
 \citep{Dong2021}, which is comparable to the LBM usage rate. Our impression is
 that medical imaging software and LBM software are not unique --- most research
 software domains likely lag behind the best practice recommendations, and
-non-research software usage rates, for continuous integration.
+non-research software usage rates, for CI.
 
-CI is the process of building and testing software on every push to the code
-repository, with pushes done very frequently \citep[p.\ 13]
+Continuous integration is the process of building and testing software on every
+push to the code repository, with pushes done very frequently \citep[p.\ 13]
 {HumbleAndFarley2010}, \citep{ShahinEtAl2017, Fowler2006}.  CI consists of the
 following elements:
 \begin{itemize}
@@ -1961,16 +1961,14 @@ following elements:
 	automation if they wish to pursue CI.  The usual advice for CI is to keep
 	the build and test process short \citep[p.\ 60]{HumbleAndFarley2010}. Given
 	that LBM can be computationally expensive, the tests run with every check-in
-	may need to focus on simple code interface tests, saving larger more complex
-	tests for less frequent runs.  A more sophisticated option for when tests
-	create a bottleneck for merges is CIVET (Continuous Integration,
-	Verification, Enhancement, and Testing), which solves this problem by
-	intelligently pinning, cancelling, and if necessary, restarting jobs as
-	merges occur, so that two merges are being tested at all times
-	\citep{SlaughterEtAl2021}.
+	may need to focus on simple code interface tests, saving large tests for
+	less frequent runs.  A more sophisticated option to address the bottleneck
+	for merges is CIVET (Continuous Integration, Verification, Enhancement, and
+	Testing), which solves this problem by intelligently pinning, cancelling,
+	and if necessary, restarting jobs as merges occur \citep{SlaughterEtAl2021}.
 	\item An automated system for other tasks, such as code checking,
 	documentation building and web-site updating.  These other tasks are not
-	essential parts of CI, but they can be incorporated to improve the quality
+	essential to CI, but they can be incorporated to improve the quality
 	of the code and the communication between developers and users. For
 	instance, a static analysis (possibly via linters) of the code may find poor
 	programming practice or lack of adherence to adopted coding standards.
@@ -2013,12 +2011,12 @@ physically or virtually) exists with tools such as
 \href{https://www.jenkins.io/} {Jenkins}, \href{http://buildbot.net/}
 {Buildbot}, \href{https://www.gocd.org/} {Go}, and
 \href{http://integrity.github.io/} {Integrity}. However, installation on your
-own server is not necessary since there are many hosted CI tool solutions
+own server is unnecessary since there are many hosted CI tool solutions
 available, such as: \href{https://travis-ci.org/} {Travis CI},
 \href{https://github.com/features/actions} {GitHub Actions} and
 \href{https://circleci.com/} {CircleCI}.  Getting started with a hosted CI is
-straightforward.  All that is required to begin is editing a few lines of a
-simple YAML configuration file in the project's root directory.
+straightforward.  All that is required to begin is editing a few lines of a YAML
+configuration file in the project's root directory.
 
 Challenges that exist for adopting CI include lack of awareness and
 transparency, coordination and collaboration challenges, lack of expertise and
@@ -2033,26 +2031,26 @@ development into smaller units \citep{ShahinEtAl2017}.
 \section{Comparison of Principles, Process, and Methodologies to Research Software in General} \label{Sec_CompareMethodologies}
 
 We answer research question \rqref{RQ_CompareMethodologies} by comparing the
-principles, processes, and methodologies used for LBM software to what can be
-gleaned from the literature on research software in general. Our measured data
-on LBM software artifacts does not explicitly indicate the development process.
-However, during our interviews one developer (ESPResSo) told us their
-non-rigorous development model is like a combination of agile and waterfall.
-Employing a loosely defined process makes sense for LBM software, given that the
-teams are generally small and self-contained.  Although eleven of the packages
-explicitly convey that they would accept outside contributors, teams are
-generally centralized, often working at the same institution. Working at the
-same institution means that an informal process can show success, since informal
-conversations are relatively easy to have.
+principles, processes, and methodologies used for developing LBM software to
+those used for research software in general. Our measured data on LBM software
+artifacts does not explicitly indicate the development process. However, during
+our interviews one developer (ESPResSo) told us their non-rigorous development
+model is like a combination of agile and waterfall. Employing a loosely defined
+process makes sense for LBM software, given that the teams are generally small
+and self-contained.  Although eleven of the packages explicitly convey that they
+would accept outside contributors, teams are generally centralized, often
+working at the same institution. Working at the same institution means that an
+informal process can show success, since informal conversations are relatively
+easy to have.
 
-Interviews with developers confirmed a similar project management process. In
-teams of only a couple of developers, the entire team discusses additions of new
-features or major changes. Projects with more than a couple developers have lead
-developer roles. These lead developers review potential additions to the
-software. One of the developers (ESPResSo) noted that they use an ad hoc peer
-review process to assess major changes and additions. Using peer review (also
-called technical review) matches with recommended practice for research software
-\citep{HerouxEtAl2008, Givler2020, OrvizEtAl2017, USGS2019}.
+Our interviews with LBM developers confirmed a similar project management
+process. In teams of only a couple of developers, the entire team discusses
+additions of new features or major changes. Projects with more than a couple
+developers have lead developer roles. These lead developers review potential
+additions to the software. One of the developers (ESPResSo) noted that they use
+an ad hoc peer review process to assess major changes and additions. Using peer
+review (also called technical review) matches with recommended practice for
+research software \citep{HerouxEtAl2008, Givler2020, OrvizEtAl2017, USGS2019}.
 
 During our interviews, we discussed two types of software changes. One is
 feature additions, which arise from a scientific or functional need. These
@@ -2080,7 +2078,7 @@ sacrificing performance. The Sailfish documentation explicitly lists the goals
 of performance, scalability, agility and extendability, maintenance, and ease of
 use. The project scored well in these categories during our assessment.  The
 quality priorities for Sailfish roughly match the priorities observed for
-research software in general. \citet{Nguyen-HoanEtAl2010} surveyed developers to
+research software in general. \citet{Nguyen-HoanEtAl2010} surveys developers to
 find the following list of qualities, in decreasing order of importance:
 reliability, functionality, maintainability, availability, performance,
 flexibility, testability, usability, reusability, traceability, and portability.
@@ -2097,14 +2095,8 @@ goal of documentation is to lower the entry barrier for these new contributors.
 The documentation provides information on how to get started, orients the user
 to artifacts and the source code, and explains how the system works, including
 the so-called simulation engine and interface.  This emphasis on documentation,
-especially for new developers, is echoed in research software guidelines.
-Multiple guidelines recommend a document explaining how to contribute to a
-project, often named CONTRIBUTING \citep{Yo2021, BrettEtAl2021, WilsonEtAl2016,
-ThielEtAl2020, vanGompelEtAl2016, OrvizEtAl2017, FLOSS2022, JimenezEtAl2017}.
-Tutorials \citep{ThielEtAl2020}, troubleshooting guides \citep{OrvizEtAl2017,
-SSI2022} and quick start examples \citep{ThielEtAl2020, vanGompelEtAl2016} are
-also recommended.  \citet{SmithAndRoscoe2018} suggests including instructions
-specifically for on-boarding new developers. For open source software in general
+especially for new developers, is echoed in research software guidelines
+summarized in Table~\ref{Tbl_Guidelines}. For open source software in general
 (not just research software), \citet{Fogel2005} recommends providing tutorial
 style examples, developer guidelines, demos, and screenshots.
 
@@ -2134,7 +2126,7 @@ effort, are as follows:
 	\item Rigorously document the design following the template for a Module
 	Guide (MG) \citep{ParnasEtAl1984}.  An MG organizes the modules in a
 	hierarchy by their secrets. The application of the Parnas approach to
-	scientific software has been illustrated by applying it to the example of a
+	research software has been illustrated by applying it to the example of a
 	mesh generator \citep{SmithAndYu2009}.
 	\item Graphically represent the design using Unified Modelling Language
 	class diagrams.  This approach is suited to object-oriented design and
@@ -2146,8 +2138,9 @@ effort, are as follows:
 	programs.  This shows the interface that can used to access each module's
 	services.
 	\item Document the Module Interface Specification (MIS)
-	\citep{HoffmanAndStrooper1995}. An MIS is an abstract model that 
-	formally shows the state variables, inputs and outputs
+	\citep{HoffmanAndStrooper1995}. An MIS is an abstract model that formally
+	shows each module's access programs and the associated transitions and
+	outputs based on their state, environment, and input variables
 	\citep{ElSheikhEtAl2004, SmithAndYu2009}.
 \end{itemize}
 
@@ -2291,13 +2284,13 @@ each.
 
 \section{Lessons from LBM Developers} \label{Sec_AddressConcerns}
 
-This section summarizes the best practices from LBM developers that are taken to
-address the pain points mentioned in Section~\ref{painpoints}.  The main source
-of information is the qualitative data from developer interviews
-(Section~\ref{SecSurvey}).  The practices summarized in this section can
-potentially be emulated by the LBM software packages that do not currently
-follow them.  Moreover, these practices may also provide examples that can be
-followed by other research software domains.
+This section answers \rqref{RQ_Concerns} by summarizing the best practices LBM
+developers take to address the pain points mentioned in
+Section~\ref{painpoints}.  The main source of information is the qualitative
+data from developer interviews (Section~\ref{SecSurvey}).  The practices
+summarized in this section can potentially be emulated by the LBM software
+packages that do not currently follow them.  Moreover, these practices may also
+provide examples that can be followed by other research software domains.
 
 \subsection{Design For Change} \label{Sec_DesForChange}
 
