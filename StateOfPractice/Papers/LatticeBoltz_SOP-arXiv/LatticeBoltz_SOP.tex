@@ -1165,7 +1165,8 @@ user characteristics. Users are typically scientists or engineers. Their
 background is often physics, chemistry, biophysics, or mathematics. All projects
 (except LIMBES) have a user support model, and many of them have multiple
 avenues of user support. The most popular avenue of support is Git, followed by
-email and forums. One software package (OpenLB) has an FAQ page.    
+email and forums. One software package (OpenLB) has an FAQ (Frequently Asked
+Questions) page.    
 
 \begin{figure}[h!]
 	\begin{center}
@@ -2087,7 +2088,7 @@ assume those are implicitly high priorities for any scientific project.  In
 earlier studies \citet{KellyAndSanders2008} and \citet{CarverEtAl2007} highlight
 how important correctness is for research software.
 
-\subsection{Documentation as Part of the Development Process}
+\subsection{Documentation as Part of the Development Process} \label{Sec_DocInDevProc}
 
 During our interviews, developers noted that documentation plays a significant
 role in the development process, specifically with on-boarding new developers. A
@@ -2188,7 +2189,7 @@ each.
 	received training in software development.  The LBM developer suggesting an
 	increasing role for formal software education matches the trend observed by
 	\citet{PintoEtAl2018}, where their replication of a previous study
-	\citep{HannayEtAl2009}, shows a growing interest in formal training (From
+	\citep{HannayEtAl2009}, shows a growing interest in formal training (from
 	13\% of respondents in 2009 to 22\% in 2018). \citet{PintoEtAl2018} found
 	that some developers feel there is a mismatch between coding skills and
 	subject-matter skills. 
@@ -2314,15 +2315,17 @@ the model.  We also learned that the package pyLBM redeveloped data structures
 to ease future changes. The developer of TCLB noted that their design allows for
 the addition of some LBM features, but changes to major aspects of the system
 would be difficult. For example, ``implementing a new model will be an easy
-contribution'', but changes to the ``Cartesian mesh … will be a nightmare''.
-The design of TCLB highlights that not every conceivable change needs to be
-supported, only the likely changes.
+contribution'', but changes to the ``Cartesian mesh … will be a nightmare''. The
+design of TCLB highlights that not every conceivable change needs to be
+supported, only the likely changes.  
 
 As the LBM developers illustrate, they accomplish design for change by first
 identifying likely changes, either implicitly or explicitly, and second by
 hiding each likely change behind a well-defined module interface.  Although it
 is unclear whether the developers are aware of Parnas's work, the approach
-mirrors his recommendations \citep{Parnas1972a}.
+mirrors his recommendations \citep{Parnas1972a}. Section~\ref{Sec_DocInDevProc}
+lists ideas for how to document the design, including the likely changes, so
+that they are more visible to others.
 
 \subsection{Circumventing the Oracle Problem and Addressing Reproducibility}
 \label{SecReproducibility}
@@ -2367,7 +2370,7 @@ self-diagnostics of reproducibility in the code \citep{BenureauAndRougier2017}.
 Although documentation is difficult (as mentioned under pain point
 \ppref{P_Documentation}), some LBM developers have realized that prioritizing
 time on documentation provides a justifiable return on investment. For instance,
-the interviewed developer of ESPResSo noted that all major additions to their
+the interviewed developer of ESPResSo said that all major additions to their
 package had accompanying changes to artifacts and documentation. They put
 considerable time into their documentation. They further commented that their
 goal was to lower the entry barrier for new developers, which meant providing
@@ -2397,10 +2400,11 @@ Furthermore, LBM developers use documentation to address usability challenges
 	\item Use documentation generators, like Doxygen, as done (for instance) by
 	OpenLB.  Sections~\ref{SecSurfCorrectAndVerifiab} and~\ref{Sec_CompareTools}
 	give more details on the packages that use generators.
-	\item Provide an explanation of theoretical principles through the user interface.
+	\item Provide an explanation of theoretical principles through the user
+	interface.
 	\item Add guards in the code to test user inputs for compatibility before
 	proceeding with the calculations.
-	\item Include documentation on FAQ (Section~\ref{Sec_CompareArtifacts}).
+	\item Include an FAQ (Section~\ref{Sec_CompareArtifacts}).
 \end{itemize}
 
 \section{Recommendations for Future Practices} \label{Sec_Recommendations}
