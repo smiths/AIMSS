@@ -1916,7 +1916,7 @@ cited in Section~\ref{Sec_CompareArtifacts} includes the advice to use version
 control. The high usage of version control tools in LBM software matches the
 trend in research software in general.
 
-\subsection{CI Usage Compared to Research Software in General}
+\subsection{CI Usage Compared to Research Software in General} \label{Sec_CI}
 
 As mentioned in Section~\ref{SecSurfCorrectAndVerifiab}, LBM developers rarely
 uses CI (3 of 24 packages or 12.5\%), although interviews with developers
@@ -2416,18 +2416,18 @@ should be done now; they are suggestions for consideration in the future. We
 will not be repeating previously discussed ideas here, such as CI, documentation
 of APIs, etc.  Our aim is to mention ideas that are at least somewhat beyond
 conventional best practices. The ideas listed here have the potential to become
-best practices in the medium to long-term. The ideas below are roughly in the
-order of increasing novelty.
+best practices in the medium to long-term. The ideas in the following
+subsections are roughly in the order of increasing implementation effort.
 
 \subsection{Employ Linters} \label{Sec_Linters}
 
 Except for \citet{ThielEtAl2020}, the research software guidelines that we
-consulted do not mention linters.  However, we believe that linters have the potential
-to improve code quality at a relatively low cost.  A linter is a tool that
-statically analyzes code to find programming errors, stylistic inconsistencies
-and suspicious constructs \citep{Wikipedia2022_Lint}. Linters can be used to
-spot check code files, or even better as part of a continuous integration
-system, as discussed in Section~\ref{Sec_CompareTools}.  
+consulted do not mention linters.  However, we believe that linters have the
+potential to improve code quality at a relatively low cost.  A linter is a tool
+that statically analyzes code to find programming errors, stylistic
+inconsistencies and suspicious constructs \citep{Wikipedia2022_Lint}. Linters
+can be used to spot check code files, or even better as part of a continuous
+integration system, as discussed in Section~\ref{Sec_CI}.  
 
 A sample of the potential benefits of linters include: finding memory leaks,
 finding potential bugs, standardizing code with respect to formatting, improving
@@ -2440,10 +2440,10 @@ Linters can address the pain points for LBM developers.  For instance, a linter
 can decrease the amount of development time (\ppref{P_LackDevTime}) by
 decreasing the number of mundane mistakes programmers have to catch.  Since the
 linter can include rules that capture the wisdom of senior programmers, it can
-help newer developers avoid common mistakes (\ppref{P_LackSoftDevExp}).
-Although there do not appear to be many linters for checking parallel
-programming mistakes (\ppref{P_TechnologyHurdles}), Parallel Lint is an option
-for OpenMP. Consistently using a linter can guard against some technical debt
+help newer developers avoid common mistakes (\ppref{P_LackSoftDevExp}). Although
+there are not many linters for checking parallel programming mistakes
+(\ppref{P_TechnologyHurdles}), Parallel Lint is an option for OpenMP.
+Consistently using a linter can guard against some technical debt
 (\ppref{P_TechDebt}). Although linters are tools for code analysis, similar
 ideas can be applied to ``lint'' documentation to ensure adherence to basic
 rules.  The use of tools to check documentation is a partial explanation for the
@@ -2462,7 +2462,7 @@ efficiency \citep{EbertAndJones2009, Jones2008}.  A formal code inspection
 involves asking the reviewer to either follow a review checklist (check
 consistency of variable names, look for terminating loops, etc.), or perform
 specific review tasks (like summarize the purpose of the code, create a data
-dictionary for the module assigned, cross-reference the code to the technical
+dictionary for a given module, cross-reference the code to the technical
 manual, etc.) The task based inspection approach has been effectively used for
 research software, as described by \citet{KellyAndShepard2000}. Task based
 inspection is an ideal fit with an issue tracking system, like GitHub.  The
@@ -2472,24 +2472,25 @@ members to test installation instructions and getting-started tutorials.
 
 Rigorous peer review addresses the same pain points as linters
 (Section~\ref{Sec_Linters}): \ppref{P_LackDevTime}, \ppref{P_LackSoftDevExp},
-\ppref{P_TechnologyHurdles}, \ppref{P_TechDebt} and \ppref{P_Correctness}. Peer
-review addresses these pain points by efficiently searching for defects and
-problems.
+\ppref{P_TechnologyHurdles}, and \ppref{P_TechDebt}. Peer review addresses these
+points by efficiently searching for defects and problems.  Finding
+misunderstandings in of how the code implements the required theory improves the
+software's correctness (\ppref{P_Correctness}).
 
 \subsection{Write and Submit More Papers on Software} \label{Sec_MorePapers}
 
 To address the pain point of a lack of funding (\ppref{P_LackFunding}), LBM
 developers should watch for new opportunities to publish their research software
-source code. For instance, the Journal of Open Source Software (JOSS) reviews
-and publishes articles that credit the scholarship contained in the software
-itself \citep{SmithEtAl2018-joss}.  \citet{SmithEtAl2016-softcite} presents a
-set of software citation principles that may encourage broad adoption of a
-consistent policy for software citation across disciplines and venues.
+source code. For instance, the Journal of Open Source Software (JOSS)
+\citep{SmithEtAl2018-joss} reviews and publishes articles that credit the
+scholarship contained in the software itself.  \citet{SmithEtAl2016-softcite}
+presents a set of software citation principles that may encourage broad adoption
+of a consistent policy for software citation across disciplines and venues.
 \citet{ChueHongEtAl2019} provides a software citation checklist for developers
 to make a release of their software citable.  \citet{KatzEtAl2021} provides
 further guidance on software citation.  Another option is to use GitHub for
 citation, since it is relatively easy to add metadata to repositories and to
-generate citations for those repositories \citet{Smith2021-CitationsOnGitHub}.
+generate citations for those repositories \citep{Smith2021-CitationsOnGitHub}.
 
 \subsection{Follow Advice From the Open-Source Community to Grow the Number of Contributors} \label{Sec_GrowContributors}
 
@@ -2544,7 +2545,7 @@ as follows:
 To address the pain point of ensuring correctness (\ppref{P_Correctness}),
 Section~\ref{SecReproducibility} outlined techniques that LBM developers use to
 circumvent the oracle problem for testing.  Additional techniques to build
-system tests are as follows \citep{Smith2016}: 
+confidence in correctness are as follows \citep{Smith2016}: 
 
 \begin{itemize}
 
@@ -2572,13 +2573,14 @@ system tests are as follows \citep{Smith2016}:
 
 \subsection{Augment Theory Manuals to Include Requirements Information} \label{Sec_AugTheoryMans}
 
-As discussed in Section~\ref{Sec_CompareArtifacts}, developers rarely write requirements specifications for research software. Although a full requirements
-specification has advantages \citep{SmithEtAl2007, SmithAndLai2005},
-given the lack of development time (\ppref{P_LackDevTime}), we recommend the
-intermediate step of augmenting the existing theory manuals with some
-requirements information.  Table~\ref{artifactspresent} shows that theory
-documentation is common.  We observed 17 of 24 packages had at least some theory
-documentation. Templates for scientific requirements, like \citet{SmithEtAl2007,
+As discussed in Section~\ref{Sec_CompareArtifacts}, developers rarely write
+requirements specifications for research software. Although a full requirements
+specification has advantages \citep{SmithEtAl2007, SmithAndLai2005}, given the
+lack of development time (\ppref{P_LackDevTime}), we recommend the intermediate
+step of augmenting the existing theory manuals with some requirements
+information.  Table~\ref{artifactspresent} shows that theory documentation is
+common.  We observed 17 of 24 packages had at least some theory documentation.
+Templates for scientific requirements, like \citet{SmithEtAl2007,
 SmithAndLai2005}, show theory is a significant part of the requirements
 documentation. With the addition of some extra information, the theory documents
 can be transformed into requirements specification.  The key extra information
@@ -2591,9 +2593,9 @@ of a requirement specification, information could be added like prioritizing the
 nonfunctional requirements (to show the relative importance between qualities
 like portability, reliability, and performance) and traceability information (to
 show the consequences of changes to the assumptions). Spending time to
-incorporate additional information in the theory manuals should help address the
-quality of existing documentation (\ppref{P_Documentation})  and improve the
-software's usability (\ppref{P_Usability}).
+incorporate additional information in the theory manuals should improve the
+software's usability (\ppref{P_Usability}) and help address the quality of
+existing documentation (\ppref{P_Documentation}).
 
 \subsection{Improve Re-runnability, Repeatability, Reproducibility, and Replicability} 
 \label{Sec_Reproducibility}
@@ -2615,7 +2617,7 @@ prioritizing four increasingly sophisticated levels of replication.
 	improve re-runnability.
 	
 	\item[Repeatability] means producing the same output over successive runs of
-	a program.  As was pointed out during our developer interviews, this can be
+	a program.  As pointed out during our developer interviews, this can be
 	difficult for LBM software because of dependence on probability
 	distributions.  However, deterministic output is important for testing
 	purposes and for debugging problematic code.  For LBM software repeatability
@@ -2681,7 +2683,8 @@ DSM to High Performance Computing (HPC), using UML (Unified Modelling Language)
 for their domain models. Unlike previous DSM work, the current recommendation
 focuses on generating all software artifacts (requirements, design, etc.), not
 just code.  \citet{SzymczakEtAl2016} presents initial work on this ``generate
-all things'' approach and \citep{CaretteEtAl2021-Drasil} provides a prototype.
+all things'' approach, \citet{SmithAndCarette2021-BRIC} presents a motivating
+example, and \citep{CaretteEtAl2021-Drasil} provides a prototype.
 
 A DSM approach addresses multiple pain points.  For instance, once the
 infrastructure is in place, a DSM can decrease the amount of development time
@@ -2985,8 +2988,8 @@ recommendations for potential future directions
 	\item Conduct rigorous peer reviews to address \ppref{P_LackDevTime},
 	\ppref{P_LackSoftDevExp}, \ppref{P_TechnologyHurdles} and
 	\ppref{P_TechDebt}.	(Section~\ref{Sec_PeerReview})
-	\item Write and submit papers on software to address \ppref{P_LackFunding}.
-	(Section~\ref{Sec_MorePapers})
+	\item Write and submit papers on software, to journals like JOSS, to address
+	\ppref{P_LackFunding}. (Section~\ref{Sec_MorePapers})
 	\item Apply advice from the open-source community on how to grow the number
 	of contributors to address \ppref{P_LackDevTime}.
 	(Section~\ref{Sec_GrowContributors})
