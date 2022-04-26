@@ -1103,7 +1103,7 @@ five ranked packages have tutorials. The package pyLBM broke during tutorial
 testing, but a descriptive error message helped in recovery. Nine of the top 10
 packages are alive. 
 
-\subsection{Surface Robustness}
+\subsection{Surface Robustness} \label{Sec_Robustness}
 
 Robustness testing includes handling unexpected input, such as incorrect data
 types, empty input, and missing files or links. A reasonable response, including
@@ -2706,21 +2706,20 @@ rather than an afterthought.
 
 \section{Threats To Validity} \label{threats}
 
-Our threats to validity categories come from an analysis of software engineering
-secondary studies by \citet{AmpatzoglouEtAl2019}.  We use the classification of
-\citet{AmpatzoglouEtAl2019} because studying a collection of software is a form
-of secondary study, where a secondary study analyzes the data from a set of
-primary studies.  A common example of a secondary study is a systematic
-literature review.  Our methodology is essentially a systematic software review
---- the primary studies are the software, and our work collects and analyzes
-these primary studies.
+Our categories for threats to validity come from an analysis of software
+engineering secondary studies by \citet{AmpatzoglouEtAl2019}, where a secondary
+study analyzes the data from a set of primary studies.  We use the
+classification of \citet{AmpatzoglouEtAl2019} because a common example of a
+secondary study is a systematic literature review. Our methodology is
+essentially a systematic software review --- the primary studies are the
+software packages, and our work collects and analyzes these primary studies.
 
 \subsection{Reliability}
 
 A study is reliable if its data and analysis are independent of the specific
 researcher(s) doing the study.  That is, repetition of the study by a different
 researcher should achieve the same results, as long as they use the same
-methodology \citep{AmpatzoglouEtAl2019}.  For our study the identified
+methodology \citep{RunesonAndHost2009}.  For our study the identified
 reliability related threats include the following:
 
 \begin{itemize}
@@ -2742,65 +2741,66 @@ comparisons in the AHP results will be consistent between graders.
 \subsection{Construct Validity}
 
 Construct validity means that adopted metrics represent what they are intended
-to measure \citep{AmpatzoglouEtAl2019}. The construct validity related threats
+to measure \citep{RunesonAndHost2009}. The construct validity related threats
 for the LBM study include the following:
 
 \begin{itemize}
-\item Our approximation of popularity by stars and watches
-(Section~\ref{repmetrics}) may not be valid. 
-\item Our overall AHP ranking makes the unrealistic assumption of equal
-weighting between qualities (Section~\ref{Sec_OverallQuality}).
-\item The measure of surface robustness in only based on two pieces of data per
-project. The measurement of robustness could be expanded, as it currently only
-measures the impact of unexpected input. Other intentional faults could be
-introduced, but this would require a larger investment of measurement time. 
-\item Reusability (Section~\ref{reusabilityresults}) is assessed via the number
-of code files and LOC per file. While this measure is indicative of modularity,
-it is possible that some packages have many files, with few LOC, but the files
-do not contain source code that is easily reusable. The formatting may be poor,
-or the source code may be vague and have ambiguous identifiers. 
-\item We may have inaccurately estimated maintainability by assuming a higher
-ratio of comments to source code improves maintainability
-(Section~\ref{Sec_Maintainability}). 
-\item The measurement of understandability
-(Section~\ref{Sec_SurfUnderstandability}) relies on 10 random source code files.
-By random chance, the 10 files that were chosen may not be representative. 
 \item We measure our software qualities indirectly, rather than directly.
 Unfortunately meaningful direct measures for qualities like maintainability,
 reusability and verifiability, are not available.  Therefore, we follow the
 usual approach of assuming that following procedures and adhering to standards
 yields a higher-quality product \citep[p.\ 112]{VanVliet2000}.
+\item The measure of surface robustness (Section~\ref{Sec_Robustness}) is only
+based on two pieces of data per project. The measurement of robustness could be
+expanded, as it currently only measures the impact of unexpected input. Other
+intentional faults could be introduced, but this would require a larger
+investment of measurement time. 
+\item We may have inaccurately estimated maintainability by assuming a higher
+ratio of comments to source code improves maintainability
+(Section~\ref{Sec_Maintainability}). 
+\item Reusability (Section~\ref{reusabilityresults}) is assessed via the number
+of code files and LOC per file. While this measure is indicative of modularity,
+it is possible that some packages have many files, with few LOC, but the files
+do not contain source code that is easily reusable. The formatting may be poor,
+or the source code may be vague and have ambiguous identifiers. 
+\item The measurement of understandability
+(Section~\ref{Sec_SurfUnderstandability}) relies on 10 random source code files.
+By random chance, the 10 files that were chosen may not be representative. 
+\item Our overall AHP ranking makes the unrealistic assumption of equal
+weighting between qualities (Section~\ref{Sec_OverallQuality}).
+\item Our approximation of popularity by stars and watches
+(Section~\ref{repmetrics}) may not be valid. 
 \end{itemize}
 
 \subsection{Internal Validity} \label{Sec_InternalValidity}
 
 A study is internally valid if the discovered causal relations are trustworthy
-and cannot be explained by other factors \citep{AmpatzoglouEtAl2019}. The
+and cannot be explained by other factors \citep{RunesonAndHost2009}. The
 internal validity threats include the following:
 
 \begin{itemize}
 \item We may have missed a relevant software package in our search for LBM
 software packages (Section~\ref{identifysoftware}).
 \item A temporal gap exists between the manual measurement of Musubi and the
-measurement of all other packages (Section~\ref{identifysoftware}). This gap
-caused a mismatch between the time of manual and automated data collection
-(Section~\ref{repmetrics}), since we updated the automated measures (like the
-number of files, LOC, etc.) when Musubi was added.
-\item Our interviews were with a relatively small sample of four LBM developers.
-The pain points they expressed may not be representative of others in the
-community.
+measurement of all other packages (Section~\ref{filtersoftware}). This gap
+caused a mismatch between the time of manual and automated data collection,
+since we updated the automated measures (like the number of files, LOC, etc.)
+when Musubi was added.
+\item Our methodology assumes that artifacts in the repositories will show us
+the approach used for software development.  However, not all activities will
+necessarily leave a trace in the repositories. For instance, only three packages
+(ESPResSo, Ludwig, Musubi) show evidence in their artifacts of unit testing and
+CI (Section~\ref{SecSurfCorrectAndVerifiab}), even though interviews suggest a
+more frequent use of both unit testing and CI. For example, OpenLB, pyLBM, and
+TCLB use such methods during development despite this not being obvious from an
+analysis of the online material.
 \item In our manual measures of the software repositories, we may have missed
 some data due to technology issues like broken links. This issue arose with the
 measurement of Palabos, which had a broken link to its user manual, as noted in
 Section~\ref{Sec_CompareArtifacts}. 
-\item Our methodology assumes that artifacts will be present in the repositories
-to show the approach used for software development.  However, not all activities
-will necessarily leave a trace in the repositories. For instance, only three
-packages (ESPResSo, Ludwig, Musubi) show evidence in their artifacts of unit
-testing and CI (Section~\ref{SecSurfCorrectAndVerifiab}), even though interviews
-suggest a more frequent use of both unit testing and CI. For example, OpenLB,
-pyLBM, and TCLB use such methods during development despite this not being
-explicit from an analysis of the material available online.
+\item Our interviews were with a relatively small sample of four LBM developers.
+The pain points (Section~\ref{painpoints}) they expressed may not be
+representative of the rest of their community.
 \end{itemize}
 
 Although we found that unit testing and CI usage is likely higher than the
@@ -2814,18 +2814,18 @@ effective since they are not available for others to inspect and reproduce.
 \subsection{External Validity}
 
 External validity concerns whether the results of the study can be generalized
-(applied) to other situations/cases \citep{AmpatzoglouEtAl2019}.  The scope of
+(applied) to other situations/cases \citep{RunesonAndHost2009}.  The scope of
 our work is LBM solvers.  We are confident that our search was exhaustive and
-that we did not miss any highly popular examples.  Therefore, our validity
-concerns about LBM software observations are internal
+that we did not miss any highly popular examples.  Therefore, the bulk of our
+validity concerns about LBM software observations are internal
 (Section~\ref{Sec_InternalValidity}), not external.  However, our hope is that
 the trends observed, and the lessons learned for LBM software can be applied to
 other research software.  With that in mind we identified the following threat
 to external validity:
 
 \begin{itemize}
-\item The development of LBM software is fundamentally different from other
-research software.
+\item Generalization of our results will not be possible if the development of
+LBM software is fundamentally different from other research software.
 \end{itemize}
 
 \section{Conclusion} \label{conclusion}
