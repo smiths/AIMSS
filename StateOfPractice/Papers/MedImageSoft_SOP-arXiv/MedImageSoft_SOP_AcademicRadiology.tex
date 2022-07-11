@@ -48,6 +48,14 @@
 %% \usepackage{lineno}
 
 \usepackage{hyperref}
+\usepackage{xcolor}
+\hypersetup{
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}
+}
+
 %\usepackage{tikz}
 %\usetikzlibrary{mindmap}
 \usepackage{multirow}
@@ -233,19 +241,20 @@ concepts. For instance, according to a survey by \citet{Prabhu2011}, more than
 half of their 114 subjects did not use a proper debugger when coding.
 
 To gain insights, we devised 10 research questions, which can be applied to MI,
-as well as to other domains, of research software \citep{SmithEtAl2021}.  The
-questions are designed to learn about the community's interest in, and
-experience with, artifacts, tools, principles, processes, methodologies and
-qualities.  When we mention artifacts we mean the documents, scripts and code
-that constitutes a software development project. Example artifacts include
-requirements, specifications, user manuals, unit tests, system tests, usability
-tests, build scripts, API (Application Programming Interface) documentation,
-READMEs, license documents, process documents, and code.  Once we have learned
-what MI developers do, we then put this information in context by contrasting MI
-software against the trends shown by developers in other research software
-communities.  Our aim is to collect enough information to understand the current
-pain points experienced by the MI software development community so that we can
-make some preliminary recommendations for future improvements. 
+as well as to other domains, of research software \citep{SmithEtAl2021,
+SmithAndMichalski2022}.  The questions are designed to learn about the
+community's interest in, and experience with, artifacts, tools, principles,
+processes, methodologies and qualities.  When we mention artifacts we mean the
+documents, scripts and code that constitutes a software development project.
+Example artifacts include requirements, specifications, user manuals, unit
+tests, system tests, usability tests, build scripts, API (Application
+Programming Interface) documentation, READMEs, license documents, process
+documents, and code.  Once we have learned what MI developers do, we then put
+this information in context by contrasting MI software against the trends shown
+by developers in other research software communities.  Our aim is to collect
+enough information to understand the current pain points experienced by the MI
+software development community so that we can make some preliminary
+recommendations for future improvements. 
 
 The questions are used to structure the discussion in the paper, so for each
 research question below we point to the section that contains our answer.  We
@@ -287,7 +296,7 @@ start with identifying the relevant examples of MI software:
 	for research software in general? (Section~\ref{painpoints})
 	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_Concerns}:] For MI
 	developers what specific best practices are taken to address the pain points
-	and software quality concerns? (Section~\ref{Sec_AddressConcerns})
+	and software quality concerns? (Section~\ref{painpoints})
 	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_Recommend}:]
 	What research software development practice could potentially address the
 	pain point concerns identified in \rqref{RQ_PainPoints}).
@@ -314,7 +323,7 @@ considered out of scope.
 \subsection{Methodology Overview}
 
 We designed a general methodology to assess the state of the practice for SC
-software \citep{SmithEtAl2021}. Details can be found in
+software \citep{SmithEtAl2021, SmithAndMichalski2022}. Details can be found in
 Section~\ref{ch_methods}.  Our methodology has been applied to MI software
 \citep{Dong2021} and Lattice Boltzmann Solvers \citep{Michalski2021}.  This
 methodology builds off prior work to assess the state of the practice for such
@@ -513,10 +522,10 @@ A_{ij} = \text{min}(\mathit{score}_i - \mathit{score}_j + 1, 9)
 \section{Methodology} \label{ch_methods}
 
 We developed a methodology for evaluating the state of the practice of research
-software \citep{SmithEtAl2021}.  The methodology can be instantiated for a
-specific domain of scientific software, which in the current case is medical
-imaging software for visualization.  Our methodology involves and engages a
-domain expert partner throughout, as discussed in
+software \citep{SmithEtAl2021, SmithAndMichalski2022}.  The methodology can be
+instantiated for a specific domain of scientific software, which in the current
+case is medical imaging software for visualization.  Our methodology involves
+and engages a domain expert partner throughout, as discussed in
 Section~\ref{sec_vet_software_list}.  The four main steps of the methodology
 are:
 
@@ -799,7 +808,7 @@ the perceived threats to software quality, and the developers' strategies to
 address these threats.  Therefore, part of our methodology is to interview
 developers.
 
-Our interviews were guided by a list of 20 questions, which can be found in
+We based uur interviews on a list of 20 questions, which can be found in
 \citet{SmithEtAl2021}. Some questions are about the background of the software,
 the development teams, the interviewees, and how they organize the projects. We
 also ask about the developer's understandings of the users. Some questions focus
@@ -1614,26 +1623,9 @@ wheel'' \citep{deSouzaEtAl2019}.
 Software tools are used to support the development, verification, maintenance,
 and evolution of software, software processes, and artifacts \citep[p.\
 501]{GhezziEtAl2003}. MI software uses tools for CI/CD, user support, version
-control, documentation and project management.  To answer
+control, documentation, and project management.  To answer
 \rqref{RQ_CompareToolsProjMngmnt} we summarize the tool usage in these
 categories, and compare this to the usage by the research software community.
-
-As mentioned in Section~\ref{sec_result_correctness_verifiability}, we
-identified five projects using CI/CD tools (about 17\% of the assessed
-projects). CI/CD using projects were found by examining the documentation and
-source code of all projects. The count of CI/CD usage may actually be higher,
-since traces of CI/CD usage may not always appear in a repository.  This was the
-case for a study of LBM software, where interviews with developers showed that
-more projects used CI/CD than was evident from repository artifacts alone
-\citep{Michalski2021}.  The 17\% utilization for MI software contrasts with the
-high frequency with which continuous integration is recommended in research
-software development guidelines \citep{BrettEtAl2021, Brown2015, ThielEtAl2020,
-Zadka2018, vanGompelEtAl2016}. Although there is currently little data available
-on CI/CD utilization for research software, our impression is that CI/CD is not
-yet common practice, despite its recommendation.  For LBM software at least the
-situation is similar to MI software, with only 12.5\% of 24 LBM packages showing
-evidence of CI/CD in their repositories \citep{Michalski2021}.  \wss{add
-reference to CarverEtAl2022, once it is published.}
 
 Table~\ref{tab_user_support_model} summarizes the user support models by the
 number of projects using each model (projects may use more than one support
@@ -1678,20 +1670,41 @@ The common use of version control for MI software illustrates considerable
 improvement from the poor adoption of version control tools that Wilson lamented
 in 2006 \citep{Wilson2006}.  The proliferation of version control tools for MI
 matches the increase in the broader research software community.  A little over
-10 years ago version control was estimated to be used in only 50\% of research
-software projects \citep{Nguyen-HoanEtAl2010}, but even at that time
+10 years ago \citet{Nguyen-HoanEtAl2010} estimated that version control was used
+in only 50\% of research software projects, but even at that time
 \citet{Nguyen-HoanEtAl2010} noted an increase from previous usage levels. A
 survey in 2018 shows 81\% of developers use a version control system
 \citep{AlNoamanyAndBorghi2018}. \citet{Smith2018} has similar results, showing
 version control usage for alive projects in mesh generation, geographic
 information systems and statistical software for psychiatry increasing from
 75\%, 89\% and 17\% (respectively) to 100\%, 95\% and 100\% (respectively) over
-a four year period ending in 2018. (For completeness the same study showed a
+a four-year period ending in 2018. (For completeness the same study showed a
 decrease in version control usage for seismology software over the same time
-period, from 41\% down to 36\%).  Almost every software guide cited in
-Section~\ref{Sec_CompareArtifacts} includes the advice to use version control.
-The high usage of version control tools in MI software matches the trend in
-research software in general.
+period, from 41\% down to 36\%).  A recent survey by \citet{CarverEtAl2022}
+shows version control use among practitioners at over 95\%, with 83/87 survey
+respondents indicating that they use it. All but one of the software guides
+cited in Section~\ref{Sec_CompareArtifacts} includes the advice to use version
+control. (The USGS guide \citep{USGS2019} was the only set of recommendations to
+not mention version control.) The high usage of version control tools in MI
+software matches the trend in research software in general.
+
+As mentioned in Section~\ref{sec_result_correctness_verifiability}, we
+identified five projects using CI/CD tools (about 17\% of the assessed
+projects). We found CI/CD using projects by examining the documentation and
+source code of all projects. The count of CI/CD usage may actually be higher,
+since traces of CI/CD usage may not always appear in a repository.  This was the
+case for a study of LBM software, where interviews with developers showed that
+more projects used CI/CD than was evident from repository artifacts alone
+\citep{Michalski2021}.  The 17\% utilization for MI software contrasts with the
+high frequency with which research software development guidelines recommend
+continuous integration \citep{BrettEtAl2021, Brown2015, ThielEtAl2020,
+Zadka2018, vanGompelEtAl2016}. Although there is currently little data available
+on CI/CD utilization for research software, our impression is that CI/CD is not
+yet common practice, despite its recommendation.  For LBM software at least the
+situation is similar to MI software, with only 12.5\% of 24 LBM packages showing
+evidence of CI/CD in their repositories \citep{Michalski2021}.  The survey of
+\citet{CarverEtAl2022} suggests higher use of CI/CD with 54\% (54/100)
+respondents indicating that they use it.
 
 For documentation tools and methods mentioned by the interviewees, the most
 popular (mentioned by about 30\% of developers) were forum discussions and
@@ -1796,60 +1809,39 @@ answers}
 As Table~\ref{Tbl_Guidelines} suggests, an emphasis on documentation, especially
 for new developers, is echoed in research software guidelines. Multiple
 guidelines recommend a document explaining how to contribute to a project, often
-named CONTRIBUTING. Tutorials, user guides and quick start examples are also
-recommended. \citet{SmithAndRoscoe2018} suggests including instructions
+named CONTRIBUTING. Guidelins also recommend tutorials, user guides and quick start examples. \citet{SmithAndRoscoe2018} suggests including instructions
 specifically for on-boarding new developers. For open source software in general
 (not just research software), \citet{Fogel2005} recommends providing tutorial
-style examples, developer guidelines, demos and screenshots.
+style examples, developer guidelines, demos, and screenshots.
 
 \section{Developer Pain Points} \label{painpoints}
 
 Based on interviews with nine developers (described in
-Section~\ref{sec_interview_methods}), we answer two research questions: i) What
-are the pain points for developers working on research software projects?
-(\rqref{RQ_PainPoints}); and, ii) How do the pain points of developers from MI
-compare to the pain points for research software in general?
-(\rqref{RQ_ComparePainPoints}).  We go through each of the identified pain
-points and include citations that contrast the MI experience with observations
-from researchers in other domains.  Potential ways to address the pain points
-are covered in Sections~\ref{Sec_AddressConcerns} and~\ref{ch_recommendations}.
+Section~\ref{sec_interview_methods}), we answer three research questions:
+\rqref{RQ_PainPoints}) What are the pain points for developers working on
+research software projects?; \rqref{RQ_ComparePainPoints}) How do the pain
+points of developers from MI compare to the pain points for research software in
+general?; and \rqref{RQ_Concerns}) For MI developers what specific best practices
+are taken to address the pain points and software quality concerns?  We go
+through each of the identified pain points and include citations that contrast
+the MI experience with observations from researchers in other domains.  We also
+cover potential ways to address the pain points, as promoted by the community in
+this section, and based on our experience in Section~\ref{ch_recommendations}.
 
-Table \ref{tab_obstacles} shows the number of times the interviewees mentioned
-the current and past obstacles in their projects.   We group these pain points
-into three major categories of obstacles: \textit{resource}, \textit{balance},
-and \textit{testing}. We put the less mentioned ones into the category
-\textit{Others}. The interviewees may have provided multiple
-answers to each question. Thus, when we summarize the frequency of different
-responses, the total is sometimes larger than nine.
+Ways to address pain points found by community as part of the qualitative data
+from developer interviews (Section~\ref{sec_interview_methods}).  The practices
+we summarize can potentially be emulated by the MI software packages that do not
+currently follow them.  Moreover, these practices may also provide examples that
+can be followed by other research software domains.
 
-\begin{table}[!ht]
-\centering
-\begin{tabular}{llll}
-\toprule
-\multirow{2}{*}{Category} & \multirow{2}{*}{Obstacle} & \multicolumn{2}{c}{Num
- ans.} \\ \cline{3-4} &  & current & past \\ 
-\midrule
-\multirow{2}{*}{Resource} & Lack of fundings & 3 &  \\
- & Lack of time to devote to the project & 2 & 1 \\ 
-\midrule
-\multirow{3}{*}{Balance} & Hard to keep up with changes in OS and libraries & 1
-&  \\
- & Hard to support multiple OS & 2 &  \\
- & Hard to support lower-end computers & 1 & 2 \\ 
-\midrule
-Testing & Lack of access to real-world datasets for testing & 3 & 2 \\ 
-\midrule
-\multirow{7}{*}{Others}
- & Hard to have a high level roadmap from the start & 1 &  \\
- & Not enough participants for usability tests & 1 &  \\
- & Only a few people fully understand the large codebase & 1 &  \\
- & Hard to transfer to new technologies & & 2 \\
- & Hard to understand users' needs & & 1 \\
- & Hard to maintain good documentations & & 1 \\ 
-\bottomrule
-\end{tabular}
-\caption{\label{tab_obstacles}Current and past obstacles by the numbers of interviewees with the answers}
-\end{table}
+\begin{itemize}
+\item Hard to have a high level roadmap from the start
+\item Not enough participants for usability tests
+\item Only a few people fully understand the large codebase
+\item Hard to transfer to new technologies
+\item Hard to understand users' needs
+\item Hard to maintain good documentations
+\end{itemize}
 
 \citet{PintoEtAl2018} lists some pain points that did not come up in our
 conversations with LBM developers: Cross-platform compatibility, interruptions
@@ -1863,24 +1855,19 @@ development, since we only interviewed four LBM developers for about an hour eac
 
 \begin{enumerate}
 
-	\item[P\refstepcounter{pnum}\thepnum \label{P_LackDevTime}:] \textbf{Lack of
-	Development Time} A developer of pyLBM noted that their small development
-	team has a lack of time to implement new features. Small development teams
-	are common for LBM software packages (as shown in the measurement table
-	excerpt in Figure~\ref{measurement_template_image}). Lack of time is also
-	highlighted as a pain point by other research software developers
-	\citet{PintoEtAl2018, PintoEtAl2016, WieseEtAl2019}.
-
-\end{enumerate}
-
-Developers identified a resource related pain point caused by a lack of funding
-and time.  Potential and proven solutions suggested by the interviewees include:
+\item[P\refstepcounter{pnum}\thepnum \label{P_LackDevTime}:] \textbf{Lack of
+Development Time:} A developer of pyLBM noted that their small development team
+has a lack of time to implement new features. Small development teams are common
+for LBM software packages (as shown in the measurement table excerpt in
+Figure~\ref{measurement_template_image}). Other domains of research software
+also experience the lack of time pain point \citep{PintoEtAl2018, PintoEtAl2016,
+WieseEtAl2019}. Developers identified a resource related pain point caused by a
+lack of funding and time.  Potential and proven solutions suggested by the
+interviewees include:
 
 \begin{itemize}
 \item Shifting from development to maintenance when the team does not have
 enough developers for building new features and fixing bugs at the same time;
-\item Licensing the software to commercial companies that integrate it into
-their products;
 \item Improving documentation to save time answering users' and developers'
 questions;
 \item Supporting third-party plugins and extensions; and,
@@ -1899,7 +1886,30 @@ project.  No interviewee suggested any solution to bring extra funding to the
 project. However, they provided ideas to save time, such as better
 documentation, third-party plugins, and good CI/CD tools.
 
-With respect to balance, developers expressed difficulty balancing between four
+\item[P\refstepcounter{pnum}\thepnum \label{P_LackFunding}:] \textbf{Lack of
+Incentive and Funding:} The TCLB developer noted a lack of incentives and
+funding in academia for developing widely used research software. This problem
+has also been noted by others \citep{gewaltig2012quality, Goble2014,
+KaterbowAndFeulner2018}.  \citet{WieseEtAl2019} reported developer pains related
+to publicity, since publishing norms have historically made it difficult to get
+credit for creating software.  As studied by \citet{HowisonAndBullard2016},
+research software (specifically biology software, but the trend likely applies
+to other research software domains) is infrequently cited. \citet{PintoEtAl2018}
+also mentions the lack of formal reward system for research software.
+
+\begin{itemize}
+\item Licensing the software to commercial companies that integrate it into
+their products;
+\end{itemize}
+    
+\item[P\refstepcounter{pnum}\thepnum \label{P_TechnologyHurdles}:]
+\textbf{Technology Hurdles:} Technology pain points for LBM developers include
+setting up parallelization and CI. The pain point survey of
+\citet{WieseEtAl2019} also highlighted technical-related problems like
+dependency management, cross-platform compatibility, CI, hardware issues and
+operating system issues. Things mentioned by developers in interviews: Hard to
+keep up with changes in OS and libraries, Hard to support multiple OS, and Hard
+to support lower-end computers. With respect to balance, developers expressed difficulty balancing between four
 factors: cross-platform compatibility, convenience to development \&
 maintenance, performance, and security.  The potential and proven solutions are:
 
@@ -1955,14 +1965,32 @@ build process.  The lower performance disadvantage of web-applications can be
 improved with a server backend, but in this case there are disadvantages for
 privacy protection and the cost of the servers.
 
-For the pain point category of testing developers identified the the lack of
-access to real-world datasets.  One pain point in the development process is the
-lack of access to real-world datasets for testing. The developers' strategies to
-address this are summarized in Section~\ref{Sec_AddressConcerns} \ad{to be
-fixed}. One threat to correctness is: with huge datasets for testing, the tests
-are expensive and time-consuming. Three interviewees endorsed self tests /
-automated tests, which may save time for testing. Some proposed and proven
-solutions are as follows:
+\item[P\refstepcounter{pnum}\thepnum \label{P_Correctness}:]
+\textbf{Ensuring Correctness:} Several developers noted difficulties with
+ensuring correctness. They alluded to difficulty with testing the correctness of
+large numbers of features, and challenges with automated testing. The TCLB
+developer commented that the amount of testing data needed was sometimes
+problematic, since free testing services do not offer adequate facilities for
+large amounts of data, requiring in-house testing solutions. Other research
+software domains point to the following problems with testing: i)
+\citet{PintoEtAl2018} mention the problem of insufficient testing; ii)
+\citet{HannayEtAl2009} show that more developers think testing is important than
+the number that believe they have a sufficient understanding of testing
+concepts; and, iii) \citet{HannayEtAl2009, KanewalaAndBieman2013, KellyEtAl2011,
+WieseEtAl2019} point to the oracle problem, which occurs in research software
+when we do not have a means to judge the correctness of the calculated
+solutions. Based on the interviews, the LBM experience seems to overlap with i
+and ii; the developers did not allude to problem iii (the oracle problem).  As
+discussed in Section~\ref{SecReproducibility}, the oracle problem likely did not
+come up because the LBM developers have strategies for verifying their work.
+
+For the pain point category of testing developers identified the lack of access
+to real-world datasets.  One pain point in the development process is the lack
+of access to real-world datasets for testing. The developers' strategies to
+address this are summarized in this section. One threat to correctness is: with
+huge datasets for testing, the tests are expensive and time-consuming. Three
+interviewees endorsed self tests / automated tests, which may save time for
+testing. Some proposed and proven solutions are as follows:
 
 \begin{itemize}
 \item Using open datasets
@@ -1983,18 +2011,6 @@ special dataset over time.
 No interviewee provided a perfect solution to the testing problem. However,
 increased connections between the development team and medical
 professionals/institutions could ease the pain.
-
-\subsection{Discussions on Software Qualities} \label{sec_interview_software_qualities}
-
-Questions 15--18, and 20 cover the software qualities of correctness,
-maintainability, understandability, usability, and reproducibility,
-respectively. We discuss each quality below.
-
-\begin{description}
-\item[Q15.] Was it hard to ensure the correctness of the software? If there were
-any obstacles, what methods have been considered or practiced to improve the
-situation? If practiced, did it work?
-\end{description}
 
 The interviewees identified multiple threats to correctness.  The most
 frequently mentioned threat was complexity.  Complexity enters the software by
@@ -2025,31 +2041,15 @@ nightly builds.  Other strategies for ensuring correctness that came up during
 the interviews include CI/CD, using de-identified copies of medical images for
 debugging, sending beta versions to medical workers who can access the data to
 do the tests, and collecting/maintaining a dataset of problematic images.
-
-\begin{description}
-\item[Q16.] When designing the software, did you consider the ease of future
-changes? For example, will it be hard to change the system’s structure, modules,
-or code blocks? What measures have been taken to ensure the ease of future
-changes and maintains?
-\end{description}
-
-The most popular, with five out of nine interviewees mentioning it, strategy for
-ensuring maintainability was to use a modular approach, with often repeated
-functions in a library.  Other strategies that were mentioned for improving
-maintainability include supporting third-party extensions, an easy-to-understand
-architecture, a dedicated architect, starting from simple solutions, and
-documentation.  The \textit{3D Slicer} team used a well-defined structure for
-the software, which they named as an ``event-driven MVC pattern''. Moreover,
-\textit{3D Slicer} discovers and loads necessary modules at runtime, according
-to the configuration and installed extensions. The \textit{BioImage Suite Web}
-team had designed and re-designed their software multiple times in the last 10+
-years. They found that their modular approach effectively supports
-maintainability \citep{Joshi2011}. 
-
-\begin{description}
-\item[Q17.] Provide instances where users have misunderstood the software. What,
-if any, actions were taken to address understandability issues?
-\end{description}
+	
+\item[P\refstepcounter{pnum}\thepnum \label{P_Usability}:]
+\textbf{Usability:} Several developers noted that users sometimes try to use
+incorrect LBM method combinations to solve their problems. Furthermore, some
+users think that the packages will work out of the box to solve their cases,
+while in reality CFD knowledge needs to be applied to correctly modify the
+packages for the new endeavour.  Some respondents in the survey of
+\citet{WieseEtAl2019} also mentioned that users do not always have the expertise
+required to install or use the software.
 
 The discussion with the developers focused on understandability issues for two
 classes of users: the end users and other developers.  The threats to
@@ -2082,10 +2082,6 @@ possible, icons with clear visual expressions, designing the software to be
 intuitive, having a UX designer with the right experience, dialog windows for
 important notifications, and providing an example for users to follow.
 
-\begin{description}
-\item[Q18.] What, if any, actions were taken to address usability issues?
-\end{description}
-
 The two most frequently mentioned strategies (mentioned 3 times each) for
 improving usability are:
 \begin{inparaenum}[i)]
@@ -2099,10 +2095,48 @@ limited number of functions, making the software more streamlined, downsampling
 images to consume less memory, and an option to load only part of the data to
 boost performance.
 
-\begin{description}
-\item[Q20.] Do you have any concern that your computational results won't be
-reproducible in the future? Have you taken any steps to ensure reproducibility?
-\end{description}
+\end{enumerate}
+
+blurb to explain the ones that are coming were not explicitly identified as pain
+points.
+
+\begin{enumerate}
+\item \textbf{Maintainability:} The developer of ESPResSo said that they
+originally wrote their source code with a specific application in mind, which
+later caused too much coupling between components in the source code. This
+resulted in technical debt \citep{KruchtenEtAl2012}, which has an impact on
+future maintainability and reusability. Concern with technical debt is likely
+why researchers in the survey of \citet{Nguyen-HoanEtAl2010} rate
+maintainability as the third most important software quality. More recently the
+push for sustainable software \citep{deSouzaEtAl2019} is motivated by the pain
+that past developers have had with accumulating too much technical debt.
+
+The most popular, with five out of nine interviewees mentioning it, strategy for
+ensuring maintainability was to use a modular approach, with often repeated
+functions in a library.  Other strategies that were mentioned for improving
+maintainability include supporting third-party extensions, an easy-to-understand
+architecture, a dedicated architect, starting from simple solutions, and
+documentation.  The \textit{3D Slicer} team used a well-defined structure for
+the software, which they named as an ``event-driven MVC pattern''. Moreover,
+\textit{3D Slicer} discovers and loads necessary modules at runtime, according
+to the configuration and installed extensions. The \textit{BioImage Suite Web}
+team had designed and re-designed their software multiple times in the last 10+
+years. They found that their modular approach effectively supports
+maintainability \citep{Joshi2011}. 
+
+\item \textbf{Reproducibility:}  Interviewees stressed the importance of
+documentation for both users and developers throughout the interviews. They
+emphasize that a lack of time and funding (\ppref{P_LackDevTime}) has a negative
+effect on the documentation. Most of the developers are scientific researchers
+evaluated on the scientific papers that they produce. Writing and updating
+documentation is something that is done in their free time, if that time arises.
+Others also mention inadequate research software documentation
+\citep{PintoEtAl2018, WieseEtAl2019}.  The problem also arises with non-research
+software \citep{LethbridgeEtAl2003}. Recommendations on the development of
+research software state that developers should critically evaluate their own
+development processes in terms of quality assurance and comply with
+international standards for software documentation
+\citep{KaterbowAndFeulner2018}.
 
 We discussed threats to reproducibility and strategies for improving it.  The
 threats that were mentioned include closed-source software, no user interaction
@@ -2124,17 +2158,11 @@ benchmarking the software against other software that overlaps in functionality.
 Specifically one interviewee suggested using \textit{3D Slicer} as the benchmark
 to test their reproducibility.
 
-\section{Lessons from MI Developers} \label{Sec_AddressConcerns}
-
-The best practices from MI developers are taken to address the pain points
-mentioned in Section~\ref{painpoints}.  We found the practices as part of the
-qualitative data from developer interviews
-(Section~\ref{sec_interview_methods}).  The practices we summarize can
-potentially be emulated by the MI software packages that do not currently follow
-them.  Moreover, these practices may also provide examples that can be followed
-by other research software domains.
+\end{enumerate}
 
 \section{Recommendations} \label{ch_recommendations}
+
+- add in ACs, borrow from previous paper.
 
 This section presents our recommendations on MI software development. Although
 our focus is on MI software, unless noted otherwise, our recommendations apply
@@ -2701,11 +2729,12 @@ Mehta2015}. Thus, most SC software developers are scientists in SC domains
 \citep{Wilson2014}. However, they do not always use modern software development
 techniques, tools, and methods \citep{Wilson2014}. Therefore, we developed a
 methodology for assessing the state of the practice for SC software
-\citep{SmithEtAl2021}. We apply this process to Medical Imaging (MI) software
-that belongs to a specific domain of SC.
+\citep{SmithEtAl2021, SmithAndMichalski2022}. We apply this process to Medical
+Imaging (MI) software that belongs to a specific domain of SC.
 
 TO DO
 
+- CarverEtAl2022 has discussion of requirements etc. that we could also contrast (seems that people overestimate their use of requirements.)
 - add more on comparison to existing literature surveys
 - ask Mike:
     - for journal version ask for more figures?
