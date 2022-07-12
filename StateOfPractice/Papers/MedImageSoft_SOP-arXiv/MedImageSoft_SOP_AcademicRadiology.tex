@@ -1821,30 +1821,23 @@ Section~\ref{sec_interview_methods}), we answer three research questions:
 \rqref{RQ_PainPoints}) What are the pain points for developers working on
 research software projects?; \rqref{RQ_ComparePainPoints}) How do the pain
 points of developers from MI compare to the pain points for research software in
-general?; and \rqref{RQ_Concerns}) For MI developers what specific best practices
-are taken to address the pain points and software quality concerns?  We go
-through each of the identified pain points and include citations that contrast
-the MI experience with observations from researchers in other domains.  We also
-cover potential ways to address the pain points, as promoted by the community in
-this section, and based on our experience in Section~\ref{ch_recommendations}.
-
-Ways to address pain points found by community as part of the qualitative data
-from developer interviews (Section~\ref{sec_interview_methods}).  The practices
-we summarize can potentially be emulated by the MI software packages that do not
-currently follow them.  Moreover, these practices may also provide examples that
-can be followed by other research software domains.
-
-\begin{itemize}
-\item Hard to have a high level roadmap from the start
-\item Not enough participants for usability tests
-\item Only a few people fully understand the large codebase
-\item Hard to transfer to new technologies
-\item Hard to understand users' needs
-\item Hard to maintain good documentations
-\end{itemize}
+general?; and \rqref{RQ_Concerns}) For MI developers what specific best
+practices are taken to address the pain points and software quality concerns?
+The identified pain points relate to lack of time and funding, technology
+hurdles, improving correctness, and improving usability.  We go through each
+pain points and include citations that contrast the MI experience with
+observations from other domains.  We also cover potential ways to address the
+pain points, as promoted by the community in this section, and based on our
+experience in Section~\ref{ch_recommendations}.  In this section we also discuss
+some MI developer strategies for improving maintainability and reproducibility.
+These two qualities were not explicitly idenfied as pain points, but ways to
+improve them were still part of our interview discussions. The MI interviewee
+practices to address pain points and improve quality can potentially be emulated
+by other the MI software packages.  Moreover, these practices may provide
+examples that can be followed by other research software domains.
 
 \citet{PintoEtAl2018} lists some pain points that did not come up in our
-conversations with LBM developers: Cross-platform compatibility, interruptions
+conversations with LBM developers [CHECK  THESE]: Cross-platform compatibility, interruptions
 while coding, scope bloat, lack of user feedback, hard to collaborate on
 software projects, and aloneness. \citet{WieseEtAl2019} repeat some of the
 previous pain points and add the following: dependency management, data handling
@@ -1862,7 +1855,9 @@ for LBM software packages (as shown in the measurement table excerpt in
 Figure~\ref{measurement_template_image}). Other domains of research software
 also experience the lack of time pain point \citep{PintoEtAl2018, PintoEtAl2016,
 WieseEtAl2019}. Developers identified a resource related pain point caused by a
-lack of funding and time.  Potential and proven solutions suggested by the
+lack of funding and time.  
+
+Potential and proven solutions suggested by the
 interviewees include:
 
 \begin{itemize}
@@ -1912,6 +1907,8 @@ keep up with changes in OS and libraries, Hard to support multiple OS, and Hard
 to support lower-end computers. With respect to balance, developers expressed difficulty balancing between four
 factors: cross-platform compatibility, convenience to development \&
 maintenance, performance, and security.  The potential and proven solutions are:
+
+% Hard to transfer to new technologies %from Ao
 
 \begin{itemize}
 \item Adopting a web-based approach with backend servers, to better support
@@ -1984,6 +1981,12 @@ and ii; the developers did not allude to problem iii (the oracle problem).  As
 discussed in Section~\ref{SecReproducibility}, the oracle problem likely did not
 come up because the LBM developers have strategies for verifying their work.
 
+% Hard to maintain good documentations % from Ao
+% \begin{itemize}
+%     \item Hard to have a high level roadmap from the start
+%     \item Only a few people fully understand the large codebase
+% \end{itemize}
+    
 For the pain point category of testing developers identified the lack of access
 to real-world datasets.  One pain point in the development process is the lack
 of access to real-world datasets for testing. The developers' strategies to
@@ -2050,6 +2053,9 @@ while in reality CFD knowledge needs to be applied to correctly modify the
 packages for the new endeavour.  Some respondents in the survey of
 \citet{WieseEtAl2019} also mentioned that users do not always have the expertise
 required to install or use the software.
+
+%\item Not enough participants for usability tests %from Ao
+%Hard to understand users' needs % from Ao
 
 The discussion with the developers focused on understandability issues for two
 classes of users: the end users and other developers.  The threats to
