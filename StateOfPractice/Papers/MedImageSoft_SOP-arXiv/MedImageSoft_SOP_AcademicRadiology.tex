@@ -210,13 +210,13 @@ We aim to study the state of software development practice for Medical Imaging
 such as Magnetic Resonance Imaging (MRI), Computed Tomography (CT), Positron
 Emission Tomography (PET) and Ultrasound) to provide information for diagnostic,
 analytic, and medical applications \citep{FDA2021, enwiki:1034887445,
-Zhang2008}.  An example medical image of the brain is provided in
-Figure~\ref{Fig_Example}. Given the importance of MI software and the high
-number of competing software projects, we wish to understand the merits and
-drawbacks of the current development processes, tools and methodologies.  We aim
-to assess through a software engineering lens the quality of the existing
-software with the hope of highlighting standout examples, understanding current
-pain points and providing guidelines and recommendations for future development.
+Zhang2008}.  Figure~\ref{Fig_Example} shows an example image of the brain. Given
+the importance of MI software and the high number of competing software
+projects, we wish to understand the merits and drawbacks of the current
+development processes, tools, and methodologies.  We aim to assess through a
+software engineering lens the quality of the existing software with the hope of
+highlighting standout examples, understanding current pain points and providing
+guidelines and recommendations for future development.
 
 \begin{figure}[!ht]
     \begin{center}
@@ -242,9 +242,9 @@ half of their 114 subjects did not use a proper debugger when coding.
 
 To gain insights, we devised 10 research questions, which can be applied to MI,
 as well as to other domains, of research software \citep{SmithEtAl2021,
-SmithAndMichalski2022}.  The questions are designed to learn about the
+SmithAndMichalski2022}.  We designed the questions to learn about the
 community's interest in, and experience with, artifacts, tools, principles,
-processes, methodologies and qualities.  When we mention artifacts we mean the
+processes, methodologies, and qualities.  When we mention artifacts we mean the
 documents, scripts and code that constitutes a software development project.
 Example artifacts include requirements, specifications, user manuals, unit
 tests, system tests, usability tests, build scripts, API (Application
@@ -256,7 +256,7 @@ enough information to understand the current pain points experienced by the MI
 software development community so that we can make some preliminary
 recommendations for future improvements. 
 
-The questions are used to structure the discussion in the paper, so for each
+We based the structure of the paper on the research questions, so for each
 research question below we point to the section that contains our answer.  We
 start with identifying the relevant examples of MI software:
 
@@ -286,7 +286,7 @@ start with identifying the relevant examples of MI software:
 	\end{enumerate}
 	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_CompareMethodologies}:]
 	How do MI projects compare to research software in general with respect to
-	principles, processes and methodologies used?
+	principles, processes, and methodologies used?
 	(Section~\ref{Sec_CompareMethodologies})
 	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_PainPoints}:] What are
 	the pain points for developers working on MI software projects?
@@ -333,7 +333,7 @@ Generators \citep{smith2016state}, Seismology software
 \citep{smith2018statistical}.  In keeping with the previous methodology, we have
 maintained the constraint that the work load for measuring a given domain should
 be feasible for a team as small as one person, and for a short time, ideally
-around a person month of effort. A person month is considered to be $20$ working
+around a person month of effort. We consider a person month as $20$ working
 days ($4$ weeks in a month, with $5$ days of work per week) at $8$ person hours
 per day, or $20 \times 8 = 160$ person hours.
 
@@ -355,15 +355,15 @@ definitions of relevant software license models (Section
 \ref{sec_software_categories}); and, ii) the definitions of the software
 qualities that we will be assessing (Section \ref{sec_software_quality}). In our
 assessment we rank the software packages for each quality; therefore, this
-section also provides the background on our ranking process -- the Analytic
+section also provides the background on our ranking process --- the Analytic
 Hierarchy Process (Section \ref{sec_AHP}).
 
 \subsection{Software Categories} \label{sec_software_categories}
 
-When assessing software packages, we need to know what license the software is
-distributed under.  In particular, we need to know whether the source code will
-be available to us or not.  We define three common software categories.  We will
-only assess software that fits under the Open Source Software license.
+When assessing software packages, we need to know the software's license.  In
+particular, we need to know whether the source code will be available to us or
+not.  We define three common software categories.  We will only assess software
+that fits under the Open Source Software license.
 
 \begin{itemize}
 
@@ -385,8 +385,7 @@ code, and researchers looking for insight into software development process may
 find the inaccessible source code a problem. 
 
 \item \textbf{Commercial Software} ``Commercial software is software developed
-by a business as part of its business'' \citep{GNU2019}. Typically speaking, the
-users are required to pay to access all of the features of commercial software,
+by a business as part of its business'' \citep{GNU2019}. Typically speaking, commercial software requires users to pay to access all of its features,
 excluding access to the source code. However, some commercial software is also
 free of charge \citep{GNU2019}. Based on our experience, most commercial
 software products are not OSS.
@@ -401,8 +400,8 @@ set of measures.  That is, quality is a collection of different qualities, often
 called ``ilities.''  Below we list the 10 qualities of interest for this study.
 The order of the qualities follows the order used in \citet{GhezziEtAl2003},
 which puts related qualities (like correctness and reliability) together.
-Moreover, the order is roughly the same as the order qualities are considered in
-practice.
+Moreover, the order is roughly the same as the order developers consider
+qualities in practice.
 
 \begin{itemize}
 	\item \textbf{Installability} The effort required for the installation
@@ -421,7 +420,7 @@ practice.
 	\item \textbf{Robustness} Software possesses the characteristic of
 	robustness if it behaves ``reasonably'' in two situations: i) when it
 	encounters circumstances not anticipated in the requirements specification,
-	and ii) when the assumptions in its requirements specification are violated
+	and ii) when users violate the assumptions in its requirements specification 
 	\citep[p.\ 19]{GhezziEtAl2003}, \citep{boehm2007software}.
 
 	\item \textbf{Usability} ``The extent to which a product can be used by
@@ -442,7 +441,7 @@ practice.
 	enable the user to understand whether the software is suitable, and how it
 	can be used for particular tasks and conditions of use'' \citep{iso2001iec}.
 
-	\item \textbf{Visibility/Transparency} The extent to which all of the steps
+	\item \textbf{Visibility/Transparency} The extent to which all the steps
 	of a software development process and the current status of it are conveyed
 	clearly \citep[p.\ 32]{GhezziEtAl2003}.
 
@@ -494,14 +493,14 @@ priority vector in this case ranks the $n$ alternatives for criterion $i$.
 
 In this project, the first nine software qualities mentioned in Section
 \ref{sec_software_quality} are the criteria ($m = 9$), while 29 software
-packages ($n = 29$) are compared for each of the $m$ criteria. The packages are
-evaluated with the grading template in Section~\ref{sec_grading_software}, which
-includes a subjective score from $1$ to $10$ for each quality for each package.
-For each quality, for a pair of packages $i$ and $j$, with $\mathit{score}_i >=
-\mathit{score}_j$, the difference between the two scores is $\mathit{diff_{ij}}
-= \mathit{score}_i - \mathit{score}_j$. The mapping between $\mathit{diff_{ij}}$
-(which can vary between 0 and 9) and the values in $A_{ij}$ (which can vary
-between 1 and 9) is as follows:
+packages ($n = 29$) are compared for each of the $m$ criteria.
+Section~\ref{sec_grading_software} shows the evaluation via the grading
+template, including a subjective score from $1$ to $10$ for each quality for
+each package. For each quality, for a pair of packages $i$ and $j$, with
+$\mathit{score}_i >= \mathit{score}_j$, the difference between the two scores is
+$\mathit{diff_{ij}} = \mathit{score}_i - \mathit{score}_j$. The mapping between
+$\mathit{diff_{ij}}$ (which can vary between 0 and 9) and the values in $A_{ij}$
+(which can vary between 1 and 9) is as follows:
 
 \begin{itemize}
 \item $A_{ij} = 1$ and $\mathit{diff_{ij}} = 0$ when criterion $i$ and criterion
@@ -800,12 +799,11 @@ Windows as the host OS.
 
 \subsection{Interview Methods} \label{sec_interview_methods}
 
-The measurement results summarize to this point are based on information we
-collect from on-line resources. This information is incomplete because it
-doesn't generally capture the development process, the developer pain points,
-the perceived threats to software quality, and the developers' strategies to
-address these threats.  Therefore, part of our methodology is to interview
-developers.
+The repository-based measurements summarize the information we can collect from
+on-line resources. This information is incomplete because it doesn't generally
+capture the development process, the developer pain points, the perceived
+threats to software quality, and the developers' strategies to address these
+threats.  Therefore, part of our methodology is to also interview developers.
 
 We based uur interviews on a list of 20 questions, which can be found in
 \citet{SmithEtAl2021}. Some questions are about the background of the software,
@@ -1824,7 +1822,7 @@ compare to the pain points for research software in general?; and
 \rqref{RQ_Concerns}) For MI developers what specific best practices are taken to
 address the pain points and software quality concerns? 
 
-Our interviews identify pain points that relate to lack of time and funding,
+Our interviews identified pain points related to lack of time and funding,
 technology hurdles, improving correctness, and improving usability.  In this
 section, we go through each pain point and contrast the MI experience with
 observations from other domains.  We also cover potential ways to address the
@@ -1833,10 +1831,10 @@ Section~\ref{ch_recommendations}, we propose additional pain mitigation
 strategies based on our experience.)  In addition to pain points, we summarize
 MI developer strategies for improving maintainability and reproducibility.
 Although these two qualities were not explicitly idenfied as pain points, they
-were discussed during our interviews.  The interviewee's practices for
-addressing pain points and improving quality can potentially be emulated by
-other MI developers. Moreover, these practices may provide examples that can be
-followed by other research software domains.
+were discussed as part of our interview process \citep{SmithEtAl2021}.  The
+interviewee's practices for addressing pain points and improving quality can
+potentially be emulated by other MI developers. Moreover, these practices may
+provide examples that can be followed by other research software domains.
 
 [CHECK  THESE, after writing all the PPs] \citet{PintoEtAl2018} lists some pain
 points that did not come up in our conversations with MI developers :
@@ -1845,17 +1843,17 @@ user feedback, hard to collaborate on software projects, and aloneness.
 \citet{WieseEtAl2019} repeat some previous pain points and add the following:
 dependency management, data handling concerns (like data quality, data
 management and data privacy) [Actually mentioned by MI software],
-reproducibility, and software scope determination. Although LBM developers did
+reproducibility, and software scope determination. Although MI developers did
 not mention these pain points, we cannot conclude that they are not relevant for
-LBM software development, since we only interviewed four LBM developers for
-about an hour each.
+MI software development, since we only interviewed nine MI developers for about
+an hour each.
 
 \begin{enumerate}
 
 \item[P\refstepcounter{pnum}\thepnum \label{P_LackDevTime}:] \textbf{Lack of
-Development Time:} Many interviewees thought lack of time and lack of funding
-(discussed next) were their most significant obstacles. Other domains of
-research software also experience the lack of time pain point
+Development Time:} Many interviewees thought lack of time, along with lack of
+funding (discussed next), were their most significant obstacles. Other domains
+of research software also experience the lack of time pain point
 \citep{PintoEtAl2018, PintoEtAl2016, WieseEtAl2019}. Our study of LBM software
 \citep{SmithEtAl2022} also highlighted lack of time as a significant pain point.
 
@@ -1872,15 +1870,14 @@ development.
 \end{itemize}
 
 \item[P\refstepcounter{pnum}\thepnum \label{P_LackFunding}:] \textbf{Lack of
-Funding:} As mentioned above, developers felt the pain of having to attract
-funding to develop and maintain their software. For instance, the interviewees
-from \textit{3D Slicer} and \textit{OHIF} said getting funding for software
-maintenance is more challenging than for funding for research. The interviewee
-from the \textit{ITK-SNAP} team thought more fundings was a way to solve the
-lack of time problem, because they could hire more dedicated developers. On the
-other hand, the interviewee from the \textit{Weasis} team did not feel that
-fundings could solve the same problem, since he still would need time to
-supervise the project. 
+Funding:} Developers felt the pain of having to attract funding to develop and
+maintain their software. For instance, the interviewees from \textit{3D Slicer}
+and \textit{OHIF} said getting funding for software maintenance is more
+challenging than finding funding for research. The interviewee from the
+\textit{ITK-SNAP} team thought more fundings was a way to solve the lack of time
+problem, because they could hire more dedicated developers. On the other hand,
+the interviewee from the \textit{Weasis} team did not feel that fundings could
+solve the same problem, since he would still need time to supervise the project. 
 
 Funding challenges have also been noted by others \citep{GewaltigAndCannon2012,
 Goble2014, KaterbowAndFeulner2018, SmithEtAl2022}. Researchers that devote time
@@ -1897,8 +1894,8 @@ An interviewee proposed an idea for increasing funding: Licensing the software
 to commercial companies to integrate it into their products.
     
 \item[P\refstepcounter{pnum}\thepnum \label{P_TechnologyHurdles}:]
-\textbf{Technology Hurdles:} The technology hurdles mentioned by MI develoers
-include: hard to keep up with changes in OS and libraries, difficult to transer
+\textbf{Technology Hurdles:} The technology hurdles mentioned by MI developers
+include: hard to keep up with changes in OS and libraries, difficult to transfer
 to new technologies, hard to support multiple OS, and hard to support lower-end
 computers. Developers expressed difficulty balancing between four factors:
 cross-platform compatibility, convenience to development and maintenance,
@@ -1916,7 +1913,7 @@ The solutions proposed by the MI developers include the following:
 \item Adopting a web-based approach with backend servers, to better support
 lower-end computers;
 \item Using memory-mapped files to consume less computer memory, to better
-support lower-end computers, 
+support lower-end computers; 
 \item Using computing power from the computers GPU for web applications;
 \item Increasing funding;
 \item Maintaining better documentations to ease the development and maintenance
@@ -1925,12 +1922,12 @@ processes;
 pointed out has already happened to reduce the balance problem.
 \end{itemize}
 
-As the above list shows, developers perceive web-based applications to help the
-balance problem.  Table~\ref{tab_native_vs_web} shows the teams' choices between
-native application and web application. In all the 29 teams on our list, most
-chose to develop native applications. For the eight teams we interviewed, three
-of them were building web applications, and the \textit{MRIcroGL} team was
-considering web-based solutions.
+As the above list shows, developers perceive that web-based applications will
+address the technology hurdle.  Table~\ref{tab_native_vs_web} shows the teams'
+choices between native application and web application. Most of the 29 teams (24
+of 29, or 83\%) chose to develop native applications. For the eight teams we
+interviewed, three of them were building web applications, and the
+\textit{MRIcroGL} team was considering web-based solutions.
 
 \begin{table}[!ht]
 \centering
@@ -1964,35 +1961,47 @@ backend, but in this case there are disadvantages for privacy protection and
 server costs.
 
 \item[P\refstepcounter{pnum}\thepnum \label{P_Correctness}:]
-\textbf{Ensuring Correctness:} Several developers noted difficulties with
-ensuring correctness. 
+\textbf{Ensuring Correctness:} Interviewees identified multiple threats to
+correctness.  The most frequently mentioned threat was complexity.  Complexity
+enters the software by various means, including the large variety of data formats,
+complicated data standards, differing outputs between medical imaging machines,
+and the addition of (non-viewing related) functionality.  Other threats to
+correctness identified include the following:
 
-Other research software domains point to the following problems with testing: i)
-\citet{PintoEtAl2018} mention the problem of insufficient testing; ii)
-\citet{HannayEtAl2009} show that more developers think testing is important than
-the number that believe they have a sufficient understanding of testing
-concepts; and, iii) \citet{HannayEtAl2009, KanewalaAndBieman2013, KellyEtAl2011,
-WieseEtAl2019} point to the oracle problem, which occurs in research software
-when we do not have a means to judge the correctness of the calculated
-solutions. LBM developers also found difficult with testing including difficulty
-with testing the correctness of large numbers of features, and challenges with
+\begin{itemize}
+\item Lack of real world image data for testing, in part because of patient
+privacy concerns;
+\item Tests are expensive and time-consuming because of the need for huge datasets;
+\item Software releases are difficult to manage;
+\item No systematic unit testing; and,
+\item No dedicated quality assurance team.
+\end{itemize}
+
+**start editing here** Change to others have trouble getting developers to test.
+That isn't the problem for MI.  Testing is also a pain point for other research
+software domains point. For instance, \citet{PintoEtAl2018} mention the problem
+of insufficient testing and \citet{HannayEtAl2009} show that more developers
+think testing is important than the number that believe they have a sufficient
+understanding of testing concepts. \citet{WieseEtAl2019} mention data handling
+concerns (like data quality, data management and data privacy).
+\citet{HannayEtAl2009, KanewalaAndBieman2013, KellyEtAl2011, WieseEtAl2019}
+point to the oracle problem, which occurs in research software when we do not
+have a means to judge the correctness of the calculated solutions. For the
+specific case of LBM developers, testing challenges include difficulty with
+testing the correctness of large numbers of features, and challenges with
 automated testing, since free testing services do not offer adequate facilities
-for large amounts of data. 
+for large amounts of data \citep{SmithEtAl2022}. 
 
-% Hard to maintain good documentations % from Ao
-% \begin{itemize}
-%     \item Hard to have a high level roadmap from the start
-%     \item Only a few people fully understand the large codebase
-% \end{itemize}
-
-%\citet{WieseEtAl2019} mention data handling concerns (like data quality, data management and data privacy)
-    
-For the pain point category of testing developers identified the lack of access
-to real-world datasets.  One pain point in the development process is the lack
-of access to real-world datasets for testing. One threat to correctness is: with
-huge datasets for testing, the tests are expensive and time-consuming. Three
-interviewees endorsed self tests / automated tests, which may save time for
-testing. Some proposed and proven solutions are as follows:
+Testing was the most often mentioned strategy for MI developers for ensuring
+correctness.  Seven teams mentioned test related activities, including
+test-driven development, component tests, integration tests, smoke tests,
+regression tests, self tests and automated tests.  Another approach frequently
+adopted (mentioned by 3 interviewees) is a two state development process with
+stable releases and nightly builds.  Other strategies for ensuring correctness
+that came up during the interviews include CI/CD, using de-identified copies of
+medical images for debugging, sending beta versions to medical workers who can
+access the data to do the tests, and collecting/maintaining a dataset of
+problematic images.  Some additional strategies used by MI developers include:
 
 \begin{itemize}
 \item Using open datasets
@@ -2010,40 +2019,16 @@ their help on data format problems;
 special dataset over time.
 \end{itemize}
 
-No interviewee provided a perfect solution to the testing problem. However,
-increased connections between the development team and medical
-professionals/institutions could ease the pain.
+The feedback from the interviewees makes it clear that increased connections
+between the development team and medical professionals/institutions could ease
+the pain of ensuring correctness via testing.
 
-The interviewees identified multiple threats to correctness.  The most
-frequently mentioned threat was complexity.  Complexity enters the software by
-various means, including a variety of data formats, complicated data standards,
-differing outputs between medical imaging machines, and the addition of
-(non-viewing related) functionality.  Other threats to correctness identified by
-at least one time include the following:
-\begin{itemize}
-\item Lack of real world image data for testing;
-\item The team cannot use private data for debugging even when the data causes
-problems; \wss{Why not?  Should ask Ao} \ad{For example, when a physician faces
-some problems to use the software to display a medical image, he/she might reach
-to the team for help. However, the image is private, so the physician can only
-describe the problems, but not share the image with the team to reproduce the
-problems for debugging.}
-\item Expense and time consumed by tests because of the huge datasets;
-\item Difficulty managing releases;
-\item No unit tests; and,
-\item No dedicated quality assurance team.
-\end{itemize}
+% Hard to maintain good documentations % from Ao
+% \begin{itemize}
+%     \item Hard to have a high level roadmap from the start
+%     \item Only a few people fully understand the large codebase
+% \end{itemize}
 
-Testing was the most often mentioned strategy for ensuring correctness.  Seven
-teams mentioned test related activities, including test-driven development,
-component tests, integration tests, smoke tests, regression tests, self tests
-and automated tests.  Another approach frequently adopted (mentioned by 3
-interviewees) is a two state development process with stable releases and
-nightly builds.  Other strategies for ensuring correctness that came up during
-the interviews include CI/CD, using de-identified copies of medical images for
-debugging, sending beta versions to medical workers who can access the data to
-do the tests, and collecting/maintaining a dataset of problematic images.
-	
 \item[P\refstepcounter{pnum}\thepnum \label{P_Usability}:]
 \textbf{Usability:} Several developers noted that users sometimes try to use
 incorrect LBM method combinations to solve their problems. Furthermore, some
