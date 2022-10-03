@@ -1,7 +1,10 @@
-AHP2020LBM.jar - Automatically do pairwise comparisons for AHP using Software Grading scores.
+This README file explains the usage of AHP2020LBM.jar
+
+AHP2020LBM.jar updates the 'AHP Example' sheet of the AHP_Template.xlsx file using 'AssignesScores' or 'SensitivityScores' data (This option can be chosen in the code, see below.). The AHP2020LBM.jar file calculates and assigns Saaty’s pair-wise scores into the 'AHP Example' sheet. The rest of the AHP analysis is performed using formulas in the AHP_Template.xlsx file.
 
 Document Update Author: Peter Michalski
 Date: Aug 3, 2020
+Updated with description of tool: Oct 3, 2022
 
 Original Document Author: Adam Lazzarato & Sun Yue
 Date: May 28, 2014
