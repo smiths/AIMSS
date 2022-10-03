@@ -208,7 +208,7 @@ Department}, %Department and Organization
     Hierarchy Process (AHP). Our ranking is roughly consistent with GitHub stars
     ranking, suggesting at least a partial correlation between the use of best
     practices and popularity. We find the state of the practice to be healthy,
-    with 67\% of the measured packages ranking in the top five for at least one
+    with 87.5\% of the measured packages ranking in the top five for at least one
     quality, the majority of LBM generated artifacts corresponding to general
     recommendations from research software developers, common use of version
     control (67\% of packages) and the adoption of a quasi-agile development
@@ -1097,7 +1097,7 @@ incorporate some automation of the installation process. The number of
 dependencies a package has does not correlate with a higher score. The ability
 to validate the installation process, say through tutorials or test cases, leads
 to a higher score. Apparently active work on a project improves installability
-since the top seven ranked packages are all classified as alive. 
+since the top six ranked packages are all classified as alive. 
  
 \subsection{Surface Correctness and Verifiability} \label{SecSurfCorrectAndVerifiab}
 
@@ -1146,7 +1146,7 @@ correctness. The top ranked software packages all include getting started
 tutorials, and most of these include expected output. The two top ranked
 packages, Ludwig and Musubi, indicate the use of unit testing in their
 documentation. They also incorporated CI in the development process.
-Furthermore, eight of the top 10 ranked packages are alive.
+Furthermore, all of the top 5 ranked packages are alive.
 
 \subsection{Surface Reliability}
 
@@ -1182,10 +1182,7 @@ dependency was recoverable.
 
 Figure~\ref{Fig_Reliability} shows the surface reliability ranking of the
 software packages. Software packages with a high score either did not break
-during installation, or the broken installation was recoverable. All the top
-five ranked packages have tutorials. The package pyLBM broke during tutorial
-testing, but a descriptive error message helped in recovery. Nine of the top 10
-packages are alive. 
+during installation, or the broken installation was recoverable. The package pyLBM broke during tutorial testing, but a descriptive error message helped in recovery. Ten of the top 11 packages are alive. 
 
 \subsection{Surface Robustness} \label{Sec_Robustness}
 
@@ -1211,8 +1208,6 @@ install correctly, so their robustness score may not be a true reflection of
 their runtime robustness. All successfully installed software packages that
 require a plain text input file correctly handled an unexpected change to these
 input files, including a replacement of new lines with carriage returns.
-Following the trend of the other qualities, nine of the top 10 ranked packages
-are alive.
 
 \subsection{Surface Performance}
 
@@ -1285,7 +1280,7 @@ Twenty-three packages use issue tracking, 15 of which use GitHub or GitLab to
 host their git repository, seven use email, and one (SunlightLB) uses
 SourceForge. Most software packages that use GitHub or GitLab have the majority
 of their issues closed, and only three (laboetie, lettuce, Sailfish) have less
-than 50\% of their issues closed. All the top five ranked packages have most of
+than 50\% of their issues closed. All the top four ranked packages have most of
 their issues closed. Alive packages (11 use issue tracking) have 64\% of their
 issues closed, while dead packages (3 use issue tracking) have 71\% of their
 issues closed. Table~\ref{gitrepodata} presents this information. With respect
@@ -1336,7 +1331,7 @@ Table~\ref{gitrepodata} shows the percentage of code that is comments, in
 decreasing order. We assume maintainability improves for packages with a higher
 percentage of comments. Comments represent more than 10\% of code files in 16
 packages, and the average percentage of code comments is about 14\%. All the top
-five overall ranked packages have more than the average. LUMA has only 0.2\%
+four overall ranked packages have more than the average. LUMA has only 0.2\%
 comments, the fewest of any package. However, this package also has the most
 lines of source code, with over four million. The next largest package is \esp{}
 with one million.
@@ -1355,7 +1350,7 @@ on documents and source code releases, have an abundance of high quality
 artifacts, and use an issue tracking tool and version control system. These
 packages also appear to manage their issue tracking, having most of their issues
 closed. Maintainable packages by our ranking have more than 10\% of the code as
-comments. Four of the top five ranked packages are alive.
+comments. All of the top four ranked packages are alive.
 
 \subsection{Reusability} \label{reusabilityresults}
 
@@ -1380,7 +1375,7 @@ packages. Software packages with a high score have thousands of source code
 files and API documentation. The highest scoring packages, ESPResSo and
 waLBerla, have extensive functionality, including graphical visualizations and
 non-LBM modelling. For this reason, a comparison with other software packages is
-not on a level field. Nine of the top 10 ranked packages are alive.
+not on a level field. Seven of the top 8 ranked packages are alive.
 
 \begin{table}[ht!]
 	\begin{center}
@@ -1491,7 +1486,7 @@ software packages included version release notes.
 Figure~\ref{Fig_VisibilityTransparency} shows the visibility and transparency
 ranking of the software packages. Software packages with a high score have an
 explicit development model and defined development process. They also have
-detailed and easy to access software release notes. Four of the top five ranked
+detailed and easy to access software release notes. Five of the top six ranked
 packages are alive.
 
 \subsection{Overall Quality} \label{Sec_OverallQuality}
@@ -1549,7 +1544,7 @@ community.
 
 Notable exceptions to this trend occur for three projects that rank high by star
 count, but relatively low in the ``follow best practices'' ranking: TCLB (star
-rank 3, our rank 12), lettuce (star rank 4, our rank 14) and \esp{} (star rank
+rank 3, our rank 10), lettuce (star rank 4, our rank 12) and \esp{} (star rank
 5, our rank 15).  Part of the discrepancy is because our process ranks all
 projects, but the star measure does not apply to all projects.  Also, our
 process equally weights all qualities (Section~\ref{Sec_OverallQuality}), but
@@ -1580,27 +1575,27 @@ popularity than just quality.
 			ESPResSo & 1 & 145 & 2 & 19& 2\\
 			Ludwig & 2 & 27 & 8 & 6 & 7\\
 			Palabos & 3 & 34 & 6 & GitLab & GitLab\\
-			OpenLB & 4 & N/A & N/A & N/A& N/A\\
-			LUMA & 5 & 33 & 7 & 12 & 4\\
+			LUMA & 4 & 33 & 7 & 12 & 4\\
+			OpenLB & 5 & N/A & N/A & N/A& N/A\\
 			pyLBM & 6 & 95 & 3 & 10 & 5\\
-			DL\_MESO (LBE) & 7 & N/A & N/A & N/A & N/A\\
-			Musubi & 8 & N/A & N/A & N/A & N/A\\
+			Musubi & 7 & N/A & N/A & N/A & N/A\\
+			waLBerla & 8 & 20 & 9 & GitLab & GitLab\\
+			DL\_MESO (LBE) & 9 & N/A & N/A & N/A & N/A\\
 			Sailfish & 9 & 186 & 1 & 41& 1\\
-			waLBerla & 10 & 20 & 9 & GitLab & GitLab\\
+			TCLB & 10 & 95 & 3 & 16 & 3\\
 			laboetie & 11 & 4 & 13 & 5 & 8\\
-			TCLB & 12 & 95 & 3 & 16 & 3\\
+			lettuce & 12 & 48 & 4 & 5 & 8\\
 			MechSys & 13 & N/A & N/A & N/A & N/A\\
-			lettuce & 14 & 48 & 4 & 5 & 8\\
-			\esp & 15 & 35 & 5 & 12 & 4\\
-			MP-LABS & 16 & 12 & 11 & 2 & 9\\			
-			SunlightLB & 17 & N/A & N/A & N/A & N/A\\
-			LB3D & 18 & N/A & N/A & N/A & N/A\\			
-			LIMBES & 19 & N/A & N/A & N/A & N/A\\
-			LB2D-Prime & 20 & N/A & N/A & N/A & N/A\\		
-			HemeLB & 21 & 12 & 11 & 12 & 4\\
-			lbmpy & 22 &  11 & 12 & 2 & 9\\	
-			LB3D-Prime & 23 & N/A & N/A & N/A & N/A\\	
-			LatBo.jl & 24 & 17 & 10 & 8 & 6\\			
+			\esp & 14 & 35 & 5 & 12 & 4\\
+			LB2D-Prime & 15 & N/A & N/A & N/A & N/A\\
+			LB3D & 16 & N/A & N/A & N/A & N/A\\
+			SunlightLB & 16 & N/A & N/A & N/A & N/A\\
+			HemeLB & 17 & 12 & 11 & 12 & 4\\
+			MP-LABS & 17 & 12 & 11 & 2 & 9\\
+			LIMBES & 18 & N/A & N/A & N/A & N/A\\
+			lbmpy & 19 &  11 & 12 & 2 & 9\\
+			LB3D-Prime & 20 & N/A & N/A & N/A & N/A\\
+			LatBo.jl & 21 & 17 & 10 & 8 & 6\\
 			\bottomrule
 		\end{tabular}
 		\caption{Repository Ranking Metrics (Sorted by Our Ranking)} \label{repometrics}
@@ -1752,21 +1747,17 @@ to Artifacts in LBM Projects (C for Common, U for Uncommon and R for Rare)}
 \end{center}
 \end{table}
 
-The top four packages (ESPREsSo, Ludwig, Palabos, and OpenLB) include most of
+The top three packages (ESPREsSo, Ludwig, Palabos) include most of
 the common and uncommon artifacts, but not many of the rare artifacts.  They
 collectively have all the common artifacts, except Palabos does not have theory
-notes, and OpenLB does not appear to use version control.  The top four packages
+notes.  The top three packages
 have most of the uncommon artifacts. Only one them (Ludwig) is missing design
 information, and only one (Palabos) does not have a user manual.  However, for
 Palabos there was a broken link on the package website indicating that such an
 artifact might exist. The developers later fixed this broken link, but this is
 not reflected in our data because it was not present at the time of data
-collection (mid-2020). Despite the broken link, Palabos does have a detailed and
-informative website. The top four ranked packages do not have many of the rare
-artifacts. None of them have any explicit API documentation. Three of them
-(ESPREsSo, Ludwig, Palabos) have information on contributing to the project and
-two (OpenLB, Palabos) have an FAQ section or forum. One (OpenLB) has
-verification and validation notes, and a video guide for the software. 
+collection (mid-2020). Despite the broken link, Palabos does have a detailed and informative website. The top three ranked packages do not have many of the rare artifacts. None of them have any explicit API documentation. All of them have information on contributing to the project and
+one (Palabos) has an FAQ section or forum. 
 
 Three of the items that appear in Table~\ref{artifactspresent} do not explicitly
 appear in the software development guidelines: i) list of related publications,
@@ -2956,45 +2947,38 @@ We analyze the collected data by:
 Current LBM software mostly follows best practices, as illustrated by
 Table~\ref{topperformerstable}, which summarizes the top five performers for
 each quality and for the overall quality. Taking the union of all entries in the
-table, we have 16 top performers: ESPREsSo, MechSys, OpenLB, DL\_MESO, Sailfish,
-Ludwig, Musubi, pyLBM, waLBerla, laboetie, lettuce, \esp, LUMA, MP-LABS,
-Palabos, and HemeLB.  Therefore, two thirds (67\%) of the 24 packages
-appear in the top five for at least one quality.  Almost all entries are alive,
-except for three packages: laboetie, MP-LABS, and HemeLB.  Alive packages are in
+table, we have 21 top performers: ESPREsSo, MechSys, OpenLB, DL\_MESO, Palabos, Sailfish, Ludwig, Musubi, pyLBM, waLBerla, laboetie, lettuce, LUMA, TCLB, \esp, LB2D-Prime, LB3D-Prime, LIMBES, SunlightLB, HemeLB, MP-LABS.  Therefore, seven eights (87.5\%) of the 24 packages
+appear in the top five for at least one quality.  Most entries are alive.  Alive packages are in
 a healthy state with respect to adopting best practices.
 
 \begin{table}[ht!]
 	\begin{center}
-		\begin{tabular}{ p{3cm}p{1.9cm}p{1.9cm}p{1.9cm}p{1.9cm}p{1.9cm} }
+		\begin{tabular}{ p{3cm}p{3cm}p{2.1cm}p{2.1cm}p{2.1cm}p{2.1cm} }
 			\toprule
 			Quality & Ranked 1st & Ranked 2nd & Ranked 3rd & Ranked 4th & Ranked
 			5th\\
 			\midrule
-			Installability & ESPResSo & MechSys & OpenLB & DL\_MESO (LBE) &
-			Sailfish\\
+			Installability & ESPResSo, MechSys, OpenLB & & & DL\_MESO (LBE),
+			Palabos, Sailfish &\\
 			\addlinespace[0.4cm]
 			\pbox{3.0cm}{Surface Correctness \\ and Verifiability} & Ludwig &
-			Musubi & pyLBM & OpenLB & waLBerla\\
+			Musubi, pyLBM & & ESPResSo, waLBerla &\\
 			\addlinespace[0.4cm]
-			Surface Reliability & DL\_MESO (LBE) & laboetie* & lettuce & MechSys
-			& Musubi \\
+			Surface Reliability & Musubi, DL\_MESO (LBE), ESPResSo, laboetie*, lettuce, LUMA, MechSys, OpenLB, Palabos, pyLBM, TCLB, & & & & \\
 			\addlinespace[0.4cm]
-			Surface Robustness & DL\_MESO (LBE) & \esp & lettuce & LUMA &
-			OpenLB \\
+			Surface Robustness & DL\_MESO, ESPResSo, \esp, laboetie*, LB2D-Prime*, LB3D-Prime*, lettuce, LIMBES*, Ludwig, LUMA, MechSys, OpenLB, Palabos, pyLBM, Sailfish, SunlightLB*, TCLB, waLBerla & & & & \\
 			\addlinespace[0.4cm]
-			Surface Usability & laboetie* & ESPResSo & OpenLB & Ludwig & Sailfish\\
+			Surface Usability & ESPResSo, laboetie*, Ludwig, OpenLB, Sailfish & & & & \\
 			\addlinespace[0.4cm]
-			Maintainability & Ludwig & MP-LABS* & \esp & ESPResSo & Palabos\\
+			Maintainability & ESPResSo, Ludwig, Palabos, waLBerla & & & & \esp \\
 			\addlinespace[0.4cm]
-			Reusability & ESPResSo & waLBerla & \esp & Sailfish & HemeLB*\\
+			Reusability & ESPResSo, waLBerla & & \esp, HemeLB*, Musubi, OpenLB, Palabos, Sailfish & &\\
 			\addlinespace[0.4cm]
-			\pbox{3.0cm}{Surface \\Understandability} & LUMA & Palabos & pyLBM &
-			DL\_MESO (LBE)& MechSys\\
+			\pbox{3.0cm}{Surface \\Understandability} & LUMA & DL\_MESO (LBE), lettuce, Musubi, Palabos & & & \\
 			\addlinespace[0.4cm]
-			\pbox{3.0cm}{Visibility and \\Transparency} & Ludwig & Palabos &
-			LUMA & ESPResSo & MP-LABS*\\
+			\pbox{3.0cm}{Visibility and \\Transparency} & Ludwig & ESPResSo, LUMA, Palabos & & & MP-LABS*\\
 			\addlinespace[0.4cm]
-			Overall Quality & ESPResSo & Ludwig & Palabos & OpenLB & LUMA\\
+			Overall Quality & ESPResSo & Ludwig & Palabos & LUMA & OpenLB \\
 			\bottomrule
 		\end{tabular}
 		\caption{Top performers for each quality (all packages were alive at the
