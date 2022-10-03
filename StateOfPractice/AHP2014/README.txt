@@ -3,6 +3,9 @@ DataProcess.jar - Automatically do pairwise comparisons for AHP using Software G
 Author: Adam Lazzarato & Sun Yue
 Date: May 28, 2014
 
+Comment Added 3 OCT 2022 by Peter Michalski:
+The AHP_Template file in this directory contains the results from experiments in 2014.
+
 Usage:
 1. Make sure you have Java Runtime Environment 1.7 installed by using the command:
 
