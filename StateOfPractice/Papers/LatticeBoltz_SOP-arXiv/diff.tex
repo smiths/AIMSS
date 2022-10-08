@@ -1,7 +1,7 @@
 %% Copyright 2007-2020 Elsevier Ltd
 %DIF LATEXDIFF DIFFERENCE FILE
 %DIF DEL OrigSubmissionLatticeBoltz_SOP.tex   Fri Sep 30 21:49:30 2022
-%DIF ADD LatticeBoltz_SOP.tex                 Sun Oct  2 15:39:37 2022
+%DIF ADD LatticeBoltz_SOP.tex                 Fri Oct  7 15:54:03 2022
 %% 
 %% This file is part of the 'Elsarticle Bundle'.
 %% ---------------------------------------------
@@ -253,8 +253,9 @@ Department}, %Department and Organization
     Hierarchy Process (AHP). Our ranking is roughly consistent with GitHub stars
     ranking, suggesting at least a partial correlation between the use of best
     practices and popularity. We find the state of the practice to be healthy,
-    with 67\% of the measured packages ranking in the top five for at least one
-    quality, the majority of LBM generated artifacts corresponding to general
+    with 67\% of the measured packages ranking in the top \DIFdelbegin \DIFdel{five }\DIFdelend \DIFaddbegin \DIFadd{two }\DIFaddend for at least \DIFdelbegin \DIFdel{one
+    quality}\DIFdelend \DIFaddbegin \DIFadd{two
+    qualities}\DIFaddend , the majority of LBM generated artifacts corresponding to general
     recommendations from research software developers, common use of version
     control (67\% of packages) and the adoption of a quasi-agile development
     process.  Areas of best practice to potentially improve include adoption of
@@ -440,9 +441,8 @@ The question below cover these points:
 We investigate the research questions by applying the general methodology
 summarized in \citet{SmithEtAl2021, SmithAndMichalski2022}. The specific
 application of the methodology to LBM is reviewed in Section~\ref{methodology},
-with the full details in Anonymous (xxxx)\footnotemark[1].
-%\citet{Michalski2021}.  
-Our methodology updates
+with the full details in \DIFdelbegin \DIFdel{Anonymous (xxxx)}
+\DIFdelend \citet{Michalski2021}. Our methodology updates
 an approach used in prior assessments of domains like Geographic Information
 Systems \citep{SmithEtAl2018_arXivGIS}, Mesh Generators \citep{SmithEtAl2016},
 Oceanographic Software \citep{smith2015state}, Seismology software
@@ -833,26 +833,22 @@ which removes ``works-on-my-computer'' errors.
 \subsection{Analytic Hierarchy Process} \label{AHP}
 
 Once we measure each package, we still need to rank them to answer
-\rqref{RQ_HighestQuality}. We do this via the Analytic Hierarchy Process (AHP),
-a decision-making technique that compares multiple options by multiple criteria.
-Our AHP algorithm uses the overall impression score, gathered via the
-measurement template, \DIFdelbegin \DIFdel{to compare and }\DIFdelend \DIFaddbegin \DIFadd{along with pairwise comparisons between packages to }\DIFaddend rank
-the LBM software. \DIFdelbegin \DIFdel{AHP performs a pairwise analysis using a matrix and generates an individual quality }\DIFdelend \DIFaddbegin \DIFadd{We have previously used this technique to rank scientific
-software \mbox{%DIFAUXCMD
-\citep{SmithEtAl2016}}\hspace{0pt}%DIFAUXCMD
-.
-}
+\rqref{RQ_HighestQuality}. We do this via the Analytic Hierarchy Process (AHP)
+\citep{Saaty1980}, a decision-making technique that compares multiple options by
+multiple criteria. Our AHP algorithm uses the overall impression score, gathered
+via the measurement template, \DIFdelbegin \DIFdel{to compare and }\DIFdelend \DIFaddbegin \DIFadd{along with pairwise comparisons between packages
+to }\DIFaddend rank the LBM software. \DIFdelbegin \DIFdel{AHP performs a pairwise analysis using a matrix and generates an individual quality }\DIFdelend \DIFaddbegin \DIFadd{We have previously used this technique to rank
+scientific software} 
+\citep{SmithEtAl2016}.
 
 \DIFadd{AHP focuses on relative comparisons, rather than requiring an unattainable
 unified scale for measuring quality.  AHP starts with sets of $n$
-}\textit{\DIFadd{options}} \DIFadd{and $m$ }\textit{\DIFadd{criteria}}\DIFadd{.  In our project there are 24
+}\textit{\DIFadd{options}} \DIFadd{and $m$ }\textit{\DIFadd{criteria}}.  In our project there are 24
 software products ($n=24$) and 9 qualities ($m = 9$).  To get a ranking for each
 criterion, we perform a pairwise analysis between each of the options, in the
 form of an $n \times n$ matrix $A$.  The value of $A_{jk}$ ranges from 1 to 9,
-using the following definitions \mbox{%DIFAUXCMD
-\citep{Saaty1980}}\hspace{0pt}%DIFAUXCMD
-:
-}
+using the following definitions 
+\citep{Saaty1980}:
 
 \begin{itemize}
 \item \DIFadd{1 means equal importance. Two activities contribute equally to the
@@ -889,11 +885,10 @@ AHP calculations (Table~\ref{Tbl_SampleAHP}).
 \DIFadd{In our work, we make the common assumption of a reciprocal relationship between
 options $k$ and $j$; that is, $A_{kj}=1/A_{jk}$.  A partial view of $A$ for the
 quality of installability is found in Table~\ref{Tbl_SampleAHP}.  To obtain the
-overall }\DIFaddend score for each \DIFdelbegin \DIFdel{software package. \mbox{%DIFAUXCMD
-\citet{SmithEtAl2016} }\hspace{0pt}%DIFAUXCMD
-%DIF < DOUBLE BLIND
+overall }\DIFaddend score for each software package.
+\citet{SmithEtAl2016} 
 shows the details on how AHP ranks
-software based on quality measures.  }\DIFdelend \DIFaddbegin \DIFadd{option for a given criterion we use matrix $B$, where
+software based on quality measures.  \DIFaddbegin \DIFadd{option for a given criterion we use matrix $B$, where
 $B_{jk} = A_{jk}/\sum_{i=1}^{i=n}(A_{i k})$.  That is, to get $B$ we normalize
 the columns of $A$ by dividing by the sum of the entries in the column, as shown
 in Table~\ref{Tbl_SampleAHP}.  For a given quality, the score ($s_j$) for
@@ -1146,15 +1141,15 @@ uninstallation instructions.
 
 Figure~\ref{Fig_Installability} shows the installability ranking of the software
 packages. Software packages with a higher score (ESPResSo, MechSys, OpenLB,
-DL\_MESO, Palabos) tend to have one set of linear installation instructions,
-written as if the person doing the installation has none of the dependencies
-installed. The instructions often list compatible operating system versions and
-include instructions for installing dependencies. The top-ranked packages often
-incorporate some automation of the installation process. The number of
-dependencies a package has does not correlate with a higher score. The ability
-to validate the installation process, say through tutorials or test cases, leads
-to a higher score. Apparently active work on a project improves installability
-since the top seven ranked packages are all classified as alive. 
+DL\_MESO, Palabos\DIFaddbegin \DIFadd{, Sailfish}\DIFaddend ) tend to have one set of linear installation
+instructions, written as if the person doing the installation has none of the
+dependencies installed. The instructions often list compatible operating system
+versions and include instructions for installing dependencies. The top-ranked
+packages often incorporate some automation of the installation process. The
+number of dependencies a package has does not correlate with a higher score. The
+ability to validate the installation process, say through tutorials or test
+cases, leads to a higher score. Apparently active work on a project improves
+installability since the top \DIFdelbegin \DIFdel{seven }\DIFdelend \DIFaddbegin \DIFadd{six }\DIFaddend ranked packages are all classified as alive. 
 
 \subsection{Surface Correctness and Verifiability} \label{SecSurfCorrectAndVerifiab}
 
@@ -1200,10 +1195,10 @@ correctness and verifiability. Software packages with a higher score tend to
 have theory documentation. They also explicitly use at least one document
 generation tool that helps with verification, thus building confidence in
 correctness. The top ranked software packages all include getting started
-tutorials, and most of these include expected output. The two top ranked
+tutorials, and most of these include expected output. \DIFdelbegin \DIFdel{The two }\DIFdelend \DIFaddbegin \DIFadd{Two of the }\DIFaddend top ranked
 packages, Ludwig and Musubi, indicate the use of unit testing in their
 documentation. They also incorporated CI in the development process.
-Furthermore, eight of the top 10 ranked packages are alive.
+Furthermore, \DIFdelbegin \DIFdel{eight of the top 10 }\DIFdelend \DIFaddbegin \DIFadd{all the top 5 }\DIFaddend ranked packages are alive.
 
 \subsection{Surface Reliability}
 
@@ -1239,10 +1234,11 @@ dependency was recoverable.
 
 Figure~\ref{Fig_Reliability} shows the surface reliability ranking of the
 software packages. Software packages with a high score either did not break
-during installation, or the broken installation was recoverable. All the top
-five ranked packages have tutorials. The package pyLBM broke during tutorial
-testing, but a descriptive error message helped in recovery. Nine of the top 10
-packages are alive. 
+during installation, or the broken installation was recoverable. \DIFdelbegin \DIFdel{All the top
+five ranked packages have tutorials. }\DIFdelend The package
+pyLBM broke during tutorial testing, but a descriptive error message helped in
+recovery. \DIFdelbegin \DIFdel{Nine }\DIFdelend \DIFaddbegin \DIFadd{Ten }\DIFaddend of the top \DIFdelbegin \DIFdel{10
+}\DIFdelend \DIFaddbegin \DIFadd{11 }\DIFaddend packages are alive. 
 
 \subsection{Surface Robustness} \label{Sec_Robustness}
 
@@ -1268,8 +1264,9 @@ install correctly, so their robustness score may not be a true reflection of
 their runtime robustness. All successfully installed software packages that
 require a plain text input file correctly handled an unexpected change to these
 input files, including a replacement of new lines with carriage returns.
-Following the trend of the other qualities, nine of the top 10 ranked packages
+\DIFdelbegin \DIFdel{Following the trend of the other qualities, nine of the top 10 ranked packages
 are alive.
+}\DIFdelend 
 
 \subsection{Surface Performance}
 
@@ -1342,7 +1339,7 @@ Twenty-three packages use issue tracking, 15 of which use GitHub or GitLab to
 host their git repository, seven use email, and one (SunlightLB) uses
 SourceForge. Most software packages that use GitHub or GitLab have the majority
 of their issues closed, and only three (laboetie, lettuce, Sailfish) have less
-than 50\% of their issues closed. All the top five ranked packages have most of
+than 50\% of their issues closed. All the top \DIFdelbegin \DIFdel{five }\DIFdelend \DIFaddbegin \DIFadd{four }\DIFaddend ranked packages have most of
 their issues closed. Alive packages (11 use issue tracking) have 64\% of their
 issues closed, while dead packages (3 use issue tracking) have 71\% of their
 issues closed. Table~\ref{gitrepodata} presents this information. With respect
@@ -1393,7 +1390,7 @@ Table~\ref{gitrepodata} shows the percentage of code that is comments, in
 decreasing order. We assume maintainability improves for packages with a higher
 percentage of comments. Comments represent more than 10\% of code files in 16
 packages, and the average percentage of code comments is about 14\%. All the top
-five overall ranked packages have more than the average. LUMA has only 0.2\%
+\DIFdelbegin \DIFdel{five }\DIFdelend \DIFaddbegin \DIFadd{four }\DIFaddend overall ranked packages have more than the average. LUMA has only 0.2\%
 comments, the fewest of any package. However, this package also has the most
 lines of source code, with over four million. The next largest package is \esp{}
 with one million.
@@ -1412,7 +1409,7 @@ on documents and source code releases, have an abundance of high quality
 artifacts, and use an issue tracking tool and version control system. These
 packages also appear to manage their issue tracking, having most of their issues
 closed. Maintainable packages by our ranking have more than 10\% of the code as
-comments. Four of the top five ranked packages are alive.
+comments. \DIFdelbegin \DIFdel{Four }\DIFdelend \DIFaddbegin \DIFadd{All }\DIFaddend of the top \DIFdelbegin \DIFdel{five }\DIFdelend \DIFaddbegin \DIFadd{four }\DIFaddend ranked packages are alive.
 
 \subsection{Reusability} \label{reusabilityresults}
 
@@ -1437,7 +1434,7 @@ packages. Software packages with a high score have thousands of source code
 files and API documentation. The highest scoring packages, ESPResSo and
 waLBerla, have extensive functionality, including graphical visualizations and
 non-LBM modelling. For this reason, a comparison with other software packages is
-not on a level field. Nine of the top 10 ranked packages are alive.
+not on a level field. \DIFdelbegin \DIFdel{Nine }\DIFdelend \DIFaddbegin \DIFadd{Seven }\DIFaddend of the top \DIFdelbegin \DIFdel{10 }\DIFdelend \DIFaddbegin \DIFadd{8 }\DIFaddend ranked packages are alive.
 
 \begin{table}[ht!]
 	\begin{center}
@@ -1548,7 +1545,7 @@ software packages included version release notes.
 Figure~\ref{Fig_VisibilityTransparency} shows the visibility and transparency
 ranking of the software packages. Software packages with a high score have an
 explicit development model and defined development process. They also have
-detailed and easy to access software release notes. Four of the top five ranked
+detailed and easy to access software release notes. \DIFdelbegin \DIFdel{Four of }\DIFdelend \DIFaddbegin \DIFadd{All }\DIFaddend the top five ranked
 packages are alive.
 
 \subsection{Overall Quality} \label{Sec_OverallQuality}
@@ -1565,7 +1562,7 @@ the weighting of quality $i$ ($w_i$) in the same way that the score ($s_j$) was
 found for software package $j$ evaluated for a given quality
 (Section~\ref{AHP}).  That is, we conduct a pairwise comparison between the
 priority of different qualities to construct the $m \times m$ matrices $A$ and
-$B$ and then we average row $i$ of matrix $B$ to find the priority value $w_i$
+$B$, and then we average row $i$ of matrix $B$ to find the priority value $w_i$
 for quality $i$.  If we introduce the notation that $s^i_j$ is the score for
 quality $i$ for package $j$, then the overall score $S_j$ for package $j$ is
 found via:
@@ -1607,8 +1604,8 @@ community.
 
 Notable exceptions to this trend occur for three projects that rank high by star
 count, but relatively low in the ``follow best practices'' ranking: TCLB (star
-rank 3, our rank 12), lettuce (star rank 4, our rank 14) and \esp{} (star rank
-5, our rank 15).  Part of the discrepancy is because our process ranks all
+rank 3, our rank \DIFdelbegin \DIFdel{12}\DIFdelend \DIFaddbegin \DIFadd{10}\DIFaddend ), lettuce (star rank 4, our rank \DIFdelbegin \DIFdel{14}\DIFdelend \DIFaddbegin \DIFadd{12}\DIFaddend ) and \esp{} (star rank
+5, our rank \DIFdelbegin \DIFdel{15}\DIFdelend \DIFaddbegin \DIFadd{14}\DIFaddend ).  Part of the discrepancy is because our process ranks all
 projects, but the star measure does not apply to all projects.  Also, our
 process equally weights all qualities (Section~\ref{Sec_OverallQuality}), but
 for real users some qualities will be more important than others. Discrepancies
@@ -1638,27 +1635,54 @@ popularity than just quality.
 			ESPResSo & 1 & 145 & 2 & 19& 2\\
 			Ludwig & 2 & 27 & 8 & 6 & 7\\
 			Palabos & 3 & 34 & 6 & GitLab & GitLab\\
-			OpenLB & 4 & N/A & N/A & N/A& N/A\\
-			LUMA & 5 & 33 & 7 & 12 & 4\\
-			pyLBM & 6 & 95 & 3 & 10 & 5\\
-			DL\_MESO (LBE) & 7 & N/A & N/A & N/A & N/A\\
-			Musubi & 8 & N/A & N/A & N/A & N/A\\
+			\DIFdelbeginFL \DIFdelFL{OpenLB }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{LUMA }\DIFaddendFL & 4 & \DIFaddbeginFL \DIFaddFL{33 }& \DIFaddFL{7 }& \DIFaddFL{12 }& \DIFaddFL{4}\\
+			\DIFaddFL{OpenLB }& \DIFaddFL{5 }& \DIFaddendFL N/A & N/A & N/A& N/A\\
+			\DIFdelbeginFL \DIFdelFL{LUMA }%DIFDELCMD < & %%%
+\DIFdelFL{5 }%DIFDELCMD < & %%%
+\DIFdelFL{33 }%DIFDELCMD < & %%%
+\DIFdelFL{7 }%DIFDELCMD < & %%%
+\DIFdelFL{12 }%DIFDELCMD < & %%%
+\DIFdelFL{4}%DIFDELCMD < \\
+%DIFDELCMD < 			%%%
+\DIFdelendFL pyLBM & 6 & 95 & 3 & 10 & 5\\
+			\DIFdelbeginFL \DIFdelFL{DL\_MESO (LBE) }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{Musubi }\DIFaddendFL & 7 & N/A & N/A & N/A & N/A\\
+			\DIFdelbeginFL \DIFdelFL{Musubi }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{waLBerla }\DIFaddendFL & 8 & \DIFaddbeginFL \DIFaddFL{20 }& \DIFaddFL{9 }& \DIFaddFL{GitLab }& \DIFaddFL{GitLab}\\
+			\DIFaddFL{DL\_MESO (LBE) }& \DIFaddFL{9 }& \DIFaddendFL N/A & N/A & N/A & N/A\\
 			Sailfish & 9 & 186 & 1 & 41& 1\\
-			waLBerla & 10 & 20 & 9 & GitLab & GitLab\\
+			\DIFdelbeginFL \DIFdelFL{waLBerla }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{TCLB }\DIFaddendFL & 10 & \DIFdelbeginFL \DIFdelFL{20 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{95 }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{9 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{3 }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{GitLab }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{16 }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{GitLab}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{3}\DIFaddendFL \\
 			laboetie & 11 & 4 & 13 & 5 & 8\\
-			TCLB & 12 & 95 & 3 & 16 & 3\\
+			\DIFdelbeginFL \DIFdelFL{TCLB }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{lettuce }\DIFaddendFL & 12 & \DIFdelbeginFL \DIFdelFL{95 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{48 }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{3 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{4 }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{16 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{5 }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{3}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{8}\DIFaddendFL \\
 			MechSys & 13 & N/A & N/A & N/A & N/A\\
-			lettuce & 14 & 48 & 4 & 5 & 8\\
-			\esp & 15 & 35 & 5 & 12 & 4\\
-			MP-LABS & 16 & 12 & 11 & 2 & 9\\			
-			SunlightLB & 17 & N/A & N/A & N/A & N/A\\
-			LB3D & 18 & N/A & N/A & N/A & N/A\\			
-			LIMBES & 19 & N/A & N/A & N/A & N/A\\
-			LB2D-Prime & 20 & N/A & N/A & N/A & N/A\\		
-			HemeLB & 21 & 12 & 11 & 12 & 4\\
-			lbmpy & 22 &  11 & 12 & 2 & 9\\	
-			LB3D-Prime & 23 & N/A & N/A & N/A & N/A\\	
-			LatBo.jl & 24 & 17 & 10 & 8 & 6\\			
+			\DIFdelbeginFL \DIFdelFL{lettuce }\DIFdelendFL \DIFaddbeginFL \esp \DIFaddendFL & 14 & \DIFdelbeginFL \DIFdelFL{48 }%DIFDELCMD < & %%%
+\DIFdelFL{4 }%DIFDELCMD < & %%%
+\DIFdelFL{5 }%DIFDELCMD < & %%%
+\DIFdelFL{8}%DIFDELCMD < \\
+%DIFDELCMD < 			\esp & %%%
+\DIFdelFL{15 }%DIFDELCMD < & %%%
+\DIFdelendFL 35 & 5 & 12 & 4\\
+			\DIFdelbeginFL \DIFdelFL{MP-LABS }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{LB2D-Prime }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{16 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{15 }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{12 }%DIFDELCMD < & %%%
+\DIFdelFL{11 }%DIFDELCMD < & %%%
+\DIFdelFL{2 }%DIFDELCMD < & %%%
+\DIFdelFL{9}%DIFDELCMD < \\			
+%DIFDELCMD < 			%%%
+\DIFdelFL{SunlightLB }%DIFDELCMD < & %%%
+\DIFdelFL{17 }%DIFDELCMD < & %%%
+\DIFdelendFL N/A & N/A & N/A & N/A\\
+			LB3D & \DIFdelbeginFL \DIFdelFL{18 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{16 }\DIFaddendFL & N/A & N/A & N/A & N/A\\
+			\DIFdelbeginFL \DIFdelFL{LIMBES }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{SunlightLB }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{19 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{16 }\DIFaddendFL & N/A & N/A & N/A & N/A\\
+			\DIFdelbeginFL \DIFdelFL{LB2D-Prime }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{HemeLB }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{20 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{17 }\DIFaddendFL & \DIFaddbeginFL \DIFaddFL{12 }& \DIFaddFL{11 }& \DIFaddFL{12 }& \DIFaddFL{4}\\
+			\DIFaddFL{MP-LABS }& \DIFaddFL{17 }& \DIFaddFL{12 }& \DIFaddFL{11 }& \DIFaddFL{2 }& \DIFaddFL{9}\\
+			\DIFaddFL{LIMBES }& \DIFaddFL{18 }& \DIFaddendFL N/A & N/A & N/A & N/A\\
+			\DIFdelbeginFL \DIFdelFL{HemeLB }%DIFDELCMD < & %%%
+\DIFdelFL{21 }%DIFDELCMD < & %%%
+\DIFdelFL{12 }%DIFDELCMD < & %%%
+\DIFdelFL{11 }%DIFDELCMD < & %%%
+\DIFdelFL{12 }%DIFDELCMD < & %%%
+\DIFdelFL{4}%DIFDELCMD < \\
+%DIFDELCMD < 			%%%
+\DIFdelendFL lbmpy & \DIFdelbeginFL \DIFdelFL{22 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{19 }\DIFaddendFL &  11 & 12 & 2 & 9\\
+			LB3D-Prime & \DIFdelbeginFL \DIFdelFL{23 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{20 }\DIFaddendFL & N/A & N/A & N/A & N/A\\
+			LatBo.jl & \DIFdelbeginFL \DIFdelFL{24 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{21 }\DIFaddendFL & 17 & 10 & 8 & 6\\
 			\bottomrule
 		\end{tabular}
 		\caption{Repository Ranking Metrics (Sorted by Our Ranking)} \label{repometrics}
@@ -1810,21 +1834,20 @@ to Artifacts in LBM Projects (C for Common, U for Uncommon and R for Rare)}
 \end{center}
 \end{table}
 
-The top four packages (ESPREsSo, Ludwig, Palabos, and OpenLB) include most of
+The top \DIFdelbegin \DIFdel{four }\DIFdelend \DIFaddbegin \DIFadd{three }\DIFaddend packages (ESPREsSo, Ludwig, Palabos\DIFdelbegin \DIFdel{, and OpenLB}\DIFdelend ) include most of
 the common and uncommon artifacts, but not many of the rare artifacts.  They
 collectively have all the common artifacts, except Palabos does not have theory
-notes, and OpenLB does not appear to use version control.  The top four packages
+notes\DIFdelbegin \DIFdel{, and OpenLB does not appear to use version control}\DIFdelend .  The top \DIFdelbegin \DIFdel{four }\DIFdelend \DIFaddbegin \DIFadd{three }\DIFaddend packages
 have most of the uncommon artifacts. Only one them (Ludwig) is missing design
 information, and only one (Palabos) does not have a user manual.  However, for
 Palabos there was a broken link on the package website indicating that such an
 artifact might exist. The developers later fixed this broken link, but this is
 not reflected in our data because it was not present at the time of data
-collection (mid-2020). Despite the broken link, Palabos does have a detailed and
-informative website. The top four ranked packages do not have many of the rare
-artifacts. None of them have any explicit API documentation. Three of them
-(ESPREsSo, Ludwig, Palabos) have information on contributing to the project and
-two (OpenLB, Palabos) have an FAQ section or forum. One (OpenLB) has
+collection (mid-2020). Despite the broken link, Palabos does have a detailed and informative website. The top \DIFdelbegin \DIFdel{four }\DIFdelend \DIFaddbegin \DIFadd{three }\DIFaddend ranked packages do not have many of the rare artifacts. None of them have any explicit API documentation. \DIFdelbegin \DIFdel{Three of them (ESPREsSo, Ludwig, Palabos) }\DIFdelend \DIFaddbegin \DIFadd{All of them }\DIFaddend have information on contributing to the project and
+\DIFdelbegin \DIFdel{two (OpenLB, Palabos) have }\DIFdelend \DIFaddbegin \DIFadd{one (Palabos) has }\DIFaddend an FAQ section or forum. 
+\DIFdelbegin \DIFdel{One (OpenLB) has
 verification and validation notes, and a video guide for the software. 
+}\DIFdelend 
 
 Three of the items that appear in Table~\ref{artifactspresent} do not explicitly
 appear in the software development guidelines: i) list of related publications,
@@ -2308,8 +2331,8 @@ in general (\rqref{RQ_ComparePainPoints})?  Below we go through each of the
 identified pain points and include citations that contrast the LBM experience
 with observations from researchers in other domains.
 Section~\ref{Sec_AddressConcerns} covers potential ways to address the pain
-points and Anonymous (xxxx)\footnotemark[1] %\citet{SmithEtAl2021} 
-provides the full interview questions.
+points and \DIFdelbegin \DIFdel{Anonymous (xxxx)}
+\citet{SmithEtAl2021} provides the full interview questions.
 
 \citet{PintoEtAl2018} lists some pain points that did not come up in our
 conversations with LBM developers: Cross-platform compatibility, interruptions
@@ -3012,55 +3035,112 @@ We analyze the collected data by:
 \end{inparaenum}
 
 Current LBM software mostly follows best practices, as illustrated by
-Table~\ref{topperformerstable}, which summarizes the top five performers for
-each quality and for the overall quality. Taking the union of all entries in the
-table, we have 16 top performers: ESPREsSo, MechSys, OpenLB, DL\_MESO, Sailfish,
-Ludwig, Musubi, pyLBM, waLBerla, laboetie, lettuce, \esp, LUMA, MP-LABS,
-Palabos, and HemeLB.  Therefore, two thirds (67\%) of the 24 packages
-appear in the top five for at least one quality.  Almost all entries are alive,
-except for three packages: laboetie, MP-LABS, and HemeLB.  Alive packages are in
-a healthy state with respect to adopting best practices.
+Table~\ref{topperformerstable}, which summarizes the top \DIFdelbegin \DIFdel{five performers }\DIFdelend \DIFaddbegin \DIFadd{two packages }\DIFaddend for each
+quality and for the overall quality. Taking the union of all entries in the
+table \DIFaddbegin \DIFadd{that appear under 2 or more qualities}\DIFaddend , we have 16 top performers:
+ESPREsSo, MechSys, OpenLB, DL\_MESO \DIFaddbegin \DIFadd{(LBE)}\DIFaddend , Sailfish, Ludwig, Musubi, pyLBM,
+waLBerla, laboetie, lettuce, \esp, LUMA, \DIFdelbegin \DIFdel{MP-LABS,
+Palabos, and HemeLB}\DIFdelend \DIFaddbegin \DIFadd{Palabos, TCLB and LB2D-Prime}\DIFaddend .
+Therefore, two thirds (67\%) of the 24 packages appear in the top \DIFdelbegin \DIFdel{five }\DIFdelend \DIFaddbegin \DIFadd{two }\DIFaddend for at
+least \DIFdelbegin \DIFdel{one quality}\DIFdelend \DIFaddbegin \DIFadd{two qualities}\DIFaddend .  Almost all \DIFdelbegin \DIFdel{entries }\DIFdelend \DIFaddbegin \DIFadd{the top performers }\DIFaddend are alive, except for \DIFdelbegin \DIFdel{three }\DIFdelend \DIFaddbegin \DIFadd{two
+}\DIFaddend packages: laboetie \DIFdelbegin \DIFdel{, MP-LABS, and HemeLB}\DIFdelend \DIFaddbegin \DIFadd{and LB2D-Prime}\DIFaddend .  Alive packages are in a healthy state with
+respect to adopting best practices.
 
 \begin{table}[ht!]
 	\begin{center}
-		\begin{tabular}{ p{3cm}p{1.9cm}p{1.9cm}p{1.9cm}p{1.9cm}p{1.9cm} }
-			\toprule
-			Quality & Ranked 1st & Ranked 2nd & Ranked 3rd & Ranked 4th & Ranked
-			5th\\
+		\DIFdelbeginFL %DIFDELCMD < \begin{tabular}{ p{3cm}p{1.9cm}p{1.9cm}p{1.9cm}p{1.9cm}p{1.9cm} }
+%DIFDELCMD < 			%%%
+\DIFdelendFL \DIFaddbeginFL \begin{tabular}{ p{3cm}p{13cm} }
+			\DIFaddendFL \toprule
+			Quality & Ranked 1st \DIFdelbeginFL %DIFDELCMD < & %%%
+\DIFdelFL{Ranked }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{or }\DIFaddendFL 2nd\DIFdelbeginFL %DIFDELCMD < & %%%
+\DIFdelFL{Ranked 3rd }%DIFDELCMD < & %%%
+\DIFdelFL{Ranked 4th }%DIFDELCMD < & %%%
+\DIFdelFL{Ranked
+			5th}\DIFdelendFL \\
 			\midrule
-			Installability & ESPResSo & MechSys & OpenLB & DL\_MESO (LBE) &
-			Sailfish\\
+			Installability & ESPResSo\DIFdelbeginFL %DIFDELCMD < & %%%
+\DIFdelFL{MechSys}%DIFDELCMD < & %%%
+\DIFdelFL{OpenLB}%DIFDELCMD < & %%%
+\DIFdelendFL \DIFaddbeginFL \DIFaddFL{, MechSys, OpenLB, }\DIFaddendFL DL\_MESO (LBE)\DIFdelbeginFL %DIFDELCMD < &
+%DIFDELCMD < 			%%%
+\DIFdelendFL \DIFaddbeginFL \DIFaddFL{,
+			Palabos, }\DIFaddendFL Sailfish\\
 			\addlinespace[0.4cm]
-			\pbox{3.0cm}{Surface Correctness \\ and Verifiability} & Ludwig &
-			Musubi & pyLBM & OpenLB & waLBerla\\
+			\pbox{3.0cm}{Surface Correctness \\ and Verifiability} & Ludwig\DIFdelbeginFL %DIFDELCMD < &
+%DIFDELCMD < 			%%%
+\DIFdelFL{Musubi}%DIFDELCMD < & %%%
+\DIFdelFL{pyLBM}%DIFDELCMD < & %%%
+\DIFdelFL{OpenLB }%DIFDELCMD < & %%%
+\DIFdelFL{waLBerla}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{,
+			Musubi, pyLBM}\DIFaddendFL \\
 			\addlinespace[0.4cm]
-			Surface Reliability & DL\_MESO (LBE) & laboetie* & lettuce & MechSys
-			& Musubi \\
+			Surface Reliability & \DIFaddbeginFL \DIFaddFL{Musubi, }\DIFaddendFL DL\_MESO (LBE)\DIFdelbeginFL %DIFDELCMD < & %%%
+\DIFdelendFL \DIFaddbeginFL \DIFaddFL{, ESPResSo, }\DIFaddendFL laboetie*\DIFdelbeginFL %DIFDELCMD < & %%%
+\DIFdelFL{lettuce}%DIFDELCMD < & %%%
+\DIFdelFL{MechSys}%DIFDELCMD < & %%%
+\DIFdelFL{Musubi }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{,
+			lettuce, LUMA, MechSys, OpenLB, Palabos, pyLBM, TCLB}\DIFaddendFL \\
 			\addlinespace[0.4cm]
-			Surface Robustness & DL\_MESO (LBE) & \esp & lettuce & LUMA &
-			OpenLB \\
+			Surface Robustness & DL\_MESO (LBE)\DIFdelbeginFL %DIFDELCMD < & %%%
+\DIFdelendFL \DIFaddbeginFL \DIFaddFL{, ESPResSo, }\DIFaddendFL \esp\DIFdelbeginFL %DIFDELCMD < & %%%
+\DIFdelFL{lettuce}%DIFDELCMD < & %%%
+\DIFdelFL{LUMA}%DIFDELCMD < &
+%DIFDELCMD < 			%%%
+\DIFdelFL{OpenLB}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{, laboetie*,
+			LB2D-Prime*, LB3D-Prime*, lettuce, LIMBES*, Ludwig, LUMA, MechSys,
+			OpenLB, Palabos, pyLBM, Sailfish, SunlightLB*, TCLB, waLBerla,
+			Musubi}\DIFaddendFL \\
 			\addlinespace[0.4cm]
-			Surface Usability & laboetie* & ESPResSo & OpenLB & Ludwig & Sailfish\\
+			Surface Usability & \DIFaddbeginFL \DIFaddFL{ESPResSo, }\DIFaddendFL laboetie*\DIFdelbeginFL %DIFDELCMD < & %%%
+\DIFdelFL{ESPResSo}%DIFDELCMD < & %%%
+\DIFdelFL{OpenLB }%DIFDELCMD < & %%%
+\DIFdelFL{Ludwig}%DIFDELCMD < & %%%
+\DIFdelFL{Sailfish}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{, Ludwig, OpenLB, Sailfish,
+			DL\_MESO (LBE), }\esp\DIFaddFL{, LB2D-Prime*, LB3D*, LUMA, TCLB}\DIFaddendFL \\
 			\addlinespace[0.4cm]
-			Maintainability & Ludwig & MP-LABS* & \esp & ESPResSo & Palabos\\
+			Maintainability & \DIFdelbeginFL \DIFdelFL{Ludwig }%DIFDELCMD < & %%%
+\DIFdelFL{MP-LABS* }%DIFDELCMD < & %%%
+\DIFdelendFL \DIFaddbeginFL \DIFaddFL{ESPResSo, Ludwig, Palabos, waLBerla, }\DIFaddendFL \esp\DIFdelbeginFL %DIFDELCMD < & %%%
+\DIFdelFL{ESPResSo}%DIFDELCMD < & %%%
+\DIFdelFL{Palabos}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{, LUMA,
+			MP-LABS*, pyLBM, TCLB}\DIFaddendFL \\
 			\addlinespace[0.4cm]
-			Reusability & ESPResSo & waLBerla & \esp & Sailfish & HemeLB*\\
+			Reusability & ESPResSo\DIFdelbeginFL %DIFDELCMD < & %%%
+\DIFdelFL{waLBerla}%DIFDELCMD < & %%%
+\DIFdelendFL \DIFaddbeginFL \DIFaddFL{, waLBerla, }\DIFaddendFL \esp\DIFdelbeginFL %DIFDELCMD < & %%%
+\DIFdelFL{Sailfish }%DIFDELCMD < & %%%
+\DIFdelendFL \DIFaddbeginFL \DIFaddFL{, }\DIFaddendFL HemeLB*\DIFaddbeginFL \DIFaddFL{, Musubi, OpenLB,
+			Palabos, Sailfish}\DIFaddendFL \\
 			\addlinespace[0.4cm]
-			\pbox{3.0cm}{Surface \\Understandability} & LUMA & Palabos & pyLBM &
-			DL\_MESO (LBE)& MechSys\\
+			\pbox{3.0cm}{Surface \\Understandability} & LUMA\DIFdelbeginFL %DIFDELCMD < & %%%
+\DIFdelFL{Palabos }%DIFDELCMD < & %%%
+\DIFdelFL{pyLBM }%DIFDELCMD < &
+%DIFDELCMD < 			%%%
+\DIFdelendFL \DIFaddbeginFL \DIFaddFL{, }\DIFaddendFL DL\_MESO (LBE)\DIFdelbeginFL %DIFDELCMD < & %%%
+\DIFdelFL{MechSys}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{,
+			lettuce, Musubi, Palabos}\DIFaddendFL \\
 			\addlinespace[0.4cm]
-			\pbox{3.0cm}{Visibility and \\Transparency} & Ludwig & Palabos &
-			LUMA & ESPResSo & MP-LABS*\\
+			\pbox{3.0cm}{Visibility and \\Transparency} & Ludwig\DIFdelbeginFL %DIFDELCMD < & %%%
+\DIFdelFL{Palabos }%DIFDELCMD < &
+%DIFDELCMD < 			%%%
+\DIFdelFL{LUMA }%DIFDELCMD < & %%%
+\DIFdelFL{ESPResSo}%DIFDELCMD < & %%%
+\DIFdelFL{MP-LABS*}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{, ESPResSo,
+			LUMA, Palabos}\DIFaddendFL \\
 			\addlinespace[0.4cm]
-			Overall Quality & ESPResSo & Ludwig & Palabos & OpenLB & LUMA\\
+			Overall Quality & ESPResSo\DIFdelbeginFL %DIFDELCMD < & %%%
+\DIFdelFL{Ludwig}%DIFDELCMD < & %%%
+\DIFdelFL{Palabos }%DIFDELCMD < & %%%
+\DIFdelFL{OpenLB }%DIFDELCMD < & %%%
+\DIFdelFL{LUMA}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{, Ludwig}\DIFaddendFL \\%DIF > , Palabos, LUMA, OpenLB\\
 			\bottomrule
 		\end{tabular}
 		\caption{Top performers for each quality (all packages were alive at the
 		time of measurement, except for those marked by an asterisk (*)) (Sorted
-		by Order of Quality Measurement)}
-		\label{topperformerstable}
+		by Order of Quality Measurement)} \label{topperformerstable}
 	\end{center}
-\end{table}
+\end{table} 
 
 LBM software is in a healthy state, as shown by comparing LBM artifacts, tools
 and processes, to current software guidelines and to other research software.
@@ -3085,7 +3165,9 @@ guidelines, as follows:
 	assist with prioritization. (Section~\ref{Sec_CompareArtifacts})
 	\item Add a code of conduct to improve inclusivity and attract a wider pool
 	of collaborators. (Section~\ref{Sec_CompareArtifacts})
-	\item Increase the use and enforcement of programming style guides to improve understandability and productivity. (Section~\ref{Sec_CompareArtifacts})
+	\item Increase the use and enforcement of programming style guides to
+	improve understandability and productivity.
+	(Section~\ref{Sec_CompareArtifacts})
 	\item Use checklists to ensure developers follow best practices.
 	(Section~\ref{Sec_CompareArtifacts})
 	\item Include uninstall instructions as a courtesy to users that wish to

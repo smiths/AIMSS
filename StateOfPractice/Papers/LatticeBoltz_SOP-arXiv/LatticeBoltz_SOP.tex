@@ -208,8 +208,8 @@ Department}, %Department and Organization
     Hierarchy Process (AHP). Our ranking is roughly consistent with GitHub stars
     ranking, suggesting at least a partial correlation between the use of best
     practices and popularity. We find the state of the practice to be healthy,
-    with 87.5\% of the measured packages ranking in the top five for at least one
-    quality, the majority of LBM generated artifacts corresponding to general
+    with 67\% of the measured packages ranking in the top two for at least two
+    qualities, the majority of LBM generated artifacts corresponding to general
     recommendations from research software developers, common use of version
     control (67\% of packages) and the adoption of a quasi-agile development
     process.  Areas of best practice to potentially improve include adoption of
@@ -395,8 +395,7 @@ The question below cover these points:
 We investigate the research questions by applying the general methodology
 summarized in \citet{SmithEtAl2021, SmithAndMichalski2022}. The specific
 application of the methodology to LBM is reviewed in Section~\ref{methodology},
-with the full details in Anonymous (xxxx)\footnotemark[1].
-%\citet{Michalski2021}.  
+with the full details in \citet{Michalski2021}.  
 Our methodology updates
 an approach used in prior assessments of domains like Geographic Information
 Systems \citep{SmithEtAl2018_arXivGIS}, Mesh Generators \citep{SmithEtAl2016},
@@ -788,12 +787,12 @@ which removes ``works-on-my-computer'' errors.
 \subsection{Analytic Hierarchy Process} \label{AHP}
 
 Once we measure each package, we still need to rank them to answer
-\rqref{RQ_HighestQuality}. We do this via the Analytic Hierarchy Process (AHP),
-a decision-making technique that compares multiple options by multiple criteria.
-Our AHP algorithm uses the overall impression score, gathered via the
-measurement template, along with pairwise comparisons between packages to rank
-the LBM software. We have previously used this technique to rank scientific
-software \citep{SmithEtAl2016}.
+\rqref{RQ_HighestQuality}. We do this via the Analytic Hierarchy Process (AHP)
+\citep{Saaty1980}, a decision-making technique that compares multiple options by
+multiple criteria. Our AHP algorithm uses the overall impression score, gathered
+via the measurement template, along with pairwise comparisons between packages
+to rank the LBM software. We have previously used this technique to rank
+scientific software \citep{SmithEtAl2016}.
 
 AHP focuses on relative comparisons, rather than requiring an unattainable
 unified scale for measuring quality.  AHP starts with sets of $n$
@@ -1089,15 +1088,15 @@ uninstallation instructions.
 
 Figure~\ref{Fig_Installability} shows the installability ranking of the software
 packages. Software packages with a higher score (ESPResSo, MechSys, OpenLB,
-DL\_MESO, Palabos) tend to have one set of linear installation instructions,
-written as if the person doing the installation has none of the dependencies
-installed. The instructions often list compatible operating system versions and
-include instructions for installing dependencies. The top-ranked packages often
-incorporate some automation of the installation process. The number of
-dependencies a package has does not correlate with a higher score. The ability
-to validate the installation process, say through tutorials or test cases, leads
-to a higher score. Apparently active work on a project improves installability
-since the top six ranked packages are all classified as alive. 
+DL\_MESO, Palabos, Sailfish) tend to have one set of linear installation
+instructions, written as if the person doing the installation has none of the
+dependencies installed. The instructions often list compatible operating system
+versions and include instructions for installing dependencies. The top-ranked
+packages often incorporate some automation of the installation process. The
+number of dependencies a package has does not correlate with a higher score. The
+ability to validate the installation process, say through tutorials or test
+cases, leads to a higher score. Apparently active work on a project improves
+installability since the top six ranked packages are all classified as alive. 
  
 \subsection{Surface Correctness and Verifiability} \label{SecSurfCorrectAndVerifiab}
 
@@ -1143,10 +1142,10 @@ correctness and verifiability. Software packages with a higher score tend to
 have theory documentation. They also explicitly use at least one document
 generation tool that helps with verification, thus building confidence in
 correctness. The top ranked software packages all include getting started
-tutorials, and most of these include expected output. The two top ranked
+tutorials, and most of these include expected output. Two of the top ranked
 packages, Ludwig and Musubi, indicate the use of unit testing in their
 documentation. They also incorporated CI in the development process.
-Furthermore, all of the top 5 ranked packages are alive.
+Furthermore, all the top 5 ranked packages are alive.
 
 \subsection{Surface Reliability}
 
@@ -1182,7 +1181,9 @@ dependency was recoverable.
 
 Figure~\ref{Fig_Reliability} shows the surface reliability ranking of the
 software packages. Software packages with a high score either did not break
-during installation, or the broken installation was recoverable. The package pyLBM broke during tutorial testing, but a descriptive error message helped in recovery. Ten of the top 11 packages are alive. 
+during installation, or the broken installation was recoverable. The package
+pyLBM broke during tutorial testing, but a descriptive error message helped in
+recovery. Ten of the top 11 packages are alive. 
 
 \subsection{Surface Robustness} \label{Sec_Robustness}
 
@@ -1486,7 +1487,7 @@ software packages included version release notes.
 Figure~\ref{Fig_VisibilityTransparency} shows the visibility and transparency
 ranking of the software packages. Software packages with a high score have an
 explicit development model and defined development process. They also have
-detailed and easy to access software release notes. Five of the top six ranked
+detailed and easy to access software release notes. All the top five ranked
 packages are alive.
 
 \subsection{Overall Quality} \label{Sec_OverallQuality}
@@ -1503,7 +1504,7 @@ the weighting of quality $i$ ($w_i$) in the same way that the score ($s_j$) was
 found for software package $j$ evaluated for a given quality
 (Section~\ref{AHP}).  That is, we conduct a pairwise comparison between the
 priority of different qualities to construct the $m \times m$ matrices $A$ and
-$B$ and then we average row $i$ of matrix $B$ to find the priority value $w_i$
+$B$, and then we average row $i$ of matrix $B$ to find the priority value $w_i$
 for quality $i$.  If we introduce the notation that $s^i_j$ is the score for
 quality $i$ for package $j$, then the overall score $S_j$ for package $j$ is
 found via:
@@ -1545,7 +1546,7 @@ community.
 Notable exceptions to this trend occur for three projects that rank high by star
 count, but relatively low in the ``follow best practices'' ranking: TCLB (star
 rank 3, our rank 10), lettuce (star rank 4, our rank 12) and \esp{} (star rank
-5, our rank 15).  Part of the discrepancy is because our process ranks all
+5, our rank 14).  Part of the discrepancy is because our process ranks all
 projects, but the star measure does not apply to all projects.  Also, our
 process equally weights all qualities (Section~\ref{Sec_OverallQuality}), but
 for real users some qualities will be more important than others. Discrepancies
@@ -2241,8 +2242,7 @@ in general (\rqref{RQ_ComparePainPoints})?  Below we go through each of the
 identified pain points and include citations that contrast the LBM experience
 with observations from researchers in other domains.
 Section~\ref{Sec_AddressConcerns} covers potential ways to address the pain
-points and Anonymous (xxxx)\footnotemark[1] %\citet{SmithEtAl2021} 
-provides the full interview questions.
+points and \citet{SmithEtAl2021} provides the full interview questions.
 
 \citet{PintoEtAl2018} lists some pain points that did not come up in our
 conversations with LBM developers: Cross-platform compatibility, interruptions
@@ -2945,11 +2945,15 @@ We analyze the collected data by:
 \end{inparaenum}
 
 Current LBM software mostly follows best practices, as illustrated by
-Table~\ref{topperformerstable}, which summarizes the top five performers for
-each quality and for the overall quality. Taking the union of all entries in the
-table, we have 21 top performers: ESPREsSo, MechSys, OpenLB, DL\_MESO, Palabos, Sailfish, Ludwig, Musubi, pyLBM, waLBerla, laboetie, lettuce, LUMA, TCLB, \esp, LB2D-Prime, LB3D-Prime, LIMBES, SunlightLB, HemeLB, MP-LABS.  Therefore, seven eights (87.5\%) of the 24 packages
-appear in the top five for at least one quality.  Most entries are alive.  Alive packages are in
-a healthy state with respect to adopting best practices.
+Table~\ref{topperformerstable}, which summarizes the top two packages for each
+quality and for the overall quality. Taking the union of all entries in the
+table that appear under 2 or more qualities, we have 16 top performers:
+ESPREsSo, MechSys, OpenLB, DL\_MESO (LBE), Sailfish, Ludwig, Musubi, pyLBM,
+waLBerla, laboetie, lettuce, \esp, LUMA, Palabos, TCLB and LB2D-Prime.
+Therefore, two thirds (67\%) of the 24 packages appear in the top two for at
+least two qualities.  Almost all the top performers are alive, except for two
+packages: laboetie and LB2D-Prime.  Alive packages are in a healthy state with
+respect to adopting best practices.
 
 \begin{table}[ht!]
 	\begin{center}
@@ -2961,30 +2965,39 @@ a healthy state with respect to adopting best practices.
 			Palabos, Sailfish\\
 			\addlinespace[0.4cm]
 			\pbox{3.0cm}{Surface Correctness \\ and Verifiability} & Ludwig,
-			Musubi, pyLBM\\%, ESPResSo, waLBerla\\
+			Musubi, pyLBM\\
 			\addlinespace[0.4cm]
-			Surface Reliability & Musubi, DL\_MESO (LBE), ESPResSo, laboetie*, lettuce, LUMA, MechSys, OpenLB, Palabos, pyLBM, TCLB\\
+			Surface Reliability & Musubi, DL\_MESO (LBE), ESPResSo, laboetie*,
+			lettuce, LUMA, MechSys, OpenLB, Palabos, pyLBM, TCLB\\
 			\addlinespace[0.4cm]
-			Surface Robustness & DL\_MESO, ESPResSo, \esp, laboetie*, LB2D-Prime*, LB3D-Prime*, lettuce, LIMBES*, Ludwig, LUMA, MechSys, OpenLB, Palabos, pyLBM, Sailfish, SunlightLB*, TCLB, waLBerla, Musubi\\
+			Surface Robustness & DL\_MESO (LBE), ESPResSo, \esp, laboetie*,
+			LB2D-Prime*, LB3D-Prime*, lettuce, LIMBES*, Ludwig, LUMA, MechSys,
+			OpenLB, Palabos, pyLBM, Sailfish, SunlightLB*, TCLB, waLBerla,
+			Musubi\\
 			\addlinespace[0.4cm]
-			Surface Usability & ESPResSo, laboetie*, Ludwig, OpenLB, Sailfish, DL\_MESO, \esp LB2D-Prime*, LB3D, LUMA, TCLB\\
+			Surface Usability & ESPResSo, laboetie*, Ludwig, OpenLB, Sailfish,
+			DL\_MESO (LBE), \esp, LB2D-Prime*, LB3D*, LUMA, TCLB\\
 			\addlinespace[0.4cm]
-			Maintainability & ESPResSo, Ludwig, Palabos, waLBerla, \esp, LUMA, MP-LABS, pyLBM, TCLB\\
+			Maintainability & ESPResSo, Ludwig, Palabos, waLBerla, \esp, LUMA,
+			MP-LABS*, pyLBM, TCLB\\
 			\addlinespace[0.4cm]
-			Reusability & ESPResSo, waLBerla, \esp, HemeLB*, Musubi, OpenLB, Palabos, Sailfish\\
+			Reusability & ESPResSo, waLBerla, \esp, HemeLB*, Musubi, OpenLB,
+			Palabos, Sailfish\\
 			\addlinespace[0.4cm]
-			\pbox{3.0cm}{Surface \\Understandability} & LUMA, DL\_MESO (LBE), lettuce, Musubi, Palabos\\
+			\pbox{3.0cm}{Surface \\Understandability} & LUMA, DL\_MESO (LBE),
+			lettuce, Musubi, Palabos\\
 			\addlinespace[0.4cm]
-			\pbox{3.0cm}{Visibility and \\Transparency} & Ludwig, ESPResSo, LUMA, Palabos\\
+			\pbox{3.0cm}{Visibility and \\Transparency} & Ludwig, ESPResSo,
+			LUMA, Palabos\\
 			\addlinespace[0.4cm]
 			Overall Quality & ESPResSo, Ludwig\\%, Palabos, LUMA, OpenLB\\
 			\bottomrule
 		\end{tabular}
 		\caption{Top performers for each quality (all packages were alive at the
 		time of measurement, except for those marked by an asterisk (*)) (Sorted
-		by Order of Quality Measurement)}
+		by Order of Quality Measurement)} \label{topperformerstable}
 	\end{center}
-\end{table} \label{topperformerstable}
+\end{table} 
 
 LBM software is in a healthy state, as shown by comparing LBM artifacts, tools
 and processes, to current software guidelines and to other research software.
@@ -3009,7 +3022,9 @@ guidelines, as follows:
 	assist with prioritization. (Section~\ref{Sec_CompareArtifacts})
 	\item Add a code of conduct to improve inclusivity and attract a wider pool
 	of collaborators. (Section~\ref{Sec_CompareArtifacts})
-	\item Increase the use and enforcement of programming style guides to improve understandability and productivity. (Section~\ref{Sec_CompareArtifacts})
+	\item Increase the use and enforcement of programming style guides to
+	improve understandability and productivity.
+	(Section~\ref{Sec_CompareArtifacts})
 	\item Use checklists to ensure developers follow best practices.
 	(Section~\ref{Sec_CompareArtifacts})
 	\item Include uninstall instructions as a courtesy to users that wish to
