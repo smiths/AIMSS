@@ -805,7 +805,7 @@ capture the development process, the developer pain points, the perceived
 threats to software quality, and the developers' strategies to address these
 threats.  Therefore, part of our methodology is to also interview developers.
 
-We based uur interviews on a list of 20 questions, which can be found in
+We based our interviews on a list of 20 questions, which can be found in
 \citet{SmithEtAl2021}. Some questions are about the background of the software,
 the development teams, the interviewees, and how they organize the projects. We
 also ask about the developer's understandings of the users. Some questions focus
@@ -1768,20 +1768,20 @@ the other hand, the interviewees believed that testing (including usability
 tests with users) was the top solution to improve correctness, usability, and
 reproducibility.  This level of testing matches what was observed for LBM
 software \citep{Michalski2021} and is apparently greater than the level of
-testing for ocean modelling software.  \citet{JungEtAl2022} reports that testing
-is underemphasized in ocean modelling.
+testing for ocean modelling software.  \citet{JungEtAl2022} reports that ocean
+modellers underemphasize testing.
 
-As the observed artifacts in Table~\ref{artifactspresent} show, documentation is
-not emphasized as part of the development process in any of the 29 projects.
-None of them had theory manuals, although we did identify a road map in the
-\textit{3D Slicer} project.  No requirements specifications were found.
-Table~\ref{tab_opinion_doc} summarizes interviewees' opinions on documentation.
-Interviewees from each of the eight projects thought that documentation was
-essential to their projects, and most of them said that it could save their time
-to answer questions from users and developers. Most of them saw the need to
-improve their documentation, and only three of them thought that their
-documentations conveyed information clearly enough. Nearly half of developers
-also believed that the lack of time prevented them from improving documentation.
+As the observed artifacts in Table~\ref{artifactspresent} show, none of the 29
+projects emphasize documentation. None of them had theory manuals, although we
+did identify a road map in the \textit{3D Slicer} project.  We did not find
+requirements specifications. Table~\ref{tab_opinion_doc} summarizes
+interviewees' opinions on documentation. Interviewees from each of the eight
+projects thought that documentation was essential to their projects, and most of
+them said that it could save their time to answer questions from users and
+developers. Most of them saw the need to improve their documentation, and only
+three of them thought that their documentations conveyed information clearly
+enough. Nearly half of developers also believed that the lack of time prevented
+them from improving documentation.
 
 \begin{table}[!ht]
 \centering
@@ -1806,7 +1806,8 @@ answers}
 As Table~\ref{Tbl_Guidelines} suggests, an emphasis on documentation, especially
 for new developers, is echoed in research software guidelines. Multiple
 guidelines recommend a document explaining how to contribute to a project, often
-named CONTRIBUTING. Guidelins also recommend tutorials, user guides and quick start examples. \citet{SmithAndRoscoe2018} suggests including instructions
+named CONTRIBUTING. Guidelines also recommend tutorials, user guides and quick
+start examples. \citet{SmithAndRoscoe2018} suggests including instructions
 specifically for on-boarding new developers. For open source software in general
 (not just research software), \citet{Fogel2005} recommends providing tutorial
 style examples, developer guidelines, demos, and screenshots.
@@ -1822,7 +1823,7 @@ compare to the pain points for research software in general?; and
 \rqref{RQ_Concerns}) For MI developers what specific best practices are taken to
 address the pain points and software quality concerns? 
 
-Our interviews identified pain points related to lack of time and funding,
+Our interviews identified pain points related to a lack of time and funding,
 technology hurdles, improving correctness, and improving usability.  In this
 section, we go through each pain point and contrast the MI experience with
 observations from other domains.  We also cover potential ways to address the
@@ -1830,22 +1831,23 @@ pain points, as promoted by the community.  (Later, in
 Section~\ref{ch_recommendations}, we propose additional pain mitigation
 strategies based on our experience.)  In addition to pain points, we summarize
 MI developer strategies for improving maintainability and reproducibility.
-Although these two qualities were not explicitly idenfied as pain points, they
-were discussed as part of our interview process \citep{SmithEtAl2021}.  The
-interviewee's practices for addressing pain points and improving quality can
-potentially be emulated by other MI developers. Moreover, these practices may
-provide examples that can be followed by other research software domains.
+Although the interviewees did not explicitly identify these two qualities as
+pain points, they were discussed as part of our interview process
+\citep{SmithEtAl2021}.  The interviewee's practices for addressing pain points
+and improving quality can potentially be emulated by other MI developers.
+Moreover, these practices may provide examples that can be followed by other
+research software domains.
 
-[CHECK  THESE, after writing all the PPs] \citet{PintoEtAl2018} lists some pain
-points that did not come up in our conversations with MI developers :
+\wss{CHECK  THESE, after writing all the PPs} \citet{PintoEtAl2018} lists some pain
+points that did not come up in our conversations with MI developers:
 Cross-platform compatibility, interruptions while coding, scope bloat, lack of
 user feedback, hard to collaborate on software projects, and aloneness.
 \citet{WieseEtAl2019} repeat some previous pain points and add the following:
 dependency management, data handling concerns (like data quality, data
-management and data privacy) [Actually mentioned by MI software],
+management and data privacy) \wss{Actually mentioned by MI software},
 reproducibility, and software scope determination. Although MI developers did
 not mention these pain points, we cannot conclude that they are not relevant for
-MI software development, since we only interviewed nine MI developers for about
+MI software development, since we only interviewed nine developers for about
 an hour each.
 
 \begin{enumerate}
@@ -1865,7 +1867,7 @@ enough developers for building new features and fixing bugs at the same time;
 \item Improving documentation to save time answering users' and developers'
 questions;
 \item Supporting third-party plugins and extensions; and,
-\item Using GitHub Actions for continunous integration and continuous
+\item Using GitHub Actions for continuous integration and continuous
 development.
 \end{itemize}
 
@@ -1874,10 +1876,10 @@ Funding:} Developers felt the pain of having to attract funding to develop and
 maintain their software. For instance, the interviewees from \textit{3D Slicer}
 and \textit{OHIF} said getting funding for software maintenance is more
 challenging than finding funding for research. The interviewee from the
-\textit{ITK-SNAP} team thought more fundings was a way to solve the lack of time
+\textit{ITK-SNAP} team thought more funding was a way to solve the lack of time
 problem, because they could hire more dedicated developers. On the other hand,
-the interviewee from the \textit{Weasis} team did not feel that fundings could
-solve the same problem, since he would still need time to supervise the project. 
+the interviewee from the \textit{Weasis} team did not feel that funding could
+solve the same problem, since they would still need time to supervise the project. 
 
 Funding challenges have also been noted by others \citep{GewaltigAndCannon2012,
 Goble2014, KaterbowAndFeulner2018, SmithEtAl2022}. Researchers that devote time
@@ -1896,7 +1898,7 @@ to commercial companies to integrate it into their products.
 \item[P\refstepcounter{pnum}\thepnum \label{P_TechnologyHurdles}:]
 \textbf{Technology Hurdles:} The technology hurdles mentioned by MI developers
 include: hard to keep up with changes in OS and libraries, difficult to transfer
-to new technologies, hard to support multiple OS, and hard to support lower-end
+to new technologies, hard to support multiple OSes, and hard to support lower-end
 computers. Developers expressed difficulty balancing between four factors:
 cross-platform compatibility, convenience to development and maintenance,
 performance, and security.
@@ -1915,7 +1917,7 @@ lower-end computers;
 \item Using memory-mapped files to consume less computer memory, to better
 support lower-end computers; 
 \item Using computing power from the computers GPU for web applications;
-\item Increasing funding;
+%\item Increasing funding;
 \item Maintaining better documentations to ease the development and maintenance
 processes;
 \item Improving performance via more powerful computers, which one interviewee
@@ -1927,7 +1929,7 @@ address the technology hurdle.  Table~\ref{tab_native_vs_web} shows the teams'
 choices between native application and web application. Most of the 29 teams (24
 of 29, or 83\%) chose to develop native applications. For the eight teams we
 interviewed, three of them were building web applications, and the
-\textit{MRIcroGL} team was considering web-based solutions.
+\textit{MRIcroGL} team was considering a web-based solution.
 
 \begin{table}[!ht]
 \centering
@@ -1977,132 +1979,120 @@ privacy concerns;
 \item No dedicated quality assurance team.
 \end{itemize}
 
-**start editing here** Change to others have trouble getting developers to test.
-That isn't the problem for MI.  Testing is also a pain point for other research
-software domains point. For instance, \citet{PintoEtAl2018} mention the problem
-of insufficient testing and \citet{HannayEtAl2009} show that more developers
-think testing is important than the number that believe they have a sufficient
-understanding of testing concepts. \citet{WieseEtAl2019} mention data handling
-concerns (like data quality, data management and data privacy).
-\citet{HannayEtAl2009, KanewalaAndBieman2013, KellyEtAl2011, WieseEtAl2019}
-point to the oracle problem, which occurs in research software when we do not
-have a means to judge the correctness of the calculated solutions. For the
-specific case of LBM developers, testing challenges include difficulty with
-testing the correctness of large numbers of features, and challenges with
-automated testing, since free testing services do not offer adequate facilities
-for large amounts of data \citep{SmithEtAl2022}. 
+As implied by the above threats to correctness, testing was the most often
+mentioned strategy for MI developers for ensuring correctness.  Seven teams
+mentioned test related activities, including test-driven development, component
+tests, integration tests, smoke tests, regression tests, self tests and
+automated tests.  With the common emphasis on testing to improve correctness, MI
+software is ahead of some other scientific domains.  For scientific software in
+general \citet{PintoEtAl2018} mention the problem of insufficient testing and
+\citet{HannayEtAl2009} show that more developers think testing is important than
+the number that believe they have a sufficient understanding of testing
+concepts.  Our study of LBM software suggests that this domain shares the
+challenges of insufficient testing and insufficient understanding of testing
+concepts \citep{SmithEtAl2022}. Automated testing is a specific challenge for
+LBM software since free testing services do not offer adequate facilities for
+large amounts of data \citep{SmithEtAl2022}. Although not specifically mentioned
+during our interviews, the large data sets for MI likely cause a challenge for
+using free testing services, like GitHub Actions.
 
-Testing was the most often mentioned strategy for MI developers for ensuring
-correctness.  Seven teams mentioned test related activities, including
-test-driven development, component tests, integration tests, smoke tests,
-regression tests, self tests and automated tests.  Another approach frequently
-adopted (mentioned by 3 interviewees) is a two state development process with
-stable releases and nightly builds.  Other strategies for ensuring correctness
-that came up during the interviews include CI/CD, using de-identified copies of
-medical images for debugging, sending beta versions to medical workers who can
-access the data to do the tests, and collecting/maintaining a dataset of
-problematic images.  Some additional strategies used by MI developers include:
+Research software in general often struggles with the oracle problem for testing
+because for many potential test cases the developer doesn't have a means to
+judge the correctness of their calculated solutions \citep{HannayEtAl2009,
+KanewalaAndBieman2013, KellyEtAl2011, WieseEtAl2019}.  The MI developers did not
+allude to this challenge, likely because for a give image (test case) it is
+possible to determine, possibly using other software, the expected analysis
+results.
+
+A frequently cited strategy for building confidence in correctness (mentioned by
+3 interviewees) is a two state development process with stable releases and
+nightly builds.  Other strategies for ensuring correctness that came up during
+the interviews include CI/CD, using de-identified copies of medical images for
+debugging, sending beta versions to medical workers who can access the data to
+do the tests, and collecting/maintaining a dataset of problematic images.  Some
+additional strategies used by MI developers include:
 
 \begin{itemize}
-\item Using open datasets
-\item Asking the users to provide de-identified copies of medical images if they
-have problems loading the images;
-\item Sending the beta versions of software to medical workers who can access
-the data and complete the tests;
+\item Using open datasets, like the datasets for the liver \citep{BilicEtAl2019}
+and brain \citep{MenzeEtAl2015} tumor segmentation benchmarks.
 \item If (part of) the team belongs to a medical school or a hospital, using the
 datasets they can access;
 \item If the team has access to MRI scanners, self-building sample images for
 testing;
 \item If the team has connections with MI equipment manufacturers, asking for
 their help on data format problems;
-\item Storing all images that cause special problems, and maintaining this
-special dataset over time.
 \end{itemize}
 
 The feedback from the interviewees makes it clear that increased connections
 between the development team and medical professionals/institutions could ease
 the pain of ensuring correctness via testing.
 
-% Hard to maintain good documentations % from Ao
-% \begin{itemize}
-%     \item Hard to have a high level roadmap from the start
-%     \item Only a few people fully understand the large codebase
-% \end{itemize}
-
 \item[P\refstepcounter{pnum}\thepnum \label{P_Usability}:]
-\textbf{Usability:} Several developers noted that users sometimes try to use
-incorrect LBM method combinations to solve their problems. Furthermore, some
-users think that the packages will work out of the box to solve their cases,
-while in reality CFD knowledge needs to be applied to correctly modify the
-packages for the new endeavour.  Some respondents in the survey of
-\citet{WieseEtAl2019} also mentioned that users do not always have the expertise
-required to install or use the software.
+\textbf{Usability:}  
 
-%\item Not enough participants for usability tests %from Ao
-%Hard to understand users' needs % from Ao
+The discussion with the developers focused on usability issues for two classes
+of users: the end users and other developers.  The threats to usability for end
+users include an unintuitive user interface, inadequate feedback from the
+interface (such as lack of a progress bar), users being unable to determine the purpose of
+the software, not all users knowing if the software includes certain features, not
+all users understanding how to use the command line tool, and not all users
+understanding that the software is a web application. For developers the threats to
+usability include not being able to find clear instructions on how to deploy the
+software, and the architecture being difficult for new developers to understand.
 
-The discussion with the developers focused on understandability issues for two
-classes of users: the end users and other developers.  The threats to
-understandability for end users include users not understanding how to use
-features (\wss{Because the users don't have sufficient background?  Ask Ao.})
-\ad{Did you mean medical or medical imaging background? No, it was majorly
-caused by the software usability. Based on the context of our interview
-conversations, it means that users don't understand how to complete certain
-operations or what functions a feature provides. It's due to unclear
-description, lack of documentation, poorly designed UI or nonintuitive process},
-the team not having a dedicated user experience (UX) designer, some important
-indicators are not noticeable (e.g. a progress bar), not all users understand
-the purpose of the software, not all users know if the software includes certain
-features, not all users understand how to use the command line tool, not all
-users understand that the software is a web application. For developers the
-threats to understandability include developers not understanding how to deploy
-the software (\wss{This sounds like a consequence of a lack of
-understandability, rather than threat to it.  Or is the point that developers
-lack sufficient background?  Ask Ao}) \ad{Yes, this should be a consequence of a
-lack of understandability. I think the direct cause is that the project doesn't
-clearly explain how to deploy. We did not discuss the background of the
-developers at that point.}, and the architecture is difficult for new developers
-to understand.
+At least to some extent the problems for MI software users are due to holes in
+their background knowledge.  The survey of \citet{WieseEtAl2019} for research
+software in general also mentioned that users do not always have the expertise
+required to install or use the software. \citet{SmithEtAl2022} observes a
+similar pattern for LBM software, with several LBM developers noting that users
+sometimes try to use incorrect method combinations. Furthermore, some LBM users
+think that the packages will work out of the box to solve their cases, while in
+reality CFD knowledge needs to be applied to correctly modify the packages for a
+new endeavour.
 
-The most common strategy, cited by 4 developers, for ensuring understandability
-was to use documentation (user manuals, mailing lists, forums).  Other suggested
-and practiced strategies include a graphical user interface, testing every
-release with active users, making simple things simple and complicated things
-possible, icons with clear visual expressions, designing the software to be
-intuitive, having a UX designer with the right experience, dialog windows for
-important notifications, and providing an example for users to follow.
+To improve the usability of MI software, the most common strategies mentioned by
+developers are as follows:
 
-The two most frequently mentioned strategies (mentioned 3 times each) for
-improving usability are:
-\begin{inparaenum}[i)]
-    \item usability tests and interviews with end users; and,
-    \item adjusting the software according to user feedback.
-\end{inparaenum}
-Other ideas that came up include a straightforward and intuitively designed
-interface / professional UX designer, providing step-by-step processes, making
-the basic functions easy to use without reading the documentation, focusing on
-limited number of functions, making the software more streamlined, downsampling
-images to consume less memory, and an option to load only part of the data to
-boost performance.
+\begin{itemize}[i)]
+    \item use documentation (user manuals, mailing lists, forums) (mentioned by
+    4 developers)
+    \item usability tests and interviews with end users; and, (mentioned by 3
+    developers)
+    \item adjusting the software according to user feedback. (mentioned by 3
+    developers)
+\end{itemize}
+
+Other suggested and practiced strategies include a graphical user interface,
+testing every release with active users, making simple things simple and
+complicated things possible, focusing on limited number of functions, icons with
+clear visual expressions, designing the software to be intuitive, having a UX
+designer, dialog windows for important notifications, providing an example for
+users to follow, downsampling images to consume less memory, and an option to
+load only part of the data to boost performance.  The last two points recognize
+that an important component of usability is performance, since poor performance
+frustrates users.
 
 \end{enumerate}
 
-blurb to explain the ones that are coming were not explicitly identified as pain
-points.
+Up to this point, we have covered the pain points that came up in interviews
+with MI developers, along with a summary of the techniques that are currently
+used to address these pain points.  Although the developers did not explicitly
+identify the qualities of maintainability and reproducibility as pain points in
+our interviews, as part of our interview questions
+(Section~\ref{sec_interview_methods}) they did share their approaches for
+improving these qualities, as discussed below.
 
 \begin{enumerate}
-\item \textbf{Maintainability:} The developer of ESPResSo said that they
-originally wrote their source code with a specific application in mind, which
-later caused too much coupling between components in the source code. This
-resulted in technical debt \citep{KruchtenEtAl2012}, which has an impact on
-future maintainability and reusability. Concern with technical debt is likely
-why researchers in the survey of \citet{Nguyen-HoanEtAl2010} rate
-maintainability as the third most important software quality. More recently the
-push for sustainable software \citep{deSouzaEtAl2019} is motivated by the pain
-that past developers have had with accumulating too much technical debt.
+\item \textbf{Maintainability:} Although not explicitly highlighted as a pain
+point during our interviews, \citet{Nguyen-HoanEtAl2010} rate maintainability as
+the third most important software quality for research software in general. The push for
+sustainable software \citep{deSouzaEtAl2019} is motivated by the pain that past
+developers have had with accumulating too much technical debt
+\citep{KruchtenEtAl2012}.  For LBM software, \citet{SmithEtAl2022} identifies
+technical debt as one of the developer pain points.
 
-The most popular, with five out of nine interviewees mentioning it, strategy for
-ensuring maintainability was to use a modular approach, with often repeated
+To improve maintainability, the most popular (with five out of nine interviewees
+mentioning it) strategy is to use a modular approach, with often repeated
 functions in a library.  Other strategies that were mentioned for improving
 maintainability include supporting third-party extensions, an easy-to-understand
 architecture, a dedicated architect, starting from simple solutions, and
@@ -2114,34 +2104,29 @@ team had designed and re-designed their software multiple times in the last 10+
 years. They found that their modular approach effectively supports
 maintainability \citep{Joshi2011}. 
 
-\item \textbf{Reproducibility:}  Interviewees stressed the importance of
-documentation for both users and developers throughout the interviews. They
-emphasize that a lack of time and funding (\ppref{P_LackDevTime}) has a negative
-effect on the documentation. Most of the developers are scientific researchers
-evaluated on the scientific papers that they produce. Writing and updating
-documentation is something that is done in their free time, if that time arises.
-Others also mention inadequate research software documentation
-\citep{PintoEtAl2018, WieseEtAl2019}.  The problem also arises with non-research
-software \citep{LethbridgeEtAl2003}. Recommendations on the development of
-research software state that developers should critically evaluate their own
-development processes in terms of quality assurance and comply with
-international standards for software documentation
-\citep{KaterbowAndFeulner2018}.
+\item \textbf{Reproducibility:}  Although the MI developers did not mention
+reproducibility explicitly as a pain point, they did mention the need to improve
+documentation.  Good documentation doesn't just address the pain points of lack
+of developer time (\ppref{P_LackDevTime}), technology hurdles
+(\ppref{P_TechnologyHurdles}), usability \ppref{P_Usability}, and
+Maintainability.  Documentation is also necessary for reproducibility. The
+challenges of inadequate documentation are a known problem for research software
+\citep{PintoEtAl2018, WieseEtAl2019} and for non-research software
+\citep{LethbridgeEtAl2003}. 
 
-We discussed threats to reproducibility and strategies for improving it.  The
-threats that were mentioned include closed-source software, no user interaction
-tests, no unit tests, using different versions of some common libraries
-\wss{because the interface and/or behaviour of the library could have changed?
-Ask Ao} \ad{Yes. Behaviour change could be caused by a lib changing to use
-different algorithms or different dependencies}, variability
-between CPUs, and misinterpretation of how manufacturers
-create medical images. The most commonly cited (by 6 teams) strategy to improve
-reproducibility was testing (regression tests, unit tests, having good tests).
-The second most common strategy (mentioned by 5 teams) is making code, data, and
-documentation available, possibly by creating open-source libraries.  Other
-ideas that were mentioned include running the same tests on all platforms, a
-dockerized version of the software to insulate it from the OS environment, using
-standard libraries, monitoring the upgrades of the library dependencies, clearly
+In our interviews, we discussed threats to reproducibility and strategies for
+improving it.  The threats that were mentioned include closed-source software,
+no user interaction tests, no unit tests, the need to change versions of some
+common libraries, variability between CPUs, and misinterpretation of how
+manufacturers create medical images. 
+
+The most commonly cited (by 6 teams) strategy to improve reproducibility was
+testing (regression tests, unit tests, having good tests). The second most
+common strategy (mentioned by 5 teams) is making code, data, and documentation
+available, possibly by creating open-source libraries.  Other ideas that were
+mentioned include running the same tests on all platforms, a dockerized version
+of the software to insulate it from the OS environment, using standard
+libraries, monitoring the upgrades of the library dependencies, clearly
 documenting the version information, bringing along the exact versions of all
 the dependencies with the software, providing checksums of the data, and
 benchmarking the software against other software that overlaps in functionality.
@@ -2175,6 +2160,9 @@ Using peer review (also called technical review) matches with recommended
 practice for research software \citep{HerouxEtAl2008, Givler2020, OrvizEtAl2017,
 USGS2019}.
 
+- not repeating best practices mentioned previously, like CI/CD, version
+control, testing, etc.
+
 Based on our quality measurements in Section~\ref{ch_results} and discussions
 with the developers in Section~\ref{painpoints}, we collected key points for
 improving software qualities. These points should be considered for new and
@@ -2182,151 +2170,6 @@ existing projects, but we are not saying that every project should do everything
 on our list.  All projects will have finite resources, so strategies will have
 to be selected that provide the greatest return on investment.  Our specific
 recommendations for each quality are as follows:
-
-\begin{itemize}
-\item \textbf{Installability} (Section~\ref{sec_result_installability})
-\begin{itemize}
-    \item providing clear instructions;
-    \item automating installation;
-    \item including all dependencies in the installer;
-    \item avoiding heavily depending on other commercial products (e.g.\ Matlab);
-    \item potentially building a web application that needs no installation.
-\end{itemize}
-\item \textbf{Correctness \& Verifiability}
-(Section~\ref{sec_result_correctness_verifiability} and
-Section~\ref{sec_interview_software_qualities})
-\begin{itemize}
-    \item test-driven development with unit tests, integration tests, and
-    nightly tests;
-    \item two stage development process with stable release \& nightly builds;
-    \item CI/CD;
-    \item requirements specifications and theory manuals \citep{Smith2016, SmithAndLai2005}.
-    \item static code analysis tools (e.g. Lint and SonarQube)
-\end{itemize}
-\item \textbf{Reliability} (Section~\ref{sec_result_reliability})
-\begin{itemize}
-    \item test-driven development with unit tests, integration tests, and nightly tests.
-    \item two stage development process with stable release \& nightly builds;
-    \item descriptive error messages.
-\end{itemize}
-\item \textbf{Robustness} (Section~\ref{sec_result_robustness})
-\begin{itemize}
-    \item designing with exception handling so the software can fail gracefully;
-    \item descriptive error messages.
-\end{itemize}
-\item \textbf{Usability} (Section~\ref{sec_result_usability} and Section~\ref{sec_interview_software_qualities})
-\begin{itemize}
-    \item usability tests and interviews with end users;
-    \item adjusting according to users' feedbacks;
-    \item getting started tutorials;
-    \item user manuals;
-    \item professional UX (User eXperience) designs;
-    \item graphical user interface;
-    \item active supports to users.
-\end{itemize}
-\item \textbf{Maintainability} (Section~\ref{sec_score_maintainability} and Section~\ref{sec_interview_software_qualities})
-\begin{itemize}
-    \item use GitHub (or equivalent version control and project management environment);
-    \item use a modular approach to design (we advocate basing the design on
-    Parnas's principle of information hiding: ``system details that are likely
-    to change independently should be the secrets of separate modules; the only
-    assumptions that should appear in the interfaces between modules are those
-    that are considered unlikely to change.'' \citep{ParnasEtAl2000})
-    \item documentation for developers: project plan, developer’s manual, and API documentation.
-\end{itemize}
-\item \textbf{Reusability} (Section~\ref{sec_result_reusability})
-\begin{itemize}
-    \item modular approach;
-    \item API documentation;
-    \item tools that generate software documentation for developers (e.g.\
-    Doxygen, Javadoc, and Sphinx).
-\end{itemize}
-\item \textbf{Understandability} (Section~\ref{sec_result_understandability} and
-Section~\ref{sec_interview_software_qualities})
-\begin{itemize}
-    \item modular approach;
-    \item good coding style: consistent indentation and formatting style;
-    consistent, distinctive, and meaningful code identifiers; keeping parameters
-    in the same order for all functions; avoiding hard-coded constants (other
-    than 0 and 1);
-    \item clear comments, indicating what is being done, not how;
-    \item description of algorithms used;
-    \item documentation of explicit requirements on coding standards;
-    \item communication between developers and users via GitHub issues, mailing
-    lists, and forums.
-\end{itemize}
-\item \textbf{Visibility/Transparency} (Section~\ref{sec_result_visibility_transparency})
-\begin{itemize}
-    \item documents for the development process, contributor's guide, project
-    status, development environment, and release notes.
-\end{itemize}
-\item \textbf{Reproducibility} (Section~\ref{sec_interview_software_qualities})
-\begin{itemize}
-    \item test-driven development with unit tests, integration tests, and nightly tests.
-    \item open-source;
-    \item making data and documentation available;
-    \item using open-source libraries.
-\end{itemize}
-\end{itemize}
-
-\wss{Could ``reverse'' the list and list the recommendations and beside each the qualities 
-that that recommendation helps with - this would reduce repetition.}
-
-\subsection{Recommendations on Dealing With Limited Resources}
-\label{sec_recommendations_limited_resources}
-
-The limitation of resources has many faces, with the key manifestations being
-lack of fundings, time, and developers. We summarized our discussion with the MI
-software developers in Section~\ref{painpoints}.  Many of our recommendations
-involve investing more effort into processes, tools and methods, so that the
-limited resources can be used more effectively.  Our recommendations are as
-follows:
-
-\wss{Talk about increasing the number of developers.  CONTRIBUTING is rare
-(Table~\ref{artifactspresent}), but it doesn't have to be.  Related to this
-information for new developers is rare: Code Style Guide, Requirements, Design
-Doc, API.}
-
-\begin{itemize}
-\item \textbf{Identify the root cause.} More fundings or developers may not
-solve problems called by a lack of time. It is beneficial to identify the
-underlying obstacles to the team.  \wss{Is there something from the mythical man
-month that should be cited here?}
-
-\item \textbf{Maintain good documentation.} Creating and updating documentation
-consumes time, but can save much more time in the long term. If the users and
-developers can find answers to their questions themselves, they are less likely
-to abuse the team's issue tracker.  \wss{If it is an option, we could cite one
-of our productivity related papers.}
-
-\item \textbf{Adopt time-saving tools.} A good CI/CD tool (e.g.\ GitHub Actions)
-saves time for building and deploying the product, and automated tests can work
-in the background while developers are focusing on other tasks.
-
-\item \textbf{Use test-driven development process.} Many people think writing
-test cases is less rewarding than writing code, but without testing identifying
-and fixing bugs can consume substantial resources. Setting up the test cases
-costs time, but generates more benefits in the long run.
-
-\item \textbf{Consider supporting third-party plugins or extensions.} Why not
-let users share the burden? No software product can deliver every user's needs,
-and the large quantity of features leads to more bugs and maintenance problems.
-So it may be a good idea to shift some development and maintenance
-responsibilities to the users. The users may also be happy with the extra
-flexibility.
-
-\item \textbf{Consider ``hibernating'' for a while.} When there aren't enough
-developers, the team can shift from development mode toward maintenance mode.
-The team can stop building new features for a while and instead fix bugs and
-design problems from the past. If the development team can repay some of its
-technical debt \citep{KruchtenEtAl2012}, the software qualities will likely
-improve as a result.
-
-\item \textbf{Commercialization is not always toxic.} Licensing the software to
-commercial companies to use as internal modules of their products may bring
-financial support to the team. Meanwhile, the project can stay open-source for
-the community.
-\end{itemize}
 
 \subsection{Recommendations on Choosing A Tech Stack}
 \label{sec_recommendations_tech_stack}
@@ -2378,9 +2221,6 @@ data online can be a problem for projects requiring high security. Regulations
 for some MI applications may forbid doing web transmissions. In this case, a web
 application with a backend may not be an option.
 
-\item \textbf{Maintain good documentation.} No matter what tech stack a team
-uses, a well-maintained project plan, developer's manual, and API documentation
-generally help team members to contribute more and make fewer mistakes.
 \end{itemize}
 
 \subsection{Recommendations on Enriching the Testing Datasets} 
