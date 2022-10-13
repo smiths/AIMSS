@@ -1842,17 +1842,22 @@ and improving quality can potentially be emulated by other MI developers.
 Moreover, these practices may provide examples that can be followed by other
 research software domains.
 
-\wss{CHECK  THESE, after writing all the PPs} \citet{PintoEtAl2018} lists some pain
-points that did not come up in our conversations with MI developers:
-Cross-platform compatibility, interruptions while coding, scope bloat, lack of
-user feedback, hard to collaborate on software projects, and aloneness.
-\citet{WieseEtAl2019} repeat some previous pain points and add the following:
-dependency management, data handling concerns (like data quality, data
-management and data privacy) \wss{Actually mentioned by MI software},
-reproducibility, and software scope determination. Although MI developers did
-not mention these pain points, we cannot conclude that they are not relevant for
-MI software development, since we only interviewed nine developers for about
-an hour each.  \wss{Add LBM pain points not covered.}
+\citet{PintoEtAl2018} lists some pain points that did not come up in our
+conversations with MI developers: interruptions while coding, scope bloat, lack
+of user feedback, hard to collaborate on software projects, and aloneness.
+\citet{WieseEtAl2019} also mention two research software pain points that did
+not explicitly arise in our interviews: reproducibility, and software scope
+determination.  To the list of pain points not discussed for MI, our study of
+LBM software \citep{SmithEtAl2022} adds lack of software experience for the
+developers, technical debt, and documentation. We did not observe any pain
+points for MI that were not also observed for LBM. From the pain points
+mentioned above, although the topics of reproducibility and technical debt did
+not come up in our MI interviews, these two topics were discussed as part of the
+discussion of software qualities, as covered at the end of this section.
+Although previous studies show pain points that were not mentioned by MI
+developers, we cannot conclude that these pain points are not relevant for MI
+software development, since we only interviewed nine developers for about an
+hour each.
 
 \begin{enumerate}
 
@@ -1907,9 +1912,11 @@ computers. Developers expressed difficulty balancing between four factors:
 cross-platform compatibility, convenience to development and maintenance,
 performance, and security.
 
-The pain point survey of \citet{WieseEtAl2019} also highlighted
-technical-related problems like dependency management, cross-platform
-compatibility, CI, hardware issues and operating system issues. From
+The pain point survey of \citet{WieseEtAl2019} highlights that technology
+hurdles are an issue for research software in general.  Some of the
+technical-related problems mentioned by \citet{WieseEtAl2019} include dependency
+management, cross-platform compatibility (also mentioned by
+\citet{PintoEtAl2018}), CI, hardware issues and operating system issues. From
 \citep{SmithEtAl2022} technology pain points for LBM developers include setting
 up parallelization and CI. 
 
@@ -1921,7 +1928,6 @@ lower-end computers;
 \item Using memory-mapped files to consume less computer memory, to better
 support lower-end computers; 
 \item Using computing power from the computers GPU for web applications;
-%\item Increasing funding;
 \item Maintaining better documentations to ease the development and maintenance
 processes;
 \item Improving performance via more powerful computers, which one interviewee
@@ -1976,7 +1982,8 @@ correctness identified include the following:
 
 \begin{itemize}
 \item Lack of real world image data for testing, in part because of patient
-privacy concerns;
+privacy concerns (\citet{WieseEtAl2019} mentions that the pain point of privacy
+concerns also arises for research software in general);
 \item Tests are expensive and time-consuming because of the need for huge datasets;
 \item Software releases are difficult to manage;
 \item No systematic unit testing; and,
@@ -2057,12 +2064,12 @@ new endeavour.
 To improve the usability of MI software, the most common strategies mentioned by
 developers are as follows:
 
-\begin{itemize}[i)]
-    \item use documentation (user manuals, mailing lists, forums) (mentioned by
+\begin{itemize}
+    \item Use documentation (user manuals, mailing lists, forums) (mentioned by
     4 developers)
-    \item usability tests and interviews with end users; and, (mentioned by 3
+    \item Usability tests and interviews with end users; and, (mentioned by 3
     developers)
-    \item adjusting the software according to user feedback. (mentioned by 3
+    \item Adjusting the software according to user feedback. (mentioned by 3
     developers)
 \end{itemize}
 
@@ -2143,120 +2150,210 @@ to test their reproducibility.
 
 \section{Recommendations} \label{ch_recommendations}
 
-- add in ACs, borrow from previous paper.
-- mention the solutions proposed by LBM developers, like design for change
-
-- not repeating best practices mentioned previously, like CI/CD, version
-control, testing, etc.
-
-This section presents our recommendations on MI software development. Although
-our focus is on MI software, unless noted otherwise, our recommendations apply
-to any scientific computing software.
-
 In this section we provide recommendations to address the pain points from
 Section~\ref{painpoints} to answer~\rqref{RQ_Recommend}.  Our recommendations
 are not lists of criticisms for what should have been done in the past, or what
 should be done now; they are suggestions for consideration in the future. We
-will not be repeating previously discussed ideas here, such as CI, documentation
-of APIs, etc.  Our aim is to mention ideas that are at least somewhat beyond
+expand on some of the ideas that came out of our interviews with developers
+(Section~\ref{painpoints}), including continuous integration, moving to web
+applications, and enriching the test data sets. We also bring in new ideas from
+our experience like employing linters, peer review, design for change and
+assurance cases.  Our aim is to mention ideas that are at least somewhat beyond
 conventional best practices. The ideas listed here have the potential to become
-best practices in the medium to long-term. The ideas in the following
-subsections are roughly in the order of increasing implementation effort.
+best practices in the medium to long-term. We list the ideas roughly in the
+order of increasing implementation effort.
 
 \subsection{Continuous Integration} \label{Sec_ContinuousIntegration}
 
-Continuous integration is the process of building and testing software on every
-push to the code repository, with pushes done very frequently \citep[p.\ 13]
-{HumbleAndFarley2010}, \citep{ShahinEtAl2017, Fowler2006}.  CI consists of the
-following elements:
+Continuous integration involves frequent pushes to a code repository.  With
+every push the software is built and tested \citep[p.\ 13]
+{HumbleAndFarley2010}, \citep{ShahinEtAl2017, Fowler2006}.  CI can take
+significant time and effort to set up and integrate into a team's workflow, but
+the benefits are significant, as follows:
+
+\begin{itemize}
+	\item Elimination of headaches associated with a separate integration phase
+	\citep{Fowler2006}, \citep[p.\ 20]{HumbleAndFarley2010}. If integration is
+	postponed, integration problems are inevitable.  Continuous integration
+	means that problems are immediately obvious and the source of the problem
+	can be isolated to the small increment that was just committed.
+	\item Detection and removal of bugs \citep{Fowler2006} via
+	automated testing.  To improve productivity, defects are best discovered and
+	fixed at the point where they are introduced \citep[p.\
+	23]{HumbleAndFarley2010}.  Code is not the only source of errors; they are
+	also found in the files and scripts related to configuration management
+	\citep[p.\ 18]{HumbleAndFarley2010}.
+	\item Everyone is always working on a stable base, since the rejection of
+	inadequate commits means that the main branch will always be working.  A
+	stable base will always pass all tests.  If the CI system uses generators
+	and linters, it will also have current documentation and coding standard
+	compliant code.  A stable base improves developer productivity, allowing
+	them to focus on coding, testing, and documentation.
+\end{itemize}
+
+CI consists of the following elements:
+
 \begin{itemize}
 	\item A version control system \citep{Fowler2006}. To be effective, all
 	files should be under version control, not just code files.  Anything that
 	is needed to build, install and run the software should be under version
 	control, including configuration files, build scripts, test harnesses, and
 	operating system configurations \citep[p. 19]{HumbleAndFarley2010}.
-	Fortunately for the LBM domain, as discussed above, most alive projects
-	(73\% of those assessed) use version control.
+	Fortunately for the MI, as shown in Section~\ref{sec_score_maintainability}
+	all our measured projects use version control.
 	\item A fully automated build system \citep{Fowler2006}.  As \citet[p.\
 	5]{HumbleAndFarley2010} point out, deploying software manually is an
-	anti-pattern.  Fortunately, as discussed above, most LBM projects use build
-	automation.
+	anti-pattern.  For MI software, Table~\ref{artifactspresent} shows 18 of 29
+	packages (62\%) were observed to include build scripts.  Projects without a
+	build system will need to add one to pursue using CI.
 	\item An automated test system \citep{Fowler2006}. Building quality software
 	involves creating automated tests at the unit, component, and acceptance
 	test level, and executing these tests whenever someone makes a change to the
 	code, its configuration, the environment, or the software stack that it runs
 	on \citep[p.\ 83]{HumbleAndFarley2010}. As Table~\ref{artifactspresent}
-	shows, test cases are in the uncommon category for LBM software artifacts,
-	which means that some LBM projects will need to increase their testing
-	automation if they wish to pursue CI.  The usual advice for CI is to keep
-	the build and test process short \citep[p.\ 60]{HumbleAndFarley2010}. Given
-	that LBM can be computationally expensive, the tests run with every check-in
-	may need to focus on simple code interface tests, saving large tests for
-	less frequent runs.  A more sophisticated option to address the bottleneck
-	for merges is CIVET (Continuous Integration, Verification, Enhancement, and
-	Testing), which solves this problem by intelligently pinning, cancelling,
-	and if necessary, restarting jobs as merges occur \citep{SlaughterEtAl2021}.
+	shows, test cases are in the uncommon category for MI software artifacts,
+	which means that some MI projects will need to increase their testing
+	automation if they wish to pursue CI.
 	\item An automated system for other tasks, such as code checking,
 	documentation building and web-site updating.  These other tasks are not
 	essential to CI, but they can be incorporated to improve the quality
 	of the code and the communication between developers and users. For
 	instance, a static analysis (possibly via linters) of the code may find poor
 	programming practice or lack of adherence to adopted coding standards.
-	\citet{SlaughterEtAl2021} provides another example of an automated task ---
-	checking that a test specification includes the test's motivation, a test
-	description, and a design description for all changes. 
 	\item An integration build system to pull everything together.  Every time
 	there is a check-in (for instance a pull request), the integration server
 	automatically checks out the sources onto the integration machine, starts a
 	build, runs tests, and informs the committer of the results. 
 \end{itemize}
 
-Although CI can take some time and effort to set up and integrate into a team's
-workflow, the benefits can be significant, as follows:
+To enable incorporation into a team's workflow, \citet[p.\
+60]{HumbleAndFarley2010} explain that the usual approach for CI is to keep the
+build and test process short. Since MI files are large, the tests run with every
+check-in may need to focus on simple code interface tests, saving large tests
+for less frequent execution.  A more sophisticated option to address the
+bottleneck for merges is CIVET (Continuous Integration, Verification,
+Enhancement, and Testing), which solves this problem by intelligently pinning,
+cancelling, and if necessary, restarting jobs as merges occur
+\citep{SlaughterEtAl2021}. A more sophisticated process management system can
+also enforce rules for pull requests, like checking that a test specification
+includes the test's motivation, a test description, and a design description for
+all changes \citet{SlaughterEtAl2021}. 
 
-\begin{itemize}
-	\item Elimination of headaches associated with a separate integration phase
-	\citep{Fowler2006}, \citep[p.\ 20]{HumbleAndFarley2010}. If integration of
-	the work of different developers, or even separate chunks of work by the
-	same developer, is postponed, integration problems are inevitable.  By
-	continuously integrating, problems are immediately obvious and the source of
-	the problem can be isolated to the small increment that was just committed.
-	\item Bugs can be quickly detected and removed \citep{Fowler2006} via
-	automated testing.  To improve productivity, defects are best discovered and
-	fixed at the point where they are introduced \citep[p.\
-	23]{HumbleAndFarley2010}.  Code is not the only source of errors; they are
-	also found in the files and scripts related to configuration management
-	\citep[p.\ 18]{HumbleAndFarley2010}.
-	\item Developers are always working on a stable base, since the master
-	branch will always be working.  A stable base passes all tests and, if the
-	CI system uses generators and linters, it will also have current
-	documentation and coding standard compliant code.  A stable base improves
-	developer productivity, allowing them to focus on coding, testing, and
-	documentation.
-\end{itemize}
-
-Although there are still challenges, setting up a CI system has never been
-easier than it is today.  The option of installing a dedicated CI server (either
-physically or virtually) exists with tools such as
+Setting up a CI system has never been easier than it is today.  A dedicated CI
+server (either physically or virtually) can be installed with tools such as
 \href{https://www.jenkins.io/} {Jenkins}, \href{http://buildbot.net/}
 {Buildbot}, \href{https://www.gocd.org/} {Go}, and
 \href{http://integrity.github.io/} {Integrity}. However, installation on your
-own server is unnecessary since there are many hosted CI tool solutions
-available, such as: \href{https://travis-ci.org/} {Travis CI},
+own server is often unnecessary since there are many hosted CI solutions, such
+as: \href{https://travis-ci.org/} {Travis CI},
 \href{https://github.com/features/actions} {GitHub Actions} and
-\href{https://circleci.com/} {CircleCI}.  Getting started with a hosted CI is
-straightforward.  All that is required to begin is editing a few lines of a YAML
+\href{https://circleci.com/} {CircleCI}.  All that is required to begin using a
+hosted CI is to select the service and then edit a few lines of a YAML
 configuration file in the project's root directory.
 
-Challenges that exist for adopting CI include lack of awareness and
-transparency, coordination and collaboration challenges, lack of expertise and
-skills, more pressure and workload for team members, general resistance to
-change, scepticism and distrust on continuous practices \citep{ShahinEtAl2017}.
-The most common reason given for not adopting CI is that developers on my
-project are not familiar enough with CI \citep{HiltonEtAl2016}.  These problems
-can be mitigated via planning and documentation, promoting a team mindset,
-adopting new rules and policies, improving testing activities, and decomposing
-development into smaller units \citep{ShahinEtAl2017}.
+\citet{ShahinEtAl2017} highlights the following challenges for adopting CI: lack
+of awareness and transparency, lack of expertise and skills, coordination and
+collaboration challenges, more pressure and workload for team members, general
+resistance to change, scepticism and distrust on continuous practices. The most
+common reason given for not adopting CI is that developers are not familiar
+enough with CI \citep{HiltonEtAl2016}.  \citet{ShahinEtAl2017} observes that
+these problems can be mitigated via improving testing activities, planning and
+documentation, promoting a team mindset, adopting new rules and policies, and
+decomposing development into smaller units.
+
+\subsection{Move To Web Applications} \label{sec_recommendations_tech_stack}
+
+Section~\ref{painpoints} lists the advantages and disadvantages between native
+and web applications. Here we give further suggestions deciding whether to adopt
+a web application tech stack.  The goal is to improve the four priority factors
+identified by developers: compatibility, maintainability, performance, and
+security.  The suggestions are intended to provide ideas and avenues for
+exploration; a web application might not be the right fit for all projects and
+all teams.
+
+\begin{itemize}
+\item \textbf{Identify the priorities between the factors.} Simultaneously
+achieving high levels for all four factors (compatibility, maintainability,
+performance and security) is difficult. To enable decision making, a team needs
+to prioritize its objectives according to its resource and experience.
+
+\item \textbf{Be open-minded about new technologies.} Web applications with only
+a frontend are known for worse performance than native applications. However,
+new technologies may ease this difference. For example, some JavaScript
+libraries can help the frontend harness the power of the computer's GPU and
+accelerate graphical computing. In addition, there are new frameworks helping
+developers with cross-platform compatibility. For example, the
+\href{https://flutter.dev/}{Flutter} project enables support for web, mobile,
+and desktop OS with one codebase.
+
+\item \textbf{Web applications can also deliver high performance.} Web
+applications with backend servers may perform even better than native
+applications. If a team needs to support lower-end computers, it is good to use
+back-end servers for heavy computing tasks.
+
+\item \textbf{Backend servers can have low costs.} Serverless solutions from
+major cloud service providers may be worth exploring. Serverless solutions still
+use a server, but the team is only charged when they use it. The solution is
+event-driven, and costs the team by the number of requests it processes. Thus,
+serverless can be very cost-effective for less intensively used functions.
+
+\item \textbf{Web transmission may diminish security.} Transferring sensitive
+data on-line can be a problem for projects requiring high security. Regulations
+for some MI applications may forbid doing web transmissions. In this case, a web
+application with a backend may not be an option.
+
+\end{itemize}
+
+\subsection{Recommendations on Enriching the Testing Datasets} 
+\label{sec_recommendations_testing_dataset}
+
+As described in Section~\ref{painpoints}, it is difficult for software
+development teams to access real-world medical imaging datasets. This problem
+restricts their capability and flexibility for testing. We provide some
+suggestions as follows:
+
+\begin{itemize}
+\item \textbf{Build and maintain good connections to datasets.} A team can build
+connections with professionals working in the medical domain, who may have
+access to private datasets and can perform tests for the team. If a team has
+such professionals as internal members, the process can be simplified.
+
+\item \textbf{Collect and maintain datasets over time.} A team may face problems
+caused by various unique inputs over the years of software development. This
+data should be collected and maintained over time to form a good, comprehensive,
+dataset for testing.
+
+\item \textbf{Search for open data sources.} In general, there are many open MI
+datasets.  For instance, there are
+\href{https://nihcc.app.box.com/v/ChestXray-NIHCC}{Chest X-ray Datasets} by
+National Institute of Health \citep{WangEtAl2017},
+\href{https://www.cancerimagingarchive.net/}{Cancer Imaging Archive}
+\citep{PriorEtAl2017}, and \href{https://medpix.nlm.nih.gov/home}{MedPix} by
+National Library of Medicine \citep{Smirniotopoulos2014}. A team developing MI
+software should be able to find more open datasets according to their needs.
+
+\item \textbf{Create sample data for testing.} If a team can access tools
+creating sample data, they may also self-build datasets for testing. For
+example, an MI software development team can use an MRI scanner to create images
+of objects, animals, and volunteers. The team can build the images based on
+specific testing requirements.
+
+\item \textbf{Remove privacy from sensitive data.} For data with sensitive
+information, a team can ask the data owner to remove such information or add
+noise to protect privacy. One example is using de-identified copies of medical
+images for testing.
+
+\item \textbf{Establish community collaboration in the domain.} During our
+interviews with developers in the MI domain, we heard many stories of asking for
+supports from other professionals or equipment manufacturers. However, we
+believe that broader collaboration between development teams can address this
+problem better. Some datasets are too sensitive to share, but if the community
+has some kind of ``group discussion'', teams can better express their needs, and
+professionals can better offer voluntary support for testing. Ultimately, the
+community can establish a nonprofit organization as a third-party, which
+maintains large datasets, tests OSS in the domain, and protects privacy. 
+
+\end{itemize}
 
 \subsection{Employ Linters} \label{Sec_Linters}
 
@@ -2321,100 +2418,6 @@ an ad hoc peer review process is used to assess major changes and additions.
 Using peer review (also called technical review) matches with recommended
 practice for research software \citep{HerouxEtAl2008, Givler2020, OrvizEtAl2017,
 USGS2019}.
-
-\subsection{Move To Web Applications} \label{sec_recommendations_tech_stack}
-
-A tech stack refers to a set of technologies used by a team to build software
-and manage the project. Section~\ref{painpoints} lists the advantages and
-disadvantages between native and web applications. We give further suggestions
-on the choice of a tech stack to improve the four priority factors identified by
-developers: compatibility, maintainability, performance, and security.  The
-suggestions are intended to provide ideas and avenues for exploration; not all
-of the suggestions will be the right fit for all projects and all teams.
-
-\begin{itemize}
-\item \textbf{Identify the priorities between the factors.} Simultaneously
-achieving high levels for all four factors (compatibility, maintainability,
-performance and security) is difficult. A team needs to prioritize its
-objectives according to its resource and experience.
-
-\item \textbf{Be open-minded about new technologies.} Web applications with only
-a frontend are known for worse performance than native applications. However,
-new technologies may ease this difference. For example, some JavaScript
-libraries can help the frontend harness the power of the computer's GPU and
-accelerate graphical computing. In addition, there are new frameworks helping
-developers with cross-platform compatibility. For example, the
-\href{https://flutter.dev/}{Flutter} project enables support for web, mobile,
-and desktop OS with one codebase.
-
-\item \textbf{Web applications can also deliver high performance.} Web
-applications with backend servers may perform even better than native
-applications. If a team needs to support lower-end computers, it is good to use
-back-end servers for heavy computing tasks.
-
-\item \textbf{Backend servers can have low costs.} Serverless solutions from
-major cloud service providers may be worth exploring. Serverless still uses a
-server, but the team is only charged when they use it. The solution is
-event-driven, and costs the team by the number of requests it processes. Thus,
-serverless can be very cost-effective for less intensively used functions.
-
-\item \textbf{Web transmission may diminish security.} Transferring sensitive
-data on-line can be a problem for projects requiring high security. Regulations
-for some MI applications may forbid doing web transmissions. In this case, a web
-application with a backend may not be an option.
-
-\end{itemize}
-
-\subsection{Recommendations on Enriching the Testing Datasets} 
-\label{sec_recommendations_testing_dataset}
-
-As described in Section~\ref{painpoints}, it is difficult for software
-development teams to access real-world medical imaging datasets. This problem
-restricts their capability and flexibility for testing. We provide some
-suggestions as follows:
-
-\begin{itemize}
-\item \textbf{Build and maintain good connections to datasets.} A team can build
-connections with professionals working in the medical domain, who may have
-access to private datasets and can perform tests for the team. If a team has
-such professionals as internal members, the process can be simplified.
-
-\item \textbf{Collect and maintain datasets over time.} A team may face problems
-caused by various unique inputs over the years of software development. This
-data should be collected and maintained over time to form a good, comprehensive,
-dataset for testing.
-
-\item \textbf{Search for open data sources.} In general, there are many open MI
-datasets.  For instance, there are
-\href{https://nihcc.app.box.com/v/ChestXray-NIHCC}{Chest X-ray Datasets} by
-National Institute of Health \citep{WangEtAl2017},
-\href{https://www.cancerimagingarchive.net/}{Cancer Imaging Archive}
-\citep{PriorEtAl2017}, and \href{https://medpix.nlm.nih.gov/home}{MedPix} by
-National Library of Medicine \citep{Smirniotopoulos2014}. A team developing MI
-software should be able to find more open datasets according to their needs.
-
-\item \textbf{Create sample data for testing.} If a team can access tools
-creating sample data, they may also self-build datasets for testing. For
-example, an MI software development team can use an MRI scanner to create images
-of objects, animals, and volunteers. The team can build the images based on
-specific testing requirements.
-
-\item \textbf{Remove privacy from sensitive data.} For data with sensitive
-information, a team can ask the data owner to remove such information or add
-noise to protect privacy. One example is using de-identified copies of medical
-images for testing.
-
-\item \textbf{Establish community collaboration in the domain.} During our
-interviews with developers in the MI domain, we heard many stories of asking for
-supports from other professionals or equipment manufacturers. However, we
-believe that broader collaboration between development teams can address this
-problem better. Some datasets are too sensitive to share, but if the community
-has some kind of ``group discussion'', teams can better express their needs, and
-professionals can better offer voluntary support for testing. Ultimately, the
-community can establish a nonprofit organization as a third-party, which
-maintains large datasets, tests OSS in the domain, and protects privacy. 
-
-\end{itemize}
 
 \subsection{Follow Advice From the Open-Source Community to Grow the Number of Contributors} \label{Sec_GrowContributors}
 
