@@ -456,26 +456,51 @@ qualities in practice.
 
 \subsection{Analytic Hierarchy Process (AHP)} \label{sec_AHP}
 
-Thomas L.\ Saaty developed AHP in the 1970s, and people have widely used it
-since to make and analyze multiple criteria decisions \citep{VaidyaEtAl2006}.
-AHP organizes multiple criteria factors in a hierarchical structure and uses
-pairwise comparisons between alternatives to calculate relative ratios
-\citep{Saaty1990}. We use AHP to generate a ranking for a set of software
-packages.
+Saaty developed AHP in the 1970s, and people have widely used it since to make
+and analyze multiple criteria decisions \citep{VaidyaEtAl2006}. AHP organizes
+multiple criteria in a hierarchical structure and uses pairwise comparisons
+between alternatives to calculate relative ratios \citep{Saaty1990}. AHP works
+with sets of $n$ \textit{options} and $m$ \textit{criteria}.  In our project
+$n=29$ and $m=9$ since there are 29 options (software products) and 9 criteria
+(qualities). We rank the software for each of the qualities, and then we combine
+the quality rankings into an overall ranking based on the relative priorities
+between qualities.
 
-For a project with $m$ criteria, we can use an $m \times m$ matrix $A$ to record
-the relative importance between factors. When comparing criterion $i$ and
-criterion $j$, the value of $A_{ij}$ is decided as follows, with the value of
-$A_{ji}$ generally equal to $1/A_{ij}$ \citep{Saaty1990}: $A_{ij} = 1$ if
-criterion $i$ and criterion $j$ are equally important, while $A_{ij} = 9$ if
+The first step for ranking the software choices for a given quality involves a
+pairwise comparison between each of the $n$ software options for that quality.
+AHP expresses the comparison through an $n \times n$ matrix $A$. When comparing
+option $i$ and option $j$, the value of $A_{ij}$ is decided as follows, with the
+value of $A_{ji}$ generally equal to $1/A_{ij}$ \citep{Saaty1990}: $A_{ij} = 1$
+if criterion $i$ and criterion $j$ are equally important, while $A_{ij} = 9$ if
 criterion $i$ is extremely more important than criterion $j$.  The natural
 numbers between 1 and 9 are used to show the different levels of relative
-importance between these two extremes. The above assumes that criterion $i$ is
-not less important than criterion $j$.  If that is not the case, we reverse $i$
-and $j$ and determine $A_{ji}$ first, then $A_{ij} = 1/A_{ji}$.
+importance between these two extremes. The above assumes that option $i$ is of
+equal, or more, importance compared to option $j$ ($i \geq j$).  If that is not
+the case, we reverse $i$ and $j$ and determine $A_{ji}$ first, then $A_{ij} =
+1/A_{ji}$.
 
-The priority vector $w$, which ranks the criteria by their importance, can be
-calculated by solving the equation \citep{Saaty1990}:
+Section~\ref{sec_grading_software} shows how we measure the software via a
+grading template.  For the AHP process, the relevant measure is the subjective
+score from $1$ to $10$ for each quality for each package. To turn these
+subjective measures $x_{\text{sub}}$ and $y_{\text{sub}}$ into Saaty's
+pair-wise scores for option $x$ versus option $y$, respectively, we use the
+following calculation:
+\[
+\begin{cases}
+\min\{9, x_{\text{sub}} - y_{\text{sub}} + 1\} & x_{\text{sub}} \geq y_{\text{sub}} \\
+1 / \min\{9, y_{\text{sub}} - x_{\text{sub}} + 1\} & x_{\text{sub}} < y_{\text{sub}}
+\end{cases}
+\]
+
+\noindent For example, we measured the usability for 3D Slicer and Ginkgo CADx
+as $8$ and $7$, respectively; therefore, on the 9-point scale, 3D Slicer compared
+to Ginkgo CADx is 2 and Ginkgo CADX versus 3D Slicer is 1/2, as shown in the
+sample AHP calculations (Table~\ref{Tbl_SampleAHP}).
+
+The second step is to calculate the priority vector $w$ from $A$.  The
+vector $w$ ranks the software options by how well they achieve the given
+quality.  The priority vector can be calculated by solving the equation
+\citep{Saaty1990}:
 \begin{equation} 
     A w = \lambda_{\text{max}} w,
 \end{equation}
@@ -484,42 +509,47 @@ $w$ is approximated with the classic \textit{mean of normalized values} approach
 \citep{AlessioEtAl2006}:
 
 \begin{equation}
-w_i = \frac{1}{m}\sum_{j=1}^{m}\frac{A_{ij}}{\sum_{k=1}^{m}A_{kj}}
+w_i = \frac{1}{n}\sum_{j=1}^{n}\frac{A_{ij}}{\sum_{k=1}^{n}A_{kj}}
 \end{equation}
 
-If there are $n$ alternatives, for criterion $i = 1, 2, ... , m$, we can create
-an $n\times n$ matrix $B_i$ to record the relative preferences between these
-choices for each of the $m$ criterion. The way of generating $B_i$ is similar to
-the one for $A$. However, rather than comparing the importance between criteria,
-we pairwise decide how much we favour one alternative over the other. We use the
-same method to calculate the local priority vector for each $B_i$.  The local
-priority vector in this case ranks the $n$ alternatives for criterion $i$.
+Table~\ref{Tbl_SampleAHP} summarizes the above two steps for the quality of
+installability.  The matrix $A$ is shown in the first set of columns, then the
+normalized version of $A$ and finally the average of the normalized values to
+form the vector $w$ in the last column.
 
-In this project, the first nine software qualities mentioned in Section
-\ref{sec_software_quality} are the criteria ($m = 9$), while 29 software
-packages ($n = 29$) are compared for each of the $m$ criteria.
-Section~\ref{sec_grading_software} shows the evaluation via the grading
-template, including a subjective score from $1$ to $10$ for each quality for
-each package. For each quality, for a pair of packages $i$ and $j$, with
-$\mathit{score}_i >= \mathit{score}_j$, the difference between the two scores is
-$\mathit{diff_{ij}} = \mathit{score}_i - \mathit{score}_j$. The mapping between
-$\mathit{diff_{ij}}$ (which can vary between 0 and 9) and the values in $A_{ij}$
-(which can vary between 1 and 9) is as follows:
+\begin{table}[h!]
+\begin{center}
+\begin{tabular}{ l c c c c c | c c c c c | c }
+ \toprule
+ ~ & \multicolumn{5}{c|}{$A_{ij}$} & \multicolumn{5}{c|}{${A_{ij}}/{\sum_{k=1}^{n}A_{kj}}$} & ~\\
+ \midrule
+ ~ & \rotatebox{90}{3D Slicer} & \rotatebox{90}{Ginkgo} & \rotatebox{90}{XMedCon} & $\cdots$ & \rotatebox{90}{Gwyddion} & \rotatebox{90}{3D Slicer} & \rotatebox{90}{Ginkgo} & \rotatebox{90}{XMedCon} & $\cdots$ & \rotatebox{90}{Gwyddion} & AVG \\
+ \midrule
+ 3D Slicer & 1 & 2 & 4 & $\cdots$ & 2 & 0.071 & 0.078 & 0.060 & $\cdots$ & 0.078 & 0.068\\
+ Ginkgo & 1/2 & 1 & 3 & $\cdots$ & 1 & 0.036 & 0.039 & 0.045 & $\cdots$ & 0.039 & 0.041\\
+ XMedCon & 1/4 & 1/3 & 1 & $\cdots$ & 1/3 & 0.018 & 0.013 & 0.015 & $\cdots$ & 0.013 & 0.015\\
+ $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\ddots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\ddots$ & $\vdots$ & $\vdots$\\
+ Gwyddion & 1/2 & 1 & 3 & $\cdots$ & 1 & 0.036 & 0.039 & 0.045 & $\cdots$ & 0.039 & 0.041\\  
+ \midrule
+ SUM = & 14.01 & 25.58 & 66.75 & $\cdots$ & 25.58 & 1.000 & 1.000 & 1.000 & $\cdots$ & 1.000 & 1.000\\
+ \bottomrule
+\end{tabular}
+\end{center}
+\caption{Sample AHP Calculations for the Quality of Usability} \label{Tbl_SampleAHP}
+\end{table}
 
-\begin{itemize}
-\item $A_{ij} = 1$ and $\mathit{diff_{ij}} = 0$ when criterion $i$ and criterion
-$j$ are equally important;
-\item $A_{ij}$ increases when $\mathit{diff_{ij}}$ increases;
-\item $A_{ij} = 9$ and $\mathit{diff_{ij}} = 9$ when criterion $i$ is extremely
-more important than criterion $j$.
-\end{itemize}
+We repeat the first and second steps for each of the qualities.  The third step
+combines the quality rankings into an overall ranking.  Following AHP, we need
+to first prioritize the qualities.  The AHP method finds the priority of quality
+$i$ ($p_i$) in the same way that the score ($w_j$) was found for software
+package $j$ evaluated for a given quality (as shown above).  That is, we
+conduct a pairwise comparison between the priority of different qualities to
+construct the $m \times m$ matrix $A$, and then we take the mean of normalized
+values for row $i$ to find the priority value $p_i$ for quality $i$.  If we
+introduce the notation that $w^i_j$ is the score for quality $i$ for package
+$j$, then the overall score $S_j$ for package $j$ is found via:
 
-\noindent Thus, we approximate the pairwise comparison result of $i$ versus $j$
-by the following equation:
-
-\begin{equation}
-A_{ij} = \text{min}(\mathit{score}_i - \mathit{score}_j + 1, 9)
-\end{equation}
+$$S_j = \sum_{i=1}^m w^i_j p_i$$ 
 
 \section{Methodology} \label{ch_methods}
 
@@ -2163,7 +2193,7 @@ conventional best practices. The ideas listed here have the potential to become
 best practices in the medium to long-term. We list the ideas roughly in the
 order of increasing implementation effort.
 
-\subsection{Continuous Integration} \label{Sec_ContinuousIntegration}
+\subsection{Use Continuous Integration} \label{Sec_ContinuousIntegration}
 
 Continuous integration involves frequent pushes to a code repository.  With
 every push the software is built and tested \citep[p.\ 13]
@@ -2264,38 +2294,37 @@ decomposing development into smaller units.
 \subsection{Move To Web Applications} \label{sec_recommendations_tech_stack}
 
 Section~\ref{painpoints} lists the advantages and disadvantages between native
-and web applications. Here we give further suggestions deciding whether to adopt
-a web application tech stack.  The goal is to improve the four priority factors
-identified by developers: compatibility, maintainability, performance, and
-security.  The suggestions are intended to provide ideas and avenues for
-exploration; a web application might not be the right fit for all projects and
-all teams.
+and web applications. Here we give further suggestions to help with deciding
+whether to adopt a web application.  The decision will be based on whether, on
+balance, the web application improves the four factors identified by developers:
+compatibility, maintainability, performance, and security. To enable
+decision-making, a team will need to prioritize between these factors, based on
+the team's objectives and experience. The suggestions are intended to provide
+ideas and avenues for exploration; a web application might not be the right fit
+for all projects and all teams.
 
 \begin{itemize}
-\item \textbf{Identify the priorities between the factors.} Simultaneously
-achieving high levels for all four factors (compatibility, maintainability,
-performance and security) is difficult. To enable decision making, a team needs
-to prioritize its objectives according to its resource and experience.
 
-\item \textbf{Be open-minded about new technologies.} Web applications with only
-a frontend are known for worse performance than native applications. However,
-new technologies may ease this difference. For example, some JavaScript
-libraries can help the frontend harness the power of the computer's GPU and
-accelerate graphical computing. In addition, there are new frameworks helping
-developers with cross-platform compatibility. For example, the
-\href{https://flutter.dev/}{Flutter} project enables support for web, mobile,
-and desktop OS with one codebase.
+\item \textbf{Modern technologies may improve frontend performance.} Web
+applications with only a frontend usually perform worse than native
+applications. However, new technologies may ease this difference. For example,
+some JavaScript libraries can help the frontend harness the power of the
+computer's GPU and accelerate graphical computing. In addition, there are new
+frameworks helping developers with cross-platform compatibility. For example,
+the \href{https://flutter.dev/}{Flutter} project enables support for web,
+mobile, and desktop OS with one codebase.
 
-\item \textbf{Web applications can also deliver high performance.} Web
+\item \textbf{Web applications can potentially deliver high performance.} Web
 applications with backend servers may perform even better than native
 applications. If a team needs to support lower-end computers, it is good to use
 back-end servers for heavy computing tasks.
 
 \item \textbf{Backend servers can have low costs.} Serverless solutions from
 major cloud service providers may be worth exploring. Serverless solutions still
-use a server, but the team is only charged when they use it. The solution is
-event-driven, and costs the team by the number of requests it processes. Thus,
-serverless can be very cost-effective for less intensively used functions.
+use a server, but the server provider only charges the team when they use the
+server. The solution is event-driven, and costs the team by the number of
+requests processed. Thus, serverless can be very cost-effective for less
+intensively used functions.
 
 \item \textbf{Web transmission may diminish security.} Transferring sensitive
 data on-line can be a problem for projects requiring high security. Regulations
