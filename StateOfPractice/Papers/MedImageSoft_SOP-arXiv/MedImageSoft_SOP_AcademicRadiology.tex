@@ -1642,7 +1642,7 @@ not alone in this.  Many, if not most, research projects fall short of best
 practices.  A gap exists in scientific computing development practices and
 software engineering recommendations \citep{Storer2017, Kelly2007,
 OwojaiyeEtAl2021_CSE}. \citet{JohansonAndHasselbring2018} observe that the
-state-of-the-practice for SCS in industry and academia does not incorporate
+state-of-the-practice for research software in industry and academia does not incorporate
 state-of-the-art SE tools and methods.  This causes sustainability and
 reliability problems \citep{FaulkEtAl2009}. Rather than benefit from capturing
 and reusing previous knowledge, projects waste time and energy ``reinventing the
@@ -1766,7 +1766,7 @@ software in its use of Kanban boards for project management.
 \section{Comparison of Principles, Process and Methodologies to Research Software in General} \label{Sec_CompareMethodologies}
 
 We answer research question \rqref{RQ_CompareMethodologies} by comparing the
-principles, processes and methodologies used for MI software to what can be
+principles, processes, and methodologies used for MI software to what can be
 gleaned from the literature on research software in general. In our interviews
 with developers the responses about development model were vague, with only two
 interviewees following a definite development model. In some cases the
@@ -1783,8 +1783,8 @@ CarverEtAl2007, EasterbrookAndJohns2009, Segal2005, HeatonAndCarver2015}, or an
 amethododical process \citep{Kelly2013}, or a knowledge acquisition driven
 process \citep{Kelly2015}.  A waterfall like process can work for research
 software \citep{Smith2016}, especially if the developers work iteratively and
-incrementally, but externally document their work as if a rationale design
-process were followed \citep{parnas1986rational}.
+incrementally, but externally document their work as if they followed a
+rationale design process \citep{parnas1986rational}.
 
 No interviewee introduced any strictly defined project management process. The
 most common approach was following the issues, such as bugs and feature
@@ -1882,8 +1882,8 @@ LBM software \citep{SmithEtAl2022} adds lack of software experience for the
 developers, technical debt, and documentation. We did not observe any pain
 points for MI that were not also observed for LBM. From the pain points
 mentioned above, although the topics of reproducibility and technical debt did
-not come up in our MI interviews, these two topics were discussed as part of the
-discussion of software qualities, as covered at the end of this section.
+not come up in our MI interviews, we covered these two topics as part of the
+discussion of software qualities, as summarized at the end of this section.
 Although previous studies show pain points that were not mentioned by MI
 developers, we cannot conclude that these pain points are not relevant for MI
 software development, since we only interviewed nine developers for about an
@@ -2054,8 +2054,7 @@ do the tests, and collecting/maintaining a dataset of problematic images.  Some
 additional strategies used by MI developers include:
 
 \begin{itemize}
-\item Using open datasets, like the datasets for the liver \citep{BilicEtAl2019}
-and brain \citep{MenzeEtAl2015} tumor segmentation benchmarks.
+\item Using open datasets.
 \item If (part of) the team belongs to a medical school or a hospital, using the
 datasets they can access;
 \item If the team has access to MRI scanners, self-building sample images for
@@ -2149,7 +2148,7 @@ maintainability \citep{Joshi2011}.
 \item[Q\refstepcounter{qnum}\theqnum \label{Q_Reproducibility}:]
 \textbf{Reproducibility:}  Although the MI developers did not mention
 reproducibility explicitly as a pain point, they did mention the need to improve
-documentation.  Good documentation doesn't just address the pain points of lack
+documentation.  Good documentation does not just address the pain points of lack
 of developer time (\ppref{P_LackDevTime}), technology hurdles
 (\ppref{P_TechnologyHurdles}), usability \ppref{P_Usability}, and
 Maintainability.  Documentation is also necessary for reproducibility. The
@@ -2291,17 +2290,17 @@ these problems can be mitigated via improving testing activities, planning and
 documentation, promoting a team mindset, adopting new rules and policies, and
 decomposing development into smaller units.
 
-\subsection{Move To Web Applications} \label{sec_recommendations_tech_stack}
+\subsection{Move To Web Applications} \label{sec_webapps}
 
-Section~\ref{painpoints} describes technology hurdles
-(\ppref{P_TechnologyHurdles}) that motivate considering the use of web
+Section~\ref{painpoints} describes the pain point of technology hurdles
+(\ppref{P_TechnologyHurdles}), which motivates considering the use of web
 applications. Here we give further advice to help with deciding whether to adopt
 a web application. The decision will be based on whether, on balance, the web
 application improves the four factors identified by developers: compatibility,
 maintainability, performance, and security. To enable decision-making, a team
-will need to prioritize between these factors, based on the team's objectives
-and experience. The suggestions are intended to provide ideas and avenues for
-exploration; a web application might not be the right fit for all projects and
+will need to prioritize between these factors, based on their objectives and
+experience. The suggestions are intended to provide ideas and avenues for
+exploration; a web application will not be the right fit for all projects and
 all teams.
 
 \begin{itemize}
@@ -2313,19 +2312,26 @@ some JavaScript libraries can help the frontend harness the power of the
 computer's GPU and accelerate graphical computing. In addition, there are new
 frameworks helping developers with cross-platform compatibility. For example,
 the \href{https://flutter.dev/}{Flutter} project enables support for web,
-mobile, and desktop OS with one codebase.
+mobile, and desktop OS with one codebase.  Other options include
+\href{https://vuejs.org/} {Vue}, \href{https://angular.io/} {Angular} and
+\href{https://reactjs.org/} {React} and \href{https://elm-lang.org/}{Elm}.  
 
-\item \textbf{Web applications can potentially deliver high performance.} Web
+\item \textbf{Backend servers can potentially deliver high performance.} Web
 applications with backend servers may perform even better than native
 applications. If a team needs to support lower-end computers, it is good to use
-back-end servers for heavy computing tasks.
+back-end servers for heavy computing tasks.  For backend servers where traffic
+and latency is not an issue, options include
+\href{https://www.django-rest-framework.org/} {Django}, \href{https://laravel.com/} {Laravel} and
+\href{https://nodejs.org/en/} {Node.js}.  The advantage of Django is that it provides access to Python
+libraries.  For backend servers where traffic and latency is an issue,
+\href{https://github.com/gin-gonic/gin} {Gin} is an option.
 
 \item \textbf{Backend servers can have low costs.} Serverless solutions from
-major cloud service providers may be worth exploring. Serverless solutions still
-use a server, but the server provider only charges the team when they use the
-server. The solution is event-driven, and costs the team by the number of
-requests processed. Thus, serverless can be very cost-effective for less
-intensively used functions.
+major cloud service providers (like Amazon Web Services (AWS) and Google Cloud
+Platform) may be worth exploring. Serverless solutions still use a server, but
+the server provider only charges the team when they use the server. The solution
+is event-driven, and costs the team by the number of requests processed. Thus,
+serverless can be very cost-effective for less intensively used functions.
 
 \item \textbf{Web transmission may diminish security.} Transferring sensitive
 data on-line can be a problem for projects requiring high security. Regulations
@@ -2334,13 +2340,13 @@ application with a backend may not be an option.
 
 \end{itemize}
 
-\subsection{Recommendations on Enriching the Testing Datasets} 
+\subsection{Enrich the Testing Datasets} 
 \label{sec_recommendations_testing_dataset}
 
-As described in Section~\ref{painpoints} technology hurdles
-(\ppref{P_TechnologyHurdles}) make it difficult for software development teams
-to access real-world medical imaging datasets. This problem restricts their
-capability and flexibility for testing. We provide some suggestions as follows:
+As described in Section~\ref{painpoints}, ensuring correctness
+(\ppref{P_Correctness}) via testing can be problematic because of limited access
+to real-world medical imaging datasets.  We build on the suggestions we heard
+from our interviewees as follows:
 
 \begin{itemize}
 \item \textbf{Build and maintain good connections to datasets.} A team can build
@@ -2358,9 +2364,11 @@ datasets.  For instance, there are
 \href{https://nihcc.app.box.com/v/ChestXray-NIHCC}{Chest X-ray Datasets} by
 National Institute of Health \citep{WangEtAl2017},
 \href{https://www.cancerimagingarchive.net/}{Cancer Imaging Archive}
-\citep{PriorEtAl2017}, and \href{https://medpix.nlm.nih.gov/home}{MedPix} by
-National Library of Medicine \citep{Smirniotopoulos2014}. A team developing MI
-software should be able to find more open datasets according to their needs.
+\citep{PriorEtAl2017}, \href{https://medpix.nlm.nih.gov/home}{MedPix} by
+National Library of Medicine \citep{Smirniotopoulos2014}, and datasets for liver
+\citep{BilicEtAl2019} and brain \citep{MenzeEtAl2015} tumor segmentation
+benchmarks.  A team developing MI software should be able to find more open
+datasets according to their needs.
 
 \item \textbf{Create sample data for testing.} If a team can access tools
 creating sample data, they may also self-build datasets for testing. For
@@ -2380,312 +2388,259 @@ believe that broader collaboration between development teams can address this
 problem better. Some datasets are too sensitive to share, but if the community
 has some kind of ``group discussion'', teams can better express their needs, and
 professionals can better offer voluntary support for testing. Ultimately, the
-community can establish a nonprofit organization as a third-party, which
-maintains large datasets, tests OSS in the domain, and protects privacy. 
+community can establish a nonprofit organization as a third party, which
+maintains large datasets, tests Open Source Software (OSS) in the domain, and
+protects privacy. 
 
 \end{itemize}
 
 \subsection{Employ Linters} \label{Sec_Linters}
 
-Except for \citet{ThielEtAl2020}, the research software guidelines that we
-consulted do not mention linters.  However, we believe that linters have the
-potential to improve code quality at a relatively low cost.  A linter is a tool
-that statically analyzes code to find programming errors, stylistic
-inconsistencies and suspicious constructs \citep{Wikipedia2022_Lint}. Linters
-can be used to spot check code files, or even better as part of a continuous
-integration system, as discussed in Section~\ref{Sec_ContinuousIntegration}.  
+A linter is a tool that statically analyzes code to find programming errors,
+suspicious constructs, and stylistic inconsistencies \citep{Wikipedia2022_Lint}.
+Linters can be used as an ad hoc check for code files, but they really come into
+their own when used as part of a continuous integration system, as discussed in
+Section~\ref{Sec_ContinuousIntegration}. Almost none of the research software
+guidelines that we consulted, summarized in Section~\ref{Sec_CompareArtifacts},
+mention linters.  The one exception is \citet{ThielEtAl2020}.  Despite the lack
+of mention in the guidelines, we believe that linters have the potential to
+improve code quality at a relatively low cost.  
 
-A sample of the potential benefits of linters include: finding memory leaks,
-finding potential bugs, standardizing code with respect to formatting, improving
-performance, removing silly errors before code reviews, and catching potential
-security issues \citep{SourceLevel2022_Lint}.  Linters are available for most
-popular programming languages.  For instance Python has the options of PyLint,
-flake8 and Black \citep{Zadka2018}.
+Linters have the following benefits: finding potential bugs, finding memory
+leaks, improving performance, standardizing code with respect to formatting,
+removing silly errors before code reviews, and catching potential security
+issues \citep{SourceLevel2022_Lint}. Most popular programming languages have an
+accompanying linter.  For example, Python has the options of PyLint, flake8 and
+Black \citep{Zadka2018}.
 
-Linters can address the pain points for LBM developers.  For instance, a linter
-can decrease the amount of development time (\ppref{P_LackDevTime}) by
-decreasing the number of mundane mistakes programmers have to catch.  Since the
-linter can include rules that capture the wisdom of senior programmers, it can
-help newer developers avoid common mistakes. Although there are not many linters
-for checking parallel programming mistakes (\ppref{P_TechnologyHurdles}),
-Parallel Lint is an option for OpenMP. Consistently using a linter can guard
-against some technical debt (\ppref{Q_Maintainability}). Although linters are
-tools for code analysis, similar ideas can be applied to ``lint'' documentation
-to ensure adherence to basic rules.  The use of tools to check documentation is
-a partial explanation for the relatively higher quality of statistical tools
-that are part of the Comprehensive R Archive Network (CRAN)
-\citep{SmithEtAl2018_StatSoft}.
+We recommend the use of linters because they are relatively easy to incorporate
+into a developer's workflow, and they address several MI pain points
+(Section~\ref{painpoints}).  For instance, linters address the lack of
+development time (\ppref{P_LackDevTime}) by increasing the developer's
+productive time via guarding against making frustrating, time-consuming, mundane
+mistakes.  Moreover, since a linter can include rules that capture the wisdom of
+senior programmers, it can help newer developers avoid common mistakes. With
+respect to the technology hurdle pain point (\ppref{P_TechnologyHurdles}),
+linters can assist with the move toward web applications
+(Section~\ref{sec_webapps}).  For instance, ESLint in React is a pluggable
+linter that lets the developer know if they have imported something and not used
+it, if a function could be short-handed, if there are indentation
+inconsistencies, etc. \citep{Whitehouse2018}. By insisting on code
+standarization linters can reduce technical debt and thus improve
+maintainability (\qref{Q_Maintainability}). Although linters are tools for code
+analysis, the idea of statically checking for adherence to basic rules can be
+extended to check documentation. \citet{SmithEtAl2018_StatSoft} shows how the
+use of tools to enforce documentation standards partially explains the
+relatively higher quality of statistical tools that are part of the
+Comprehensive R Archive Network (CRAN).
 
-\subsection{Conduct Rigorous Peer Reviews} \label{Sec_PeerReview}
+\subsection{Conduct a Mix of Rigorous and Informal Peer Reviews} \label{Sec_PeerReview}
 
-Peer review is a strategy already adopted by some LBM developers to improve
-confidence in their software, but the benefits of peer review can be improved by
-making its application more rigorous. \citet{Jones2008} shows that rigorous
-inspection finds 60-65\% of latent defects on average, and often tops 85\% in
-defect removal efficiency.  By way of comparison, most forms of testing average
+We advocate incorporating peer review into the development process, as
+frequently recommended for research software \citep{HerouxEtAl2008, Givler2020,
+OrvizEtAl2017, USGS2019}. In most cases a modern, lightweight review, should be
+adequate.  Modern code review is informal, tool-based, asynchronous, and focused
+on reviewing code changes \citep{SadowskiEtAl2018}. Managing a project via
+GitHub pull requests is an example of a modern approach to reviewing code.
+Software development organizations have moved to this lightweight style of code
+review because of the inefficiencies of rigorous inspections
+\citep{RigbyAndBird2013}.  However, for important parts of the code, developers
+may benefit from mixing in a more rigorous approach. 
+
+\citet{Fagan1976} began work on rigorous review via code inspection.  Elements
+of a typical inspection include reviewing the code against a checklist (checking
+the consistency of variable names, look for terminating loops, etc.), performing
+specific review tasks (such as summarizing the code's purpose, cross-referencing
+the code to the technical manual, creating a data dictionary for a given module,
+etc.) Rigorous inspection finds 60-65\% of latent defects on average, and often
+tops 85\% in defect removal efficiency \citep{Jones2008}. The success rate of
+code inspection is generally higher than most forms of testing, which average
 between 30 and 35\% for defect removal efficiency \citep{EbertAndJones2009,
-Jones2008}.  A formal code inspection involves asking the reviewer to either
-follow a review checklist (check consistency of variable names, look for
-terminating loops, etc.), or perform specific review tasks (like summarize the
-purpose of the code, create a data dictionary for a given module,
-cross-reference the code to the technical manual, etc.) The task based
-inspection approach has been effectively used for research software, as
-described by \citet{KellyAndShepard2000}. Task based inspection is an ideal fit
-with an issue tracking system, like GitHub.  The review tasks can be issues, so
-that they can be easily assigned, monitored and recorded.  Other potential
-issues for the tracker include assigning junior team members to test
-installation instructions and getting-started tutorials.
+Jones2008}. For research software, \citep{KellyAndShepard2000} show a task based
+inspection approach can be effective. Task based inspection is an ideal fit with
+an issue tracking system, like GitHub.  The review tasks can be issues, so that
+they can be easily assigned, monitored and recorded. Potential issues include
+assigning junior developers to test getting-started tutorial and installation
+instructions.
 
-Rigorous peer review addresses the same pain points as linters
+As indicated in Section~\ref{Sec_CompareMethodologies} some MI projects use
+modern code review, via issue tracking and the use of GitHub.  Those MI projects
+not incorporating modern code review would likely benefit by adopting it.
+Although a rigorous code inspection is likely not worth the required resources,
+for critical parts of the code, developers may want to adopt a more rigorous
+approach. For instance, developers may drop the modern requirement for
+asynchronous review and instead occasionally use synchronous review to help
+uncover errors and disseminate best practices throughout the team.  For
+instance, teams could periodically meet, either in-person or virtually, and have
+junior members walk through their code.  In-person reviews will likely help
+realize the benefits of modern code review noticed by
+\citet{BirdAndBacchelli2013}: defect detection, knowledge transfer, increased
+team awareness, and creation of alternative solutions to problems.
+
+Due to improving code quality and increasing knowledge transfer, peer review
+addresses the same pain points and qualities as linters
 (Section~\ref{Sec_Linters}): \ppref{P_LackDevTime}, \ppref{P_TechnologyHurdles},
-and \ppref{Q_Maintainability}. Peer review addresses these points by efficiently
-searching for defects and problems.  Finding misunderstandings in of how the
-code implements the required theory improves the software's correctness
-(\ppref{P_Correctness}).
-
-Peer review --  One of the developers (ESPResSo) that was interviewed noted that
-an ad hoc peer review process is used to assess major changes and additions.
-Using peer review (also called technical review) matches with recommended
-practice for research software \citep{HerouxEtAl2008, Givler2020, OrvizEtAl2017,
-USGS2019}.
-
-\subsection{Follow Advice From the Open-Source Community to Grow the Number of Contributors} \label{Sec_GrowContributors}
-
-In our interviews with developers we heard they would like to have additional
-software contributors.  More developers would help with addressing the lack of
-development time pain point (\ppref{P_LackDevTime}).  In investigating advice on
-increasing the number of contributors, we found that the advice usually starts
-with following best practices, including providing artifacts like those
-discussed in Section~\ref{Sec_CompareArtifacts}, such as a contributor
-guidelines, code style guidelines, a clear code of conduct and high quality code
-and documentation. This advice is logical, but in our assessment of LBM software
-we found examples of projects that already follow many best practices, but still
-have small development teams. Attracting developers apparently requires more
-than just building a good product.
-
-Some potential additional ideas for growing the number of contributors are
-as follows:
-
-\begin{itemize}
-	\item Clearly identify issues that are an appropriate starting points for
-	new developers \citep{Garcia2016, Jalan2016, Proffitt2017}.
-	\item Given that in most projects developers were once users
-	\citep{McQuaid2018}, recruit future developers from the current set of
-	users.
-	\item Create templates for pull requests and issues \citep{Jalan2016}.
-    \item Welcome all kinds of contributions, not just code.  Non-code
-    contributions include documentation, fixing typos, issue reporting and test
-    cases \citep{Jalan2016, Proffitt2017}.
-    \item Reward and recognize new contributors, via small rewards like stickers
-    or shirts, or even just a simple shoutout or mention in a blog post or on
-    social media \citep{Jalan2016, Proffitt2017}.
-    \item Recognize that open source is more about people than it will ever be
-    about code \citep{Jalan2016}.
-    \item Look beyond just recruiting online and seek new developers at
-    conferences or other user meet ups \citep{Garcia2016}.
-    \item Follow the advice of \citet{Kuchner2012} to adapt ideas from marketing
-    to promote science.  Specific ideas that could be applied to open source
-    projects include the following: 
-    \begin{itemize}
-		\item Storytelling to motivate interest in the project, where the story
-		is a sequence of events and pauses for reflection \citep[p.\
-		21--22]{Kuchner2012}.
-		\item Invest effort in building relationships with users and with potential future developers.
-		\item Brand your project with what makes it unique and special.
-	\end{itemize}
-	\item Consider combining existing projects to pool collective resources, and
-	reduce competition between different open source projects.
-\end{itemize}
+and \qref{Q_Maintainability}. Peer review can potentially find misunderstandings
+in of how the code implements the required theory, which will improve the
+software's correctness (\ppref{P_Correctness}). The benefits of peer review for
+addressing pain points can be increased by extending the review from just code,
+to also reviewing all software artifacts, including documentation, build
+scripts, test cases and the development process itself.
 
 \subsection{Design For Change} \label{Sec_DesForChange}
 
-To address technical debt (\ppref{Q_Maintainability}), the top LBM developers show how
-modularization can be used to design research software for future change.
-Although the advice to modularize research software to handle complexity is
-common \citep{WilsonEtAl2014, StewartEtAl2017, Storer2017}, specific guidelines
-on how to divide the software into modules is less prevalent.  Not every
-decomposition is a good design for supporting change, as shown by
-\citet{Parnas1972a}.  A design with low cohesion and high coupling \citep[p.\
-48]{GhezziEtAl2003} will make change difficult. Especially in research software,
-where change is inevitable, designers need to produce a modularization that
-supports change. Ocean modelling software is currently feeling the pain of
-not emphasizing modularization in legacy code \citep{JungEtAl2022}.
+In our ``state of the practice'' assessment exercise for LBM software
+\citep{SmithEtAl2022}, we noticed that LBM developers implicitly used
+modularization based on the principle of design for change to improve
+maintainability (\qref{Q_Maintainability}).  We recommend that MI developers use
+the same principle for their modularizations.  Although the advice to modularize
+research software to handle complexity is common \citep{WilsonEtAl2014,
+StewartEtAl2017, Storer2017}, specific guidelines on how to divide the software
+into modules is less prevalent.  Not every decomposition is a good design for
+supporting change, as shown by \citet{Parnas1972a}.  A design with low cohesion
+and high coupling \citep[p.\ 48]{GhezziEtAl2003} will make change difficult.
+Especially in research software, where change is inevitable, designers need to
+produce a modularization that supports change. \citep{JungEtAl2022} points out
+that ocean modelling software is currently feeling the pain of not emphasizing
+modularization in legacy code.
 
-Interviewed LBM developers highlighted cases where their modularizations
-anticipated future changes.  The developer of pyLBM mentioned that the
-geometries and models of their system had been ``decoupled'', using abstraction
-and modularization of the source code, to make it ``very easy to add [new]
-features''.  The pyLBM design allows for independent changes to the geometry and
-the model.  We also learned that the package pyLBM redeveloped data structures
-to ease future changes. The developer of TCLB noted that their design allows for
-the addition of some LBM features, but changes to major aspects of the system
-would be difficult. For example, ``implementing a new model will be an easy
-contribution'', but changes to the ``Cartesian mesh … will be a nightmare''. The
-design of TCLB highlights that not every conceivable change needs to be
-supported, only the likely changes.  
+Specific examples of design for change for LBM software \citep{SmithEtAl2022}
+include the following:
 
-As the LBM developers illustrate, they accomplish design for change by first
-identifying likely changes, either implicitly or explicitly, and second by
-hiding each likely change behind a well-defined module interface.  Although it
-is unclear whether the developers are aware of Parnas's work, the approach
-mirrors his recommendations \citep{Parnas1972a}. \citet{SmithEtAl2022} (Section
-Documentation as Part of the Development Process) lists ideas for how to
-document the design, including the likely changes, so that they are more visible
-to others.
+\begin{itemize}
+\item \href{https://github.com/pylbm/pylbm}{pyLBM} has decoupled geometries and
+models of their system using abstraction and modularization of the source code,
+to make it easy to add new features.  The pyLBM design allows for independent
+changes to the geometry and the model.  pyLBM also redeveloped data structures
+to ease future change. 
+\item \href{https://github.com/CFD-GO/TCLB}{TCLB} \citep{rokicki2016adjoint} is
+designed to allow for the addition of some LBM features, but changes to major
+aspects of the system would be difficult. For example, ``implementing a new
+model will be an easy contribution'', but changes to the ``Cartesian mesh … will
+be a nightmare'' \citep{SmithEtAl2022}. The design of TCLB highlights that not
+every conceivable change needs to be supported, only the likely changes.  
+\end{itemize}
+
+As the LBM examples above illustrate, developers can accomplish design for
+change by first identifying likely changes, either implicitly or explicitly, and
+second by hiding each likely change behind a well-defined module interface.
+This approach mirrors the recommendations from \citet{Parnas1972a}.
+\citet{SmithEtAl2022} (under Section ``Documentation as Part of the Development
+Process'') lists ideas for how to document the design, including the likely
+changes, so that they are more visible to others.
 
 \subsection{Assurance Case} \label{AssuranceCases}
 
-From \cite{RinehartEtAl2015}, an assurance case is ``[a] reasoned and compelling
-argument, supported by a body of evidence, that a system, service or
-organization will operate as intended for a defined application in a defined
-environment.''  Assurance cases have been successfully employed for safety
-critical systems, but using this technique for SC software is a new idea.  The
-Goal Structuring Notation (GSN) \cite{Spriggs2012} seems like a good framework
-for initial investigation.
+To ensure correctness (\ppref{P_Correctness} and to achieve the quality of
+reproducibility (\qref{Q_Reproducibility}), we recommend considering the use of
+assurance cases.  \citet{RinehartEtAl2015} defines an assurance case as ``[a]
+reasoned and compelling argument, supported by a body of evidence, that a
+system, service, or organization will operate as intended for a defined
+application in a defined environment.''  An assurance cases provide an organized
+and explicit argument that the software and its documentation achieves desired
+qualities, such as correctness and reproducibility.  Although assurance cases
+have been successfully employed for safety critical systems
+\citep{RinehartEtAl2015}, this technique is relatively new for research software
+\citep{SmithEtAl2020_AC, Smith2018}.
 
-Scientific software, such as medical software, is often subject to
-standardization and regulatory approval. While applying such approvals and
-standards has had a beneficial effect on system quality, it does not provide
-good tracking of the development stages, as the compliance with the standards
-is mostly checked after the system development. Once a system is implemented,
-its documentations must be approved by the regulators. This process is lengthy
-and expensive. In contrast, assurance case development usually occurs in
-parallel with the system construction, resulting in a traceable, detailed
-argument for the desired property.  Moreover, since the assurance case is
-integrated into the system construction, the domain experts are involved from
-the start.
+One way to present an assurance case is through the Goal Structuring Notation
+(GSN) \cite{Spriggs2012}, which make arguments clear, easy to read and, hence,
+easy to challenge. GSN starts with a Top Goal (Claim), like ``Program X delivers
+correct outputs when used for its intended use/purpose in its intended
+environment.''  We then decompose this top goal into Sub-Goals, which themselves
+may be further decomposed.  The purpose of the decomposition is to take the
+abstract higher level goals and bring them down to something concrete that can
+be proven.  The decomposition ends with the terminal Sub-Goals that are
+supported by Solutions (Evidence). Typical evidence will consist of documents,
+expert reviews, test case results, peer review, etc.  Within the GSN framework,
+there are also strategy blocks, which describe the rationale for decomposing a
+Goal or Sub-Goal into more detailed Sub-Goals. A common tool for creating,
+editing, and presenting, a GSN argument is \href{https://astah.net/} {Astah}.  
 
-Putting the argument in the hands of the experts means that they will work to
-convince themselves, along with the regulators.  They will use the expertise
-that the regulators do not have and they will see the value of documentation (as
-mentioned in section on pain points with methods to mitigate); they will be
-engaged.  This engagement will hopefully help bridge the current chasm between
-software engineering and scientific computing~\cite{Kelly2007}, by motivating
-scientists toward documentation and correcting the problem of software engineers
-failing to meet scientists' expectations~\cite{Segal2008}.  Significant
-documentation will still likely be necessary, but now the developers control the
-documentation.  What is created will be relevant and necessary.
+\citet{SmithEtAl2020_AC} shows the example of arguing for the correctness of the
+Analysis of Functional NeuroImages (AFNI) package 3dfim+ \citep{Ward2000}.
+3dfim+ analyzes the activity of the brain by computing the correlation between
+an ideal signal and the measured brain signal for each voxel. The assurance case
+for the correctness of 3dfim+ has the top level decomposed into four sub-goals,
+as shown in Figure~\ref{TopGoal}.  This example follows the same pattern as used
+for medical devices~\cite{Wassyng2015}.  The first sub-goal (GR) argues for the
+quality of the documentation of the requirements (SRS).  The second sub-goal
+(GD) says that the design complies with the requirements and the third proposes
+that the implementation also complies with the requirements.  The fourth
+sub-goal (GA) claims that the inputs to 3dfim+ will satisfy the operational
+assumptions, since we need valid input to make an argument for the correctness
+of the output.
 
-For SCS a top level claim could read ``Program X delivers correct outputs when
-used for its intended use/purpose in its intended environment.''  The next step
-would be to decompose this claim into sub-claims that will be easier to prove.
-The sub-claims will likely also be further divided until the bottom of the
-graph, where the measurable evidence is provided.  Typical evidence will consist
-of documents, expert reviews, test case results etc.
-
-Using the specific example of preparing an assurance case for pre-existing
-medical image analysis software (3dfim+)~\cite{SmithEtAl2018_ICSEPoster}, the
-top level can be decomposed into four sub-goals, as shown in
-Figure~\ref{TopGoal}.  This example follows the same pattern as used for medical
-devices~\cite{Wassyng2015}.  The first sub-goal (GR) argues for the quality of
-the documentation of the requirements (SRS).  The second sub-goal (GD) says that
-the design complies with the requirements and the third proposes that the
-implementation also complies with the requirements.  The fourth sub-goal (GA)
-claims that the inputs to 3dfim+ will satisfy the operational assumptions, since
-we need valid input to make an argument for the correctness of the output.
-
-\begin{figure*}[!h]
+\begin{figure}[!h]
 \centering
 \includegraphics[width=1.0\textwidth]{./figures/TopGoal.pdf}
 \caption{Top Goal of the assurance case and its sub-goals}
 \label{TopGoal}
-\end{figure*}
+\end{figure}
 
-Preparing an assurance case for the pre-existing 3dfim+ software justifies the
-value of assurance cases for the certification of SCS~\cite{SmithEtAl2018}.
-Although no errors were found in the output of the existing software, the rigour
-of the proposed approach did lead to finding ambiguities and omissions in the
-existing documentation, such as missing information on the coordinate system
-convention.  In addition, a potential concern for the software itself was
-identified from the GA argument: running the software does not produce any
-warning about the obligation of the user to provide data that matches the
-parametric statistical model employed for the correlation calculations.
-
-Potential objectives for research on assurance cases applied to SCS are as
-follows:
-
-\begin{enumerate}
-\item Creation of an assurance case template will require looking at a variety
-  of SCS projects, which will require engaged project partners; therefore, the
-  initial approach should be to target domains where certification is required,
-  or domains where verification is critical, but challenging, like the High
-  Energy Physics (HEP). \wss{reference the paper about domain specific
-  methodology - maybe I already did?}
-\item Evidence is provided at the bottom of an assurance case, but what is
-  the best form for this evidence?  As mentioned for the SRS, we need an
-  approach for verification.  We also need an approach to verify the other
-  software artifacts, the traceability between them, the team of developers, the
-  team of reviewers, etc.  The question for the future is what combination of
-  tools and processes will provide convincing evidence?
-\item Creation of assurance cases is challenging with existing tools.  In the
-  future, the goal should be automatic generation (see
-  \citet{Smith2018}, Section SecAutoGenerate) of the visual assurance case documentation from
-  the arguments and evidence
-\item Creating a revelation on the value of documentation \citep{Smith2018} may
-   require a pseudo adversarial approach.  SCS developers should be explicitly
-   challenged to present their verification efforts so that their work can be
-   independently verified.  Although SCS developers have developed many
-   successful theories, techniques, and testing procedures for verification, the
-   evidence is generally presented in an ad hoc manner.  Developers should be
-   asked to connect all the pieces of their evidence in a coherent argument.  As
-   a bonus, the act of creating the assurance case may also lead developers to
-   discover subtle edge cases, which would not have been noticed with a less
-   rigorous and systematic approach.
-
-\end{enumerate}
+Preparing an assurance case for the pre-existing 3dfim+ software shows the value
+of an assurance cases for research software. Although \citet{SmithEtAl2020}
+found no errors in the output of the existing software, the rigour of the
+proposed approach did lead to finding ambiguities and omissions in the existing
+documentation, such as missing information on the coordinate system convention.
+In addition, a potential concern for the software itself was identified from the
+GA argument: running the software does not produce any warning about the
+obligation of the user to provide data that matches the parametric statistical
+model employed for the correlation calculations.
 
 \subsection{Generate All Things} \label{Sec_GenAllThings}
 
-We propose automatically generating LBM code and its documentation, using a
-Domain Specific Modelling (DSM) approach. DSM means creating a knowledge base of
-models for physics, computing, mathematics, documentation, and certification and
-then writing explicit ``recipes'' that weave together this knowledge to generate
-the desired code, documentation, test cases, inspection reports and build
-scripts. This definition of DSM is more general than usual; in this
-recommendation DSM implies generation of all software artifacts, not just the
-code. DSM moves development to a higher level of abstraction; domain experts can
-work without concern for low-level implementation details. Using DSM, we
-optimally generate code and documentation, eliminate redundancy, reduce the
-likelihood of errors, and automate maintenance. Moreover, a generative approach
-facilitates the inevitable exploration of LBM modelling assumptions.
+To address developer pain points, we propose automatically generating MI code
+and its documentation via a Domain Specific Modelling (DSM) approach. A DSM
+approach uses models to capture knowledge in domains such as physics, computing,
+mathematics, documentation, and certification.  Developers combine and transform
+knowledge via explicit ``recipes'', which weave it together to generate the
+desired code, documentation, test cases, inspection reports and build scripts. A
+recipe can even potentially be written to generate an assurance case
+(Section~\ref{AssuranceCases}). Our definition here of DSM is more general than
+usual; in this recommendation DSM implies generation of all software artifacts,
+not just the code. DSM moves development to a higher level of abstraction so
+that domain experts can work without concern for low-level implementation
+details. DSM allows developers to optimally generate code and documentation,
+reduce the likelihood of errors, eliminate redundancy, and automate maintenance.
+With a DSM approach MI developers can experiment with different algorithm
+choices, different input formats, different outputs formats, etc.
 
-DSM provides a transformative technology for documentation, design, and
-verification \citep{JohansonAndHasselbring2018, Smith2018}. DSM allows
-scientists to focus on their science, not software.  A generative approach
-removes the maintenance nightmare of documentation duplicates and near
+DSMs are not typically used for research software.  In the future, some believe
+that they will transform coding, documentation, design, and verification
+\citep{JohansonAndHasselbring2018, Smith2018}. DSMs remove the distraction of
+writing software, allowing developers to focus on their science.  A DSM approach
+removes the maintenance headaches of documentation duplicates and near
 duplicates \citep{LucivEtAl2018}, since developers capture knowledge once and
 transform it as needed.  Code generation has previously been applied to improve
-research software.  For instance, ATLAS (Automatically Tuned Linear Algebra
-Software) \citep{WhaleyEtAl2001} and Blitz++ \citep{Veldhuizen1998} produces
-efficient and portable linear algebra software.  Spiral \citep{Pueschel2001}
-uses software/hardware generation for digital signal processing.
-\citet{Carette2008} shows how to generate a family of efficient, type-safe
-Gaussian elimination algorithms.  FEniCS (Finite Element and Computational
-Software) uses code generation when solving differential equations
-\citep{LoggEtAl2012}. \citet{OberEtAl2018} and \citet{MatkerimEtAl2013} apply
-DSM to High Performance Computing (HPC), using UML (Unified Modelling Language)
-for their domain models. Unlike previous DSM work, the current recommendation
-focuses on generating all software artifacts (requirements, design, etc.), not
-just code.  \citet{SzymczakEtAl2016} presents initial work on this ``generate
-all things'' approach, \citet{SmithAndCarette2021-BRIC} presents a motivating
-example, and \citep{CaretteEtAl2021-Drasil} provides a prototype.
+research software, such as linear algebra software packages like Blitz++
+\citep{Veldhuizen1998}, and ATLAS (Automatically Tuned Linear Algebra Software)
+\citep{WhaleyEtAl2001}.  Software/hardware generation has been applied for
+digital signal processing in Spiral \citep{Pueschel2001}. A generative approach
+has also been used for a family of efficient, type-safe Gaussian elimination
+algorithms \citet{Carette2008}. \citep{LoggEtAl2012} use code generation when
+solving partial differential equations in FEniCS (Finite Element and
+Computational Software). \citet{MatkerimEtAl2013} and \citet{OberEtAl2018} use
+DSMs for High Performance Computing (HPC), using UML (Unified Modelling
+Language) for their domain models. Unlike previous DSM work, the current
+recommendation focuses on generating all software artifacts (requirements,
+design, etc.), not just code. \citet{SzymczakEtAl2016} presents initial work on
+this approach, \citet{SmithAndCarette2021-BRIC} presents a motivating example,
+and \citep{CaretteEtAl2021-Drasil} provides a prototype.
 
-A DSM approach addresses multiple pain points.  For instance, once the
-infrastructure is in place, a DSM can decrease the amount of development time
-(\ppref{P_LackDevTime}) by automation.  Since a DSM approach allows scientists
-to focus on their science, rather than software, the lack of software
-development experience will be less of an issue. The DSM approach can capture
-computing knowledge to mitigate the technology related pain points
-(\ppref{P_TechnologyHurdles}).  For ensuring correctness (\ppref{P_Correctness})
-a generative approach can aim to be correct by construction.  If there are
-mistakes, DSM has the advantage that they are propagated throughout the
-generated artifacts, which greatly increases the chance that someone will notice
-the mistake.  Technical debt (\ppref{Q_Maintainability}) is not a concern with a
-DSM approach since developers write the recipes used for generation at a high
-level making them relatively easy to change.  With respect to pain points on
-usability (\ppref{P_Usability}), the generative approach we are proposing
-addresses these directly, since documentation is a primary concern, rather than
-an afterthought.
+A ``generate all things'' approach addresses multiple pain points.  For example,
+a generative approach can decrease development time (\ppref{P_LackDevTime}) by
+automation, once the necessary infrastructure is in place.  The DSM approach
+addresses the technology related pain point (\ppref{P_TechnologyHurdles})
+because technology information can be captured in the models and transformed as
+needed. To ensure correctness (\ppref{P_Correctness}), a DSM approach should be
+correct by construction.  If there are mistakes, DSM has the advantage that they
+are propagated throughout the generated artifacts, which greatly increases the
+chance that someone will notice the mistake.  Maintainability
+(\qref{Q_Maintainability}) is addressed because developers write the recipes
+used for generation at a high level making them relatively easy to change.
+Usability (\ppref{P_Usability}) is addressed because of the emphasis on
+generating up-to-date documentation.  Reproducibility.
 
 \section{Threats to Validity} \label{sec_threats_to_validity}
 
@@ -2801,6 +2756,8 @@ Section~\ref{painpoints} contains our interviews with eight of the 29 teams,
 discussing their development process and five software qualities.  We answered
 our research questions. In addition, Section~\ref{ch_recommendations} presents
 our recommendations on SC software development.
+
+Compare to LBM.
 
 \subsection{Key Findings}
 
@@ -2920,6 +2877,12 @@ state of the practice assessments:
 	record this sentence in the transcription, and it will be much easier to
 	distinguish the follow-up questions from the 20 designed questions.
 \end{itemize}
+
+\section*{Acknowledgements}
+
+We would like to thank Peter Michalski and Oluwaseun Owojaiye for fruitful
+discussions on topics relevant to this paper.  We would also like to thank Jason
+Balaci for advice on web applications.
 
 %% The Appendices part is started with the command \appendix;
 %% appendix sections are then done as normal sections
