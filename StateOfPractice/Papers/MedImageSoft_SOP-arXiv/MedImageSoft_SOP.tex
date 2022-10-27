@@ -2645,16 +2645,83 @@ generating up-to-date documentation.  Reproducibility.
 \section{Threats to Validity} \label{sec_threats_to_validity}
 
 Below we categorize and list the threats to validity that we have identified.
-The categories come from \citet{AmpatzoglouEtAl2019} and \citet{ZhouEtAl2016}.
+Our categories come from an analysis of software engineering secondary studies
+by \citet{AmpatzoglouEtAl2019}, where a secondary study analyzes the data from a
+set of primary studies.  \citet{AmpatzoglouEtAl2019} is appropriate because a
+common example of a secondary study is a systematic literature review. Our
+methodology is a systematic software review --- the primary studies
+are the software packages, and our work collects and analyzes these primary
+studies.
 
-\wss{observed artifacts (Section~\ref{Sec_CompareArtifacts}) - human judgement,
-not always given the expected name, but the content is there.}
+\subsection{Reliability}
 
-\begin{description}
-    \item[Construct Validity:] ``Defines how effectively a test or experiment measures
-    up to its claims. This aspect deals with whether or not the researcher measures
-    what is intended to be measured'' \citep{AmpatzoglouEtAl2019}.
-\end{description}
+\subsection{Reliability}
+
+A study is reliable if its data and analysis are independent of the specific
+researcher(s) doing the study.  That is, repetition of the study by a different
+researcher should achieve the same results, as long as they use the same
+methodology \citep{RunesonAndHost2009}.  For our study the identified
+reliability related threats include the following:
+
+\begin{itemize}
+\item In our methodology, one individual does the manual measures for all
+packages. The grader's abilities, experiences, and biases may influence the
+results.  
+\item Completing the manual measures of all packages took place over several
+months. During this time the contents of the software repositories may change
+and the reviewer's judgment may drift.
+\end{itemize}
+
+\begin{itemize}
+\item The grading template included an entry for the reviewer's impression.  We
+aimed for objectivity, but there is a risk that some scores may be subjective
+and biased.
+\item The measurements are made at an instant in time, and the instant differs
+by a few weeks between projects, due to the time needed to measure them. For the
+most part, the projects are living and continually changing, which means if we
+measured at a different time, our results may change.
+\end{itemize}
+
+We investigated the risk of reviewer dependence in previous work \citep{SmithEtAl2016}, % DOUBLE BLIND
+where we demonstrated that the measurement process is
+reasonably reproducible by having five products graded by a second reviewer. The
+ranking via this independent review was almost identical to the original
+ranking. As long as each grader uses consistent definitions, the relative
+comparisons in the AHP results will be consistent between graders.
+
+\subsection{Construct Validity}
+
+Construct validity means that adopted metrics represent what they are intended
+to measure \citep{RunesonAndHost2009}. The construct validity related threats
+for the LBM study include the following:
+
+\begin{itemize}
+\item We measure our software qualities indirectly, rather than directly.
+Unfortunately meaningful direct measures for qualities like maintainability,
+reusability and verifiability, are not available.  Therefore, we follow the
+usual approach of assuming that following procedures and adhering to standards
+yields a higher-quality product \citep[p.\ 112]{VanVliet2000}.
+\item The measure of surface robustness (Section~\ref{Sec_Robustness}) is only
+based on two pieces of data per project. The measurement of robustness could be
+expanded, as it currently only measures the impact of unexpected input. Other
+intentional faults could be introduced, but this would require a larger
+investment of measurement time. 
+\item We may have inaccurately estimated maintainability by assuming a higher
+ratio of comments to source code improves maintainability
+(Section~\ref{Sec_Maintainability}). 
+\item Reusability (Section~\ref{reusabilityresults}) is assessed via the number
+of code files and LOC per file. While this measure is indicative of modularity,
+it is possible that some packages have many files, with few LOC, but the files
+do not contain source code that is easily reusable. The formatting may be poor,
+or the source code may be vague and have ambiguous identifiers. 
+\item The measurement of understandability
+(Section~\ref{Sec_SurfUnderstandability}) relies on 10 random source code files.
+By random chance, the 10 files that were chosen may not be representative. 
+\item Our overall AHP ranking makes the unrealistic assumption of equal
+weighting between qualities (Section~\ref{Sec_OverallQuality}).
+\item Our approximation of popularity by stars and watches
+(Section~\ref{repmetrics}) may not be valid. 
+\end{itemize}
 
 \begin{itemize}
 \item For practical considerations the time spent measuring each package had to
@@ -2684,12 +2751,36 @@ no alternative for \textit{DICOM Viewer}. We might underestimate their rank due
 to an uncommon technical issue.
 \end{itemize}
 
-\begin{description}
-    \item[Internal Validity:] ``This aspect relates to the examination of causal
-    relations. Internal validity examines whether an experimental
-    treatment/condition makes a difference or not, and whether there is evidence
-    to support the claim'' \citep{AmpatzoglouEtAl2019}.
-\end{description}
+\subsection{Internal Validity} \label{Sec_InternalValidity}
+
+A study is internally valid if the discovered causal relations are trustworthy
+and cannot be explained by other factors \citep{RunesonAndHost2009}. The
+internal validity threats include the following:
+
+\begin{itemize}
+\item We may have missed a relevant software package in our search for LBM
+software packages (Section~\ref{identifysoftware}).
+\item A temporal gap exists between the manual measurement of Musubi and the
+measurement of all other packages (Section~\ref{filtersoftware}). This gap
+caused a mismatch between the time of manual and automated data collection,
+since we updated the automated measures (like the number of files, LOC, etc.)
+when Musubi was added.
+\item Our methodology assumes that artifacts in the repositories will show us
+the approach used for software development.  However, not all activities will
+necessarily leave a trace in the repositories. For instance, only three packages
+(ESPResSo, Ludwig, Musubi) show evidence in their artifacts of unit testing and
+CI (Section~\ref{SecSurfCorrectAndVerifiab}), even though interviews suggest a
+more frequent use of both unit testing and CI. For example, OpenLB, pyLBM, and
+TCLB use such methods during development despite this not being obvious from an
+analysis of the online material.
+\item In our manual measures of the software repositories, we may have missed
+some data due to technology issues like broken links. This issue arose with the
+measurement of Palabos, which had a broken link to its user manual, as noted in
+Section~\ref{Sec_CompareArtifacts}. 
+\item Our interviews were with a relatively small sample of four LBM developers.
+The pain points (Section~\ref{painpoints}) they expressed may not be
+representative of the rest of their community.
+\end{itemize}
 
 \begin{itemize}
     \item Many of the measurement template questions look for the presence of
@@ -2710,10 +2801,30 @@ to an uncommon technical issue.
     decomposition based on sound design principles, like information hiding.
 \end{itemize}
 
-\begin{description}
-    \item[External Validity:] ``Define the domain to which a study's findings
-    can be generalized'' \citep{ZhouEtAl2016}.
-\end{description}
+Although we found that unit testing and CI usage is likely higher than the
+repository artifacts suggest, we did not change the manual measurement results.
+Given that we could not interview a representative for every project, we left
+the data as collected to keep our measures consistent.  Moreover, CI and unit
+testing done in private should not be counted as equivalent to the public
+versions we detected.  When CI and unit testing are private, they are not as
+effective since they are not available for others to inspect and reproduce.
+
+\subsection{External Validity}
+
+External validity concerns whether the results of the study can be generalized
+(applied) to other situations/cases \citep{RunesonAndHost2009}.  The scope of
+our work is LBM solvers.  We are confident that our search was exhaustive and
+that we did not miss any highly popular examples.  Therefore, the bulk of our
+validity concerns about LBM software observations are internal
+(Section~\ref{Sec_InternalValidity}), not external.  However, our hope is that
+the trends observed, and the lessons learned for LBM software can be applied to
+other research software.  With that in mind we identified the following threat
+to external validity:
+
+\begin{itemize}
+\item Generalization of our results will not be possible if the development of
+LBM software is fundamentally different from other research software.
+\end{itemize}
 
 \begin{itemize}
 \item We interviewed eight teams, which is a good proportion of the 29. However,
@@ -2726,21 +2837,8 @@ their weighting, may not match the external reality.
 popularity.  \wss{Can we find a reference for this?}
 \end{itemize}
 
-\begin{description}
-    \item[Conclusion Validity:] ``Demonstrate that the operations of a study
-    such as the data collection procedure can be repeated, with the same
-    results'' \citep{ZhouEtAl2016}.
-\end{description}
-
-\begin{itemize}
-\item The grading template included an entry for the reviewer's impression.  We
-aimed for objectivity, but there is a risk that some scores may be subjective
-and biased.
-\item The measurements are made at an instant in time, and the instant differs
-by a few weeks between projects, due to the time needed to measure them. For the
-most part, the projects are living and continually changing, which means if we
-measured at a different time, our results may change.
-\end{itemize}
+\wss{observed artifacts (Section~\ref{Sec_CompareArtifacts}) - human judgement,
+not always given the expected name, but the content is there.}
 
 \section{Conclusions} \label{ch_conclusions}
 
