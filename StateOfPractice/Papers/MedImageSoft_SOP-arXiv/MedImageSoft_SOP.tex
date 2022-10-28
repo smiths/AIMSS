@@ -610,7 +610,7 @@ in-person (or virtual) meetings.
 
 \subsection{List of Representative Software} \label{sec_software_selection}
 
-We have a two step process for selecting software packages: i) identify software
+We have a two-step process for selecting software packages: i) identify software
 candidates in the chosen domain; and, ii) filter the list to remove less
 relevant members \citep{SmithEtAl2021}.
 
@@ -1258,7 +1258,7 @@ listed in descending order of visibility/transparency score)}
 \label{tab_Visibility/Transparency_docs}
 \end{table}
 
-\subsection{Overall Scores}
+\subsection{Overall Scores} \label{Sec_OverallQ}
 
 As described in Section~\ref{sec_AHP}, for our AHP measurements, we have nine
 criteria (qualities) and 29 alternatives (software packages). In the absence of
@@ -2649,9 +2649,10 @@ Our categories come from an analysis of software engineering secondary studies
 by \citet{AmpatzoglouEtAl2019}, where a secondary study analyzes the data from a
 set of primary studies.  \citet{AmpatzoglouEtAl2019} is appropriate because a
 common example of a secondary study is a systematic literature review. Our
-methodology is a systematic software review --- the primary studies
-are the software packages, and our work collects and analyzes these primary
-studies.  \citep{SmithEtAl2022}.  \wss{add citation to LBM paper}
+methodology is a systematic software review --- the primary studies are the
+software packages, and our work collects and analyzes these primary studies.  We
+identified similar threats to validity in our assessment of the state of the
+practice of Lattice Boltzmann Solvers \citep{SmithEtAl2022}.
 
 \subsection{Reliability}
 
@@ -2663,171 +2664,112 @@ study the identified reliability related threats are as follows:
 
 \begin{itemize}
 \item One individual does the manual measures for all packages. A different
-evaluator might yield different results, due to differences in abilities,
+evaluator might find different results, due to differences in abilities,
 experiences, and biases.
 \item The manual measurements for the full set of packages took several months.
 Over this time the software repositories may have changed and the reviewer's
-judgment may have drifted.
+judgement may have drifted.
 \end{itemize}
 
-We investigated the reliability risk associated with the reviewer's judgement was investigated in previous work
-\citep{SmithEtAl2016}, % DOUBLE BLIND
-where we demonstrated that the measurement process is
-reasonably reproducible by having five products graded by a second reviewer. The
-ranking via this independent review was almost identical to the original
-ranking. As long as each grader uses consistent definitions, the relative
-comparisons in the AHP results will be consistent between graders.
+In \citet{SmithEtAl2016} we reduced concern over the reliability risk associated
+with the reviewer's judgement  % BLIND REVIEW
+by demonstrating that the measurement process is reasonably reproducible.  In
+\citet{SmithEtAl2016} we graded five software products by two reviewers. Their
+rankings were almost identical. As long as each grader uses consistent
+definitions, the relative comparisons in the AHP results will be consistent
+between graders.
 
 \subsection{Construct Validity}
 
-Construct validity means that adopted metrics represent what they are intended
-to measure \citep{RunesonAndHost2009}. The construct validity related threats
-for the LBM study include the following:
+\citet{RunesonAndHost2009} defines construct validity as when the adopted
+metrics represent what they are intended to measure. Our construct threats are
+often related to how we assume our measurements influences the various software
+qualities, as summarized in Section~\ref{sec_grading_software}. Specifically,
+our construct validity related threats include the following:
 
 \begin{itemize}
-\item We measure our software qualities indirectly, rather than directly.
-Unfortunately meaningful direct measures for qualities like maintainability,
-reusability and verifiability, are not available.  Therefore, we follow the
-usual approach of assuming that following procedures and adhering to standards
-yields a higher-quality product \citep[p.\ 112]{VanVliet2000}.
-\item The measure of surface robustness (Section~\ref{Sec_Robustness}) is only
-based on two pieces of data per project. The measurement of robustness could be
-expanded, as it currently only measures the impact of unexpected input. Other
-intentional faults could be introduced, but this would require a larger
-investment of measurement time. 
-\item We may have inaccurately estimated maintainability by assuming a higher
-ratio of comments to source code improves maintainability
-(Section~\ref{Sec_Maintainability}). 
-\item Reusability (Section~\ref{reusabilityresults}) is assessed via the number
-of code files and LOC per file. While this measure is indicative of modularity,
-it is possible that some packages have many files, with few LOC, but the files
-do not contain source code that is easily reusable. The formatting may be poor,
-or the source code may be vague and have ambiguous identifiers. 
-\item The measurement of understandability
-(Section~\ref{Sec_SurfUnderstandability}) relies on 10 random source code files.
-By random chance, the 10 files that were chosen may not be representative. 
-\item Our overall AHP ranking makes the unrealistic assumption of equal
-weighting between qualities (Section~\ref{Sec_OverallQuality}).
-\item Our approximation of popularity by stars and watches
-(Section~\ref{repmetrics}) may not be valid. 
-\end{itemize}
-
-\begin{itemize}
-\item For practical considerations the time spent measuring each package had to
-be limited.  The time limit may have caused an assessment to have missed
-something something relevant.
-\item Our ranking is partly based on surface (shallow) measurement, which may
-not fully reveal the underlying qualities.
-\item The questions in the measurement template may not actually measure the
-qualities they are associated with.  For instance, we have assumed that
-maintainability is improved if a high percentage of identified issues are
-closed, but it is possible for a project with a wealth of ideas to have many
-open issues, and still be maintainable.
-\item With the exception of the interview data for 8 projects, we collected all
-of the information for each project from the artifacts available on the
-Internet. In some cases this source of data may mean we did not find evidence of
-something, like unit testing, not because the project didn't do it, but because
-no artifacts of this activity remained in the publicly available repository.
-\item As mentioned in Section~\ref{painpoints}, one interviewee was too busy
-to participate in a full interview, so they provided a version of written answers
-to us. Since we did not have the chance to explain our questions or ask them
-follow-up questions, there is a possibility of misinterpretation of the
-questions or answers.
+\item We make indirect measurement of software qualities since meaningful direct
+measures for qualities like maintainability, reusability and verifiability, are
+unavailable.  We follow the usual assumption that developers achieve higher
+quality by following procedures and adhering to standards \citep[p.\
+112]{VanVliet2000}.
 \item As mentioned in Section~\ref{sec_result_installability}, we could not
 install or build \textit{dwv}, \textit{GATE}, and \textit{DICOM Viewer}. We used
 a deployed online version for \textit{dwv}, a VM version for \textit{GATE}, but
 no alternative for \textit{DICOM Viewer}. We might underestimate their rank due
-to an uncommon technical issue.
+to this uncommon technical issue.
+\item We only use two pieces of data to measure surface robustness. This is
+likely part of the reason for limited variation in the robustness scores
+(Figure~\ref{fg_robustness_scores}). We could add more robustness data by
+pushing the software to deal with more unexpected situations, like a broken
+Internet connection, but this would require a larger investment of measurement
+time. 
+\item We may have inaccurately estimated maintainability by assuming a higher
+ratio of comments to source code improves maintainability. Moreover, we assumed
+that maintainability is improved if a high percentage of issues are closed, but
+a project may have a wealth of open issues, and still be maintainable.
+\item We assess reusability by the number of code files and LOC per file. This
+measure is indicative of modularity, but it does not necessarily mean a good
+modularization. The modules may not be general enough to be easily reused, or
+the formatting may be poor, or the understandability of the code may be low.
+\item The understandability measure relies on 10 random source code files, but
+the 10 files will not necessarily be representative. 
+\item As discussed in Section~\ref{Sec_OverallQ}, our overall AHP ranking makes
+the unrealistic assumption of equal weighting.
+\item We approximated popularity by stars and watches
+(Section~\ref{Sec_VsCommunityRanking}), but this assumption may not be valid. 
+\item As mentioned in Section~\ref{sec_interview_methods}, one interviewee was
+too busy to participate in a full interview, so they provided written answers
+instead. Since we did not have the chance to explain our questions or ask them
+follow-up questions, there is a possibility of misinterpretation of the
+questions or answers.
+\item In building Table~\ref{Tbl_Guidelines} some judgement was necessary on our
+part, since not all guidelines use the same names for artifacts that contain
+essentially the same information.
 \end{itemize}
 
 \subsection{Internal Validity} \label{Sec_InternalValidity}
 
-A study is internally valid if the discovered causal relations are trustworthy
-and cannot be explained by other factors \citep{RunesonAndHost2009}. The
-internal validity threats include the following:
+Internal validity means that discovered causal relations are trustworthy and
+cannot be explained by other factors \citep{RunesonAndHost2009}. In our
+methodology the internal validity threats include the following:
 
 \begin{itemize}
-\item We may have missed a relevant software package in our search for LBM
-software packages (Section~\ref{identifysoftware}).
-\item A temporal gap exists between the manual measurement of Musubi and the
-measurement of all other packages (Section~\ref{filtersoftware}). This gap
-caused a mismatch between the time of manual and automated data collection,
-since we updated the automated measures (like the number of files, LOC, etc.)
-when Musubi was added.
-\item Our methodology assumes that artifacts in the repositories will show us
-the approach used for software development.  However, not all activities will
-necessarily leave a trace in the repositories. For instance, only three packages
-(ESPResSo, Ludwig, Musubi) show evidence in their artifacts of unit testing and
-CI (Section~\ref{SecSurfCorrectAndVerifiab}), even though interviews suggest a
-more frequent use of both unit testing and CI. For example, OpenLB, pyLBM, and
-TCLB use such methods during development despite this not being obvious from an
-analysis of the online material.
-\item In our manual measures of the software repositories, we may have missed
-some data due to technology issues like broken links. This issue arose with the
-measurement of Palabos, which had a broken link to its user manual, as noted in
-Section~\ref{Sec_CompareArtifacts}. 
-\item Our interviews were with a relatively small sample of four LBM developers.
-The pain points (Section~\ref{painpoints}) they expressed may not be
-representative of the rest of their community.
+\item In our search for software packages
+(Section~\ref{sec_software_selection}), we may have missed a relevant package.
+\item Our methodology assumes that all relevant software development activities
+will leave a trace in the repositories, but this is not necessarily true. For
+instance, the possibility exists that CI usage was higher than what we observed
+through the artifacts (Section~\ref{Sec_CompareTools}). As another example,
+although we saw little evidence of requirements
+(Section~\ref{Sec_CompareTools}), maybe teams keep this kind of information
+outside their repos, possibly in journal papers or technical reports.
+\item We interviewed a relatively small sample of 8 teams.  Their pain points
+(Section~\ref{painpoints}) may not be representative of the rest of their
+community.
 \end{itemize}
-
-\begin{itemize}
-    \item Many of the measurement template questions look for the presence of
-    certain artifacts, like a user manual, or a getting started tutorial.  We
-    have implicitly assumed that the presence of these artifacts is an
-    indication of a given quality, but this is an indirect measure.  It may be
-    possible to achieve qualities without the artifacts we sought.  A direct
-    measure of quality, like an usability experiment, would not have this
-    problem.
-    \item We compared our rankings to the rankings by the community and the
-    Domain Expert, but we have assumed all qualities are equally weighted.  The
-    community and the Domain Expert likely have a more complex weighting between
-    qualities.
-    \item We assumed there was a casual relationship between the number of files
-    and reusability, since we assumed multiple files implies modularity.  Of
-    course the code can be modular, and not divided into separate files.
-    Moreover, having many files does not immediately in itself imply a
-    decomposition based on sound design principles, like information hiding.
-\end{itemize}
-
-Although we found that unit testing and CI usage is likely higher than the
-repository artifacts suggest, we did not change the manual measurement results.
-Given that we could not interview a representative for every project, we left
-the data as collected to keep our measures consistent.  Moreover, CI and unit
-testing done in private should not be counted as equivalent to the public
-versions we detected.  When CI and unit testing are private, they are not as
-effective since they are not available for others to inspect and reproduce.
 
 \subsection{External Validity}
 
-External validity concerns whether the results of the study can be generalized
-(applied) to other situations/cases \citep{RunesonAndHost2009}.  The scope of
-our work is LBM solvers.  We are confident that our search was exhaustive and
-that we did not miss any highly popular examples.  Therefore, the bulk of our
-validity concerns about LBM software observations are internal
-(Section~\ref{Sec_InternalValidity}), not external.  However, our hope is that
-the trends observed, and the lessons learned for LBM software can be applied to
-other research software.  With that in mind we identified the following threat
-to external validity:
+If the results of a study can be generalized (applied) to other
+situations/cases, then the study is externally valid \citep{RunesonAndHost2009}.
+We are confident that our search was exhaustive.  We do not believe that we
+missed any highly popular examples.  Therefore, the bulk of our validity
+concerns are internal (Section~\ref{Sec_InternalValidity}).
+However, our hope is that the trends observed, and the lessons learned for MI
+software can be applied to other research software.  With that in mind we
+identified the following threat to external validity:
 
 \begin{itemize}
-\item Generalization of our results will not be possible if the development of
-LBM software is fundamentally different from other research software.
+\item We cannot generalize our results if the development of MI software is
+fundamentally different from other research software.
 \end{itemize}
 
-\begin{itemize}
-\item We interviewed eight teams, which is a good proportion of the 29. However,
-there is still a risk that the subset of the entire group does not represent the
-whole MI software community.
-\item We identified qualities that we believe the community will be interested
-in, and we weighted these qualities equally, but the qualities we chose, and
-their weighting, may not match the external reality.
-\item The number of GitHub stars, watches, and forks are not ideal measures of
-popularity.  \wss{Can we find a reference for this?}
-\end{itemize}
-
-\wss{observed artifacts (Section~\ref{Sec_CompareArtifacts}) - human judgement,
-not always given the expected name, but the content is there.}
+Although there are differences, like the importance of data privacy for MI data,
+we found the approach to developing LBM software \citep{SmithEtAl2022} and MI
+software to be similar.  Except for the domain specific aspects, we believe that
+the trends observed in the current study are externally valid for other research
+software.
 
 \section{Conclusions} \label{ch_conclusions}
 
