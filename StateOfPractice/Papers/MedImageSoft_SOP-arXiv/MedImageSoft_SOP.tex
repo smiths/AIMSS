@@ -1644,9 +1644,9 @@ contributor guideline.
 \item \textbf{A Developer Code of Conduct} explicitly states the expectations
 for developers on how they should treat one another \citep{TouraniEtAl2017}. The
 code outlines rules for communication and establishes enforcement mechanisms for
-violations.  As \citet{TouraniEtAl2017} states, the code of conduct documents
+violations.  As \citet{TouraniEtAl2017} states, the developer code documents
 the spirit of a community so that anyone can comfortably contribute regardless
-of ethnicity, gender, or sexual orientation. Three popular code's of conduct are
+of ethnicity, gender, or sexual orientation. Three popular codes of conduct are
 \citep{TouraniEtAl2017}:
 \href{https://www.contributor-covenant.org/version/2/1/code_of_conduct/}
 {Contributor Covenant}, \href{https://ubuntu.com/community/code-of-conduct}
@@ -1707,24 +1707,27 @@ cases also documents the semantics.  Some potential elements of design
 documentation include the following:
 
 \begin{itemize}
-	\item Represent the design using Unified Modelling Language class diagrams.
-	This approach is suited to object-oriented design and designs that use
-	patterns \citep{Gamma1995}.
-	\item Rigorously document the design following the template for a Module
-	Guide (MG) \citep{ParnasEtAl1984}.  An MG organizes the modules in a
-	hierarchy by their secrets.
-	\item Explain the design using data flow diagrams to show typical use cases
+	\item Representation of the system design and class design using Unified
+	Modelling Language class diagrams. This approach is suited to
+	object-oriented design and designs that use patterns \citep{Gamma1995}.
+	\item Rigorous documentation of the system design following the template for
+	a Module Guide (MG) \citep{ParnasEtAl1984}.  An MG organizes the modules in
+	a hierarchy by their secrets.
+	\item An explanation of the design using data flow diagrams to show typical use cases
 	for input transformation.
-	\item Traceability
-	\item Using a textual description, list for each module (or class), the
-	state variables (if any), exported constants and all exported access
-	programs.  This shows the interface that can used to access each module's
-	services.
-	\item Document the Module Interface Specification (MIS)
-	\citep{HoffmanAndStrooper1995}. An MIS is an abstract model that formally
-	shows each module's access programs and the associated transitions and
-	outputs based on their state, environment, and input variables
-	\citep{ElSheikhEtAl2004, SmithAndYu2009}.
+	\item A table or graph showing the traceability between the requirements and
+	the modules (or classes)
+	\item The syntax of the modules (or classes) by providing lists of the state
+	variables, exported constants and all exported access programs for each
+	module (or class).  This shows the interface that can used to access each
+	module's services.
+	\item A formal specification of the semantics of input/output relationships
+	and state transitions for each module using a Module Interface Specification
+	(MIS) \citep{HoffmanAndStrooper1995}. An MIS is an abstract model that
+	formally shows each module's access programs and the associated transitions
+	and outputs based on their state, environment, and input variables.
+	\citet{ElSheikhEtAl2004, SmithAndYu2009} show the example of an MIS for a
+	mesh generator.
 \end{itemize}
 
 \item \textbf{API Documentation} shows developers the services or data provided
@@ -1733,16 +1736,12 @@ or objects \citep{MengEtAl2018}.  Understandability is improved by API
 documentation \citep{MengEtAl2018}. API documentation can be generated using
 tools like Doxygen, pydoc, and javadoc.
 
-\item \textbf{A test plan} Verification involves checking that the governing
-equations for the model, together with other definitions, including boundary
-and/or initial conditions, are solved correctly.  Validation, on the other hand,
-involves checking that the model is close enough to reality for whatever
-scientific or engineering problem is being addressed by the software.
-Verification is an exercise in mathematics, while validation is an exercise in
-engineering and science~\cite[p.~24]{Roache1998}.  Verification is not just
-important for the code.  As shown by the IEEE Standard for Software Verification
-and Validation Plans~\cite[p.\ 412]{VanVliet2000}, V\&V activities are
-recommended for each phase of the software development lifecycle.
+\item \textbf{A Test Plan} describes the scope, approach, resources, and the
+schedule of planned test activities \citep{VanVliet2000}.  The plan should cover
+details such as the makeup of the testing team, automated testing tools and
+technology to employ, the testing process, system tests, integration tests and
+unit tests.  A test plan can also include the specific plans for peer code (and
+documentation) review, as discussed further in Section~\ref{Sec_PeerReview}.
 
 \end{itemize}
 
@@ -1764,14 +1763,14 @@ managing releases \citep{Michalski2021}.
 The above discussion shows that, taken together, MI projects fall somewhat short
 of recommended best practices for research software.  However, MI software is
 not alone in this.  Many, if not most, research projects fall short of best
-practices.  A gap exists in scientific computing development practices and
-software engineering recommendations \citep{Storer2017, Kelly2007,
-OwojaiyeEtAl2021_CSE}. \citet{JohansonAndHasselbring2018} observe that the
-state-of-the-practice for research software in industry and academia does not incorporate
-state-of-the-art SE tools and methods.  This causes sustainability and
-reliability problems \citep{FaulkEtAl2009}. Rather than benefit from capturing
-and reusing previous knowledge, projects waste time and energy ``reinventing the
-wheel'' \citep{deSouzaEtAl2019}.
+practices.  A gap exists in research software development practices and software
+engineering recommendations \citep{Storer2017, Kelly2007, OwojaiyeEtAl2021_CSE}.
+\citet{JohansonAndHasselbring2018} observe that the state-of-the-practice for
+research software in industry and academia does not incorporate state-of-the-art
+SE tools and methods.  This causes sustainability and reliability problems
+\citep{FaulkEtAl2009}. Rather than benefit from capturing and reusing previous
+knowledge, projects waste time and energy ``reinventing the wheel''
+\citep{deSouzaEtAl2019}.
 
 \section{Comparison of Tool Usage Between MI and Other Research Software}
 \label{Sec_CompareTools}
