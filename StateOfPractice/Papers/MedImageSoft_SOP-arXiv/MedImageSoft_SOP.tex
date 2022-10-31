@@ -169,29 +169,37 @@
 
 \begin{abstract}
 
-We present the state of the practice for Medical Imaging software. We selected
-29 medical imaging projects from 48 candidates, assessed 10 software qualities
-(installability, correctness/ verifiability, reliability, robustness, usability,
-maintainability, reusability, understandability, visibility/transparency and
-reproducibility) by answering 108 questions for each software project, and
-interviewed 8 of the 29 development teams. Based on the quantitative data for
-the first 9 qualities, we ranked the MI software with the Analytic Hierarchy
-Process (AHP). The four top ranked software products are: \textit{3D Slicer},
-\textit{ImageJ}, \textit{Fiji}, and \textit{OHIF Viewer}. Our ranking is mostly
-consistent with the community's ranking, with four of our top five projects also
-appearing in the top five of a list ordered by stars-per-year. \textit{DICOM
-Viewer} and \textit{dmv} are exceptions; we ranked them lower than their
-estimated popularity because of difficulty with their installation.  Comparison
-for tool usage. Comparison for process. From interviewing the developers, we
-identified five pain points and two qualities of potential concern:: i) lack of
-resources; ii) difficulty balancing between compatibility, maintainability,
-performance, and security; and, iii) lack of access to real-world datasets for
-testing. For future MI software projects, we propose adopting test-driven
-development, using continuous integration and continuous delivery (CI/CD), using
-git and GitHub, maintaining good documentation, supporting third-party plugins
-or extensions, considering web application solutions, and improving
-collaboration between different MI software projects. \wss{Update after the
-paper has been revised.}
+We present the state of the practice for Medical Imaging (MI) software. We
+selected 29 medical imaging projects from 48 candidates, assessed 10 software
+qualities (installability, correctness/ verifiability, reliability, robustness,
+usability, maintainability, reusability, understandability,
+visibility/transparency and reproducibility) by answering 108 questions for each
+software project, and interviewed 8 of the 29 development teams. Based on the
+quantitative data for the first 9 qualities, we ranked the MI software with the
+Analytic Hierarchy Process (AHP). The four top ranked software products are:
+\textit{3D Slicer}, \textit{ImageJ}, \textit{Fiji}, and \textit{OHIF Viewer}.
+Our ranking is mostly consistent with the community's ranking, with four of our
+top five projects also appearing in the top five of a list ordered by
+stars-per-year. \textit{DICOM Viewer} and \textit{dmv} are exceptions; we ranked
+them lower than their estimated popularity because of difficulty with their
+installation.  Generally, MI software is in a healthy state.  The documentation
+artifacts created, and development tools employed, typically match the
+recommendations given in research software development guidelines. A few places
+in the current state of the practice that deviate from the recommendations
+include some underemphasized artifacts (like a developer's code of conduct, code
+style guidelines, product roadmaps, and Application Program Interface (API)
+documentation) and ... Exceptions include ... tools With respect to software
+artifacts, MI software generally Comparison for tool usage. Comparison for
+process. From interviewing the developers, we identified five pain points and
+two qualities of potential concern:: i) lack of resources; ii) difficulty
+balancing between compatibility, maintainability, performance, and security;
+and, iii) lack of access to real-world datasets for testing. For future MI
+software projects, we propose adopting test-driven development, using continuous
+integration and continuous delivery (CI/CD), using git and GitHub, maintaining
+good documentation, supporting third-party plugins or extensions, considering
+web application solutions, and improving collaboration between different MI
+software projects.
+\wss{Update after the paper has been revised.}
 
 \end{abstract}
 
@@ -1834,8 +1842,8 @@ version control usage for alive projects in mesh generation, geographic
 information systems and statistical software for psychiatry increasing from
 75\%, 89\% and 17\% (respectively) to 100\%, 95\% and 100\% (respectively) over
 a four-year period ending in 2018. (For completeness the same study showed a
-decrease in version control usage for seismology software over the same time
-period, from 41\% down to 36\%).  A recent survey by \citet{CarverEtAl2022}
+small decrease in version control usage for seismology software over the same
+time period, from 41\% down to 36\%).  A recent survey by \citet{CarverEtAl2022}
 shows version control use among practitioners at over 95\%, with 83/87 survey
 respondents indicating that they use it. All but one of the software guides
 cited in Section~\ref{Sec_CompareArtifacts} includes the advice to use version
@@ -1845,7 +1853,7 @@ software matches the trend in research software in general.
 
 As mentioned in Section~\ref{sec_result_correctness_verifiability}, we
 identified five projects using CI/CD tools (about 17\% of the assessed
-projects). We found CI/CD using projects by examining the documentation and
+projects). We found which projects used CI/CD by examining the documentation and
 source code of all projects. The count of CI/CD usage may actually be higher,
 since traces of CI/CD usage may not always appear in a repository.  This was the
 case for a study of LBM software, where interviews with developers showed that
@@ -1855,21 +1863,23 @@ high frequency with which research software development guidelines recommend
 continuous integration \citep{BrettEtAl2021, Brown2015, ThielEtAl2020,
 Zadka2018, vanGompelEtAl2016}. Although there is currently little data available
 on CI/CD utilization for research software, our impression is that CI/CD is not
-yet common practice, despite its recommendation.  For LBM software at least the
-situation is similar to MI software, with only 12.5\% of 24 LBM packages showing
-evidence of CI/CD in their repositories \citep{Michalski2021}.  The survey of
-\citet{CarverEtAl2022} suggests higher use of CI/CD with 54\% (54/100)
-respondents indicating that they use it.
+yet common practice, despite its recommendation.  This is certainly the case for
+LBM software, where usage numbers are similar to MI software, with only 12.5\%
+of 24 LBM packages showing evidence of CI/CD in their repositories
+\citep{Michalski2021}.  The survey of \citet{CarverEtAl2022} suggests higher use
+of CI/CD with 54\% (54/100) of respondents indicating that they use it. However,
+that survey measures something different from the current one by surveying
+practitioners, rather than assessing projects.
 
 For documentation tools and methods mentioned by the interviewees, the most
 popular (mentioned by about 30\% of developers) were forum discussions and
 videos.  The second most popular options (mentioned by about 20\% of developers)
 were GitHub, wiki pages, workshops, and social media. The least frequently
-mentioned options (about 10\% of developers) included writing books, google
-forms and state management.  In contrasting MI software with LBM software, the
-most significant documentation tool difference is that LBM software often uses
-document generation tools, like doxygen and sphinx \citep{Michalski2021}, while
-MI does not appear to use these tools. 
+mentioned options (about 10\% of developers) included writing books, and google
+forms.  In contrasting MI software with LBM software, the most significant
+documentation tool difference is that LBM software often uses document
+generation tools, like doxygen and sphinx \citep{Michalski2021}, while MI does
+not appear to use these tools. 
 
 Some interviewees mentioned the project management tools they used. Generally
 speaking, the interviewees talked about two types of tools:
