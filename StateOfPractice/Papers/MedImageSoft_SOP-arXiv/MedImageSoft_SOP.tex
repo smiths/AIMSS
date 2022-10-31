@@ -194,8 +194,8 @@ process. From interviewing the developers, we identified five pain points and
 two qualities of potential concern:: i) lack of resources; ii) difficulty
 balancing between compatibility, maintainability, performance, and security;
 and, iii) lack of access to real-world datasets for testing. For future MI
-software projects, we propose adopting test-driven development, using continuous
-integration and continuous delivery (CI/CD), using git and GitHub, maintaining
+software projects, we propose adopting test-driven development, using Continuous
+Integration and Continuous Delivery (CI/CD), using git and GitHub, maintaining
 good documentation, supporting third-party plugins or extensions, considering
 web application solutions, and improving collaboration between different MI
 software projects.
@@ -1915,7 +1915,7 @@ methods, matches what has been observed for research software in general.
 Scientific developers naturally use an agile philosophy \citep{AckroydEtAl2008,
 CarverEtAl2007, EasterbrookAndJohns2009, Segal2005, HeatonAndCarver2015}, or an
 amethododical process \citep{Kelly2013}, or a knowledge acquisition driven
-process \citep{Kelly2015}.  A waterfall like process can work for research
+process \citep{Kelly2015}.  A waterfall-like process can work for research
 software \citep{Smith2016}, especially if the developers work iteratively and
 incrementally, but externally document their work as if they followed a
 rationale design process \citep{parnas1986rational}.
@@ -2000,11 +2000,11 @@ Section~\ref{ch_recommendations}, we propose additional pain mitigation
 strategies based on our experience.)  In addition to pain points, we summarize
 MI developer strategies for improving maintainability and reproducibility.
 Although the interviewees did not explicitly identify these two qualities as
-pain points, they were discussed as part of our interview process
-\citep{SmithEtAl2021}.  The interviewee's practices for addressing pain points
-and improving quality can potentially be emulated by other MI developers.
-Moreover, these practices may provide examples that can be followed by other
-research software domains.
+pain points, we did discuss threats to these qualities and ways to improve them
+as part of our interview process \citep{SmithEtAl2021}.  The interviewee's
+practices for addressing pain points and improving quality can potentially be
+emulated by other MI developers. Moreover, these practices may provide examples
+that can be followed by other research software domains.
 
 \citet{PintoEtAl2018} lists some pain points that did not come up in our
 conversations with MI developers: interruptions while coding, scope bloat, lack
@@ -2040,18 +2040,18 @@ enough developers for building new features and fixing bugs at the same time;
 \item Improving documentation to save time answering users' and developers'
 questions;
 \item Supporting third-party plugins and extensions; and,
-\item Using GitHub Actions for continuous integration and continuous
-development.
+\item Using GitHub Actions for CI/CD (Continuous Integration and Continuous
+Delivery.)
 \end{itemize}
 
 \item[P\refstepcounter{pnum}\thepnum \label{P_LackFunding}:] \textbf{Lack of
 Funding:} Developers felt the pain of having to attract funding to develop and
 maintain their software. For instance, the interviewees from \textit{3D Slicer}
 and \textit{OHIF} said getting funding for software maintenance is more
-challenging than finding funding for research. The interviewee from the
-\textit{ITK-SNAP} team thought more funding was a way to solve the lack of time
+challenging than finding funding for research. The interviewee from 
+\textit{ITK-SNAP} thought more funding was a way to solve the lack of time
 problem, because they could hire more dedicated developers. On the other hand,
-the interviewee from the \textit{Weasis} team did not feel that funding could
+the interviewee from \textit{Weasis} did not feel that funding could
 solve the same problem, since they would still need time to supervise the project. 
 
 Funding challenges have also been noted by others \citep{GewaltigAndCannon2012,
@@ -2077,12 +2077,12 @@ cross-platform compatibility, convenience to development and maintenance,
 performance, and security.
 
 The pain point survey of \citet{WieseEtAl2019} highlights that technology
-hurdles are an issue for research software in general.  Some of the
-technical-related problems mentioned by \citet{WieseEtAl2019} include dependency
-management, cross-platform compatibility (also mentioned by
-\citet{PintoEtAl2018}), CI, hardware issues and operating system issues. From
-\citep{SmithEtAl2022} technology pain points for LBM developers include setting
-up parallelization and CI. 
+hurdles are an issue for research software in general.  Some technical-related
+problems mentioned by \citet{WieseEtAl2019} include dependency management,
+cross-platform compatibility (also mentioned by \citet{PintoEtAl2018}), CI,
+hardware issues and operating system issues. From \citep{SmithEtAl2022}
+technology pain points for LBM developers include setting up parallelization and
+CI. 
 
 The solutions proposed by the MI developers include the following:
 
@@ -2095,7 +2095,7 @@ support lower-end computers;
 \item Maintaining better documentations to ease the development and maintenance
 processes;
 \item Improving performance via more powerful computers, which one interviewee
-pointed out has already happened to reduce the balance problem.
+pointed out has already happened.
 \end{itemize}
 
 As the above list shows, developers perceive that web-based applications will
@@ -2134,7 +2134,8 @@ build process.  These web advantages mirror the native disadvantages of
 difficulty with cross-platform compatibility and a complex build process.  The
 lower performance disadvantage of web applications can be improved with a server
 backend, but in this case there are disadvantages for privacy protection and
-server costs.
+server costs.  These issues are discussed further in the recommendations
+(Section~\ref{sec_webapps}).
 
 \item[P\refstepcounter{pnum}\thepnum \label{P_Correctness}:]
 \textbf{Ensuring Correctness:} Interviewees identified multiple threats to
@@ -2168,16 +2169,16 @@ challenges of insufficient testing and insufficient understanding of testing
 concepts \citep{SmithEtAl2022}. Automated testing is a specific challenge for
 LBM software since free testing services do not offer adequate facilities for
 large amounts of data \citep{SmithEtAl2022}. Although not specifically mentioned
-during our interviews, the large data sets for MI likely cause a challenge for
-using free testing services, like GitHub Actions.
+during our interviews, the large data sets for MI likely also cause a challenge
+for using free testing services, like GitHub Actions.
 
 Research software in general often struggles with the oracle problem for testing
 because for many potential test cases the developer doesn't have a means to
 judge the correctness of their calculated solutions \citep{HannayEtAl2009,
 KanewalaAndBieman2013, KellyEtAl2011, WieseEtAl2019}.  The MI developers did not
 allude to this challenge, likely because for a give image (test case) it is
-possible to determine, possibly using other software, the expected analysis
-results.
+possible to determine, potentially by using other software, the expected
+analysis results.
 
 A frequently cited strategy for building confidence in correctness (mentioned by
 3 interviewees) is a two state development process with stable releases and
@@ -2240,11 +2241,11 @@ Other suggested and practiced strategies include a graphical user interface,
 testing every release with active users, making simple things simple and
 complicated things possible, focusing on limited number of functions, icons with
 clear visual expressions, designing the software to be intuitive, having a UX
-designer, dialog windows for important notifications, providing an example for
-users to follow, downsampling images to consume less memory, and an option to
-load only part of the data to boost performance.  The last two points recognize
-that an important component of usability is performance, since poor performance
-frustrates users.
+(User eXperience) designer, dialog windows for important notifications,
+providing an example for users to follow, downsampling images to consume less
+memory, and providing an option to load only part of the data to boost
+performance.  The last two points recognize that an important component of
+usability is performance, since poor performance frustrates users.
 
 \end{enumerate}
 
@@ -2258,8 +2259,7 @@ improving these qualities, as discussed below.
 
 \begin{enumerate}
 \item[Q\refstepcounter{qnum}\theqnum \label{Q_Maintainability}:]
-\textbf{Maintainability:} Although not explicitly highlighted as a pain point
-during our interviews, \citet{Nguyen-HoanEtAl2010} rate maintainability as the
+\textbf{Maintainability:} \citet{Nguyen-HoanEtAl2010} rate maintainability as the
 third most important software quality for research software in general. The push
 for sustainable software \citep{deSouzaEtAl2019} is motivated by the pain that
 past developers have had with accumulating too much technical debt
@@ -2285,7 +2285,7 @@ reproducibility explicitly as a pain point, they did mention the need to improve
 documentation.  Good documentation does not just address the pain points of lack
 of developer time (\ppref{P_LackDevTime}), technology hurdles
 (\ppref{P_TechnologyHurdles}), usability \ppref{P_Usability}, and
-Maintainability.  Documentation is also necessary for reproducibility. The
+maintainability.  Documentation is also necessary for reproducibility. The
 challenges of inadequate documentation are a known problem for research software
 \citep{PintoEtAl2018, WieseEtAl2019} and for non-research software
 \citep{LethbridgeEtAl2003}. 
