@@ -78,28 +78,26 @@
 
 We present the state of the practice for Medical Imaging (MI) software based on
 data available in open source repositories. We selected 29 medical imaging
-projects from 48 candidates and assessed 10 software qualities (installability,
+projects from 48 candidates and assessed 9 software qualities (installability,
 correctness/ verifiability, reliability, robustness, usability, maintainability,
-reusability, understandability, visibility/transparency and reproducibility) by
-answering 108 questions for each software project. Based on the quantitative
-data for the first 9 qualities, we ranked the MI software with the Analytic
-Hierarchy Process (AHP). The four top ranked software products are \textit{3D
-Slicer}, \textit{ImageJ}, \textit{Fiji}, and \textit{OHIF Viewer}.  Our ranking
-is mostly consistent with the community's ranking, with four of our top five
-projects also appearing in the top five of a list ordered by stars-per-year.  We
-observed 88\% of the documentation artifacts recommended by research software
-development guidelines.  However, the current state of the practice deviates
-from the existing guidelines because of the rarity of some recommended artifacts
-(like test plans, requirements specification, code of conduct, code style
-guidelines, product roadmaps, and Application Program Interface (API)
-documentation). Open source MI software projects may wish to consider increasing
-their documentation.
+reusability, understandability, and visibility/transparency) by answering 108
+questions for each software project. Based on the quantitative data, we ranked
+the MI software with the Analytic Hierarchy Process (AHP). The top four software
+products are \textit{3D Slicer}, \textit{ImageJ}, \textit{Fiji}, and
+\textit{OHIF Viewer}.  Our ranking is mostly consistent with the community's
+ranking, with four of our top five projects also appearing in the top five of a
+list ordered by stars-per-year.  We observed 88\% of the documentation artifacts
+recommended by research software development guidelines.  However, the current
+state of the practice deviates from the existing guidelines because of the
+rarity of some recommended artifacts (like test plans, requirements
+specification, code of conduct, code style guidelines, product roadmaps, and
+Application Program Interface (API) documentation).
 
 \end{abstract}
 
 \noindent \emph{Keywords:}
 	medical imaging, research software, software engineering, software
-	quality, analytic hierarchy process, developer interviews
+	quality, analytic hierarchy process
 
 \section{Introduction} \label{ch_intro}
 
@@ -116,8 +114,8 @@ injuries and illnesses. Given the importance of MI software and the high number
 of competing software projects, we wish to understand the merits and drawbacks
 of the current development processes, tools, and methodologies. We aim to assess
 through a software engineering lens the quality of the existing software with
-the hope of highlighting standout examples, understanding current pain points
-and providing guidelines and recommendations for future development.
+the hope of highlighting standout examples, and providing guidelines and
+recommendations for future development.
 
 \begin{figure}[!ht]
     \begin{center}
@@ -142,7 +140,7 @@ scientists showed ignorance and indifference to standard software engineering
 concepts. For instance, according to a survey by \citet{Prabhu2011}, more than
 half of their 114 subjects did not use a proper debugger when coding.
 
-To gain insights, we devised 10 research questions, which can be applied to MI,
+To gain insight, we devised 10 research questions, which can be applied to MI,
 as well as to other domains, of research software \citep{SmithEtAl2021,
 SmithAndMichalski2022}.  We designed the questions to learn about the
 community's interest in, and experience with, software artifacts, tools,
@@ -153,10 +151,7 @@ unit tests, system tests, usability tests, build scripts, API (Application
 Programming Interface) documentation, READMEs, license documents, process
 documents, and code.  Once we have learned what MI developers do, we then put
 this information in context by contrasting MI software against the trends shown
-by developers in other research software communities.  Our aim is to collect
-enough information to understand the current pain points experienced by the MI
-software development community so that we can make some preliminary
-recommendations for future improvements. 
+by developers in other research software communities.
 
 We based the structure of the paper on the research questions, so for each
 research question below we point to the section that contains our answer.  We
@@ -180,31 +175,6 @@ exercise:
 	do MI projects compare to research software in general with respect to the
 	artifacts present in their repositories?
 	(Section~\ref{Sec_CompareArtifacts})
-	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_CompareToolsProjMngmnt}:]
-	How do MI projects compare to research software in general with respect to
-	the use of tools (Section~\ref{Sec_CompareTools}) for:
-	\begin{enumerate} 
-		\item [\rqref{RQ_CompareToolsProjMngmnt}.a] development; and,
-		\item [\rqref{RQ_CompareToolsProjMngmnt}.b] project management?
-	\end{enumerate}
-	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_CompareMethodologies}:]
-	How do MI projects compare to research software in general with respect to
-	principles, processes, and methodologies used?
-	(Section~\ref{Sec_CompareMethodologies})
-	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_PainPoints}:] What are
-	the pain points for developers working on MI software projects?
-	(Section~\ref{painpoints})
-	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_ComparePainPoints}:] How
-	do the pain points of developers from MI compare to the pain points
-	for research software in general? (Section~\ref{painpoints})
-	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_Concerns}:] For MI
-	developers what specific best practices are taken to address the pain points
-	and software quality concerns? (Section~\ref{painpoints})
-	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_Recommend}:]
-	What research software development practice could potentially address the
-	pain point concerns identified in \rqref{RQ_PainPoints}?
-	(Section~\ref{ch_recommendations})
-
 \end{enumerate}
 
 \subsection{Scope} \label{sec_scope}
@@ -248,54 +218,15 @@ methodology, the new methodology also includes repository based metrics, such as
 the number of files, number of lines of code, percentage of issues that are
 closed, etc.  With the quantitative data in the grading template, we rank the
 software with the Analytic Hierarchy Process (AHP) (Section~\ref{ch_background}
-provides details). After this, as another addition to our previous methodology,
-we interview some development teams to further understand the status of their 
-development process.
+provides details).
 
 \section{Background} \label{ch_background}
 
-To measure the existing MI software we need two sets of definitions: i) the
-definitions of relevant software license models (Section
-\ref{sec_software_categories}); and, ii) the definitions of the software
+To measure the existing MI software we need the definitions of the software
 qualities that we will be assessing (Section \ref{sec_software_quality}). In our
 assessment we rank the software packages for each quality; therefore, this
 section also provides the background on our ranking process --- the Analytic
 Hierarchy Process (Section \ref{sec_AHP}).
-
-\subsection{Software Categories} \label{sec_software_categories}
-
-When assessing software packages, we need to know the software's license.  In
-particular, we need to know whether the source code will be available to us or
-not.  We define three common software categories.  We will only assess software
-that fits under the Open Source Software license.
-
-\begin{itemize}
-
-\item \textbf{Open Source Software (OSS)} For OSS, the source code is openly
-accessible. Users have the right to study, change and distribute it under a
-license granted by the copyright holder. For many OSS projects, the development
-process relies on the collaboration of different contributors worldwide
-\citep{Corbly2014}. Accessible source code usually exposes more ``secrets'' of a
-software project, such as the underlying logic of software functions, how
-developers achieve their works, and the flaws and potential risks in the final
-product. Thus, OSS is suitable for researchers analyzing the qualities of a
-project.
-
-\item \textbf{Freeware} Freeware is software that can be used free of charge.
-Unlike OSS, the authors of do not allow access or modify the source code
-\citep{LINFO2006}. To many end-users, the differences between freeware and OSS
-may not be relevant. However, software developers who wish to modify the source
-code, and researchers looking for insight into software development process may
-find the inaccessible source code a problem. 
-
-\item \textbf{Commercial Software} ``Commercial software is software developed
-by a business as part of its business'' \citep{GNU2019}. Typically speaking,
-commercial software requires users to pay to access all of its features,
-excluding access to the source code. However, some commercial software is also
-free of charge \citep{GNU2019}. Based on our experience, most commercial
-software products are not OSS.
-
-\end{itemize}
 
 \subsection{Software Quality Definitions} \label{sec_software_quality}
 
@@ -351,9 +282,6 @@ qualities in practice.
 	of a software development process and the current status of it are conveyed
 	clearly \citep[p.\ 32]{GhezziEtAl2003}.
 
-	\item \textbf{Reproducibility} ``A result is said to be reproducible if
-	another researcher can take the original code and input data, execute it,
-	and re-obtain the same result'' \citep{BenureauAndRougier2017}.
 \end{itemize}
 
 \subsection{Analytic Hierarchy Process (AHP)} \label{sec_AHP}
@@ -460,7 +388,7 @@ software \citep{SmithEtAl2021, SmithAndMichalski2022}.  The methodology can be
 instantiated for a specific domain of scientific software, which in the current
 case is medical imaging software for visualization.  Our methodology involves
 and engages a domain expert partner throughout, as discussed in
-Section~\ref{sec_vet_software_list}.  The four main steps of the methodology
+Section~\ref{sec_vet_software_list}.  The three main steps of the methodology
 are:
 
 \begin{enumerate}
@@ -468,7 +396,6 @@ are:
 (Section~\ref{sec_software_selection});
 \item Measure (or grade) the selected software
 (Section~\ref{sec_grading_software});
-\item Interview developers (Section~\ref{sec_interview_methods});
 \item Answer the research questions (as given in Section~\ref{sec_motivation}).
 \end{enumerate}
 
@@ -553,8 +480,7 @@ visualization.  The Domain Expert agreed with our final choice of 29 packages.
 
 We grade the selected software using the measurement template summarized in
 \citet{SmithEtAl2021}.  The template provides measures of the qualities listed
-in Section~\ref{sec_software_quality}, except for reproducibility, which is
-assessed through the developer interviews (Section~\ref{sec_interview_methods}).
+in Section~\ref{sec_software_quality}.
 For each software package, we fill in the template questions. To stay within the
 target of 160 person hours to measure the domain, we allocated between one and
 four hours for each package. Project developers can be contacted for help
@@ -612,6 +538,8 @@ If any problem interrupts the process of installation or uninstallation, we give
 a lower score. We also record the Operating System (OS) used for the
 installation test.
 
+% move the definitions here; it seems repetitive the way it is now - maybe
+% remove the definitions?
 \item \textbf{Correctness \& Verifiability} We check each project to identify
 any techniques used to ensure this quality, such as literate programming,
 automated testing, symbolic execution, model checking, unit tests, etc. We also
@@ -731,41 +659,6 @@ them are browser-based, making them platform-independent. However, in the
 interest of time, we only performed the measurements for each project by
 installing it on one of the platforms.  When it was an option, we selected
 Windows as the host OS.
-
-\subsection{Interview Methods} \label{sec_interview_methods}
-
-The repository-based measurements summarize the information we can collect from
-on-line resources. This information is incomplete because it doesn't generally
-capture the development process, the developer pain points, the perceived
-threats to software quality, and the developers' strategies to address these
-threats.  Therefore, part of our methodology involves interviewing developers.
-
-We based our interviews on a list of 20 questions, which can be found in
-\citet{SmithEtAl2021}. Some questions are about the background of the software,
-the development teams, the interviewees, and how they organize their projects.
-We also ask about the developer's understanding of the users. Some questions
-focus on the current and past difficulties, and the solutions the team has
-found, or plan to try. We also discuss documentation, both with respect to how
-it is currently done, and how it is perceived. A few questions are about
-specific software qualities, such as maintainability, understandability,
-usability, and reproducibility. The interviews are semi-structured based on the
-question list; we ask follow-up questions when necessary.  The interview process
-presented here was approved by the McMaster University Research Ethics Board
-under the application number
-\href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/MACREM/Application.pdf}
-{MREB\#: 5219}.
-
-We sent interview requests to all 29 projects using contact information from
-projects websites, code repository, publications, and from biographic pages at
-the teams' institutions.  In the end nine developers from eight of the projects
-agreed to participate: \textit{3D Slicer}, \textit{INVESALIUS 3}, \textit{dwv},
-\textit{BioImage Suite Web}, \textit{ITK-SNAP}, \textit{MRIcroGL},
-\textit{Weasis}, and \textit{OHIF}. We spent about 90 minutes for each
-interview. One participant was too busy to have an interview, so they wrote down
-their answers. In one case two developers from the same project agreed to be
-interviewed. We held the meetings on-line using either Zoom or Teams, which
-facilitated recording and automatic transcription. The full interview answers
-can be found in \citet{Dong2021}.
 
 \section{Measurement Results} \label{ch_results}
 
@@ -1662,15 +1555,134 @@ SE tools and methods.  This causes sustainability and reliability problems
 knowledge, projects waste time and energy ``reinventing the wheel''
 \citep{deSouzaEtAl2019}.
 
+\section{Threats to Validity} \label{sec_threats_to_validity}
+
+Below we categorize and list the threats to validity that we have identified.
+Our categories come from an analysis of software engineering secondary studies
+by \citet{AmpatzoglouEtAl2019}, where a secondary study analyzes the data from a
+set of primary studies.  \citet{AmpatzoglouEtAl2019} is appropriate because a
+common example of a secondary study is a systematic literature review. Our
+methodology is a systematic software review --- the primary studies are the
+software packages, and our work collects and analyzes these primary studies.  We
+identified similar threats to validity in our assessment of the state of the
+practice of Lattice Boltzmann Solvers \citep{SmithEtAl2024}.
+
+\subsection{Reliability}
+
+A study is reliable if repetition of the study by different researchers using
+the original study's methodology would lead to the same results
+\citep{RunesonAndHost2009}. Reliability means that data and analysis are
+independent of the specific researcher(s) doing the study.  For the current
+study the identified reliability related threats are as follows:
+
+\begin{itemize}
+\item One individual does the manual measures for all packages. A different
+evaluator might find different results, due to differences in abilities,
+experiences, and biases.
+\item The manual measurements for the full set of packages took several months.
+Over this time the software repositories may have changed and the reviewer's
+judgement may have drifted.
+\end{itemize}
+
+In \citet{SmithEtAl2016} we reduced concern over the reliability risk associated
+with the reviewer's judgement by demonstrating that the measurement process is
+reasonably reproducible.  In \citet{SmithEtAl2016} we graded five software
+products by two reviewers. Their rankings were almost identical. As long as each
+grader uses consistent definitions, the relative comparisons in the AHP results
+will be consistent between graders.
+
+\subsection{Construct Validity}
+
+\citet{RunesonAndHost2009} defines construct validity as the adopted
+metrics representing what they are intended to measure. Our construct threats are
+often related to how we assume our measurements influences the various software
+qualities, as summarized in Section~\ref{sec_grading_software}. Specifically,
+our construct validity related threats include the following:
+
+\begin{itemize}
+\item We make indirect measurement of software qualities since meaningful direct
+measures for qualities like maintainability, reusability and verifiability, are
+unavailable.  We follow the usual assumption that developers achieve higher
+quality by following procedures and adhering to standards \citep[p.\
+112]{VanVliet2000}.
+\item As mentioned in Section~\ref{sec_result_installability}, we could not
+install or build \textit{dwv}, \textit{GATE}, and \textit{DICOM Viewer}. We used
+a deployed on-line version for \textit{dwv}, a VM version for \textit{GATE}, but
+no alternative for \textit{DICOM Viewer}. We might underestimate their rank due
+to these technical issues.
+\item Measuring software robustness only involved two pieces of data. This is
+likely part of the reason for limited variation in the robustness scores
+(Figure~\ref{fg_robustness_scores}). We could add more robustness data by
+pushing the software to deal with more unexpected situations, like a broken
+Internet connection, but this would require a larger investment of measurement
+time. 
+\item We may have inaccurately estimated maintainability by assuming a higher
+ratio of comments to source code improves maintainability. Moreover, we assumed
+that maintainability is improved if a high percentage of issues are closed, but
+a project may have a wealth of open issues, and still be maintainable.
+\item We assess reusability by the number of code files and LOC per file. This
+measure is indicative of modularity, but it does not necessarily mean a good
+modularization. The modules may not be general enough to be easily reused, or
+the formatting may be poor, or the understandability of the code may be low.
+\item The understandability measure relies on 10 random source code files, but
+the 10 files will not necessarily be representative. 
+\item As discussed in Section~\ref{Sec_OverallQ}, our overall AHP ranking makes
+the unrealistic assumption of equal weighting.
+\item We approximated popularity by stars and watches
+(Section~\ref{Sec_VsCommunityRanking}), but this assumption may not be valid. 
+\item In building Table~\ref{Tbl_Guidelines} some judgement was necessary on our
+part, since not all guidelines use the same names for artifacts that contain
+essentially the same information.
+\end{itemize}
+
+\subsection{Internal Validity} \label{Sec_InternalValidity}
+
+Internal validity means that discovered causal relations are trustworthy and
+cannot be explained by other factors \citep{RunesonAndHost2009}. In our
+methodology the internal validity threats include the following:
+
+\begin{itemize}
+\item In our search for software packages
+(Section~\ref{sec_software_selection}), we may have missed a relevant package.
+\item Our methodology assumes that all relevant software development activities
+will leave a trace in the repositories, but this is not necessarily true. For
+instance, the possibility exists that CI usage was higher than what we observed
+through the artifacts (Section~\ref{Sec_CompareTools}). As another example,
+although we saw little evidence of requirements
+(Section~\ref{Sec_CompareTools}), maybe teams keep this kind of information
+outside their repos, possibly in journal papers or technical reports.
+\end{itemize}
+
+\subsection{External Validity}
+
+If the results of a study can be generalized (applied) to other
+situations/cases, then the study is externally valid \citep{RunesonAndHost2009}.
+We are confident that our search was exhaustive.  We do not believe that we
+missed any highly popular examples.  Therefore, the bulk of our validity
+concerns are internal (Section~\ref{Sec_InternalValidity}).
+However, our hope is that the trends observed, and the lessons learned for MI
+software can be applied to other research software.  With that in mind we
+identified the following threat to external validity:
+
+\begin{itemize}
+\item We cannot generalize our results if the development of MI software is
+fundamentally different from other research software.
+\end{itemize}
+
+Although there are differences, like the importance of data privacy for MI data,
+we found the approach to developing LBM software \citep{SmithEtAl2024} and MI
+software to be similar.  Except for the domain specific aspects, we believe that
+the trends observed in the current study are externally valid for other research
+software.
+
 \section{Conclusions} \label{ch_conclusions}
 
 We analyzed the state of the practice for the MI domain with the goal of
-understanding current practice, answering our ten research questions
-(Section~\ref{sec_motivation}) and providing recommendations for current and
-future projects.  Our methods in Section~\ref{ch_methods} form a general process
-to evaluate domain-specific software, that we apply to the specific domain of MI
-software. We identified 48 MI software candidates, then, with the help of the
-Domain Expert selected 29 of them to our final list. 
+understanding current practice by answering our four research questions
+(Section~\ref{sec_motivation}).  Our methods in Section~\ref{ch_methods} form a
+general process to evaluate domain-specific software, that we apply to the
+specific domain of MI software. We identified 48 MI software candidates, then,
+with the help of the Domain Expert selected 29 of them to our final list. 
 
 Section~\ref{ch_results} lists our measurement results for ranking the 29
 projects for nine software qualities. Our ranking results appear credible since
@@ -1742,91 +1754,19 @@ adoption of best practices for MI software overall.
 	\end{center}
 \end{table} 
 
-For insight into devising future methods and tools, we interviewed nine
-developers (from eight teams) to learn about their pain points
-(Section~\ref{painpoints}).  We also discussed qualities of potential concern.
-The identified pain points and qualities of concern include: 
-
-\begin{description}
-\item [\ppref{P_LackDevTime}] Lack of development time, %P1
-\item [\ppref{P_LackFunding}] Lack of funding, %P2
-\item [\ppref{P_TechnologyHurdles}] Technology hurdles, %P3
-\item [\ppref{P_Correctness}] Ensuring correctness, %P4
-\item [\ppref{P_Usability}] Usability, %P5
-\item [\qref{Q_Maintainability}] Quality of maintainability, and %Q1
-\item [\qref{Q_Reproducibility}] Quality of reproducibility. %Q2
-\end{description}  
-
-Despite the pain points, overall MI software is in a healthy state for software
-development practices.  In our survey of the selected projects we observed 88\%
+When it comes to recommended software artifacts, the state of open source MI projects is healthy, with our surveyed examples showing 88\%
 of the documentation artifacts recommended by research software development
-guidelines (Section~\ref{Sec_CompareArtifacts}).  With respect to tools, MI is
-keeping pace with other research software with 100\% of the projects using
-version control (with 93\% specifically using git)
-(Section~\ref{Sec_CompareTools}).  We observed that the MI developers tend to
-follow the typical research software trend of using a quasi-agile software
-development process (Section~\ref{Sec_CompareMethodologies}).
-
-Although the state of the practice for MI software is healthy, we did notice
+guidelines (Section~\ref{Sec_CompareArtifacts}).  However, we did notice
 areas where practice seems to lag behind the research software development
 guidelines.  For instance, the guidelines recommend three artifacts that were
 not observed: uninstall instructions, test plans, and requirements
 documentation. We observed the following recommended artifacts, but only rarely:
 contributing file, developer code of conduct, code style guidelines, product
 roadmap, design documentation, and API documentation
-(Section~\ref{Sec_CompareArtifacts}). Although software development tool use
-seems healthy, we found the use of CI/CD behind typical usage rates (17\% of the
-projects used CI/CD) (Section~\ref{Sec_CompareTools}).  With respect to the
-development process, developer identified areas for improvement included testing
-(only 50\% of projects were identified to have unit testing) and documentation
-(only three out of nine developers felt their documentation was clear enough)
-(Section~\ref{Sec_CompareMethodologies}).
+(Section~\ref{Sec_CompareArtifacts}).  Future MI projects may wish to consider incorporating more artifacts to potentially improve software quality.  
 
-Our interviewees proposed strategies to improve the state of the practice, to
-address the identified pain points, and to improve software quality.  To their
-list (Section~\ref{painpoints}) we added some of our own recommended strategies
-(Section~\ref{ch_recommendations}).  Below we summarize the proposed strategies,
-with traceability to where we discuss the strategy, and to the relevant pain
-points.
-
-\begin{enumerate}
-
-\item Increase documentation to address \ppref{P_LackDevTime},
-\ppref{P_TechnologyHurdles}, \ppref{P_Usability}, \qref{Q_Maintainability},
-\qref{Q_Reproducibility} (Section~\ref{painpoints})
-
-\item Increase testing by enriching datasets to address \ppref{P_Correctness},
-\qref{Q_Reproducibility}
-(Section~\ref{painpoints},~\ref{sec_recommendations_testing_dataset})
-
-\item Increase modularity to address \qref{Q_Maintainability} (Section~\ref{painpoints})
-
-\item Use continuous integration to address \ppref{P_LackDevTime},
-\ppref{P_Correctness}, \qref{Q_Reproducibility}
-(Section~\ref{painpoints},~\ref{Sec_ContinuousIntegration})
-
-\item Move to web applications to address \ppref{P_TechnologyHurdles}
-(Section~\ref{painpoints},~\ref{sec_webapps})
-
-\item Employ linters to address \ppref{P_LackDevTime},
-\ppref{P_TechnologyHurdles}, \qref{Q_Maintainability}
-(Section~\ref{Sec_Linters})
-
-\item Peer reviews to address \ppref{P_LackDevTime},
-\ppref{P_TechnologyHurdles}, \ppref{P_Correctness}, \qref{Q_Maintainability}
-(Section~\ref{Sec_PeerReview})
-
-\item Design for change to address \qref{Q_Maintainability} (Section~\ref{Sec_DesForChange})
-
-\item Assurance case to address \ppref{P_Correctness}, \qref{Q_Reproducibility}
-(Section~\ref{AssuranceCases})
-
-\item Generate all things to address \ppref{P_LackDevTime},
-\ppref{P_TechnologyHurdles}, \ppref{P_Correctness}, \ppref{P_Usability},
-\qref{Q_Maintainability} and \qref{Q_Reproducibility}.
-(Section~\ref{Sec_GenAllThings})
-
-\end{enumerate}
+Next steps.  Mention threats to validity?  Future work on pain points.  Point to
+LBM methodology in that SOP paper?
 
 \section*{Acknowledgements}
 
