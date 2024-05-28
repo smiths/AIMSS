@@ -84,7 +84,7 @@ reusability, understandability, and visibility/transparency) by answering 108
 questions for each software project. Based on the quantitative data, we ranked
 the MI software with the Analytic Hierarchy Process (AHP). The top four software
 products are \textit{3D Slicer}, \textit{ImageJ}, \textit{Fiji}, and
-\textit{OHIF Viewer}.  Our ranking is mostly consistent with the community's
+\textit{OHIF Viewer}.  Our ranking is consistent with the community's
 ranking, with four of our top five projects also appearing in the top five of a
 list ordered by stars-per-year.  We observed 88\% of the documentation artifacts
 recommended by research software development guidelines.  However, the current
@@ -125,12 +125,11 @@ recommendations for future development.
 	(free open-source medical imaging/DICOM viewer for OSX, based on OsiriX)}
     \label{Fig_Example}
 \end{figure}
-    
+
 \subsection{Research Questions} \label{sec_motivation}
 
 Not only do we wish to gain insight into the state of the practice for MI
-software, we also wish to understand the development of research software in
-general. We wish to understand the impact of the often cited gap, or chasm,
+software, we also wish to understand the impact of the often cited gap, or chasm,
 between software engineering and research software \citep{Kelly2007,
 Storer2017}. Although scientists spend a substantial proportion of their working
 hours on software development \citep{Hannay2009, Prabhu2011}, many developers
@@ -193,7 +192,7 @@ Finally, Picture Archiving and Communication System (PACS), which helps users to
 economically store and conveniently access images \citep{Choplin1992}, are
 considered out of scope. 
 
-\subsection{Methodology Overview}
+\subsection{Methodology}
 
 We designed a general methodology to assess the state of the practice for
 research software \citep{SmithEtAl2021, SmithAndMichalski2022}. Details can be
@@ -220,71 +219,176 @@ closed, etc.  With the quantitative data in the grading template, we rank the
 software with the Analytic Hierarchy Process (AHP) (Section~\ref{ch_background}
 provides details).
 
-\section{Background} \label{ch_background}
+We developed a methodology for evaluating the state of the practice of research
+software \citep{SmithEtAl2021, SmithAndMichalski2022}.  The methodology can be
+instantiated for a specific domain of scientific software, which in the current
+case is medical imaging software for visualization.  Our methodology involves
+and engages a domain expert partner throughout, as discussed in
+Section~\ref{sec_vet_software_list}.  The three main steps of the methodology
+are:
 
-To measure the existing MI software we need the definitions of the software
-qualities that we will be assessing (Section \ref{sec_software_quality}). In our
-assessment we rank the software packages for each quality; therefore, this
-section also provides the background on our ranking process --- the Analytic
-Hierarchy Process (Section \ref{sec_AHP}).
+\begin{enumerate}
+\item Identify list of representative software packages
+(Section~\ref{sec_software_selection});
+\item Measure (or grade) the selected software
+(Section~\ref{sec_grading_software}) on qualities using AHP;
+\end{enumerate}
 
-\subsection{Software Quality Definitions} \label{sec_software_quality}
+define software qualities and ahp.
+
+\subsubsection{Interaction With Domain Expert} \label{sec_vet_software_list}
+
+The Domain Expert is an important member of the state of the practice assessment
+team. Pitfalls exist if non-experts attempt to acquire an authoritative list of
+software, or try to definitively rank the software. Non-experts have the problem
+that they can only rely on information available on-line, which has the
+following drawbacks:
+\begin{inparaenum}[i)]
+  \item the on-line resources could have false or inaccurate information; and,
+  \item the on-line resources could leave out relevant information that is so
+in-grained with experts that nobody thinks to explicitly record it.
+\end{inparaenum}
+
+Domain experts may be recruited from academia or industry.  The only
+requirements are knowledge of the domain and a willingness to be engaged in the
+assessment process.  The Domain Expert does not have to be a software developer,
+but they should be a user of domain software.  Given that the domain experts are
+likely to be busy people, the measurement process cannot put too much of a burden
+on their time.  For the current assessment, our Domain Expert (and paper
+co-author) is Dr.\ Michael Noseworthy, Professor of Electrical and Computer
+Engineering at McMaster University, Co-Director of the McMaster School of
+Biomedical Engineering, and Director of Medical Imaging Physics and Engineering
+at St.\ Joseph's Healthcare, Hamilton, Ontario, Canada.  
+
+In advance of the first meeting with the Domain Expert, they are asked to
+create a list of top software packages in the domain.  This is done to help
+the expert get in the right mind set in advance of the meeting.  Moreover,
+by doing the exercise in advance, we avoid the potential pitfall of the expert
+approving the discovered list of software without giving it adequate thought.
+
+The Domain Experts are asked to vet the collected data and analysis.  In
+particular, they are asked to vet the proposed list of software packages and the
+AHP ranking.  These interactions can be done either electronically or with
+in-person (or virtual) meetings.
+
+\subsubsection{Grading Software} \label{sec_grading_software}
+
+We grade the selected software using the measurement template summarized in
+\citet{SmithEtAl2021}.  The template provides measures of the qualities listed
+in Section~\ref{sec_software_quality}.
+For each software package, we fill in the template questions. To stay within the
+target of 160 person hours to measure the domain, we allocated between one and
+four hours for each package. Project developers can be contacted for help
+regarding installation, if necessary, but we impose a cap of about two hours on
+the installation process, to keep the overall measurement time feasible.
+Figure~\ref{fg_grading_template_example} shows an excerpt of the spreadsheet.
+The spreadsheet includes a column for each measured software package. 
+
+\begin{figure}[!ht]
+\includegraphics[scale=0.66]{template.pdf}
+\caption{Grading template example}
+\label{fg_grading_template_example}
+\end{figure}
+
+The full template consists of 108 questions categorized under 9 qualities.  We
+designed the questions to be unambiguous, quantifiable, and measurable with
+limited time and domain knowledge. We group the measures under headings for each
+quality, and one for summary information. The summary information (shown in
+Figure~\ref{fg_grading_template_example}) is the first section of the template.
+This section summarizes general information, such as the software name, purpose,
+platform, programming language, publications about the software, the first
+release and the most recent change date, website, source code repository of the
+product, number of developers, etc.  We follow the definitions given by
+\citet{GewaltigAndCannon2012} for the software categories.  Public means
+software intended for public use.  Private means software aimed only at a
+specific group, while the concept category is for software written simply to
+demonstrate algorithms or concepts. The three categories of development models
+are (open source, free-ware and commercial) are discussed in
+Section~\ref{sec_software_categories}.  Information in the summary section sets
+the context for the project, but it does not directly affect the grading scores.
+
+For measuring each quality, we ask several questions and the typical answers are
+among the collection of ``yes'', ``no'', ``n/a'', ``unclear'', a number, a
+string, a date, a set of strings, etc. The grader assigns each quality an
+overall score, between 1 and 10, based on all the previous questions.  Several
+of the qualities use the word ``surface''.  This is to highlight that, for these
+qualities in particular, the best that we can do is a shallow measure.  For
+instance, we are not currently doing any experiments to measure usability.
+Instead, we are looking for an indication that the developers considered
+usability.  We do this by looking for cues in the documentation, like a getting
+started manual, a user manual and a statement of expected user characteristics.
+Details on how we measure each quality are provided in \citet{SmithEtAl2024}.
+
+As part of filling in the measurement template, we use freeware tools to collect
+repository related data. \href{https://github.com/tomgi/git_stats}{GitStats}
+\citep{Gieniusz2019} is used to measure the number of binary files as well as
+the number of added and deleted lines in a repository. We also use this tool to
+measure the number of commits over different intervals of time.
+\href{https://github.com/boyter/scc}{Sloc Cloc and Code (scc)}
+\citep{Boyter2021} is used to measure the number of text based files as well as
+the number of total, code, comment, and blank lines in a repository.
+
+Both tools measure the number of text-based files in a git repository and lines
+of text in these files. Based on our experience, most text-based files in a
+repository contain programming source code, and developers use them to compile
+and build software products. A minority of these files are instructions and
+other documents. So we roughly regard the lines of text in text-based files as
+lines of programming code. The two tools usually generate similar but not
+identical results. From our understanding, this minor difference is due to the
+different techniques to detect if a file is text-based or binary.
+
+For projects on GitHub we manually collect additional information, such as the
+numbers of stars, forks, people watching this repository, open pull requests,
+closed pull requests, and the number of months a repository has been on GitHub.
+We need to take care with the project creation date, since a repository can have
+a creation date much earlier than the first day on GitHub.  For example, the
+developers created the git repository for \textit{3D Slicer} in 2002, but did
+not upload a copy of it to GitHub until 2020. Some GitHub data can be found
+using its GitHub Application Program Interface (API) via the following url:
+\textit{https://api.github.com/repos/[owner]/[repository]} where [owner] and
+[repository] are replaced by the repo specific values. The number of months a
+repository has been on GitHub helps us understand the average change of metrics
+over time, like the average new stars per month. 
+
+The repository measures help us in many ways. Firstly, they help us get a fast
+and accurate project overview. For example, the number of commits over the last
+12 months shows how active a project has been, and the number of stars and forks
+may reveal its popularity (used to assess \rqref{RQ_CompareHQ2Popular}).
+Secondly, the results may affect our decisions regarding the grading scores for
+some software qualities. For example, if the percentage of comment lines is low,
+we double-check the understandability of the code; if the ratio of open versus
+closed pull requests is high, we pay more attention to maintainability.
+
+As in \citet{SmithEtAl2016}, Virtual machines (VMs) were used to provide an
+optimal testing environment for each package. We used VMs because it is easier
+to start with a fresh environment, without having to worry about existing
+libraries and conflicts. Moreover, when the tests are complete the VM can be
+deleted, without any impact on the host operating system. The most significant
+advantage of using VMs is to level the playing field. Every software install
+starts from a clean slate, which removes ``works-on-my-computer'' errors. When
+filling in the measurement template, the grader notes the details for each VM,
+including hypervisor and operating system version.
+
+When grading the software, we found 27 out of the 29 packages are compatible
+with two or three different OSes, such as Windows, macOS, and Linux, and 5 of
+them are browser-based, making them platform-independent. However, in the
+interest of time, we only performed the measurements for each project by
+installing it on one of the platforms.  When it was an option, we selected
+Windows as the host OS.
+
+\subsubsection{Software Quality Definitions} \label{sec_software_quality}
 
 Quality is defined as a measure of the excellence or worth of an entity.  As is
 common practice, we do not think of quality as a single measure, but rather as a
 set of measures.  That is, quality is a collection of different qualities, often
-called ``ilities.''  Below we list the 10 qualities of interest for this study.
-The order of the qualities follows the order used in \citet{GhezziEtAl2003},
-which puts related qualities (like correctness and reliability) together.
-Moreover, the order is roughly the same as the order developers consider
-qualities in practice.
+called ``ilities.''  For this study we selected 9 qualities to measure: .....
+With the exception of installability, all the qualities are defined in
+\citet{GhezziEtAl2003}. Installability is defined as the effort required for the
+installation and/or uninstallation of software in a specified environment
+\citep{ISO/IEC25010, lenhard2013measuring}.  Further details on the software
+qualities can be found in \citet{SmithEtAl2024}.
 
-\begin{itemize}
-	\item \textbf{Installability} The effort required for the installation
-    and/or uninstallation of software in a specified environment
-    \citep{ISO/IEC25010, lenhard2013measuring}.
-
-	\item \textbf{Correctness \& Verifiability} A program is correct if it
-    matches its specification \citep[p.\ 17]{GhezziEtAl2003}.  The specification
-    can either be explicitly or implicitly stated.  The related quality of
-    verifiability is the ease with which the software components or the
-    integrated product can be checked to demonstrate its correctness. 
-
-	\item \textbf{Reliability} The probability of failure-free operation of a
-	computer program in a specified environment for a specified time
-	\citep{musa1987software}, \citep[p.\ 357]{GhezziEtAl2003}.
-
-	\item \textbf{Robustness} Software possesses the characteristic of
-	robustness if it behaves ``reasonably'' in two situations: i) when it
-	encounters circumstances not anticipated in the requirements specification,
-	and ii) when users violate the assumptions in its requirements specification 
-	\citep[p.\ 19]{GhezziEtAl2003}, \citep{boehm2007software}.
-
-	\item \textbf{Usability} ``The extent to which a product can be used by
-	specified users to achieve specified goals with effectiveness, efficiency,
-	and satisfaction in a specified context of use'' \citep{ISO/TR16982:2002,
-	ISO9241-11:2018}.
-
-	\item \textbf{Maintainability} The effort with which a software system or
-	component can be modified to i) correct faults; ii) improve performance or
-	other attributes; iii) satisfy new requirements
-	\citep{IEEEStdGlossarySET1990, boehm2007software}.
-
-	\item \textbf{Reusability} ``The extent to which a software component can be
-	used with or without adaptation in a problem solution other than the one for
-	which it was originally developed'' \citep{kalagiakos2003non}.
-
-	\item \textbf{Understandability} ``The capability of the software product to
-	enable the user to understand whether the software is suitable, and how it
-	can be used for particular tasks and conditions of use'' \citep{iso2001iec}.
-
-	\item \textbf{Visibility/Transparency} The extent to which all the steps
-	of a software development process and the current status of it are conveyed
-	clearly \citep[p.\ 32]{GhezziEtAl2003}.
-
-\end{itemize}
-
-\subsection{Analytic Hierarchy Process (AHP)} \label{sec_AHP}
+\subsubsection{Analytic Hierarchy Process (AHP)} \label{sec_AHP}
 
 Saaty developed AHP in the 1970s, and people have widely used it since to make
 and analyze multiple criteria decisions \citep{VaidyaEtAl2006}. AHP organizes
@@ -381,67 +485,12 @@ $j$, then the overall score $S_j$ for package $j$ is found via:
 
 $$S_j = \sum_{i=1}^m w^i_j p_i$$ 
 
-\section{Methodology} \label{ch_methods}
+\section{Review} \label{ch_results}
 
-We developed a methodology for evaluating the state of the practice of research
-software \citep{SmithEtAl2021, SmithAndMichalski2022}.  The methodology can be
-instantiated for a specific domain of scientific software, which in the current
-case is medical imaging software for visualization.  Our methodology involves
-and engages a domain expert partner throughout, as discussed in
-Section~\ref{sec_vet_software_list}.  The three main steps of the methodology
-are:
-
-\begin{enumerate}
-\item Identify list of representative software packages
-(Section~\ref{sec_software_selection});
-\item Measure (or grade) the selected software
-(Section~\ref{sec_grading_software});
-\item Answer the research questions (as given in Section~\ref{sec_motivation}).
-\end{enumerate}
-
-In the sections below we provide additional detail on the above steps, while
-concurrently giving examples of how we applied the methodology to the MI domain.
-
-\subsection{Interaction With Domain Expert} \label{sec_vet_software_list}
-
-The Domain Expert is an important member of the state of the practice assessment
-team. Pitfalls exist if non-experts attempt to acquire an authoritative list of
-software, or try to definitively rank the software. Non-experts have the problem
-that they can only rely on information available on-line, which has the
-following drawbacks:
-\begin{inparaenum}[i)]
-  \item the on-line resources could have false or inaccurate information; and,
-  \item the on-line resources could leave out relevant information that is so
-in-grained with experts that nobody thinks to explicitly record it.
-\end{inparaenum}
-
-Domain experts may be recruited from academia or industry.  The only
-requirements are knowledge of the domain and a willingness to be engaged in the
-assessment process.  The Domain Expert does not have to be a software developer,
-but they should be a user of domain software.  Given that the domain experts are
-likely to be busy people, the measurement process cannot put too much of a burden
-on their time.  For the current assessment, our Domain Expert (and paper
-co-author) is Dr.\ Michael Noseworthy, Professor of Electrical and Computer
-Engineering at McMaster University, Co-Director of the McMaster School of
-Biomedical Engineering, and Director of Medical Imaging Physics and Engineering
-at St.\ Joseph's Healthcare, Hamilton, Ontario, Canada.  
-
-In advance of the first meeting with the Domain Expert, they are asked to
-create a list of top software packages in the domain.  This is done to help
-the expert get in the right mind set in advance of the meeting.  Moreover,
-by doing the exercise in advance, we avoid the potential pitfall of the expert
-approving the discovered list of software without giving it adequate thought.
-
-The Domain Experts are asked to vet the collected data and analysis.  In
-particular, they are asked to vet the proposed list of software packages and the
-AHP ranking.  These interactions can be done either electronically or with
-in-person (or virtual) meetings.
-
-\subsection{List of Representative Software} \label{sec_software_selection}
-
-We have a two-step process for selecting software packages: i) identify software
-candidates in the chosen domain; and, ii) filter the list to remove less
-relevant members \citep{SmithEtAl2021}.
+In this section we review the selected software packages.  We used a two-step
+process for selecting the software packages: i) identify software candidates in
+the chosen domain; and, ii) filter the list to remove less relevant members
+\citep{SmithEtAl2021}.
 
 We initially identified 48 MI candidate software projects from the literature
 \citep{Bjorn2017, Bruhschwein2019, Haak2015}, on-line articles \citep{Emms2019,
@@ -475,192 +524,6 @@ actually use the web version \textit{Papaya}).  Six software packages
 list, but not on our filtered list.  However, when we examined those packages,
 we found they were out of scope, since their primary function was not
 visualization.  The Domain Expert agreed with our final choice of 29 packages.
-
-\subsection{Grading Software} \label{sec_grading_software}
-
-We grade the selected software using the measurement template summarized in
-\citet{SmithEtAl2021}.  The template provides measures of the qualities listed
-in Section~\ref{sec_software_quality}.
-For each software package, we fill in the template questions. To stay within the
-target of 160 person hours to measure the domain, we allocated between one and
-four hours for each package. Project developers can be contacted for help
-regarding installation, if necessary, but we impose a cap of about two hours on
-the installation process, to keep the overall measurement time feasible.
-Figure~\ref{fg_grading_template_example} shows an excerpt of the spreadsheet.
-The spreadsheet includes a column for each measured software package. 
-
-\begin{figure}[!ht]
-\includegraphics[scale=0.66]{template.pdf}
-\caption{Grading template example}
-\label{fg_grading_template_example}
-\end{figure}
-
-The full template consists of 108 questions categorized under 9 qualities.  We
-designed the questions to be unambiguous, quantifiable, and measurable with
-limited time and domain knowledge. We group the measures under headings for each
-quality, and one for summary information. The summary information (shown in
-Figure~\ref{fg_grading_template_example}) is the first section of the template.
-This section summarizes general information, such as the software name, purpose,
-platform, programming language, publications about the software, the first
-release and the most recent change date, website, source code repository of the
-product, number of developers, etc.  We follow the definitions given by
-\citet{GewaltigAndCannon2012} for the software categories.  Public means
-software intended for public use.  Private means software aimed only at a
-specific group, while the concept category is for software written simply to
-demonstrate algorithms or concepts. The three categories of development models
-are (open source, free-ware and commercial) are discussed in
-Section~\ref{sec_software_categories}.  Information in the summary section sets
-the context for the project, but it does not directly affect the grading scores.
-
-For measuring each quality, we ask several questions and the typical answers are
-among the collection of ``yes'', ``no'', ``n/a'', ``unclear'', a number, a
-string, a date, a set of strings, etc. The grader assigns each quality an
-overall score, between 1 and 10, based on all the previous questions.  Several
-of the qualities use the word ``surface''.  This is to highlight that, for these
-qualities in particular, the best that we can do is a shallow measure.  For
-instance, we are not currently doing any experiments to measure usability.
-Instead, we are looking for an indication that the developers considered
-usability.  We do this by looking for cues in the documentation, like a getting
-started manual, a user manual and a statement of expected user characteristics.
-Below is a summary of how we assess adoption of best practices by measuring each
-quality.
-
-\begin{itemize}
-
-\item \textbf{Installability} We assess the following: 
-\begin{inparaenum}[i)]
-    \item existence and quality of installation instructions;
-    \item the quality of the user experience via the ease of following
-    instructions, number of steps, automation tools; and,
-    \item whether there is a means to verify the installation.
-\end{inparaenum}
-If any problem interrupts the process of installation or uninstallation, we give
-a lower score. We also record the Operating System (OS) used for the
-installation test.
-
-% move the definitions here; it seems repetitive the way it is now - maybe
-% remove the definitions?
-\item \textbf{Correctness \& Verifiability} We check each project to identify
-any techniques used to ensure this quality, such as literate programming,
-automated testing, symbolic execution, model checking, unit tests, etc. We also
-examine whether the projects use Continuous Integration and Continuous Delivery
-(CI/CD). For verifiability, we go through the documents of the projects to check
-for the presence of requirements specifications, theory manuals, and getting
-started tutorials. If a getting started tutorial exists and provides expected
-results, we follow it to check the correctness of the output.
-
-\item \textbf{Surface Reliability} We check the following: 
-\begin{inparaenum}[i)]
-    \item whether the software breaks during installation;
-    \item the operation of the software following the getting started tutorial
-    (if present);
-    \item whether the error messages are descriptive; and,
-    \item whether we can recover the process after an error.
-\end{inparaenum}
-
-\item \textbf{Surface Robustness} We check how the software handles
-unexpected/unanticipated input. For example, we prepare broken image files for
-MI software packages that load image files. We use a text file (.txt) with a
-modified extension name (.dcm) as an unexpected/unanticipated input. We load a
-few correct input files to ensure the function is working correctly before
-testing the unexpected/unanticipated ones.
-
-\item \textbf{Surface Usability} We examine the project's documentation,
-checking for the presence of getting started tutorials and/or a user manual. We
-also check whether users have channels to request support, such as an e-mail
-address, or issue tracker. Our impressions of usability are based on our
-interaction with the software during testing.  In general, an easy-to-use
-graphical user interface will score high.
-
-\item \textbf{Maintainability} We believe that the artifacts of a project,
-including source code, documents, and building scripts, significantly influence
-its maintainability. Thus, we check each project for the presence of such
-artifacts as API documentation, bug tracker information, release notes, test
-cases, and build scripts. We also check for the use of tools supporting issue
-tracking and version control, the percentages of closed issues, and the
-proportion of comment lines in the code.
-
-\item \textbf{Reusability} We count the total number of code files for each
-project. Projects with numerous components potentially provide more choices for
-reuse. Furthermore, well-modularized code, which tends to have smaller parts in
-separate files, is typically easier to reuse. Thus, we assume that projects with
-more code files and fewer Lines of Code (LOC) per file are more reusable. We also
-consider projects with API documentation as delivering better reusability.
-
-\item \textbf{Surface Understandability} Given that time is a constraint, we
-cannot look at all code files for each project; therefore, we randomly examine
-10 code files for their understandability. We check the code's style within each
-file, such as whether the identifiers, parameters, indentation, and formatting
-are consistent, whether the constants (other than 0 and 1) are not hardcoded, and
-whether the code is modularized. We also check the descriptive information for
-the code, such as documents mentioning the coding standard, the comments in the
-code, and the descriptions or links for details on algorithms in the code. 
-
-\item \textbf{Visibility/Transparency} To measure this quality, we check the
-existing documents to find whether the software development process and
-current status of a project are visible and transparent. We examine the
-development process, current status, development environment, and release notes
-for each project.
-\end{itemize}
-
-As part of filling in the measurement template, we use freeware tools to collect
-repository related data. \href{https://github.com/tomgi/git_stats}{GitStats}
-\citep{Gieniusz2019} is used to measure the number of binary files as well as
-the number of added and deleted lines in a repository. We also use this tool to
-measure the number of commits over different intervals of time.
-\href{https://github.com/boyter/scc}{Sloc Cloc and Code (scc)}
-\citep{Boyter2021} is used to measure the number of text based files as well as
-the number of total, code, comment, and blank lines in a repository.
-
-Both tools measure the number of text-based files in a git repository and lines
-of text in these files. Based on our experience, most text-based files in a
-repository contain programming source code, and developers use them to compile
-and build software products. A minority of these files are instructions and
-other documents. So we roughly regard the lines of text in text-based files as
-lines of programming code. The two tools usually generate similar but not
-identical results. From our understanding, this minor difference is due to the
-different techniques to detect if a file is text-based or binary.
-
-For projects on GitHub we manually collect additional information, such as the
-numbers of stars, forks, people watching this repository, open pull requests,
-closed pull requests, and the number of months a repository has been on GitHub.
-We need to take care with the project creation date, since a repository can have
-a creation date much earlier than the first day on GitHub.  For example, the
-developers created the git repository for \textit{3D Slicer} in 2002, but did
-not upload a copy of it to GitHub until 2020. Some GitHub data can be found
-using its GitHub Application Program Interface (API) via the following url:
-\textit{https://api.github.com/repos/[owner]/[repository]} where [owner] and
-[repository] are replaced by the repo specific values. The number of months a
-repository has been on GitHub helps us understand the average change of metrics
-over time, like the average new stars per month. 
-
-The repository measures help us in many ways. Firstly, they help us get a fast
-and accurate project overview. For example, the number of commits over the last
-12 months shows how active a project has been, and the number of stars and forks
-may reveal its popularity (used to assess \rqref{RQ_CompareHQ2Popular}).
-Secondly, the results may affect our decisions regarding the grading scores for
-some software qualities. For example, if the percentage of comment lines is low,
-we double-check the understandability of the code; if the ratio of open versus
-closed pull requests is high, we pay more attention to maintainability.
-
-As in \citet{SmithEtAl2016}, Virtual machines (VMs) were used to provide an
-optimal testing environment for each package. We used VMs because it is easier
-to start with a fresh environment, without having to worry about existing
-libraries and conflicts. Moreover, when the tests are complete the VM can be
-deleted, without any impact on the host operating system. The most significant
-advantage of using VMs is to level the playing field. Every software install
-starts from a clean slate, which removes ``works-on-my-computer'' errors. When
-filling in the measurement template, the grader notes the details for each VM,
-including hypervisor and operating system version.
-
-When grading the software, we found 27 out of the 29 packages are compatible
-with two or three different OSes, such as Windows, macOS, and Linux, and 5 of
-them are browser-based, making them platform-independent. However, in the
-interest of time, we only performed the measurements for each project by
-installing it on one of the platforms.  When it was an option, we selected
-Windows as the host OS.
-
-\section{Measurement Results} \label{ch_results}
 
 Table~\ref{tab_final_list} shows the 29 software packages that we measured,
 along with summary data collected in the year 2020. We arrange the items in
@@ -1079,7 +942,14 @@ better in correctness \& verifiability.  Given the installation problems, we may
 have underestimated the scores on reliability and robustness for \textit{DICOM
 Viewer}, but we compared it equally for the other seven qualities.
 
-\section{Comparison to Community Ranking} \label{Sec_VsCommunityRanking}
+\section{Discussion}
+
+The review section shows us how the ranking between the existing open source MI
+software, but does our ranking match how practitioners in the field rank the
+software.  how does our ranking compare to the software compare to other
+compares compare to community ranking and look at artifacts.
+
+\subsection{Comparison to Community Ranking} \label{Sec_VsCommunityRanking}
 
 To address~\rqref{RQ_CompareHQ2Popular} about how our ranking compares to the
 popularity of projects as judged by the scientific community, we make two
@@ -1215,7 +1085,7 @@ broader research software community. We will also investigate the practices from
 the top projects that others within the MI community, and within the broader
 research software community, can potentially adopt.
 
-\section{Comparison Between MI and Research Software for Artifacts}
+\subsection{Comparison Between MI and Research Software for Artifacts}
 \label{Sec_CompareArtifacts}
 
 As part of filling in the measurement template (from
@@ -1555,7 +1425,7 @@ SE tools and methods.  This causes sustainability and reliability problems
 knowledge, projects waste time and energy ``reinventing the wheel''
 \citep{deSouzaEtAl2019}.
 
-\section{Threats to Validity} \label{sec_threats_to_validity}
+\subsection{Threats to Validity} \label{sec_threats_to_validity}
 
 Below we categorize and list the threats to validity that we have identified.
 Our categories come from an analysis of software engineering secondary studies
@@ -1567,7 +1437,7 @@ software packages, and our work collects and analyzes these primary studies.  We
 identified similar threats to validity in our assessment of the state of the
 practice of Lattice Boltzmann Solvers \citep{SmithEtAl2024}.
 
-\subsection{Reliability}
+\subsubsection{Reliability}
 
 A study is reliable if repetition of the study by different researchers using
 the original study's methodology would lead to the same results
@@ -1591,7 +1461,7 @@ products by two reviewers. Their rankings were almost identical. As long as each
 grader uses consistent definitions, the relative comparisons in the AHP results
 will be consistent between graders.
 
-\subsection{Construct Validity}
+\subsubsection{Construct Validity}
 
 \citet{RunesonAndHost2009} defines construct validity as the adopted
 metrics representing what they are intended to measure. Our construct threats are
@@ -1635,7 +1505,7 @@ part, since not all guidelines use the same names for artifacts that contain
 essentially the same information.
 \end{itemize}
 
-\subsection{Internal Validity} \label{Sec_InternalValidity}
+\subsubsection{Internal Validity} \label{Sec_InternalValidity}
 
 Internal validity means that discovered causal relations are trustworthy and
 cannot be explained by other factors \citep{RunesonAndHost2009}. In our
@@ -1653,7 +1523,7 @@ although we saw little evidence of requirements
 outside their repos, possibly in journal papers or technical reports.
 \end{itemize}
 
-\subsection{External Validity}
+\subsubsection{External Validity}
 
 If the results of a study can be generalized (applied) to other
 situations/cases, then the study is externally valid \citep{RunesonAndHost2009}.
