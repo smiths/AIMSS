@@ -195,70 +195,41 @@ considered out of scope.
 \subsection{Methodology}
 
 We designed a general methodology to assess the state of the practice for
-research software \citep{SmithEtAl2021, SmithAndMichalski2022}. Details can be
-found in Section~\ref{ch_methods}.  Our methodology has been applied to MI
-software \citep{Dong2021} and Lattice Boltzmann Solvers \citep{Michalski2021,
-SmithEtAl2024}.  This methodology builds off prior work to assess the state of
-the practice for such domains as Geographic Information Systems
-\citep{smith2018state}, Mesh Generators \citep{smith2016state}, Seismology
-software \citep{Smith2018Seismology}, and Statistical software for psychology
-\citep{smith2018statistical}.  In keeping with the previous methodology, we have
-maintained the constraint that the work load for measuring a given domain should
-be feasible for a team as small as one person, and for a short time, ideally
-around a person month of effort. We consider a person month as $20$ working days
-($4$ weeks in a month, with $5$ days of work per week) at $8$ person hours per
-day, or $20 \times 8 = 160$ person hours.
+research software \citep{SmithEtAl2021, SmithAndMichalski2022}.  Our methodology
+has been applied to MI software \citep{Dong2021} and Lattice Boltzmann Solvers
+\citep{Michalski2021, SmithEtAl2024}.  This methodology builds off prior work to
+assess the state of the practice for such domains as Geographic Information
+Systems \citep{smith2018state}, Mesh Generators \citep{smith2016state},
+Seismology software \citep{Smith2018Seismology}, and Statistical software for
+psychology \citep{smith2018statistical}.  In keeping with the previous
+methodology, we have maintained the constraint that the work load for measuring
+a given domain should be feasible for a team as small as one person, and for a
+short time, ideally around a person month of effort. We consider a person month
+as $20$ working days ($4$ weeks in a month, with $5$ days of work per week) at
+$8$ person hours per day, or $20 \times 8 = 160$ person hours.
 
 With our methodology, we first choose a research software domain (in the current
 case MI) and identify a list of about 30 software packages. (For measuring MI we
-used 29 software packages.)  We approximately measure the qualities of each
-package by filling in a grading template. Compared with our previous
-methodology, the new methodology also includes repository based metrics, such as
-the number of files, number of lines of code, percentage of issues that are
-closed, etc.  With the quantitative data in the grading template, we rank the
-software with the Analytic Hierarchy Process (AHP) (Section~\ref{ch_background}
-provides details).
-
-We developed a methodology for evaluating the state of the practice of research
-software \citep{SmithEtAl2021, SmithAndMichalski2022}.  The methodology can be
-instantiated for a specific domain of scientific software, which in the current
-case is medical imaging software for visualization.  Our methodology involves
-and engages a domain expert partner throughout, as discussed in
-Section~\ref{sec_vet_software_list}.  The three main steps of the methodology
-are:
-
-\begin{enumerate}
-\item Identify list of representative software packages
-(Section~\ref{sec_software_selection});
-\item Measure (or grade) the selected software
-(Section~\ref{sec_grading_software}) on qualities using AHP;
-\end{enumerate}
-
-define software qualities and ahp.
+used 29 software packages.)  The selected packages are vetted by a domain
+expert. We approximately measure the qualities of each package by filling in a
+grading template. The grader looks at the contents of the open source repository
+and repository based metrics, such as the number of files, number of lines of
+code, percentage of issues that are closed, etc.  With the quantitative data in
+the grading template, we rank the software with the Analytic Hierarchy Process
+(AHP). Further details on interaction with the domain expert, software
+qualities, grading the software and AHP are found below and in
+\citep{SmithEtAl2024_MI_SOP}.
 
 \subsubsection{Interaction With Domain Expert} \label{sec_vet_software_list}
 
-The Domain Expert is an important member of the state of the practice assessment
-team. Pitfalls exist if non-experts attempt to acquire an authoritative list of
-software, or try to definitively rank the software. Non-experts have the problem
-that they can only rely on information available on-line, which has the
-following drawbacks:
-\begin{inparaenum}[i)]
-  \item the on-line resources could have false or inaccurate information; and,
-  \item the on-line resources could leave out relevant information that is so
-in-grained with experts that nobody thinks to explicitly record it.
-\end{inparaenum}
-
-Domain experts may be recruited from academia or industry.  The only
-requirements are knowledge of the domain and a willingness to be engaged in the
-assessment process.  The Domain Expert does not have to be a software developer,
-but they should be a user of domain software.  Given that the domain experts are
-likely to be busy people, the measurement process cannot put too much of a burden
-on their time.  For the current assessment, our Domain Expert (and paper
-co-author) is Dr.\ Michael Noseworthy, Professor of Electrical and Computer
-Engineering at McMaster University, Co-Director of the McMaster School of
-Biomedical Engineering, and Director of Medical Imaging Physics and Engineering
-at St.\ Joseph's Healthcare, Hamilton, Ontario, Canada.  
+The Domain Experts vet the proposed list of software packages and the AHP
+ranking.  Doing these tasks with non-experts runs the risk of trusting
+inaccurate resources and overlooking the tacit knowledge of an expert. For the
+current assessment, our Domain Expert (and paper co-author) is Dr.\ Michael
+Noseworthy, Professor of Electrical and Computer Engineering at McMaster
+University, Co-Director of the McMaster School of Biomedical Engineering, and
+Director of Medical Imaging Physics and Engineering at St.\ Joseph's Healthcare,
+Hamilton, Ontario, Canada.  
 
 In advance of the first meeting with the Domain Expert, they are asked to
 create a list of top software packages in the domain.  This is done to help
@@ -266,10 +237,18 @@ the expert get in the right mind set in advance of the meeting.  Moreover,
 by doing the exercise in advance, we avoid the potential pitfall of the expert
 approving the discovered list of software without giving it adequate thought.
 
-The Domain Experts are asked to vet the collected data and analysis.  In
-particular, they are asked to vet the proposed list of software packages and the
-AHP ranking.  These interactions can be done either electronically or with
-in-person (or virtual) meetings.
+\subsubsection{Software Qualities} \label{sec_software_quality}
+
+Quality is defined as a measure of the excellence or worth of an entity.  As is
+common practice, we do not think of quality as a single measure, but rather as a
+set of measures.  That is, quality is a collection of different qualities, often
+called ``ilities.''  For this study we selected 9 qualities to measure:
+installability, correctness/ verifiability, reliability, robustness, usability,
+maintainability, reusability, understandability, and visibility/transparency.
+With the exception of installability, all the qualities are defined in
+\citet{GhezziEtAl2003}. Installability is defined as the effort required for the
+installation and/or uninstallation of software in a specified environment
+\citep{ISO/IEC25010, lenhard2013measuring}.
 
 \subsubsection{Grading Software} \label{sec_grading_software}
 
@@ -282,7 +261,7 @@ four hours for each package. Project developers can be contacted for help
 regarding installation, if necessary, but we impose a cap of about two hours on
 the installation process, to keep the overall measurement time feasible.
 Figure~\ref{fg_grading_template_example} shows an excerpt of the spreadsheet.
-The spreadsheet includes a column for each measured software package. 
+The spreadsheet includes a column for each measured software package. TODO - point to full data online.
 
 \begin{figure}[!ht]
 \includegraphics[scale=0.66]{template.pdf}
@@ -298,14 +277,11 @@ Figure~\ref{fg_grading_template_example}) is the first section of the template.
 This section summarizes general information, such as the software name, purpose,
 platform, programming language, publications about the software, the first
 release and the most recent change date, website, source code repository of the
-product, number of developers, etc.  We follow the definitions given by
-\citet{GewaltigAndCannon2012} for the software categories.  Public means
-software intended for public use.  Private means software aimed only at a
-specific group, while the concept category is for software written simply to
-demonstrate algorithms or concepts. The three categories of development models
-are (open source, free-ware and commercial) are discussed in
-Section~\ref{sec_software_categories}.  Information in the summary section sets
-the context for the project, but it does not directly affect the grading scores.
+product, number of developers, etc.  We only measure open source software that
+is ready for public use by other researchers (following the definition of the
+public category from \citep{GewaltigAndCannon2012}). Information in the summary
+section sets the context for the project, but it does not directly affect the
+grading scores.
 
 For measuring each quality, we ask several questions and the typical answers are
 among the collection of ``yes'', ``no'', ``n/a'', ``unclear'', a number, a
@@ -317,76 +293,11 @@ instance, we are not currently doing any experiments to measure usability.
 Instead, we are looking for an indication that the developers considered
 usability.  We do this by looking for cues in the documentation, like a getting
 started manual, a user manual and a statement of expected user characteristics.
-Details on how we measure each quality are provided in \citet{SmithEtAl2024}.
-
-As part of filling in the measurement template, we use freeware tools to collect
-repository related data. \href{https://github.com/tomgi/git_stats}{GitStats}
-\citep{Gieniusz2019} is used to measure the number of binary files as well as
-the number of added and deleted lines in a repository. We also use this tool to
-measure the number of commits over different intervals of time.
+We use two freeware tools to collect repository related data:
+\href{https://github.com/tomgi/git_stats}{GitStats} \citep{Gieniusz2019} and
 \href{https://github.com/boyter/scc}{Sloc Cloc and Code (scc)}
-\citep{Boyter2021} is used to measure the number of text based files as well as
-the number of total, code, comment, and blank lines in a repository.
-
-Both tools measure the number of text-based files in a git repository and lines
-of text in these files. Based on our experience, most text-based files in a
-repository contain programming source code, and developers use them to compile
-and build software products. A minority of these files are instructions and
-other documents. So we roughly regard the lines of text in text-based files as
-lines of programming code. The two tools usually generate similar but not
-identical results. From our understanding, this minor difference is due to the
-different techniques to detect if a file is text-based or binary.
-
-For projects on GitHub we manually collect additional information, such as the
-numbers of stars, forks, people watching this repository, open pull requests,
-closed pull requests, and the number of months a repository has been on GitHub.
-We need to take care with the project creation date, since a repository can have
-a creation date much earlier than the first day on GitHub.  For example, the
-developers created the git repository for \textit{3D Slicer} in 2002, but did
-not upload a copy of it to GitHub until 2020. Some GitHub data can be found
-using its GitHub Application Program Interface (API) via the following url:
-\textit{https://api.github.com/repos/[owner]/[repository]} where [owner] and
-[repository] are replaced by the repo specific values. The number of months a
-repository has been on GitHub helps us understand the average change of metrics
-over time, like the average new stars per month. 
-
-The repository measures help us in many ways. Firstly, they help us get a fast
-and accurate project overview. For example, the number of commits over the last
-12 months shows how active a project has been, and the number of stars and forks
-may reveal its popularity (used to assess \rqref{RQ_CompareHQ2Popular}).
-Secondly, the results may affect our decisions regarding the grading scores for
-some software qualities. For example, if the percentage of comment lines is low,
-we double-check the understandability of the code; if the ratio of open versus
-closed pull requests is high, we pay more attention to maintainability.
-
-As in \citet{SmithEtAl2016}, Virtual machines (VMs) were used to provide an
-optimal testing environment for each package. We used VMs because it is easier
-to start with a fresh environment, without having to worry about existing
-libraries and conflicts. Moreover, when the tests are complete the VM can be
-deleted, without any impact on the host operating system. The most significant
-advantage of using VMs is to level the playing field. Every software install
-starts from a clean slate, which removes ``works-on-my-computer'' errors. When
-filling in the measurement template, the grader notes the details for each VM,
-including hypervisor and operating system version.
-
-When grading the software, we found 27 out of the 29 packages are compatible
-with two or three different OSes, such as Windows, macOS, and Linux, and 5 of
-them are browser-based, making them platform-independent. However, in the
-interest of time, we only performed the measurements for each project by
-installing it on one of the platforms.  When it was an option, we selected
-Windows as the host OS.
-
-\subsubsection{Software Quality Definitions} \label{sec_software_quality}
-
-Quality is defined as a measure of the excellence or worth of an entity.  As is
-common practice, we do not think of quality as a single measure, but rather as a
-set of measures.  That is, quality is a collection of different qualities, often
-called ``ilities.''  For this study we selected 9 qualities to measure: .....
-With the exception of installability, all the qualities are defined in
-\citet{GhezziEtAl2003}. Installability is defined as the effort required for the
-installation and/or uninstallation of software in a specified environment
-\citep{ISO/IEC25010, lenhard2013measuring}.  Further details on the software
-qualities can be found in \citet{SmithEtAl2024}.
+\citep{Boyter2021}.  Details on how we measure each quality are provided in
+\citet{SmithEtAl2024_MI_SOP}.
 
 \subsubsection{Analytic Hierarchy Process (AHP)} \label{sec_AHP}
 
@@ -399,91 +310,6 @@ $n=29$ and $m=9$ since there are 29 options (software products) and 9 criteria
 (qualities). We rank the software for each of the qualities, and then we combine
 the quality rankings into an overall ranking based on the relative priorities
 between qualities.
-
-The first step for ranking the software choices for a given quality involves a
-pairwise comparison between each of the $n$ software options for that quality.
-AHP expresses the comparison through an $n \times n$ matrix $A$. When comparing
-option $i$ and option $j$, the value of $A_{ij}$ is decided as follows, with the
-value of $A_{ji}$ generally equal to $1/A_{ij}$ \citep{Saaty1990}: $A_{ij} = 1$
-if criterion $i$ and criterion $j$ are equally important, while $A_{ij} = 9$ if
-criterion $i$ is extremely more important than criterion $j$.  The natural
-numbers between 1 and 9 are used to show the different levels of relative
-importance between these two extremes. The above assumes that option $i$ is of
-equal, or more, importance compared to option $j$ ($i \geq j$).  If that is not
-the case, we reverse $i$ and $j$ and determine $A_{ji}$ first, then $A_{ij} =
-1/A_{ji}$.
-
-Section~\ref{sec_grading_software} shows how we measure the software via a
-grading template.  For the AHP process, the relevant measure is the subjective
-score from $1$ to $10$ for each quality for each package. To turn these
-subjective measures $x_{\text{sub}}$ and $y_{\text{sub}}$ into Saaty's
-pair-wise scores for option $x$ versus option $y$, respectively, we use the
-following calculation:
-\[
-\begin{cases}
-\min\{9, x_{\text{sub}} - y_{\text{sub}} + 1\} & x_{\text{sub}} \geq y_{\text{sub}} \\
-1 / \min\{9, y_{\text{sub}} - x_{\text{sub}} + 1\} & x_{\text{sub}} < y_{\text{sub}}
-\end{cases}
-\]
-
-\noindent For example, we measured the usability for 3D Slicer and Ginkgo CADx
-as $8$ and $7$, respectively; therefore, on the 9-point scale, 3D Slicer compared
-to Ginkgo CADx is 2 and Ginkgo CADx versus 3D Slicer is 1/2, as shown in the
-sample AHP calculations (Table~\ref{Tbl_SampleAHP}).
-
-The second step is to calculate the priority vector $w$ from $A$.  The
-vector $w$ ranks the software options by how well they achieve the given
-quality.  The priority vector can be calculated by solving the equation
-\citep{Saaty1990}:
-\begin{equation} 
-    A w = \lambda_{\text{max}} w,
-\end{equation}
-where $\lambda_{\text{max}}$ is the maximal eigenvalue of $A$.  In this project,
-$w$ is approximated with the classic \textit{mean of normalized values} approach
-\citep{AlessioEtAl2006}:
-
-\begin{equation}
-w_i = \frac{1}{n}\sum_{j=1}^{n}\frac{A_{ij}}{\sum_{k=1}^{n}A_{kj}}
-\end{equation}
-
-Table~\ref{Tbl_SampleAHP} summarizes the above two steps for the quality of
-installability.  The matrix $A$ is shown in the first set of columns, then the
-normalized version of $A$ and finally the average of the normalized values to
-form the vector $w$ in the last column.
-
-\begin{table}[h!]
-\begin{center}
-\begin{tabular}{ l c c c c c | c c c c c | c }
- \toprule
- ~ & \multicolumn{5}{c|}{$A_{ij}$} & \multicolumn{5}{c|}{${A_{ij}}/{\sum_{k=1}^{n}A_{kj}}$} & ~\\
- \midrule
- ~ & \rotatebox{90}{3D Slicer} & \rotatebox{90}{Ginkgo} & \rotatebox{90}{XMedCon} & $\cdots$ & \rotatebox{90}{Gwyddion} & \rotatebox{90}{3D Slicer} & \rotatebox{90}{Ginkgo} & \rotatebox{90}{XMedCon} & $\cdots$ & \rotatebox{90}{Gwyddion} & AVG \\
- \midrule
- 3D Slicer & 1 & 2 & 4 & $\cdots$ & 2 & 0.071 & 0.078 & 0.060 & $\cdots$ & 0.078 & 0.068\\
- Ginkgo & 1/2 & 1 & 3 & $\cdots$ & 1 & 0.036 & 0.039 & 0.045 & $\cdots$ & 0.039 & 0.041\\
- XMedCon & 1/4 & 1/3 & 1 & $\cdots$ & 1/3 & 0.018 & 0.013 & 0.015 & $\cdots$ & 0.013 & 0.015\\
- $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\ddots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\ddots$ & $\vdots$ & $\vdots$\\
- Gwyddion & 1/2 & 1 & 3 & $\cdots$ & 1 & 0.036 & 0.039 & 0.045 & $\cdots$ & 0.039 & 0.041\\  
- \midrule
- SUM = & 14.01 & 25.58 & 66.75 & $\cdots$ & 25.58 & 1.000 & 1.000 & 1.000 & $\cdots$ & 1.000 & 1.000\\
- \bottomrule
-\end{tabular}
-\end{center}
-\caption{Sample AHP Calculations for the Quality of Usability} \label{Tbl_SampleAHP}
-\end{table}
-
-We repeat the first and second steps for each of the qualities.  The third step
-combines the quality rankings into an overall ranking.  Following AHP, we need
-to first prioritize the qualities.  The AHP method finds the priority of quality
-$i$ ($p_i$) in the same way that the score ($w_j$) was found for software
-package $j$ evaluated for a given quality (as shown above).  That is, we
-conduct a pairwise comparison between the priority of different qualities to
-construct the $m \times m$ matrix $A$, and then we take the mean of normalized
-values for row $i$ to find the priority value $p_i$ for quality $i$.  If we
-introduce the notation that $w^i_j$ is the score for quality $i$ for package
-$j$, then the overall score $S_j$ for package $j$ is found via:
-
-$$S_j = \sum_{i=1}^m w^i_j p_i$$ 
 
 \section{Review} \label{ch_results}
 
