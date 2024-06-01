@@ -261,7 +261,7 @@ four hours for each package. Project developers can be contacted for help
 regarding installation, if necessary, but we impose a cap of about two hours on
 the installation process, to keep the overall measurement time feasible.
 Figure~\ref{fg_grading_template_example} shows an excerpt of the spreadsheet.
-The spreadsheet includes a column for each measured software package. TODO - point to full data online.
+The spreadsheet includes a column for each measured software package. \citep{Dong2021-Data} provides the full set of measurement data.
 
 \begin{figure}[!ht]
 \includegraphics[scale=0.66]{template.pdf}
@@ -307,9 +307,10 @@ multiple criteria in a hierarchical structure and uses pairwise comparisons
 between alternatives to calculate relative ratios \citep{Saaty1990}. AHP works
 with sets of $n$ \textit{options} and $m$ \textit{criteria}.  In our project
 $n=29$ and $m=9$ since there are 29 options (software products) and 9 criteria
-(qualities). We rank the software for each of the qualities, and then we combine
-the quality rankings into an overall ranking based on the relative priorities
-between qualities.
+(qualities). With AHP the sum of the grades (scores) for all products for a
+given quality will be 1.0.  We rank the software for each of the qualities, and
+then we combine the quality rankings into an overall ranking based on the
+relative priorities between qualities.
 
 \section{Review} \label{ch_results}
 
@@ -322,18 +323,18 @@ We initially identified 48 MI candidate software projects from the literature
 \citep{Bjorn2017, Bruhschwein2019, Haak2015}, on-line articles \citep{Emms2019,
 Hasan2020, Mu2019}, and forum discussions \citep{Samala2014}.  The full list of
 48 packages is available in \citet{Dong2021}.  To reduce the length of the list
-to a manageable number (29 in this case, as given in Section~\ref{ch_results}),
-we filtered the original list as follows:
+to a manageable number (29 in this case), we filtered the original list as
+follows:
 
 \begin{enumerate}
 
-\item We removed the packages that did not have source code available, such as
+\item We removed the packages with no source code available, such as
 \textit{MicroDicom}, \textit{Aliza}, and \textit{jivex}.
 
 \item We focused on the MI software that provides visualization functions, as
-described in Section~\ref{sec_scope}. Furthermore, we removed seven packages that were
-toolkits or libraries, such as \textit{VTK}, \textit{ITK}, and \textit{dcm4che}.
-We removed another three that were for PACS.
+described in Section~\ref{sec_scope}. Furthermore, we removed seven packages
+that were toolkits or libraries, such as \textit{VTK}, \textit{ITK}, and
+\textit{dcm4che}.  We removed another three that were for PACS.
 
 \item We removed \textit{Open Dicom Viewer}, since it has not received any
 updates in a long time (since 2011).
@@ -347,7 +348,7 @@ actually use the update version \textit{MRIcroGL}) and \textit{Mango} (we
 actually use the web version \textit{Papaya}).  Six software packages
 (\textit{AFNI}, \textit{FSL}, \textit{Freesurfer}, \textit{Tarquin},
 \textit{Diffusion Toolkit}, and \textit{MRItrix}) were on the Domain Expert
-list, but not on our filtered list.  However, when we examined those packages,
+list, but not on our filtered list.  When we examined those packages,
 we found they were out of scope, since their primary function was not
 visualization.  The Domain Expert agreed with our final choice of 29 packages.
 
@@ -504,11 +505,9 @@ recoverable; we could not install the dependency for \textit{DICOM Viewer}. Of
 the seven software packages with a getting started tutorial and operation steps
 in the tutorial, most showed no error when we followed the steps. However,
 \textit{GATE} could not open macro files and became unresponsive several times,
-without any descriptive error message. When assessing robustness
-(Section~\ref{sec_result_robustness}), we found that \textit{Drishti} crashed
+without any descriptive error message. We found that \textit{Drishti} crashed
 when loading damaged image files, without showing any descriptive error message.
-We did not find any problems with the on-line version of
-\textit{dwv}.
+We did not find any problems with the on-line version of \textit{dwv}.
 
 \begin{figure}[!ht]
 \includegraphics[scale=0.47]{reliability_scores.pdf}
@@ -565,14 +564,13 @@ documented expected user characteristics.
 
 Figure~\ref{fg_maintainability_scores} shows the ranking results for
 maintainability. We gave \textit{3D Slicer} the highest score because we found
-it to have the most comprehensive artifacts. For example, as far as we could
-find, only a few of the 29 projects had a product, developer's manual, or API
-documentation, and only \textit{3D Slicer}, \textit{ImageJ}, \textit{Fiji}
-included all three documents. Moreover, \textit{3D Slicer} has a much higher
-percentage of closed issues (92\%) compared to \textit{ImageJ} (52\%) and
-\textit{Fiji} (64\%). Table~\ref{tab_maintainability_docs} shows which
-projects had these documents, in descending order of their maintainability
-scores. 
+it to have the most comprehensive artifacts. Only a few of the 29 projects had a
+product, developer's manual, or API documentation, and only \textit{3D Slicer},
+\textit{ImageJ}, \textit{Fiji} included all three documents. Moreover,
+\textit{3D Slicer} has a much higher percentage of closed issues (92\%) compared
+to \textit{ImageJ} (52\%) and \textit{Fiji} (64\%).
+Table~\ref{tab_maintainability_docs} shows which projects had these documents,
+in descending order of their maintainability scores. 
 
 \begin{figure}[!ht]
 \includegraphics[scale=0.47]{maintainability_scores.pdf}
@@ -605,8 +603,8 @@ maintainability score)}
 \label{tab_maintainability_docs}
 \end{table}
 
-Twenty-seven of the 29 projects used git as the version control tool, with 24 of these
-using GitHub. \textit{AMIDE} used Mercurial and \textit{Gwyddion} used
+Twenty-seven of the 29 projects used git as the version control tool, with 24 of
+these using GitHub. \textit{AMIDE} used Mercurial and \textit{Gwyddion} used
 Subversion. \textit{XMedCon}, \textit{AMIDE}, and \textit{Gwyddion} used
 SourceForge. \textit{DicomBrowser} and \textit{3DimViewer} used BitBucket. 
 
@@ -676,10 +674,10 @@ scores)}
 
 Figure~\ref{fg_surface_understandability_scores} shows the scores for surface
 understandability. All projects had a consistent coding style with parameters in
-the same order for all functions; modularized code; and, clear comments, indicating
-what is done, not how. However, we only found explicit identification of a
-coding standard for 3 out of the 29: \textit{3D Slicer}, \textit{Weasis}, and
-\textit{ImageJ}. We also found hard-coded constants (rather than symbolic
+the same order for all functions, modularized code, and, clear comments that
+indicate what is done, not how. However, we only found explicit identification
+of a coding standard for 3 out of the 29: \textit{3D Slicer}, \textit{Weasis},
+and \textit{ImageJ}. We also found hard-coded constants (rather than symbolic
 constants) in \textit{medInria}, \textit{dicompyler}, \textit{MicroView}, and
 \textit{Papaya}. We did not find any reference to the algorithms used in
 projects \textit{XMedCon}, \textit{DicomBrowser}, \textit{3DimViewer},
