@@ -4,7 +4,7 @@
 \usepackage{fancyhdr}
 \usepackage{float}
 
-\usepackage[round, sort]{natbib}
+%\usepackage[round, sort]{natbib}
 
 \usepackage{amssymb}
 \usepackage{amsmath,amsthm}
@@ -52,6 +52,9 @@
 +}\nolinebreak\hspace{-.10em}\raisebox{.4ex}{\small\bf +}}
 
 \pgfplotsset{compat=1.13}
+
+% prepared for: Journal of Imaging Informatics in Medicine
+% https://link.springer.com/journal/10278
 
 \begin{document}
 
@@ -106,7 +109,7 @@ We aim to study the state of software development practice for Medical Imaging
 images of the interior of the body (from sources such as Magnetic Resonance
 Imaging (MRI), Computed Tomography (CT), Positron Emission Tomography (PET) and
 Ultrasound) to provide information for diagnostic, analytic, and medical
-applications \citep{FDA2021, enwiki:1034887445, Zhang2008}.
+applications \cite{FDA2021, enwiki:1034887445, Zhang2008}.
 Figure~\ref{Fig_Example}, which shows an image of the brain, highlights the
 importance and value of MI. Through MI medical practitioners and researchers can
 noninvasively gain insights into the human body, including information on
@@ -129,18 +132,19 @@ recommendations for future development.
 \subsection{Research Questions} \label{sec_motivation}
 
 Not only do we wish to gain insight into the state of the practice for MI
-software, we also wish to understand the impact of the often cited gap, or chasm,
-between software engineering and research software \citep{Kelly2007,
+software, we also wish to understand the impact of the often cited gap, or
+chasm, between software engineering and research software \cite{Kelly2007,
 Storer2017}. Although scientists spend a substantial proportion of their working
-hours on software development \citep{Hannay2009, Prabhu2011}, many developers
+hours on software development \cite{Hannay2009, Prabhu2011}, many developers
 learn software engineering skills by themselves or from their peers, instead of
-from proper training \citep{Hannay2009}. \citet{Hannay2009} observe that many
-scientists showed ignorance and indifference to standard software engineering
-concepts. For instance, according to a survey by \citet{Prabhu2011}, more than
-half of their 114 subjects did not use a proper debugger when coding.
+from proper training \cite{Hannay2009}. In the past many scientists have shown
+ignorance and indifference to standard software engineering concepts
+\cite{Hannay2009}. For instance, according to a survey by Prabhu in 2011
+\cite{Prabhu2011}, more than half of their 114 subjects did not use a proper
+debugger when coding.
 
 To gain insight, we devised 10 research questions, which can be applied to MI,
-as well as to other domains, of research software \citep{SmithEtAl2021,
+as well as to other domains, of research software \cite{SmithEtAl2021,
 SmithAndMichalski2022}.  We designed the questions to learn about the
 community's interest in, and experience with, software artifacts, tools,
 principles, processes, methodologies, and qualities.  When we mention artifacts
@@ -182,26 +186,26 @@ To make the project feasible, we only cover MI visualization software.  As a
 consequence we are excluding many other categories of MI software, including
 Segmentation, Registration, Visualization, Enhancement, Quantification,
 Simulation, plus MI archiving and telemedicine systems (Compression, Storage,
-and Communication) (as summarized by \citet{Bankman2000} and
-\citet{Angenent2006}).  We also exclude Statistical Analysis and Image-based
-Physiological Modelling \citep{enwiki:1034877594} and Feature Extraction,
-Classification, and Interpretation \citep{Kim2011}. Software that provides MI
-support functions is also out of scope; therefore, we have not assessed the
-toolkit libraries VTK \citep{SchroederEtAl2006} and ITK \citep{McCormick2014}.
-Finally, Picture Archiving and Communication System (PACS), which helps users to
-economically store and conveniently access images \citep{Choplin1992}, are
-considered out of scope. 
+and Communication) \cite{Bankman2000, Angenent2006}.  We also exclude
+Statistical Analysis and Image-based Physiological Modelling
+\cite{enwiki:1034877594} and Feature Extraction, Classification, and
+Interpretation \cite{Kim2011}. Software that provides MI support functions is
+also out of scope; therefore, we have not assessed the toolkit libraries VTK
+\cite{SchroederEtAl2006} and ITK \cite{McCormick2014}.  Finally, Picture
+Archiving and Communication System (PACS), which helps users to economically
+store and conveniently access images \cite{Choplin1992}, are considered out of
+scope. 
 
 \subsection{Methodology} \label{SecMethodology}
 
 We designed a general methodology to assess the state of the practice for
-research software \citep{SmithEtAl2021, SmithAndMichalski2022}.  Our methodology
-has been applied to MI software \citep{Dong2021} and Lattice Boltzmann Solvers
-\citep{Michalski2021, SmithEtAl2024}.  This methodology builds off prior work to
+research software \cite{SmithEtAl2021, SmithAndMichalski2022}.  Our methodology
+has been applied to MI software \cite{Dong2021} and Lattice Boltzmann Solvers
+\cite{Michalski2021, SmithEtAl2024}.  This methodology builds off prior work to
 assess the state of the practice for such domains as Geographic Information
-Systems \citep{smith2018state}, Mesh Generators \citep{smith2016state},
-Seismology software \citep{Smith2018Seismology}, and Statistical software for
-psychology \citep{smith2018statistical}.  In keeping with the previous
+Systems \cite{smith2018state}, Mesh Generators \cite{smith2016state},
+Seismology software \cite{Smith2018Seismology}, and Statistical software for
+psychology \cite{smith2018statistical}.  In keeping with the previous
 methodology, we have maintained the constraint that the work load for measuring
 a given domain should be feasible for a team as small as one person, and for a
 short time, ideally around a person month of effort. We consider a person month
@@ -218,7 +222,7 @@ code, percentage of issues that are closed, etc.  With the quantitative data in
 the grading template, we rank the software with the Analytic Hierarchy Process
 (AHP). Further details on interaction with the domain expert, software
 qualities, grading the software and AHP are found below and in
-\citep{SmithEtAl2024_MI_SOP}.
+\cite{SmithEtAl2024_MI_SOP}.
 
 \subsubsection{Interaction With Domain Expert} \label{sec_vet_software_list}
 
@@ -245,23 +249,24 @@ set of measures.  That is, quality is a collection of different qualities, often
 called ``ilities.''  For this study we selected 9 qualities to measure:
 installability, correctness/ verifiability, reliability, robustness, usability,
 maintainability, reusability, understandability, and visibility/transparency.
-With the exception of installability, all the qualities are defined in
-\citet{GhezziEtAl2003}. Installability is defined as the effort required for the
-installation and/or uninstallation of software in a specified environment
-\citep{ISO/IEC25010, lenhard2013measuring}.
+With the exception of installability, all the qualities are defined in Ghezzi et
+al. (2003) \cite{GhezziEtAl2003}. Installability is defined as the effort
+required for the installation and/or uninstallation of software in a specified
+environment \cite{ISO/IEC25010, lenhard2013measuring}.
 
 \subsubsection{Grading Software} \label{sec_grading_software}
 
-We grade the selected software using the measurement template summarized in
-\citet{SmithEtAl2021}.  The template provides measures of the qualities listed
-in Section~\ref{sec_software_quality}.
-For each software package, we fill in the template questions. To stay within the
-target of 160 person hours to measure the domain, we allocated between one and
-four hours for each package. Project developers can be contacted for help
-regarding installation, if necessary, but we impose a cap of about two hours on
-the installation process, to keep the overall measurement time feasible.
-Figure~\ref{fg_grading_template_example} shows an excerpt of the spreadsheet.
-The spreadsheet includes a column for each measured software package. \citep{Dong2021-Data} provides the full set of measurement data.
+We grade the selected software using an existing measurement template
+\cite{SmithEtAl2021}.  The template provides measures of the qualities listed in
+Section~\ref{sec_software_quality}.  For each software package, we fill in the
+template questions. To stay within the target of 160 person hours to measure the
+domain, we allocated between one and four hours for each package. Project
+developers can be contacted for help regarding installation, if necessary, but
+we impose a cap of about two hours on the installation process, to keep the
+overall measurement time feasible.  Figure~\ref{fg_grading_template_example}
+shows an excerpt of the spreadsheet.  The spreadsheet includes a column for each
+measured software package. \cite{Dong2021-Data} provides the full set of
+measurement data.
 
 \begin{figure}[!ht]
 \includegraphics[scale=0.66]{template.pdf}
@@ -279,7 +284,7 @@ platform, programming language, publications about the software, the first
 release and the most recent change date, website, source code repository of the
 product, number of developers, etc.  We only measure open source software that
 is ready for public use by other researchers (following the definition of the
-public category from \citep{GewaltigAndCannon2012}). Information in the summary
+public category from \cite{GewaltigAndCannon2012}). Information in the summary
 section sets the context for the project, but it does not directly affect the
 grading scores.
 
@@ -294,17 +299,17 @@ Instead, we are looking for an indication that the developers considered
 usability.  We do this by looking for cues in the documentation, like a getting
 started manual, a user manual and a statement of expected user characteristics.
 We use two freeware tools to collect repository related data:
-\href{https://github.com/tomgi/git_stats}{GitStats} \citep{Gieniusz2019} and
+\href{https://github.com/tomgi/git_stats}{GitStats} \cite{Gieniusz2019} and
 \href{https://github.com/boyter/scc}{Sloc Cloc and Code (scc)}
-\citep{Boyter2021}.  Details on how we measure each quality are provided in
-\citet{SmithEtAl2024_MI_SOP}.
+\cite{Boyter2021}.  Details on how we measure each quality are provided in
+Smith et al.\ (2024) \cite{SmithEtAl2024_MI_SOP}.
 
 \subsubsection{Analytic Hierarchy Process (AHP)} \label{sec_AHP}
 
 Saaty developed AHP in the 1970s, and people have widely used it since to make
-and analyze multiple criteria decisions \citep{VaidyaEtAl2006}. AHP organizes
+and analyze multiple criteria decisions \cite{VaidyaEtAl2006}. AHP organizes
 multiple criteria in a hierarchical structure and uses pairwise comparisons
-between alternatives to calculate relative ratios \citep{Saaty1990}. AHP works
+between alternatives to calculate relative ratios \cite{Saaty1990}. AHP works
 with sets of $n$ \textit{options} and $m$ \textit{criteria}.  In our project
 $n=29$ and $m=9$ since there are 29 options (software products) and 9 criteria
 (qualities). With AHP the sum of the grades (scores) for all products for a
@@ -317,14 +322,13 @@ relative priorities between qualities.
 In this section we review the selected software packages.  We used a two-step
 process for selecting the software packages: i) identify software candidates in
 the chosen domain; and, ii) filter the list to remove less relevant members
-\citep{SmithEtAl2021}.
+\cite{SmithEtAl2021}.
 
-We initially identified 48 MI candidate software projects from the literature
-\citep{Bjorn2017, Bruhschwein2019, Haak2015}, on-line articles \citep{Emms2019,
-Hasan2020, Mu2019}, and forum discussions \citep{Samala2014}.  The full list of
-48 packages is available in \citet{Dong2021}.  To reduce the length of the list
-to a manageable number (29 in this case), we filtered the original list as
-follows:
+We initially identified 48 MI candidate software projects \cite{Dong2021} from
+the literature \cite{Bjorn2017, Bruhschwein2019, Haak2015}, on-line articles
+\cite{Emms2019, Hasan2020, Mu2019}, and forum discussions \cite{Samala2014}.  To
+reduce the length of the list to a manageable number (29 in this case), we
+filtered the original list as follows:
 
 \begin{enumerate}
 
@@ -365,7 +369,8 @@ community.  With respect to the OS, 25 packages work on all three OSs: Windows
 (W), macOS (M), and Linux (L). Although the usual approach to cross-platform
 compatibility was to work natively on multiple OSes, five projects achieved
 platform-independence via web applications. The full measurement data for all
-packages is available in \citet{Dong2021-Data}.
+packages is available on \href{https://data.mendeley.com/datasets/k3pcdvdzj2/1}
+{Mendeley Data}.
 
 \begin{table}[!ht]
 \centering
@@ -373,36 +378,36 @@ packages is available in \citet{Dong2021-Data}.
 \toprule
 \multirow{2}{*}{Software} & \multirow{2}{*}{Rlsd} & \multirow{2}{*}{Updated} & \multirow{2}{*}{Fnd} & \multirow{2}{*}{NOC} & \multirow{2}{*}{LOC} & \multicolumn{3}{c}{OS} & \multirow{2}{*}{Web} \\ \cline{7-9}
  &  &  &  &  &  & W & M & L &  \\ \midrule
-ParaView \citep{Ahrens2005} & 2002 & 2020-10 & \checkmark & 100 & 886326 & \checkmark & \checkmark & \checkmark & \checkmark \\
-Gwyddion \citep{Nevcas2012} & 2004 & 2020-11 &  & 38 & 643427 & \checkmark & \checkmark & \checkmark &  \\
-Horos \citep{horosproject2020} & ? & 2020-04 &  & 21 & 561617 &  & \checkmark &  &  \\
-OsiriX Lite \citep{PixmeoSARL2019} & 2004 & 2019-11 &  & 9 & 544304 &  & \checkmark &  &  \\
-3D Slicer \citep{Kikinis2014} & 1998 & 2020-08 & \checkmark & 100 & 501451 & \checkmark & \checkmark & \checkmark &  \\
-Drishti \citep{Limaye2012} & 2012 & 2020-08 &  & 1 & 268168 & \checkmark & \checkmark & \checkmark &  \\
-Ginkgo CADx \citep{Wollny2020} & 2010 & 2019-05 &  & 3 & 257144 & \checkmark & \checkmark & \checkmark &  \\
-GATE \citep{Jan2004} & 2011 & 2020-10 &  & 45 & 207122 &  & \checkmark & \checkmark &  \\
-3DimViewer \citep{TESCAN2020} & ? & 2020-03 & \checkmark & 3 & 178065 & \checkmark & \checkmark &  &  \\
-medInria \citep{Fillard2012} & 2009 & 2020-11 &  & 21 & 148924 & \checkmark & \checkmark & \checkmark &  \\
-BioImage Suite Web \citep{Papademetris2005} & 2018 & 2020-10 & \checkmark & 13 & 139699 &
+ParaView \cite{Ahrens2005} & 2002 & 2020-10 & \checkmark & 100 & 886326 & \checkmark & \checkmark & \checkmark & \checkmark \\
+Gwyddion \cite{Nevcas2012} & 2004 & 2020-11 &  & 38 & 643427 & \checkmark & \checkmark & \checkmark &  \\
+Horos \cite{horosproject2020} & ? & 2020-04 &  & 21 & 561617 &  & \checkmark &  &  \\
+OsiriX Lite \cite{PixmeoSARL2019} & 2004 & 2019-11 &  & 9 & 544304 &  & \checkmark &  &  \\
+3D Slicer \cite{Kikinis2014} & 1998 & 2020-08 & \checkmark & 100 & 501451 & \checkmark & \checkmark & \checkmark &  \\
+Drishti \cite{Limaye2012} & 2012 & 2020-08 &  & 1 & 268168 & \checkmark & \checkmark & \checkmark &  \\
+Ginkgo CADx \cite{Wollny2020} & 2010 & 2019-05 &  & 3 & 257144 & \checkmark & \checkmark & \checkmark &  \\
+GATE \cite{Jan2004} & 2011 & 2020-10 &  & 45 & 207122 &  & \checkmark & \checkmark &  \\
+3DimViewer \cite{TESCAN2020} & ? & 2020-03 & \checkmark & 3 & 178065 & \checkmark & \checkmark &  &  \\
+medInria \cite{Fillard2012} & 2009 & 2020-11 &  & 21 & 148924 & \checkmark & \checkmark & \checkmark &  \\
+BioImage Suite Web \cite{Papademetris2005} & 2018 & 2020-10 & \checkmark & 13 & 139699 &
 \checkmark & \checkmark & \checkmark & \checkmark \\
-Weasis \citep{Roduit2021} & 2010 & 2020-08 &  & 8 & 123272 & \checkmark & \checkmark & \checkmark &  \\
-AMIDE \citep{Loening2017} & 2006 & 2017-01 &  & 4 & 102827 & \checkmark & \checkmark & \checkmark &  \\
-XMedCon \citep{Nolf2003} & 2000 & 2020-08 &  & 2 & 96767 & \checkmark & \checkmark & \checkmark &  \\
-ITK-SNAP \citep{Yushkevich2006} & 2006 & 2020-06 & \checkmark & 13 & 88530 & \checkmark & \checkmark & \checkmark &  \\
-Papaya \citep{UTHSCSA2019} & 2012 & 2019-05 &  & 9 & 71831 & \checkmark & \checkmark & \checkmark &  \\
-OHIF Viewer \citep{Ziegler2020} & 2015 & 2020-10 &  & 76 & 63951 & \checkmark & \checkmark & \checkmark & \checkmark \\
-SMILI \citep{Chandra2018} & 2014 & 2020-06 &  & 9 & 62626 & \checkmark & \checkmark & \checkmark &  \\
-INVESALIUS 3 \citep{Amorim2015} & 2009 & 2020-09 &  & 10 & 48605 & \checkmark & \checkmark & \checkmark &  \\
-dwv \citep{Martelli2021} & 2012 & 2020-09 &  & 22 & 47815 & \checkmark & \checkmark & \checkmark & \checkmark \\
-DICOM Viewer \citep{Afsar2021} & 2018 & 2020-04 & \checkmark & 5 & 30761 & \checkmark & \checkmark & \checkmark &  \\
-MicroView \citep{ParallaxInnovations2020} & 2015 & 2020-08 &  & 2 & 27470 & \checkmark & \checkmark & \checkmark &  \\
-MatrixUser \citep{Liu2016} & 2013 & 2018-07 &  & 1 & 23121 & \checkmark & \checkmark & \checkmark &  \\
-Slice:Drop \citep{Haehn2013} & 2012 & 2020-04 &  & 3 & 19020 & \checkmark & \checkmark & \checkmark & \checkmark \\
-dicompyler \citep{Panchal2010} & 2009 & 2020-01 &  & 2 & 15941 & \checkmark & \checkmark &  &  \\
-Fiji \citep{Schindelin2012} & 2011 & 2020-08 & \checkmark & 55 & 10833 & \checkmark & \checkmark & \checkmark &  \\
-ImageJ \citep{Rueden2017} & 1997 & 2020-08 & \checkmark & 18 & 9681 & \checkmark & \checkmark & \checkmark &  \\
-MRIcroGL \citep{Rorden2021} & 2015 & 2020-08 &  & 2 & 8493 & \checkmark & \checkmark & \checkmark &  \\
-DicomBrowser \citep{Archie2012} & 2012 & 2020-08 &  & 3 & 5505 & \checkmark & \checkmark & \checkmark &  \\ \bottomrule
+Weasis \cite{Roduit2021} & 2010 & 2020-08 &  & 8 & 123272 & \checkmark & \checkmark & \checkmark &  \\
+AMIDE \cite{Loening2017} & 2006 & 2017-01 &  & 4 & 102827 & \checkmark & \checkmark & \checkmark &  \\
+XMedCon \cite{Nolf2003} & 2000 & 2020-08 &  & 2 & 96767 & \checkmark & \checkmark & \checkmark &  \\
+ITK-SNAP \cite{Yushkevich2006} & 2006 & 2020-06 & \checkmark & 13 & 88530 & \checkmark & \checkmark & \checkmark &  \\
+Papaya \cite{UTHSCSA2019} & 2012 & 2019-05 &  & 9 & 71831 & \checkmark & \checkmark & \checkmark &  \\
+OHIF Viewer \cite{Ziegler2020} & 2015 & 2020-10 &  & 76 & 63951 & \checkmark & \checkmark & \checkmark & \checkmark \\
+SMILI \cite{Chandra2018} & 2014 & 2020-06 &  & 9 & 62626 & \checkmark & \checkmark & \checkmark &  \\
+INVESALIUS 3 \cite{Amorim2015} & 2009 & 2020-09 &  & 10 & 48605 & \checkmark & \checkmark & \checkmark &  \\
+dwv \cite{Martelli2021} & 2012 & 2020-09 &  & 22 & 47815 & \checkmark & \checkmark & \checkmark & \checkmark \\
+DICOM Viewer \cite{Afsar2021} & 2018 & 2020-04 & \checkmark & 5 & 30761 & \checkmark & \checkmark & \checkmark &  \\
+MicroView \cite{ParallaxInnovations2020} & 2015 & 2020-08 &  & 2 & 27470 & \checkmark & \checkmark & \checkmark &  \\
+MatrixUser \cite{Liu2016} & 2013 & 2018-07 &  & 1 & 23121 & \checkmark & \checkmark & \checkmark &  \\
+Slice:Drop \cite{Haehn2013} & 2012 & 2020-04 &  & 3 & 19020 & \checkmark & \checkmark & \checkmark & \checkmark \\
+dicompyler \cite{Panchal2010} & 2009 & 2020-01 &  & 2 & 15941 & \checkmark & \checkmark &  &  \\
+Fiji \cite{Schindelin2012} & 2011 & 2020-08 & \checkmark & 55 & 10833 & \checkmark & \checkmark & \checkmark &  \\
+ImageJ \cite{Rueden2017} & 1997 & 2020-08 & \checkmark & 18 & 9681 & \checkmark & \checkmark & \checkmark &  \\
+MRIcroGL \cite{Rorden2021} & 2015 & 2020-08 &  & 2 & 8493 & \checkmark & \checkmark & \checkmark &  \\
+DicomBrowser \cite{Archie2012} & 2012 & 2020-08 &  & 3 & 5505 & \checkmark & \checkmark & \checkmark &  \\ \bottomrule
 \end{tabular}
 \caption{Final software list (sorted in descending order of the number of Lines
 Of Code (LOC))}
@@ -477,7 +482,7 @@ and verifiability. Generally speaking, the packages with higher scores adopted
 more techniques to improve correctness, and had better documentation for us to
 verify against.  For instance, we looked for evidence of unit testing, since it
 benefits most parts of the software's life cycle, such as designing, coding,
-debugging, and optimization \citep{Hamill2004}.  We only found evidence of unit
+debugging, and optimization \cite{Hamill2004}.  We only found evidence of unit
 testing for about half of the projects. We identified five projects using CI/CD
 tools: \textit{3D Slicer}, \textit{ImageJ}, \textit{Fiji}, \textit{dwv}, and
 \textit{OHIF Viewer}.
@@ -531,7 +536,7 @@ data.
 
 Digital Imaging and Communications in Medicine (DICOM) ``defines the formats for
 medical images that can be exchanged with the data and quality necessary for
-clinical use'' \citep{MITA2021}. According to their documentation, all 29
+clinical use'' \cite{MITA2021}. According to their documentation, all 29
 software packages should support the DICOM standard. To test robustness, we
 prepared two types of image files: correct and incorrect formats (with the
 incorrect format created by relabelled a text file to have the ``.dcm''
@@ -775,8 +780,9 @@ the practice for MI software relative to other software, we compare MI software
 to other research software in Section~\ref{Sec_CompareArtifacts}.  The
 comparison is based on the artifacts our measurement exercise found in the MI
 repositories, versus what is typically recommended for research software.  We
-discuss threats to the validity of our data and conclusions in section
-(Section~\ref{sec_threats_to_validity}).
+provide details on artifacts that are recommended but rarely observed for MI
+software. Section~\ref{sec_threats_to_validity} presents threats to the validity
+of our data and conclusions.
 
 \subsection{Comparison to Community Ranking} \label{Sec_VsCommunityRanking}
 
@@ -834,7 +840,7 @@ weighting of the poor scores for some qualities. A further explanation for
 discrepancies between our measures and the star measures may also be due to
 inaccuracy with using stars to approximate popularity.  Stars are not an ideal
 measure because stars represent the community's feeling in the past more than
-they measure current preferences \citep{Szulik2017}.  The issue with stars is
+they measure current preferences \cite{Szulik2017}.  The issue with stars is
 that they tend only to be added, not removed.  A final reason for
 inconsistencies between our ranking and the community's ranking is that, as for
 consumer products, more factors influence popularity than just quality.
@@ -920,11 +926,10 @@ As part of filling in the measurement template (from
 Section~\ref{sec_grading_software}), we summarized the artifacts observed in
 each MI package. Table~\ref{artifactspresent} groups the artifacts by frequency
 into categories of common (20 to 29 ($>$67\%) packages), uncommon (10 to 19
-(33-67\%) packages), and rare (1 to 9 ($<$33\%) packages). \citet{Dong2021-Data}
-summarizes the full measurements.  Tables~\ref{tab_maintainability_docs}
-and~\ref{tab_Visibility/Transparency_docs} show the details on which projects
-use which types of artifacts for documents related to maintainability and
-visibility, respectively.
+(33-67\%) packages), and rare (1 to 9 ($<$33\%) packages).
+Tables~\ref{tab_maintainability_docs} and~\ref{tab_Visibility/Transparency_docs}
+show the details on which projects use which types of artifacts for documents
+related to maintainability and visibility, respectively.
 
 \begin{table}[ht!]
     \begin{center}
@@ -955,32 +960,32 @@ We answer~\rqref{RQ_CompareArtifacts} by comparing the artifacts that we
 observed in MI repositories to those observed and recommended for research
 software in general. Our comparison may point out areas where some MI software
 packages fall short of current best practices. This is not intended to be a
-criticism of any existing packages, especially since in practice not every
-project needs to achieve the highest possible quality. However, rather than
-delve into the nuances of which software can justify compromising which
-practices we will write our comparison under the ideal assumption that every
-project has sufficient resources to match best practices.
+criticism of any existing packages, especially since for practical reasons not
+every project has the resources to achieve the highest possible quality.
+However, rather than delve into the nuances of which software can justify
+compromising which practices, we will write our comparison under the ideal
+assumption that every project has sufficient resources to match best practices.
     
-Table~\ref{Tbl_Guidelines} (based on data from \citep{SmithAndMichalski2022})
+Table~\ref{Tbl_Guidelines} (based on data from \cite{SmithAndMichalski2022})
 shows that MI artifacts generally match the recommendations found in nine
 current research software development guidelines:
 \begin{itemize}
 \item United States Geological Survey Software Planning Checklist
-\citep{USGS2019},
+\cite{USGS2019},
 \item DLR (German Aerospace Centre) Software Engineering Guidelines
-\citep{TobiasEtAl2018}, 
+\cite{TobiasEtAl2018}, 
 \item Scottish Covid-19 Response Consortium Software Checklist
-\citep{BrettEtAl2021},
-\item Good Enough Practices in Scientific Computing \citep{WilsonEtAl2016},
+\cite{BrettEtAl2021},
+\item Good Enough Practices in Scientific Computing \cite{WilsonEtAl2016},
 \item xSDK (Extreme-scale Scientific Software Development Kit) Community Package
-Policies \citep{SmithAndRoscoe2018},
-\item Trilinos Developers Guide \citep{HerouxEtAl2008},
+Policies \cite{SmithAndRoscoe2018},
+\item Trilinos Developers Guide \cite{HerouxEtAl2008},
 \item EURISE (European Research Infrastructure Software Engineers') Network
-Technical Reference \citep{ThielEtAl2020},
+Technical Reference \cite{ThielEtAl2020},
 \item CLARIAH (Common Lab Research Infrastructure for the Arts and Humanities)
-Guidelines for Software Quality \citep{vanGompelEtAl2016}, and
+Guidelines for Software Quality \cite{vanGompelEtAl2016}, and
 \item A Set of Common Software Quality Assurance Baseline Criteria for Research
-Projects \citep{OrvizEtAl2017}.
+Projects \cite{OrvizEtAl2017}.
 \end{itemize}
 
 In Table~\ref{Tbl_Guidelines} each row corresponds to an artifact.  For a given
@@ -990,33 +995,33 @@ the measured set of MI software, either not at all (blank), commonly (C),
 uncommonly (U) or rarely (R).  We did our best to interpret the meaning of each
 artifact consistently between guidelines and specific MI software, but the
 terminology and the contents of artifacts are not standardized.  The challenge
-even exists for the ubiquitous README file.  As illustrated by
-\citet{PranaEtAl2018}, the content of README files shows significant variation
-between projects.  Although some content is reasonably consistent, with 97\% of
-README files contain at least one section describing the `What' of the
-repository and 89\% offering some `How' content, other categories are more
-variable.  For instance, information on `Contribution', `Why', and `Who',
-appear in 28\%, 26\% and 53\% of the analyzed files, respectively
-\citep{PranaEtAl2018}.  
+even exists for the ubiquitous README file.  The content of README files shows
+significant variation between projects \cite{PranaEtAl2018}.  Although some
+content is reasonably consistent, with 97\% of README files contain at least one
+section describing the `What' of the repository and 89\% offering some `How'
+content, other categories are more variable.  For instance, information on
+`Contribution', `Why', and `Who', appear in 28\%, 26\% and 53\% of the analyzed
+files, respectively \cite{PranaEtAl2018}.  
 
 The frequency of checkmarks in Table~\ref{Tbl_Guidelines} indicates the
 popularity of recommending a given artifact, but it does not imply that the most
 commonly recommended artifacts are the most important artifacts. Just because a
 guideline does not explicitly recommend an artifact, does not mean the guideline
-authors do not value that artifact.  They may have excluded it because it is out
-of the scope of their recommendations, or outside their experience.  For
-instance, an artifact related to uninstall is only explicitly mentioned by
-\citet{vanGompelEtAl2016}, but other guideline authors would likely see its
-value.  They may simply feel that uninstall is implied by install, or they may
-have never asked themselves whether they need separate uninstall instructions.
+authors do not value it.  They may have excluded it because it is out of the
+scope of their recommendations, or outside their experience.  For instance, an
+artifact related to uninstall is only explicitly mentioned by one set of
+guidelines \cite{vanGompelEtAl2016}, but other guideline authors would likely
+see its value.  They may simply feel that uninstall is implied by install, or
+they may have never asked themselves whether they need separate uninstall
+instructions.
 
 \begin{table}[H]
 \begin{center}
 \begin{tabular}{ p{2.5cm}p{1cm}p{1cm}p{1cm}p{1cm}p{1cm}p{1cm}p{1cm}p{1.2cm}p{1cm}p{0.8cm} }
 \toprule
-~ \ & \citet{USGS2019} & \citet{TobiasEtAl2018} & \citet{BrettEtAl2021} &
-\citet{WilsonEtAl2016} & \citet{SmithAndRoscoe2018} & \citet{HerouxEtAl2008} &
-\citet{ThielEtAl2020} & \citet{vanGompelEtAl2016} & \citet{OrvizEtAl2017} & MI\\
+~ \ & \cite{USGS2019} & \cite{TobiasEtAl2018} & \cite{BrettEtAl2021} &
+\cite{WilsonEtAl2016} & \cite{SmithAndRoscoe2018} & \cite{HerouxEtAl2008} &
+\cite{ThielEtAl2020} & \cite{vanGompelEtAl2016} & \cite{OrvizEtAl2017} & MI\\
 \midrule
 LICENSE & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & &
 \checkmark & \checkmark & \checkmark & C\\
@@ -1086,7 +1091,7 @@ are not generally concerned with uninstall.  Moreover, as mentioned above,
 uninstall is not particularly emphasized in existing recommendations.  
 
 Test plans describe the scope, approach, resources, and the schedule of planned
-test activities \citep{VanVliet2000}.  The plan should cover details such as the
+test activities \cite{VanVliet2000}.  The plan should cover details such as the
 makeup of the testing team, automated testing tools and technology to employ,
 the testing process, system tests, integration tests and unit tests. We did not
 observe test plans for MI software, but that doesn't mean plans weren't created;
@@ -1097,32 +1102,30 @@ frequency for MI software (test cases are categorized as uncommon).
 The other apparently neglected document is the requirements specification, which
 records the functionalities, expected performance, goals, context, design
 constraints, external interfaces and other quality attributes of the software
-\citep{IEEE1998}.  If developers write requirements they typically are based on
-a template, which provide documentation structure, guidelines, and rules.
-Although there is no universally accepted template, examples include
-\citet{ESA1991}, \citet{IEEE1998}, \citet{NASA1989}, and
-\citet{RobertsonAndRobertson1999Vol}.
+\cite{IEEE1998}.  If developers write requirements they typically are based on a
+template, which provide documentation structure, guidelines, and rules.
+Although there is no universally accepted template, examples exist
+\cite{ESA1991, IEEE1998, NASA1989, RobertsonAndRobertson1999Vol}.
 
 MI software is like other research software in its neglect of requirements
 documentation.  Although requirements documentation is recommended by some
-\citep{TobiasEtAl2018, HerouxEtAl2008, SmithAndKoothoor2016}, in practice
+\cite{TobiasEtAl2018, HerouxEtAl2008, SmithAndKoothoor2016}, in practice
 research software developers often do not produce a proper requirements
-specification \citep{HeatonAndCarver2015}. \citet{SandersAndKelly2008}
-interviewed 16 scientists from 10 disciplines and found that none of the
-scientists created requirements specifications, unless regulations in their
-field mandated such a document. \citet{Nguyen-HoanEtAl2010} showed requirements
-are the least commonly produced type of documentation for research software in
-general. When looking at the pain points for research software developers,
-\citet{WieseEtAl2019} found that software requirements and management is the
-software engineering discipline that most hurts scientific developers,
-accounting for 23\% of the technical problems reported by study participants.
-The lack of support for requirements is likely due to the perception that
-up-front requirements are impossible for research software
-\citep{CarverEtAl2007, SegalAndMorris2008}, but if we drop the insistence on
-``up-front'' requirements, allowing instead for the requirements to be written
-iteratively and incrementally, requirements are feasible \citep{Smith2016}.
-\citet{SmithEtAl2007} provides a requirements template tailored to research
-software. 
+specification \cite{HeatonAndCarver2015}. Sanders and Kelly
+\cite{SandersAndKelly2008} interviewed 16 scientists from 10 disciplines and
+found that none of the scientists created requirements specifications, unless
+regulations in their field mandated such a document.  Requirements are the least
+commonly produced type of documentation for research software in general
+\cite{Nguyen-HoanEtAl2010}. When looking at the pain points for research
+software developers, software requirements and management is the software
+engineering discipline that most hurts scientific developers, accounting for
+23\% of the technical problems \cite{WieseEtAl2019}.  The lack of support for
+requirements is likely due to the perception that up-front requirements are
+impossible for research software \cite{CarverEtAl2007, SegalAndMorris2008}, but
+if we drop the insistence on ``up-front'' requirements, allowing instead for the
+requirements to be written iteratively and incrementally, requirements are
+feasible \cite{Smith2016}.  Smith et al. provide a requirements template
+tailored to research software \cite{SmithEtAl2007}. 
 
 Table~\ref{Tbl_Guidelines} shows several recommended artifacts that are rarely
 observed in practice.  A theme among these rare artifacts is that, except for
@@ -1133,32 +1136,32 @@ scripts. The other developer-focused and rare artifacts are as follows:
 
 \begin{itemize}
 
-\item \textbf{A Contributing file} provides new contributors with the information
-that they need to start adding/modifying the repository's files.
-\citet{Abdalla2016} provides a simple template for creating an open-source
-contributor guideline. 
+\item \textbf{A Contributing file} provides new contributors with the
+information that they need to start adding/modifying the repository's files.
+Abdalla \cite{Abdalla2016} provides a simple template for creating an
+open-source contributor guideline. 
 
 \item \textbf{A Developer Code of Conduct} explicitly states the expectations
-for developers on how they should treat one another \citep{TouraniEtAl2017}. The
+for developers on how they should treat one another \cite{TouraniEtAl2017}. The
 code outlines rules for communication and establishes enforcement mechanisms for
-violations.  As \citet{TouraniEtAl2017} states, the developer code documents
-the spirit of a community so that anyone can comfortably contribute regardless
-of ethnicity, gender, or sexual orientation. Three popular codes of conduct are
-\citep{TouraniEtAl2017}:
+violations.  As Tourani et al.\ state, the developer code documents the spirit
+of a community so that anyone can comfortably contribute regardless of
+ethnicity, gender, or sexual orientation. Three popular codes of conduct are
+\cite{TouraniEtAl2017}:
 \href{https://www.contributor-covenant.org/version/2/1/code_of_conduct/}
 {Contributor Covenant}, \href{https://ubuntu.com/community/code-of-conduct}
 {Ubuntu Code of Conduct}, and \href{https://www.djangoproject.com/conduct/}
 {Django Code of Conduct}. A code of conduct can improve inclusivity, which
 brings the benefit of a wider pool of contributors.  For example, a code of
-conduct can improve the participation of women \citep{SinghEtAl2021}. A standard
+conduct can improve the participation of women \cite{SinghEtAl2021}. A standard
 of ethical behaviour can be captured in the code, for projects that are looking
-to abide by a code of ethics, such as the IEEE Code of Ethics \citep{IEEE1999},
-or the Professional Engineers of Ontario code of ethics \citep[p.\
+to abide by a code of ethics, such as the IEEE Code of Ethics \cite{IEEE1999},
+or the Professional Engineers of Ontario code of ethics \cite[p.\
 23--24]{PEO2021}.
 
 \item \textbf{Code Style Guidelines} present standards for writing code. Style
 guides codify such elements as formatting, commenting, naming identifiers, best
-practices and dangers to avoid \citep{Carty2020}. For instance, most coding
+practices and dangers to avoid \cite{Carty2020}. For instance, most coding
 style guides will specify using ALLCAPS when naming symbolic constants.
 Understandability improves under standardization, since developers spend
 more time on the content of the code, and less time distracted by its style.
@@ -1172,20 +1175,20 @@ Guide}.  Linting tools, like \href{https://pypi.org/project/flake8/}{flake8} for
 Python, can be used to enforced coding styles, like the PEP8 standard.
 
 \item \textbf{A Product Roadmap} explains the vision and direction for a product
-offering \citep{MunchEtAl2019}.  Although they have different forms, all
+offering \cite{MunchEtAl2019}.  Although they have different forms, all
 roadmaps cover the following: \begin{inparaenum}[i)]
 	\item Where are we now?,
 	\item Where are we going?, and
-	\item How can we get there? \end{inparaenum} \citep{PhaalEtAl2005}. As
-stated by \citet{Pichler2012}, a product roadmap provides the following
-benefits: continuity of purpose, facilitation of collaboration, and assistance
-with prioritization. Creating a roadmap involves the following steps:
+	\item How can we get there? \end{inparaenum} \cite{PhaalEtAl2005}. A product
+roadmap provides the following benefits: continuity of purpose, facilitation of
+collaboration, and assistance with prioritization \cite{Pichler2012}. Creating a
+roadmap involves the following steps:
 \begin{inparaenum}[i)]
 	\item define and outline a strategic mission and product vision, 
 	\item scan the environment, 
 	\item revise and distill the product vision to write the product roadmap, and 
 	\item estimate the product life cycle and evaluate the mix of planned
-development efforts \end{inparaenum} \citep{VahaniittyEtAl2002}.  
+development efforts \end{inparaenum} \cite{VahaniittyEtAl2002}.  
 
 \item \textbf{Design Documentation} explicitly states the design goals and
 priorities, records the likely changes, decomposes the complex system into
@@ -1197,9 +1200,9 @@ documentation include the following:
 \begin{itemize}
 	\item Representation of the system design and class design using Unified
 	Modelling Language class diagrams. This approach is suited to
-	object-oriented design and designs that use patterns \citep{Gamma1995}.
+	object-oriented design and designs that use patterns \cite{Gamma1995}.
 	\item Rigorous documentation of the system design following the template for
-	a Module Guide (MG) \citep{ParnasEtAl1984}.  An MG organizes the modules in
+	a Module Guide (MG) \cite{ParnasEtAl1984}.  An MG organizes the modules in
 	a hierarchy by their secrets.
 	\item An explanation of the design using data flow diagrams to show typical use cases
 	for input transformation.
@@ -1211,65 +1214,64 @@ documentation include the following:
 	module's services.
 	\item A formal specification of the semantics of input/output relationships
 	and state transitions for each module using a Module Interface Specification
-	(MIS) \citep{HoffmanAndStrooper1995}. An MIS is an abstract model that
+	(MIS) \cite{HoffmanAndStrooper1995}. An MIS is an abstract model that
 	formally shows each module's access programs and the associated transitions
 	and outputs based on their state, environment, and input variables.
-	\citet{ElSheikhEtAl2004, SmithAndYu2009} show the example of an MIS for a
-	mesh generator.
+	Previous work shows the example of an MIS for a mesh generator
+	\cite{ElSheikhEtAl2004, SmithAndYu2009}.
 \end{itemize}
 
 \item \textbf{API Documentation} shows developers the services or data provided
 by the software application (or library) through such resources as its methods
-or objects \citep{MengEtAl2018}.  Understandability is improved by API
-documentation \citep{MengEtAl2018}. API documentation can be generated using
+or objects \cite{MengEtAl2018}.  Understandability is improved by API
+documentation \cite{MengEtAl2018}. API documentation can be generated using
 tools like Doxygen, pydoc, and javadoc.
 
 \end{itemize}
 
 The rare artifacts for MI software are similar to the rare artifacts for Lattice
-Boltzmann solvers \citep{Michalski2021}, except LBM software is more likely to
+Boltzmann solvers \cite{Michalski2021}, except LBM software is more likely to
 have developer related artifacts, like Contributing, Dependency list, and Design
 documentation.
 
 To improve MI software in the future, an increased use of checklists could help.
 Developers can use checklists to ensure they follow best practices.  Some
-examples include checklists merging branches into master \citep{Brown2015},
-checklists for saving and sharing changes to the project \citep{WilsonEtAl2016},
-checklists for new and departing team members \citep{HerouxAndBernholdt2018},
-checklists for processes related to commits and releases \citep{HerouxEtAl2008}
-and checklists for overall software quality \citep{ThielEtAl2020, SSI2022}.  For
-instance, for Lattice Boltzmann solver software, ESPResSo has a checklist for
-managing releases \citep{Michalski2021}. 
+examples include checklists merging branches into master \cite{Brown2015},
+checklists for saving and sharing changes to the project \cite{WilsonEtAl2016},
+checklists for new and departing team members \cite{HerouxAndBernholdt2018},
+checklists for processes related to commits and releases \cite{HerouxEtAl2008}
+and checklists for overall software quality \cite{ThielEtAl2020, SSI2022}.
 
 The above discussion shows that, taken together, MI projects fall somewhat short
 of recommended best practices for research software.  However, MI software is
 not alone in this.  Many, if not most, research projects fall short of best
 practices.  A gap exists in research software development practices and software
-engineering recommendations \citep{Storer2017, Kelly2007, OwojaiyeEtAl2021_CSE}.
-\citet{JohansonAndHasselbring2018} observe that the state-of-the-practice for
-research software in industry and academia does not incorporate state-of-the-art
-SE tools and methods.  This causes sustainability and reliability problems
-\citep{FaulkEtAl2009}. Rather than benefit from capturing and reusing previous
-knowledge, projects waste time and energy ``reinventing the wheel''
-\citep{deSouzaEtAl2019}.
+engineering recommendations \cite{Storer2017, Kelly2007, OwojaiyeEtAl2021_CSE}.
+Johanson and Hasselbring observe that the state-of-the-practice for research
+software in industry and academia does not incorporate state-of-the-art SE tools
+and methods \cite{JohansonAndHasselbring2018}.  This causes sustainability and
+reliability problems \cite{FaulkEtAl2009}. Rather than benefit from capturing
+and reusing previous knowledge, projects waste time and energy ``reinventing the
+wheel'' \cite{deSouzaEtAl2019}.
 
 \subsection{Threats to Validity} \label{sec_threats_to_validity}
 
 Below we categorize and list the threats to validity that we have identified.
 Our categories come from an analysis of software engineering secondary studies
-by \citet{AmpatzoglouEtAl2019}, where a secondary study analyzes the data from a
-set of primary studies.  \citet{AmpatzoglouEtAl2019} is appropriate because a
-common example of a secondary study is a systematic literature review. Our
-methodology is a systematic software review --- the primary studies are the
-software packages, and our work collects and analyzes these primary studies.  We
-identified similar threats to validity in our assessment of the state of the
-practice of Lattice Boltzmann Solvers \citep{SmithEtAl2024}.
+by Ampatzoglou et al.\ \cite{AmpatzoglouEtAl2019}, where a secondary study
+analyzes the data from a set of primary studies.  Ampatzoglou et al.\ is
+appropriate because a common example of a secondary study is a systematic
+literature review. Our methodology is a systematic software review --- the
+primary studies are the software packages, and our work collects and analyzes
+these primary studies.  We identified similar threats to validity in our
+assessment of the state of the practice of Lattice Boltzmann Solvers
+\cite{SmithEtAl2024}.
 
 \subsubsection{Reliability}
 
 A study is reliable if repetition of the study by different researchers using
 the original study's methodology would lead to the same results
-\citep{RunesonAndHost2009}. Reliability means that data and analysis are
+\cite{RunesonAndHost2009}. Reliability means that data and analysis are
 independent of the specific researcher(s) doing the study.  For the current
 study the identified reliability related threats are as follows:
 
@@ -1282,26 +1284,26 @@ Over this time the software repositories may have changed and the reviewer's
 judgement may have drifted.
 \end{itemize}
 
-In \citet{SmithEtAl2016} we reduced concern over the reliability risk associated
-with the reviewer's judgement by demonstrating that the measurement process is
-reasonably reproducible.  In \citet{SmithEtAl2016} we graded five software
-products by two reviewers. Their rankings were almost identical. As long as each
-grader uses consistent definitions, the relative comparisons in the AHP results
-will be consistent between graders.
+We reduced concern over the reliability risk associated with the reviewer's
+judgement by demonstrating that the measurement process is reasonably
+reproducible \cite{SmithEtAl2016}.  In previous work \cite{SmithEtAl2016} we
+graded five software products by two reviewers. Their rankings were almost
+identical. As long as each grader uses consistent definitions, the relative
+comparisons in the AHP results will be consistent between graders.
 
 \subsubsection{Construct Validity}
 
-\citet{RunesonAndHost2009} defines construct validity as the adopted
-metrics representing what they are intended to measure. Our construct threats are
-often related to how we assume our measurements influences the various software
-qualities, as summarized in Section~\ref{sec_grading_software}. Specifically,
-our construct validity related threats include the following:
+Runeson and Host \cite{RunesonAndHost2009} define construct validity as the
+adopted metrics representing what they are intended to measure. Our construct
+threats are often related to how we assume our measurements influences the
+various software qualities, as summarized in Section~\ref{sec_grading_software}.
+Specifically, our construct validity related threats include the following:
 
 \begin{itemize}
 \item We make indirect measurement of software qualities since meaningful direct
 measures for qualities like maintainability, reusability and verifiability, are
 unavailable.  We follow the usual assumption that developers achieve higher
-quality by following procedures and adhering to standards \citep[p.\
+quality by following procedures and adhering to standards \cite[p.\
 112]{VanVliet2000}.
 \item As mentioned in Section~\ref{sec_result_installability}, we could not
 install or build \textit{dwv}, \textit{GATE}, and \textit{DICOM Viewer}. We used
@@ -1336,7 +1338,7 @@ essentially the same information.
 \subsubsection{Internal Validity} \label{Sec_InternalValidity}
 
 Internal validity means that discovered causal relations are trustworthy and
-cannot be explained by other factors \citep{RunesonAndHost2009}. In our
+cannot be explained by other factors \cite{RunesonAndHost2009}. In our
 methodology the internal validity threats include the following:
 
 \begin{itemize}
@@ -1354,7 +1356,7 @@ outside their repos, possibly in journal papers or technical reports.
 \subsubsection{External Validity}
 
 If the results of a study can be generalized (applied) to other
-situations/cases, then the study is externally valid \citep{RunesonAndHost2009}.
+situations/cases, then the study is externally valid \cite{RunesonAndHost2009}.
 We are confident that our search was exhaustive.  We do not believe that we
 missed any highly popular examples.  Therefore, the bulk of our validity
 concerns are internal (Section~\ref{Sec_InternalValidity}).
@@ -1368,7 +1370,7 @@ fundamentally different from other research software.
 \end{itemize}
 
 Although there are differences, like the importance of data privacy for MI data,
-we found the approach to developing LBM software \citep{SmithEtAl2024} and MI
+we found the approach to developing LBM software \cite{SmithEtAl2024} and MI
 software to be similar.  Except for the domain specific aspects, we believe that
 the trends observed in the current study are externally valid for other research
 software.
@@ -1477,7 +1479,7 @@ Balaci for advice on web applications.
 On behalf of all authors, the corresponding author states that there is no
 conflict of interest.
 
-\bibliographystyle{ACM-Reference-Format}
+\bibliographystyle{plain}
 \bibliography{SOP_MI_OSR}
 
 \end{document}
