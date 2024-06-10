@@ -192,7 +192,7 @@ Finally, Picture Archiving and Communication System (PACS), which helps users to
 economically store and conveniently access images \citep{Choplin1992}, are
 considered out of scope. 
 
-\subsection{Methodology}
+\subsection{Methodology} \label{SecMethodology}
 
 We designed a general methodology to assess the state of the practice for
 research software \citep{SmithEtAl2021, SmithAndMichalski2022}.  Our methodology
@@ -785,9 +785,9 @@ popularity of projects as judged by the scientific community, we make two
 comparisons: 
 
 \begin{itemize} 
-\item A comparison of our ranking (from
-Section~\ref{ch_results}) with the community ratings on GitHub, as shown by
-GitHub stars, number of forks, and number of people watching the projects; and,
+\item A comparison of our ranking (from Section~\ref{ch_results}) with the
+community ratings on GitHub, as shown by GitHub stars, number of forks, and
+number of people watching the projects; and,
 \item A comparison of top-rated software from our methodology with the top
 recommendations from our domain expert (as mentioned in
 Section~\ref{sec_vet_software_list}).
@@ -814,11 +814,11 @@ In some cases projects are popular in the community, but were assigned a low
 rank by our methodology.  This is the case for \textit{dwv}. The reason for the
 low ranking is that, as mentioned in Section~\ref{sec_result_installability}, we
 failed to build it locally, and used the test version on its websites for the
-measurements. We followed the instructions and tried to run the command ``yarn
-run test'' locally, which did not work. In addition, the test version did not
-detect a broken DICOM file and displayed a blank image as described in
-Section~\ref{sec_result_robustness}. We might underestimate the scores for
-\textit{dwv} due to uncommon technical issues. 
+measurements. We followed the instructions and tried to run the command
+\texttt{yarn run test} locally, which did not work. In addition, the test
+version did not detect a broken DICOM file and displayed a blank image as
+described in Section~\ref{sec_result_robustness}. We might underestimate the
+scores for \textit{dwv} due to uncommon technical issues. 
 
 We also ranked \textit{DICOM Viewer} much lower than its popularity. As
 mentioned in Section~\ref{sec_result_installability}, it depended on the
@@ -885,7 +885,8 @@ popularity, as estimated by the number of new stars per year)}
 \end{table}
 \endgroup
 
-As shown in Section~\ref{sec_software_selection}, our domain experts recommended
+% The Domain Expert part can be removed if space is needed
+As shown in Section~\ref{ch_results}, our domain experts recommended
 a list of top software with 12 software products.  All the top 4 entries from
 the Domain Expert's list are among the top 12 ranked by our methodology. Three
 of the top four on both lists are the same: \textit{3D Slicer}, \textit{ImageJ},
@@ -898,7 +899,7 @@ software packages that we ranked from fifth to eleventh (\textit{ParaView},
 Lite}, \textit{INVESALIUS}, and \textit{Gwyddion}).  The software mentioned by
 the Domain Expert that we did not rank were the six recommended packages that
 did not have visualization as the primary function (as discussed in
-Section~\ref{sec_software_selection}).  The differences between the list
+Section~\ref{ch_results}).  The differences between the list
 recommended by our methodology and the Domain Expert are not surprising.  As
 mentioned above, our methodology weights all qualities equally, but that may not
 be the case for the Domain Expert's impressions.  Moreover, although the Domain
@@ -910,9 +911,7 @@ measures, they do suggest a correlation between best practices and popularity.
 We do not know which comes first, the use of best practices or popularity, but
 we do know that the top ranked packages tend to incorporate best practices. The
 next sections will explore how the practices of the MI community compare to the
-broader research software community. We will also investigate the practices from
-the top projects that others within the MI community, and within the broader
-research software community, can potentially adopt.
+broader research software community.
 
 \subsection{Comparison Between MI and Research Software for Artifacts}
 \label{Sec_CompareArtifacts}
@@ -1341,8 +1340,8 @@ cannot be explained by other factors \citep{RunesonAndHost2009}. In our
 methodology the internal validity threats include the following:
 
 \begin{itemize}
-\item In our search for software packages
-(Section~\ref{sec_software_selection}), we may have missed a relevant package.
+\item In our search for software packages (Section~\ref{ch_results}), we may
+have missed a relevant package.
 \item Our methodology assumes that all relevant software development activities
 will leave a trace in the repositories, but this is not necessarily true. For
 instance, the possibility exists that CI usage was higher than what we observed
@@ -1378,7 +1377,7 @@ software.
 
 We analyzed the state of the practice for the MI domain with the goal of
 understanding current practice by answering our four research questions
-(Section~\ref{sec_motivation}).  Our methods in Section~\ref{ch_methods} form a
+(Section~\ref{sec_motivation}).  Our methods in Section~\ref{SecMethodology} form a
 general process to evaluate domain-specific software, that we apply to the
 specific domain of MI software. We identified 48 MI software candidates, then,
 with the help of the Domain Expert selected 29 of them to our final list. 
