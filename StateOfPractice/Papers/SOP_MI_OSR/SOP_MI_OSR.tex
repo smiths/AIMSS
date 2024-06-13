@@ -71,21 +71,23 @@ Based on Open Source Repositories}
 
 \abstract{
 We present the state of the practice for Medical Imaging (MI) software based on
-data available in open source repositories. We selected 29 medical imaging
+data available in open source repositories. We selected 29 
 projects from 48 candidates and assessed 9 software qualities (installability,
 correctness/ verifiability, reliability, robustness, usability, maintainability,
 reusability, understandability, and visibility/transparency) by answering 108
-questions for each software project. Based on the quantitative data, we ranked
-the MI software with the Analytic Hierarchy Process (AHP). The top four software
-products are \textit{3D Slicer}, \textit{ImageJ}, \textit{Fiji}, and
-\textit{OHIF Viewer}.  Our ranking is consistent with the community's
-ranking, with four of our top five projects also appearing in the top five of a
-list ordered by stars-per-year.  We observed 88\% of the documentation artifacts
-recommended by research software development guidelines.  However, the current
-state of the practice deviates from the existing guidelines because of the
-rarity of some recommended artifacts (like test plans, requirements
-specification, code of conduct, code style guidelines, product roadmaps, and
-Application Program Interface (API) documentation).
+questions for each. Using the Analytic Hierarchy Process (AHP) on the
+quantitive data, we ranked the MI software.  The top five are \textit{3D
+Slicer}, \textit{ImageJ}, \textit{Fiji}, \textit{OHIF Viewer}, and
+\textit{ParaView}.  This is consistent with the community's, with four of
+these also appearing in the top five using GitHub metrics (stars-per-year).  
+In general, the quality and quantity of documentation present in the
+project correlates quite well with its popularity.
+%We observed 88\% of the documentation artifacts
+%recommended by research software development guidelines.  However, the current
+%state of the practice deviates from the existing guidelines because of the
+%rarity of some recommended artifacts (like test plans, requirements
+%specification, code of conduct, code style guidelines, product roadmaps, and
+%Application Program Interface (API) documentation).
 }
 
 \keywords{
@@ -101,74 +103,58 @@ Application Program Interface (API) documentation).
 
 \section{Introduction} \label{ch_intro}
 
-We aim to study the state of software development practice for Medical Imaging
+We study the state of software development practice for Medical Imaging
 (MI) software using data available in open source repositories.  MI tools use
 images of the interior of the body (from sources such as Magnetic Resonance
 Imaging (MRI), Computed Tomography (CT), Positron Emission Tomography (PET) and
 Ultrasound) to provide information for diagnostic, analytic, and medical
-applications. Through MI medical practitioners and
-researchers can noninvasively gain insights into the human body, including
-information on injuries and illnesses. Given the importance of MI software and
-the high number of competing software projects, we wish to understand the merits
-and drawbacks of the current development processes, tools, and methodologies. We
-aim to assess through a software engineering lens the quality of the existing
-software with the hope of highlighting standout examples, and providing
-guidelines and recommendations for future development.
+applications. Given its importance, we want to understand the merits and
+drawbacks of the current development processes, tools, and methodologies. We
+use a software engineering lens to assess the quality of existing MI software
+and provide recommendations for future development.
 
 \subsection{Research Questions} \label{sec_motivation}
 
-Not only do we wish to gain insight into the state of the practice for MI
-software, we also wish to understand the impact of the often cited gap, or
-chasm, between software engineering and research software \cite{Storer2017}. Although scientists spend a substantial proportion of their working
-hours on software development \cite{Hannay2009, Prabhu2011}, many developers
-learn software engineering skills by themselves or from their peers, instead of
-from proper training \cite{Hannay2009}. In the past many scientists have shown
-ignorance and indifference to standard software engineering concepts
-\cite{Hannay2009}. For instance, according to a survey by Prabhu in 2011
-\cite{Prabhu2011}, more than half of their 114 subjects did not use a proper
-debugger when coding.
+As well as state of the practice (SOP) for MI software, we would like to
+understand the impact of the often cited gap (chasm!) between recommended
+software engineering practices and that used for most research 
+software~\cite{Storer2017}. Although scientists spend
+a substantial proportion of their working times on software development
+\cite{Hannay2009, Prabhu2011}, few are formally trained~\cite{Hannay2009}.
 
-To gain insight, we devised 10 research questions, which can be applied to MI,
-as well as to other domains, of research software \cite{SmithEtAl2021,
-SmithAndMichalski2022}.  We designed the questions to learn about the
-community's interest in, and experience with, software artifacts, tools,
-principles, processes, methodologies, and qualities.  When we mention artifacts
-we mean the documents, scripts and code that constitutes a software development
-project. Example artifacts include requirements, specifications, user manuals,
-unit tests, system tests, usability tests, build scripts, API (Application
-Programming Interface) documentation, READMEs, license documents, process
-documents, and code.  Once we have learned what MI developers do, we then put
-this information in context by contrasting MI software against the trends shown
-by developers in other research software communities.
+%We have a standard set of questions designed to assess the qualities of any
+%research software project \cite{SmithEtAl2021, SmithAndMichalski2022}. We
+%particularly focus on \emph{software artifactcs}, i.e.
+%the documents, scripts and code that constitutes a software development
+%project. Example artifacts include requirements, specifications, user manuals,
+%unit tests, system tests, usability tests, build scripts, API (Application
+%Programming Interface) documentation, READMEs, license documents, process
+%documents, and code.  %Once we have learned what MI developers do, we then put
+%% this information in context by contrasting MI software against the trends shown
+%% by developers in other research software communities.
 
-We based the structure of the paper on the research questions, so for each
-research question below we point to the section that contains our answer.  We
-start with identifying the relevant examples of MI software for the assessment
-exercise:
-
+Our investigation is based on the following four research questions:
 \begin{enumerate}
-	\item[RQ\refstepcounter{rqnum}\therqnum \label{RQ_WhatProjects}:] What MI
-	software projects exist, with the constraint that the source code must be
-	available for all identified projects? (Section~\ref{ch_results})
-	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_HighestQuality}:] Which
-	of the projects identified in \rqref{RQ_WhatProjects} follow current best
-	practices, based on evidence found by experimenting with the software and
-	searching the artifacts available in each project's repository?
-	(Section~\ref{ch_results})
-	\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_CompareHQ2Popular}:] How
-	similar is the list of top projects identified in \rqref{RQ_HighestQuality}
-	to the most popular projects, as viewed by the scientific community?
-	(Section~\ref{Sec_VsCommunityRanking})
-    \item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_CompareArtifacts}:] How
-	do MI projects compare to research software in general with respect to the
-	artifacts present in their repositories?
-	(Section~\ref{Sec_CompareArtifacts})
+\item[RQ\refstepcounter{rqnum}\therqnum \label{RQ_WhatProjects}:] What MI
+\textbf{open source} software projects exist? (Section~\ref{ch_results})
+\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_HighestQuality}:] Establish
+quantitative measurements of those project's development practices. From
+these measures, which of those projects follow best practices?
+(Section~\ref{ch_results})
+\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_CompareHQ2Popular}:] How
+similar are the top projects identified in \rqref{RQ_HighestQuality}
+to the most popular projects as viewed by the community?
+(Section~\ref{Sec_VsCommunityRanking})
+\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_CompareArtifacts}:] How
+do MI projects compare to general research software with respect to the
+artifacts present in their repositories?
+(Section~\ref{Sec_CompareArtifacts})
 \end{enumerate}
 
 \subsection{Scope} \label{sec_scope}
 
-To make the project feasible, we only cover MI visualization software.  As a
-consequence we are excluding many other categories of MI software, including
+We only cover MI visualization software.  We exclude
+other categories of MI software, including
 Segmentation, Registration, Visualization, Enhancement, Quantification,
 Simulation, plus MI archiving and telemedicine systems (Compression, Storage,
 and Communication).  We also exclude Statistical Analysis and Image-based
@@ -180,75 +166,68 @@ economically store and conveniently access images, are considered out of scope.
 
 \subsection{Methodology} \label{SecMethodology}
 
-We designed a general methodology to assess the state of the practice for
-research software \cite{SmithEtAl2021, SmithAndMichalski2022}.  Our methodology
-has been applied to MI software and Lattice Boltzmann Solvers
-\cite{SmithEtAl2024}.  This methodology builds off prior work to assess the
+We have a standard set of questions designed to assess the qualities of any
+research software project~\cite{SmithEtAl2021, SmithAndMichalski2022}.
+This has been applied to MI software and Lattice Boltzmann Solvers
+\cite{SmithEtAl2024}.  This builds off prior work to assess the
 state of the practice for such domains as Geographic Information Systems
 \cite{smith2018state}, Mesh Generators \cite{smith2016state}, Seismology
 software \cite{Smith2018Seismology}, and Statistical software for psychology
-\cite{smith2018statistical}.  In keeping with the previous methodology, we have
-maintained the constraint that the work load for measuring a given domain should
-be feasible for a team as small as one person, and for a short time, ideally
-around a person month of effort. We consider a person month as $20$ working days
-($4$ weeks in a month, with $5$ days of work per week) at $8$ person hours per
-day, or $20 \times 8 = 160$ person hours.
+\cite{smith2018statistical}.  We maintain the previous constraint that the
+work load for measuring a given domain should take around one person-month's
+worth of effort ($20$ working days at $8$ person-hours per day).
 
-With our methodology, we first choose a research software domain (in the current
-case MI) and identify a list of about 30 software packages. (For measuring MI we
-used 29 software packages.)  The selected packages are vetted by a domain
-expert. We approximately measure the qualities of each package by filling in a
-grading template. The grader looks at the contents of the open source repository
-and repository based metrics, such as the number of files, number of lines of
-code, percentage of issues that are closed, etc.  With the quantitative data in
-the grading template, we rank the software with the Analytic Hierarchy Process
-(AHP). Further details on interaction with the domain expert, software
-qualities, grading the software and AHP are found below and in
-\cite{SmithEtAl2024_MI_SOP}.
+We identify a list of potential packages (through online searches) which is
+then filtered and vetted by a domain expert. We aim for roughly $30$
+packages. For each remaining package, we measure its qualities by filling in a
+grading template~\cite{SmithEtAl2021}.  This data is used to rank the projects
+with AHP.  Further details on interaction with the domain expert, software
+qualities, grading the software and AHP are summarizes below and in longer form
+in~\cite{SmithEtAl2024_MI_SOP}.
 
-\subsubsection{Interaction With Domain Expert} \label{sec_vet_software_list}
+\subsubsection{Domain Expert} \label{sec_vet_software_list}
 
-The Domain Experts vet the proposed list of software packages and the AHP
-ranking.  Doing these tasks with non-experts runs the risk of trusting
-inaccurate resources and overlooking the tacit knowledge of an expert. For the
-current assessment, our Domain Expert (and paper co-author) is Dr.\ Michael
-Noseworthy, Professor of Electrical and Computer Engineering at McMaster
-University, Co-Director of the McMaster School of Biomedical Engineering, and
-Director of Medical Imaging Physics and Engineering at St.\ Joseph's Healthcare,
-Hamilton, Ontario, Canada.  
+The Domain Expert vets the proposed list. For too many domains, there are
+online resources that are wildly inaccurate, which only an expert can correct.
+(Details of our domain expert removed for double-blind).
+%The Domain Experts vet the proposed list of software packages and the AHP
+%ranking.  Doing these tasks with non-experts runs the risk of trusting
+%inaccurate resources and overlooking the tacit knowledge of an expert. For the
+%current assessment, our Domain Expert (and paper co-author) is Dr.\ Michael
+%Noseworthy, Professor of Electrical and Computer Engineering at McMaster
+%University, Co-Director of the McMaster School of Biomedical Engineering, and
+%Director of Medical Imaging Physics and Engineering at St.\ Joseph's Healthcare,
+%Hamilton, Ontario, Canada.  
 
 In advance of the first meeting with the Domain Expert, they are asked to
-create a list of top software packages in the domain.  This is done to help
-the expert get in the right mind set in advance of the meeting.  Moreover,
-by doing the exercise in advance, we avoid the potential pitfall of the expert
-approving the discovered list of software without giving it adequate thought.
+independently create a list of top software packages in the domain.  This helps
+get the expert's knowledge refreshed in advance of the meeting.
 
 \subsubsection{Software Qualities} \label{sec_software_quality}
 
 Quality is defined as a measure of the excellence or worth of an entity.  As is
-common practice, we do not think of quality as a single measure, but rather as a
-set of measures.  That is, quality is a collection of different qualities, often
-called ``ilities.''  For this study we selected 9 qualities to measure:
+common practice, we do not think of quality as a single measure, but rather as
+a set of measures.  That is, quality is a collection of different qualities,
+often called ``ilities.''  For this study we selected 9 qualities to measure:
 installability, correctness/ verifiability, reliability, robustness, usability,
 maintainability, reusability, understandability, and visibility/transparency.
-With the exception of installability, all the qualities are defined in Ghezzi et
-al. (2003) \cite{GhezziEtAl2003}. Installability is defined as the effort
+With the exception of installability, all the qualities are defined in Ghezzi
+et al. (2003) \cite{GhezziEtAl2003}. Installability is defined as the effort
 required for the installation and/or uninstallation of software in a specified
 environment \cite{ISO/IEC25010}.
 
-\subsubsection{Grading Software} \label{sec_grading_software}
+\subsubsection{Grading} \label{sec_grading_software}
 
-We grade the selected software using an existing measurement template
-\cite{SmithEtAl2021}.  The template provides measures of the qualities listed in
-Section~\ref{sec_software_quality}.  For each software package, we fill in the
-template questions. To stay within the target of 160 person hours to measure the
-domain, we allocated between one and four hours for each package. Project
-developers can be contacted for help regarding installation, if necessary, but
-we impose a cap of about two hours on the installation process, to keep the
-overall measurement time feasible.  Figure~\ref{fg_grading_template_example}
-shows an excerpt of the spreadsheet.  The spreadsheet includes a column for each
-measured software package. \cite{Dong2021-Data} provides the full set of
-measurement data.
+We use an existing template~\cite{SmithEtAl2021} that is designed to measure
+the aforementioned qualities. To stay within our given measurement time frame,
+each package gets up to five hours of time.  Project developers can be
+contacted for help regarding installation, if necessary, but we impose a cap of
+about two hours on the installation process.
+Figure~\ref{fg_grading_template_example} shows an excerpt of the measurement
+spreadsheet.  It includes a column for each measured software package.
+% \cite{Dong2021-Data} provides the full set of measurement data.
+(The full data is available on Mendeley; link will be provided after
+refereeing.)
 
 \begin{figure}[!ht]
 \includegraphics[scale=0.53]{template.pdf}
@@ -256,42 +235,43 @@ measurement data.
 \label{fg_grading_template_example}
 \end{figure}
 
-The full template consists of 108 questions categorized under 9 qualities.  We
-designed the questions to be unambiguous, quantifiable, and measurable with
-limited time and domain knowledge. We group the measures under headings for each
-quality, and one for summary information. The summary information (shown in
-Figure~\ref{fg_grading_template_example}) is the first section of the template.
-This section summarizes general information, such as the software name, purpose,
-platform, programming language, publications about the software, the first
-release and the most recent change date, website, source code repository of the
-product, number of developers, etc.  We only measure open source software that
-is ready for public use by other researchers (following the definition of the
-public category from \cite{GewaltigAndCannon2012}). Information in the summary
-section sets the context for the project, but it does not directly affect the
-grading scores.
+The full template consists of 108 questions over 9 qualities.  These
+questions are designed to be unambiguous, quantifiable, and measurable
+with constrained time and domain knowledge.
+%We
+%designed the questions to be unambiguous, quantifiable, and measurable with
+%limited time and domain knowledge. We group the measures under headings for each
+%quality, and one for summary information. The summary information (shown in
+%Figure~\ref{fg_grading_template_example}) is the first section of the template.
+%This section summarizes general information, such as the software name, purpose,
+%platform, programming language, publications about the software, the first
+%release and the most recent change date, website, source code repository of the
+%product, number of developers, etc.  We only measure open source software that
+%is ready for public use by other researchers (following the definition of the
+%public category from \cite{GewaltigAndCannon2012}). Information in the summary
+%section sets the context for the project, but it does not directly affect the
+%grading scores.
 
-For measuring each quality, we ask several questions and the typical answers are
-among the collection of ``yes'', ``no'', ``n/a'', ``unclear'', a number, a
-string, a date, a set of strings, etc. The grader assigns each quality an
-overall score, between 1 and 10, based on all the previous questions.  Several
-of the qualities use the word ``surface''.  This is to highlight that, for these
-qualities in particular, the best that we can do is a shallow measure.  For
-instance, we are not currently doing any experiments to measure usability.
-Instead, we are looking for an indication that the developers considered
-usability.  We do this by looking for cues in the documentation, like a getting
-started manual, a user manual and a statement of expected user characteristics.
+%For measuring each quality, we ask several questions and the typical answers are
+%among the collection of ``yes'', ``no'', ``n/a'', ``unclear'', a number, a
+%string, a date, a set of strings, etc. 
+The grader, after answering questions for each quality assigned an overall
+score (between 1 and 10) based on the answers.  Several of the qualities use
+the word ``surface'' to highlight that these particular qualities are a shallow
+measure.  For example, we do not do user studies for measuring usability.
+Instead, we are look signs that the developers considered usability.
 We use two freeware tools to collect repository related data:
 \href{https://github.com/tomgi/git_stats}{GitStats} and
-\href{https://github.com/boyter/scc}{Sloc Cloc and Code (scc)}.  Details on how
-we measure each quality are provided in Smith et al.\ (2024)
+\href{https://github.com/boyter/scc}{Sloc Cloc and Code (scc)}.  Further
+details on quality measurement are provided in~% Smith et al.\ (2024)
 \cite{SmithEtAl2024_MI_SOP}.
 
 \subsubsection{Analytic Hierarchy Process (AHP)} \label{sec_AHP}
 
-Saaty developed AHP in the 1970s, and people have widely used it since to make
-and analyze multiple criteria decisions \cite{VaidyaEtAl2006}. AHP organizes
+Developed by Saaty in the 1970s, AHP is widely used to 
+analyze multiple criteria decisions~\cite{VaidyaEtAl2006}. AHP organizes
 multiple criteria in a hierarchical structure and uses pairwise comparisons
-between alternatives to calculate relative ratios \cite{Saaty1990}. AHP works
+between alternatives to calculate relative ratios~\cite{Saaty1990}. AHP works
 with sets of $n$ \textit{options} and $m$ \textit{criteria}.  In our project
 $n=29$ and $m=9$ since there are 29 options (software products) and 9 criteria
 (qualities). With AHP the sum of the grades (scores) for all products for a
@@ -301,46 +281,37 @@ relative priorities between qualities.
 
 \section{Review} \label{ch_results}
 
-In this section we review the selected software packages.  We used a two-step
-process for selecting the software packages: i) identify software candidates in
-the chosen domain; and, ii) filter the list to remove less relevant members
-\cite{SmithEtAl2021}.
-
-We initially identified 48 MI candidate software projects \cite{Dong2021} from
+We initially identified 48 candidate software projects from
 the literature \cite{Bjorn2017, Bruhschwein2019, Haak2015}, on-line articles
-\cite{Emms2019, Hasan2020, Mu2019}, and forum discussions \cite{Samala2014}.  To
-reduce the length of the list to a manageable number (29 in this case), we
-filtered the original list as follows:
+\cite{Emms2019, Hasan2020, Mu2019}, and forum discussions \cite{Samala2014}.
+Then we filtered as follows:
 
 \begin{enumerate}
 
-\item We removed the packages with no source code available, such as
+\item Removed the packages with no source code available, such as
 \textit{MicroDicom}, \textit{Aliza}, and \textit{jivex}.
 
-\item We focused on the MI software that provides visualization functions, as
-described in Section~\ref{sec_scope}. Furthermore, we removed seven packages
+\item Focused on MI software that provides visualization functions.
+We removed seven packages
 that were toolkits or libraries, such as \textit{VTK}, \textit{ITK}, and
-\textit{dcm4che}.  We removed another three that were for PACS.
+\textit{dcm4che}, and another three that were for PACS.
 
-\item We removed \textit{Open Dicom Viewer}, since it has not received any
-updates in a long time (since 2011).
+\item Removed \textit{Open Dicom Viewer} as it has not received any
+updates since 2011.
 
 \end{enumerate}
 
-The Domain Expert provided a list of his top 12 software packages.  We compared
-his list to our list of 29.  We found 6 packages were on both lists: \textit{3D
-Slicer}, \textit{Horos}, \textit{ImageJ}, \textit{Fiji}, \textit{MRIcron} (we
-actually use the update version \textit{MRIcroGL}) and \textit{Mango} (we
-actually use the web version \textit{Papaya}).  Six software packages
-(\textit{AFNI}, \textit{FSL}, \textit{Freesurfer}, \textit{Tarquin},
-\textit{Diffusion Toolkit}, and \textit{MRItrix}) were on the Domain Expert
-list, but not on our filtered list.  When we examined those packages,
-we found they were out of scope, since their primary function was not
-visualization.  The Domain Expert agreed with our final choice of 29 packages.
+The Domain Expert provided a list 12 software packages.
+We found 6 packages were on both lists: \textit{3D
+Slicer}, \textit{Horos}, \textit{ImageJ}, \textit{Fiji}, \textit{MRIcron} 
+(we use its descendant \textit{MRIcroGL}) and \textit{Mango} (we
+use the web version \textit{Papaya}).  The remaining six packages were on our
+out-of-scope list. The Domain Expert agreed with our final choice of 29
+packages -- see Table~\ref{tab_final_list}. This contains summary data
+collected in the year 2020. 
 
-Table~\ref{tab_final_list} shows the 29 software packages that we measured,
-along with summary data collected in the year 2020. We arrange the items in
-descending order of LOC. We found the initial release dates (Rlsd) for most
+The projects are sorted in descending order of lines of code.
+We found the initial release dates (Rlsd) for most
 projects and marked the two unknown dates with ``?''. The date of the last
 update is the date of the latest update, at the time of measurement. We found
 funding information (Fnd) for only eight projects.  For the Number Of
@@ -398,20 +369,18 @@ Of Code (LOC))}
 
 The programming languages used in order of decreasing popularity are \CC,
 JavaScript, Java, C, Python, Pascal, Matlab.  The most popular language is \CC,
-with almost 40\% of projects (11 of 29).  The two least popular choices are
-Pascal and Matlab, with around 3\% of projects each (1 of 29).
+for 11 of 29 projects; Pascal and Matlab were each used for a single project.
 
 \subsection{Installability} \label{sec_result_installability}
 
 Figure \ref{fg_installability_scores} lists the installability scores.  We found
-installation instructions for 16 projects. Among the ones without instructions,
-\textit{BioImage Suite Web} and \textit{Slice:Drop} do not need installation,
-since they are web applications. Installing 10 of the projects required extra
-dependencies. Five of them are web applications (as shown in
-Table~\ref{tab_final_list}) and depend on a browser; \textit{dwv}, \textit{OHIF
-Viewer}, and \textit{GATE} needs extra dependencies to build; \textit{ImageJ}
-and	\textit{Fiji} need an unzip tool; \textit{MatrixUser} is based on Matlab;
-\textit{DICOM Viewer} needs to work on a Nextcloud platform.
+installation instructions for 16 projects, but two did not need them
+(\textit{BioImage Suite Web} and \textit{Slice:Drop})
+as they are web applications. 10 of the projects required extra
+dependencies: Five depend on a specific browser; \textit{dwv}, \textit{OHIF
+Viewer}, and \textit{GATE} needs extra libraries to build; \textit{ImageJ} and
+\textit{Fiji} need an unzip tool; \textit{MatrixUser} needs Matlab;
+\textit{DICOM Viewer} needs a Nextcloud platform.
 
 \begin{figure}[!ht]
 \includegraphics[scale=0.38]{installability_scores.pdf}
@@ -419,18 +388,9 @@ and	\textit{Fiji} need an unzip tool; \textit{MatrixUser} is based on Matlab;
 \label{fg_installability_scores}
 \end{figure}
 
-\textit{3D Slicer} has the highest score because it had easy to follow
-installation instructions, and an automated, fast, frustration-free installation
-process. The installer added all dependencies automatically and no errors
-occurred during the installation and uninstallation steps. Many other software
-packages also had installation instructions and automated installers.  We had no
-trouble installing the following packages: \textit{INVESALIUS 3},
-\textit{Gwyddion}, \textit{XMedCon}, and \textit{MicroView}. We determined their
-scores based on the understandability of the instructions, installation steps,
-and user experience. Since \textit{BioImage Suite Web} and \textit{Slice:Drop}
-needed no installation, we gave them high scores. \textit{BioImage Suite Web}
-also provided an option to download cache for offline usage, which was easy to
-apply.
+The scores are based on the ease of following the installation instructions,
+and automated installation and uninstallation process. There were no issues
+for all but the bottom four, just various degrees of ease and automation.
 
 \textit{GATE}, \textit{dwv}, and \textit{DICOM Viewer} showed severe
 installation problems. We were not able to install them, even after a reasonable
@@ -438,25 +398,18 @@ amount of time (2 hours).  For \textit{dwv} and \textit{GATE} we failed to build
 from the source code, but we were able to proceed with measuring other qualities
 using a deployed on-line version for \textit{dwv}, and a VM version for
 \textit{GATE}. For \textit{DICOM Viewer} we could not install the NextCloud
-dependency, and we did not have another option for running the software.
-Therefore, for \textit{DICOM Viewer} we could not measure reliability or
-robustness.  The other seven qualities could be measured, since they do not
-require installation.
+dependency, and thus could not measure reliability nor robustness for it.
 
-\textit{MatrixUser} has a lower score because it depends on Matlab. We assessed
-the score from the point of view of a user that would have to install Matlab and
-acquire a license.  Of course, for users that already work within Matlab, the
-installability score should be higher.
+\textit{MatrixUser} depends on Matlab, whose installation is not easy.
+For users who already have Matlab, this score should be higher.
 
 \subsection{Correctness \& Verifiability} \label{sec_result_correctness_verifiability}
 
-Figure~\ref{fg_correctness_verifiability_scores} shows the scores of correctness
-and verifiability. Generally speaking, the packages with higher scores adopted
-more techniques to improve correctness, and had better documentation for us to
-verify against.  For instance, we looked for evidence of unit testing, since it
-benefits most parts of the software's life cycle, such as designing, coding,
-debugging, and optimization \cite{Hamill2004}.  We only found evidence of unit
-testing for about half of the projects. We identified five projects using CI/CD
+The packages with higher scores for correctness and verifiability (see
+Figure~\ref{fg_correctness_verifiability_scores}) used a wider array of
+techniques to improve correctness, and had better documentation to witness
+this. For instance, we looked for evidence of unit testing, and only evidence
+for about half of the projects. We identified five projects using CI/CD
 tools: \textit{3D Slicer}, \textit{ImageJ}, \textit{Fiji}, \textit{dwv}, and
 \textit{OHIF Viewer}. 
 
@@ -467,25 +420,19 @@ tools: \textit{3D Slicer}, \textit{ImageJ}, \textit{Fiji}, \textit{dwv}, and
 \end{figure}
 
 Even for some projects with well-organized documentation, requirements
-specifications and theory manuals were still missing.  We could not identify
-theory manuals for all projects, and we did not find requirements specifications
-for most projects. The only requirements-related document we found was a road
+specifications and theory manuals were still missing.
+The only requirements-related document we found was a road
 map of \textit{3D Slicer}, which contained design requirements for upcoming
 changes.
 
 \subsection{Surface Reliability} \label{sec_result_reliability}
 
-Figure~\ref{fg_reliability_scores} shows the AHP results.  As shown in
-Section~\ref{sec_result_installability}, most of the software products did not
-``break'' during installation, or did not need installation; \textit{dwv} and
-\textit{GATE} broke in the building stage, and the processes were not
-recoverable; we could not install the dependency for \textit{DICOM Viewer}. Of
-the seven software packages with a getting started tutorial and operation steps
-in the tutorial, most showed no error when we followed the steps. However,
+Figure~\ref{fg_reliability_scores} shows the our results.  We were able to
+follow the steps in the tutorials that existed (seven packages had them.)
+However
 \textit{GATE} could not open macro files and became unresponsive several times,
 without any descriptive error message. We found that \textit{Drishti} crashed
 when loading damaged image files, without showing any descriptive error message.
-We did not find any problems with the on-line version of \textit{dwv}.
 
 \begin{figure}[!ht]
 \includegraphics[scale=0.38]{reliability_scores.pdf}
@@ -497,8 +444,8 @@ We did not find any problems with the on-line version of \textit{dwv}.
 
 Figure \ref{fg_robustness_scores} presents the scores for surface robustness.
 The packages with higher scores elegantly handled unexpected/unanticipated
-inputs, typically showing a clear error message. We may have underestimated the
-score of \textit{OHIF Viewer}, since we needed further customization to load
+inputs, typically showing a clear error message. We may have underscored
+\textit{OHIF Viewer}, since we needed further customization to load
 data.
 
 \begin{figure}[!ht]
