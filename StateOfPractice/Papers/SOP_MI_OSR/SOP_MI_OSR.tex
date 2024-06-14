@@ -443,7 +443,7 @@ when loading damaged image files, without showing any descriptive error message.
 \subsection{Surface Robustness} \label{sec_result_robustness}
 
 Figure \ref{fg_robustness_scores} presents the scores for surface robustness.
-The packages with higher scores elegantly handled unexpected/unanticipated
+The packages with higher scores elegantly handled unexpected or unanticipated
 inputs, typically showing a clear error message. We may have underscored
 \textit{OHIF Viewer}, since we needed further customization to load
 data.
@@ -456,12 +456,12 @@ data.
 
 According to their documentation, all 29 software packages should support the
 DICOM standard. To test robustness, we prepared two types of image files:
-correct and incorrect formats (with the incorrect format created by relabelled a
+correct and incorrect formats (with the incorrect format created by relabelling a
 text file to have the ``.dcm'' extension).  All software packages loaded the
 correct format image, except for \textit{GATE}, which failed for unknown
 reasons.  For the broken format, \textit{MatrixUser}, \textit{dwv}, and
-\textit{Slice:Drop} ignored the incorrect format of the file and loaded it
-regardless. They did not show any error message and displayed a blank image.
+\textit{Slice:Drop} ignored the incorrect format,
+did not show any error message and displayed a blank image.
 \textit{MRIcroGL} behaved similarly except that it showed a meaningless image.
 \textit{Drishti} successfully detected the broken format of the file, but the
 software crashed as a result.
@@ -477,7 +477,7 @@ them. We found getting started tutorials for only 11 projects, but a user manual
 for 22 projects. \textit{MRIcroGL} was the only project that explicitly
 documented expected user characteristics.
 
-\begin{figure}[!ht]
+\begin{figure}[ht]
 \includegraphics[scale=0.38]{usability_scores.pdf}
 \caption{AHP surface usability scores}
 \label{fg_usability_scores}
@@ -489,19 +489,18 @@ Figure~\ref{fg_maintainability_scores} shows the ranking results for
 maintainability. We gave \textit{3D Slicer} the highest score because we found
 it to have the most comprehensive artifacts. Only a few of the 29 projects had a
 product, developer's manual, or API documentation, and only \textit{3D Slicer},
-\textit{ImageJ}, \textit{Fiji} included all three documents. Moreover,
+\textit{ImageJ}, \textit{Fiji} included all three documents 
+(see Table~\ref{tab_maintainability_docs} the full data).  Moreover,
 \textit{3D Slicer} has a much higher percentage of closed issues (92\%) compared
 to \textit{ImageJ} (52\%) and \textit{Fiji} (64\%).
-Table~\ref{tab_maintainability_docs} shows which projects had these documents,
-in descending order of their maintainability scores. 
 
-\begin{figure}[!ht]
+\begin{figure}[ht]
 \includegraphics[scale=0.38]{maintainability_scores.pdf}
 \caption{AHP maintainability scores}
 \label{fg_maintainability_scores}
 \end{figure}
 
-\begin{table}[!ht]
+\begin{table}[ht]
 \centering
 \begin{tabular}{lccc}
 \toprule
@@ -526,31 +525,26 @@ maintainability score)}
 \label{tab_maintainability_docs}
 \end{table}
 
-Twenty-seven of the 29 projects used git as the version control tool, with 24 of
+Twenty-seven of the 29 projects used git for version control, with 24 of
 these using GitHub. \textit{AMIDE} used Mercurial and \textit{Gwyddion} used
 Subversion. \textit{XMedCon}, \textit{AMIDE}, and \textit{Gwyddion} used
 SourceForge. \textit{DicomBrowser} and \textit{3DimViewer} used BitBucket. 
 
 \subsection{Reusability} \label{sec_result_reusability}
 
-Figure~\ref{fg_reusability_scores} shows the AHP results for reusability. As
-described in Section~\ref{sec_grading_software}, we gave higher scores to the
-projects with API documentation. As shown in
-Table~\ref{tab_maintainability_docs}, seven projects had API documents. We also
-assumed that projects with more code files and less LOC per code file are more
-reusable. Table \ref{tab_loc_per_file} shows the number of text-based files by
-project, which we used to approximate the number of code files. The table also
-lists the total number of lines (including comments and blanks), LOC, and
-average LOC per file. We arranged the items in descending order of their
-reusability scores.
+API documents (see Table~\ref{tab_maintainability_docs}) also help maintainability,
+which explains some of the scores shown in
+Figure~\ref{fg_reusability_scores}. We have assumed that smaller code files are
+likely more reusable -- see
+Table \ref{tab_loc_per_file} for the details.
 
-\begin{figure}[!ht]
+\begin{figure}[ht]
 \includegraphics[scale=0.38]{reusability_scores.pdf}
 \caption{AHP reusability scores}
 \label{fg_reusability_scores}
 \end{figure}
 
-\begin{table}[!ht]
+\begin{table}[ht]
 \centering
 \begin{tabular}{lllll}
 \toprule
@@ -588,15 +582,15 @@ DicomBrowser & 54 & 7375 & 5505 & 102 \\
 dicompyler & 48 & 19201 & 15941 & 332 \\ 
 \bottomrule
 \end{tabular}
-\caption{Number of files and lines (sorted in descending order of reusability
-scores)}
+\caption{Number of files and lines (by reusability scores)}
 \label{tab_loc_per_file}
 \end{table}
 
 \subsection{Surface Understandability} \label{sec_result_understandability}
 
 Figure~\ref{fg_surface_understandability_scores} shows the scores for surface
-understandability. All projects had a consistent coding style with parameters in
+understandability. 
+All projects had a consistent coding style with parameters in
 the same order for all functions, modularized code, and, clear comments that
 indicate what is done, not how. However, we only found explicit identification
 of a coding standard for 3 out of the 29: \textit{3D Slicer}, \textit{Weasis},
@@ -607,7 +601,7 @@ projects \textit{XMedCon}, \textit{DicomBrowser}, \textit{3DimViewer},
 \textit{BioImage Suite Web}, \textit{Slice:Drop}, \textit{MatrixUser},
 \textit{DICOM Viewer}, \textit{dicompyler}, and \textit{Papaya}. 
 
-\begin{figure}[!ht]
+\begin{figure}[ht]
 \includegraphics[scale=0.38]{understandability_scores.pdf}
 \caption{AHP surface understandability scores}
 \label{fg_surface_understandability_scores}
@@ -620,10 +614,9 @@ visibility/transparency. Generally speaking, the teams that actively documented
 their development process and plans scored higher.
 Table~\ref{tab_Visibility/Transparency_docs} shows the projects that had
 documents for the development process, project status, development environment,
-and release notes, in descending order of their visibility/transparency
-scores.
+and release notes.
 
-\begin{figure}[!ht]
+\begin{figure}[ht]
 \includegraphics[scale=0.38]{visibility_transparency_scores.pdf}
 \caption{AHP visibility/transparency scores}
 \label{fg_visibility_transparency_scores}
@@ -665,12 +658,10 @@ descending order of visibility/transparency score)}
 
 \subsection{Overall Scores} \label{Sec_OverallQ}
 
-As described in Section~\ref{sec_AHP}, for our AHP measurements, we have nine
-criteria (qualities) and 29 alternatives (software packages). In the absence of
+In the absence of
 a specific real world context, we assumed all nine qualities are equally
 important. Figure~\ref{fg_overall_scores} shows the overall scores in descending
-order. Since we produced the scores from the AHP process, the total sum of the
-29 scores is precisely 1.0.
+order.
 
 \begin{figure}[!ht]
 \includegraphics[scale=0.38]{overall_scores.pdf}
