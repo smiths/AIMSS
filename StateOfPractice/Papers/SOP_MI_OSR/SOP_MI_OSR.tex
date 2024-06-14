@@ -682,70 +682,36 @@ Viewer}, but we compared it equally for the other seven qualities.
 
 \section{Discussion}
 
-In Section~\ref{Sec_VsCommunityRanking}, we compare our ranking to the MI
-software community's ranking, as a way to judge our results, and as a way to
-understand what the MI community currently values. To understand the state of
-the practice for MI software relative to other software, we compare MI software
-to other research software in Section~\ref{Sec_CompareArtifacts}.  The
-comparison is based on the artifacts our measurement exercise found in the MI
-repositories, versus what is typically recommended for research software.  We
-provide details on artifacts that are recommended but rarely observed for MI
-software. Section~\ref{sec_threats_to_validity} presents threats to the validity
-of our data and conclusions.
+We first compare our ranking to a (proxy for) the community's ranking. We then
+compare the state of the practice for MI with that of other research software.
+In particular we provide details on recommended artifacts but rarely observed
+for MI software. Section~\ref{sec_threats_to_validity} presents threats to the
+validity of our data and conclusions.
 
 \subsection{Comparison to Community Ranking} \label{Sec_VsCommunityRanking}
 
-To answer~\rqref{RQ_CompareHQ2Popular} about how our ranking compares to the
-popularity of projects as judged by the scientific community, we compare our
-ranking (from Section~\ref{ch_results}) with the community ratings on GitHub, as
-shown by GitHub stars, number of forks, and number of people watching the
-projects.
+We use GitHub stars, number of forks and number of people watching the projects
+are proxies for community ranking -- see Table~\ref{tab_ranking_vs_GitHub}
+for statistics collected in July 2021.  Recall that 24 projects use GitHub.
+Our ranking and GitHub popularity, at least for the top five projects,
+seems to line up fairly well.
 
-Table~\ref{tab_ranking_vs_GitHub} shows our ranking of the 29 MI projects, and
-their GitHub metrics, if applicable. As mentioned in
-Section~\ref{sec_score_maintainability}, 24 projects used GitHub. Since GitHub
-repositories have different creation dates, we collect the number of months each
-stayed on GitHub, and calculate the average number of new stars, people
-watching, and forks per 12 months. The items in
-Table~\ref{tab_ranking_vs_GitHub} are listed in descending order of the average
-number of new stars per year.  The non-GitHub items are listed in the order of
-our ranking.  We collected all GitHub statistics in July 2021.  
+We ranked some popular packages fairly low, such as \textit{dwv}. This is
+because we were unable to build it locally, even though we followed its
+installation instructions. But we were able to use its web
+version for the rest of the measurements. Additionally, this version 
+did not detect a broken DICOM file and instead displayed a blank image
+(Section~\ref{sec_result_robustness}).
+\textit{DICOM Viewer} ranked low as we were unable to install the
+NextCloud platform.
 
-Generally speaking, most of the top-ranking MI software projects also received
-greater attention and popularity on GitHub. Between our ranking and the GitHub
-stars-per-year ranking, four of the top five software projects appear in both
-lists. Our top five packages are scattered among the first eight positions on the
-GitHub list. However, as discussed below, there are discrepancies between the two
-lists.
-
-In some cases projects are popular in the community, but were assigned a low
-rank by our methodology.  This is the case for \textit{dwv}. The reason for the
-low ranking is that, as mentioned in Section~\ref{sec_result_installability}, we
-failed to build it locally, and used the test version on its websites for the
-measurements. We followed the instructions and tried to run the command
-\texttt{yarn run test} locally, which did not work. In addition, the test
-version did not detect a broken DICOM file and displayed a blank image as
-described in Section~\ref{sec_result_robustness}. We might underestimate the
-scores for \textit{dwv} due to uncommon technical issues. 
-
-We also ranked \textit{DICOM Viewer} much lower than its popularity. As
-mentioned in Section~\ref{sec_result_installability}, it depended on the
-NextCloud platform that we could not successfully install. Thus, we might
-underestimate the scores of its surface reliability and surface robustness. 
-
-Further reason for discrepancies between our ranking and the community's ranking
-is that we weighted all qualities equally. This is not likely how users
-implicitly rank the different qualities. As a result, some projects with high
-community popularity may have scored lower with our method because of a
-relatively higher (compared to the scientific community's implicit ranking)
-weighting of the poor scores for some qualities. A further explanation for
-discrepancies between our measures and the star measures may also be due to
-inaccuracy with using stars to approximate popularity.  Stars are not an ideal
-measure because stars represent the community's feeling in the past more than
-they measure current preferences \cite{Szulik2017}.  The issue with stars is
-that they tend only to be added, not removed.  A final reason for
-inconsistencies between our ranking and the community's ranking is that, as for
-consumer products, more factors influence popularity than just quality.
+Another likely reason for discrepancies is that we weighted all qualities
+equally. This is not likely how users implicitly rank the different qualities.
+This would require a broader user study to properly assess. Furthermore our
+measures of popularity are only \emph{proxies} which are biased towards
+past rather than current preferences~\cite{Szulik2017}, as these are
+monotonically increasing quantities. Finally there are often more factors than
+just quality that influence the popularity of ``consumer'' products.
 
 \begingroup
 \renewcommand{\arraystretch}{0.85}
@@ -793,63 +759,18 @@ popularity, as estimated by the number of new stars per year)}
 \end{table}
 \endgroup
 
-Although our ranking and the estimate of the community's ranking are not perfect
-measures, they do suggest a correlation between best practices and popularity.
-We do not know which comes first, the use of best practices or popularity, but
-we do know that the top ranked packages tend to incorporate best practices. The
-next sections will explore how the practices of the MI community compare to the
-broader research software community.
+Although both rankings are imperfect measures, they nevertheless suggest a
+correlation between best practices and popularity. We don't know if this is
+causal, in either direction (i.e. if best practices enable popularity or if
+popularity increases the need for using more software development best
+practices).
 
-\subsection{Comparison Between MI and Research Software for Artifacts}
+\subsection{Software Artifacts}
 \label{Sec_CompareArtifacts}
 
-As part of filling in the measurement template (from
-Section~\ref{sec_grading_software}), we summarized the artifacts observed in
-each MI package. Table~\ref{artifactspresent} groups the artifacts by frequency
-into categories of common (20 to 29 ($>$67\%) packages), uncommon (10 to 19
-(33-67\%) packages), and rare (1 to 9 ($<$33\%) packages).
-Tables~\ref{tab_maintainability_docs} and~\ref{tab_Visibility/Transparency_docs}
-show the details on which projects use which types of artifacts for documents
-related to maintainability and visibility, respectively.
-
-\begin{table}[ht!]
-    %\begin{center}
-    \begin{tabular}{ p{3.1 cm} p{5.4 cm} p{3.5 cm}}
-    \toprule
-    Common & Uncommon & Rare \\
-    \midrule
-    README (29) & Build scripts (18) & Getting Started (9)\\
-    Version control (29) & Tutorials (18) & Developer's manual (8)\\
-    License (28) & Installation guide (16) & Contributing (8)\\
-    Issue tracker (28) & Test cases (15) & API documentation (7)\\
-    User manual (22) & Authors (14) & Dependency list (7)\\
-    Release info. (22) & Frequently Asked Questions (FAQ) (14) & Troubleshooting guide (6)\\
-     & Acknowledgements (12) & Product roadmap (5)\\
-     & Changelog (12) & Design documentation (5)\\
-     & Citation (11) & Code style guide (3)\\
-     & & Code of conduct (1)\\
-     & & Requirements (1)\\
-    \bottomrule
-    \end{tabular}
-    \caption{Artifacts Present in MI Packages, Classified by Frequency (The number 
-    in brackets is the number of occurrences)}
-    \label{artifactspresent}
-    %\end{center}
-\end{table}
-
-We answer~\rqref{RQ_CompareArtifacts} by comparing the artifacts that we
-observed in MI repositories to those observed and recommended for research
-software in general. Our comparison may point out areas where some MI software
-packages fall short of current best practices. This is not intended to be a
-criticism of any existing packages, especially since for practical reasons not
-every project has the resources to achieve the highest possible quality.
-However, rather than delve into the nuances of which software can justify
-compromising which practices, we will write our comparison under the ideal
-assumption that every project has sufficient resources to match best practices.
-    
-Table~\ref{Tbl_Guidelines} (based on data from \cite{SmithAndMichalski2022})
-shows that MI artifacts generally match the recommendations found in nine
-current research software development guidelines:
+We use nine research software development guidelines to measure what
+software artifacts are present in MI software, versus those recommended.
+These guidelines are:
 \begin{itemize}
 \item United States Geological Survey Software Planning Checklist
 \cite{USGS2019},
@@ -869,34 +790,7 @@ Guidelines for Software Quality \cite{vanGompelEtAl2016}, and
 Projects \cite{OrvizEtAl2017}.
 \end{itemize}
 
-In Table~\ref{Tbl_Guidelines} each row corresponds to an artifact.  For a given
-row, a checkmark in one of the columns means that the corresponding guideline
-recommends this artifact.  The last column shows whether the artifact appears in
-the measured set of MI software, either not at all (blank), commonly (C),
-uncommonly (U) or rarely (R).  We did our best to interpret the meaning of each
-artifact consistently between guidelines and specific MI software, but the
-terminology and the contents of artifacts are not standardized.  The challenge
-even exists for the ubiquitous README file.  The content of README files shows
-significant variation between projects \cite{PranaEtAl2018}.  Although some
-content is reasonably consistent, with 97\% of README files contain at least one
-section describing the `What' of the repository and 89\% offering some `How'
-content, other categories are more variable.  For instance, information on
-`Contribution', `Why', and `Who', appear in 28\%, 26\% and 53\% of the analyzed
-files, respectively \cite{PranaEtAl2018}.  
-
-The frequency of checkmarks in Table~\ref{Tbl_Guidelines} indicates the
-popularity of recommending a given artifact, but it does not imply that the most
-commonly recommended artifacts are the most important artifacts. Just because a
-guideline does not explicitly recommend an artifact, does not mean the guideline
-authors do not value it.  They may have excluded it because it is out of the
-scope of their recommendations, or outside their experience.  For instance, an
-artifact related to uninstall is only explicitly mentioned by one set of
-guidelines \cite{vanGompelEtAl2016}, but other guideline authors would likely
-see its value.  They may simply feel that uninstall is implied by install, or
-they may have never asked themselves whether they need separate uninstall
-instructions.
-
-\begin{table}[h]
+\begin{table}[ht]
 %\begin{center}
 \begin{tabular}{ p{2.5cm}p{0.5cm}p{0.5cm}p{0.5cm}p{0.5cm}p{0.5cm}p{0.5cm}p{0.5cm}p{0.5cm}p{0.5cm}p{0.5cm} }
 \toprule
@@ -950,184 +844,131 @@ to Artifacts in MI Projects (C for Common, U for Uncommon and R for Rare)}
 %\end{center}
 \end{table}
 
-Two of the items that appear in Table~\ref{artifactspresent} do not appear in
-the software development guidelines shown in Table~\ref{Tbl_Guidelines}:
-Troubleshooting guide and Developer's manual.  Although the guidelines do not
-name these two artifacts, the information contained within them overlaps with
-the recommended artifacts.  A Troubleshooting guideline contains information
-that would typically be found in a User manual.  A Developer's guide overlaps
-with information from the README, INSTALL, Uninstall, Dependency List, Release
-Information, API documentation and Design documentation.  In our current
-analysis, we have identified artifacts by the names given by the software
-guidelines and MI examples.  In the future, a more in-depth analysis would look
-at the knowledge fragments that are captured in the artifacts, rather than
-focusing on the names of the files that collect these fragments together.
+In Table~\ref{Tbl_Guidelines} each row corresponds to an artifact.  For a given
+row, a checkmark in one of the columns means that the corresponding guideline
+recommends this artifact.  The last column shows whether the artifact appears in
+the measured set of MI software, either not at all (blank), commonly (C),
+uncommonly (U) or rarely (R).  We did our best to interpret the meaning of each
+artifact consistently between guidelines and specific MI software, but the
+terminology and the contents of artifacts are not standardized.  The challenge
+even exists for the ubiquitous README file.  The content of README files shows
+significant variation between projects \cite{PranaEtAl2018}.  Although some
+content is reasonably consistent, with 97\% of README files contain at least one
+section describing the `What' of the repository and 89\% offering some `How'
+content, other categories are more variable.  For instance, information on
+`Contribution', `Why', and `Who', appear in 28\%, 26\% and 53\% of the analyzed
+files, respectively \cite{PranaEtAl2018}.  
 
-Although the MI community shows examples of 88\% (23 of 26) of the practices we
-found in research software guidelines (Table~\ref{Tbl_Guidelines}), we did not
-observe three recommended artifacts: i) Uninstall, ii) Test plans, and iii)
-Requirements.  Uninstall is likely an omission caused by the focus on installing
-software. Given the storage capacity of current hardware, developers and users
-are not generally concerned with uninstall.  Moreover, as mentioned above,
-uninstall is not particularly emphasized in existing recommendations.  
+\begin{table}[ht!]
+    %\begin{center}
+    \begin{tabular}{ p{3.1 cm} p{5.4 cm} p{3.5 cm}}
+    \toprule
+    Common & Uncommon & Rare \\
+    \midrule
+    README (29) & Build scripts (18) & Getting Started (9)\\
+    Version control (29) & Tutorials (18) & Developer's manual (8)\\
+    License (28) & Installation guide (16) & Contributing (8)\\
+    Issue tracker (28) & Test cases (15) & API documentation (7)\\
+    User manual (22) & Authors (14) & Dependency list (7)\\
+    Release info. (22) & Frequently Asked Questions (FAQ) (14) & Troubleshooting guide (6)\\
+     & Acknowledgements (12) & Product roadmap (5)\\
+     & Changelog (12) & Design documentation (5)\\
+     & Citation (11) & Code style guide (3)\\
+     & & Code of conduct (1)\\
+     & & Requirements (1)\\
+    \bottomrule
+    \end{tabular}
+    \caption{Artifacts Present in MI Packages, Classified by Frequency (The number 
+    in brackets is the number of occurrences)}
+    \label{artifactspresent}
+    %\end{center}
+\end{table}
 
-Test plans describe the scope, approach, resources, and the schedule of planned
-test activities \cite{VanVliet2000}.  The plan should cover details such as the
-makeup of the testing team, automated testing tools and technology to employ,
-the testing process, system tests, integration tests and unit tests. We did not
-observe test plans for MI software, but that doesn't mean plans weren't created;
-it means that the plans are not under version control. Test plans would have to
-at least be implicitly created, since we observed test cases with reasonable
-frequency for MI software (test cases are categorized as uncommon).
+Table~\ref{artifactspresent} presents our measurements for MI software.
+It groups the artifacts by frequency
+into categories of common (20 to 29 ($>$67\%) packages), uncommon (10 to 19
+(33-67\%) packages), and rare (1 to 9 ($<$33\%) packages).
+Tables~\ref{tab_maintainability_docs} and~\ref{tab_Visibility/Transparency_docs}
+show the details on which projects use which types of artifacts for documents
+related to maintainability and visibility, respectively.
 
-The other apparently neglected document is the requirements specification, which
-records the functionalities, expected performance, goals, context, design
-constraints, external interfaces and other quality attributes of the software
-\cite{IEEE1998}.  If developers write requirements they typically are based on a
-template, which provide documentation structure, guidelines, and rules.
-Although there is no universally accepted template, examples exist
-\cite{IEEE1998, NASA1989, RobertsonAndRobertson1999Vol}.
+Note that ``popularity'' in Table~\ref{Tbl_Guidelines} does no imply that these
+oft recommended artifacts are the most important. Guidelines are often brief,
+to encourage adoption, and thus even guidelines that mention the need for
+installation instructions rarely mention uninstallation instructions.
+Two items in Table~\ref{artifactspresent} do not appear in any guidelines:
+\emph{Troubleshooting guide} and \emph{Developer's manual}.  However the
+information within these documents overlaps with
+the recommended artifacts.  Troubleshooting information often can be found in
+a User Manual, while the information in a ``Developer's Manual'' is often
+scattered amongst many other documents.
+Three of the 26 recommended artifacts were never observed:
+i) Uninstall, ii) Test plans, and iii) Requirements. It is possible that
+some of these were created but never put under version control.
 
-MI software is like other research software in its neglect of requirements
-documentation.  Although requirements documentation is recommended by some
+It is unfortunately common for research software to neglect requirements
+documentation, and MI software is no exception.
+Although such documentation is recommended by some
 \cite{TobiasEtAl2018, HerouxEtAl2008, SmithAndKoothoor2016}, in practice
-research software developers often do not produce a proper requirements
-specification \cite{HeatonAndCarver2015}. Sanders and Kelly
+this is rare~\cite{HeatonAndCarver2015}. Sanders and Kelly
 \cite{SandersAndKelly2008} interviewed 16 scientists from 10 disciplines and
 found that none of the scientists created requirements specifications, unless
 regulations in their field mandated such a document.  Requirements are the least
 commonly produced type of documentation for research software in general
-\cite{Nguyen-HoanEtAl2010}. When looking at the pain points for research
-software developers, software requirements and management is the software
-engineering discipline that most hurts scientific developers, accounting for
-23\% of the technical problems \cite{WieseEtAl2019}.  The lack of support for
-requirements is likely due to the perception that up-front requirements are
-impossible for research software \cite{CarverEtAl2007, SegalAndMorris2008}, but
-if we drop the insistence on ``up-front'' requirements, allowing instead for the
-requirements to be written iteratively and incrementally, requirements are
-feasible \cite{Smith2016}.  Smith et al. provide a requirements template
-tailored to research software \cite{SmithEtAl2007}. 
+\cite{Nguyen-HoanEtAl2010}. 
 
-Table~\ref{Tbl_Guidelines} shows several recommended artifacts that are rarely
-observed in practice.  A theme among these rare artifacts is that, except for
-the user-focused getting started manual, they are developer-focused.  The
-dependency list, which is a list of software library dependencies, was rarely
-observed, but this information is still likely present, just embedded in build
-scripts. The other developer-focused and rare artifacts are as follows:
+This is quite unfortunate as when surveyed, research software developers
+identify the lack of requirements and requirements management as accounting
+gets mentioned the most often and accounts for 23\% of the technical problems
+\cite{WieseEtAl2019}.  There is unfortunately widespread perception that
+up-front requirements are impossible for research software
+\cite{CarverEtAl2007, SegalAndMorris2008}. Fortunately a more agile approach
+to requirements is feasible~\cite{Smith2016}, and research-software specific
+templates exist~\cite{SmithEtAl2007}. 
 
-\begin{itemize}
+A theme emerges amongst the artifacts rarely observed in practice: they
+are developer-focused (a list of library dependencies, a contributor's guide,
+a developer Code of Conduct, coding style guidelines, product roadmap, design
+documentation and API documentation).
 
-\item \textbf{A Contributing file} provides new contributors with the
-information that they need to start adding/modifying the repository's files.
-Abdalla \cite{Abdalla2016} provides a simple template for creating an
-open-source contributor guideline. 
+Other communities use checklists to help with best practices. Examples
+include checklists for
+merging branches~\cite{Brown2015},
+for saving and sharing changes to the project~\cite{WilsonEtAl2016},
+for new and departing team members~\cite{HerouxAndBernholdt2018},
+for processes related to commits and releases~\cite{HerouxEtAl2008}
+and for overall software quality~\cite{ThielEtAl2020, SSI2022}.
 
-\item \textbf{A Developer Code of Conduct} explicitly states the expectations
-for developers on how they should treat one another \cite{TouraniEtAl2017}.
-Three popular codes of conduct are \cite{TouraniEtAl2017}:
-\href{https://www.contributor-covenant.org/version/2/1/code_of_conduct/}
-{Contributor Covenant}, \href{https://ubuntu.com/community/code-of-conduct}
-{Ubuntu Code of Conduct}, and \href{https://www.djangoproject.com/conduct/}
-{Django Code of Conduct}. A code of conduct can improve inclusivity, which
-brings the benefit of a wider pool of contributors.  For example, a code of
-conduct can improve the participation of women \cite{SinghEtAl2021}.
-
-\item \textbf{Code Style Guidelines} present standards for writing code. Style
-guides codify such elements as formatting, commenting, naming identifiers, best
-practices and dangers to avoid \cite{Carty2020}.  Three sample style guides are:
-\href{https://google.github.io/styleguide/javaguide.html} {Google Java Style
-Guide},
-\href{http://cnl.sogang.ac.kr/cnlab/lectures/programming/python/PEP8_Style_Guide.pdf}
-{PEP8 Style Guide for Python}, and
-\href{https://google.github.io/styleguide/cppguide.html} {Google \CC Style
-Guide}.  Linting tools, like \href{https://pypi.org/project/flake8/}{flake8} for
-Python, can be used to enforced coding styles, like the PEP8 standard.
-
-\item \textbf{A Product Roadmap} explains the vision and direction for a product
-offering \cite{MunchEtAl2019}.  Although they have different forms, all
-roadmaps cover the following: \begin{inparaenum}[i)]
-	\item Where are we now?,
-	\item Where are we going?, and
-	\item How can we get there? \end{inparaenum} \cite{PhaalEtAl2005}. A product
-roadmap provides the following benefits: continuity of purpose, facilitation of
-collaboration, and assistance with prioritization \cite{Pichler2012}.
-
-\item \textbf{Design Documentation} explicitly states the design goals and
-priorities, records the likely changes, decomposes the complex system into
-separate modules, and specifies the relationship between the modules. Design
-documentation shows the syntax of the interface for the modules, and in some
-cases also documents the semantics.  Some potential elements of design
-documentation include representation of the system design and class design using
-Unified Modelling Language class diagrams \cite{Gamma1995}, or rigorous
-documentation of the system design following the template for a Module Guide
-(MG) \cite{ParnasEtAl1984}.  An MG organizes the modules in a hierarchy by their
-secrets.
-
-\item \textbf{API Documentation} shows developers the services or data provided
-by the software application (or library) through such resources as its methods
-or objects \cite{MengEtAl2018}.  Understandability is improved by API
-documentation \cite{MengEtAl2018}. API documentation can be generated using
-tools like Doxygen, pydoc, and javadoc.
-
-\end{itemize}
-
-The rare artifacts for MI software are similar to the rare artifacts for Lattice
-Boltzmann solvers \cite{SmithEtAl2024}, except LBM software is more likely to
-have developer related artifacts, like Contributing, Dependency list, and Design
-documentation.
-
-To improve MI software in the future, an increased use of checklists could help.
-Developers can use checklists to ensure they follow best practices.  Some
-examples include checklists merging branches into master \cite{Brown2015},
-checklists for saving and sharing changes to the project \cite{WilsonEtAl2016},
-checklists for new and departing team members \cite{HerouxAndBernholdt2018},
-checklists for processes related to commits and releases \cite{HerouxEtAl2008}
-and checklists for overall software quality \cite{ThielEtAl2020, SSI2022}.
-
-The above discussion shows that, taken together, MI projects fall somewhat short
-of recommended best practices for research software.  However, MI software is
-not alone in this.  Many, if not most, research projects fall short of best
-practices.  A gap exists in research software development practices and software
-engineering recommendations \cite{Storer2017}.  Johanson and Hasselbring observe
-that the state-of-the-practice for research software in industry and academia
-does not incorporate state-of-the-art SE tools and methods
-\cite{JohansonAndHasselbring2018}.  This causes sustainability and reliability
-problems \cite{FaulkEtAl2009}. Rather than benefit from capturing and reusing
-previous knowledge, projects waste time and energy ``reinventing the wheel''
-\cite{deSouzaEtAl2019}.
+MI projects fall somewhat short of recommended best practices, but are not
+alone amongst research software projects. This gap has been
+documented before~\cite{Storer2017,JohansonAndHasselbring2018}, is known
+to cause sustainability and reliability
+problems \cite{FaulkEtAl2009}, and to waste development effort%
+~\cite{deSouzaEtAl2019}.
 
 \subsection{Threats to Validity} \label{sec_threats_to_validity}
 
-Our categories for threat to validity come from an analysis of software
-engineering secondary studies by Ampatzoglou et al.\ \cite{AmpatzoglouEtAl2019},
-where a secondary study analyzes the data from a set of primary studies.
-Ampatzoglou et al.\ is appropriate because a common example of a secondary study
-is a systematic literature review. Our methodology is a systematic software
-review --- the primary studies are the software packages, and our work collects
-and analyzes these primary studies.  We identified similar threats to validity
-in our assessment of the state of the practice of Lattice Boltzmann Solvers
-\cite{SmithEtAl2024}.
+We follow Ampatzoglou et al.\ \cite{AmpatzoglouEtAl2019}'s analysis of
+threats to validity in software engineering secondary studies.
 
 \subsubsection{Reliability}
 
-A study is reliable if repetition of the study by different researchers using
-the original study's methodology would lead to the same results
-\cite{RunesonAndHost2009}. Reliability means that data and analysis are
-independent of the specific researcher(s) doing the study.  For the current
-study the identified reliability related threats are as follows:
+A study is reliable if repeated by another researcher, using the same
+methodology, would lead to the same results~\cite{RunesonAndHost2009}.
+We identify the following threats:
 
 \begin{itemize}
-\item One individual does the manual measures for all packages. A different
+\item One individual does the measures for all packages. A different
 evaluator might find different results, due to differences in abilities,
-experiences, and biases.
-\item The manual measurements for the full set of packages took several months.
+experience, and biases.
+\item The measurements for the full set of packages took several months
+(of elapsed time).
 Over this time the software repositories may have changed and the reviewer's
 judgement may have drifted.
 \end{itemize}
 
-We reduced concern over the reliability risk associated with the reviewer's
-judgement by demonstrating that the measurement process is reasonably
-reproducible.  In previous work \cite{SmithEtAl2016} we graded five software
+The measurement process used has previously been shown to be reasonably
+reproducible.  \cite{SmithEtAl2016} reports grading five software
 products by two reviewers. Their rankings were almost identical. As long as each
 grader uses consistent definitions, the relative comparisons in the AHP results
 will be consistent between graders.
@@ -1135,116 +976,71 @@ will be consistent between graders.
 \subsubsection{Construct Validity}
 
 Construct validity is when the adopted metrics represent what they are intended
-to measure \cite{RunesonAndHost2009}. Our construct threats are often related to
-how we assume our measurements influences the various software qualities, as
-summarized in Section~\ref{sec_grading_software}.  Specifically, our construct
-validity related threats include the following:
-
+to measure~\cite{RunesonAndHost2009}. We have identified the following
+potential issues:
 \begin{itemize}
 \item We make indirect measurement of software qualities since meaningful direct
 measures for qualities like maintainability, reusability and verifiability, are
 unavailable.  We follow the usual assumption that developers achieve higher
 quality by following procedures and adhering to standards \cite[p.\
 112]{VanVliet2000}.
-\item As mentioned in Section~\ref{sec_result_installability}, we could not
+\item We could not
 install or build \textit{dwv}, \textit{GATE}, and \textit{DICOM Viewer}. We used
 a deployed on-line version for \textit{dwv}, a VM version for \textit{GATE}, but
-no alternative for \textit{DICOM Viewer}. We might underestimate their rank due
-to these technical issues.
-\item Measuring software robustness only involved two pieces of data. This is
-likely part of the reason for limited variation in the robustness scores
-(Figure~\ref{fg_robustness_scores}). We could add more robustness data by
-pushing the software to deal with more unexpected situations, like a broken
-Internet connection, but this would require a larger investment of measurement
-time. 
-\item We may have inaccurately estimated maintainability by assuming a higher
-ratio of comments to source code improves maintainability. Moreover, we assumed
-that maintainability is improved if a high percentage of issues are closed, but
-a project may have a wealth of open issues, and still be maintainable.
-\item We assess reusability by the number of code files and LOC per file. This
-measure is indicative of modularity, but it does not necessarily mean a good
-modularization. The modules may not be general enough to be easily reused, or
-the formatting may be poor, or the understandability of the code may be low.
+no alternative for \textit{DICOM Viewer}.
+\item Robustness measurements involve only two pieces of data, leading
+to limited variation in the robustness scores
+(Figure~\ref{fg_robustness_scores}). Our measurement-time budget limited
+what we could achieve her.
+\item Our maintainability proxies (higher ratio of comments to source,
+high percentage of closed issues) have not been validated.
+\item While smaller modules tend to be easier to reuse, small modules are
+not necessarily good modules, nor understandable modules.
 \item The understandability measure relies on 10 random source code files, but
 the 10 files will not necessarily be representative. 
-\item As discussed in Section~\ref{Sec_OverallQ}, our overall AHP ranking makes
-the unrealistic assumption of equal weighting.
-\item We approximated popularity by stars and watches
-(Section~\ref{Sec_VsCommunityRanking}), but this assumption may not be valid. 
-\item In building Table~\ref{Tbl_Guidelines} some judgement was necessary on our
-part, since not all guidelines use the same names for artifacts that contain
+\item Our overall AHP ranking makes the unrealistic assumption of equal
+weighting.
+\item We approximated popularity by stars and watches.
+\item Table~\ref{Tbl_Guidelines} required judgement as
+not all guidelines use the same names for artifacts that contain
 essentially the same information.
 \end{itemize}
 
 \subsubsection{Internal Validity} \label{Sec_InternalValidity}
 
 Internal validity means that discovered causal relations are trustworthy and
-cannot be explained by other factors \cite{RunesonAndHost2009}. In our
-methodology the internal validity threats include the following:
+cannot be explained by other factors~\cite{RunesonAndHost2009}. We identify
+the following:
 
 \begin{itemize}
-\item In our search for software packages (Section~\ref{ch_results}), we may
+\item Our search (Section~\ref{ch_results}) may
 have missed a relevant package.
-\item Our methodology assumes that all relevant software development activities
+\item Our methodology assumes that development activities
 will leave a trace in the repositories, but this is not necessarily true. For
 instance, we saw little evidence of requirements
 (Section~\ref{Sec_CompareArtifacts}), but teams might keep this kind of
-information outside their repos, possibly in journal papers or technical
-reports.
+information outside their repos.
 \end{itemize}
 
 \subsubsection{External Validity}
 
-If the results of a study can be generalized (applied) to other
-situations/cases, then the study is externally valid \cite{RunesonAndHost2009}.
-We are confident that our search was exhaustive.  We do not believe that we
-missed any highly popular MI examples.  Therefore, the bulk of our validity
-concerns are internal (Section~\ref{Sec_InternalValidity}).  However, our hope
-is that the trends observed, and the lessons learned for MI software can be
-applied to other research software.  With that in mind we identified the
-following threat to external validity: We cannot generalize our results if the
-development of MI software is fundamentally different from other research
-software.
-
-Although there are differences, like the importance of data privacy for MI data,
-we found the approach to developing LBM software \cite{SmithEtAl2024} and MI
-software to be similar.  Except for the domain specific aspects, we believe that
-the trends observed in the current study are externally valid for other research
-software.
+If the results of a study can be generalized to other situations, then the
+study is externally valid \cite{RunesonAndHost2009}.  In other words, cannot
+generalize our results if the development of MI software is fundamentally
+different from other research software.  Although there are differences, like
+the importance of data privacy for MI data, we found the approach to developing
+LBM software \cite{SmithEtAl2024} and MI software to be similar.  Except for
+the domain specific aspects, the trends observed in the current study are
+similar to that for other research software.
 
 \section{Conclusions} \label{ch_conclusions}
 
-We analyzed the state of the practice for the MI domain with the goal of
-understanding current practice by answering four research questions
-(Section~\ref{sec_motivation}).  Our methods in Section~\ref{SecMethodology} form a
-general process to evaluate domain-specific software, that we apply to the
-specific domain of MI software. We identified 48 MI software candidates, then,
-with the help of the Domain Expert selected 29 of them for our final list. 
-
-Section~\ref{ch_results} lists our measurement results for ranking the 29
-projects for nine software qualities. Our ranking results appear credible since
-they are mostly consistent with the ranking from the scientific community
-implied by the GitHub stars-per-year metric. As discussed in
-Section~\ref{Sec_VsCommunityRanking}, four of the top five software projects
-appear in both our list and in the GitHub popularity list.  Moreover, our top
-five packages appear among the first eight positions on the GitHub list.  The
-noteworthy discrepancies between the two lists are for the packages that we were
-unable to install (\textit{dwv} and \textit{Dicom Viewer}). Our findings suggest
-that the community's top ranked packages tend to be those that incorporate best
-practices.
-
-Based on our grading scores \textit{3D Slicer}, \textit{ImageJ}, \textit{Fiji}
-and \textit{OHIF Viewer} are the top four software performers.  However, the
-separation between the top performers and the others is not extreme.  Almost all
-packages do well on at least a few qualities, as shown in
-Table~\ref{topperformerstable}, which summarizes the packages ranked first and
-second for each quality. Almost 70\% (20 of 29) of the software packages appear
-in the top two for at least two qualities.  The only packages that do not appear
-in Table~\ref{topperformerstable}, or only appear once, are \textit{Papaya},
-\textit{MatrixUser}, \textit{MRIcroGL}, \textit{XMedCon}, \textit{dicompyler},
-\textit{DicomBrowser}, \textit{AMIDE}, \textit{3DimViewer}, and
-\textit{Drishti}. The shortness of this list suggests parity with respect to
-adoption of best practices for MI software overall.
+Our analysis of the state of the practice for the MI domain along nine
+software qualities strongly indicates that ``higher quality'' is
+consistent with community ranking proxies. It is important to note that
+our quality measures are, on purpose, rather shallow. This undescores the
+importance that \emph{first impressions} of any software has on its
+adoption.
 
 \begin{table}[ht!]
 	%\begin{center}
@@ -1293,21 +1089,30 @@ adoption of best practices for MI software overall.
 	%\end{center}
 \end{table} 
 
-When it comes to recommended software artifacts, the state of open source MI
-projects is healthy, with our surveyed examples showing 88\% of the
-documentation artifacts recommended by research software development guidelines
-(Section~\ref{Sec_CompareArtifacts}).  However, we did notice areas where
-practice seems to lag behind the research software development guidelines.  For
-instance, the guidelines recommend three artifacts that were not observed:
-uninstall instructions, test plans, and requirements documentation. We observed
-the following recommended artifacts, but only rarely: contributing file,
-developer code of conduct, code style guidelines, product roadmap, design
-documentation, and API documentation (Section~\ref{Sec_CompareArtifacts}).
-Future MI projects may wish to consider incorporating more artifacts to
-potentially improve software quality.  A deeper understanding of the needs of
-the MI community will require data beyond what is available in open source
-repositories.  Future work should involve interviewing MI developers to more
-deeply understand their software development pain points.
+Our grading scores indicate that
+\textit{3D Slicer}, \textit{ImageJ}, \textit{Fiji}
+and \textit{OHIF Viewer} are the overall top four.  However, the
+separation between the top performers and the others is not extreme.  Almost
+all packages do well on at least a few qualities, as shown in
+Table~\ref{topperformerstable}, which summarizes the packages ranked first and
+second for each quality. Almost 70\% (20 of 29) of the software packages appear
+in the top two for at least two qualities.  The only packages that do not appear
+in Table~\ref{topperformerstable}, or only appear once, are \textit{Papaya},
+\textit{MatrixUser}, \textit{MRIcroGL}, \textit{XMedCon}, \textit{dicompyler},
+\textit{DicomBrowser}, \textit{AMIDE}, \textit{3DimViewer}, and
+\textit{Drishti}.
+
+While we did find a reasonable amount of documentation, especially when
+consider all MI projects, there were definitely some holes. Some important
+documentation (test plans and requirements documentation) was missing,
+and other (contributors' guide, code of conduct, code style guidelines, product
+roadmap, design documentation, and API documentation
+(Section~\ref{Sec_CompareArtifacts}) were rare.
+
+A deeper understanding of the needs of
+the MI community will require data beyond what is available in
+repositories.  Future work should involve interviewing MI developers to
+better understand their ``pain points''.
 
 \section*{Acknowledgements}
 
