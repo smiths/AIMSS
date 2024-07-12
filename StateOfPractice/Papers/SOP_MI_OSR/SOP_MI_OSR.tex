@@ -55,19 +55,13 @@ Based on Open Source Repositories}
 
 \author[2]{\fnm{Michael} \sur{Noseworthy}}\email{nosewor@mcmaster.ca}
 
-\affil*[1]{\orgdiv{Computing and Software Department}, \orgname{McMaster University}, \orgaddress{\street{1280 Main Street West}, \city{Hamilton}, \postcode{L8S 4K1}, \state{Ontario}, \country{Canada}}}
+\affil*[1]{\orgdiv{Computing and Software Department}, \orgname{McMaster
+University}, \orgaddress{\street{1280 Main Street West}, \city{Hamilton},
+\postcode{L8S 4K1}, \state{Ontario}, \country{Canada}}}
 
-\affil[2]{\orgdiv{Electrical and Computer Engineering Department}, \orgname{McMaster University}, \orgaddress{\street{1280 Main Street West}, \city{Hamilton}, \postcode{L8S 4K1}, \state{Ontario}, \country{Canada}}}
-
-% \author[1,*]{W.\ Spencer Smith}
-% \author[1]{Ao Dong}
-% \author[1]{Jacques Carette}
-% \author[2]{Michael D.\ Noseworthy}
-
-% \affil[1]{McMaster University, Computing and Software Department, {Canada}}
-% \affil[2]{McMaster University, Electrical \& Computer Engineering Department,
-% {Canada}}
-% \affil[*]{Corresponding Author}
+\affil[2]{\orgdiv{Electrical and Computer Engineering Department},
+\orgname{McMaster University}, \orgaddress{\street{1280 Main Street West},
+\city{Hamilton}, \postcode{L8S 4K1}, \state{Ontario}, \country{Canada}}}
 
 \abstract{
 We present the state of the practice for Medical Imaging (MI) software based on
@@ -76,18 +70,12 @@ projects from 48 candidates and assessed 9 software qualities (installability,
 correctness/ verifiability, reliability, robustness, usability, maintainability,
 reusability, understandability, and visibility/transparency) by answering 108
 questions for each. Using the Analytic Hierarchy Process (AHP) on the
-quantitive data, we ranked the MI software.  The top five are \textit{3D
+quantitative data, we ranked the MI software.  The top five are \textit{3D
 Slicer}, \textit{ImageJ}, \textit{Fiji}, \textit{OHIF Viewer}, and
-\textit{ParaView}.  This is consistent with the community's, with four of
+\textit{ParaView}.  This is consistent with the community's view, with four of
 these also appearing in the top five using GitHub metrics (stars-per-year).  
-In general, the quality and quantity of documentation present in the
+In general, the quality and quantity of documentation present in a
 project correlates quite well with its popularity.
-%We observed 88\% of the documentation artifacts
-%recommended by research software development guidelines.  However, the current
-%state of the practice deviates from the existing guidelines because of the
-%rarity of some recommended artifacts (like test plans, requirements
-%specification, code of conduct, code style guidelines, product roadmaps, and
-%Application Program Interface (API) documentation).
 }
 
 \keywords{
@@ -96,22 +84,16 @@ project correlates quite well with its popularity.
 
 \maketitle
 
-% RQ1 to RQ4
-% Some of Section 1 (Introduction)
-% Sections 2 to 6 (includes looking at artifacts observed in repos)
-% Some of Sections 11 to 13 (Threats to Validity, Future Work, Conclusions)
-
 \section{Introduction} \label{ch_intro}
 
 We study the state of software development practice for Medical Imaging
 (MI) software using data available in open source repositories.  MI tools use
 images of the interior of the body (from sources such as Magnetic Resonance
 Imaging (MRI), Computed Tomography (CT), Positron Emission Tomography (PET) and
-Ultrasound) to provide information for diagnostic, analytic, and medical
+Ultrasound) to provide critical information for diagnostic, analytic, and medical
 applications. Given its importance, we want to understand the merits and
 drawbacks of the current development processes, tools, and methodologies. We
-use a software engineering lens to assess the quality of existing MI software
-and provide recommendations for future development.
+use a software engineering lens to assess the quality of existing MI software.
 
 \subsection{Research Questions} \label{sec_motivation}
 
@@ -122,44 +104,31 @@ software~\cite{Storer2017}. Although scientists spend
 a substantial proportion of their working times on software development
 \cite{Hannay2009, Prabhu2011}, few are formally trained~\cite{Hannay2009}.
 
-%We have a standard set of questions designed to assess the qualities of any
-%research software project \cite{SmithEtAl2021, SmithAndMichalski2022}. We
-%particularly focus on \emph{software artifactcs}, i.e.
-%the documents, scripts and code that constitutes a software development
-%project. Example artifacts include requirements, specifications, user manuals,
-%unit tests, system tests, usability tests, build scripts, API (Application
-%Programming Interface) documentation, READMEs, license documents, process
-%documents, and code.  %Once we have learned what MI developers do, we then put
-%% this information in context by contrasting MI software against the trends shown
-%% by developers in other research software communities.
-
 Our investigation is based on the following four research questions:
 \begin{enumerate}
 \item[RQ\refstepcounter{rqnum}\therqnum \label{RQ_WhatProjects}:] What MI
 \textbf{open source} software projects exist? (Section~\ref{ch_results})
-\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_HighestQuality}:] Establish
-quantitative measurements of those project's development practices. From
-these measures, which of those projects follow best practices?
-(Section~\ref{ch_results})
+\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_HighestQuality}:] Based on
+quantitative measurements of each project's development practices, which
+projects follow best practices? (Section~\ref{ch_results})
 \item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_CompareHQ2Popular}:] How
 similar are the top projects identified in \rqref{RQ_HighestQuality}
 to the most popular projects as viewed by the community?
 (Section~\ref{Sec_VsCommunityRanking})
 \item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_CompareArtifacts}:] How
 do MI projects compare to general research software with respect to the
-artifacts present in their repositories?
+artifacts (documents, scripts and code) present in their repositories?
 (Section~\ref{Sec_CompareArtifacts})
 \end{enumerate}
 
 \subsection{Scope} \label{sec_scope}
 
-We only cover MI visualization software.  We exclude
-other categories of MI software, including
-Segmentation, Registration, Visualization, Enhancement, Quantification,
-Simulation, plus MI archiving and telemedicine systems (Compression, Storage,
-and Communication).  We also exclude Statistical Analysis and Image-based
-Physiological Modelling and Feature Extraction, Classification, and
-Interpretation. Software that provides MI support functions is also out of
+We only cover MI visualization software.  We exclude other categories of MI
+software, including Segmentation, Registration, Visualization, Enhancement,
+Quantification, Simulation, plus MI archiving and telemedicine systems
+(Compression, Storage, and Communication).  We also exclude Statistical Analysis
+and Image-based Physiological Modelling and Feature Extraction, Classification,
+and Interpretation. Software that provides MI support functions is also out of
 scope; therefore, we have not assessed the toolkit libraries VTK and ITK.
 Finally, Picture Archiving and Communication System (PACS), which helps users to
 economically store and conveniently access images, are considered out of scope. 
@@ -167,37 +136,35 @@ economically store and conveniently access images, are considered out of scope.
 \subsection{Methodology} \label{SecMethodology}
 
 We have a standard set of questions designed to assess the qualities of any
-research software project~\cite{SmithEtAl2021, SmithAndMichalski2022}.
-This has been applied to MI software and Lattice Boltzmann Solvers
-\cite{SmithEtAl2024}.  This builds off prior work to assess the
-state of the practice for such domains as Geographic Information Systems
-\cite{smith2018state}, Mesh Generators \cite{smith2016state}, Seismology
-software \cite{Smith2018Seismology}, and Statistical software for psychology
-\cite{smith2018statistical}.  We maintain the previous constraint that the
-work load for measuring a given domain should take around one person-month's
-worth of effort ($20$ working days at $8$ person-hours per day).
+research software project~\cite{SmithEtAl2021, SmithAndMichalski2022}.  This has
+been applied to MI software and Lattice Boltzmann Solvers \cite{SmithEtAl2024}.
+This builds off prior work to assess the state of the practice for such domains
+as Geographic Information Systems \cite{smith2018state}, Mesh Generators
+\cite{smith2016state}, Seismology software \cite{Smith2018Seismology}, and
+Statistical software for psychology \cite{smith2018statistical}.  We maintain
+the previous constraint that the work load for measuring a given domain should
+take around one person-month's worth of effort ($20$ working days at $8$
+person-hours per day).
 
-We identify a list of potential packages (through online searches) which is
-then filtered and vetted by a domain expert. We aim for roughly $30$
-packages. For each remaining package, we measure its qualities by filling in a
-grading template~\cite{SmithEtAl2021}.  This data is used to rank the projects
-with AHP.  Further details on interaction with the domain expert, software
-qualities, grading the software and AHP are summarizes below and in longer form
-in~\cite{SmithEtAl2024_MI_SOP}.
+We identify a list of potential packages (through online searches) which is then
+filtered and vetted by a domain expert. We aim for roughly $30$ packages. For
+each remaining package, we measure its qualities by filling in a grading
+template~\cite{SmithEtAl2021}.  This data is used to rank the projects with the
+Analytic Hierarchy Process (AHP).  We summarize further details on the
+interaction with the domain expert, software qualities, grading the software and
+AHP below and in longer form in Smith et al.\
+(2024)~\cite{SmithEtAl2024_MI_SOP}.
 
 \subsubsection{Domain Expert} \label{sec_vet_software_list}
 
-The Domain Expert vets the proposed list. For too many domains, there are
-online resources that are wildly inaccurate, which only an expert can correct.
-(Details of our domain expert removed for double-blind).
-%The Domain Experts vet the proposed list of software packages and the AHP
-%ranking.  Doing these tasks with non-experts runs the risk of trusting
-%inaccurate resources and overlooking the tacit knowledge of an expert. For the
-%current assessment, our Domain Expert (and paper co-author) is Dr.\ Michael
+The Domain Expert vets the proposed list because online resources can be
+inaccurate.  The expert also vets the AHP ranking.  For the current assessment,
+our Domain Expert is [Details of our domain expert removed for double-blind].
+%%DOUBLE BLIND %our Domain Expert (and paper co-author) is Dr.\ Michael
 %Noseworthy, Professor of Electrical and Computer Engineering at McMaster
 %University, Co-Director of the McMaster School of Biomedical Engineering, and
-%Director of Medical Imaging Physics and Engineering at St.\ Joseph's Healthcare,
-%Hamilton, Ontario, Canada.  
+%Director of Medical Imaging Physics and Engineering at St.\ Joseph's
+%Healthcare, Hamilton, Ontario, Canada.  
 
 In advance of the first meeting with the Domain Expert, they are asked to
 independently create a list of top software packages in the domain.  This helps
@@ -218,16 +185,16 @@ environment \cite{ISO/IEC25010}.
 
 \subsubsection{Grading} \label{sec_grading_software}
 
-We use an existing template~\cite{SmithEtAl2021} that is designed to measure
-the aforementioned qualities. To stay within our given measurement time frame,
-each package gets up to five hours of time.  Project developers can be
-contacted for help regarding installation, if necessary, but we impose a cap of
-about two hours on the installation process.
-Figure~\ref{fg_grading_template_example} shows an excerpt of the measurement
-spreadsheet.  It includes a column for each measured software package.
-% \cite{Dong2021-Data} provides the full set of measurement data.
-(The full data is available on Mendeley; link will be provided after
-refereeing.)
+We use an existing template~\cite{SmithEtAl2021} that is designed to measure the
+aforementioned qualities. To stay within our given measurement time frame, each
+package gets up to five hours of time.  Project developers can be contacted for
+help regarding installation, if necessary, but we impose a cap of about two
+hours on the installation process.  Figure~\ref{fg_grading_template_example}
+shows an excerpt of the measurement spreadsheet.  The rows are the measures and
+the columns correspond to the software packages.  [The full data is available on
+Mendeley; link will be provided after refereeing.] 
+% \cite{Dong2021-Data}
+%provides the full set of measurement data.   %%DOUBLE BLIND
 
 \begin{figure}[!ht]
 \includegraphics[scale=0.53]{template.pdf}
@@ -238,92 +205,74 @@ refereeing.)
 The full template consists of 108 questions over 9 qualities.  These
 questions are designed to be unambiguous, quantifiable, and measurable
 with constrained time and domain knowledge.
-%We
-%designed the questions to be unambiguous, quantifiable, and measurable with
-%limited time and domain knowledge. We group the measures under headings for each
-%quality, and one for summary information. The summary information (shown in
-%Figure~\ref{fg_grading_template_example}) is the first section of the template.
-%This section summarizes general information, such as the software name, purpose,
-%platform, programming language, publications about the software, the first
-%release and the most recent change date, website, source code repository of the
-%product, number of developers, etc.  We only measure open source software that
-%is ready for public use by other researchers (following the definition of the
-%public category from \cite{GewaltigAndCannon2012}). Information in the summary
-%section sets the context for the project, but it does not directly affect the
-%grading scores.
 
-%For measuring each quality, we ask several questions and the typical answers are
-%among the collection of ``yes'', ``no'', ``n/a'', ``unclear'', a number, a
-%string, a date, a set of strings, etc. 
-The grader, after answering questions for each quality assigned an overall
+The grader, after answering questions for each quality assigns an overall
 score (between 1 and 10) based on the answers.  Several of the qualities use
 the word ``surface'' to highlight that these particular qualities are a shallow
-measure.  For example, we do not do user studies for measuring usability.
-Instead, we are look signs that the developers considered usability.
+measure.  For example, usability is not measured using user studies.
+Instead, we look for signs that the developers considered usability.
 We use two freeware tools to collect repository related data:
 \href{https://github.com/tomgi/git_stats}{GitStats} and
 \href{https://github.com/boyter/scc}{Sloc Cloc and Code (scc)}.  Further
-details on quality measurement are provided in~% Smith et al.\ (2024)
+details on quality measurement are provided in Smith et al.\ (2024)
 \cite{SmithEtAl2024_MI_SOP}.
 
 \subsubsection{Analytic Hierarchy Process (AHP)} \label{sec_AHP}
 
-Developed by Saaty in the 1970s, AHP is widely used to 
-analyze multiple criteria decisions~\cite{VaidyaEtAl2006}. AHP organizes
-multiple criteria in a hierarchical structure and uses pairwise comparisons
-between alternatives to calculate relative ratios~\cite{Saaty1990}. AHP works
-with sets of $n$ \textit{options} and $m$ \textit{criteria}.  In our project
-$n=29$ and $m=9$ since there are 29 options (software products) and 9 criteria
-(qualities). With AHP the sum of the grades (scores) for all products for a
-given quality will be 1.0.  We rank the software for each of the qualities, and
-then we combine the quality rankings into an overall ranking based on the
-relative priorities between qualities.
+Developed by Saaty in the 1970s, AHP is widely used to analyze multiple criteria
+decisions~\cite{VaidyaEtAl2006}. AHP organizes multiple criteria in a
+hierarchical structure and uses pairwise comparisons between alternatives to
+calculate relative ratios~\cite{Saaty1990}. AHP works with sets of $n$
+\textit{options} and $m$ \textit{criteria}.  In our project $n=29$ and $m=9$
+since there are 29 options (software products) and 9 criteria (qualities). With
+AHP the sum of the grades (scores) for all products for a given quality will be
+1.0.  We rank the software for each of the qualities, and then we combine the
+quality rankings into an overall ranking based on the relative priorities
+between qualities.
 
 \section{Review} \label{ch_results}
 
-We initially identified 48 candidate software projects from
-the literature \cite{Bjorn2017, Bruhschwein2019, Haak2015}, on-line articles
-\cite{Emms2019, Hasan2020, Mu2019}, and forum discussions \cite{Samala2014}.
-Then we filtered as follows:
+We initially identified 48 candidate software projects from the literature
+\cite{Bjorn2017, Bruhschwein2019, Haak2015}, on-line articles \cite{Emms2019,
+Hasan2020, Mu2019}, and forum discussions \cite{Samala2014}.  Then we filtered
+as follows:
 
 \begin{enumerate}
 
 \item Removed the packages with no source code available, such as
 \textit{MicroDicom}, \textit{Aliza}, and \textit{jivex}.
 
-\item Focused on MI software that provides visualization functions.
-We removed seven packages
-that were toolkits or libraries, such as \textit{VTK}, \textit{ITK}, and
-\textit{dcm4che}, and another three that were for PACS.
+\item Focused on MI software that provides visualization functions.  We removed
+seven packages that were toolkits or libraries, such as \textit{VTK},
+\textit{ITK}, and \textit{dcm4che}, and another three that were for PACS.
 
 \item Removed \textit{Open Dicom Viewer} as it has not received any
 updates since 2011.
 
 \end{enumerate}
 
-The Domain Expert provided a list 12 software packages.
-We found 6 packages were on both lists: \textit{3D
-Slicer}, \textit{Horos}, \textit{ImageJ}, \textit{Fiji}, \textit{MRIcron} 
-(we use its descendant \textit{MRIcroGL}) and \textit{Mango} (we
-use the web version \textit{Papaya}).  The remaining six packages were on our
-out-of-scope list. The Domain Expert agreed with our final choice of 29
-packages -- see Table~\ref{tab_final_list}. This contains summary data
-collected in the year 2020. 
+The Domain Expert provided a list 12 software packages.  We found 6 packages
+were on both lists: \textit{3D Slicer}, \textit{Horos}, \textit{ImageJ},
+\textit{Fiji}, \textit{MRIcron} (we use its descendant \textit{MRIcroGL}) and
+\textit{Mango} (we use the web version \textit{Papaya}).  The remaining six
+packages were on our out-of-scope list. The Domain Expert agreed with our final
+choice of 29 packages -- see Table~\ref{tab_final_list}. This contains summary
+data collected in the year 2020. 
 
-The projects are sorted in descending order of lines of code.
-We found the initial release dates (Rlsd) for most
-projects and marked the two unknown dates with ``?''. The date of the last
-update is the date of the latest update, at the time of measurement. We found
-funding information (Fnd) for only eight projects.  For the Number Of
-Contributors (NOC) we considered anyone who made at least one accepted commit as
-a contributor. The NOC is not usually the same as the number of long-term
-project members, since many projects received change requests and code from the
-community.  With respect to the OS, 25 packages work on all three OSs: Windows
-(W), macOS (M), and Linux (L). Although the usual approach to cross-platform
-compatibility was to work natively on multiple OSes, five projects achieved
-platform-independence via web applications. The full measurement data for all
-packages is available on \href{https://data.mendeley.com/datasets/k3pcdvdzj2/1}
-{Mendeley Data}.
+The projects are sorted in descending order of lines of code.  We found the
+initial release dates (Rlsd) for most projects and marked the two unknown dates
+with ``?''. The date of the last update is the date of the latest update, at the
+time of measurement. We found funding information (Fnd) for only eight projects.
+For the Number Of Contributors (NOC) we considered anyone who made at least one
+accepted commit as a contributor. The NOC is not usually the same as the number
+of long-term project members, since many projects received change requests and
+code from the community.  With respect to the OS, 25 packages work on all three
+OSs: Windows (W), macOS (M), and Linux (L). Although the usual approach to
+cross-platform compatibility was to work natively on multiple OSes, five
+projects achieved platform-independence via web applications. The full
+measurement data for all packages is available on [removed for blind review]
+%\href{https://data.mendeley.com/datasets/k3pcdvdzj2/1} {Mendeley Data}.  
+%% DOUBLE BLIND
 
 \begin{table}[!ht]
 \centering
@@ -391,12 +340,11 @@ Viewer}, and \textit{GATE} needs extra libraries to build; \textit{ImageJ} and
 The scores are based on the ease of following the installation instructions,
 and automated installation and uninstallation process. There were no issues
 for all but the bottom four, just various degrees of ease and automation.
-
 \textit{GATE}, \textit{dwv}, and \textit{DICOM Viewer} showed severe
 installation problems. We were not able to install them, even after a reasonable
 amount of time (2 hours).  For \textit{dwv} and \textit{GATE} we failed to build
 from the source code, but we were able to proceed with measuring other qualities
-using a deployed on-line version for \textit{dwv}, and a VM version for
+using a deployed on-line version for \textit{dwv}, and a virtual machine version for
 \textit{GATE}. For \textit{DICOM Viewer} we could not install the NextCloud
 dependency, and thus could not measure reliability nor robustness for it.
 
@@ -407,11 +355,11 @@ For users who already have Matlab, this score should be higher.
 
 The packages with higher scores for correctness and verifiability (see
 Figure~\ref{fg_correctness_verifiability_scores}) used a wider array of
-techniques to improve correctness, and had better documentation to witness
-this. For instance, we looked for evidence of unit testing, and only evidence
-for about half of the projects. We identified five projects using CI/CD
-tools: \textit{3D Slicer}, \textit{ImageJ}, \textit{Fiji}, \textit{dwv}, and
-\textit{OHIF Viewer}. 
+techniques to improve correctness, and had better documentation to witness this.
+For instance, we looked for evidence of unit testing, and found evidence for
+only about half of the projects. We identified five projects using continuous
+integration tools: \textit{3D Slicer}, \textit{ImageJ}, \textit{Fiji},
+\textit{dwv}, and \textit{OHIF Viewer}. 
 
 \begin{figure}[!ht]
 \includegraphics[scale=0.38]{correctness_verifiability_scores.pdf}
@@ -419,7 +367,7 @@ tools: \textit{3D Slicer}, \textit{ImageJ}, \textit{Fiji}, \textit{dwv}, and
 \label{fg_correctness_verifiability_scores}
 \end{figure}
 
-Even for some projects with well-organized documentation, requirements
+Even for projects with well-organized documentation, requirements
 specifications and theory manuals were still missing.
 The only requirements-related document we found was a road
 map of \textit{3D Slicer}, which contained design requirements for upcoming
@@ -427,9 +375,8 @@ changes.
 
 \subsection{Surface Reliability} \label{sec_result_reliability}
 
-Figure~\ref{fg_reliability_scores} shows the our results.  We were able to
-follow the steps in the tutorials that existed (seven packages had them.)
-However
+Figure~\ref{fg_reliability_scores} shows our results.  We were able to follow
+the steps in the tutorials that existed (seven packages had them.) However,
 \textit{GATE} could not open macro files and became unresponsive several times,
 without any descriptive error message. We found that \textit{Drishti} crashed
 when loading damaged image files, without showing any descriptive error message.
@@ -443,7 +390,7 @@ when loading damaged image files, without showing any descriptive error message.
 \subsection{Surface Robustness} \label{sec_result_robustness}
 
 Figure \ref{fg_robustness_scores} presents the scores for surface robustness.
-The packages with higher scores elegantly handled unexpected or unanticipated
+The packages with higher scores gracefully handled unexpected or unanticipated
 inputs, typically showing a clear error message. We may have underscored
 \textit{OHIF Viewer}, since we needed further customization to load
 data.
@@ -487,12 +434,12 @@ documented expected user characteristics.
 
 Figure~\ref{fg_maintainability_scores} shows the ranking results for
 maintainability. We gave \textit{3D Slicer} the highest score because we found
-it to have the most comprehensive artifacts. Only a few of the 29 projects had a
-product, developer's manual, or API documentation, and only \textit{3D Slicer},
-\textit{ImageJ}, \textit{Fiji} included all three documents 
-(see Table~\ref{tab_maintainability_docs} the full data).  Moreover,
-\textit{3D Slicer} has a much higher percentage of closed issues (92\%) compared
-to \textit{ImageJ} (52\%) and \textit{Fiji} (64\%).
+it had the most comprehensive artifacts. Only a few of the 29 projects had a
+product, developer's manual, or API (Application Programming Interface)
+documentation, and only \textit{3D Slicer}, \textit{ImageJ}, \textit{Fiji}
+included all three documents (see Table~\ref{tab_maintainability_docs} for the
+full data).  Moreover, \textit{3D Slicer} has a much higher percentage of closed
+issues (92\%) compared to \textit{ImageJ} (52\%) and \textit{Fiji} (64\%).
 
 \begin{figure}[ht]
 \includegraphics[scale=0.38]{maintainability_scores.pdf}
@@ -532,11 +479,10 @@ SourceForge. \textit{DicomBrowser} and \textit{3DimViewer} used BitBucket.
 
 \subsection{Reusability} \label{sec_result_reusability}
 
-API documents (see Table~\ref{tab_maintainability_docs}) also help maintainability,
-which explains some of the scores shown in
+API documents (see Table~\ref{tab_maintainability_docs}) also help
+maintainability, which explains some of the scores shown in
 Figure~\ref{fg_reusability_scores}. We have assumed that smaller code files are
-likely more reusable -- see
-Table \ref{tab_loc_per_file} for the details.
+likely more reusable -- see Table \ref{tab_loc_per_file} for the details.
 
 \begin{figure}[ht]
 \includegraphics[scale=0.38]{reusability_scores.pdf}
@@ -684,7 +630,7 @@ Viewer}, but we compared it equally for the other seven qualities.
 
 We first compare our ranking to a (proxy for) the community's ranking. We then
 compare the state of the practice for MI with that of other research software.
-In particular we provide details on recommended artifacts but rarely observed
+In particular we provide details on recommended artifacts that are rarely observed
 for MI software. Section~\ref{sec_threats_to_validity} presents threats to the
 validity of our data and conclusions.
 
@@ -698,7 +644,7 @@ seems to line up fairly well.
 
 We ranked some popular packages fairly low, such as \textit{dwv}. This is
 because we were unable to build it locally, even though we followed its
-installation instructions. But we were able to use its web
+installation instructions. However, we were able to use its web
 version for the rest of the measurements. Additionally, this version 
 did not detect a broken DICOM file and instead displayed a blank image
 (Section~\ref{sec_result_robustness}).
@@ -768,8 +714,8 @@ practices).
 \subsection{Software Artifacts}
 \label{Sec_CompareArtifacts}
 
-We use nine research software development guidelines to measure what
-software artifacts are present in MI software, versus those recommended.
+We use nine research software development guidelines to compare recommended 
+software artifacts versus those present in MI software.
 These guidelines are:
 \begin{itemize}
 \item United States Geological Survey Software Planning Checklist
@@ -885,7 +831,7 @@ files, respectively \cite{PranaEtAl2018}.
 \end{table}
 
 Table~\ref{artifactspresent} presents our measurements for MI software.
-It groups the artifacts by frequency
+The table groups the artifacts by frequency
 into categories of common (20 to 29 ($>$67\%) packages), uncommon (10 to 19
 (33-67\%) packages), and rare (1 to 9 ($<$33\%) packages).
 Tables~\ref{tab_maintainability_docs} and~\ref{tab_Visibility/Transparency_docs}
@@ -902,49 +848,48 @@ information within these documents overlaps with
 the recommended artifacts.  Troubleshooting information often can be found in
 a User Manual, while the information in a ``Developer's Manual'' is often
 scattered amongst many other documents.
-Three of the 26 recommended artifacts were never observed:
+
+Three of the 26 recommended artifacts were never observed in the MI software:
 i) Uninstall, ii) Test plans, and iii) Requirements. It is possible that
 some of these were created but never put under version control.
 
-It is unfortunately common for research software to neglect requirements
-documentation, and MI software is no exception.
-Although such documentation is recommended by some
-\cite{TobiasEtAl2018, HerouxEtAl2008, SmithAndKoothoor2016}, in practice
-this is rare~\cite{HeatonAndCarver2015}. Sanders and Kelly
-\cite{SandersAndKelly2008} interviewed 16 scientists from 10 disciplines and
-found that none of the scientists created requirements specifications, unless
-regulations in their field mandated such a document.  Requirements are the least
-commonly produced type of documentation for research software in general
-\cite{Nguyen-HoanEtAl2010}. 
+Neglecting requirements documentation is unfortunately common for research
+software, and MI software is no exception to this trend.  Although such
+documentation is recommended by some \cite{TobiasEtAl2018, HerouxEtAl2008,
+SmithAndKoothoor2016}, in practice this is rare~\cite{HeatonAndCarver2015}.
+Sanders and Kelly \cite{SandersAndKelly2008} interviewed 16 scientists from 10
+disciplines and found that none of the scientists created requirements
+specifications, unless regulations in their field mandated such a document.
+Requirements are the least commonly produced type of documentation for research
+software in general \cite{Nguyen-HoanEtAl2010}. 
 
-This is quite unfortunate as when surveyed, research software developers
-identify the lack of requirements and requirements management as accounting
-gets mentioned the most often and accounts for 23\% of the technical problems
-\cite{WieseEtAl2019}.  There is unfortunately widespread perception that
-up-front requirements are impossible for research software
-\cite{CarverEtAl2007, SegalAndMorris2008}. Fortunately a more agile approach
-to requirements is feasible~\cite{Smith2016}, and research-software specific
-templates exist~\cite{SmithEtAl2007}. 
+This is unfortunate as when scientific developers are surveyed on their pain
+points, Wiese et al.~\cite{WieseEtAl2019} found that software requirements and
+management is the software engineering discipline that most hurts them,
+accounting for 23\% of the technical problems reported by study participants.
+Further adding to the misfortune, there is a widespread perception that up-front
+requirements are impossible for research software \cite{CarverEtAl2007,
+SegalAndMorris2008}. Fortunately a more agile approach to requirements is
+feasible~\cite{Smith2016}, and research-software specific templates
+exist~\cite{SmithEtAl2007}. 
 
 A theme emerges amongst the artifacts rarely observed in practice: they
 are developer-focused (a list of library dependencies, a contributor's guide,
 a developer Code of Conduct, coding style guidelines, product roadmap, design
 documentation and API documentation).
 
-Other communities use checklists to help with best practices. Examples
-include checklists for
-merging branches~\cite{Brown2015},
-for saving and sharing changes to the project~\cite{WilsonEtAl2016},
-for new and departing team members~\cite{HerouxAndBernholdt2018},
-for processes related to commits and releases~\cite{HerouxEtAl2008}
-and for overall software quality~\cite{ThielEtAl2020, SSI2022}.
+Other communities use checklists to help with best practices. Examples include
+checklists for merging branches~\cite{Brown2015}, for saving and sharing changes
+to the project~\cite{WilsonEtAl2016}, for new and departing team
+members~\cite{HerouxAndBernholdt2018}, for processes related to commits and
+releases~\cite{HerouxEtAl2008} and for overall software
+quality~\cite{ThielEtAl2020, SSI2022}.
 
-MI projects fall somewhat short of recommended best practices, but are not
-alone amongst research software projects. This gap has been
-documented before~\cite{Storer2017,JohansonAndHasselbring2018}, is known
-to cause sustainability and reliability
-problems \cite{FaulkEtAl2009}, and to waste development effort%
-~\cite{deSouzaEtAl2019}.
+MI projects fall somewhat short of recommended best practices, but are not alone
+amongst research software projects. This gap has been documented
+before~\cite{Storer2017,JohansonAndHasselbring2018}, and is known to cause
+sustainability and reliability problems \cite{FaulkEtAl2009}, and to waste
+development effort~\cite{deSouzaEtAl2019}.
 
 \subsection{Threats to Validity} \label{sec_threats_to_validity}
 
@@ -953,7 +898,7 @@ threats to validity in software engineering secondary studies.
 
 \subsubsection{Reliability}
 
-A study is reliable if repeated by another researcher, using the same
+A study is reliable if repeating it by another researcher, using the same
 methodology, would lead to the same results~\cite{RunesonAndHost2009}.
 We identify the following threats:
 
@@ -961,10 +906,9 @@ We identify the following threats:
 \item One individual does the measures for all packages. A different
 evaluator might find different results, due to differences in abilities,
 experience, and biases.
-\item The measurements for the full set of packages took several months
-(of elapsed time).
-Over this time the software repositories may have changed and the reviewer's
-judgement may have drifted.
+\item The measurements for the full set of packages took several months (of
+elapsed time).  Over this time the software repositories may have changed and
+the reviewer's judgement may have drifted.
 \end{itemize}
 
 The measurement process used has previously been shown to be reasonably
@@ -984,14 +928,14 @@ measures for qualities like maintainability, reusability and verifiability, are
 unavailable.  We follow the usual assumption that developers achieve higher
 quality by following procedures and adhering to standards \cite[p.\
 112]{VanVliet2000}.
-\item We could not
-install or build \textit{dwv}, \textit{GATE}, and \textit{DICOM Viewer}. We used
-a deployed on-line version for \textit{dwv}, a VM version for \textit{GATE}, but
-no alternative for \textit{DICOM Viewer}.
+\item We could not install or build \textit{dwv}, \textit{GATE}, and
+\textit{DICOM Viewer}. We used a deployed on-line version for \textit{dwv}, a
+virtual machine version for \textit{GATE}, but no alternative for \textit{DICOM
+Viewer}.
 \item Robustness measurements involve only two pieces of data, leading
 to limited variation in the robustness scores
 (Figure~\ref{fg_robustness_scores}). Our measurement-time budget limited
-what we could achieve her.
+what we could achieve here.
 \item Our maintainability proxies (higher ratio of comments to source,
 high percentage of closed issues) have not been validated.
 \item While smaller modules tend to be easier to reuse, small modules are
@@ -1013,7 +957,7 @@ cannot be explained by other factors~\cite{RunesonAndHost2009}. We identify
 the following:
 
 \begin{itemize}
-\item Our search (Section~\ref{ch_results}) may
+\item Our search (Section~\ref{ch_results}) could
 have missed a relevant package.
 \item Our methodology assumes that development activities
 will leave a trace in the repositories, but this is not necessarily true. For
@@ -1025,7 +969,7 @@ information outside their repos.
 \subsubsection{External Validity}
 
 If the results of a study can be generalized to other situations, then the
-study is externally valid \cite{RunesonAndHost2009}.  In other words, cannot
+study is externally valid \cite{RunesonAndHost2009}.  In other words, we cannot
 generalize our results if the development of MI software is fundamentally
 different from other research software.  Although there are differences, like
 the importance of data privacy for MI data, we found the approach to developing
@@ -1035,12 +979,11 @@ similar to that for other research software.
 
 \section{Conclusions} \label{ch_conclusions}
 
-Our analysis of the state of the practice for the MI domain along nine
-software qualities strongly indicates that ``higher quality'' is
-consistent with community ranking proxies. It is important to note that
-our quality measures are, on purpose, rather shallow. This undescores the
-importance that \emph{first impressions} of any software has on its
-adoption.
+Our analysis of the state of the practice for MI domain along nine software
+qualities strongly indicates that ``higher quality'' is consistent with
+community ranking proxies. Although our quality measures are rather shallow, we
+see this as an advantage. The shallow measures are a proxy for the importance of
+\emph{first impressions} for software adoption.
 
 \begin{table}[ht!]
 	%\begin{center}
@@ -1106,7 +1049,7 @@ While we did find a reasonable amount of documentation, especially when
 consider all MI projects, there were definitely some holes. Some important
 documentation (test plans and requirements documentation) was missing,
 and other (contributors' guide, code of conduct, code style guidelines, product
-roadmap, design documentation, and API documentation
+roadmap, design documentation, and API documentation)
 (Section~\ref{Sec_CompareArtifacts}) were rare.
 
 A deeper understanding of the needs of
