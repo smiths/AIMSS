@@ -1,10 +1,8 @@
 %\documentclass[11pt]{article}
 \documentclass[sn-mathphys-num]{sn-jnl}
 
-\usepackage{booktabs}
-
 \usepackage{amssymb}
-\usepackage{amsmath,amsthm}
+\usepackage{amsmath}
 
 \usepackage{hyperref}
 \usepackage{xcolor}
@@ -16,9 +14,6 @@
 }
 
 \usepackage{multirow}
-\usepackage{pgfplots}
-\usepackage{arydshln}
-\usepackage{paralist}
 \usepackage{booktabs}
 \usepackage{pbox}
 
@@ -26,18 +21,8 @@
 \newcommand{\rqtherqnum}{RQ`'\therqnum}
 \newcommand{\rqref}[1]{RQ\ref{#1}}
 
-\newcounter{pnum} %pain point number
-\newcommand{\ppthepnum}{P`'\thepnum}
-\newcommand{\ppref}[1]{P\ref{#1}}
-
-\newcounter{qnum} %quality number
-\newcommand{\qthepnum}{Q`'\theqnum}
-\newcommand{\qref}[1]{Q\ref{#1}}
-
 \newcommand{\CC}{C\nolinebreak\hspace{-.05em}\raisebox{.4ex}{\small\bf
 +}\nolinebreak\hspace{-.10em}\raisebox{.4ex}{\small\bf +}}
-
-%\pgfplotsset{compat=1.13}
 
 % prepared for: Journal of Imaging Informatics in Medicine
 % https://link.springer.com/journal/10278
@@ -47,21 +32,22 @@
 \title[SOP for MI Software]{State of the Practice for Medical Imaging Software
 Based on Open Source Repositories}
 
-\author*[1]{\fnm{W.\ Spencer} \sur{Smith}}\email{smiths@mcmaster.ca}
+%% DOUBLE BLIND
+% \author*[1]{\fnm{W.\ Spencer} \sur{Smith}}\email{smiths@mcmaster.ca}
 
-\author[1]{\fnm{Ao} \sur{Dong}}
+% \author[1]{\fnm{Ao} \sur{Dong}}
 
-\author[1]{\fnm{Jacques} \sur{Carette}}\email{carette@mcmaster.ca}
+% \author[1]{\fnm{Jacques} \sur{Carette}}\email{carette@mcmaster.ca}
 
-\author[2]{\fnm{Michael} \sur{Noseworthy}}\email{nosewor@mcmaster.ca}
+% \author[2]{\fnm{Michael} \sur{Noseworthy}}\email{nosewor@mcmaster.ca}
 
-\affil*[1]{\orgdiv{Computing and Software Department}, \orgname{McMaster
-University}, \orgaddress{\street{1280 Main Street West}, \city{Hamilton},
-\postcode{L8S 4K1}, \state{Ontario}, \country{Canada}}}
+% \affil*[1]{\orgdiv{Computing and Software Department}, \orgname{McMaster
+% University}, \orgaddress{\street{1280 Main Street West}, \city{Hamilton},
+% \postcode{L8S 4K1}, \state{Ontario}, \country{Canada}}}
 
-\affil[2]{\orgdiv{Electrical and Computer Engineering Department},
-\orgname{McMaster University}, \orgaddress{\street{1280 Main Street West},
-\city{Hamilton}, \postcode{L8S 4K1}, \state{Ontario}, \country{Canada}}}
+% \affil[2]{\orgdiv{Electrical and Computer Engineering Department},
+% \orgname{McMaster University}, \orgaddress{\street{1280 Main Street West},
+% \city{Hamilton}, \postcode{L8S 4K1}, \state{Ontario}, \country{Canada}}}
 
 \abstract{
 We present the state of the practice for Medical Imaging (MI) software based on
@@ -136,12 +122,16 @@ economically store and conveniently access images, are considered out of scope.
 \subsection{Methodology} \label{SecMethodology}
 
 We have a standard set of questions designed to assess the qualities of any
-research software project~\cite{SmithEtAl2021, SmithAndMichalski2022}.  This has
-been applied to MI software and Lattice Boltzmann Solvers \cite{SmithEtAl2024}.
-This builds off prior work to assess the state of the practice for such domains
-as Geographic Information Systems \cite{smith2018state}, Mesh Generators
-\cite{smith2016state}, Seismology software \cite{Smith2018Seismology}, and
-Statistical software for psychology \cite{smith2018statistical}.  We maintain
+research software project.  [blind review redacted details on the author's
+previous studies using the same methodology.]
+%% DOUBLE BLIND
+% ~\cite{SmithEtAl2021, SmithAndMichalski2022}.  This has
+% been applied to MI software and Lattice Boltzmann Solvers \cite{SmithEtAl2024}.
+% This builds off prior work to assess the state of the practice for such domains
+% as Geographic Information Systems \cite{smith2018state}, Mesh Generators
+% \cite{smith2016state}, Seismology software \cite{Smith2018Seismology}, and
+% Statistical software for psychology \cite{smith2018statistical}.  
+We maintain
 the previous constraint that the work load for measuring a given domain should
 take around one person-month's worth of effort ($20$ working days at $8$
 person-hours per day).
@@ -149,17 +139,20 @@ person-hours per day).
 We identify a list of potential packages (through online searches) which is then
 filtered and vetted by a domain expert. We aim for roughly $30$ packages. For
 each remaining package, we measure its qualities by filling in a grading
-template~\cite{SmithEtAl2021}.  This data is used to rank the projects with the
+template [citation redacted for double blind]. %%DOUBLE BLIND
+%~\cite{SmithEtAl2021}.  
+This data is used to rank the projects with the
 Analytic Hierarchy Process (AHP).  We summarize further details on the
 interaction with the domain expert, software qualities, grading the software and
-AHP below and in longer form in Smith et al.\
-(2024)~\cite{SmithEtAl2024_MI_SOP}.
+AHP below and in longer form in [redacted for double blind].
+%% DOUBLE BLIND
+%Smith et al.\ (2024)~\cite{SmithEtAl2024_MI_SOP}.
 
 \subsubsection{Domain Expert} \label{sec_vet_software_list}
 
 The Domain Expert vets the proposed list because online resources can be
 inaccurate.  The expert also vets the AHP ranking.  For the current assessment,
-our Domain Expert is [Details of our domain expert removed for double-blind].
+our Domain Expert is [details of our domain expert removed for double-blind].
 %%DOUBLE BLIND %our Domain Expert (and paper co-author) is Dr.\ Michael
 %Noseworthy, Professor of Electrical and Computer Engineering at McMaster
 %University, Co-Director of the McMaster School of Biomedical Engineering, and
@@ -185,7 +178,10 @@ environment \cite{ISO/IEC25010}.
 
 \subsubsection{Grading} \label{sec_grading_software}
 
-We use an existing template~\cite{SmithEtAl2021} that is designed to measure the
+We use an existing template [citation redacted]
+%% DOUBLE BLIND
+%~\cite{SmithEtAl2021} 
+that is designed to measure the
 aforementioned qualities. To stay within our given measurement time frame, each
 package gets up to five hours of time.  Project developers can be contacted for
 help regarding installation, if necessary, but we impose a cap of about two
@@ -214,8 +210,9 @@ Instead, we look for signs that the developers considered usability.
 We use two freeware tools to collect repository related data:
 \href{https://github.com/tomgi/git_stats}{GitStats} and
 \href{https://github.com/boyter/scc}{Sloc Cloc and Code (scc)}.  Further
-details on quality measurement are provided in Smith et al.\ (2024)
-\cite{SmithEtAl2024_MI_SOP}.
+details on quality measurement are provided in [redacted for double blind].
+%% DOUBLE BLIND
+%Smith et al.\ (2024) \cite{SmithEtAl2024_MI_SOP}.
 
 \subsubsection{Analytic Hierarchy Process (AHP)} \label{sec_AHP}
 
@@ -912,7 +909,10 @@ the reviewer's judgement may have drifted.
 \end{itemize}
 
 The measurement process used has previously been shown to be reasonably
-reproducible.  \cite{SmithEtAl2016} reports grading five software
+reproducible.  [citation redacted] 
+%% DOUBLE BLIND
+%Smith et al.~\cite{SmithEtAl2016} 
+reports grading five software
 products by two reviewers. Their rankings were almost identical. As long as each
 grader uses consistent definitions, the relative comparisons in the AHP results
 will be consistent between graders.
@@ -973,7 +973,10 @@ study is externally valid \cite{RunesonAndHost2009}.  In other words, we cannot
 generalize our results if the development of MI software is fundamentally
 different from other research software.  Although there are differences, like
 the importance of data privacy for MI data, we found the approach to developing
-LBM software \cite{SmithEtAl2024} and MI software to be similar.  Except for
+[other software (citation redacted)]
+%% DOUBLE BLIND
+%LBM software \cite{SmithEtAl2024} 
+and MI software to be similar.  Except for
 the domain specific aspects, the trends observed in the current study are
 similar to that for other research software.
 
@@ -1059,8 +1062,10 @@ better understand their ``pain points''.
 
 \section*{Acknowledgements}
 
-We would like to thank Peter Michalski and Oluwaseun Owojaiye for fruitful
-discussions on topics relevant to this paper.
+[redacted for blind review]
+%% DOUBLE BLIND
+% We would like to thank Peter Michalski and Oluwaseun Owojaiye for fruitful
+% discussions on topics relevant to this paper.
 
 \section*{Conflict of Interest}
 
