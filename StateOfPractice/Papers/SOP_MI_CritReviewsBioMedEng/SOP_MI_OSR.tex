@@ -181,7 +181,7 @@ a substantial proportion of their working times on software development
 Our investigation is based on the following four research questions:
 \begin{enumerate}
 \item[RQ\refstepcounter{rqnum}\therqnum \label{RQ_WhatProjects}:] What MI
-\textbf{open source} software projects exist? (Section~\ref{ch_results})
+{open source} software projects exist? (Section~\ref{ch_results})
 \item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_HighestQuality}:] Based on
 quantitative measurements of each project's development practices, which
 projects follow best practices? (Section~\ref{ch_results})
@@ -193,16 +193,40 @@ to the most popular projects as viewed by the community?
 do MI projects compare to general research software with respect to the
 artifacts (documents, scripts and code) present in their repositories?
 (Section~\ref{Sec_CompareArtifacts})
+\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_CompareToolsProjMngmnt}:]
+How do MI projects compare to research software in general with respect to
+the use of tools (Section~\ref{Sec_CompareTools}) for:
+\begin{enumerate} 
+	\item [\rqref{RQ_CompareToolsProjMngmnt}.a] development; and,
+	\item [\rqref{RQ_CompareToolsProjMngmnt}.b] project management?
+\end{enumerate}
+\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_CompareMethodologies}:]
+How do MI projects compare to research software in general with respect to
+principles, processes, and methodologies used?
+(Section~\ref{Sec_CompareMethodologies})
+\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_PainPoints}:] What are
+the pain points for developers working on MI software projects?
+(Section~\ref{painpoints})
+\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_ComparePainPoints}:] How
+do the pain points of developers from MI compare to the pain points
+for research software in general? (Section~\ref{painpoints})
+\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_Concerns}:] For MI
+developers what specific best practices are taken to address the pain points
+and software quality concerns? (Section~\ref{painpoints})
+\item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_Recommend}:]
+What research software development practice could potentially address the
+pain point concerns identified in \rqref{RQ_PainPoints}?
+(Section~\ref{ch_recommendations})
 \end{enumerate}
 
 \subsection{Scope} \label{sec_scope}
 
 We only cover MI visualization software.  We exclude other categories of MI
-software, including Segmentation, Registration, Visualization, Enhancement,
-Quantification, Simulation, plus MI archiving and telemedicine systems
-(Compression, Storage, and Communication).  We also exclude Statistical Analysis
-and Image-based Physiological Modelling and Feature Extraction, Classification,
-and Interpretation. Software that provides MI support functions is also out of
+software, including segmentation, registration, visualization, enhancement,
+quantification, simulation, plus MI archiving and telemedicine systems
+(compression, storage, and communication).  We also exclude statistical analysis
+and image-based physiological modelling and feature extraction, classification,
+and interpretation. Software that provides MI support functions is also out of
 scope; therefore, we have not assessed the toolkit libraries VTK and ITK.
 Finally, Picture Archiving and Communication System (PACS), which helps users to
 economically store and conveniently access images, are considered out of scope. 
@@ -281,7 +305,7 @@ Mendeley; link will be provided after refereeing.]
 %provides the full set of measurement data.   %%DOUBLE BLIND
 
 \begin{figure*}[!ht]
-\includegraphics[scale=0.53]{template.pdf}
+\includegraphics[scale=0.67]{template.pdf}
 \caption{Grading template example}
 \label{fg_grading_template_example}
 \end{figure*}
@@ -317,6 +341,10 @@ between qualities.
 
 \section{Results} \label{ch_results}
 
+In this section we answer \rqref{RQ_WhatProjects} and \rqref{RQ_HighestQuality}.
+
+\subsection{In-Scope Open-Source MI Software} \label{SecWhatProjects}
+
 We initially identified 48 candidate software projects from the literature
 \cite{Bjorn2017, Bruhschwein2019, Haak2015}, on-line articles \cite{Emms2019,
 Hasan2020, Mu2019}, and forum discussions \cite{Samala2014}.  Then we filtered
@@ -341,23 +369,9 @@ were on both lists: \textit{3D Slicer}, \textit{Horos}, \textit{ImageJ},
 \textit{Fiji}, \textit{MRIcron} (we use its descendant \textit{MRIcroGL}) and
 \textit{Mango} (we use the web version \textit{Papaya}).  The remaining six
 packages were on our out-of-scope list. The Domain Expert agreed with our final
-choice of 29 packages -- see Table~\ref{tab_final_list}. This contains summary
-data collected in the year 2020. 
-
-The projects are sorted in descending order of lines of code.  We found the
-initial release dates (Rlsd) for most projects and marked the two unknown dates
-with ``?''. The date of the last update is the date of the latest update, at the
-time of measurement. We found funding information (Fnd) for only eight projects.
-For the Number Of Contributors (NOC) we considered anyone who made at least one
-accepted commit as a contributor. The NOC is not usually the same as the number
-of long-term project members, since many projects received change requests and
-code from the community.  With respect to the OS, 25 packages work on all three
-OSs: Windows (W), macOS (M), and Linux (L). Although the usual approach to
-cross-platform compatibility was to work natively on multiple OSes, five
-projects achieved platform-independence via web applications. The full
-measurement data for all packages is available on [removed for blind review]
-%\href{https://data.mendeley.com/datasets/k3pcdvdzj2/1} {Mendeley Data}.  
-%% DOUBLE BLIND
+choice of 29 packages.  Table~\ref{tab_final_list} summarizes the in-scope
+open-source MI software that is available at the time of measurement (the year
+2020), thus answering \rqref{RQ_WhatProjects}.
 
 \begin{table*}[!ht]
 \centering
@@ -401,17 +415,35 @@ Of Code (LOC))}
 \label{tab_final_list}
 \end{table*}
 
+In Table~\ref{tab_final_list} the projects are sorted in descending order of
+lines of code.  We found the initial release dates (Rlsd) for most projects and
+marked the two unknown dates with ``?''. The date of the last update is the date
+of the latest update, at the time of measurement. We found funding information
+(Fnd) for only eight projects.  For the Number Of Contributors (NOC) we
+considered anyone who made at least one accepted commit as a contributor. The
+NOC is not usually the same as the number of long-term project members, since
+many projects received change requests and code from the community.  With
+respect to the OS, 25 packages work on all three OSs: Windows (W), macOS (M),
+and Linux (L). Although the usual approach to cross-platform compatibility was
+to work natively on multiple OSes, five projects achieved platform-independence
+via web applications. The full measurement data for all packages is available on
+[removed for blind review]
+%\href{https://data.mendeley.com/datasets/k3pcdvdzj2/1} {Mendeley Data}.  
+%% DOUBLE BLIND
+
 The programming languages used in order of decreasing popularity are \CC,
 JavaScript, Java, C, Python, Pascal, Matlab.  The most popular language is \CC,
 for 11 of 29 projects; Pascal and Matlab were each used for a single project.
 
-In the absence of
-a specific real world context, we assumed all nine qualities are equally
-important. Figure~\ref{fg_overall_scores} shows the overall scores in descending
-order.
+\subsection{Which Projects Follow Best Practices?}
+
+To answer \rqref{RQ_HighestQuality} we measured the software as described in
+Section~\ref{SecMethodology}.  In the absence of a specific real world context,
+we assumed all nine qualities are equally important.
+Figure~\ref{fg_overall_scores} shows the overall AHP scores in descending order.
 
 \begin{figure*}[!ht]
-\includegraphics[scale=0.38]{overall_scores.pdf}
+\includegraphics[scale=0.47]{overall_scores.pdf}
 \caption{Overall AHP scores with an equal weighting for all 9 software qualities}
 
 \label{fg_overall_scores}
