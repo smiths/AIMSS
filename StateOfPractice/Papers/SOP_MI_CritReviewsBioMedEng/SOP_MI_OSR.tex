@@ -110,32 +110,32 @@ Department}, %Department and Organization
 
 We present the state of the practice for the development of Medical Imaging
 (MI) software based on data available in open source repositories. We selected
-29 projects from 48
-candidates and assessed 9 software qualities (installability, correctness/
-verifiability, reliability, robustness, usability, maintainability, reusability,
-understandability, and visibility/transparency) by answering 108 questions for
-each. Using the Analytic Hierarchy Process (AHP) on the quantitative data, we
-ranked the MI software.  The top five are \textit{3D Slicer}, \textit{ImageJ},
-\textit{Fiji}, \textit{OHIF Viewer}, and \textit{ParaView}.  This is consistent
-with the community's view, with four of these also appearing in the top five
-using GitHub metrics (stars-per-year).  The quality and quantity of
-documentation present in a project correlates quite well with its popularity.
-Generally, MI software is in a healthy state as shown by the following: in the
-repositories we observed 88\% of the documentation artifacts recommended by
-research software development guidelines, 100\% of MI projects use version
-control tools, and developers appear to use the common quasi-agile research
-software development process. However, the current state of the practice
-deviates from the existing guidelines because of the rarity of some recommended
-artifacts (like a test plan, requirements specification, code of conduct, and
-code style guidelines), low usage of continuous integration (17\% of the
-projects), low use of unit testing (about 50\% of projects), and room for
-improvement with documentation. From interviewing the developers, we identified
-6 concerns: lack of development time, lack of funding, technology hurdles,
-correctness, usability, maintainability, and reproducibility. Recommendations
-for improving the state of the practice include the following: increase
-documentation, increase testing by enriching datasets, increase continuous
-integration usage, move to web applications, employ linters, use peer reviews,
-and design for change.
+29 projects from 48 candidates and assessed 9 software qualities
+(installability, correctness/ verifiability, reliability, robustness,
+usability, maintainability, reusability, understandability, and
+visibility/transparency) by answering 108 questions for each. Using the
+Analytic Hierarchy Process (AHP) on the quantitative data, we ranked the MI
+software.  The top five are \textit{3D Slicer}, \textit{ImageJ}, \textit{Fiji},
+\textit{OHIF Viewer}, and \textit{ParaView}.  This is consistent with the
+community's view, with four of these also appearing in the top five using
+GitHub metrics (stars-per-year).  The quality and quantity of documentation
+present in a project correlates quite well with its popularity.  Generally, MI
+software is in a healthy state: in the repositories
+we observed 88\% of the documentation artifacts recommended by research
+software development guidelines, 100\% of MI projects use version control
+tools, and developers appear to use the common quasi-agile research software
+development process. However, the current state of the practice deviates from
+existing guidelines as some recommended artifacts are rarely present
+(like a test plan, requirements specification, code of conduct, and code style
+guidelines), low usage of continuous integration (17\% of the projects), low
+use of unit testing (about 50\% of projects), and room for improvement with
+documentation. From developper interviews , we identified 7 concerns: lack
+of development time, lack of funding, technology hurdles, correctness,
+usability, maintainability, and reproducibility. We recommend:
+increase effort on documentation,
+increase testing by enriching datasets, increase continuous integration usage,
+move to web applications, employ linters, use peer reviews, and design for
+change.
 
 \end{abstract}
 
@@ -173,13 +173,13 @@ use a software engineering lens to assess the quality of existing MI software.
 \subsection{Research Questions} \label{sec_motivation}
 
 As well as state of the practice (SOP) for MI software, we would like to
-understand the impact of the often cited gap (chasm!) between recommended
+understand the impact of the often cited gap between recommended
 software engineering practices and that used for most research 
 software~\cite{Storer2017}. Although scientists spend
 a substantial proportion of their working times on software development
 \cite{Hannay2009, Prabhu2011}, few are formally trained~\cite{Hannay2009}.
 
-Our investigation is based on the following four research questions:
+Our investigation is based on the following research questions:
 \begin{enumerate}
 \item[RQ\refstepcounter{rqnum}\therqnum \label{RQ_WhatProjects}:] What MI
 {open source} software projects exist? (Section~\ref{SecWhatProjects})
@@ -486,9 +486,8 @@ they are web applications. 10 of the projects required extra dependencies: Five
 depend on a specific browser; \textit{dwv}, \textit{OHIF Viewer}, and
 \textit{GATE} needs extra libraries to build; \textit{ImageJ} and \textit{Fiji}
 need an unzip tool; \textit{MatrixUser} needs Matlab; \textit{DICOM Viewer}
-needs a Nextcloud platform. \textit{GATE}, \textit{dwv}, and \textit{DICOM
-Viewer} showed severe installation problems. We were not able to install them,
-even after a reasonable amount of time (2 hours).
+needs a Nextcloud platform. We were not able to install \textit{GATE},
+\textit{dwv}, \textit{DICOM Viewer} even after trying for 2 hours (each).
 
 \item [Correctness \& Verifiability] The packages with higher scores for
 correctness and verifiability used a wider array of techniques to improve
@@ -515,8 +514,7 @@ which failed for unknown reasons.  For the broken format, \textit{MatrixUser},
 \textit{dwv}, and \textit{Slice:Drop} ignored the incorrect format, did not show
 any error message and displayed a blank image.  \textit{MRIcroGL} behaved
 similarly except that it showed a meaningless image.  \textit{Drishti}
-successfully detected the broken format of the file, but the software crashed as
-a result.
+successfully detected the broken format, but the software then crashed.
 
 \item [Surface Usability] The software with higher usability scores usually
 provided both comprehensive documented guidance and a good user experience.
@@ -607,9 +605,9 @@ dicompyler & 48 & 19201 & 15941 & 332 \\
 \section{Comparison to Community Ranking} \label{Sec_VsCommunityRanking}
 
 To answer \rqref{RQ_CompareHQ2Popular} we use GitHub stars, number of forks and
-number of people watching the projects are proxies for community ranking.
+number of people watching the projects as proxies for community ranking.
 Table~\ref{tab_ranking_vs_GitHub} show the statistics for data collected in July
-2021.  Recall that 24 projects use GitHub (Section~\ref{SecMeasurementResults}).
+2021.
 
 Our ranking and GitHub popularity, at least for the top five projects, seems to
 line up fairly well. However, we ranked some popular packages fairly low, such
@@ -620,13 +618,13 @@ detect a broken DICOM file and instead displayed a blank image
 (Section~\ref{SecMeasurementResults}).  \textit{DICOM Viewer} ranked low as we
 were unable to install the NextCloud platform.
 
-Another likely reason for discrepancies is that we weighted all qualities
-equally. This is not likely how users implicitly rank the different qualities.
-This would require a broader user study to properly assess. Furthermore our
-measures of popularity are only \emph{proxies} which are biased towards
-past rather than current preferences~\cite{Szulik2017}, as these are
-monotonically increasing quantities. Finally there are often more factors than
-just quality that influence the popularity of ``consumer'' products.
+We weighted all qualities equally, which is not the likely (implicit) weight
+that users implicitly use. To properly assess this would require a broad user
+study.  Furthermore our measures of popularity are only \emph{proxies} which
+are biased towards past rather than current preferences~\cite{Szulik2017}, as
+these are monotonically increasing quantities. Finally there are often more
+factors than just quality that influence the popularity of ``consumer''
+products.
 
 \begingroup
 \renewcommand{\arraystretch}{0.85}
@@ -677,8 +675,7 @@ popularity, as estimated by the number of new stars per year)}
 Although both rankings are imperfect measures, they nevertheless suggest a
 correlation between best practices and popularity. We don't know if this is
 causal, in either direction (i.e. if best practices enable popularity or if
-popularity increases the need for using more software development best
-practices).
+popularity increases the need for best practices).
 
 \section{Compare to Recommended Software Artifacts} \label{Sec_CompareArtifacts}
 
