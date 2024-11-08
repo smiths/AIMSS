@@ -16,6 +16,7 @@
 \usepackage{booktabs}
 \usepackage{pbox}
 \usepackage{paralist}
+\usepackage[inline]{enumitem}
 
 \newcounter{rqnum} %research question number
 \newcommand{\rqtherqnum}{RQ`'\therqnum}
@@ -211,7 +212,8 @@ do the pain points of developers from MI compare to the pain points
 for research software in general? (Section~\ref{painpoints})
 \item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_Concerns}:] For MI
 developers what specific best practices are taken to address the pain points
-and software quality concerns? (Section~\ref{painpoints})
+(Section~\ref{painpoints})
+and software quality concerns? (Section~\ref{sec:sq})
 \item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_Recommend}:]
 What research software development practice could potentially address the
 pain point concerns identified in \rqref{RQ_PainPoints}?
@@ -994,202 +996,73 @@ their documentations conveyed information clearly enough.
 
 \section{Developer Pain Points} \label{painpoints}
 
-Based on interviews with nine developers (described in
-Section~\ref{sec_interview_methods}), we answer three research questions (first
-mentioned in Section~\ref{sec_motivation}): \rqref{RQ_PainPoints}) What are the
-pain points for developers working on research software projects?;
-\rqref{RQ_ComparePainPoints}) How do the pain points of developers from MI
-compare to the pain points for research software in general?; and
-\rqref{RQ_Concerns}) For MI developers what specific best practices are taken to
-address the pain points and software quality concerns? 
+We draw out the point points the points experienced by MI
+software developers, compare them to those of general research software
+developers, and what practices are used to address these pain points.
 
-Our interviews identified pain points related to a lack of time and funding,
-technology hurdles, improving correctness, and improving usability.  In this
-section, we go through each pain point and contrast the MI experience with
-observations from other domains.  We also cover potential ways to address the
-pain points, as promoted by the community.  In addition to pain points, we summarize
-MI developer strategies for improving maintainability and reproducibility.
-Although the interviewees did not explicitly identify these two qualities as
-pain points, we did discuss threats to these qualities and ways to improve them
-as part of our interview process \cite{SmithEtAl2021}.  The interviewee's
-practices for addressing pain points and improving quality can potentially be
-emulated by other MI developers. Moreover, these practices may provide examples
-that can be followed by other research software domains.
+Interviews identified the following issues:
+\begin{enumerate*}
+\item lack of time and funding,
+\item technology hurdles, 
+\item correctness, and 
+\item usability.  
+\end{enumerate*}
+We first detail each pain point, and contrast this experience with that
+from other domains. We then separately cover potential way to mitigate these
+issues.
 
-Pinto et al.\ \cite{PintoEtAl2018} list some pain points that did not come up in
-our conversations with MI developers: interruptions while coding, scope bloat,
-lack of user feedback, hard to collaborate on software projects, and aloneness.
-Wiese et al.\ \cite{WieseEtAl2019} mention two additional pain points that did
-not explicitly arise in our interviews: reproducibility, and software scope
-determination.  To the list of pain points not discussed for MI, our study of
-LBM software [citation redacted for blind review] %\cite{SmithEtAl2024} 
-adds lack of software experience for the developers, technical debt, and
-documentation. We did not observe any pain points for MI that were not also
-observed for LBM. From the pain points mentioned above, although the topics of
-reproducibility and technical debt did not come up in our MI interviews, we
-covered these two topics as part of the discussion of software qualities, as
-summarized at the end of this section.  Although previous studies show pain
-points that were not mentioned by MI developers, we cannot conclude that these
-pain points are not relevant for MI software development, since we only
-interviewed nine developers.
+Pinto et al.~\cite{PintoEtAl2018} list some pain points that did not come up in
+our conversations: interruptions while coding, scope bloat, lack of user
+feedback, hard to collaborate on software projects, and aloneness.  Wiese et
+al.~\cite{WieseEtAl2019} mentions two more: reproducibility, and software scope
+determination.  [citation redacted for blind review] %\cite{SmithEtAl2024} 
+adds lack of software experience, technical debt, and documentation.
+We cannot conclude that these are not also issues with MI software due to our
+small response size.
 
 \begin{enumerate}
 
 \item[P\refstepcounter{pnum}\thepnum \label{P_LackDevTime}:] \textbf{Lack of
-Development Time:} Many interviewees thought lack of time, along with lack of
-funding (discussed next), were their most significant obstacles. Other domains
-of research software also experience the lack of time pain point
-\cite{PintoEtAl2018, PintoEtAl2016, WieseEtAl2019}. Our study of LBM software [citation redacted for blind review]
+Development Time:} This was felt to be the most significant obstacle, and
+is not uncommon
+\cite{PintoEtAl2018, PintoEtAl2016, WieseEtAl2019}.
 %\cite{SmithEtAl2024} 
-also highlighted lack of time as a significant pain point.
-
-Potential and proven solutions suggested by the interviewees include:
-
-\begin{itemize}
-\item Shifting from development to maintenance when the team does not have
-enough developers for building new features and fixing bugs at the same time;
-\item Improving documentation to save time answering users' and developers'
-questions;
-\item Supporting third-party plugins and extensions; and,
-\item Using GitHub Actions for CI/CD (Continuous Integration and Continuous
-Delivery.)
-\end{itemize}
 
 \item[P\refstepcounter{pnum}\thepnum \label{P_LackFunding}:] \textbf{Lack of
-Funding:} Developers felt the pain of having to attract funding to develop and
-maintain their software. For instance, the interviewees from \textit{3D Slicer}
-and \textit{OHIF} said getting funding for software maintenance is more
-challenging than finding funding for research. The interviewee from 
-\textit{ITK-SNAP} thought more funding was a way to solve the lack of time
-problem, because they could hire more dedicated developers. On the other hand,
-the interviewee from \textit{Weasis} did not feel that funding could
-solve the same problem, since they would still need time to supervise the project. 
+Funding:} As research software is not yet seen as essential infrastructure,
+there is an ongoing struggle to attract funding and, even harder, maintain
+research software. This is a common complaint%
+\cite{GewaltigAndCannon2012, Goble2014, KaterbowAndFeulner2018, SmithEtAl2024}.
+As software output is not always counted when judging the academic excellence
+of applicants, which forces researchers who write software to spend extra
+time on publicity~\cite{WieseEtAl2019}. In some domains, like biology%
+\cite{HowisonAndBullard2016}, software is infrequently cited even when used
+pervasively. In other words, there is a lack of a formal reward system for
+research software~\cite{PintoEtAl2018}.
 
-Funding challenges have also been noted by others \cite{GewaltigAndCannon2012,
-Goble2014, KaterbowAndFeulner2018, SmithEtAl2024}. Researchers that devote time
-to software have the additional challenge that funding agencies do not always
-count software when they are judging the academic excellence of the applicant.
-Wiese et al.\ \cite{WieseEtAl2019} reported developer pains related to
-publicity, since publishing norms have historically made it difficult to get
-credit for creating software.  As studied by \cite{HowisonAndBullard2016},
-research software (specifically biology software, but the trend likely applies
-to other research software domains) is infrequently cited. There is a lack of a
-formal reward system for research software \cite{PintoEtAl2018}.
-
-An interviewee proposed an idea for increasing funding: Licensing the software
-to commercial companies to integrate it into their products.
-    
 \item[P\refstepcounter{pnum}\thepnum \label{P_TechnologyHurdles}:]
-\textbf{Technology Hurdles:} The technology hurdles mentioned by MI developers
-include: hard to keep up with changes in OS and libraries, difficult to transfer
-to new technologies, hard to support multiple OSes, and hard to support lower-end
+\textbf{Technology Hurdles:} Developers mentioned: hard to keep up with changes
+in OS and libraries, difficult to transfer to new technologies, hard to support
+multiple OSes, and hard to support lower-end
 computers. Developers expressed difficulty balancing between four factors:
-cross-platform compatibility, convenience to development and maintenance,
+cross-platform compatibility, convenience of development and maintenance,
 performance, and security.
 
-Another pain point survey \cite{WieseEtAl2019} highlights that technology
-hurdles are an issue for research software in general.  Some technical-related
-problems mentioned include dependency management, cross-platform compatibility,
-CI, hardware issues and operating system issues \cite{WieseEtAl2019,
-PintoEtAl2018}. Technology pain points for LBM developers include setting up
-parallelization and CI [citation redacted for blind review].
-%\cite{SmithEtAl2024}. 
-
-Five solutions proposed by the MI developers are:
-
-\begin{itemize}
-\item Adopting a web-based approach with backend servers, to better support
-lower-end computers;
-\item Using memory-mapped files to consume less computer memory, to better
-support lower-end computers; 
-\item Using computing power from the computers GPU for web applications;
-\item Maintaining better documentations to ease the development and maintenance
-processes;
-\item Improving performance via more powerful computers, which one interviewee
-pointed out has already happened.
-\end{itemize}
-
-As the above list shows, developers perceive that web-based applications will
-address the technology hurdle.  Most of the 29 teams (83\%) chose to develop
-native applications. For the eight teams we interviewed, three of them were
-building web applications, and the \textit{MRIcroGL} team was considering a
-web-based solution.
-
-The advantage for native applications is higher performance, while web
-applications have the advantage of cross-platform compatibility and a simpler
-build process.  These web advantages mirror the native disadvantages of
-difficulty with cross-platform compatibility and a complex build process.  The
-lower performance disadvantage of web applications can be improved with a server
-backend, but in this case there are disadvantages for privacy protection and
-server costs.  These issues are discussed further in the recommendations
-(Section~\ref{sec_webapps}).
-
 \item[P\refstepcounter{pnum}\thepnum \label{P_Correctness}:]
-\textbf{Ensuring Correctness:} Interviewees identified multiple threats to
-correctness.  The most frequently mentioned threat was complexity.  Complexity
-enters the software by various means, including the large variety of data formats,
-complicated data standards, differing outputs between medical imaging machines,
-and the addition of (non-viewing related) functionality.  Other threats to
-correctness identified include the following:
+\textbf{Correctness:} The most mentioned thread to correctness was complexity.
+Example sources of complexity are: Interviewees identified multiple threats to
+the large variety of data formats, complicated data standards, differing
+outputs between medical imaging machines, and the addition of (non-viewing
+related) functionality.  Other identified threats to correctness:
 
 \begin{itemize}
 \item Lack of real world image data for testing, in part because of patient
-privacy concerns (the pain point of privacy concerns also arises for research
-software in general \cite{WieseEtAl2019});
+privacy concerns;
 \item Tests are expensive and time-consuming because of the need for huge datasets;
 \item Software releases are difficult to manage;
 \item No systematic unit testing; and,
 \item No dedicated quality assurance team.
 \end{itemize}
-
-As implied by the above threats to correctness, testing was the most often
-mentioned strategy for MI developers for ensuring correctness.  Seven teams
-mentioned test related activities, including test-driven development, component
-tests, integration tests, smoke tests, regression tests, self tests and
-automated tests.  With the common emphasis on testing to improve correctness, MI
-software is ahead of some other scientific domains.  For research software in
-general, there is a problem of insufficient testing \cite{PintoEtAl2018} and
-more developers think testing is important than the number that believe they
-have a sufficient understanding of testing concepts \cite{HannayEtAl2009}.  Our
-study of LBM software suggests that this domain shares the challenges of
-insufficient testing and insufficient understanding of testing concepts
-[citation redacted for double blind]. %\cite{SmithEtAl2024}.  
-Automated testing
-is a specific challenge for LBM software since free testing services do not
-offer adequate facilities for large amounts of data.
-Although not specifically mentioned during our interviews, the large data sets
-for MI likely also cause a challenge for using free testing services, like
-GitHub Actions.
-
-Research software in general often struggles with the oracle problem for testing
-because for many potential test cases the developer doesn't have a means to
-judge the correctness of their calculated solutions \cite{HannayEtAl2009,
-KanewalaAndBieman2013, KellyEtAl2011, WieseEtAl2019}.  The MI developers did not
-allude to this challenge, likely because for a give image (test case) it is
-possible to determine, potentially by using other software, the expected
-analysis results.
-
-A frequently cited strategy for building confidence in correctness (mentioned by
-3 interviewees) is a two state development process with stable releases and
-nightly builds.  Other strategies for ensuring correctness that came up during
-the interviews include CI/CD, using de-identified copies of medical images for
-debugging, sending beta versions to medical workers who can access the data to
-do the tests, and collecting/maintaining a dataset of problematic images.  Some
-additional strategies used by MI developers include:
-
-\begin{itemize}
-\item Using open datasets.
-\item If (part of) the team belongs to a medical school or a hospital, using the
-datasets they can access;
-\item If the team has access to MRI scanners, self-building sample images for
-testing;
-\item If the team has connections with MI equipment manufacturers, asking for
-their help on data format problems;
-\end{itemize}
-
-The feedback from the interviewees makes it clear that increased connections
-between the development team and medical professionals/institutions could ease
-the pain of ensuring correctness via testing.
 
 \item[P\refstepcounter{pnum}\thepnum \label{P_Usability}:] \textbf{Usability:}
 The discussion with the developers focused on usability issues for two classes
@@ -1210,8 +1083,80 @@ always have the expertise required to install or use the software
 LBM software developers [citation redacted for blind review].
 %\cite{SmithEtAl2024}.
 
-To improve the usability of MI software, the most common strategies mentioned by
-developers are as follows:
+\end{enumerate}
+
+For each of the above, the MI developers suggested various potential
+solutions, some of which have proven their worth in other domains.
+
+\begin{enumerate}
+\item[P\ref{P_LackDevTime}:] \textbf{Lack of Development Time:}
+\begin{itemize}
+\item Shifting from development to maintenance when the team does not have
+enough developers for building new features and fixing bugs at the same time;
+\item Improving documentation to save time answering users' and developers'
+questions;
+\item Supporting third-party plugins and extensions; and,
+\item Using GitHub Actions for CI/CD (Continuous Integration and Continuous
+Delivery.)
+\end{itemize}
+
+\item[P\ref{P_LackFunding}:] \textbf{Lack of Funding:}
+One interviewee proposed an interesting idea: Licensing the software
+to commercial companies to integrate it into their products.
+In general, solutions need to be more systemic, and we are seeing the rise
+of ``research software engineers'' in various jurisdictions.
+
+\item[P\ref{P_TechnologyHurdles}:] \textbf{Technology Hurdles:}
+\begin{itemize}
+\item Adopting a web-based approach with backend servers, to better support
+lower-end computers;
+\item Using memory-mapped files to consume less computer memory, to better
+support lower-end computers; 
+\item Using computing power from the computers GPU for web applications;
+\item Maintaining better documentations to ease the development and maintenance
+processes;
+\item Improving performance via more powerful computers, which one interviewee
+pointed out has already happened.
+\end{itemize}
+
+A number of developers perceive that some of the ``shifting technologies''
+problems could be alleviated by moving to web-based applications.
+Most of the teams (83\%) chose to develop
+native applications. Three of the eight we interviewed were
+building web applications, and another team was considering it too.
+
+\item[P\ref{P_Correctness}:] \textbf{Correctness:}
+Testing was the most often strategy for ensuring correctness, and teams
+mentioned test related activities, including test-driven development, component
+tests, integration tests, smoke tests, regression tests, self tests and
+automated tests.  This puts MI software ahead of other domains where
+insufficient testing is a problem~\cite{PintoEtAl2018} and
+insufficiently well-understood~\cite{HannayEtAl2009}.
+
+Another correctness strategy mentioned multiple times is a development process
+that involves stable releases and nightly builds.  Other strategies that were
+mentioned:
+\begin{enumerate*}
+\item using CI/CD, 
+\item using de-identified copies of medical images for
+debugging, 
+\item sending beta versions to medical workers who can access the data to
+do the tests, 
+\item collecting/maintaining a dataset of problematic images,
+\item using open datasets,
+\item if (part of) the team belongs to a medical school or a hospital, using the
+datasets they can access,
+\item if the team has access to MRI scanners, self-building sample images for
+testing, and
+\item if the team has connections with MI equipment manufacturers, asking for
+their help on data format problems.
+\end{enumerate*}
+
+Synthesizing the feedback from the interviewees, it is clear that increased
+connections between the development team and medical professionals/institutions
+could improve testing effectiveness and thus increase correctness.
+
+\item[P\ref{P_Usability}:] \textbf{Usability:}
 
 \begin{itemize}
     \item Use documentation (user manuals, mailing lists, forums) (mentioned by
@@ -1234,6 +1179,16 @@ usability is performance, since poor performance frustrates users.
 
 \end{enumerate}
 
+\section{Software Qualities}\label{sec:sq}
+In addition to pain points, we summarize
+MI developer strategies for improving maintainability and reproducibility.
+Although the interviewees did not explicitly identify these two qualities as
+pain points, we did discuss threats to these qualities and ways to improve them
+as part of our interview process \cite{SmithEtAl2021}.  The interviewee's
+practices for addressing pain points and improving quality can potentially be
+emulated by other MI developers. Moreover, these practices may provide examples
+%HERE
+that can be followed by other research software domains.
 Up to this point, we have covered the pain points that came up in interviews
 with MI developers, along with a summary of the techniques that are currently
 used to address these pain points.  Although the developers did not explicitly
