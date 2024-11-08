@@ -1,4 +1,4 @@
-\documentclass[final, 12pt, 3p, times]{elsarticle}
+\documentclass[doubleblind,12pt, 3p, times]{elsarticle}
 
 \usepackage{amssymb}
 \usepackage{amsmath}
@@ -302,7 +302,7 @@ Mendeley; link will be provided after refereeing.]
 % \cite{Dong2021-Data}
 %provides the full set of measurement data.   %%DOUBLE BLIND
 
-\begin{figure*}[!ht]
+\begin{figure*}[ht!]
 \includegraphics[scale=0.67]{template.pdf}
 \caption{Grading template example}
 \label{fg_grading_template_example}
@@ -385,7 +385,7 @@ choice of 29 packages.  Table~\ref{tab_final_list} summarizes the in-scope
 open-source MI software that is available at the time of measurement (the year
 2020), thus answering \rqref{RQ_WhatProjects}.
 
-\begin{table*}[!ht]
+\begin{table*}[ht!]
 \centering
 \begin{tabular}{p{3.7cm}lllllllll}
 \toprule
@@ -449,12 +449,12 @@ for 11 of 29 projects; Pascal and Matlab were each used for a single project.
 
 \section{Which Projects Follow Best Practices?} \label{SecMeasurementResults}
 
-To answer \rqref{RQ_HighestQuality} we measured the software as described in
+We measured the software as described in
 Section~\ref{SecMethodology}.  In the absence of a specific real world context,
 we assumed all nine qualities are equally important.
 Figure~\ref{fg_overall_scores} shows the overall AHP scores in descending order.
 
-\begin{figure*}[!ht]
+\begin{figure*}[ht!]
 \includegraphics[scale=0.47]{overall_scores.pdf}
 \caption{Overall AHP scores with an equal weighting for all 9 software qualities}
 
@@ -560,7 +560,7 @@ environment and release notes.
 
 \end{description}  
 
-\begin{table*}[!ht]
+\begin{table*}[ht!]
 \centering
 \begin{tabular}{lllll}
 \toprule
@@ -604,7 +604,7 @@ dicompyler & 48 & 19201 & 15941 & 332 \\
 
 \section{Comparison to Community Ranking} \label{Sec_VsCommunityRanking}
 
-To answer \rqref{RQ_CompareHQ2Popular} we use GitHub stars, number of forks and
+We use GitHub stars, number of forks and
 number of people watching the projects as proxies for community ranking.
 Table~\ref{tab_ranking_vs_GitHub} show the statistics for data collected in July
 2021.
@@ -628,7 +628,7 @@ products.
 
 \begingroup
 \renewcommand{\arraystretch}{0.85}
-\begin{table*}[!ht]
+\begin{table*}[ht!]
 \centering
 \begin{tabular}{llllll}
 \toprule
@@ -677,11 +677,11 @@ correlation between best practices and popularity. We don't know if this is
 causal, in either direction (i.e. if best practices enable popularity or if
 popularity increases the need for best practices).
 
-\section{Compare to Recommended Software Artifacts} \label{Sec_CompareArtifacts}
+\section{Comparing with Recommended Software Artifacts} \label{Sec_CompareArtifacts}
 
-For \rqref{RQ_CompareArtifacts} we use nine research software development
+We use a set of nine research software development
 guidelines to compare recommended software artifacts versus those present in MI
-software.  These guidelines are:
+software:
 \begin{itemize}
 \item United States Geological Survey Software Planning Checklist
 \cite{USGS2019},
@@ -701,7 +701,7 @@ Guidelines for Software Quality \cite{vanGompelEtAl2016}, and
 Projects \cite{OrvizEtAl2017}.
 \end{itemize}
 
-\begin{table*}[!ht]
+\begin{table*}[ht!]
 \begin{center}
 \begin{tabular}{ p{3.5cm}p{0.5cm}p{0.5cm}p{0.5cm}p{0.5cm}p{0.5cm}p{0.5cm}p{0.5cm}p{0.5cm}p{0.5cm}p{0.5cm} }
 \toprule
@@ -755,22 +755,22 @@ to Artifacts in MI Projects (C for Common, U for Uncommon and R for Rare)}
 \end{center}
 \end{table*}
 
-In Table~\ref{Tbl_Guidelines} each row corresponds to an artifact.  For a given
-row, a checkmark in one of the columns means that the corresponding guideline
-recommends this artifact.  The last column shows whether the artifact appears in
-the measured set of MI software, either not at all (blank), commonly (C),
-uncommonly (U) or rarely (R).  We did our best to interpret the meaning of each
-artifact consistently between guidelines and specific MI software, but the
+We show the recommended artifacts in Table~\ref{Tbl_Guidelines}, one per row.
+For a given row, a checkmark in one of the columns means that the corresponding
+guideline recommends this artifact.  The last column shows whether the artifact
+appears in the measured set of MI software, either not at all (blank), commonly
+(C), uncommonly (U) or rarely (R).  We did our best to interpret the meaning of
+each artifact consistently between guidelines and specific MI software, but the
 terminology and the contents of artifacts are not standardized.  The challenge
 even exists for the ubiquitous README file.  The content of README files shows
-significant variation between projects \cite{PranaEtAl2018}.  Although some
-content is reasonably consistent, with 97\% of README files contain at least one
-section describing the `What' of the repository and 89\% offering some `How'
-content, other categories are more variable.  For instance, information on
+significant variation between projects~\cite{PranaEtAl2018}.  Some content is
+reasonably consistent, with 97\% of README files contain at least one section
+describing the `What' of the repository and 89\% offering some `How' content,
+other categories are more variable.  For instance, information on
 `Contribution', `Why', and `Who', appear in 28\%, 26\% and 53\% of the analyzed
-files, respectively \cite{PranaEtAl2018}.  
+files, respectively~\cite{PranaEtAl2018}.  
 
-\begin{table*}[!ht]
+\begin{table*}[ht!]
     \begin{center}
     \begin{tabular}{ p{3.8 cm} p{6.4 cm} p{4.5 cm}}
     \toprule
@@ -789,8 +789,8 @@ files, respectively \cite{PranaEtAl2018}.
      & & Requirements (1)\\
     \bottomrule
     \end{tabular}
-    \caption{Artifacts Present in MI Packages, Classified by Frequency (The number 
-    in brackets is the number of occurrences)}
+    \caption{Artifacts Present in MI Packages, Classified by Frequency
+    (number of occurrences)}
     \label{artifactspresent}
     \end{center}
 \end{table*}
@@ -800,7 +800,7 @@ The table groups the artifacts by frequency
 into categories of common (20 to 29 ($>$67\%) packages), uncommon (10 to 19
 (33-67\%) packages), and rare (1 to 9 ($<$33\%) packages).
 
-Note that ``popularity'' in Table~\ref{Tbl_Guidelines} does no imply that these
+Note that ``popularity'' in Table~\ref{Tbl_Guidelines} does not imply that these
 oft recommended artifacts are the most important. Guidelines are often brief,
 to encourage adoption, and thus even guidelines that mention the need for
 installation instructions rarely mention uninstallation instructions.
@@ -857,26 +857,26 @@ development effort~\cite{deSouzaEtAl2019}.
 \label{Sec_CompareTools}
 
 We use data from interviews, as described in Section~\ref{sec_interview_methods}
-to answer \rqref{RQ_CompareToolsProjMngmnt}, \rqref{RQ_CompareMethodologies}
-and \rqref{RQ_PainPoints}. Requests were sent to all 29 projects.  Nine
-developers from eight of the projects agreed to participate: \textit{3D Slicer},
-\textit{INVESALIUS 3}, \textit{dwv}, \textit{BioImage Suite Web},
-\textit{ITK-SNAP}, \textit{MRIcroGL}, \textit{Weasis}, and \textit{OHIF}. We
-spent about 90 minutes for each interview. The full interview answers can be
+to answer \rqref{RQ_CompareToolsProjMngmnt} (tool usage),
+\rqref{RQ_CompareMethodologies} (methodology) and \rqref{RQ_PainPoints} (pain
+points). Requests were sent to all 29 projects.  Nine developers from eight of
+the projects agreed to participate: \textit{3D Slicer}, \textit{INVESALIUS 3},
+\textit{dwv}, \textit{BioImage Suite Web}, \textit{ITK-SNAP},
+\textit{MRIcroGL}, \textit{Weasis}, and \textit{OHIF}. We spent about 90
+minutes for each interview. The full interview answers can be
 found in [citation redacted for blind review].
 %\cite{Dong2021}.
 
-Developers use software tools for user support, version control, Continuous
-Integration and Deployment (CI/CD), documentation and project management. To
-answer \rqref{RQ_CompareToolsProjMngmnt}, we summarize the tool usage in these
-categories, and compare this to the usage by the research software community.
+Developers use software tools for user support, version control (VCS),
+Continuous Integration and Deployment (CI/CD), documentation and project
+management.  We summarize the tool usage in each of these categories, and
+compare this to the usage by the research software community.
 
-Table~\ref{tab_user_support_model} summarizes the user support models by the
-number of projects using each model (projects may use more than one support
-model). The prevalent usage of GitHub issues may be by design, or it might just
-naturally arise as users seek help.
+\paragraph{User support} Table~\ref{tab_user_support_model} summarizes the user
+support models by the number of projects using each model (projects may use
+more than one support model).
 
-\begin{table}[!ht]
+\begin{table}[ht!]
 \centering
 \begin{tabular}{lc}
 \toprule
@@ -894,68 +894,49 @@ Contact form & 1 \\
 \caption{\label{tab_user_support_model}User support models by number of projects}
 \end{table}
 
-Most teams interview (eight of nine) mentioned using GitHub and pull requests to manage
-contributions from the community. The interviewees generally gave very positive
-feedback on using GitHub. Some teams previously used a different approach to
-version control and eventually transferred to git and GitHub.
+\paragraph{Version control} Most teams interviewed (eight of nine) use GitHub
+for version control, which makes it unsurprising that they also use pull
+requests for managing community contributions. The experience of using GitHub
+was reported as generally positive; some teams had actively migrated to GitHub
+from other VCS.  This represents a considerable uptake since its rare use in
+2006~\cite{Wilson2006}, which matches the uptake in other communities: 10 years
+ago Nguyen et al~\cite{Nguyen-HoanEtAl2010} estimated that only 50\% of
+research software projects used version control, and by 2018 this had jumped to
+over 80\%~\cite{AlNoamanyAndBorghi2018} with many communities~\cite{Smith2018}
+reaching 100\% already in 2018. In 2022, version control use sits at over
+95\%~\cite{CarverEtAl2022}.
 
-The common use of version control for MI software illustrates considerable
-improvement from the poor adoption of version control tools that Wilson lamented
-in 2006 \cite{Wilson2006}.  The proliferation of version control tools for MI
-matches the increase in the broader research software community.  A little over
-10 years ago Nguyen-Hoan et al.\ \cite{Nguyen-HoanEtAl2010} estimated that only
-50\% of research software projects used version control, but even at that time
-there was an increase from previous usage levels. A survey in 2018 shows 81\% of
-developers use a version control system \cite{AlNoamanyAndBorghi2018}.
-\cite{Smith2018} has similar results, showing version control usage for alive
-projects in mesh generation, geographic information systems and statistical
-software for psychiatry increasing from 75\%, 89\% and 17\% (respectively) to
-100\%, 95\% and 100\% (respectively) over a four-year period ending in 2018. A
-recent survey by \cite{CarverEtAl2022} shows version control use among
-practitioners at over 95\%. All but one of the software guides cited in
-Section~\ref{Sec_CompareArtifacts} recommends version control. The high usage of
-version control tools in MI matches the general trend in research software.
-
-As mentioned in Section~\ref{SecMeasurementResults}, we identified 17\% of MI
-projects using CI/CD tools. We found which projects used CI/CD by examining the
-documentation and source code. The count of CI/CD usage may be higher, since
-traces of CI/CD may not always appear in a repository.  This was the case for a
-study of Lattice Boltzmann Method (LBM) software, where interviews with
-developers showed that more projects used CI/CD than was evident from repository
-artifacts alone [citation redacted for blind review].  %\cite{Michalski2021}.  
-The 17\% utilization for MI software contrasts with the high frequency with
-which research software development guidelines recommend continuous integration
+\paragraph{CI/CD} 
+Only 17\% of MI projects use CI/CD tools. We estimated this using artifacts
+present in the repository -- actual usage may be higher as some tools are
+entirely external. This was the case for a study of Lattice Boltzmann Method
+(LBM) software [citation redacted for blind review].  %\cite{Michalski2021}.
+This contrasts with the high frequency of guidelines recommending continuous
+integration
 \cite{BrettEtAl2021, Brown2015, ThielEtAl2020, Zadka2018, vanGompelEtAl2016}.
-Although there is currently little data available on CI/CD utilization for
-research software, our impression is that CI/CD is not yet common practice,
-despite its recommendation.  This is certainly the case for LBM software, where
-usage numbers sit around 12.5\% [citation redacted for blind review]
-%\cite{Michalski2021}.  
-The survey of \cite{CarverEtAl2022} suggests higher use of CI/CD with 54\%
-(54/100) of respondents indicating that they use it. However, that study surveys
-practitioners, rather than assessing projects.  Additional information on CI/CD
-is given in the recommendations (Section~\ref{Sec_ContinuousIntegration}).
+A recent survey~\cite{CarverEtAl2022} of practioners (rather than projects)
+suggests higher use of CI/CD with 54\% of respondents indicating that they use
+it.
 
-For documentation tools and methods mentioned by the interviewees, the most
-popular (mentioned by about 30\% of developers) were forum discussions and
-videos.  The second most popular options (mentioned by about 20\% of developers)
-were GitHub, wiki pages, workshops, and social media. The least frequently
-mentioned options (about 10\% of developers) included writing books, and google
-forms.  In contrasting MI software with LBM software, the most significant
-documentation tool difference is that LBM software often uses document
-generation tools, like doxygen and sphinx [citation redacted for blind review].
+\paragraph{Documentation} The most popular (mentioned by about 30\% of
+developers) were forum discussions and videos.  The second most popular options
+(20\%) were GitHub, wiki pages, workshops, and social media. The least
+frequently mentioned options (about 10\% of developers) included writing books,
+and Google forms.  As a point of contrast, LBM software most often uses API
+document generation tools, like doxygen and sphinx [citation redacted for blind
+review].
 %\cite{Michalski2021}
 
-The interviewees talked about two types of project management tools:
+\paragraph{Project management} Two types of tools were mentionned:
 \begin{inparaenum}[i)]
 \item trackers, including GitHub, issue trackers, bug trackers and Jira; and,
 \item documentation tools, including GitHub, Wiki page, Google Doc, and
 Confluence.
 \end{inparaenum}
-Of the specifically named tools, interviewees mentioned GitHub 3 times, and each
+Of the named tools, interviewees mentioned GitHub 3 times, and each
 of the other tools once each.
 
-Based on information provided by \cite{JungEtAl2022}, tool utilization for MI
+Based on~\cite{JungEtAl2022}, tool utilization for MI
 software has much in common with tool utilization for ocean modelling software.
 Both use tools for editing, compiling, code management, testing, building, and
 project management.  From the data available, ocean modelling differs from MI
@@ -1653,7 +1634,7 @@ community ranking proxies. Although our quality measures are rather shallow, we
 see this as an advantage. The shallow measures are a proxy for the importance of
 \emph{first impressions} for software adoption.
 
-\begin{table*}[!ht]
+\begin{table*}[ht!]
     %\begin{center}
     \renewcommand{\arraystretch}{1.8}
     \begin{tabular}{ p{3cm}p{12.5cm} }
