@@ -1077,10 +1077,11 @@ how to deploy the software, and the architecture being difficult for new
 developers to understand.
 
 At least to some extent the problems for MI software users are due to holes in
-their background knowledge.  For research software in general, users do not
-always have the expertise required to install or use the software
-\cite{WieseEtAl2019}. A similar pattern has been observed during interviews with
-LBM software developers [citation redacted for blind review].
+their knowledge of software and computing technology, and sometimes also
+lack expertize in their domain to be able to adequately use the software
+\cite{WieseEtAl2019}. 
+%A similar pattern has been observed during interviews with
+%LBM software developers [citation redacted for blind review].
 %\cite{SmithEtAl2024}.
 
 \end{enumerate}
@@ -1159,12 +1160,9 @@ could improve testing effectiveness and thus increase correctness.
 \item[P\ref{P_Usability}:] \textbf{Usability:}
 
 \begin{itemize}
-    \item Use documentation (user manuals, mailing lists, forums) (mentioned by
-    4 developers)
-    \item Usability tests and interviews with end users; and, (mentioned by 3
-    developers)
-    \item Adjusting the software according to user feedback. (mentioned by 3
-    developers)
+    \item Use documentation (user manuals, mailing lists, forums) 
+    \item Usability tests and interviews with end users; and, 
+    \item Adjusting the software according to user feedback.
 \end{itemize}
 
 Other suggested and practiced strategies include a graphical user interface,
@@ -1180,64 +1178,41 @@ usability is performance, since poor performance frustrates users.
 \end{enumerate}
 
 \section{Software Qualities}\label{sec:sq}
-In addition to pain points, we summarize
-MI developer strategies for improving maintainability and reproducibility.
-Although the interviewees did not explicitly identify these two qualities as
-pain points, we did discuss threats to these qualities and ways to improve them
-as part of our interview process \cite{SmithEtAl2021}.  The interviewee's
-practices for addressing pain points and improving quality can potentially be
-emulated by other MI developers. Moreover, these practices may provide examples
-%HERE
-that can be followed by other research software domains.
-Up to this point, we have covered the pain points that came up in interviews
-with MI developers, along with a summary of the techniques that are currently
-used to address these pain points.  Although the developers did not explicitly
-identify the qualities of maintainability and reproducibility as pain points in
-our interviews, as part of our interview questions
-(Section~\ref{sec_interview_methods}) they did share their approaches for
-improving these qualities, as discussed below.
+
+The structured interviews also included an active discussion of software
+qualities, and in particular maintainability and reproducibility. Note that
+these did not come up as ``pain points''.
+%\cite{SmithEtAl2021}.  
+The developers discussed their approaches for improving these qualities, which
+we now relay.
 
 \begin{enumerate} \item[Q\refstepcounter{qnum}\theqnum
 \label{Q_Maintainability}:] \textbf{Maintainability:}  Maintainability has been
 rated as the third most important software quality for research software
-\cite{Nguyen-HoanEtAl2010}. The push for sustainable software
-\cite{deSouzaEtAl2019} is motivated by the pain that past developers have had
-with accumulating too much technical debt \cite{KruchtenEtAl2012}.  For LBM
-software, technical debt has been identified as one of the developer pain points
-[citation redacted for blind review]. %\cite{SmithEtAl2024}.
+\cite{Nguyen-HoanEtAl2010}, and developers complain about 
+accumulating too much technical debt \cite{KruchtenEtAl2012}.
 
-To improve maintainability, the most popular (with five out of nine interviewees
-mentioning it) strategy is to use a modular approach, with often repeated
-functions in a library.  Other strategies that were mentioned for improving
-maintainability include supporting third-party extensions, an easy-to-understand
-architecture, a dedicated architect, starting from simple solutions, and
-documentation.  The \textit{3D Slicer} team used a well-defined structure for
-the software, which they named as an ``event-driven MVC pattern''.  \textit{3D
-Slicer} discovers and loads necessary modules at runtime. The \textit{BioImage
-Suite Web} team had designed and re-designed their software multiple times in
-the last 10+ years. They found that their modular approach effectively supports
-maintainability \cite{Joshi2011}. 
+The main strategy is to reduce code duplication by using properly structured
+libraries.  Other strategies mentioned include supporting third-party
+extensions, an easy-to-understand architecture, a dedicated architect, starting
+from simple solutions, and documentation. 
 
 \item[Q\refstepcounter{qnum}\theqnum \label{Q_Reproducibility}:]
-\textbf{Reproducibility:}  Although the MI developers did not mention
-reproducibility explicitly as a pain point, they did mention the need to improve
-documentation.  Good documentation does not just address the pain points of lack
-of developer time (\ppref{P_LackDevTime}), technology hurdles
-(\ppref{P_TechnologyHurdles}), usability \ppref{P_Usability}, and
-maintainability.  Documentation is also necessary for reproducibility. The
-challenges of inadequate documentation are a known problem for research software
-\cite{PintoEtAl2018, WieseEtAl2019} and for non-research software
-\cite{LethbridgeEtAl2003}. 
+\textbf{Reproducibility:}  
+An important precondition for reproducibity is increased and better
+documentation (which also helps with many of the afore mentioned pain points).
+The challenges of inadequate documentation are a known problem for research
+software \cite{PintoEtAl2018, WieseEtAl2019} and for non-research software
+\cite{LethbridgeEtAl2003} alike. 
 
-In our interviews, we discussed threats to reproducibility and strategies for
-improving it.  The threats that were mentioned include closed-source software,
-no user interaction tests, no unit tests, the need to change versions of some
-common libraries, variability between CPUs, and misinterpretation of how
-manufacturers create medical images. 
+The threats to reproducibility that were mentioned include closed-source
+software, no user interaction tests, no unit tests, the need to change versions
+of some common libraries, variability between CPUs, and misinterpretation of
+how manufacturers create medical images. 
 
-The most commonly cited (by 6 teams) strategy to improve reproducibility was
+The most common strategy proposed was
 testing (regression tests, unit tests, having good tests). The second most
-common strategy (mentioned by 5 teams) is making code, data, and documentation
+common strategy is making code, data, and documentation
 available, possibly by creating open-source libraries.  Other ideas that were
 mentioned include running the same tests on all platforms, a dockerized version
 of the software to insulate it from the OS environment, using standard
@@ -1252,68 +1227,57 @@ to test their reproducibility.
 
 \section{Recommendations} \label{ch_recommendations}
 
-In this section we provide recommendations to address the pain points from
-Section~\ref{painpoints} to answer~\rqref{RQ_Recommend}.  Our recommendations
-are not lists of criticisms for what should have been done in the past, or what
-should be done now; they are suggestions for consideration in the future. We
-expand on some of the ideas that came out of our interviews with developers
-(Section~\ref{painpoints}), including continuous integration, moving to web
-applications, and enriching the test data sets. We also bring in new like
-employing linters, peer review, and design for change.  Our aim is to mention
-ideas that are at least somewhat beyond conventional best practices. The ideas
-listed here have the potential to become best practices in the medium to
-long-term. We list the ideas roughly in the order of increasing implementation
-effort.
+We provide specific recommendations for future consideration -- these are
+not criticisms of past and/or current development practices. We
+expand on some of the ideas from our interviews, and bring in further ideas
+that could have a noticable impact. The ``new'' ideas are not novel to this
+paper but rather from the software engineering and software carpentry domains
+that have yet to have seen wide adoption.  We list the ideas roughly in the
+order of increasing implementation effort.
 
 \subsection{Use Continuous Integration} \label{Sec_ContinuousIntegration}
 
-Continuous integration involves frequent pushes to a code repository.  With
-every push the software is built and tested \cite[p.\ 13]
-{HumbleAndFarley2010}, \cite{ShahinEtAl2017, Fowler2006}.  CI can take
-significant time and effort to set up and integrate into a team's workflow, but
-the benefits are impressive, as follows:
-
+Continuous integration involves building and testing the software every
+time a coherent change is made to the code (i.e. via a Pull Request)%
+\cite[p.\ 13] {HumbleAndFarley2010}, \cite{ShahinEtAl2017, Fowler2006}. Initial
+setup can be cumbersome, but
+the benefits are impressive:
 \begin{itemize}
     \item Elimination of headaches associated with a separate integration phase
     \cite{Fowler2006}, \cite[p.\ 20]{HumbleAndFarley2010}.
     \item Detection and removal of bugs \cite{Fowler2006} via
     automated testing.  
-    \item Everyone is always working on a stable base, since the rejection of
-    inadequate commits means that the main branch will always be working.  A
-    stable base will always pass all tests.  If the CI system uses generators
-    and linters, it will also have current documentation and standard compliant
-    code.  A stable base improves developer productivity, allowing them to focus
-    on coding, testing, and documentation.
+    \item Everyone is always working on a stable base that always passes all
+    the tests.
+    \item If the CI system uses generators and linters, it will also have
+    current documentation and clean code.
 \end{itemize}
 
-Continuous integration and delivery helps with addressing several pain points.
-For instance, CI/CD helps reduce development time (\ppref{P_LackDevTime}) by
-removing the need for a time-consuming integration stage and by automating
-regression testing.  Automated regression tests also help with ensuring
-correctness (\ppref{P_Correctness}) and the quality of reproducibility
-(\qref{Q_Reproducibility}). Details on CI for MI can be found in [citation
-removed for blind review] %Smith et al. \cite{SmithEtAl2024_MI_SOP} 
-, including an overview of the elements of CI, how to enable incorporation of CI
-into a team's workflow, how to set-up a CI system, and challenges for CI.
+CI helps relieve several point points:
+\begin{enumerate*}
+\item by eliminating the time-consuming integration phase, 
+freeing more time for development (\ppref{P_LackDevTime}),
+\item Automated tests help with ensuring
+correctness (\ppref{P_Correctness}) and reproducibility
+(\qref{Q_Reproducibility}). 
+\end{enumerate*}
 
-\subsection{Move To Web Applications} \label{sec_webapps}
+\subsection{Perhaps Move To Web Applications} \label{sec_webapps}
 
-Section~\ref{painpoints} describes the pain point of technology hurdles
-(\ppref{P_TechnologyHurdles}), which motivates considering the use of web
-applications. Here we give further advice to help with deciding whether to adopt
-a web application. The decision will be based on whether, on balance, the web
-application improves the four factors identified by developers: compatibility,
-maintainability, performance, and security. To enable decision-making, a team
-will need to prioritize between these factors, based on their objectives and
-experience. The suggestions are intended to provide ideas and avenues for
-exploration; a web application will not be the right fit for all projects and
-all teams.
+Multiple pain points encountered, especially technology hurdles
+(\ppref{P_TechnologyHurdles}), could be alleviated by moving to a web
+application. But this must be an active decision as it may not be a good
+fit in all cases.  The decision needs to be based on whether, on balance, this
+would improve the four factors identified earlier: compatibility,
+maintainability, performance, and security. We outline the factors to consider
+to enable better decision making, as a final decision crucially depends on
+each teams' objectives.
 
 \begin{itemize}
 
-\item \textbf{Modern technologies may improve frontend performance.} Web
-applications with only a frontend usually perform worse than native
-applications. However, new technologies may ease this difference. For example,
+\item \textbf{Modern technologies may improve frontend performance.} 
+Complex, graphics-heavy user-interfaces often do not respond as quickly
+as native applications.  However, new technologies may help. For example,
 some JavaScript libraries can help the frontend harness the power of the
 computer's GPU and accelerate graphical computing. In addition, there are new
 frameworks helping developers with cross-platform compatibility. For example,
@@ -1322,50 +1286,45 @@ mobile, and desktop OS with one codebase.  Other options include
 \href{https://vuejs.org/} {Vue}, \href{https://angular.io/} {Angular} and
 \href{https://reactjs.org/} {React}, and \href{https://elm-lang.org/}{Elm}.  
 
-\item \textbf{Backend servers can potentially deliver high performance.} Web
-applications with backend servers may perform even better than native
-applications. If a team needs to support lower-end computers, it is good to use
-back-end servers for heavy computing tasks.  For backend servers where traffic
-and latency is not an issue, options include
+\item \textbf{Backend servers can potentially deliver high performance.} If
+the principal bottleneck is computational, backend servers may outperform
+native applications, as long as latency is not an issue.
+Options include
 \href{https://www.django-rest-framework.org/} {Django}, \href{https://laravel.com/} {Laravel} and
-\href{https://nodejs.org/en/} {Node.js}.  The advantage of Django is that it provides access to Python
-libraries.  For backend servers where traffic and latency is an issue,
+\href{https://nodejs.org/en/} {Node.js}.
+When traffic and latency are an issue,
 \href{https://github.com/gin-gonic/gin} {Gin} is an option.
 
-\item \textbf{Backend servers can have low costs.} Serverless solutions from
-major cloud service providers (like Amazon Web Services (AWS) and Google Cloud
-Platform) may be worth exploring. Serverless solutions still use a server, but
-the server provider only charges the team when they use the server. The solution
-is event-driven, and costs the team by the number of requests processed. Thus,
-serverless can be very cost-effective for less intensively used functions.
+\item \textbf{Some backend servers can be inexpensive.} Serverless solutions
+from cloud service providers (like Amazon Web Services (AWS) and Google Cloud
+Platform) may be worth exploring. These still use a server, but only actual use
+is charged. 
 
 \item \textbf{Web transmission may diminish security.} Transferring sensitive
-data on-line can be a problem for projects requiring high security. Regulations
-for some MI applications may forbid doing web transmissions. In this case, a web
-application with a backend may not be an option.
+data on-line can be a problem for projects requiring high security, even
+if using encryption. Some jurisdiction may not allow transmission of some
+health data at all.
 
 \end{itemize}
 
 \subsection{Enrich the Testing Datasets} 
 \label{sec_recommendations_testing_dataset}
 
-As described in Section~\ref{painpoints}, ensuring correctness
-(\ppref{P_Correctness}) via testing can be problematic because of limited access
-to real-world medical imaging datasets.  We build on the suggestions we heard
-from our interviewees as follows:
+Access to real-world imaging datasets can be a testing bottleneck,
+jeopardising correctness. Building on developers' suggestions:
 
 \begin{itemize}
-\item \textbf{Build and maintain good connections to datasets.} A team can build
-connections with professionals working in the medical domain, who may have
+\item \textbf{Build and maintain good connections to datasets.} 
+Teams can build
+connections with medical professionals, who may have
 access to private datasets and can perform tests for the team.
 
-\item \textbf{Collect and maintain datasets over time.} A team may face problems
-caused by various unique inputs over the years of software development. This
-data should be collected and maintained over time to form a good, comprehensive,
-dataset for testing.
+\item \textbf{Collect and maintain datasets over time.} It is especially
+important to have access to ``unique'' inputs that were outliers in
+historical testing scenarios.
 
-\item \textbf{Search for open data sources.} In general, there are many open MI
-datasets.  For instance, there are
+\item \textbf{Search for open data sources.} There are many open MI
+datasets:
 \href{https://nihcc.app.box.com/v/ChestXray-NIHCC}{Chest X-ray Datasets} by
 National Institute of Health \cite{WangEtAl2017},
 \href{https://www.cancerimagingarchive.net/}{Cancer Imaging Archive}
@@ -1374,75 +1333,52 @@ National Library of Medicine \cite{Smirniotopoulos2014}, and datasets for liver
 \cite{BilicEtAl2019} and brain \cite{MenzeEtAl2015} tumor segmentation
 benchmarks.
 
-\item \textbf{Create sample data for testing.} If a team can access tools
-creating sample data, they may also self-build datasets for testing. For
-example, an MI software development team can use an MRI scanner to create images
-of objects, animals, and volunteers. The team can build the images based on
-specific testing requirements.
+\item \textbf{Create sample data for testing.} If a team is able to create
+baseline and/or synthetic data sets with known characteristics, this is a
+worthwhile investment (and should hopefully be made public). For example, using
+an MRI scanner to create images of objects, animals, and volunteers who waive
+the privacy rights to their image (i.e. not patients).
 
-\item \textbf{Remove privacy from sensitive data.} For data with sensitive
-information, a team can ask the data owner to remove such information or add
-noise to protect privacy. One example is using de-identified copies of medical
-images for testing.
+%JC: I'm aware of too many caveats wrt this recommendation, so I am taking
+% it out.
+%
+%\item \textbf{Remove privacy from sensitive data.} For data with sensitive
+%information, a team can ask the data owner to remove such information or add
+%noise to protect privacy. One example is using de-identified copies of medical
+%images for testing.
 
 \end{itemize}
 
-\subsection{Employ Linters} \label{Sec_Linters}
+\subsection{Use Linters and other Static Analysis Tools} \label{Sec_Linters}
 
-A linter is a tool that statically analyzes code to find programming errors,
+Linters are simple tools that analyzes code to find programming errors,
 suspicious constructs, and stylistic inconsistencies \cite{Wikipedia2022_Lint}.
-Linters can be used as an ad hoc check for code files, but they really come into
-their own when used as part of a CI system, as discussed in
-Section~\ref{Sec_ContinuousIntegration}. Almost none of the research software
-guidelines that we consulted, summarized in Section~\ref{Sec_CompareArtifacts},
-mention linters.  Despite the lack of mention in the guidelines, we believe that
-linters have the potential to improve code quality at a relatively low cost.  
+While they can be used in an ad hoc fashion, coupling them with CI is where
+the largest gain happens. Automatic use of code quality tools is increasing
+commonplace for industrial software -- it is regretable that the
+research software guidlines have no caught up to this.
 
-Linters have the following benefits: finding potential bugs, finding memory
+These tools have many benefits: finding potential bugs, finding memory
 leaks, improving performance, standardizing code with respect to formatting,
 removing silly errors before code reviews, and catching potential security
-issues \cite{SourceLevel2022_Lint}. Most popular programming languages have an
-accompanying linter.  For example, Python has the options of PyLint, flake8 and
-Black \cite{Zadka2018}.
+issues~\cite{SourceLevel2022_Lint}. Most popular programming languages possess
+such tools. This helps with \ppref{P_LackDevTime}, \qref{Q_Maintainability},
+and correctness (\ppref{P_Correctness}).
 
-Linters address several MI pain points.  For instance, linters address the lack
-of development time (\ppref{P_LackDevTime}) by increasing the developer's
-productive time via guarding against frustrating, time-consuming, and mundane
-mistakes.  Moreover, since a linter can include rules that capture the wisdom of
-senior programmers, it can help newer developers avoid common mistakes. With
-respect to the technology hurdle pain point (\ppref{P_TechnologyHurdles}),
-linters can assist with the move toward web applications
-(Section~\ref{sec_webapps}).  For instance, ESLint in React is a pluggable
-linter that lets the developer know if they have imported something and not used
-it, if a function could be short-handed, if there are indentation
-inconsistencies, etc. By insisting on code
-standardization, linters can reduce technical debt and thus improve
-maintainability (\qref{Q_Maintainability}). Although linters are tools for code
-analysis, the idea of statically checking for adherence to basic rules can be
-extended to check documentation. Tools to enforce documentation standards
+The pervasive use of such tools to enforce documentation standards
 partially explains the relatively higher quality of statistical tools that are
 part of the Comprehensive R Archive Network (CRAN) [citation redacted for blind
 review].  %\cite{SmithEtAl2018_StatSoft}.
 
-\subsection{Conduct a Mix of Rigorous and Informal Peer Reviews} \label{Sec_PeerReview}
+\subsection{Conduct Peer Reviews} \label{Sec_PeerReview}
 
-We advocate incorporating peer review into the development process, as
-frequently recommended for research software \cite{HerouxEtAl2008,
-OrvizEtAl2017, USGS2019}. In most cases a modern, lightweight review, should be
-adequate.  Modern code review is informal, tool-based, asynchronous, and focused
-on reviewing code changes \cite{SadowskiEtAl2018}. Managing a project via GitHub
-pull requests is an example of a modern approach to reviewing code.  Software
-development organizations have moved to this lightweight style of code review
-because of the inefficiencies of rigorous inspections \cite{RigbyAndBird2013}.
-However, for important parts of the code, developers may benefit from mixing in
-a more rigorous approach. 
+Peer review is recommended by many \cite{HerouxEtAl2008,
+OrvizEtAl2017, USGS2019}. Modern peer review processes are lightweight,
+informal, tool-based, asynchronous, and focused
+on reviewing code changes~\cite{SadowskiEtAl2018}. GitHub, for example,
+provides such tools for its pull requests.
 
-Fagan \cite{Fagan1976} began work on rigorous review via code inspection.
-Elements of a typical inspection include reviewing the code against a checklist
-(checking the consistency of variable names, look for terminating loops, etc.),
-performing specific review tasks (such as summarizing the code's purpose,
-cross-referencing the code to the technical manual, creating a data dictionary
-for a given module, etc.) Rigorous inspection finds 60-65\% of latent defects on
+Rigorous inspection finds 60-65\% of latent defects on
 average, and often tops 85\% in defect removal efficiency \cite{Jones2008}. The
 success rate of code inspection is generally higher than most forms of testing,
 which average between 30 --- 35\% for defect removal efficiency
@@ -1451,19 +1387,14 @@ which average between 30 --- 35\% for defect removal efficiency
 effective.
 
 Due to improving code quality and increasing knowledge transfer, peer review
-addresses the same pain points and qualities as linters
-(Section~\ref{Sec_Linters}): \ppref{P_LackDevTime}, \ppref{P_TechnologyHurdles},
-and \qref{Q_Maintainability}. Peer review can potentially find misunderstandings
-in how the code implements the required theory, which will improve the
-software's correctness (\ppref{P_Correctness}). The benefits of peer review for
-addressing pain points can be increased by extending the review from just code,
-to also reviewing all software artifacts, including documentation, build
+addresses the same pain points and qualities as linters \ppref{P_LackDevTime},
+\qref{Q_Maintainability} and \ppref{P_Correctness}. The benefits can be
+increased by extending reviews to all artifacts, including documentation, build
 scripts, test cases and the development process itself.
 
 \subsection{Design For Change} \label{Sec_DesForChange}
 
-We recommend that MI developers use the principle of design for change for their
-modularizations.  Although the advice to modularize research software to handle
+ Although the advice to modularize research software to handle
 complexity is common \cite{WilsonEtAl2014, StewartEtAl2017, Storer2017},
 specific guidelines on how to divide the software into modules is less
 prevalent.  Not every decomposition is a good design for supporting change, as
@@ -1473,10 +1404,6 @@ research software, where change is inevitable, designers need to produce a
 modularization that supports change.  Ocean modelling software is currently
 feeling the pain of not emphasizing modularization in legacy code
 \cite{JungEtAl2022}.
-
-Developers can accomplish design for change by first identifying likely changes,
-either implicitly or explicitly, and second by hiding each likely change behind
-a well-defined module interface \cite{Parnas1972a}.
 
 \section{Threats to Validity} \label{sec_threats_to_validity}
 
@@ -1488,24 +1415,22 @@ threats to validity in software engineering secondary studies.
 A study is reliable if repeating it by another researcher, using the same
 methodology, would lead to the same results~\cite{RunesonAndHost2009}.
 We identify the following threats:
-
-\begin{itemize}
+\begin{enumerate*}
 \item One individual does the measures for all packages. A different
 evaluator might find different results, due to differences in abilities,
 experience, and biases.
 \item The measurements for the full set of packages took several months (of
 elapsed time).  Over this time the software repositories may have changed and
 the reviewer's judgement may have drifted.
-\end{itemize}
+\end{enumerate*}
 
 The measurement process used has previously been shown to be reasonably
-reproducible.  [citation redacted] 
+reproducible, [citation redacted]
 %% DOUBLE BLIND
 %Smith et al.~\cite{SmithEtAl2016} 
-reports grading five software
-products by two reviewers. Their rankings were almost identical. As long as each
-grader uses consistent definitions, the relative comparisons in the AHP results
-will be consistent between graders.
+reports grading five software products by two reviewers. Their rankings were
+almost identical. As long as each grader uses consistent definitions, the
+relative comparisons in the AHP results will be consistent between graders.
 
 \subsection{Construct Validity}
 
@@ -1518,10 +1443,10 @@ measures for qualities like maintainability, reusability and verifiability, are
 unavailable.  We follow the usual assumption that developers achieve higher
 quality by following procedures and adhering to standards \cite[p.\
 112]{VanVliet2000}.
-\item We could not install or build \textit{dwv}, \textit{GATE}, and
-\textit{DICOM Viewer}. We used a deployed on-line version for \textit{dwv}, a
-virtual machine version for \textit{GATE}, but no alternative for \textit{DICOM
-Viewer}.
+\item We could not do all measurements for some software as we could not
+install or build \textit{dwv}, \textit{GATE}, and \textit{DICOM Viewer}. We
+used a deployed on-line version for \textit{dwv}, a virtual machine version for
+\textit{GATE}, but no alternative for \textit{DICOM Viewer}.
 \item Robustness measurements involve only two pieces of data, leading to
 limited variation in the robustness scores. Our measurement-time budget limited
 what we could achieve here.
@@ -1643,21 +1568,19 @@ While we did find a reasonable amount of documentation, especially when consider
 all MI projects, there were definitely some holes. Some important documentation
 (test plans and requirements documentation) was missing, and other
 (contributors' guide, code of conduct, code style guidelines, product roadmap,
-design documentation, and API documentation)
-(Section~\ref{Sec_CompareArtifacts}) were rare.
+design documentation, and API documentation) were rare.
 
 Our interviewees proposed strategies to improve the state of the practice, to
 address the identified pain points, and to improve software quality. To their
 list (Section~\ref{painpoints}) we added some of our own recommended strategies
 (Section~\ref{ch_recommendations}). The strategies that emerged include
 increasing documentation, increasing testing by enriching datasets, increasing
-modularity, using continuous integration, moving to web applications, employing
+modularity, using continuous integration, moving to web applications, using
 linters, increasing peer review, and using design for change to guide
 modularization.
 
 A deeper understanding of the needs of the MI community will require data beyond
-what is available in repositories.  Future work should involve interviewing MI
-developers to better understand their ``pain points''.
+what is available in repositories.
 
 \section*{Acknowledgements}
 
