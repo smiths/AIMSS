@@ -109,34 +109,32 @@ Department}, %Department and Organization
 
 \begin{abstract}
 
-We present the state of the practice for the development of Medical Imaging
-(MI) software based on data available in open source repositories. We selected
-29 projects from 48 candidates and assessed 9 software qualities
-(installability, correctness/ verifiability, reliability, robustness,
-usability, maintainability, reusability, understandability, and
-visibility/transparency) by answering 108 questions for each. Using the
-Analytic Hierarchy Process (AHP) on the quantitative data, we ranked the MI
-software.  The top five are \textit{3D Slicer}, \textit{ImageJ}, \textit{Fiji},
-\textit{OHIF Viewer}, and \textit{ParaView}.  This is consistent with the
-community's view, with four of these also appearing in the top five using
-GitHub metrics (stars-per-year).  The quality and quantity of documentation
-present in a project correlates quite well with its popularity.  Generally, MI
-software is in a healthy state: in the repositories
-we observed 88\% of the documentation artifacts recommended by research
-software development guidelines, 100\% of MI projects use version control
-tools, and developers appear to use the common quasi-agile research software
-development process. However, the current state of the practice deviates from
-existing guidelines as some recommended artifacts are rarely present
-(like a test plan, requirements specification, code of conduct, and code style
-guidelines), low usage of continuous integration (17\% of the projects), low
-use of unit testing (about 50\% of projects), and room for improvement with
-documentation. From developper interviews , we identified 7 concerns: lack
-of development time, lack of funding, technology hurdles, correctness,
-usability, maintainability, and reproducibility. We recommend:
-increase effort on documentation,
-increase testing by enriching datasets, increase continuous integration usage,
-move to web applications, employ linters, use peer reviews, and design for
-change.
+We present the state of the practice for the development of Medical Imaging (MI)
+software based on data available in open source repositories. We selected 29
+projects from 48 candidates and assessed 9 software qualities (installability,
+correctness/verifiability, reliability, robustness, usability, maintainability,
+reusability, understandability, and visibility/transparency) by answering 108
+questions for each. Using the Analytic Hierarchy Process (AHP) on the
+quantitative data, we ranked the MI software.  The top five are \textit{3D
+Slicer}, \textit{ImageJ}, \textit{Fiji}, \textit{OHIF Viewer}, and
+\textit{ParaView}.  This is consistent with the community's view, with four of
+these also appearing in the top five using GitHub metrics (stars-per-year).  The
+quality and quantity of documentation present in a project correlates quite well
+with its popularity.  Generally, MI software is in a healthy state: in the
+repositories we observed 88\% of the documentation artifacts recommended by
+research software development guidelines, 100\% of MI projects use version
+control tools, and developers appear to use the common quasi-agile research
+software development process. However, the current state of the practice
+deviates from existing guidelines as some recommended artifacts are rarely
+present (like a test plan, requirements specification, code of conduct, and code
+style guidelines), low usage of continuous integration (17\% of the projects),
+low use of unit testing (about 50\% of projects), and room for improvement with
+documentation. From developer interviews, we identified 7 concerns: lack of
+development time, lack of funding, technology hurdles, correctness, usability,
+maintainability, and reproducibility. We recommend: increase effort on
+documentation, increase testing by enriching datasets, increase continuous
+integration usage, move to web applications, employ linters, use peer reviews,
+and design for change.
 
 \end{abstract}
 
@@ -173,14 +171,14 @@ use a software engineering lens to assess the quality of existing MI software.
 
 \subsection{Research Questions} \label{sec_motivation}
 
-As well as state of the practice (SOP) for MI software, we would like to
-understand the impact of the often cited gap between recommended
-software engineering practices and that used for most research 
-software~\cite{Storer2017}. Although scientists spend
-a substantial proportion of their working times on software development
-\cite{Hannay2009, Prabhu2011}, few are formally trained~\cite{Hannay2009}.
+As well as state of the practice for MI software, we would like to understand
+the impact of the often cited gap between recommended software engineering
+practices and the practices used for most research software~\cite{Storer2017}. Although
+scientists spend a substantial proportion of their working times on software
+development \cite{Hannay2009, Prabhu2011}, few are formally
+trained~\cite{Hannay2009}.
 
-Our investigation is based on the following research questions:
+Our investigation is based on ten research questions:
 \begin{enumerate}
 \item[RQ\refstepcounter{rqnum}\therqnum \label{RQ_WhatProjects}:] What MI
 {open source} software projects exist? (Section~\ref{SecWhatProjects})
@@ -281,7 +279,7 @@ Quality is defined as a measure of the excellence or worth of an entity.  As is
 common practice, we do not think of quality as a single measure, but rather as
 a set of measures.  That is, quality is a collection of different qualities,
 often called ``ilities.''  For this study we selected 9 qualities to measure:
-installability, correctness/ verifiability, reliability, robustness, usability,
+installability, correctness/verifiability, reliability, robustness, usability,
 maintainability, reusability, understandability, and visibility/transparency.
 With the exception of installability, all the qualities are defined in Ghezzi
 et al. (2003) \cite{GhezziEtAl2003}. Installability is defined as the effort
@@ -350,7 +348,7 @@ We based our interviews on a list of 20 questions, which can be found in
 %Smith et al. \cite{SmithEtAl2021}. 
 Some questions are about the background of the software, the development teams,
 the interviewees, and how they organize their projects.  We also ask about the
-developer's understanding of the users. Some questions focus on the current and
+developer's understanding of the users. Additional questions focus on the current and
 past difficulties, and the solutions the team has found, or plan to try. We also
 discuss documentation, both with respect to how it is currently done, and how it
 is perceived. A few questions are about specific software qualities, such as
@@ -471,7 +469,7 @@ ranks near the top for all qualities, except for correctness \& verifiability.
 \textit{Fiji} doing better in installability and \textit{OHIF Viewer} doing
 better in correctness \& verifiability.  Given the installation problems, we may
 have underestimated the scores on reliability and robustness for \textit{DICOM
-Viewer}, but we compared it equally for the other seven qualities.
+Viewer}, but we compared it equally for the other qualities.
 
 The overall score is based on the measurement of the identified qualities. Full
 details of how the projects compare for each quality can be found in [citation
@@ -493,7 +491,7 @@ needs a Nextcloud platform. We were not able to install \textit{GATE},
 
 \item [Correctness \& Verifiability] The packages with higher scores for
 correctness and verifiability used a wider array of techniques to improve
-correctness, and had better documentation to witness this.  For instance, we
+correctness, and had better documentation to support this. For instance, we
 looked for evidence of unit testing, and found evidence for only about half of
 the projects. We identified five projects using continuous integration tools:
 \textit{3D Slicer}, \textit{ImageJ}, \textit{Fiji}, \textit{dwv}, and
@@ -612,7 +610,7 @@ Table~\ref{tab_ranking_vs_GitHub} show the statistics for data collected in July
 2021.
 
 Our ranking and GitHub popularity, at least for the top five projects, seems to
-line up fairly well. However, we ranked some popular packages fairly low, such
+line up well. However, we ranked some popular packages fairly low, such
 as \textit{dwv}. This is because we were unable to build it locally, even though
 we followed its installation instructions. However, we were able to use its web
 version for the rest of the measurements. Additionally, this version did not
@@ -620,12 +618,12 @@ detect a broken DICOM file and instead displayed a blank image
 (Section~\ref{SecMeasurementResults}).  \textit{DICOM Viewer} ranked low as we
 were unable to install the NextCloud platform.
 
-We weighted all qualities equally, which is not the likely (implicit) weight
+We weighted all qualities equally, which is not the likely the same weighting
 that users implicitly use. To properly assess this would require a broad user
-study.  Furthermore our measures of popularity are only \emph{proxies} which
+study.  Furthermore our measures of popularity (like stars) are only \emph{proxies} which
 are biased towards past rather than current preferences~\cite{Szulik2017}, as
 these are monotonically increasing quantities. Finally there are often more
-factors than just quality that influence the popularity of ``consumer''
+factors than just quality that influence the popularity of 
 products.
 
 \begingroup
@@ -761,16 +759,17 @@ We show the recommended artifacts in Table~\ref{Tbl_Guidelines}, one per row.
 For a given row, a checkmark in one of the columns means that the corresponding
 guideline recommends this artifact.  The last column shows whether the artifact
 appears in the measured set of MI software, either not at all (blank), commonly
-(C), uncommonly (U) or rarely (R).  We did our best to interpret the meaning of
-each artifact consistently between guidelines and specific MI software, but the
-terminology and the contents of artifacts are not standardized.  The challenge
-even exists for the ubiquitous README file.  The content of README files shows
-significant variation between projects~\cite{PranaEtAl2018}.  Some content is
-reasonably consistent, with 97\% of README files contain at least one section
-describing the `What' of the repository and 89\% offering some `How' content,
-other categories are more variable.  For instance, information on
-`Contribution', `Why', and `Who', appear in 28\%, 26\% and 53\% of the analyzed
-files, respectively~\cite{PranaEtAl2018}.  
+(C) (20 to 29 ($>$67\%) packages), uncommonly (U) (10 to 19 (33-67\%) packages)
+or rarely (R) (1 to 9 ($<$33\%) packages).  We did our best to interpret the
+meaning of each artifact consistently between guidelines and specific MI
+software, but the terminology and the contents of artifacts are not
+standardized.  The challenge even exists for the ubiquitous README file.  The
+content of README files shows significant variation between
+projects~\cite{PranaEtAl2018}.  Some content is reasonably consistent, with 97\%
+of README files contain at least one section describing the `What' of the
+repository and 89\% offering some `How' content, other categories are more
+variable.  For instance, information on `Contribution', `Why', and `Who', appear
+in 28\%, 26\% and 53\% of the analyzed files, respectively~\cite{PranaEtAl2018}.  
 
 \begin{table*}[ht!]
     \begin{center}
@@ -797,21 +796,16 @@ files, respectively~\cite{PranaEtAl2018}.
     \end{center}
 \end{table*}
 
-Table~\ref{artifactspresent} presents our measurements for MI software.
-The table groups the artifacts by frequency
-into categories of common (20 to 29 ($>$67\%) packages), uncommon (10 to 19
-(33-67\%) packages), and rare (1 to 9 ($<$33\%) packages).
-
-Note that ``popularity'' in Table~\ref{Tbl_Guidelines} does not imply that these
-oft recommended artifacts are the most important. Guidelines are often brief,
-to encourage adoption, and thus even guidelines that mention the need for
-installation instructions rarely mention uninstallation instructions.
-Two items in Table~\ref{artifactspresent} do not appear in any guidelines:
-\emph{Troubleshooting guide} and \emph{Developer's manual}.  However the
-information within these documents overlaps with
-the recommended artifacts.  Troubleshooting information often can be found in
-a User Manual, while the information in a ``Developer's Manual'' is often
-scattered amongst many other documents.
+Popularity in Table~\ref{Tbl_Guidelines} does not imply that these oft
+recommended artifacts are the most important. Guidelines are often brief, to
+encourage adoption, and thus even guidelines that mention the need for
+installation instructions rarely mention uninstallation instructions.  Two items
+in Table~\ref{artifactspresent}, which presents our measurements for the MI
+software, do not appear in any guidelines: \emph{Troubleshooting guide} and
+\emph{Developer's manual}.  However the information within these documents
+overlaps with the recommended artifacts.  Troubleshooting information often can
+be found in a User Manual, while the information in a ``Developer's Manual'' is
+often scattered amongst many other documents.
 
 Three of the 26 recommended artifacts were never observed in the MI software:
 i) Uninstall, ii) Test plans, and iii) Requirements. It is possible that
@@ -833,7 +827,7 @@ management is the software engineering discipline that most hurts them,
 accounting for 23\% of the technical problems reported by study participants.
 Further adding to the misfortune, there is a widespread perception that up-front
 requirements are impossible for research software \cite{CarverEtAl2007,
-SegalAndMorris2008}. Fortunately a more agile approach to requirements is
+SegalAndMorris2008}. Fortunately an iterative approach to requirements is
 feasible~\cite{Smith2016}, and research-software specific templates
 exist~\cite{SmithEtAl2007}. 
 
@@ -869,7 +863,7 @@ minutes for each interview. The full interview answers can be
 found in [citation redacted for blind review].
 %\cite{Dong2021}.
 
-Developers use software tools for user support, version control (VCS),
+Developers use software tools for user support, version control,
 Continuous Integration and Deployment (CI/CD), documentation and project
 management.  We summarize the tool usage in each of these categories, and
 compare this to the usage by the research software community.
@@ -900,13 +894,13 @@ Contact form & 1 \\
 for version control, which makes it unsurprising that they also use pull
 requests for managing community contributions. The experience of using GitHub
 was reported as generally positive; some teams had actively migrated to GitHub
-from other VCS.  This represents a considerable uptake since its rare use in
-2006~\cite{Wilson2006}, which matches the uptake in other communities: 10 years
-ago Nguyen et al~\cite{Nguyen-HoanEtAl2010} estimated that only 50\% of
-research software projects used version control, and by 2018 this had jumped to
-over 80\%~\cite{AlNoamanyAndBorghi2018} with many communities~\cite{Smith2018}
-reaching 100\% already in 2018. In 2022, version control use sits at over
-95\%~\cite{CarverEtAl2022}.
+from other version control systems.  This represents a considerable uptake since
+its rare use in 2006~\cite{Wilson2006}, which matches the uptake in other
+communities: 10 years ago Nguyen et al~\cite{Nguyen-HoanEtAl2010} estimated that
+only 50\% of research software projects used version control, and by 2018 this
+had jumped to over 80\%~\cite{AlNoamanyAndBorghi2018} with many
+communities~\cite{Smith2018} reaching 100\% already in 2018. In 2022, version
+control use sits at over 95\%~\cite{CarverEtAl2022}.
 
 \paragraph{CI/CD} 
 Only 17\% of MI projects use CI/CD tools. We estimated this using artifacts
@@ -916,7 +910,7 @@ entirely external. This was the case for a study of Lattice Boltzmann Method
 This contrasts with the high frequency of guidelines recommending continuous
 integration
 \cite{BrettEtAl2021, Brown2015, ThielEtAl2020, Zadka2018, vanGompelEtAl2016}.
-A recent survey~\cite{CarverEtAl2022} of practioners (rather than projects)
+A recent survey~\cite{CarverEtAl2022} of practitioners (rather than projects)
 suggests higher use of CI/CD with 54\% of respondents indicating that they use
 it.
 
@@ -929,20 +923,19 @@ document generation tools, like doxygen and sphinx [citation redacted for blind
 review].
 %\cite{Michalski2021}
 
-\paragraph{Project management} Two types of tools were mentionned:
+\paragraph{Project management} Two types of tools were mentioned:
 \begin{inparaenum}[i)]
 \item trackers, including GitHub, issue trackers, bug trackers and Jira; and,
 \item documentation tools, including GitHub, Wiki page, Google Doc, and
 Confluence.
 \end{inparaenum}
 Of the named tools, interviewees mentioned GitHub 3 times, and each
-of the other tools once each.
+of the other tools once.
 
-Based on~\cite{JungEtAl2022}, tool use for MI
-software is similar to tool use for ocean modelling software.
-Both use tools for editing, compiling, code management, testing, building, and
-project management, but differ
-in the latter's use of Kanban boards for project management.
+Tool use for MI software is similar to tool use for ocean modelling
+software~\cite{JungEtAl2022}.  Both use tools for editing, compiling, code
+management, testing, building, and project management, but differ in the
+latter's use of Kanban boards for project management.
 
 \section[Comparison to Other Research Software]{Comparison of Principles, Process, and
 Methodologies to Research Software in General} \label{Sec_CompareMethodologies}
