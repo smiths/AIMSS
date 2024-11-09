@@ -994,13 +994,10 @@ their documentations conveyed information clearly enough.
 
 \section{Developer Pain Points} \label{painpoints}
 
-We draw out the point points the points experienced by MI
-software developers, compare them to those of general research software
-developers, and what practices are used to address these pain points.
-
 Interviews identified the following issues:
 \begin{enumerate*}
-\item lack of time and funding,
+\item lack of time,
+\item lack of funding,
 \item technology hurdles, 
 \item correctness, and 
 \item usability.  
@@ -1024,34 +1021,33 @@ small response size.
 Development Time:} This was felt to be the most significant obstacle, and
 is not uncommon
 \cite{PintoEtAl2018, PintoEtAl2016, WieseEtAl2019}.
-%\cite{SmithEtAl2024} 
+%DOUBLE BLIND \cite{SmithEtAl2024} [redacted for blind review]
 
 \item[P\refstepcounter{pnum}\thepnum \label{P_LackFunding}:] \textbf{Lack of
 Funding:} As research software is not yet seen as essential infrastructure,
-there is an ongoing struggle to attract funding and, even harder, maintain
-research software. This is a common complaint%
-\cite{GewaltigAndCannon2012, Goble2014, KaterbowAndFeulner2018, SmithEtAl2024}.
-As software output is not always counted when judging the academic excellence
-of applicants, which forces researchers who write software to spend extra
-time on publicity~\cite{WieseEtAl2019}. In some domains, like biology%
-\cite{HowisonAndBullard2016}, software is infrequently cited even when used
-pervasively. In other words, there is a lack of a formal reward system for
+there is an ongoing struggle to attract funding to build and, even harder, maintain
+research software. This is a common complaint~\cite{GewaltigAndCannon2012, Goble2014, KaterbowAndFeulner2018}. %, SmithEtAl2024 %[redacted for double blind review]
+Software output is not always counted when judging the academic excellence of
+academics, which forces researchers who write software to spend extra time on
+publicity~\cite{WieseEtAl2019}. In some domains, like
+biology~\cite{HowisonAndBullard2016}, software is infrequently cited even when
+used pervasively. In other words, there is a lack of a formal reward system for
 research software~\cite{PintoEtAl2018}.
 
 \item[P\refstepcounter{pnum}\thepnum \label{P_TechnologyHurdles}:]
-\textbf{Technology Hurdles:} Developers mentioned: hard to keep up with changes
-in OS and libraries, difficult to transfer to new technologies, hard to support
-multiple OSes, and hard to support lower-end
+\textbf{Technology Hurdles:} Developers mentioned the following challenges: hard
+to keep up with changes in OS and libraries, difficult to transfer to new
+technologies, hard to support multiple OSes, and hard to support lower-end
 computers. Developers expressed difficulty balancing between four factors:
 cross-platform compatibility, convenience of development and maintenance,
 performance, and security.
 
 \item[P\refstepcounter{pnum}\thepnum \label{P_Correctness}:]
 \textbf{Correctness:} The most mentioned thread to correctness was complexity.
-Example sources of complexity are: Interviewees identified multiple threats to
-the large variety of data formats, complicated data standards, differing
-outputs between medical imaging machines, and the addition of (non-viewing
-related) functionality.  Other identified threats to correctness:
+Example sources of complexity include: a large variety of data formats,
+complicated data standards, differing outputs between medical imaging machines,
+and the addition of (non-viewing related) functionality.  Other identified
+threats to correctness:
 
 \begin{itemize}
 \item Lack of real world image data for testing, in part because of patient
@@ -1076,7 +1072,7 @@ developers to understand.
 
 At least to some extent the problems for MI software users are due to holes in
 their knowledge of software and computing technology, and sometimes also
-lack expertize in their domain to be able to adequately use the software
+lack of expertize in their domain to be able to adequately use the software
 \cite{WieseEtAl2019}. 
 %A similar pattern has been observed during interviews with
 %LBM software developers [citation redacted for blind review].
@@ -1102,7 +1098,7 @@ Delivery.)
 \item[P\ref{P_LackFunding}:] \textbf{Lack of Funding:}
 One interviewee proposed an interesting idea: Licensing the software
 to commercial companies to integrate it into their products.
-In general, solutions need to be more systemic, and we are seeing the rise
+In general, solutions need to be more systemic, thus we are seeing the rise
 of ``research software engineers'' in various jurisdictions.
 
 \item[P\ref{P_TechnologyHurdles}:] \textbf{Technology Hurdles:}
@@ -1122,11 +1118,11 @@ A number of developers perceive that some of the ``shifting technologies''
 problems could be alleviated by moving to web-based applications.
 Most of the teams (83\%) chose to develop
 native applications. Three of the eight we interviewed were
-building web applications, and another team was considering it too.
+building web applications, and another team was considering it.
 
 \item[P\ref{P_Correctness}:] \textbf{Correctness:}
-Testing was the most often strategy for ensuring correctness, and teams
-mentioned test related activities, including test-driven development, component
+Testing was the most often mentioned strategy for ensuring correctness.  Teams
+mentioned several test-related activities, including test-driven development, component
 tests, integration tests, smoke tests, regression tests, self tests and
 automated tests.  This puts MI software ahead of other domains where
 insufficient testing is a problem~\cite{PintoEtAl2018} and
@@ -1134,7 +1130,7 @@ insufficiently well-understood~\cite{HannayEtAl2009}.
 
 Another correctness strategy mentioned multiple times is a development process
 that involves stable releases and nightly builds.  Other strategies that were
-mentioned:
+mentioned include:
 \begin{enumerate*}
 \item using CI/CD, 
 \item using de-identified copies of medical images for
