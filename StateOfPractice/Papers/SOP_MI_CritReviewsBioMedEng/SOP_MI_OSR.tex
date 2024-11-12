@@ -1215,13 +1215,13 @@ to test their reproducibility.
 
 \section{Recommendations} \label{ch_recommendations}
 
-We provide specific recommendations for future consideration -- these are
-not criticisms of past and/or current development practices. We
-expand on some of the ideas from our interviews, and bring in further ideas
-that could have a noticable impact. The ``new'' ideas are not novel to this
-paper but rather from the software engineering and software carpentry domains
-that have yet to have seen wide adoption.  We list the ideas roughly in the
-order of increasing implementation effort.
+We provide specific recommendations for future consideration -- these are not
+criticisms of past and/or current development practices. We expand on some of
+the ideas from our interviews, and bring in further ideas that could have a
+noticeable impact. The ``new'' ideas are not novel to this paper but rather from
+the software engineering and software carpentry domains, but have not yet seen
+wide adoption.  We list the ideas roughly in the order of increasing
+implementation effort.
 
 \subsection{Use Continuous Integration} \label{Sec_ContinuousIntegration}
 
@@ -1252,14 +1252,13 @@ correctness (\ppref{P_Correctness}) and reproducibility
 
 \subsection{Perhaps Move To Web Applications} \label{sec_webapps}
 
-Multiple pain points encountered, especially technology hurdles
+Multiple pain points, especially technology hurdles
 (\ppref{P_TechnologyHurdles}), could be alleviated by moving to a web
-application. But this must be an active decision as it may not be a good
+application. However, this must be an active decision as it may not be a good
 fit in all cases.  The decision needs to be based on whether, on balance, this
 would improve the four factors identified earlier: compatibility,
-maintainability, performance, and security. We outline the factors to consider
-to enable better decision making, as a final decision crucially depends on
-each teams' objectives.
+maintainability, performance, and security. The following considerations may
+help a team make a decision about the move to web applications:
 
 \begin{itemize}
 
@@ -1295,8 +1294,7 @@ health data at all.
 
 \end{itemize}
 
-\subsection{Enrich the Testing Datasets} 
-\label{sec_recommendations_testing_dataset}
+\subsection{Enrich the Testing Datasets} \label{sec_recommendations_testing_dataset}
 
 Access to real-world imaging datasets can be a testing bottleneck,
 jeopardising correctness. Building on developers' suggestions:
@@ -1329,6 +1327,7 @@ the privacy rights to their image (i.e. not patients).
 
 %JC: I'm aware of too many caveats wrt this recommendation, so I am taking
 % it out.
+%SS: okay, I agree.
 %
 %\item \textbf{Remove privacy from sensitive data.} For data with sensitive
 %information, a team can ask the data owner to remove such information or add
@@ -1339,12 +1338,12 @@ the privacy rights to their image (i.e. not patients).
 
 \subsection{Use Linters and other Static Analysis Tools} \label{Sec_Linters}
 
-Linters are simple tools that analyzes code to find programming errors,
+Linters are simple tools that analyze code to find programming errors,
 suspicious constructs, and stylistic inconsistencies \cite{Wikipedia2022_Lint}.
 While they can be used in an ad hoc fashion, coupling them with CI is where
 the largest gain happens. Automatic use of code quality tools is increasing
-commonplace for industrial software -- it is regretable that the
-research software guidlines have no caught up to this.
+commonplace for industrial software -- it is regrettable that the
+research software guidelines have no caught up to this.
 
 These tools have many benefits: finding potential bugs, finding memory
 leaks, improving performance, standardizing code with respect to formatting,
@@ -1382,11 +1381,11 @@ scripts, test cases and the development process itself.
 
 \subsection{Design For Change} \label{Sec_DesForChange}
 
- Although the advice to modularize research software to handle
+Although the advice to modularize research software to handle
 complexity is common \cite{WilsonEtAl2014, StewartEtAl2017, Storer2017},
 specific guidelines on how to divide the software into modules is less
 prevalent.  Not every decomposition is a good design for supporting change, as
-shown by \cite{Parnas1972a}.  For instance, a design with low cohesion and high
+shown by Parnas~\cite{Parnas1972a}.  For instance, a design with low cohesion and high
 coupling \cite[p.\ 48]{GhezziEtAl2003} will make change difficult. Especially in
 research software, where change is inevitable, designers need to produce a
 modularization that supports change.  Ocean modelling software is currently
