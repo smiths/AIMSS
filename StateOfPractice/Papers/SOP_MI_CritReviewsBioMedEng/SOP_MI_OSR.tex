@@ -1219,24 +1219,23 @@ We provide specific recommendations for future consideration -- these are not
 criticisms of past and/or current development practices. We expand on some of
 the ideas from our interviews, and bring in further ideas that could have a
 noticeable impact. The ``new'' ideas are not novel to this paper but rather from
-the software engineering and software carpentry domains, but have not yet seen
-wide adoption.  We list the ideas roughly in the order of increasing
-implementation effort.
+the software engineering and software carpentry domains, but these ideas have
+not yet seen wide adoption for MI software.  We list the ideas roughly in the
+order of increasing implementation effort.
 
 \subsection{Use Continuous Integration} \label{Sec_ContinuousIntegration}
 
-Continuous integration involves building and testing the software every
-time a coherent change is made to the code (i.e. via a Pull Request)%
-\cite[p.\ 13] {HumbleAndFarley2010}, \cite{ShahinEtAl2017, Fowler2006}. Initial
-setup can be cumbersome, but
-the benefits are impressive:
+Continuous integration involves building and testing the software every time a
+coherent change is made to the code (i.e.\ via a pull request)~\cite[p.\ 13]
+{HumbleAndFarley2010}, \cite{ShahinEtAl2017, Fowler2006}. Initial setup can be
+cumbersome, but the benefits are impressive:
+
 \begin{itemize}
     \item Elimination of headaches associated with a separate integration phase
     \cite{Fowler2006}, \cite[p.\ 20]{HumbleAndFarley2010}.
     \item Detection and removal of bugs \cite{Fowler2006} via
     automated testing.  
-    \item Everyone is always working on a stable base that always passes all
-    the tests.
+    \item Everyone is always working on a stable base that always passes all tests.
     \item If the CI system uses generators and linters, it will also have
     current documentation and clean code.
 \end{itemize}
@@ -1256,9 +1255,10 @@ Multiple pain points, especially technology hurdles
 (\ppref{P_TechnologyHurdles}), could be alleviated by moving to a web
 application. However, this must be an active decision as it may not be a good
 fit in all cases.  The decision needs to be based on whether, on balance, this
-would improve the four factors identified earlier: compatibility,
-maintainability, performance, and security. The following considerations may
-help a team make a decision about the move to web applications:
+would improve the four factors identified earlier for the technology hurdle:
+compatibility, maintainability, performance, and security. The following
+considerations may help a team make a decision about the move to web
+applications:
 
 \begin{itemize}
 
@@ -1268,9 +1268,9 @@ as native applications.  However, new technologies may help. For example,
 some JavaScript libraries can help the frontend harness the power of the
 computer's GPU and accelerate graphical computing. In addition, there are new
 frameworks helping developers with cross-platform compatibility. For example,
-the \href{https://flutter.dev/}{Flutter} project enables support for web,
+the \href{https://flutter.dev/}{Flutter} project supports web,
 mobile, and desktop OS with one codebase.  Other options include
-\href{https://vuejs.org/} {Vue}, \href{https://angular.io/} {Angular} and
+\href{https://vuejs.org/} {Vue}, \href{https://angular.io/} {Angular},
 \href{https://reactjs.org/} {React}, and \href{https://elm-lang.org/}{Elm}.  
 
 \item \textbf{Backend servers can potentially deliver high performance.} If
@@ -1327,7 +1327,7 @@ the privacy rights to their image (i.e. not patients).
 
 %JC: I'm aware of too many caveats wrt this recommendation, so I am taking
 % it out.
-%SS: okay, I agree.
+%SS: I agree with the removal.
 %
 %\item \textbf{Remove privacy from sensitive data.} For data with sensitive
 %information, a team can ask the data owner to remove such information or add
@@ -1365,17 +1365,17 @@ informal, tool-based, asynchronous, and focused
 on reviewing code changes~\cite{SadowskiEtAl2018}. GitHub, for example,
 provides such tools for its pull requests.
 
-Rigorous inspection finds 60-65\% of latent defects on
+Rigorous inspection finds 60--65\% of latent defects on
 average, and often tops 85\% in defect removal efficiency \cite{Jones2008}. The
 success rate of code inspection is generally higher than most forms of testing,
-which average between 30 --- 35\% for defect removal efficiency
+which average between 30--35\% for defect removal efficiency
 \cite{EbertAndJones2009, Jones2008}. For research software, Kelly and Shepard
 \cite{KellyAndShepard2000} show a task based inspection approach can be
 effective.
 
 Due to improving code quality and increasing knowledge transfer, peer review
-addresses the same pain points and qualities as linters \ppref{P_LackDevTime},
-\qref{Q_Maintainability} and \ppref{P_Correctness}. The benefits can be
+addresses the same pain points and qualities as linters (\ppref{P_LackDevTime},
+\qref{Q_Maintainability} and \ppref{P_Correctness}). The benefits can be
 increased by extending reviews to all artifacts, including documentation, build
 scripts, test cases and the development process itself.
 
