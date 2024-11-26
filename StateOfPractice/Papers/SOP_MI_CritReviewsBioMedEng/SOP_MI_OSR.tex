@@ -749,20 +749,18 @@ to Artifacts in MI Projects (C for Common, U for Uncommon and R for Rare)}
 \end{table*}
 
 We show the recommended artifacts in Table~\ref{Tbl_Guidelines}, one per row.
-For a given row, a checkmark in one of the columns means that the corresponding
-guideline recommends this artifact.  The last column shows whether the artifact
-appears in the measured set of MI software, either not at all (blank), commonly
-(C) (20 to 29 ($>$67\%) packages), uncommonly (U) (10 to 19 (33-67\%) packages)
-or rarely (R) (1 to 9 ($<$33\%) packages).  We did our best to interpret the
-meaning of each artifact consistently between guidelines and specific MI
-software, but the terminology and the contents of artifacts are not
-standardized.  The challenge even exists for the ubiquitous README file.  The
-content of README files shows significant variation between
-projects~\cite{PranaEtAl2018}.  Some content is reasonably consistent, with 97\%
-of README files contain at least one section describing the `What' of the
-repository and 89\% offering some `How' content, other categories are more
-variable.  For instance, information on `Contribution', `Why', and `Who', appear
-in 28\%, 26\% and 53\% of the analyzed files, respectively~\cite{PranaEtAl2018}.  
+The columns correspond to guidelines. A checkmark in a column means that the
+guideline suggests the artifact in this row.  The final column shows the
+frequency of the artifact in the measured set of MI software.  The frequency
+ranges from not at all (blank), rarely (R) ($<$33\%), uncommonly (U) (33-67\%)
+to commonly (C) ($>$67\%).  Due to a lack of standardization, the mapping
+between specific MI software and guidelines was challenging, even for the
+ubiquitous README file.  Prana et al.~\cite{PranaEtAl2018} show significant
+variation in the content of README files between projects. Although 97\% of
+README files contain at least one section describing the `What' and 89\% offer
+content on `How', other content is more variable.  For example, information on
+`Who', `Contribution', and `Why', appear in 53\%, 28\%, 26\% of the analyzed
+files, respectively~\cite{PranaEtAl2018}.  
 
 \begin{table*}[ht!]
     \begin{center}
@@ -783,14 +781,14 @@ in 28\%, 26\% and 53\% of the analyzed files, respectively~\cite{PranaEtAl2018}.
      & & Requirements (1)\\
     \bottomrule
     \end{tabular}
-    \caption{Artifacts Present in MI Packages, Classified by Frequency
-    (number of occurrences)}
+    \caption{Software Artifacts Found in MI Packages, Classified by Their Number
+    of Occurrences}
     \label{artifactspresent}
     \end{center}
 \end{table*}
 
-Popularity in Table~\ref{Tbl_Guidelines} does not imply that these oft
-recommended artifacts are the most important. Guidelines are often brief, to
+Popularity in Table~\ref{Tbl_Guidelines} does not mean these 
+artifacts are more important than other artifacts. Guidelines are often brief, to
 encourage adoption, and thus even guidelines that mention the need for
 installation instructions rarely mention uninstallation instructions.  Two items
 in Table~\ref{artifactspresent}, which presents our measurements for the MI
@@ -807,45 +805,41 @@ some of these were created but never put under version control.
 Neglecting requirements documentation is unfortunately common for research
 software, and MI software is no exception to this trend.  Although such
 documentation is recommended by some \cite{TobiasEtAl2018, HerouxEtAl2008,
-SmithAndKoothoor2016}, in practice this is rare~\cite{HeatonAndCarver2015}.
-Sanders and Kelly \cite{SandersAndKelly2008} interviewed 16 scientists from 10
-disciplines and found that none of the scientists created requirements
-specifications, unless regulations in their field mandated such a document.
-Requirements are the least commonly produced type of documentation for research
-software in general \cite{Nguyen-HoanEtAl2010}. 
+SmithAndKoothoor2016}, in practice this is rare~\cite{HeatonAndCarver2015}.  In
+interviews with 16 scientists from 10 disciplines, the scientists admitted that
+they only wrote a requirements specification if the regulations in their field
+mandated it~\cite{SandersAndKelly2008}.  For research software in general,
+requirements are the least commonly written document~\cite{Nguyen-HoanEtAl2010}. 
 
-This is unfortunate as when scientific developers are surveyed on their pain
-points, Wiese et al.~\cite{WieseEtAl2019} found that software requirements and
-management is the software engineering discipline that most hurts them,
-accounting for 23\% of the technical problems reported by study participants.
-Further adding to the misfortune, there is a widespread perception that up-front
-requirements are impossible for research software \cite{CarverEtAl2007,
-SegalAndMorris2008}. Fortunately an iterative approach to requirements is
-feasible~\cite{Smith2016}, and research-software specific templates
-exist~\cite{SmithEtAl2007}. 
+This is unfortunate since when scientific developers are
+surveyed~\cite{WieseEtAl2019}, software requirements and management proves to be
+their greatest pain points, accounting for 23\% of their technical problems.
+Further adding to their misfortune, up-front requirements are often viewed to be
+impossible for research software \cite{CarverEtAl2007, SegalAndMorris2008}.
+Fortunately an iterative approach to requirements is feasible~\cite{Smith2016},
+and research-software specific templates exist~\cite{SmithEtAl2007}. 
 
 A theme emerges amongst the artifacts rarely observed in practice: they
 are developer-focused (a list of library dependencies, a contributor's guide,
 a developer Code of Conduct, coding style guidelines, product roadmap, design
 documentation and API documentation).
 
-Other communities use checklists to help with best practices. Examples include
-checklists for merging branches~\cite{Brown2015}, for saving and sharing changes
-to the project~\cite{WilsonEtAl2016}, for new and departing team
-members~\cite{HerouxAndBernholdt2018}, for processes related to commits and
-releases~\cite{HerouxEtAl2008} and for overall software
+Other communities use checklists as part of best practices. For instance, there
+are checklists for commits and releases~\cite{HerouxEtAl2008}, for team
+turnover~\cite{HerouxAndBernholdt2018}, for branch merging~\cite{Brown2015}, for
+sharing and saving project changes~\cite{WilsonEtAl2016}, and for software
 quality~\cite{ThielEtAl2020, SSI2022}.
 
-MI projects fall somewhat short of recommended best practices, but are not alone
-amongst research software projects. This gap has been documented
+MI software does not follow all recommended best practices, but they are not
+alone amongst research software projects. This gap has been documented
 before~\cite{Storer2017,JohansonAndHasselbring2018}, and is known to cause
 sustainability and reliability problems \cite{FaulkEtAl2009}, and to waste
 development effort~\cite{deSouzaEtAl2019}.
 
-\section{Comparison of Tool Usage Between MI and Other Research Software}
+\section{Comparison Between MI and Other Research Software for Tool Usage}
 \label{Sec_CompareTools}
 
-We use data from interviews, as described in Section~\ref{sec_interview_methods}
+We interview data, as described in Section~\ref{sec_interview_methods}
 to answer \rqref{RQ_CompareToolsProjMngmnt} (tool usage),
 \rqref{RQ_CompareMethodologies} (methodology) and \rqref{RQ_PainPoints} (pain
 points). Requests were sent to all 29 projects.  Nine developers from eight of
@@ -889,11 +883,11 @@ requests for managing community contributions. The experience of using GitHub
 was reported as generally positive; some teams had actively migrated to GitHub
 from other version control systems.  This represents a considerable uptake since
 its rare use in 2006~\cite{Wilson2006}, which matches the uptake in other
-communities: 10 years ago Nguyen et al~\cite{Nguyen-HoanEtAl2010} estimated that
-only 50\% of research software projects used version control, and by 2018 this
-had jumped to over 80\%~\cite{AlNoamanyAndBorghi2018} with many
-communities~\cite{Smith2018} reaching 100\% already in 2018. In 2022, version
-control use sits at over 95\%~\cite{CarverEtAl2022}.
+communities: 10 years ago only 50\% of research software used version
+control~\cite{Nguyen-HoanEtAl2010}, but by 2018 this jumped to over
+80\%~\cite{AlNoamanyAndBorghi2018} with many communities~\cite{Smith2018}
+reaching 100\% at this time. In 2022, version control use sits at over
+95\%~\cite{CarverEtAl2022}.
 
 \paragraph{CI/CD} 
 Only 17\% of MI projects use CI/CD tools. We estimated this using artifacts
@@ -925,10 +919,10 @@ Confluence.
 Of the named tools, interviewees mentioned GitHub 3 times, and each
 of the other tools once.
 
-Tool use for MI software is similar to tool use for ocean modelling
-software~\cite{JungEtAl2022}.  Both use tools for editing, compiling, code
-management, testing, building, and project management, but differ in the
-latter's use of Kanban boards for project management.
+Tool use for MI software and ocean modelling software is
+similar~\cite{JungEtAl2022}.  Both use tools for code and project management,
+compiling and building, testing, and, editing. They differ in the more frequent
+use of project management via Kanban boards for ocean modelling.
 
 \section[Comparison to Other Research Software]{Comparison of Principles, Process, and
 Methodologies to Research Software in General} \label{Sec_CompareMethodologies}
@@ -940,14 +934,14 @@ followed agile or agile-like, two teams followed waterfall or waterfall-like,
 and three teams explicitly stated that their process was undefined or
 self-directed.
 
-This matches observations for research software in general.
-Scientific developers naturally use an agile philosophy \cite{AckroydEtAl2008,
+This matches previous observations for other research software.  Scientific
+software developers often use an agile philosophy \cite{AckroydEtAl2008,
 CarverEtAl2007, EasterbrookAndJohns2009, Segal2005, HeatonAndCarver2015}, or an
 amethododical process \cite{Kelly2013}, or a knowledge acquisition driven
 process~\cite{Kelly2015}.  A waterfall-like process can work for research
 software~\cite{Smith2016}, especially if the developers work iteratively and
-incrementally, but externally document their work as if they followed a
-rational design process~\cite{parnas1986rational}.
+incrementally, but externally document their work as if they followed a rational
+design process~\cite{parnas1986rational}.
 
 No interviewee mentioned a strictly defined project management process. The most
 common approach was issue-driven via bug reports and feature requests.
@@ -999,14 +993,14 @@ We first detail each pain point, and contrast this experience with that
 from other domains. We then separately cover potential way to mitigate these
 issues.
 
-Pinto et al.~\cite{PintoEtAl2018} list some pain points that did not come up in
-our conversations: interruptions while coding, scope bloat, lack of user
-feedback, hard to collaborate on software projects, and aloneness.  Wiese et
-al.~\cite{WieseEtAl2019} mentions two more: reproducibility, and software scope
-determination.  [citation redacted for blind review] %\cite{SmithEtAl2024} 
-adds lack of software experience, technical debt, and documentation.
-We cannot conclude that these are not also issues with MI software due to our
-small response size.
+Pinto et al.~\cite{PintoEtAl2018} list other pain points not mentioned by our
+interviewees: scope bloat, aloneness, lack of user feedback, interruptions while
+coding, and collaboration challenges. Two more are~\cite{WieseEtAl2019}:
+reproducibility, and software scope determination.  [citation redacted for blind
+review] %\cite{SmithEtAl2024} 
+adds lack of software experience, documentation and technical debt.  Our small
+sample size means that we cannot conclude that these are not also issues with MI
+software.
 
 \begin{enumerate}
 
@@ -1213,8 +1207,8 @@ criticisms of past and/or current development practices. We expand on some of
 the ideas from our interviews, and bring in further ideas that could have a
 noticeable impact. The ``new'' ideas are not novel to this paper but rather from
 the software engineering and software carpentry domains, but these ideas have
-not yet seen wide adoption for MI software.  We list the ideas roughly in the
-order of increasing implementation effort.
+not yet seen wide adoption for MI software.  We sorted the list of ideas roughly
+on increasing effort.
 
 \subsection{Use Continuous Integration} \label{Sec_ContinuousIntegration}
 
@@ -1224,13 +1218,13 @@ coherent change is made to the code (i.e.\ via a pull request)~\cite[p.\ 13]
 cumbersome, but the benefits are impressive:
 
 \begin{itemize}
-    \item Elimination of headaches associated with a separate integration phase
+    \item Remove headaches caused by a separate integration phase
     \cite{Fowler2006}, \cite[p.\ 20]{HumbleAndFarley2010}.
     \item Detection and removal of bugs \cite{Fowler2006} via
     automated testing.  
-    \item Everyone is always working on a stable base that always passes all tests.
-    \item If the CI system uses generators and linters, it will also have
-    current documentation and clean code.
+    \item The base is constantly stable for everyone, always passing all tests.
+    \item The code will be standardized and the documentation current, if the CI
+    system uses generators and linters.
 \end{itemize}
 
 CI helps relieve several point points:
@@ -1339,16 +1333,16 @@ commonplace for industrial software -- it is regrettable that the
 research software guidelines have no caught up to this.
 
 These tools have many benefits: finding potential bugs, finding memory
-leaks, improving performance, standardizing code with respect to formatting,
-removing silly errors before code reviews, and catching potential security
+leaks, improving performance, creating standard compliant code,
+removing trivial errors before code reviews, and finding security
 issues~\cite{SourceLevel2022_Lint}. Most popular programming languages possess
 such tools. This helps with \ppref{P_LackDevTime}, \qref{Q_Maintainability},
 and correctness (\ppref{P_Correctness}).
 
-The pervasive use of such tools to enforce documentation standards
-partially explains the relatively higher quality of statistical tools that are
-part of the Comprehensive R Archive Network (CRAN) [citation redacted for blind
-review].  %\cite{SmithEtAl2018_StatSoft}.
+The pervasive use of such tools to enforce documentation standards partially
+explains the relatively high quality of software in the Comprehensive R Archive
+Network (CRAN) [citation redacted for blind review].
+%\cite{SmithEtAl2018_StatSoft}.
 
 \subsection{Conduct Peer Reviews} \label{Sec_PeerReview}
 
@@ -1358,47 +1352,44 @@ informal, tool-based, asynchronous, and focused
 on reviewing code changes~\cite{SadowskiEtAl2018}. GitHub, for example,
 provides such tools for its pull requests.
 
-Rigorous inspection finds 60--65\% of latent defects on
-average, and often tops 85\% in defect removal efficiency \cite{Jones2008}. The
-success rate of code inspection is generally higher than most forms of testing,
-which average between 30--35\% for defect removal efficiency
-\cite{EbertAndJones2009, Jones2008}. For research software, Kelly and Shepard
-\cite{KellyAndShepard2000} show a task based inspection approach can be
-effective.
+Latent defects can found on average at a rate of 60--65\% by rigorous
+inspection, with this rate reaching as high as 85\% \cite{Jones2008}. The
+success rate of code inspection is generally higher than via testing, since testing
+averages around 30--35\% for the efficiency of defect removal \cite{EbertAndJones2009,
+Jones2008}. For research software, Kelly and Shepard \cite{KellyAndShepard2000}
+show a task based inspection approach can be effective.
 
-Due to improving code quality and increasing knowledge transfer, peer review
-addresses the same pain points and qualities as linters (\ppref{P_LackDevTime},
-\qref{Q_Maintainability} and \ppref{P_Correctness}). The benefits can be
-increased by extending reviews to all artifacts, including documentation, build
-scripts, test cases and the development process itself.
+Peer review addresses the same pain points and qualities as linters
+(\ppref{P_LackDevTime}, \ppref{P_Correctness}, and \qref{Q_Maintainability}),
+since they both focus on improving code quality and increasing knowledge
+transfer.  The benefits can be increased by extending reviews to all artifacts,
+including documentation, build scripts, test cases and the development process
+itself.
 
 \subsection{Design For Change} \label{Sec_DesForChange}
 
-Although the advice to modularize research software to handle
-complexity is common \cite{WilsonEtAl2014, StewartEtAl2017, Storer2017},
-specific guidelines on how to divide the software into modules is less
-prevalent.  Not every decomposition is a good design for supporting change, as
-shown by Parnas~\cite{Parnas1972a}.  For instance, a design with low cohesion and high
-coupling \cite[p.\ 48]{GhezziEtAl2003} will make change difficult. Especially in
-research software, where change is inevitable, designers need to produce a
-modularization that supports change.  Ocean modelling software is currently
-feeling the pain of not emphasizing modularization in legacy code
-\cite{JungEtAl2022}.
+The advice to modularize scientific software to handle complexity is common
+\cite{WilsonEtAl2014, StewartEtAl2017, Storer2017}; however, specific guidelines
+on the criteria to use for modularization is rare.  Parnas~\cite{Parnas1972a}
+shows that not every decomposition supports change.  For instance, a design with
+high coupling and low cohesion will make change challenging~\cite[p.\
+48]{GhezziEtAl2003}. Since change is frequent in research software, the best
+modularizations will support change. The pain of not previously designing for
+change is currently being felt by ocean modelling community~\cite{JungEtAl2022}.
 
 \section{Threats to Validity} \label{sec_threats_to_validity}
 
 We follow Ampatzoglou et al.'s \cite{AmpatzoglouEtAl2019} analysis of
-threats to validity in software engineering secondary studies.
+threats to validity in secondary studies of software engineering.
 
 \subsection{Reliability}
 
-A study is reliable if repeating it by another researcher, using the same
-methodology, would lead to the same results~\cite{RunesonAndHost2009}.
+Reliability means a study can be repeated by another researcher, using the same
+methodology, and the same results will be achieved~\cite{RunesonAndHost2009}.
 We identify the following threats:
 \begin{enumerate*}
-\item One individual does the measures for all packages. A different
-evaluator might find different results, due to differences in abilities,
-experience, and biases.
+\item A single person measures all packages. A different evaluator might find
+different results, due to differences in abilities, experience, and biases.
 \item The measurements for the full set of packages took several months (of
 elapsed time).  Over this time the software repositories may have changed and
 the reviewer's judgement may have drifted.
@@ -1409,21 +1400,20 @@ reproducible.
 %% DOUBLE BLIND
 %Smith et al.~\cite{SmithEtAl2016} 
 [citation redacted] reports grading five software products by two reviewers.
-Their rankings were almost identical. As long as each grader uses consistent
-definitions, the relative comparisons in the AHP results will be consistent
-between graders.
+Their rankings were almost identical. The relative comparisons in the AHP
+results will be consistent between graders, as long as the evaluators are
+consistent in their judgement.
 
 \subsection{Construct Validity}
 
-Construct validity is when the adopted metrics represent what they are intended
-to measure~\cite{RunesonAndHost2009}. We have identified the following
-potential issues:
+If the adopted metrics match their intended measure~\cite{RunesonAndHost2009},
+then construct validity is achieved. We have identified the following potential
+issues:
 \begin{itemize}
 \item We make indirect measurement of software qualities since meaningful direct
-measures for qualities like maintainability, reusability and verifiability, are
-unavailable.  We follow the usual assumption that developers achieve higher
-quality by following procedures and adhering to standards \cite[p.\
-112]{VanVliet2000}.
+measures are unavailable for reusability, maintainability, verifiability, etc.
+We assume that following procedures and adhering to standards leads to higher
+quality \cite[p.\ 112]{VanVliet2000}.
 \item We could not do all measurements for some software as we could not
 install or build \textit{dwv}, \textit{GATE}, and \textit{DICOM Viewer}. We
 used a deployed on-line version for \textit{dwv}, a virtual machine version for
@@ -1435,43 +1425,41 @@ what we could achieve here.
 high percentage of closed issues) have not been validated.
 \item While smaller modules tend to be easier to reuse, small modules are
 not necessarily good modules, nor understandable modules.
-\item The understandability measure relies on 10 random source code files, but
-the 10 files will not necessarily be representative. 
-\item Our overall AHP ranking makes the unrealistic assumption of equal
-weighting.
-\item We approximated popularity by stars and watches.
-\item Table~\ref{Tbl_Guidelines} required judgement as
-not all guidelines use the same names for artifacts that contain
-essentially the same information.
+\item The understandability measure is based on a random sample of 10 code
+files, which many not be representative of the entire code base. 
+\item The overall AHP ranking makes the unrealistic assumption of equal
+weighting between qualities.
+\item We used stars and watches to approximate popularity.
+\item Subjective judgement was required for Table~\ref{Tbl_Guidelines} since not
+all guidelines use the same names for artifacts that contain essentially the
+same information.
 \end{itemize}
 
 \subsection{Internal Validity} \label{Sec_InternalValidity}
 
-Internal validity means that discovered causal relations are trustworthy and
-cannot be explained by other factors~\cite{RunesonAndHost2009}. We identify
-the following:
+The study is internally valid if the suggested causal relations are trustworthy
+and not explainable by other factors~\cite{RunesonAndHost2009}. The identified threats to internal validity are:
 
 \begin{itemize}
-\item Our search (Section~\ref{SecWhatProjects}) could have missed a relevant
-package.
-\item Our methodology assumes that development activities
-will leave a trace in the repositories, but this is not necessarily true. For
+\item Relevant packages could have been missed in our search
+(Section~\ref{SecWhatProjects}).
+\item We assume that evidence of development activities
+will be visible in the repositories, but this is not necessarily true. For
 instance, we saw little evidence of requirements
 (Section~\ref{Sec_CompareArtifacts}), but teams might keep this kind of
 information outside their repos.
-\item We interviewed a relatively small sample of 8 teams. Their pain points
-(Section~\ref{painpoints}) may not be representative of the rest of their
-community.
+\item We interviewed a relatively small sample of 8 teams, which means their
+identified pain points might not be representative (Section~\ref{painpoints}).
 \end{itemize}
 
 \subsection{External Validity}
 
-If the results of a study can be generalized to other situations, then the
-study is externally valid \cite{RunesonAndHost2009}.  In other words, we cannot
-generalize our results if the development of MI software is fundamentally
-different from other research software.  Although there are differences, like
-the importance of data privacy for MI data, we found the approach to developing
-[other software (citation redacted)]
+If the results of a study can be generalized to other situations, then the study
+is externally valid \cite{RunesonAndHost2009}.  In other words, we cannot
+generalize our results if there is a fundamental difference between the
+development of MI software and other research software.  Although there are
+differences, like the importance of data privacy for MI data, we found the
+approach to developing [other software (citation redacted)]
 %% DOUBLE BLIND
 %LBM software \cite{SmithEtAl2024} 
 and MI software to be similar.  Except for
@@ -1526,7 +1514,7 @@ see this as an advantage. The shallow measures are a proxy for the importance of
 
         Overall Quality & 3D Slicer, ImageJ\\
 
-        \bottomrule        
+        \bottomrule
     \end{tabular}
     \caption{Top performers for each quality (sorted by order of quality
     measurement)} \label{topperformerstable}
@@ -1537,13 +1525,13 @@ Our grading scores indicate that \textit{3D Slicer}, \textit{ImageJ},
 \textit{Fiji} and \textit{OHIF Viewer} are the overall top four.  However, the
 separation between the top performers and the others is not extreme.  Almost all
 packages do well on at least a few qualities, as shown in
-Table~\ref{topperformerstable}, which summarizes the packages ranked first and
-second for each quality. Almost 70\% (20 of 29) of the software packages appear
-in the top two for at least two qualities.  The only packages that do not appear
-in Table~\ref{topperformerstable}, or only appear once, are \textit{Papaya},
-\textit{MatrixUser}, \textit{MRIcroGL}, \textit{XMedCon}, \textit{dicompyler},
-\textit{DicomBrowser}, \textit{AMIDE}, \textit{3DimViewer}, and
-\textit{Drishti}.
+Table~\ref{topperformerstable}, where we summarize the first and second ranked
+packages for each quality. Almost 70\% (20 of 29) of the software 
+is ranked in the top two for at least two qualities.  Packages that do not
+appear in Table~\ref{topperformerstable}, or only appear once, are
+\textit{Papaya}, \textit{MatrixUser}, \textit{MRIcroGL}, \textit{XMedCon},
+\textit{dicompyler}, \textit{DicomBrowser}, \textit{AMIDE}, \textit{3DimViewer},
+and \textit{Drishti}.
 
 While we did find a reasonable amount of documentation, especially when we
 consider all MI projects, there were definitely some holes. Some important
