@@ -1,5 +1,12 @@
-%\documentclass[doubleblind,12pt, 3p, times]{elsarticle}
-\documentclass[12pt, 3p, times]{elsarticle}
+%DIF 1c1-2
+%DIF LATEXDIFF DIFFERENCE FILE
+%DIF DEL OrigSubmissionSOP_MI_OSR copy.tex   Sun Nov 24 14:42:43 2024
+%DIF ADD SOP_MI_OSR.tex                      Thu Jan 23 23:22:33 2025
+%DIF < \documentclass[doubleblind,12pt, 3p, times]{elsarticle}
+%DIF -------
+%\documentclass[doubleblind,12pt, 3p, times]{elsarticle} %DIF > 
+\documentclass[12pt, 3p, times]{elsarticle} %DIF > 
+%DIF -------
 
 \usepackage{amssymb}
 \usepackage{amsmath}
@@ -18,8 +25,10 @@
 \usepackage{pbox}
 \usepackage{paralist}
 \usepackage[inline]{enumitem}
-
-\usepackage[tableposition=top]{caption} %to space the caption properly
+%DIF 20a21-22
+ %DIF > 
+\usepackage[tableposition=top]{caption} %to space the caption properly %DIF > 
+%DIF -------
 
 \newcounter{rqnum} %research question number
 \newcommand{\rqtherqnum}{RQ`'\therqnum}
@@ -40,6 +49,46 @@
 % https://link.springer.com/journal/10278
 
 \journal{Critical Reviews in Biomedical Engineering}
+%DIF PREAMBLE EXTENSION ADDED BY LATEXDIFF
+%DIF UNDERLINE PREAMBLE %DIF PREAMBLE
+\RequirePackage[normalem]{ulem} %DIF PREAMBLE
+\RequirePackage{color}\definecolor{RED}{rgb}{1,0,0}\definecolor{BLUE}{rgb}{0,0,1} %DIF PREAMBLE
+\providecommand{\DIFaddtex}[1]{{\protect\color{blue}\uwave{#1}}} %DIF PREAMBLE
+\providecommand{\DIFdeltex}[1]{{\protect\color{red}\sout{#1}}}                      %DIF PREAMBLE
+%DIF SAFE PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFaddbegin}{} %DIF PREAMBLE
+\providecommand{\DIFaddend}{} %DIF PREAMBLE
+\providecommand{\DIFdelbegin}{} %DIF PREAMBLE
+\providecommand{\DIFdelend}{} %DIF PREAMBLE
+\providecommand{\DIFmodbegin}{} %DIF PREAMBLE
+\providecommand{\DIFmodend}{} %DIF PREAMBLE
+%DIF FLOATSAFE PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFaddFL}[1]{\DIFadd{#1}} %DIF PREAMBLE
+\providecommand{\DIFdelFL}[1]{\DIFdel{#1}} %DIF PREAMBLE
+\providecommand{\DIFaddbeginFL}{} %DIF PREAMBLE
+\providecommand{\DIFaddendFL}{} %DIF PREAMBLE
+\providecommand{\DIFdelbeginFL}{} %DIF PREAMBLE
+\providecommand{\DIFdelendFL}{} %DIF PREAMBLE
+%DIF HYPERREF PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFadd}[1]{\texorpdfstring{\DIFaddtex{#1}}{#1}} %DIF PREAMBLE
+\providecommand{\DIFdel}[1]{\texorpdfstring{\DIFdeltex{#1}}{}} %DIF PREAMBLE
+%DIF COLORLISTINGS PREAMBLE %DIF PREAMBLE
+\RequirePackage{listings} %DIF PREAMBLE
+\RequirePackage{color} %DIF PREAMBLE
+\lstdefinelanguage{DIFcode}{ %DIF PREAMBLE
+%DIF DIFCODE_UNDERLINE %DIF PREAMBLE
+  moredelim=[il][\color{red}\sout]{\%DIF\ <\ }, %DIF PREAMBLE
+  moredelim=[il][\color{blue}\uwave]{\%DIF\ >\ } %DIF PREAMBLE
+} %DIF PREAMBLE
+\lstdefinestyle{DIFverbatimstyle}{ %DIF PREAMBLE
+	language=DIFcode, %DIF PREAMBLE
+	basicstyle=\ttfamily, %DIF PREAMBLE
+	columns=fullflexible, %DIF PREAMBLE
+	keepspaces=true %DIF PREAMBLE
+} %DIF PREAMBLE
+\lstnewenvironment{DIFverbatim}{\lstset{style=DIFverbatimstyle}}{} %DIF PREAMBLE
+\lstnewenvironment{DIFverbatim*}{\lstset{style=DIFverbatimstyle,showspaces=true}}{} %DIF PREAMBLE
+%DIF END PREAMBLE EXTENSION ADDED BY LATEXDIFF
 
 \begin{document}
 
@@ -230,12 +279,34 @@ out of scope.
 \subsection{Methodology} \label{SecMethodology}
 
 We have a standard set of questions designed to assess the qualities of any
-research software project~\cite{SmithEtAl2021, SmithAndMichalski2022}. We build
+research software project\DIFdelbegin \DIFdel{.  }%DIFDELCMD < [%%%
+\DIFdel{blind review redacted details on the author's
+previous studies using the same methodology.  }%DIFDELCMD < ]
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \DIFadd{~\mbox{%DIFAUXCMD
+\cite{SmithEtAl2021, SmithAndMichalski2022}}\hskip0pt%DIFAUXCMD
+. We build
 off prior work to assess the state of the practice for such domains as Lattice
-Boltzmann Solvers \cite{SmithEtAl2024}, Geographic Information Systems
-\cite{smith2018state}, Mesh Generators \cite{smith2016state}, Seismology
-software \cite{Smith2018Seismology}, and Statistical software for psychology
-\cite{smith2018statistical}.  %% DOUBLE BLIND 
+Boltzmann Solvers \mbox{%DIFAUXCMD
+\cite{SmithEtAl2024}}\hskip0pt%DIFAUXCMD
+, Geographic Information Systems
+\mbox{%DIFAUXCMD
+\cite{smith2018state}}\hskip0pt%DIFAUXCMD
+, Mesh Generators \mbox{%DIFAUXCMD
+\cite{smith2016state}}\hskip0pt%DIFAUXCMD
+, Seismology
+software \mbox{%DIFAUXCMD
+\cite{Smith2018Seismology}}\hskip0pt%DIFAUXCMD
+, and Statistical software for psychology
+\mbox{%DIFAUXCMD
+\cite{smith2018statistical}}\hskip0pt%DIFAUXCMD
+.  }\DIFaddend %% DOUBLE BLIND 
+%DIF <  ~\cite{SmithEtAl2021, SmithAndMichalski2022}.  This has
+%DIF <  been applied to MI software and Lattice Boltzmann Solvers \cite{SmithEtAl2024}.
+%DIF <  This builds off prior work to assess the state of the practice for such domains
+%DIF <  as Geographic Information Systems \cite{smith2018state}, Mesh Generators
+%DIF <  \cite{smith2016state}, Seismology software \cite{Smith2018Seismology}, and
+%DIF <  Statistical software for psychology \cite{smith2018statistical}.  
 We maintain the previous
 constraint that the work load for measuring a given domain should take around
 one person-month's worth of effort ($20$ working days at $8$ person-hours per
@@ -244,22 +315,40 @@ day).
 We identify a list of potential packages (through online searches) which is then
 filtered and vetted by a domain expert. We aim for roughly $30$ packages. For
 each remaining package, we measure its qualities via a grading
-template~\cite{SmithEtAl2021}.    %%DOUBLE BLIND
+template\DIFdelbegin %DIFDELCMD < [%%%
+\DIFdel{citation redacted for double blind}%DIFDELCMD < ]%%%
+\DIFdelend \DIFaddbegin \DIFadd{~\mbox{%DIFAUXCMD
+\cite{SmithEtAl2021}}\hskip0pt%DIFAUXCMD
+}\DIFaddend .    %%DOUBLE BLIND
+%DIF < ~\cite{SmithEtAl2021}.  
 This data is used to rank the projects with the
 Analytic Hierarchy Process (AHP).  We summarize further details on the
 interaction with the domain expert, software qualities, grading the software and
-AHP below and in longer form in Smith et al.\ (2024)~\cite{SmithEtAl2024_MI_SOP}.
-%% DOUBLE BLIND
+AHP below and in longer form in \DIFdelbegin %DIFDELCMD < [%%%
+\DIFdel{redacted for double blind}%DIFDELCMD < ]%%%
+\DIFdel{.}\DIFdelend \DIFaddbegin \DIFadd{Smith et al.\ (2024)~\mbox{%DIFAUXCMD
+\cite{SmithEtAl2024_MI_SOP}}\hskip0pt%DIFAUXCMD
+.
+}\DIFaddend %% DOUBLE BLIND
+%DIF < Smith et al.\ (2024)~\cite{SmithEtAl2024_MI_SOP}.
 
 
 \subsubsection{Domain Expert} \label{sec_vet_software_list}
 
 The Domain Expert vets the proposed list because online resources can be
-inaccurate.  The expert also vets the AHP ranking.  Our Domain Expert (and
+inaccurate.  The expert also vets the AHP ranking.  Our Domain Expert \DIFdelbegin \DIFdel{is }%DIFDELCMD < [%%%
+\DIFdel{details of our domain expert removed for double-blind}%DIFDELCMD < ]%%%
+\DIFdel{.%DIF < %DOUBLE BLIND %our Domain Expert (and paper co-author) is Dr.\ Michael
+%DIF < Noseworthy, Professor of Electrical and Computer Engineering at McMaster
+%DIF < University, Co-Director of the McMaster School of Biomedical Engineering, and
+%DIF < Director of Medical Imaging Physics and Engineering at St.\ Joseph's
+%DIF < Healthcare, Hamilton, Ontario, Canada.  
+}\DIFdelend \DIFaddbegin \DIFadd{(and
 paper co-author) is Dr.\ Michael Noseworthy, Professor of Electrical and
 Computer Engineering at McMaster University, Co-Director of the McMaster School
 of Biomedical Engineering, and Director of Medical Imaging Physics and
-Engineering at St.\ Joseph's Healthcare, Hamilton, Ontario, Canada.  %%DOUBLE BLIND 
+Engineering at St.\ Joseph's Healthcare, Hamilton, Ontario, Canada.  %DIF > %DOUBLE BLIND 
+}\DIFaddend 
 
 The first step for the Domain Expert is to independently create a list of their
 choices for the top software.  This refreshes the expert's knowledge in advance
@@ -280,15 +369,30 @@ environment \cite{ISO/IEC25010}.
 
 \subsubsection{Grading} \label{sec_grading_software}
 
-We use an existing template \cite{SmithEtAl2021} %% DOUBLE BLIND
+We use an existing template \DIFdelbegin %DIFDELCMD < [%%%
+\DIFdel{citation redacted}%DIFDELCMD < ]
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
+\cite{SmithEtAl2021} }\hskip0pt%DIFAUXCMD
+}\DIFaddend %% DOUBLE BLIND
+%DIF < ~\cite{SmithEtAl2021} 
 that is designed to measure the
 aforementioned qualities. To stay within our given measurement time frame, each
 package gets up to five hours of time.  Project developers can be contacted for
 help regarding installation, if necessary, but we impose a cap of about two
 hours on the installation process.  Figure~\ref{fg_grading_template_example}
 shows an excerpt of the measurement spreadsheet.  The rows are the measures and
-the columns correspond to the software packages.  Dong (2021)~\cite{Dong2021-Data}
-provides the full set of measurement data.   %%DOUBLE BLIND
+the columns correspond to the software packages.  \DIFdelbegin %DIFDELCMD < [%%%
+\DIFdel{All datacan be found on
+Mendeley; link will be provided after refereeing.   }%DIFDELCMD < ] 
+%DIFDELCMD < %%%
+%DIF <  \cite{Dong2021-Data}
+%DIF < provides the full set of measurement data.   %%DOUBLE BLIND
+\DIFdelend \DIFaddbegin \DIFadd{Dong (2021)~\mbox{%DIFAUXCMD
+\cite{Dong2021-Data}
+}\hskip0pt%DIFAUXCMD
+provides the full set of measurement data.   %DIF > %DOUBLE BLIND
+}\DIFaddend 
 
 \begin{figure*}[ht!]
 \includegraphics[scale=0.67]{template.pdf}
@@ -308,8 +412,13 @@ Instead, we look for signs that the developers considered usability.
 We use two freeware tools to collect repository related data:
 \href{https://github.com/tomgi/git_stats}{GitStats} and
 \href{https://github.com/boyter/scc}{Sloc Cloc and Code (scc)}.  Further
-details on quality measurement are provided in Smith et al.\ (2024) \cite{SmithEtAl2024_MI_SOP}. 
-%% DOUBLE BLIND
+details on quality measurement are provided in \DIFdelbegin %DIFDELCMD < [%%%
+\DIFdel{redacted for double blind}%DIFDELCMD < ]%%%
+\DIFdel{.}\DIFdelend \DIFaddbegin \DIFadd{Smith et al.\ (2024) \mbox{%DIFAUXCMD
+\cite{SmithEtAl2024_MI_SOP}}\hskip0pt%DIFAUXCMD
+. 
+}\DIFaddend %% DOUBLE BLIND
+%DIF < Smith et al.\ (2024) \cite{SmithEtAl2024_MI_SOP}.
 
 \subsubsection{Analytic Hierarchy Process (AHP)} \label{sec_AHP}
 
@@ -331,8 +440,13 @@ capture the development process, the developer pain points, the perceived
 threats to software quality, and the developers' strategies to address these
 threats.  Therefore, part of our methodology involves interviewing developers.
 We based our interviews on a list of 20 questions, which can be found in
-Smith et al. \cite{SmithEtAl2021}. %%DOUBLE BLIND
-Some questions are about the background of the software, the development teams,
+\DIFdelbegin %DIFDELCMD < [%%%
+\DIFdel{citation redacted for double blind}%DIFDELCMD < ]%%%
+\DIFdel{. %DIF < Smith et al. \cite{SmithEtAl2021}. 
+}\DIFdelend \DIFaddbegin \DIFadd{Smith et al. \mbox{%DIFAUXCMD
+\cite{SmithEtAl2021}}\hskip0pt%DIFAUXCMD
+. %DIF > %DOUBLE BLIND
+}\DIFaddend Some questions are about the background of the software, the development teams,
 the interviewees, and how they organize their projects.  We also ask about the
 developer's understanding of the users. Additional questions focus on the current and
 past difficulties, and the solutions the team has found, or plan to try. We also
@@ -372,9 +486,9 @@ open-source MI software that is available at the time of measurement (the year
 2020), thus answering \rqref{RQ_WhatProjects}.
 
 \begin{table*}[ht!]
-\caption{Final software list (sorted in descending order of the number of Lines
-Of Code (LOC))}
-\centering
+\DIFaddbeginFL \caption{\DIFaddFL{Final software list (sorted in descending order of the number of Lines
+Of Code (LOC))}}
+\DIFaddendFL \centering
 \begin{tabular}{p{3.7cm}lllllllll}
 \toprule
 \multirow{2}{*}{Software} & \multirow{2}{*}{Rlsd} & \multirow{2}{*}{Updated} & \multirow{2}{*}{Fnd} & \multirow{2}{*}{NOC} & \multirow{2}{*}{LOC} & \multicolumn{3}{c}{OS} & \multirow{2}{*}{Web} \\ \cmidrule{7-9}
@@ -410,7 +524,12 @@ ImageJ \cite{Rueden2017} & 1997 & 2020-08 & \checkmark & 18 & 9681 & \checkmark 
 MRIcroGL \cite{Rorden2021} & 2015 & 2020-08 &  & 2 & 8493 & \checkmark & \checkmark & \checkmark &  \\
 DicomBrowser \cite{Archie2012} & 2012 & 2020-08 &  & 3 & 5505 & \checkmark & \checkmark & \checkmark &  \\ \bottomrule
 \end{tabular}
-\label{tab_final_list}
+\DIFdelbeginFL %DIFDELCMD < \caption{%
+{%DIFAUXCMD
+\DIFdelFL{Final software list (sorted in descending order of the number of Lines
+Of Code (LOC))}}
+%DIFAUXCMD
+\DIFdelendFL \label{tab_final_list}
 \end{table*}
 
 In Table~\ref{tab_final_list} the projects are sorted in descending order of
@@ -425,8 +544,12 @@ respect to the OS, 25 packages work on all three OSs: Windows (W), macOS (M),
 and Linux (L). Although the usual approach to cross-platform compatibility was
 to work natively on multiple OSes, five projects achieved platform-independence
 via web applications. The full measurement data for all packages is available on
-\href{https://data.mendeley.com/datasets/k3pcdvdzj2/1} {Mendeley Data}.  
-%% DOUBLE BLIND
+\DIFdelbegin %DIFDELCMD < [%%%
+\DIFdel{removed for blind review}%DIFDELCMD < ]
+%DIFDELCMD < %%%
+%DIF < \href{https://data.mendeley.com/datasets/k3pcdvdzj2/1} {Mendeley Data}.  
+\DIFdelend \DIFaddbegin \href{https://data.mendeley.com/datasets/k3pcdvdzj2/1} {\DIFadd{Mendeley Data}}\DIFadd{.  
+}\DIFaddend %% DOUBLE BLIND
 
 The programming languages used in order of decreasing popularity are \CC,
 JavaScript, Java, C, Python, Pascal, Matlab.  The most popular language is \CC,
@@ -457,10 +580,17 @@ have underestimated the scores on reliability and robustness for \textit{DICOM
 Viewer}, but we compared it equally for the other qualities.
 
 The overall score is based on the measurement of the identified qualities. Full
-details of how the projects compare for each quality can be found in Smith et
-al.~\cite{SmithEtAl2024_MI_SOP}. %% DOUBLE BLIND
+details of how the projects compare for each quality can be found in \DIFdelbegin %DIFDELCMD < [%%%
+\DIFdel{citation
+redacted for blind review}%DIFDELCMD < ]%%%
+\DIFdel{.}\DIFdelend \DIFaddbegin \DIFadd{Smith et
+al.~\mbox{%DIFAUXCMD
+\cite{SmithEtAl2024_MI_SOP}}\hskip0pt%DIFAUXCMD
+. }\DIFaddend %% DOUBLE BLIND
+%DIF < Smith et al.~\cite{SmithEtAl2024_MI_SOP}
+\DIFaddbegin 
 
-The highlights are as follows:
+\DIFaddend The highlights are as follows:
 
 \begin{description}
 
@@ -545,8 +675,8 @@ environment and release notes.
 \end{description}  
 
 \begin{table*}[ht!]
-\caption{Number of files and lines (by reusability scores)}
-\centering
+\DIFaddbeginFL \caption{\DIFaddFL{Number of files and lines (by reusability scores)}}
+\DIFaddendFL \centering
 \begin{tabular}{lllll}
 \toprule
 \multirow{2}{*}{Software} & \multirow{2}{*}{Text Files} & \multirow{2}{*}{Total Lines} & \multirow{2}{*}{LOC} & \multirow{2}{*}{LOC/file} \\
@@ -583,7 +713,11 @@ DicomBrowser & 54 & 7375 & 5505 & 102 \\
 dicompyler & 48 & 19201 & 15941 & 332 \\ 
 \bottomrule
 \end{tabular}
-\label{tab_loc_per_file}
+\DIFdelbeginFL %DIFDELCMD < \caption{%
+{%DIFAUXCMD
+\DIFdelFL{Number of files and lines (by reusability scores)}}
+%DIFAUXCMD
+\DIFdelendFL \label{tab_loc_per_file}
 \end{table*}
 
 \section{Comparison to Community Ranking} \label{Sec_VsCommunityRanking}
@@ -613,10 +747,10 @@ products.
 \begingroup
 \renewcommand{\arraystretch}{0.85}
 \begin{table*}[ht!]
-\caption{Software ranking by our methodology versus the community (Comm.)\
+\DIFaddbeginFL \caption{\DIFaddFL{Software ranking by our methodology versus the community (Comm.)\
 ranking using GitHub metrics (Sorted in descending order of community
-popularity, as estimated by the number of new stars per year)}
-\centering
+popularity, as estimated by the number of new stars per year)}}
+\DIFaddendFL \centering
 \begin{tabular}{llllll}
 \toprule
 Software & Comm.\ Rank & Our Rank & Stars/yr & Watches/yr & Forks/yr \\ 
@@ -652,7 +786,13 @@ AMIDE & 28 & 23 & n/a & n/a & n/a \\
 3DimViewer & 29 & 25 & n/a & n/a & n/a \\ 
 \bottomrule
 \end{tabular}
-\label{tab_ranking_vs_GitHub}
+\DIFdelbeginFL %DIFDELCMD < \caption{%
+{%DIFAUXCMD
+\DIFdelFL{Software ranking by our methodology versus the community (Comm.)\
+ranking using GitHub metrics (Sorted in descending order of community
+popularity, as estimated by the number of new stars per year)}}
+%DIFAUXCMD
+\DIFdelendFL \label{tab_ranking_vs_GitHub}
 \end{table*}
 \endgroup
 
@@ -686,9 +826,9 @@ Projects \cite{OrvizEtAl2017}.
 \end{itemize}
 
 \begin{table*}[ht!]
-\caption{Comparison of Recommended Artifacts in Software Development Guidelines
-to Artifacts in MI Projects (C for Common, U for Uncommon and R for Rare)}    
-\begin{center}
+\DIFaddbeginFL \caption{\DIFaddFL{Comparison of Recommended Artifacts in Software Development Guidelines
+to Artifacts in MI Projects (C for Common, U for Uncommon and R for Rare)}}    
+\DIFaddendFL \begin{center}
 \begin{tabular}{ p{3.5cm}p{0.5cm}p{0.5cm}p{0.5cm}p{0.5cm}p{0.5cm}p{0.5cm}p{0.5cm}p{0.5cm}p{0.5cm}p{0.5cm} }
 \toprule
 ~ \ & \cite{USGS2019} & \cite{TobiasEtAl2018} & \cite{BrettEtAl2021} &
@@ -735,7 +875,12 @@ Test Cases & \checkmark & \checkmark & \checkmark &  & \checkmark & \checkmark &
 \checkmark & \checkmark & \checkmark & U\\
 \bottomrule
 \end{tabular}
-\label{Tbl_Guidelines}
+\DIFdelbeginFL %DIFDELCMD < \caption{%
+{%DIFAUXCMD
+\DIFdelFL{Comparison of Recommended Artifacts in Software Development Guidelines
+to Artifacts in MI Projects (C for Common, U for Uncommon and R for Rare)}}
+%DIFAUXCMD
+\DIFdelendFL \label{Tbl_Guidelines}
 \end{center}
 \end{table*}
 
@@ -754,9 +899,9 @@ content on `How', other content is more variable.  For example, information on
 files, respectively~\cite{PranaEtAl2018}.  
 
 \begin{table*}[ht!]
-    \caption{Software Artifacts Found in MI Packages, Classified by Their Number
-    of Occurrences}
-    \begin{center}
+    \DIFaddbeginFL \caption{\DIFaddFL{Software Artifacts Found in MI Packages, Classified by Their Number
+    of Occurrences}}
+    \DIFaddendFL \begin{center}
     \begin{tabular}{ p{3.8 cm} p{6.4 cm} p{4.5 cm}}
     \toprule
     Common & Uncommon & Rare \\
@@ -774,7 +919,12 @@ files, respectively~\cite{PranaEtAl2018}.
      & & Requirements (1)\\
     \bottomrule
     \end{tabular}
-    \label{artifactspresent}
+    \DIFdelbeginFL %DIFDELCMD < \caption{%
+{%DIFAUXCMD
+\DIFdelFL{Software Artifacts Found in MI Packages, Classified by Their Number
+    of Occurrences}}
+    %DIFAUXCMD
+\DIFdelendFL \label{artifactspresent}
     \end{center}
 \end{table*}
 
@@ -851,8 +1001,8 @@ support models by the number of projects using each model (projects may use
 more than one support model).
 
 \begin{table}[ht!]
-\caption{\label{tab_user_support_model}User support models by number of projects}
-\centering
+\DIFaddbeginFL \caption{\label{tab_user_support_model}\DIFaddFL{User support models by number of projects}}
+\DIFaddendFL \centering
 \begin{tabular}{lc}
 \toprule
 \multicolumn{1}{c}{User Support Model} & Num.\ Projects \\
@@ -866,7 +1016,12 @@ Troubleshooting & 2 \\
 Contact form & 1 \\ 
 \bottomrule
 \end{tabular}
-\end{table}
+\DIFdelbeginFL %DIFDELCMD < \caption{%
+{%DIFAUXCMD
+%DIFDELCMD < \label{tab_user_support_model}%%%
+\DIFdelFL{User support models by number of projects}}
+%DIFAUXCMD
+\DIFdelendFL \end{table}
 
 \paragraph{Version control} Most teams interviewed (eight of nine) use GitHub
 for version control, which makes it unsurprising that they also use pull
@@ -998,14 +1153,26 @@ software.
 \item[P\refstepcounter{pnum}\thepnum \label{P_LackDevTime}:] \textbf{Lack of
 Development Time:} This was felt to be the most significant obstacle, and
 is not uncommon
-\cite{SmithEtAl2024, WieseEtAl2019, PintoEtAl2018, PintoEtAl2016}.
-%DOUBLE BLIND  [redacted for blind review]
+\DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
+\cite{PintoEtAl2018, PintoEtAl2016, WieseEtAl2019}}\hskip0pt%DIFAUXCMD
+.
+%DIF < DOUBLE BLIND \cite{SmithEtAl2024} [redacted for blind review]
+}\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
+\cite{PintoEtAl2018, PintoEtAl2016, WieseEtAl2019, SmithEtAl2024}}\hskip0pt%DIFAUXCMD
+.
+%DIF > DOUBLE BLIND  [redacted for blind review]
+}\DIFaddend 
 
 \item[P\refstepcounter{pnum}\thepnum \label{P_LackFunding}:] \textbf{Lack of
 Funding:} As research software is not yet seen as essential infrastructure,
 there is an ongoing struggle to attract funding to build and, even harder, maintain
-research software. This is a common complaint~\cite{GewaltigAndCannon2012, Goble2014, KaterbowAndFeulner2018, SmithEtAl2024}. %,  %DOUBLE BLIND
-Software output is not always counted when judging the academic excellence of
+research software. This is a common complaint~\DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
+\cite{GewaltigAndCannon2012, Goble2014, KaterbowAndFeulner2018}}\hskip0pt%DIFAUXCMD
+. %DIF < , SmithEtAl2024 %[redacted for double blind review]
+}\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
+\cite{GewaltigAndCannon2012, Goble2014, KaterbowAndFeulner2018, SmithEtAl2024}}\hskip0pt%DIFAUXCMD
+. %DIF > ,  %DOUBLE BLIND
+}\DIFaddend Software output is not always counted when judging the academic excellence of
 academics, which forces researchers who write software to spend extra time on
 publicity~\cite{WieseEtAl2019}. In some domains, like
 biology~\cite{HowisonAndBullard2016}, software is infrequently cited even when
@@ -1389,7 +1556,12 @@ the reviewer's judgement may have drifted.
 The measurement process used has previously been shown to be reasonably
 reproducible.
 %% DOUBLE BLIND
-Smith et al.~\cite{SmithEtAl2016} reports grading five software products by two reviewers.
+%DIF < Smith et al.~\cite{SmithEtAl2016} 
+\DIFdelbegin %DIFDELCMD < [%%%
+\DIFdel{citation redacted}%DIFDELCMD < ] %%%
+\DIFdelend \DIFaddbegin \DIFadd{Smith et al.~\mbox{%DIFAUXCMD
+\cite{SmithEtAl2016} }\hskip0pt%DIFAUXCMD
+}\DIFaddend reports grading five software products by two reviewers.
 Their rankings were almost identical. The relative comparisons in the AHP
 results will be consistent between graders, as long as the evaluators are
 consistent in their judgement.
@@ -1449,8 +1621,14 @@ is externally valid \cite{RunesonAndHost2009}.  In other words, we cannot
 generalize our results if there is a fundamental difference between the
 development of MI software and other research software.  Although there are
 differences, like the importance of data privacy for MI data, we found the
-approach to developing LBM software \cite{SmithEtAl2024} 
-%% DOUBLE BLIND
+approach to developing \DIFdelbegin %DIFDELCMD < [%%%
+\DIFdel{other software (citation redacted)}%DIFDELCMD < ]
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \DIFadd{LBM software \mbox{%DIFAUXCMD
+\cite{SmithEtAl2024} 
+}\hskip0pt%DIFAUXCMD
+}\DIFaddend %% DOUBLE BLIND
+%DIF < LBM software \cite{SmithEtAl2024} 
 and MI software to be similar.  Except for
 the domain specific aspects, the trends observed in the current study are
 similar to that for other research software.
@@ -1465,9 +1643,9 @@ see this as an advantage. The shallow measures are a proxy for the importance of
 
 \begin{table*}[ht!]
     %\begin{center}
-    \caption{Top performers for each quality (sorted by order of quality
-    measurement)}
-    \renewcommand{\arraystretch}{1.8}
+    \DIFaddbeginFL \caption{\DIFaddFL{Top performers for each quality (sorted by order of quality
+    measurement)}}
+    \DIFaddendFL \renewcommand{\arraystretch}{1.8}
     \begin{tabular}{ p{3cm}p{12.5cm} }
         \toprule
 
@@ -1507,7 +1685,11 @@ see this as an advantage. The shallow measures are a proxy for the importance of
 
         \bottomrule
     \end{tabular}
-    \label{topperformerstable}
+    \DIFdelbeginFL %DIFDELCMD < \caption{%
+{%DIFAUXCMD
+\DIFdelFL{Top performers for each quality (sorted by order of quality
+    measurement)}} %DIFAUXCMD
+\DIFdelendFL \label{topperformerstable}
     %\end{center}
 \end{table*} 
 
@@ -1543,9 +1725,15 @@ what is available in repositories.
 
 \section*{Acknowledgements}
 
-%% DOUBLE BLIND
-We would like to thank Peter Michalski and Oluwaseun Owojaiye for fruitful
+\DIFdelbegin %DIFDELCMD < [%%%
+\DIFdel{redacted for blind review}%DIFDELCMD < ]
+%DIFDELCMD < %%%
+\DIFdelend %% DOUBLE BLIND
+%DIF <  We would like to thank Peter Michalski and Oluwaseun Owojaiye for fruitful
+%DIF <  discussions on topics relevant to this paper.
+\DIFaddbegin \DIFadd{We would like to thank Peter Michalski and Oluwaseun Owojaiye for fruitful
 discussions on topics relevant to this paper.
+}\DIFaddend 
 
 \section*{Conflict of Interest}
 
