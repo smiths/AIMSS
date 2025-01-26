@@ -169,7 +169,7 @@ applications. Given its importance, we want to understand the merits and
 drawbacks of the current development processes, tools, and methodologies. We
 use a software engineering lens to assess the quality of existing MI software.
 
-\subsection{Research Questions} \label{sec_motivation}
+%\subsection{Research Questions} \label{sec_motivation}
 
 As well as state of the practice for MI software, we would like to understand
 the impact of the often cited gap between recommended software engineering
@@ -214,7 +214,7 @@ identified pain points from \rqref{RQ_PainPoints}?
 (Section~\ref{ch_recommendations})
 \end{enumerate}
 
-\subsection{Scope} \label{sec_scope}
+%\subsection{Scope} \label{sec_scope}
 
 Our scope is limited to MI visualization software.  We exclude other categories
 of MI software, including segmentation, registration, visualization,
@@ -227,7 +227,7 @@ and ITK.  Finally, Picture Archiving and Communication System (PACS), which
 helps users to economically store and conveniently access images, are considered
 out of scope. 
 
-\subsection{Methodology} \label{SecMethodology}
+\section{Methodology} \label{SecMethodology}
 
 We have a standard set of questions designed to assess the qualities of any
 research software project~\cite{SmithEtAl2021, SmithAndMichalski2022}. We build
@@ -251,7 +251,7 @@ interaction with the domain expert, software qualities, grading the software and
 AHP below and in longer form in Smith et al.\ (2024)~\cite{SmithEtAl2024_MI_SOP}.
 %% DOUBLE BLIND
 
-\subsubsection{Domain Expert} \label{sec_vet_software_list}
+\subsection{Domain Expert} \label{sec_vet_software_list}
 
 The Domain Expert vets the proposed list because online resources can be
 inaccurate.  The expert also vets the AHP ranking.  Our Domain Expert (and
@@ -264,7 +264,7 @@ The first step for the Domain Expert is to independently create a list of their
 choices for the top software.  This refreshes the expert's knowledge in advance
 of the first meeting.
 
-\subsubsection{Software Qualities} \label{sec_software_quality}
+\subsection{Software Qualities} \label{sec_software_quality}
 
 Quality is defined as a measure of the excellence or worth of an entity.  As is
 common practice, we do not think of quality as a single measure, but rather as
@@ -277,14 +277,14 @@ et al. (2003) \cite{GhezziEtAl2003}. Installability is defined as the effort
 required for the installation and/or uninstallation of software in a specified
 environment \cite{ISO/IEC25010}.
 
-\subsubsection{Grading} \label{sec_grading_software}
+\subsection{Grading} \label{sec_grading_software}
 
 We use an existing template \cite{SmithEtAl2021} %% DOUBLE BLIND
 that is designed to measure the
 aforementioned qualities. To stay within our given measurement time frame, each
 package gets up to five hours of time.  Project developers can be contacted for
 help regarding installation, if necessary, but we impose a cap of about two
-hours on the installation process.  Figure~\ref{fg_grading_template_example}
+hours on the installation process.  We explicitly note any software that cannot be installed, but for completeness we still measure it for the remaining qualities, since only reliability and robustness require running the software. Figure~\ref{fg_grading_template_example}
 shows an excerpt of the measurement spreadsheet.  The rows are the measures and
 the columns correspond to the software packages.  Dong (2021)~\cite{Dong2021-Data}
 provides the full set of measurement data.   %%DOUBLE BLIND
@@ -310,7 +310,7 @@ We use two freeware tools to collect repository related data:
 details on quality measurement are provided in Smith et al.\ (2024) \cite{SmithEtAl2024_MI_SOP}. 
 %% DOUBLE BLIND
 
-\subsubsection{Analytic Hierarchy Process (AHP)} \label{sec_AHP}
+\subsection{Analytic Hierarchy Process (AHP)} \label{sec_AHP}
 
 Developed by Saaty in the 1970s, AHP is widely used to analyze multiple criteria
 decisions~\cite{VaidyaEtAl2006}. AHP organizes multiple criteria in a
@@ -323,7 +323,7 @@ AHP the sum of the grades (scores) for all products for a given quality will be
 quality rankings into an overall ranking based on the relative priorities
 between qualities.
 
-\subsubsection{Interview Methods} \label{sec_interview_methods}
+\subsection{Interview Methods} \label{sec_interview_methods}
 
 The repository-based measurements are incomplete because they don't generally
 capture the development process, the developer pain points, the perceived
@@ -433,10 +433,13 @@ for 11 of 29 projects; Pascal and Matlab were each used for a single project.
 
 \section{Which Projects Follow Best Practices?} \label{SecMeasurementResults}
 
-We measured the software as described in
-Section~\ref{SecMethodology}.  In the absence of a specific real world context,
-we assumed all nine qualities are equally important.
-Figure~\ref{fg_overall_scores} shows the overall AHP scores in descending order.
+We measured the software as described in Section~\ref{SecMethodology}.  In the
+absence of a specific real world context, we assumed all nine qualities are
+equally important.  (Alternative priority schemes can be investigated by changing the
+Prioritization Matrix in
+\href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/AHP2021/MedicalImaging/AHP_Template.xlsx}
+{AHP\_Template.xlsx} available on GitHub.) Figure~\ref{fg_overall_scores} shows
+the overall AHP scores in descending order.
 
 \begin{figure*}[ht!]
 \includegraphics[scale=0.47]{overall_scores.pdf}
@@ -588,8 +591,8 @@ dicompyler & 48 & 19201 & 15941 & 332 \\
 \section{Comparison to Community Ranking} \label{Sec_VsCommunityRanking}
 
 We use GitHub stars, number of forks and
-number of people watching the projects as proxies for community ranking.
-Table~\ref{tab_ranking_vs_GitHub} show the statistics for data collected in July
+number of people watching the projects as proxies for community ranking.  We considered also comparing software citations, but this measure of popularity would be unreliable since software is infrequently and inconsistently cited~\cite{SmithEtAl2016-softcite}.
+Table~\ref{tab_ranking_vs_GitHub} show the statistics for GitHub data collected in July
 2021.
 
 Our ranking and GitHub popularity, at least for the top five projects, seems to
@@ -601,7 +604,7 @@ detect a broken DICOM file and instead displayed a blank image
 (Section~\ref{SecMeasurementResults}).  \textit{DICOM Viewer} ranked low as we
 were unable to install the NextCloud platform.
 
-We weighted all qualities equally, which is not the likely the same weighting
+Besides the installation problem, another possible reason for discrepancies between our ranking and GitHub popularity is that we weighted all qualities equally, which is not the likely the same weighting
 that users implicitly use. To properly assess this would require a broad user
 study.  Furthermore our measures of popularity (like stars) are only \emph{proxies} which
 are biased towards past rather than current preferences~\cite{Szulik2017}, as
@@ -829,16 +832,14 @@ development effort~\cite{deSouzaEtAl2019}.
 \section{Comparison Between MI and Other Research Software for Tool Usage}
 \label{Sec_CompareTools}
 
-We interview data, as described in Section~\ref{sec_interview_methods}
-to answer \rqref{RQ_CompareToolsProjMngmnt} (tool usage),
+We interview developers, as described in Section~\ref{sec_interview_methods}, to answer \rqref{RQ_CompareToolsProjMngmnt} (tool usage),
 \rqref{RQ_CompareMethodologies} (methodology) and \rqref{RQ_PainPoints} (pain
 points). Requests were sent to all 29 projects.  Nine developers from eight of
 the projects agreed to participate: \textit{3D Slicer}, \textit{INVESALIUS 3},
 \textit{dwv}, \textit{BioImage Suite Web}, \textit{ITK-SNAP},
 \textit{MRIcroGL}, \textit{Weasis}, and \textit{OHIF}. We spent about 90
 minutes for each interview. The full interview answers can be
-found in [citation redacted for blind review].
-%\cite{Dong2021}.
+found in Dong (2021)~\cite{Dong2021}. %%DOUBLE BLIND
 
 Developers use software tools for user support, version control,
 Continuous Integration and Deployment (CI/CD), documentation and project
@@ -883,10 +884,10 @@ reaching 100\% at this time. In 2022, version control use sits at over
 Only 17\% of MI projects use CI/CD tools. We estimated this using artifacts
 present in the repository -- actual usage may be higher as some tools are
 entirely external. This was the case for a study of Lattice Boltzmann Method
-(LBM) software [citation redacted for blind review].  %\cite{Michalski2021}.
+(LBM) software~\cite{Michalski2021}. %%DOUBLE BLIND
 This contrasts with the high frequency of guidelines recommending continuous
 integration
-\cite{BrettEtAl2021, Brown2015, ThielEtAl2020, Zadka2018, vanGompelEtAl2016}.
+\cite{BrettEtAl2021, ThielEtAl2020, vanGompelEtAl2016, Brown2015, Zadka2018}.
 A recent survey~\cite{CarverEtAl2022} of practitioners (rather than projects)
 suggests higher use of CI/CD with 54\% of respondents indicating that they use
 it.
@@ -896,9 +897,7 @@ developers) were forum discussions and videos.  The second most popular options
 (20\%) were GitHub, wiki pages, workshops, and social media. The least
 frequently mentioned options (about 10\% of developers) included writing books,
 and Google forms.  As a point of contrast, LBM software most often uses API
-document generation tools, like doxygen and sphinx [citation redacted for blind
-review].
-%\cite{Michalski2021}
+document generation tools, like doxygen and sphinx~\cite{Michalski2021}. %%DOUBLE BLIND
 
 \paragraph{Project management} Two types of tools were mentioned:
 \begin{inparaenum}[i)]
@@ -925,8 +924,7 @@ and three teams explicitly stated that their process was undefined or
 self-directed.
 
 This matches previous observations for other research software.  Scientific
-software developers often use an agile philosophy \cite{AckroydEtAl2008,
-CarverEtAl2007, EasterbrookAndJohns2009, Segal2005, HeatonAndCarver2015}, or an
+software developers often use an agile philosophy \cite{HeatonAndCarver2015, CarverEtAl2007, AckroydEtAl2008, EasterbrookAndJohns2009, Segal2005}, or an
 amethododical process \cite{Kelly2013}, or a knowledge acquisition driven
 process~\cite{Kelly2015}.  A waterfall-like process can work for research
 software~\cite{Smith2016}, especially if the developers work iteratively and
@@ -935,7 +933,7 @@ design process~\cite{parnas1986rational}.
 
 No interviewee mentioned a strictly defined project management process. The most
 common approach was issue-driven via bug reports and feature requests.
-[Redacted for blind review] %Dong~\cite{Dong2021} 
+Dong (2021)~\cite{Dong2021} %%DOUBLE BLIND
 provides details on the specific approaches used by the interviewees.
 % JC: I don't think this level of per-project detail makes sense in this
 % review article - it should be about stats and trends, not reporting on
@@ -958,8 +956,7 @@ Less than half of the projects used unit testing, even
 though the interviewees believed that testing (including usability tests) was
 the top approach to improve correctness, usability, and reproducibility.  This
 level of testing matches what was observed for LBM
-software [citation redacted for blind review]
-%\cite{Michalski2021} 
+software~\cite{Michalski2021} %%DOUBLE BLIND
 and is apparently greater than the level of
 testing for ocean modelling software~\cite{JungEtAl2022}.
 
@@ -986,8 +983,7 @@ issues.
 Pinto et al.~\cite{PintoEtAl2018} list other pain points not mentioned by our
 interviewees: scope bloat, aloneness, lack of user feedback, interruptions while
 coding, and collaboration challenges. Two more are~\cite{WieseEtAl2019}:
-reproducibility, and software scope determination.  [citation redacted for blind
-review] %\cite{SmithEtAl2024} 
+reproducibility, and software scope determination.  Smith et al.\ (2024)~\cite{SmithEtAl2024} 
 adds lack of software experience, documentation and technical debt.  Our small
 sample size means that we cannot conclude that these are not also issues with MI
 software.
@@ -998,12 +994,12 @@ software.
 Development Time:} This was felt to be the most significant obstacle, and
 is not uncommon
 \cite{SmithEtAl2024, WieseEtAl2019, PintoEtAl2018, PintoEtAl2016}.
-%DOUBLE BLIND  [redacted for blind review]
+%DOUBLE BLIND
 
 \item[P\refstepcounter{pnum}\thepnum \label{P_LackFunding}:] \textbf{Lack of
 Funding:} As research software is not yet seen as essential infrastructure,
 there is an ongoing struggle to attract funding to build and, even harder, maintain
-research software. This is a common complaint~\cite{GewaltigAndCannon2012, Goble2014, KaterbowAndFeulner2018, SmithEtAl2024}. %,  %DOUBLE BLIND
+research software. This is a common complaint~\cite{SmithEtAl2024, GewaltigAndCannon2012, Goble2014, KaterbowAndFeulner2018}. %,  %DOUBLE BLIND
 Software output is not always counted when judging the academic excellence of
 academics, which forces researchers who write software to spend extra time on
 publicity~\cite{WieseEtAl2019}. In some domains, like
@@ -1051,9 +1047,8 @@ At least to some extent the problems for MI software users are due to holes in
 their knowledge of software and computing technology, and sometimes also
 lack of expertize in their domain to be able to adequately use the software
 \cite{WieseEtAl2019}. 
-%A similar pattern has been observed during interviews with
-%LBM software developers [citation redacted for blind review].
-%\cite{SmithEtAl2024}.
+A similar pattern has been observed during interviews with
+LBM software developers \cite{SmithEtAl2024}. %%DOUBLE BLIND
 
 \end{enumerate}
 
@@ -1209,7 +1204,7 @@ cumbersome, but the benefits are impressive:
 
 \begin{itemize}
     \item Remove headaches caused by a separate integration phase
-    \cite{Fowler2006}, \cite[p.\ 20]{HumbleAndFarley2010}.
+    \cite[p.\ 20]{HumbleAndFarley2010}, \cite{Fowler2006}.
     \item Detection and removal of bugs \cite{Fowler2006} via
     automated testing.  
     \item The base is constantly stable for everyone, always passing all tests.
@@ -1331,8 +1326,7 @@ and correctness (\ppref{P_Correctness}).
 
 The pervasive use of such tools to enforce documentation standards partially
 explains the relatively high quality of software in the Comprehensive R Archive
-Network (CRAN) [citation redacted for blind review].
-%\cite{SmithEtAl2018_StatSoft}.
+Network (CRAN)~\cite{SmithEtAl2018_StatSoft}. %%DOUBLE BLIND
 
 \subsection{Conduct Peer Reviews} \label{Sec_PeerReview}
 
@@ -1345,8 +1339,7 @@ provides such tools for its pull requests.
 Latent defects can found on average at a rate of 60--65\% by rigorous
 inspection, with this rate reaching as high as 85\% \cite{Jones2008}. The
 success rate of code inspection is generally higher than via testing, since testing
-averages around 30--35\% for the efficiency of defect removal \cite{EbertAndJones2009,
-Jones2008}. For research software, Kelly and Shepard \cite{KellyAndShepard2000}
+averages around 30--35\% for the efficiency of defect removal \cite{Jones2008, EbertAndJones2009}. For research software, Kelly and Shepard \cite{KellyAndShepard2000}
 show a task based inspection approach can be effective.
 
 Peer review addresses the same pain points and qualities as linters
@@ -1359,7 +1352,7 @@ itself.
 \subsection{Design For Change} \label{Sec_DesForChange}
 
 The advice to modularize scientific software to handle complexity is common
-\cite{WilsonEtAl2014, StewartEtAl2017, Storer2017}; however, specific guidelines
+\cite{Storer2017, WilsonEtAl2014, StewartEtAl2017}; however, specific guidelines
 on the criteria to use for modularization is rare.  Parnas~\cite{Parnas1972a}
 shows that not every decomposition supports change.  For instance, a design with
 high coupling and low cohesion will make change challenging~\cite[p.\

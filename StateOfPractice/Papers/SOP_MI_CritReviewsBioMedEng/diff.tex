@@ -1,7 +1,7 @@
 %DIF 1c1-2
 %DIF LATEXDIFF DIFFERENCE FILE
-%DIF DEL OrigSubmissionSOP_MI_OSR copy.tex   Sun Nov 24 14:42:43 2024
-%DIF ADD SOP_MI_OSR.tex                      Thu Jan 23 23:22:33 2025
+%DIF DEL OrigSubmissionSOP_MI_OSR.tex   Sun Nov 24 14:42:43 2024
+%DIF ADD SOP_MI_OSR.tex                 Sat Jan 25 22:17:53 2025
 %DIF < \documentclass[doubleblind,12pt, 3p, times]{elsarticle}
 %DIF -------
 %\documentclass[doubleblind,12pt, 3p, times]{elsarticle} %DIF > 
@@ -54,7 +54,7 @@
 \RequirePackage[normalem]{ulem} %DIF PREAMBLE
 \RequirePackage{color}\definecolor{RED}{rgb}{1,0,0}\definecolor{BLUE}{rgb}{0,0,1} %DIF PREAMBLE
 \providecommand{\DIFaddtex}[1]{{\protect\color{blue}\uwave{#1}}} %DIF PREAMBLE
-\providecommand{\DIFdeltex}[1]{{\protect\color{red}\sout{#1}}}                      %DIF PREAMBLE
+\providecommand{\DIFdeltex}[1]{{\protect\color{red}\sout{#1}}} %DIF PREAMBLE
 %DIF SAFE PREAMBLE %DIF PREAMBLE
 \providecommand{\DIFaddbegin}{} %DIF PREAMBLE
 \providecommand{\DIFaddend}{} %DIF PREAMBLE
@@ -72,6 +72,11 @@
 %DIF HYPERREF PREAMBLE %DIF PREAMBLE
 \providecommand{\DIFadd}[1]{\texorpdfstring{\DIFaddtex{#1}}{#1}} %DIF PREAMBLE
 \providecommand{\DIFdel}[1]{\texorpdfstring{\DIFdeltex{#1}}{}} %DIF PREAMBLE
+%DIF AMSMATHULEM PREAMBLE %DIF PREAMBLE
+\makeatletter %DIF PREAMBLE
+\let\sout@orig\sout %DIF PREAMBLE
+\renewcommand{\sout}[1]{\ifmmode\text{\sout@orig{\ensuremath{#1}}}\else\sout@orig{#1}\fi} %DIF PREAMBLE
+\makeatother %DIF PREAMBLE
 %DIF COLORLISTINGS PREAMBLE %DIF PREAMBLE
 \RequirePackage{listings} %DIF PREAMBLE
 \RequirePackage{color} %DIF PREAMBLE
@@ -88,6 +93,8 @@
 } %DIF PREAMBLE
 \lstnewenvironment{DIFverbatim}{\lstset{style=DIFverbatimstyle}}{} %DIF PREAMBLE
 \lstnewenvironment{DIFverbatim*}{\lstset{style=DIFverbatimstyle,showspaces=true}}{} %DIF PREAMBLE
+\lstset{extendedchars=\true,inputencoding=utf8}
+
 %DIF END PREAMBLE EXTENSION ADDED BY LATEXDIFF
 
 \begin{document}
@@ -218,7 +225,11 @@ applications. Given its importance, we want to understand the merits and
 drawbacks of the current development processes, tools, and methodologies. We
 use a software engineering lens to assess the quality of existing MI software.
 
-\subsection{Research Questions} \label{sec_motivation}
+\DIFdelbegin \subsection{\DIFdel{Research Questions}} %DIFAUXCMD
+\addtocounter{subsection}{-1}%DIFAUXCMD
+%DIFDELCMD < \label{sec_motivation}
+%DIFDELCMD < %%%
+\DIFdelend %DIF > \subsection{Research Questions} \label{sec_motivation}
 
 As well as state of the practice for MI software, we would like to understand
 the impact of the often cited gap between recommended software engineering
@@ -263,7 +274,11 @@ identified pain points from \rqref{RQ_PainPoints}?
 (Section~\ref{ch_recommendations})
 \end{enumerate}
 
-\subsection{Scope} \label{sec_scope}
+\DIFdelbegin \subsection{\DIFdel{Scope}} %DIFAUXCMD
+\addtocounter{subsection}{-1}%DIFAUXCMD
+%DIFDELCMD < \label{sec_scope}
+%DIFDELCMD < %%%
+\DIFdelend %DIF > \subsection{Scope} \label{sec_scope}
 
 Our scope is limited to MI visualization software.  We exclude other categories
 of MI software, including segmentation, registration, visualization,
@@ -276,7 +291,9 @@ and ITK.  Finally, Picture Archiving and Communication System (PACS), which
 helps users to economically store and conveniently access images, are considered
 out of scope. 
 
-\subsection{Methodology} \label{SecMethodology}
+\DIFdelbegin \subsection{\DIFdel{Methodology}} %DIFAUXCMD
+\addtocounter{subsection}{-1}%DIFAUXCMD
+\DIFdelend \DIFaddbegin \section{\DIFadd{Methodology}} \DIFaddend \label{SecMethodology}
 
 We have a standard set of questions designed to assess the qualities of any
 research software project\DIFdelbegin \DIFdel{.  }%DIFDELCMD < [%%%
@@ -332,8 +349,9 @@ AHP below and in longer form in \DIFdelbegin %DIFDELCMD < [%%%
 }\DIFaddend %% DOUBLE BLIND
 %DIF < Smith et al.\ (2024)~\cite{SmithEtAl2024_MI_SOP}.
 
-
-\subsubsection{Domain Expert} \label{sec_vet_software_list}
+\DIFdelbegin \subsubsection{\DIFdel{Domain Expert}} %DIFAUXCMD
+\addtocounter{subsubsection}{-1}%DIFAUXCMD
+\DIFdelend \DIFaddbegin \subsection{\DIFadd{Domain Expert}} \DIFaddend \label{sec_vet_software_list}
 
 The Domain Expert vets the proposed list because online resources can be
 inaccurate.  The expert also vets the AHP ranking.  Our Domain Expert \DIFdelbegin \DIFdel{is }%DIFDELCMD < [%%%
@@ -354,7 +372,9 @@ The first step for the Domain Expert is to independently create a list of their
 choices for the top software.  This refreshes the expert's knowledge in advance
 of the first meeting.
 
-\subsubsection{Software Qualities} \label{sec_software_quality}
+\DIFdelbegin \subsubsection{\DIFdel{Software Qualities}} %DIFAUXCMD
+\addtocounter{subsubsection}{-1}%DIFAUXCMD
+\DIFdelend \DIFaddbegin \subsection{\DIFadd{Software Qualities}} \DIFaddend \label{sec_software_quality}
 
 Quality is defined as a measure of the excellence or worth of an entity.  As is
 common practice, we do not think of quality as a single measure, but rather as
@@ -367,7 +387,9 @@ et al. (2003) \cite{GhezziEtAl2003}. Installability is defined as the effort
 required for the installation and/or uninstallation of software in a specified
 environment \cite{ISO/IEC25010}.
 
-\subsubsection{Grading} \label{sec_grading_software}
+\DIFdelbegin \subsubsection{\DIFdel{Grading}} %DIFAUXCMD
+\addtocounter{subsubsection}{-1}%DIFAUXCMD
+\DIFdelend \DIFaddbegin \subsection{\DIFadd{Grading}} \DIFaddend \label{sec_grading_software}
 
 We use an existing template \DIFdelbegin %DIFDELCMD < [%%%
 \DIFdel{citation redacted}%DIFDELCMD < ]
@@ -380,7 +402,7 @@ that is designed to measure the
 aforementioned qualities. To stay within our given measurement time frame, each
 package gets up to five hours of time.  Project developers can be contacted for
 help regarding installation, if necessary, but we impose a cap of about two
-hours on the installation process.  Figure~\ref{fg_grading_template_example}
+hours on the installation process.  \DIFaddbegin \DIFadd{We explicitly note any software that cannot be installed, but for completeness we still measure it for the remaining qualities, since only reliability and robustness require running the software. }\DIFaddend Figure~\ref{fg_grading_template_example}
 shows an excerpt of the measurement spreadsheet.  The rows are the measures and
 the columns correspond to the software packages.  \DIFdelbegin %DIFDELCMD < [%%%
 \DIFdel{All datacan be found on
@@ -420,7 +442,9 @@ details on quality measurement are provided in \DIFdelbegin %DIFDELCMD < [%%%
 }\DIFaddend %% DOUBLE BLIND
 %DIF < Smith et al.\ (2024) \cite{SmithEtAl2024_MI_SOP}.
 
-\subsubsection{Analytic Hierarchy Process (AHP)} \label{sec_AHP}
+\DIFdelbegin \subsubsection{\DIFdel{Analytic Hierarchy Process (AHP)}} %DIFAUXCMD
+\addtocounter{subsubsection}{-1}%DIFAUXCMD
+\DIFdelend \DIFaddbegin \subsection{\DIFadd{Analytic Hierarchy Process (AHP)}} \DIFaddend \label{sec_AHP}
 
 Developed by Saaty in the 1970s, AHP is widely used to analyze multiple criteria
 decisions~\cite{VaidyaEtAl2006}. AHP organizes multiple criteria in a
@@ -433,7 +457,9 @@ AHP the sum of the grades (scores) for all products for a given quality will be
 quality rankings into an overall ranking based on the relative priorities
 between qualities.
 
-\subsubsection{Interview Methods} \label{sec_interview_methods}
+\DIFdelbegin \subsubsection{\DIFdel{Interview Methods}} %DIFAUXCMD
+\addtocounter{subsubsection}{-1}%DIFAUXCMD
+\DIFdelend \DIFaddbegin \subsection{\DIFadd{Interview Methods}} \DIFaddend \label{sec_interview_methods}
 
 The repository-based measurements are incomplete because they don't generally
 capture the development process, the developer pain points, the perceived
@@ -557,10 +583,13 @@ for 11 of 29 projects; Pascal and Matlab were each used for a single project.
 
 \section{Which Projects Follow Best Practices?} \label{SecMeasurementResults}
 
-We measured the software as described in
-Section~\ref{SecMethodology}.  In the absence of a specific real world context,
-we assumed all nine qualities are equally important.
-Figure~\ref{fg_overall_scores} shows the overall AHP scores in descending order.
+We measured the software as described in Section~\ref{SecMethodology}.  In the
+absence of a specific real world context, we assumed all nine qualities are
+equally important.  \DIFaddbegin \DIFadd{(Alternative priority schemes can be investigated by changing the
+Prioritization Matrix in
+}\href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/AHP2021/MedicalImaging/AHP_Template.xlsx}
+{\DIFadd{AHP\_Template.xlsx}} \DIFadd{available on GitHub.) }\DIFaddend Figure~\ref{fg_overall_scores} shows
+the overall AHP scores in descending order.
 
 \begin{figure*}[ht!]
 \includegraphics[scale=0.47]{overall_scores.pdf}
@@ -723,8 +752,10 @@ dicompyler & 48 & 19201 & 15941 & 332 \\
 \section{Comparison to Community Ranking} \label{Sec_VsCommunityRanking}
 
 We use GitHub stars, number of forks and
-number of people watching the projects as proxies for community ranking.
-Table~\ref{tab_ranking_vs_GitHub} show the statistics for data collected in July
+number of people watching the projects as proxies for community ranking.  \DIFaddbegin \DIFadd{We considered also comparing software citations, but this measure of popularity would be unreliable since software is infrequently and inconsistently cited~\mbox{%DIFAUXCMD
+\cite{SmithEtAl2016-softcite}}\hskip0pt%DIFAUXCMD
+.
+}\DIFaddend Table~\ref{tab_ranking_vs_GitHub} show the statistics for \DIFaddbegin \DIFadd{GitHub }\DIFaddend data collected in July
 2021.
 
 Our ranking and GitHub popularity, at least for the top five projects, seems to
@@ -736,7 +767,7 @@ detect a broken DICOM file and instead displayed a blank image
 (Section~\ref{SecMeasurementResults}).  \textit{DICOM Viewer} ranked low as we
 were unable to install the NextCloud platform.
 
-We weighted all qualities equally, which is not the likely the same weighting
+\DIFdelbegin \DIFdel{We }\DIFdelend \DIFaddbegin \DIFadd{Besides the installation problem, another possible reason for discrepancies between our ranking and GitHub popularity is that we }\DIFaddend weighted all qualities equally, which is not the likely the same weighting
 that users implicitly use. To properly assess this would require a broad user
 study.  Furthermore our measures of popularity (like stars) are only \emph{proxies} which
 are biased towards past rather than current preferences~\cite{Szulik2017}, as
@@ -980,16 +1011,20 @@ development effort~\cite{deSouzaEtAl2019}.
 \section{Comparison Between MI and Other Research Software for Tool Usage}
 \label{Sec_CompareTools}
 
-We interview data, as described in Section~\ref{sec_interview_methods}
-to answer \rqref{RQ_CompareToolsProjMngmnt} (tool usage),
+We interview \DIFdelbegin \DIFdel{data}\DIFdelend \DIFaddbegin \DIFadd{developers}\DIFaddend , as described in Section~\ref{sec_interview_methods}\DIFaddbegin \DIFadd{, }\DIFaddend to answer \rqref{RQ_CompareToolsProjMngmnt} (tool usage),
 \rqref{RQ_CompareMethodologies} (methodology) and \rqref{RQ_PainPoints} (pain
 points). Requests were sent to all 29 projects.  Nine developers from eight of
 the projects agreed to participate: \textit{3D Slicer}, \textit{INVESALIUS 3},
 \textit{dwv}, \textit{BioImage Suite Web}, \textit{ITK-SNAP},
 \textit{MRIcroGL}, \textit{Weasis}, and \textit{OHIF}. We spent about 90
 minutes for each interview. The full interview answers can be
-found in [citation redacted for blind review].
-%\cite{Dong2021}.
+found in \DIFdelbegin %DIFDELCMD < [%%%
+\DIFdel{citation redacted for blind review}%DIFDELCMD < ]%%%
+\DIFdel{. %DIF < \cite{Dong2021}.
+}\DIFdelend \DIFaddbegin \DIFadd{Dong (2021)~\mbox{%DIFAUXCMD
+\cite{Dong2021}}\hskip0pt%DIFAUXCMD
+. %DIF > %DOUBLE BLIND
+}\DIFaddend 
 
 Developers use software tools for user support, version control,
 Continuous Integration and Deployment (CI/CD), documentation and project
@@ -1039,10 +1074,19 @@ reaching 100\% at this time. In 2022, version control use sits at over
 Only 17\% of MI projects use CI/CD tools. We estimated this using artifacts
 present in the repository -- actual usage may be higher as some tools are
 entirely external. This was the case for a study of Lattice Boltzmann Method
-(LBM) software [citation redacted for blind review].  %\cite{Michalski2021}.
-This contrasts with the high frequency of guidelines recommending continuous
+(LBM) software\DIFdelbegin %DIFDELCMD < [%%%
+\DIFdel{citation redacted for blind review}%DIFDELCMD < ]%%%
+\DIFdel{. %DIF < \cite{Michalski2021}.
+}\DIFdelend \DIFaddbegin \DIFadd{~\mbox{%DIFAUXCMD
+\cite{Michalski2021}}\hskip0pt%DIFAUXCMD
+. %DIF > %DOUBLE BLIND
+}\DIFaddend This contrasts with the high frequency of guidelines recommending continuous
 integration
-\cite{BrettEtAl2021, Brown2015, ThielEtAl2020, Zadka2018, vanGompelEtAl2016}.
+\DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
+\cite{BrettEtAl2021, Brown2015, ThielEtAl2020, Zadka2018, vanGompelEtAl2016}}\hskip0pt%DIFAUXCMD
+}\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
+\cite{BrettEtAl2021, ThielEtAl2020, vanGompelEtAl2016, Brown2015, Zadka2018}}\hskip0pt%DIFAUXCMD
+}\DIFaddend .
 A recent survey~\cite{CarverEtAl2022} of practitioners (rather than projects)
 suggests higher use of CI/CD with 54\% of respondents indicating that they use
 it.
@@ -1052,9 +1096,14 @@ developers) were forum discussions and videos.  The second most popular options
 (20\%) were GitHub, wiki pages, workshops, and social media. The least
 frequently mentioned options (about 10\% of developers) included writing books,
 and Google forms.  As a point of contrast, LBM software most often uses API
-document generation tools, like doxygen and sphinx [citation redacted for blind
-review].
-%\cite{Michalski2021}
+document generation tools, like doxygen and sphinx\DIFdelbegin %DIFDELCMD < [%%%
+\DIFdel{citation redacted for blind
+review}%DIFDELCMD < ]%%%
+\DIFdel{. %DIF < \cite{Michalski2021}
+}\DIFdelend \DIFaddbegin \DIFadd{~\mbox{%DIFAUXCMD
+\cite{Michalski2021}}\hskip0pt%DIFAUXCMD
+. %DIF > %DOUBLE BLIND
+}\DIFaddend 
 
 \paragraph{Project management} Two types of tools were mentioned:
 \begin{inparaenum}[i)]
@@ -1081,8 +1130,12 @@ and three teams explicitly stated that their process was undefined or
 self-directed.
 
 This matches previous observations for other research software.  Scientific
-software developers often use an agile philosophy \cite{AckroydEtAl2008,
-CarverEtAl2007, EasterbrookAndJohns2009, Segal2005, HeatonAndCarver2015}, or an
+software developers often use an agile philosophy \DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
+\cite{AckroydEtAl2008,
+CarverEtAl2007, EasterbrookAndJohns2009, Segal2005, HeatonAndCarver2015}}\hskip0pt%DIFAUXCMD
+}\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
+\cite{HeatonAndCarver2015, CarverEtAl2007, AckroydEtAl2008, EasterbrookAndJohns2009, Segal2005}}\hskip0pt%DIFAUXCMD
+}\DIFaddend , or an
 amethododical process \cite{Kelly2013}, or a knowledge acquisition driven
 process~\cite{Kelly2015}.  A waterfall-like process can work for research
 software~\cite{Smith2016}, especially if the developers work iteratively and
@@ -1091,8 +1144,13 @@ design process~\cite{parnas1986rational}.
 
 No interviewee mentioned a strictly defined project management process. The most
 common approach was issue-driven via bug reports and feature requests.
-[Redacted for blind review] %Dong~\cite{Dong2021} 
-provides details on the specific approaches used by the interviewees.
+\DIFdelbegin %DIFDELCMD < [%%%
+\DIFdel{Redacted for blind review}%DIFDELCMD < ] %%%
+%DIF < Dong~\cite{Dong2021} 
+\DIFdelend \DIFaddbegin \DIFadd{Dong (2021)~\mbox{%DIFAUXCMD
+\cite{Dong2021} }\hskip0pt%DIFAUXCMD
+%DIF > %DOUBLE BLIND
+}\DIFaddend provides details on the specific approaches used by the interviewees.
 % JC: I don't think this level of per-project detail makes sense in this
 % review article - it should be about stats and trends, not reporting on
 % minute details. We could refer the reader to Ao's thesis for the details.
@@ -1114,9 +1172,14 @@ Less than half of the projects used unit testing, even
 though the interviewees believed that testing (including usability tests) was
 the top approach to improve correctness, usability, and reproducibility.  This
 level of testing matches what was observed for LBM
-software [citation redacted for blind review]
-%\cite{Michalski2021} 
-and is apparently greater than the level of
+software\DIFdelbegin %DIFDELCMD < [%%%
+\DIFdel{citation redacted for blind review}%DIFDELCMD < ]
+%DIFDELCMD < %%%
+%DIF < \cite{Michalski2021} 
+\DIFdelend \DIFaddbegin \DIFadd{~\mbox{%DIFAUXCMD
+\cite{Michalski2021} }\hskip0pt%DIFAUXCMD
+%DIF > %DOUBLE BLIND
+}\DIFaddend and is apparently greater than the level of
 testing for ocean modelling software~\cite{JungEtAl2022}.
 
 All interviewees thought that documentation was
@@ -1142,9 +1205,14 @@ issues.
 Pinto et al.~\cite{PintoEtAl2018} list other pain points not mentioned by our
 interviewees: scope bloat, aloneness, lack of user feedback, interruptions while
 coding, and collaboration challenges. Two more are~\cite{WieseEtAl2019}:
-reproducibility, and software scope determination.  [citation redacted for blind
-review] %\cite{SmithEtAl2024} 
-adds lack of software experience, documentation and technical debt.  Our small
+reproducibility, and software scope determination.  \DIFdelbegin %DIFDELCMD < [%%%
+\DIFdel{citation redacted for blind
+review}%DIFDELCMD < ] %%%
+%DIF < \cite{SmithEtAl2024} 
+\DIFdelend \DIFaddbegin \DIFadd{Smith et al.\ (2024)~\mbox{%DIFAUXCMD
+\cite{SmithEtAl2024} 
+}\hskip0pt%DIFAUXCMD
+}\DIFaddend adds lack of software experience, documentation and technical debt.  Our small
 sample size means that we cannot conclude that these are not also issues with MI
 software.
 
@@ -1158,9 +1226,9 @@ is not uncommon
 .
 %DIF < DOUBLE BLIND \cite{SmithEtAl2024} [redacted for blind review]
 }\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
-\cite{PintoEtAl2018, PintoEtAl2016, WieseEtAl2019, SmithEtAl2024}}\hskip0pt%DIFAUXCMD
+\cite{SmithEtAl2024, WieseEtAl2019, PintoEtAl2018, PintoEtAl2016}}\hskip0pt%DIFAUXCMD
 .
-%DIF > DOUBLE BLIND  [redacted for blind review]
+%DIF > DOUBLE BLIND
 }\DIFaddend 
 
 \item[P\refstepcounter{pnum}\thepnum \label{P_LackFunding}:] \textbf{Lack of
@@ -1170,7 +1238,7 @@ research software. This is a common complaint~\DIFdelbegin \DIFdel{\mbox{%DIFAUX
 \cite{GewaltigAndCannon2012, Goble2014, KaterbowAndFeulner2018}}\hskip0pt%DIFAUXCMD
 . %DIF < , SmithEtAl2024 %[redacted for double blind review]
 }\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
-\cite{GewaltigAndCannon2012, Goble2014, KaterbowAndFeulner2018, SmithEtAl2024}}\hskip0pt%DIFAUXCMD
+\cite{SmithEtAl2024, GewaltigAndCannon2012, Goble2014, KaterbowAndFeulner2018}}\hskip0pt%DIFAUXCMD
 . %DIF > ,  %DOUBLE BLIND
 }\DIFaddend Software output is not always counted when judging the academic excellence of
 academics, which forces researchers who write software to spend extra time on
@@ -1219,9 +1287,14 @@ At least to some extent the problems for MI software users are due to holes in
 their knowledge of software and computing technology, and sometimes also
 lack of expertize in their domain to be able to adequately use the software
 \cite{WieseEtAl2019}. 
-%A similar pattern has been observed during interviews with
-%LBM software developers [citation redacted for blind review].
-%\cite{SmithEtAl2024}.
+%DIF < A similar pattern has been observed during interviews with
+%DIF < LBM software developers [citation redacted for blind review].
+%DIF < \cite{SmithEtAl2024}.
+\DIFaddbegin \DIFadd{A similar pattern has been observed during interviews with
+LBM software developers \mbox{%DIFAUXCMD
+\cite{SmithEtAl2024}}\hskip0pt%DIFAUXCMD
+. %DIF > %DOUBLE BLIND
+}\DIFaddend 
 
 \end{enumerate}
 
@@ -1377,7 +1450,15 @@ cumbersome, but the benefits are impressive:
 
 \begin{itemize}
     \item Remove headaches caused by a separate integration phase
-    \cite{Fowler2006}, \cite[p.\ 20]{HumbleAndFarley2010}.
+    \DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
+\cite{Fowler2006}}\hskip0pt%DIFAUXCMD
+, \mbox{%DIFAUXCMD
+\cite[p.\ 20]{HumbleAndFarley2010}}\hskip0pt%DIFAUXCMD
+}\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
+\cite[p.\ 20]{HumbleAndFarley2010}}\hskip0pt%DIFAUXCMD
+, \mbox{%DIFAUXCMD
+\cite{Fowler2006}}\hskip0pt%DIFAUXCMD
+}\DIFaddend .
     \item Detection and removal of bugs \cite{Fowler2006} via
     automated testing.  
     \item The base is constantly stable for everyone, always passing all tests.
@@ -1499,8 +1580,13 @@ and correctness (\ppref{P_Correctness}).
 
 The pervasive use of such tools to enforce documentation standards partially
 explains the relatively high quality of software in the Comprehensive R Archive
-Network (CRAN) [citation redacted for blind review].
-%\cite{SmithEtAl2018_StatSoft}.
+Network (CRAN)\DIFdelbegin %DIFDELCMD < [%%%
+\DIFdel{citation redacted for blind review}%DIFDELCMD < ]%%%
+\DIFdel{. %DIF < \cite{SmithEtAl2018_StatSoft}.
+}\DIFdelend \DIFaddbegin \DIFadd{~\mbox{%DIFAUXCMD
+\cite{SmithEtAl2018_StatSoft}}\hskip0pt%DIFAUXCMD
+. %DIF > %DOUBLE BLIND
+}\DIFaddend 
 
 \subsection{Conduct Peer Reviews} \label{Sec_PeerReview}
 
@@ -1513,8 +1599,12 @@ provides such tools for its pull requests.
 Latent defects can found on average at a rate of 60--65\% by rigorous
 inspection, with this rate reaching as high as 85\% \cite{Jones2008}. The
 success rate of code inspection is generally higher than via testing, since testing
-averages around 30--35\% for the efficiency of defect removal \cite{EbertAndJones2009,
-Jones2008}. For research software, Kelly and Shepard \cite{KellyAndShepard2000}
+averages around 30--35\% for the efficiency of defect removal \DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
+\cite{EbertAndJones2009,
+Jones2008}}\hskip0pt%DIFAUXCMD
+}\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
+\cite{Jones2008, EbertAndJones2009}}\hskip0pt%DIFAUXCMD
+}\DIFaddend . For research software, Kelly and Shepard \cite{KellyAndShepard2000}
 show a task based inspection approach can be effective.
 
 Peer review addresses the same pain points and qualities as linters
@@ -1527,7 +1617,11 @@ itself.
 \subsection{Design For Change} \label{Sec_DesForChange}
 
 The advice to modularize scientific software to handle complexity is common
-\cite{WilsonEtAl2014, StewartEtAl2017, Storer2017}; however, specific guidelines
+\DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
+\cite{WilsonEtAl2014, StewartEtAl2017, Storer2017}}\hskip0pt%DIFAUXCMD
+}\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
+\cite{Storer2017, WilsonEtAl2014, StewartEtAl2017}}\hskip0pt%DIFAUXCMD
+}\DIFaddend ; however, specific guidelines
 on the criteria to use for modularization is rare.  Parnas~\cite{Parnas1972a}
 shows that not every decomposition supports change.  For instance, a design with
 high coupling and low cohesion will make change challenging~\cite[p.\

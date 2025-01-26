@@ -7,6 +7,7 @@
 %\renewcommand\baselinestretch{0.85}
 
 \usepackage{xcolor}
+\usepackage{hyperref}
 
 \pagestyle {plain}
 \pagenumbering {arabic}
@@ -69,53 +70,87 @@ Hamilton, Ontario, Canada L8S 4K1}%  \\ Phone: 525-9140 Ext.~27929 \\E-mail:
   priorities for all scientific software, our paper focuses only on medical
   imaging software.  The priorities for medical imaging software likely differ
   from the priorities for other scientific applications.  Furthermore, the
-  priorities likely differ between different medical imaging applications as
-  well. Rather than speculate on the relative priorities, we used the simplest case of equal priority. For any readers that would like to apply their own priorities, we can direct them to the spreadsheet used to generate the results in the paper.  With some simple modifications the plots can regenerated with whatever priority ranking a user wishes to see.  To make this clear, we have added the following text to the revised paper:
+  priorities likely differ between different medical imaging applications.
+  Rather than speculate on the relative priorities, we used the simplest case of
+  equal priority. For any readers that would like to apply their own priorities,
+  we can direct them to the spreadsheet used to generate the results shown in the
+  paper.  With some simple modifications the plots can regenerated with whatever
+  priority ranking a user wishes to see.  To make this clear, we have added the
+  following text to the revised paper:  } \smallskip
   
-  \smallskip}
+  \textcolor{blue}{(Alternative priority schemes can be investigated by changing
+the Prioritization Matrix in
+\href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/AHP2021/MedicalImaging/AHP_Template.xlsx}
+{AHP\_Template.xlsx} available on GitHub.)}
 
   \item In addition to github, could any other reference have been used, such as
   the number of citations in papers or relevant websites in the field? \medskip
 
-  \emph{Citations and websites are a good idea, but don't have this data.
-  Papers unreliable because people don't tend to cite scientific softwarwe.
-  cite Katz to support this.  Changes to paper.\smallskip}
+  \emph{Although the idea of including citations in papers is a good one, we
+  have excluded this data because we feel it is unreliable.  Unfortunately,
+  software is infrequently and inconsistently cited even when it is used (as
+  observed by Smith et al (2016) (Software Citation Principles)).  Similar
+  inconsistency problems exist for data on websites.  For other readers who have
+  the same observation as the reviewer, we have added the following text to the
+  revised version: \smallskip}
+
+  \textcolor{blue}{We considered also comparing software citations, but this
+  measure of popularity would be unreliable since software is infrequently and
+  inconsistently cited (SmithEtAl2016).}
 
   \item Where are the quality ratings for each software? \medskip
 
-  \emph{Double blind review meant didn't show citations, but citations have the
-  full quality ratings.  The overall quality rating is given in Figure 2. The
-  actual numbers are not as relevant as the ranking. \smallskip}
+  \emph{The quality ratings for each software are summarized in Figure 2
+  (Overall AHP scores with an equal weighting for all 9 software qualities). To
+  keep the length of the paper reasonable, we do not have figures showing the
+  ranking of the software packages for each quality, but this information is
+  available through the citations given in the now unredacted revised version of the
+  paper.  Some of the relevant citations include Dong (2021) (Assessing the
+  state of the practice for medical imaging software, MEng thesis), and Smith et
+  al (2024) (State of the practice for medical imaging software, extended report
+  on arXiv). \smallskip}
 
   \item Caption tables above them, not below them. \medskip
 
-  \emph{This has been fixed in the revised manuscript.  \smallskip}
+  \emph{This has been fixed in the revised manuscript. \smallskip}
 
   \item What are the possible reasons for the differences between the ranking
   found and that of GitHub, in addition to the impossibility of installing some
   of them? \medskip
 
-  \emph{Add content from the arxiv version.  ``Further reason for discrepancies
-  between our ranking and the community's ranking is that we weighted all
-  qualities equally. This is not likely how users implicitly rank the different
-  qualities. As a result, some projects with high community popularity may have
-  scored lower with our method because of a relatively higher (compared to the
-  scientific community's implicit ranking) weighting of the poor scores for some
-  qualities. A further explanation for discrepancies between our measures and
-  the star measures may also be due to inaccuracy with using stars to
-  approximate popularity.  Stars are not an ideal measure because stars
-  represent the community's feeling in the past more than they measure current
-  preferences (Szulik2017).  The issue with stars is that they tend only
-  to be added, not removed.  A final reason for inconsistencies between our
-  ranking and the community's ranking is that, as for consumer products, more
-  factors influence popularity than just quality.'' \smallskip}
+  \emph{Other possible reasons for the differences in ranking are covered in the
+  original submitted paper in the following text: ``We weighted all qualities
+  equally, which is not the likely the same weighting that users implicitly use.
+  To properly assess this would require a broad user study.  Furthermore our
+  measures of popularity (like stars) are only \emph{proxies} which are biased
+  towards past rather than current preferences (Szulik2017), as these are
+  monotonically increasing quantities. Finally there are often more factors than
+  just quality that influence the popularity of products.''  Given that this
+  wasn't obvious to the reviewer, we strengthened the topic sentence that
+  introduced the reasons with the following text: \smallskip}
+
+  \textcolor{blue}{Besides the installation problem, another possible reason for
+  discrepancies between our ranking and GitHub popularity is that we weighted
+  all qualities equally, ....}
 
   \item Some software could not be installed. What problems were found? Why not
   remove it from the list? \medskip
 
-  \emph{Say the problems from installability section.  Didn't remove because
-  only affected a few qualities.  Favoured including with a warning.
-  \smallskip}
+  \emph{In the interest of space, we have chosen to not include the details in
+  on installation problems for \textit{GATE}, \textit{dwv}, and \textit{DICOM
+  Viewer} in the paper.  Instead, the additional details are given in the
+  extended version of the paper on arXiv (Smith et al (2024)) and in the
+  associated Masters thesis (Dong (2021)).  The software with installation
+  problems was not removed from our review because we aimed for as complete an
+  overview as possible.   Moreover, the installation problems only affected the
+  score on installability, reliability and robustness.  The other qualities are
+  based on the artifacts in the repository, not on running the software.  To
+  clarify this for readers of the paper, we have added text to the methodology
+  for grading in the revised manuscript: \smallskip}
+
+  \textcolor{blue}{We explicitly note any software that cannot be installed,
+  but for completeness we still measure it for the remaining qualities, since
+  only reliability and robustness require running the software.}
 
   \end{enumerate}
 
@@ -129,7 +164,18 @@ Hamilton, Ontario, Canada L8S 4K1}%  \\ Phone: 525-9140 Ext.~27929 \\E-mail:
   Also, there's no need to divide various subsection in the introduction.
   \medskip
 
-  \emph{Response.\smallskip}
+  \emph{We believe that our introduction covers the scope (in Section 1.2 of the
+  submitted version) the significance (in the first paragraph).  We also believe
+  that the current understanding, background information and potential outcomes
+  are covered by the research questions. There is not a considerable amount of
+  background information because there isn't a previous study (that we are aware
+  of) that assesses the state of the practice for medical imaging software. The
+  potential outcomes are the answers to the research questions. \smallskip}
+
+  \emph{The criticism of the introduction, including the comment about not
+  having subsections, is likely due to our covering the methodology in the
+  introduction section. In the revised version, we have made the methodology its
+  own section and removed the subsections from the introduction. \smallskip}
 
   \item The title of the table should be placed above the table. \medskip
 
@@ -137,7 +183,14 @@ Hamilton, Ontario, Canada L8S 4K1}%  \\ Phone: 525-9140 Ext.~27929 \\E-mail:
 
   \item It is not recommended to include tables in the conclusion. \medskip
 
-  \emph{Move it.  \smallskip}
+  \emph{Although including a table in the conclusions is rare, we think it is
+  appropriate for this paper.  A table is a quickest way to summarize the
+  software package quality.  Summarizing the same information in words would be
+  hard to follow.  A conclusion shouldn't introduce new information, but the
+  table is not new information; it is an alternate view of the information
+  presented in Section 4 of the paper.  This new view makes some conclusions
+  about the state of the practice clear, so it feels appropriate for the
+  conclusion section. \smallskip}
 
   \end{enumerate}
 
