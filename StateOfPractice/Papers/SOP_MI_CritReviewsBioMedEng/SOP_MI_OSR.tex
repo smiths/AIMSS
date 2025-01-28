@@ -1,5 +1,6 @@
 %\documentclass[doubleblind,12pt, 3p, times]{elsarticle}
-\documentclass[12pt, 3p, times]{elsarticle}
+%\documentclass[draft, review, 12pt, 3p, times]{elsarticle} %so figures are blank, double spaced
+\documentclass[12pt, 3p, times]{elsarticle} 
 
 \usepackage{amssymb}
 \usepackage{amsmath}
@@ -36,74 +37,32 @@
 \newcommand{\CC}{C\nolinebreak\hspace{-.05em}\raisebox{.4ex}{\small\bf
 +}\nolinebreak\hspace{-.10em}\raisebox{.4ex}{\small\bf +}}
 
-% prepared for: Journal of Imaging Informatics in Medicine
-% https://link.springer.com/journal/10278
-
 \journal{Critical Reviews in Biomedical Engineering}
+
+%\DeclareGraphicsExtensions{.pdf} %use pdf version of figures
+\DeclareGraphicsExtensions{.jpg} %use jpg versions (high resolution won't actually fit)
 
 \begin{document}
 
 \begin{frontmatter}
 
-%% Title, authors and addresses
-
-%% use the tnoteref command within \title for footnotes;
-%% use the tnotetext command for theassociated footnote;
-%% use the fnref command within \author or \affiliation for footnotes;
-%% use the fntext command for theassociated footnote;
-%% use the corref command within \author for corresponding author footnotes;
-%% use the cortext command for theassociated footnote;
-%% use the ead command for the email address,
-%% and the form \ead[url] for the home page:
-%% \title{Title\tnoteref{label1}}
-%% \tnotetext[label1]{}
-%% \author{Name\corref{cor1}\fnref{label2}}
-%% \ead{email address}
-%% \ead[url]{home page}
-%% \fntext[label2]{}
-%% \cortext[cor1]{}
-%% \affiliation{organization={},
-%%            addressline={}, 
-%%            city={},
-%%            postcode={}, 
-%%            state={},
-%%            country={}}
-%% \fntext[label3]{}
-
 \title{State of the Practice for Medical Imaging Software Based on Open Source
 Repositories}
 
-%% use optional labels to link authors explicitly to addresses:
-%% \author[label1,label2]{}
-%% \affiliation[label1]{organization={},
-%%             addressline={},
-%%             city={},
-%%             postcode={},
-%%             state={},
-%%             country={}}
-%%
-%% \affiliation[label2]{organization={},
-%%             addressline={},
-%%             city={},
-%%             postcode={},
-%%             state={},
-%%             country={}}
-
-%\author{Anonymous}
 \author[CAS]{Spencer Smith}
 \author[CAS]{Ao Dong}
 \author[CAS]{Jacques Carette}
 \author[ECE]{Michael Noseworthy}
 
 \affiliation[CAS]{organization={McMaster University, Computing and Software
-Department}, %Department and Organization
+Department}, 
             addressline={1280 Main Street West}, 
             city={Hamilton},
             postcode={L8S 4K1}, 
             state={Ontario},
             country={Canada}}
 
-\affiliation[ECE]{organization={McMaster University, Electrical and Computer Engineering}, %Department and Organization
+\affiliation[ECE]{organization={McMaster University, Electrical and Computer Engineering}, 
             addressline={1280 Main Street West}, 
             city={Hamilton},
             postcode={L8S 4K1}, 
@@ -138,25 +97,12 @@ and designing for change.
 
 \end{abstract}
 
-%%Graphical abstract
-%\begin{graphicalabstract}
-%\includegraphics{grabs}
-%\end{graphicalabstract}
-
-%%Research highlights
-%\begin{highlights}
-%\item Research highlight 1
-%\item Research highlight 2
-%\end{highlights}
-
 \begin{keyword}
     medical imaging, research software, software engineering, software
     quality, analytic hierarchy process
 \end{keyword}
 
 \end{frontmatter}
-
-%% \linenumbers
 
 \section{Introduction} \label{ch_intro}
 
@@ -168,8 +114,6 @@ Ultrasound) to provide critical information for diagnostic, analytic, and medica
 applications. Given its importance, we want to understand the merits and
 drawbacks of the current development processes, tools, and methodologies. We
 use a software engineering lens to assess the quality of existing MI software.
-
-%\subsection{Research Questions} \label{sec_motivation}
 
 As well as state of the practice for MI software, we would like to understand
 the impact of the often cited gap between recommended software engineering
@@ -199,7 +143,9 @@ software in general (Section~\ref{Sec_CompareTools})
 (\rqref{RQ_CompareToolsProjMngmnt}.a); and, project management
 (\rqref{RQ_CompareToolsProjMngmnt}.b)?
 \item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_CompareMethodologies}:]
-How does the use of principles, processes, and methodologies compare between MI software and research software in general? (Section~\ref{Sec_CompareMethodologies})
+How does the use of principles, processes, and methodologies compare between MI
+software and research software in general?
+(Section~\ref{Sec_CompareMethodologies})
 \item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_PainPoints}:] For MI software
 developers, what pain points do they experience?  (Section~\ref{painpoints})
 \item [RQ\refstepcounter{rqnum}\therqnum \label{RQ_ComparePainPoints}:] How do
@@ -213,8 +159,6 @@ What processes, techniques and tools can potentially address the
 identified pain points from \rqref{RQ_PainPoints}?
 (Section~\ref{ch_recommendations})
 \end{enumerate}
-
-%\subsection{Scope} \label{sec_scope}
 
 Our scope is limited to MI visualization software.  We exclude other categories
 of MI software, including segmentation, registration, visualization,
@@ -235,30 +179,27 @@ off prior work to assess the state of the practice for such domains as Lattice
 Boltzmann Solvers \cite{SmithEtAl2024}, Geographic Information Systems
 \cite{smith2018state}, Mesh Generators \cite{smith2016state}, Seismology
 software \cite{Smith2018Seismology}, and Statistical software for psychology
-\cite{smith2018statistical}.  %% DOUBLE BLIND 
-We maintain the previous
-constraint that the work load for measuring a given domain should take around
-one person-month's worth of effort ($20$ working days at $8$ person-hours per
-day).
+\cite{smith2018statistical}.  We maintain the previous constraint that the work
+load for measuring a given domain should take around one person-month's worth of
+effort ($20$ working days at $8$ person-hours per day).
 
 We identify a list of potential packages (through online searches) which is then
 filtered and vetted by a domain expert. We aim for roughly $30$ packages. For
 each remaining package, we measure its qualities via a grading
-template~\cite{SmithEtAl2021}.    %%DOUBLE BLIND
-This data is used to rank the projects with the
+template~\cite{SmithEtAl2021}.  This data is used to rank the projects with the
 Analytic Hierarchy Process (AHP).  We summarize further details on the
 interaction with the domain expert, software qualities, grading the software and
-AHP below and in longer form in Smith et al.\ (2024)~\cite{SmithEtAl2024_MI_SOP}.
-%% DOUBLE BLIND
+AHP below and in longer form in Smith et al.\
+(2024)~\cite{SmithEtAl2024_MI_SOP}.
 
 \subsection{Domain Expert} \label{sec_vet_software_list}
 
 The Domain Expert vets the proposed list because online resources can be
-inaccurate.  The expert also vets the AHP ranking.  Our Domain Expert (and
-paper co-author) is Dr.\ Michael Noseworthy, Professor of Electrical and
-Computer Engineering at McMaster University, Co-Director of the McMaster School
-of Biomedical Engineering, and Director of Medical Imaging Physics and
-Engineering at St.\ Joseph's Healthcare, Hamilton, Ontario, Canada.  %%DOUBLE BLIND 
+inaccurate.  The expert also vets the AHP ranking.  Our Domain Expert (and paper
+co-author) is Dr.\ Michael Noseworthy, Professor of Electrical and Computer
+Engineering at McMaster University, Co-Director of the McMaster School of
+Biomedical Engineering, and Director of Medical Imaging Physics and Engineering
+at St.\ Joseph's Healthcare, Hamilton, Ontario, Canada.
 
 The first step for the Domain Expert is to independently create a list of their
 choices for the top software.  This refreshes the expert's knowledge in advance
@@ -267,30 +208,32 @@ of the first meeting.
 \subsection{Software Qualities} \label{sec_software_quality}
 
 Quality is defined as a measure of the excellence or worth of an entity.  As is
-common practice, we do not think of quality as a single measure, but rather as
-a set of measures.  That is, quality is a collection of different qualities,
-often called ``ilities.''  For this study we selected 9 qualities to measure:
+common practice, we do not think of quality as a single measure, but rather as a
+set of measures.  That is, quality is a collection of different qualities, often
+called ``ilities.''  For this study we selected 9 qualities to measure:
 installability, correctness/verifiability, reliability, robustness, usability,
 maintainability, reusability, understandability, and visibility/transparency.
-With the exception of installability, all the qualities are defined in Ghezzi
-et al. (2003) \cite{GhezziEtAl2003}. Installability is defined as the effort
+With the exception of installability, all the qualities are defined in Ghezzi et
+al. (2003) \cite{GhezziEtAl2003}. Installability is defined as the effort
 required for the installation and/or uninstallation of software in a specified
 environment \cite{ISO/IEC25010}.
 
 \subsection{Grading} \label{sec_grading_software}
 
-We use an existing template \cite{SmithEtAl2021} %% DOUBLE BLIND
-that is designed to measure the
+We use an existing template \cite{SmithEtAl2021} that is designed to measure the
 aforementioned qualities. To stay within our given measurement time frame, each
 package gets up to five hours of time.  Project developers can be contacted for
 help regarding installation, if necessary, but we impose a cap of about two
-hours on the installation process.  We explicitly note any software that cannot be installed, but for completeness we still measure it for the remaining qualities, since only reliability and robustness require running the software. Figure~\ref{fg_grading_template_example}
-shows an excerpt of the measurement spreadsheet.  The rows are the measures and
-the columns correspond to the software packages.  Dong (2021)~\cite{Dong2021-Data}
-provides the full set of measurement data.   %%DOUBLE BLIND
+hours on the installation process.  We explicitly note any software that cannot
+be installed, but for completeness we still measure it for the remaining
+qualities, since only reliability and robustness require running the software.
+Figure~\ref{fg_grading_template_example} shows an excerpt of the measurement
+spreadsheet.  The rows are the measures and the columns correspond to the
+software packages.  Dong (2021)~\cite{Dong2021-Data} provides the full set of
+measurement data. 
 
 \begin{figure*}[ht!]
-\includegraphics[scale=0.67]{template.pdf}
+\includegraphics[scale=0.67]{template}
 \caption{Grading template example}
 \label{fg_grading_template_example}
 \end{figure*}
@@ -308,7 +251,6 @@ We use two freeware tools to collect repository related data:
 \href{https://github.com/tomgi/git_stats}{GitStats} and
 \href{https://github.com/boyter/scc}{Sloc Cloc and Code (scc)}.  Further
 details on quality measurement are provided in Smith et al.\ (2024) \cite{SmithEtAl2024_MI_SOP}. 
-%% DOUBLE BLIND
 
 \subsection{Analytic Hierarchy Process (AHP)} \label{sec_AHP}
 
@@ -329,16 +271,16 @@ The repository-based measurements are incomplete because they don't generally
 capture the development process, the developer pain points, the perceived
 threats to software quality, and the developers' strategies to address these
 threats.  Therefore, part of our methodology involves interviewing developers.
-We based our interviews on a list of 20 questions, which can be found in
-Smith et al. \cite{SmithEtAl2021}. %%DOUBLE BLIND
-Some questions are about the background of the software, the development teams,
-the interviewees, and how they organize their projects.  We also ask about the
-developer's understanding of the users. Additional questions focus on the current and
-past difficulties, and the solutions the team has found, or plan to try. We also
-discuss documentation, both with respect to how it is currently done, and how it
-is perceived. A few questions are about specific software qualities, such as
-maintainability, understandability, usability, and reproducibility. The
-interviews are semi-structured based on the question list.
+We based our interviews on a list of 20 questions, which can be found in Smith
+et al. \cite{SmithEtAl2021}.  Some questions are about the background of the
+software, the development teams, the interviewees, and how they organize their
+projects.  We also ask about the developer's understanding of the users.
+Additional questions focus on the current and past difficulties, and the
+solutions the team has found, or plan to try. We also discuss documentation,
+both with respect to how it is currently done, and how it is perceived. A few
+questions are about specific software qualities, such as maintainability,
+understandability, usability, and reproducibility. The interviews are
+semi-structured based on the question list.
 
 \section{In-Scope Open-Source MI Software} \label{SecWhatProjects}
 
@@ -376,9 +318,12 @@ Of Code (LOC))}
 \centering
 \begin{tabular}{p{3.7cm}lllllllll}
 \toprule
-\multirow{2}{*}{Software} & \multirow{2}{*}{Rlsd} & \multirow{2}{*}{Updated} & \multirow{2}{*}{Fnd} & \multirow{2}{*}{NOC} & \multirow{2}{*}{LOC} & \multicolumn{3}{c}{OS} & \multirow{2}{*}{Web} \\ \cmidrule{7-9}
+\multirow{2}{*}{Software} & \multirow{2}{*}{Rlsd} & \multirow{2}{*}{Updated} &
+\multirow{2}{*}{Fnd} & \multirow{2}{*}{NOC} & \multirow{2}{*}{LOC} &
+\multicolumn{3}{c}{OS} & \multirow{2}{*}{Web} \\ \cmidrule{7-9}
  &  &  &  &  &  & W & M & L &  \\ \midrule
-ParaView \cite{Ahrens2005} & 2002 & 2020-10 & \checkmark & 100 & 886326 & \checkmark & \checkmark & \checkmark & \checkmark \\
+ParaView \cite{Ahrens2005} & 2002 & 2020-10 & \checkmark & 100 & 886326 &
+\checkmark & \checkmark & \checkmark & \checkmark \\
 Gwyddion \cite{Nevcas2012} & 2004 & 2020-11 &  & 38 & 643427 & \checkmark & \checkmark & \checkmark &  \\
 Horos \cite{horosproject2020} & ? & 2020-04 &  & 21 & 561617 &  & \checkmark &  &  \\
 OsiriX Lite \cite{PixmeoSARL2019} & 2004 & 2019-11 &  & 9 & 544304 &  & \checkmark &  &  \\
@@ -425,7 +370,6 @@ and Linux (L). Although the usual approach to cross-platform compatibility was
 to work natively on multiple OSes, five projects achieved platform-independence
 via web applications. The full measurement data for all packages is available on
 \href{https://data.mendeley.com/datasets/k3pcdvdzj2/1} {Mendeley Data}.  
-%% DOUBLE BLIND
 
 The programming languages used in order of decreasing popularity are \CC,
 JavaScript, Java, C, Python, Pascal, Matlab.  The most popular language is \CC,
@@ -435,15 +379,16 @@ for 11 of 29 projects; Pascal and Matlab were each used for a single project.
 
 We measured the software as described in Section~\ref{SecMethodology}.  In the
 absence of a specific real world context, we assumed all nine qualities are
-equally important.  (Alternative priority schemes can be investigated by changing the
-Prioritization Matrix in
+equally important.  (Alternative priority schemes can be investigated by
+changing the Prioritization Matrix in
 \href{https://github.com/smiths/AIMSS/blob/master/StateOfPractice/AHP2021/MedicalImaging/AHP_Template.xlsx}
 {AHP\_Template.xlsx} available on GitHub.) Figure~\ref{fg_overall_scores} shows
 the overall AHP scores in descending order.
 
 \begin{figure*}[ht!]
-\includegraphics[scale=0.47]{overall_scores.pdf}
-\caption{Overall AHP scores with an equal weighting for all 9 software qualities}
+\includegraphics[scale=0.47]{overall_scores}
+\caption{Overall AHP scores with an equal weighting for all 9 software
+qualities}
 
 \label{fg_overall_scores}
 \end{figure*}
@@ -460,7 +405,7 @@ Viewer}, but we compared it equally for the other qualities.
 
 The overall score is based on the measurement of the identified qualities. Full
 details of how the projects compare for each quality can be found in Smith et
-al.~\cite{SmithEtAl2024_MI_SOP}. %% DOUBLE BLIND
+al.~\cite{SmithEtAl2024_MI_SOP}. 
 
 The highlights are as follows:
 
@@ -551,7 +496,8 @@ environment and release notes.
 \centering
 \begin{tabular}{lllll}
 \toprule
-\multirow{2}{*}{Software} & \multirow{2}{*}{Text Files} & \multirow{2}{*}{Total Lines} & \multirow{2}{*}{LOC} & \multirow{2}{*}{LOC/file} \\
+\multirow{2}{*}{Software} & \multirow{2}{*}{Text Files} & \multirow{2}{*}{Total
+Lines} & \multirow{2}{*}{LOC} & \multirow{2}{*}{LOC/file} \\
  &  &  &  &  \\ 
 \midrule
 OHIF Viewer & 1162 & 86306 & 63951 & 55 \\
@@ -590,27 +536,30 @@ dicompyler & 48 & 19201 & 15941 & 332 \\
 
 \section{Comparison to Community Ranking} \label{Sec_VsCommunityRanking}
 
-We use GitHub stars, number of forks and
-number of people watching the projects as proxies for community ranking.  We considered also comparing software citations, but this measure of popularity would be unreliable since software is infrequently and inconsistently cited~\cite{SmithEtAl2016-softcite}.
-Table~\ref{tab_ranking_vs_GitHub} show the statistics for GitHub data collected in July
-2021.
+We use GitHub stars, number of forks and number of people watching the projects
+as proxies for community ranking.  We considered also comparing software
+citations, but this measure of popularity would be unreliable since software is
+infrequently and inconsistently cited~\cite{SmithEtAl2016-softcite}.
+Table~\ref{tab_ranking_vs_GitHub} show the statistics for GitHub data collected
+in July 2021.
 
 Our ranking and GitHub popularity, at least for the top five projects, seems to
-line up well. However, we ranked some popular packages fairly low, such
-as \textit{dwv}. This is because we were unable to build it locally, even though
-we followed its installation instructions. However, we were able to use its web
+line up well. However, we ranked some popular packages fairly low, such as
+\textit{dwv}. This is because we were unable to build it locally, even though we
+followed its installation instructions. However, we were able to use its web
 version for the rest of the measurements. Additionally, this version did not
 detect a broken DICOM file and instead displayed a blank image
 (Section~\ref{SecMeasurementResults}).  \textit{DICOM Viewer} ranked low as we
 were unable to install the NextCloud platform.
 
-Besides the installation problem, another possible reason for discrepancies between our ranking and GitHub popularity is that we weighted all qualities equally, which is not the likely the same weighting
-that users implicitly use. To properly assess this would require a broad user
-study.  Furthermore our measures of popularity (like stars) are only \emph{proxies} which
-are biased towards past rather than current preferences~\cite{Szulik2017}, as
-these are monotonically increasing quantities. Finally there are often more
-factors than just quality that influence the popularity of 
-products.
+Besides the installation problem, another possible reason for discrepancies
+between our ranking and GitHub popularity is that we weighted all qualities
+equally, which is not the likely the same weighting that users implicitly use.
+To properly assess this would require a broad user study.  Furthermore our
+measures of popularity (like stars) are only \emph{proxies} which are biased
+towards past rather than current preferences~\cite{Szulik2017}, as these are
+monotonically increasing quantities. Finally there are often more factors than
+just quality that influence the popularity of products.
 
 \begingroup
 \renewcommand{\arraystretch}{0.85}
@@ -691,7 +640,9 @@ Projects \cite{OrvizEtAl2017}.
 \caption{Comparison of Recommended Artifacts in Software Development Guidelines
 to Artifacts in MI Projects (C for Common, U for Uncommon and R for Rare)}    
 \begin{center}
-\begin{tabular}{ p{3.5cm}p{0.5cm}p{0.5cm}p{0.5cm}p{0.5cm}p{0.5cm}p{0.5cm}p{0.5cm}p{0.5cm}p{0.5cm}p{0.5cm} }
+\begin{tabular}{
+p{3.5cm}p{0.5cm}p{0.5cm}p{0.5cm}p{0.5cm}p{0.5cm}p{0.5cm}p{0.5cm}p{0.5cm}p{0.5cm}p{0.5cm}
+}
 \toprule
 ~ \ & \cite{USGS2019} & \cite{TobiasEtAl2018} & \cite{BrettEtAl2021} &
 \cite{WilsonEtAl2016} & \cite{SmithAndRoscoe2018} & \cite{HerouxEtAl2008} &
@@ -832,14 +783,15 @@ development effort~\cite{deSouzaEtAl2019}.
 \section{Comparison Between MI and Other Research Software for Tool Usage}
 \label{Sec_CompareTools}
 
-We interview developers, as described in Section~\ref{sec_interview_methods}, to answer \rqref{RQ_CompareToolsProjMngmnt} (tool usage),
+We interview developers, as described in Section~\ref{sec_interview_methods}, to
+answer \rqref{RQ_CompareToolsProjMngmnt} (tool usage),
 \rqref{RQ_CompareMethodologies} (methodology) and \rqref{RQ_PainPoints} (pain
 points). Requests were sent to all 29 projects.  Nine developers from eight of
 the projects agreed to participate: \textit{3D Slicer}, \textit{INVESALIUS 3},
-\textit{dwv}, \textit{BioImage Suite Web}, \textit{ITK-SNAP},
-\textit{MRIcroGL}, \textit{Weasis}, and \textit{OHIF}. We spent about 90
-minutes for each interview. The full interview answers can be
-found in Dong (2021)~\cite{Dong2021}. %%DOUBLE BLIND
+\textit{dwv}, \textit{BioImage Suite Web}, \textit{ITK-SNAP}, \textit{MRIcroGL},
+\textit{Weasis}, and \textit{OHIF}. We spent about 90 minutes for each
+interview. The full interview answers can be found in Dong
+(2021)~\cite{Dong2021}.
 
 Developers use software tools for user support, version control,
 Continuous Integration and Deployment (CI/CD), documentation and project
@@ -880,24 +832,21 @@ control~\cite{Nguyen-HoanEtAl2010}, but by 2018 this jumped to over
 reaching 100\% at this time. In 2022, version control use sits at over
 95\%~\cite{CarverEtAl2022}.
 
-\paragraph{CI/CD} 
-Only 17\% of MI projects use CI/CD tools. We estimated this using artifacts
-present in the repository -- actual usage may be higher as some tools are
-entirely external. This was the case for a study of Lattice Boltzmann Method
-(LBM) software~\cite{Michalski2021}. %%DOUBLE BLIND
-This contrasts with the high frequency of guidelines recommending continuous
-integration
-\cite{BrettEtAl2021, ThielEtAl2020, vanGompelEtAl2016, Brown2015, Zadka2018}.
-A recent survey~\cite{CarverEtAl2022} of practitioners (rather than projects)
-suggests higher use of CI/CD with 54\% of respondents indicating that they use
-it.
+\paragraph{CI/CD} Only 17\% of MI projects use CI/CD tools. We estimated this
+using artifacts present in the repository -- actual usage may be higher as some
+tools are entirely external. This was the case for a study of Lattice Boltzmann
+Method (LBM) software~\cite{Michalski2021}.  This contrasts with the high
+frequency of guidelines recommending continuous integration \cite{BrettEtAl2021,
+ThielEtAl2020, vanGompelEtAl2016, Brown2015, Zadka2018}.  A recent
+survey~\cite{CarverEtAl2022} of practitioners (rather than projects) suggests
+higher use of CI/CD with 54\% of respondents indicating that they use it.
 
 \paragraph{Documentation} The most popular (mentioned by about 30\% of
 developers) were forum discussions and videos.  The second most popular options
 (20\%) were GitHub, wiki pages, workshops, and social media. The least
 frequently mentioned options (about 10\% of developers) included writing books,
 and Google forms.  As a point of contrast, LBM software most often uses API
-document generation tools, like doxygen and sphinx~\cite{Michalski2021}. %%DOUBLE BLIND
+document generation tools, like doxygen and sphinx~\cite{Michalski2021}.
 
 \paragraph{Project management} Two types of tools were mentioned:
 \begin{inparaenum}[i)]
@@ -924,7 +873,8 @@ and three teams explicitly stated that their process was undefined or
 self-directed.
 
 This matches previous observations for other research software.  Scientific
-software developers often use an agile philosophy \cite{HeatonAndCarver2015, CarverEtAl2007, AckroydEtAl2008, EasterbrookAndJohns2009, Segal2005}, or an
+software developers often use an agile philosophy \cite{HeatonAndCarver2015,
+CarverEtAl2007, AckroydEtAl2008, EasterbrookAndJohns2009, Segal2005}, or an
 amethododical process \cite{Kelly2013}, or a knowledge acquisition driven
 process~\cite{Kelly2015}.  A waterfall-like process can work for research
 software~\cite{Smith2016}, especially if the developers work iteratively and
@@ -932,39 +882,22 @@ incrementally, but externally document their work as if they followed a rational
 design process~\cite{parnas1986rational}.
 
 No interviewee mentioned a strictly defined project management process. The most
-common approach was issue-driven via bug reports and feature requests.
-Dong (2021)~\cite{Dong2021} %%DOUBLE BLIND
-provides details on the specific approaches used by the interviewees.
-% JC: I don't think this level of per-project detail makes sense in this
-% review article - it should be about stats and trends, not reporting on
-% minute details. We could refer the reader to Ao's thesis for the details.
-% 
-% SS: I've revised the text to not include the details
-% The
-% most common approach was following the issues, such as bugs and feature
-% requests. The \textit{3D Slicer} team had weekly meetings to discuss
-% the goals for the project. The \textit{INVESALIUS 3} team relied on the
-% GitHub process for their project management while the \textit{ITK-SNAP} 
-% team had a fixed six-month release pace. Only the interviewee from 
-% \textit{OHIF} 
-% mentioned the team having a project manager. The \textit{3D Slicer} team and
-% \textit{BioImage Suite Web} team do nightly builds and tests. The \textit{OHIF}
-% developer believes that a better project management process can improve junior
-% developer efficiency while also improving internal and external communication.
+common approach was issue-driven via bug reports and feature requests.  Dong
+(2021)~\cite{Dong2021} provides details on the specific approaches used by the
+interviewees.
 
-Less than half of the projects used unit testing, even
-though the interviewees believed that testing (including usability tests) was
-the top approach to improve correctness, usability, and reproducibility.  This
-level of testing matches what was observed for LBM
-software~\cite{Michalski2021} %%DOUBLE BLIND
-and is apparently greater than the level of
-testing for ocean modelling software~\cite{JungEtAl2022}.
+Less than half of the projects used unit testing, even though the interviewees
+believed that testing (including usability tests) was the top approach to
+improve correctness, usability, and reproducibility.  This level of testing
+matches what was observed for LBM software~\cite{Michalski2021} and is
+apparently greater than the level of testing for ocean modelling
+software~\cite{JungEtAl2022}.
 
-All interviewees thought that documentation was
-essential to their projects, and most of them (7 of 8) said that it could save
-time spent answering questions from users and developers. Half of them (4 of 8)
-saw the need to improve their documentation, and only three of them thought 
-their documentations conveyed information clearly enough.
+All interviewees thought that documentation was essential to their projects, and
+most of them (7 of 8) said that it could save time spent answering questions
+from users and developers. Half of them (4 of 8) saw the need to improve their
+documentation, and only three of them thought their documentations conveyed
+information clearly enough.
 
 \section{Developer Pain Points} \label{painpoints}
 
@@ -976,32 +909,30 @@ Interviews identified the following issues:
 \item correctness, and 
 \item usability.  
 \end{enumerate*}
-We first detail each pain point, and contrast this experience with that
-from other domains. We then separately cover potential way to mitigate these
-issues.
+We first detail each pain point, and contrast this experience with that from
+other domains. We then separately cover potential way to mitigate these issues.
 
 Pinto et al.~\cite{PintoEtAl2018} list other pain points not mentioned by our
 interviewees: scope bloat, aloneness, lack of user feedback, interruptions while
 coding, and collaboration challenges. Two more are~\cite{WieseEtAl2019}:
-reproducibility, and software scope determination.  Smith et al.\ (2024)~\cite{SmithEtAl2024} 
-adds lack of software experience, documentation and technical debt.  Our small
-sample size means that we cannot conclude that these are not also issues with MI
-software.
+reproducibility, and software scope determination.  Smith et al.\
+(2024)~\cite{SmithEtAl2024} adds lack of software experience, documentation and
+technical debt.  Our small sample size means that we cannot conclude that these
+are not also issues with MI software.
 
 \begin{enumerate}
 
 \item[P\refstepcounter{pnum}\thepnum \label{P_LackDevTime}:] \textbf{Lack of
-Development Time:} This was felt to be the most significant obstacle, and
-is not uncommon
-\cite{SmithEtAl2024, WieseEtAl2019, PintoEtAl2018, PintoEtAl2016}.
-%DOUBLE BLIND
+Development Time:} This was felt to be the most significant obstacle, and is not
+uncommon \cite{SmithEtAl2024, WieseEtAl2019, PintoEtAl2018, PintoEtAl2016}.
 
 \item[P\refstepcounter{pnum}\thepnum \label{P_LackFunding}:] \textbf{Lack of
 Funding:} As research software is not yet seen as essential infrastructure,
-there is an ongoing struggle to attract funding to build and, even harder, maintain
-research software. This is a common complaint~\cite{SmithEtAl2024, GewaltigAndCannon2012, Goble2014, KaterbowAndFeulner2018}. %,  %DOUBLE BLIND
-Software output is not always counted when judging the academic excellence of
-academics, which forces researchers who write software to spend extra time on
+there is an ongoing struggle to attract funding to build and, even harder,
+maintain research software. This is a common complaint~\cite{SmithEtAl2024,
+GewaltigAndCannon2012, Goble2014, KaterbowAndFeulner2018}.  Software output is
+not always counted when judging the academic excellence of academics, which
+forces researchers who write software to spend extra time on
 publicity~\cite{WieseEtAl2019}. In some domains, like
 biology~\cite{HowisonAndBullard2016}, software is infrequently cited even when
 used pervasively. In other words, there is a lack of a formal reward system for
@@ -1025,7 +956,8 @@ threats to correctness:
 \begin{itemize}
 \item Lack of real world image data for testing, in part because of patient
 privacy concerns;
-\item Tests are expensive and time-consuming because of the need for huge datasets;
+\item Tests are expensive and time-consuming because of the need for huge
+datasets;
 \item Software releases are difficult to manage;
 \item No systematic unit testing; and,
 \item No dedicated quality assurance team.
@@ -1044,11 +976,10 @@ how to deploy the software, and the architecture being difficult for new
 developers to understand.
 
 At least to some extent the problems for MI software users are due to holes in
-their knowledge of software and computing technology, and sometimes also
-lack of expertize in their domain to be able to adequately use the software
-\cite{WieseEtAl2019}. 
-A similar pattern has been observed during interviews with
-LBM software developers \cite{SmithEtAl2024}. %%DOUBLE BLIND
+their knowledge of software and computing technology, and sometimes also lack of
+expertize in their domain to be able to adequately use the software
+\cite{WieseEtAl2019}.  A similar pattern has been observed during interviews
+with LBM software developers \cite{SmithEtAl2024}.
 
 \end{enumerate}
 
@@ -1087,18 +1018,17 @@ pointed out has already happened.
 \end{itemize}
 
 A number of developers perceive that some of the ``shifting technologies''
-problems could be alleviated by moving to web-based applications.
-Most of the teams (83\%) chose to develop
-native applications. Three of the eight we interviewed were
-building web applications, and another team was considering it.
+problems could be alleviated by moving to web-based applications.  Most of the
+teams (83\%) chose to develop native applications. Three of the eight we
+interviewed were building web applications, and another team was considering it.
 
-\item[P\ref{P_Correctness}:] \textbf{Correctness:}
-Testing was the most often mentioned strategy for ensuring correctness.  Teams
-mentioned several test-related activities, including test-driven development, component
-tests, integration tests, smoke tests, regression tests, self tests and
-automated tests.  This puts MI software ahead of other domains where
-insufficient testing is a problem~\cite{PintoEtAl2018} and
-insufficiently well-understood~\cite{HannayEtAl2009}.
+\item[P\ref{P_Correctness}:] \textbf{Correctness:} Testing was the most often
+mentioned strategy for ensuring correctness.  Teams mentioned several
+test-related activities, including test-driven development, component tests,
+integration tests, smoke tests, regression tests, self tests and automated
+tests.  This puts MI software ahead of other domains where insufficient testing
+is a problem~\cite{PintoEtAl2018} and insufficiently
+well-understood~\cite{HannayEtAl2009}.
 
 Another correctness strategy mentioned multiple times is a development process
 that involves stable releases and nightly builds.  Other strategies that were
@@ -1245,13 +1175,12 @@ mobile, and desktop OS with one codebase.  Other options include
 \href{https://vuejs.org/} {Vue}, \href{https://angular.io/} {Angular},
 \href{https://reactjs.org/} {React}, and \href{https://elm-lang.org/}{Elm}.  
 
-\item \textbf{Backend servers can potentially deliver high performance.} If
-the principal bottleneck is computational, backend servers may outperform
-native applications, as long as latency is not an issue.
-Options include
-\href{https://www.django-rest-framework.org/} {Django}, \href{https://laravel.com/} {Laravel} and
-\href{https://nodejs.org/en/} {Node.js}.
-When traffic and latency are an issue,
+\item \textbf{Backend servers can potentially deliver high performance.} If the
+principal bottleneck is computational, backend servers may outperform native
+applications, as long as latency is not an issue.  Options include
+\href{https://www.django-rest-framework.org/} {Django},
+\href{https://laravel.com/} {Laravel} and \href{https://nodejs.org/en/}
+{Node.js}.  When traffic and latency are an issue,
 \href{https://github.com/gin-gonic/gin} {Gin} is an option.
 
 \item \textbf{Some backend servers can be inexpensive.} Serverless solutions
@@ -1297,15 +1226,6 @@ worthwhile investment (and should hopefully be made public). For example, using
 an MRI scanner to create images of objects, animals, and volunteers who waive
 the privacy rights to their image (i.e. not patients).
 
-%JC: I'm aware of too many caveats wrt this recommendation, so I am taking
-% it out.
-%SS: I agree with the removal.
-%
-%\item \textbf{Remove privacy from sensitive data.} For data with sensitive
-%information, a team can ask the data owner to remove such information or add
-%noise to protect privacy. One example is using de-identified copies of medical
-%images for testing.
-
 \end{itemize}
 
 \subsection{Use Linters and other Static Analysis Tools} \label{Sec_Linters}
@@ -1326,7 +1246,7 @@ and correctness (\ppref{P_Correctness}).
 
 The pervasive use of such tools to enforce documentation standards partially
 explains the relatively high quality of software in the Comprehensive R Archive
-Network (CRAN)~\cite{SmithEtAl2018_StatSoft}. %%DOUBLE BLIND
+Network (CRAN)~\cite{SmithEtAl2018_StatSoft}.
 
 \subsection{Conduct Peer Reviews} \label{Sec_PeerReview}
 
@@ -1338,9 +1258,11 @@ provides such tools for its pull requests.
 
 Latent defects can found on average at a rate of 60--65\% by rigorous
 inspection, with this rate reaching as high as 85\% \cite{Jones2008}. The
-success rate of code inspection is generally higher than via testing, since testing
-averages around 30--35\% for the efficiency of defect removal \cite{Jones2008, EbertAndJones2009}. For research software, Kelly and Shepard \cite{KellyAndShepard2000}
-show a task based inspection approach can be effective.
+success rate of code inspection is generally higher than via testing, since
+testing averages around 30--35\% for the efficiency of defect removal
+\cite{Jones2008, EbertAndJones2009}. For research software, Kelly and Shepard
+\cite{KellyAndShepard2000} show a task based inspection approach can be
+effective.
 
 Peer review addresses the same pain points and qualities as linters
 (\ppref{P_LackDevTime}, \ppref{P_Correctness}, and \qref{Q_Maintainability}),
@@ -1379,12 +1301,10 @@ the reviewer's judgement may have drifted.
 \end{enumerate*}
 
 The measurement process used has previously been shown to be reasonably
-reproducible.
-%% DOUBLE BLIND
-Smith et al.~\cite{SmithEtAl2016} reports grading five software products by two reviewers.
-Their rankings were almost identical. The relative comparisons in the AHP
-results will be consistent between graders, as long as the evaluators are
-consistent in their judgement.
+reproducible.  Smith et al.~\cite{SmithEtAl2016} reports grading five software
+products by two reviewers.  Their rankings were almost identical. The relative
+comparisons in the AHP results will be consistent between graders, as long as
+the evaluators are consistent in their judgement.
 
 \subsection{Construct Validity}
 
@@ -1420,7 +1340,8 @@ same information.
 \subsection{Internal Validity} \label{Sec_InternalValidity}
 
 The study is internally valid if the suggested causal relations are trustworthy
-and not explainable by other factors~\cite{RunesonAndHost2009}. The identified threats to internal validity are:
+and not explainable by other factors~\cite{RunesonAndHost2009}. The identified
+threats to internal validity are:
 
 \begin{itemize}
 \item Relevant packages could have been missed in our search
@@ -1441,11 +1362,9 @@ is externally valid \cite{RunesonAndHost2009}.  In other words, we cannot
 generalize our results if there is a fundamental difference between the
 development of MI software and other research software.  Although there are
 differences, like the importance of data privacy for MI data, we found the
-approach to developing LBM software \cite{SmithEtAl2024} 
-%% DOUBLE BLIND
-and MI software to be similar.  Except for
-the domain specific aspects, the trends observed in the current study are
-similar to that for other research software.
+approach to developing LBM software \cite{SmithEtAl2024} and MI software to be
+similar.  Except for the domain specific aspects, the trends observed in the
+current study are similar to that for other research software.
 
 \section{Conclusions} \label{ch_conclusions}
 
@@ -1456,7 +1375,6 @@ see this as an advantage. The shallow measures are a proxy for the importance of
 \emph{first impressions} for software adoption.
 
 \begin{table*}[ht!]
-    %\begin{center}
     \caption{Top performers for each quality (sorted by order of quality
     measurement)}
     \renewcommand{\arraystretch}{1.8}
@@ -1500,7 +1418,6 @@ see this as an advantage. The shallow measures are a proxy for the importance of
         \bottomrule
     \end{tabular}
     \label{topperformerstable}
-    %\end{center}
 \end{table*} 
 
 Our grading scores indicate that \textit{3D Slicer}, \textit{ImageJ},
@@ -1535,7 +1452,6 @@ what is available in repositories.
 
 \section*{Acknowledgements}
 
-%% DOUBLE BLIND
 We would like to thank Peter Michalski and Oluwaseun Owojaiye for fruitful
 discussions on topics relevant to this paper.
 
