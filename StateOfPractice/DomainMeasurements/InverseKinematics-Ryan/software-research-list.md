@@ -1,0 +1,30 @@
+## Candidate software list
+
+- Gazebo (includes Ignition, gym-gazebo)
+- Webots
+- Bullet / PyBullet
+- CoppeliaSim (V-REP)
+- MuJoCo
+- ODE (Open Dynamics Engine)
+- ROS 2 (Robot Operating System 2)
+- OpenRAVE
+- PhysX (open-source SDK)
+- AirSim
+- Drake
+- DART
+- CARLA
+- MORSE
+- Simbody
+- OMPL (Open Motion Planning Library)
+- Pinocchio
+- OROCOS
+- SOFA
+- MoveIt!
+- GraspIt!
+- Habitat
+- Project Chrono
+- Flightmare
+- MRPT
+- Newton Dynamics
+- YARP
+- OpenRTM-aist
