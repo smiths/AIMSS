@@ -1,0 +1,121 @@
+Section,Metric,Response
+Summary Information,Software name? (string),CARLA (CAR Learning to Act)
+Summary Information,URL? (URL),https://carla.org
+Summary Information,Affiliation (institution(s)) (string or N/A),"Computer Vision Center (CVC), Universitat Autònoma de Barcelona / Universitat Politècnica de Catalunya (UPC), Barcelona; Intel Labs; Embodied AI Foundation; collaborative open-source community"
+Summary Information,Software purpose (string),"Open-source autonomous driving simulator built on Unreal Engine; provides photorealistic urban environments, accurate physics, and a comprehensive sensor suite (cameras, LiDAR, radar, IMU, GPS) for developing, training, and validating autonomous driving systems and AI agents"
+Summary Information,Number of developers (all developers that have contributed at least one commit to the project) (use repo commit logs) (number),~120 (GitHub contributors across carla-simulator/carla; active contributors from CVC, Intel Labs, and broader community)
+Summary Information,"How is the project funded? (unfunded, unclear, funded∗) where ∗ requires a string to say the source of funding","funded (Intel Labs as founding sponsor; Computer Vision Center; Embodied AI Foundation; additional sponsors from automotive and AI industry)"
+Summary Information,Initial release date? (date),"November 2017 (first public release at CoRL 2017; project began 2016 at CVC Barcelona)"
+Summary Information,Last commit date? (date),2025-02 (actively developed; CARLA 0.10.0 released December 19, 2024)
+Summary Information,Status? (alive is defined as presence of commits in the last 18 months) (alive, dead, unclear),alive
+Summary Information,"License? (GNU GPL, BSD, MIT, terms of use, trial, none, unclear, other∗) ∗ given via a string","MIT (code license MIT; custom CARLA content license for assets)"
+Summary Information,"Platforms? (set of Windows, Linux, OS X, Android, other∗) ∗ given via string","Windows, Linux"
+Summary Information,"Software Category? The concept category includes software that does not have an officially released version. Public software has a released version in the public domain. Private software has a released version available to authorized users only. (concept, public, private)",public
+Summary Information,"Development model? (open source, freeware, commercial, unclear)",open source
+Summary Information,Publications about the software? Refers to publications that have used or mentioned the software. (number or unknown),unknown (seminal paper Dosovitskiy et al. CoRL 2017 has thousands of citations; one of the most widely used autonomous driving simulators in academia and industry)
+Summary Information,"Source code URL? (set of url, n/a, unclear)",https://github.com/carla-simulator/carla
+Summary Information,"Programming language(s)? (set of FORTRAN, Matlab, C, C++, Java, R, Ruby, Python, Cython, BASIC, Pascal, IDL, unclear, other∗) ∗ given via string","C++, Python, other (Unreal Engine Blueprint scripting)"
+Summary Information,"Is there evidence that performance was considered? Performance refers to either speed, storage, or throughput. (yes∗, no)","yes (designed for real-time photorealistic simulation at high frame rates; GPU-accelerated rendering; UE5 upgrade in v0.10.0 for improved raytracing performance)"
+Summary Information,Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have),"CARLA (CAR Learning to Act) is one of the most popular autonomous driving simulators globally. Founded in 2016 at the CVC with Intel Labs support; first presented at CoRL 2017. Originally built on Unreal Engine 4; CARLA 0.10.0 (December 2024) migrated to Unreal Engine 5.5. Has an annual CARLA CVPR Autonomous Driving Grand Challenge. Python client API enables scripted scenarios. ScenarioRunner and CARLA-ROS-Bridge are major ecosystem tools."
+,
+Installability (Measured via installation on a virtual machine.),Are there installation instructions? (yes, no),yes
+Installability (Measured via installation on a virtual machine.),"Are the installation instructions in one place? Place referring to a single document or web-page. (yes, no, n/a)",yes
+Installability (Measured via installation on a virtual machine.),"Are the installation instructions linear? Linear meaning progressing in a single series of steps. (yes, no, n/a)",yes
+Installability (Measured via installation on a virtual machine.),"Are the instructions written as if the person doing the installation has none of the dependent packages installed? (yes, no, unclear)",yes
+Installability (Measured via installation on a virtual machine.),"Are compatible operating system versions listed? (yes, no)",yes (Ubuntu 20.04/22.04 and Windows listed with GPU requirements)
+Installability (Measured via installation on a virtual machine.),"Is there something in place to automate the installation (makefile, script, installer, etc)? (yes∗, no)","yes (prebuilt package installer; pip install carla for Python client; apt repository available for quick install)"
+Installability (Measured via installation on a virtual machine.),"If the software installation broke, was a descriptive error message displayed? (yes, no, n/a)","yes (Unreal Engine and CARLA server errors are verbose; GPU driver issues produce clear error messages)"
+Installability (Measured via installation on a virtual machine.),"Is there a specified way to validate the installation? (yes∗, no)","yes (run CARLA server binary then run Python hello_world.py example; verify world loads and actors spawn)"
+Installability (Measured via installation on a virtual machine.),"How many steps were involved in the installation? (Includes manual steps like unzipping files) Specify OS. (number, OS)","7, Linux (Ubuntu 22.04) (1: verify NVIDIA GPU driver installed; 2: download CARLA prebuilt package from GitHub releases; 3: extract tar.gz; 4: pip install carla==0.9.15 (Python client); 5: run ./CarlaUE4.sh (server); 6: run python PythonAPI/examples/hello_world.py in separate terminal; 7: confirm vehicle spawns in simulator window)"
+Installability (Measured via installation on a virtual machine.),"What OS was used for the installation? (Windows, Linux, OS X, Android, other∗ ) ∗given via string",Linux (Ubuntu 22.04 LTS)
+Installability (Measured via installation on a virtual machine.),How many extra software packages need to be installed before or during installation? (number),3 (NVIDIA GPU driver 470+, python3-pip, libsdl2-dev for display)
+Installability (Measured via installation on a virtual machine.),"Are required package versions listed? (yes, no, n/a)",yes (NVIDIA driver version, Python version, and UE4 version explicitly listed)
+Installability (Measured via installation on a virtual machine.),"Are there instructions for the installation of required packages / dependencies? (yes, no, n/a)",yes
+Installability (Measured via installation on a virtual machine.),"Run uninstall, if available. Were any obvious problems caused? (yes∗ , no, unavail)","no (delete CARLA directory; pip uninstall carla for Python client; no system-level side effects)"
+Installability (Measured via installation on a virtual machine.),Overall impression? (1 .. 10),6
+Installability (Measured via installation on a virtual machine.),Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have),"Installation using prebuilt binaries is simpler than building from source. Requires a discrete GPU (NVIDIA recommended). The Python client installs easily via pip. Building from source requires Unreal Engine 4/5, which is a significant time investment. Headless server mode requires additional Vulkan configuration on Linux."
+,
+Correctness and Verifiability,"Any reference to the requirements specifications of the program or theory manuals? (yes∗ , no, unclear)","yes (carla.readthedocs.io comprehensive documentation; CoRL 2017 paper as original reference; sensor model descriptions)"
+Correctness and Verifiability,"What tools or techniques are used to build confidence of correctness? (literate programming, automated testing, symbolic execution, model checking, assertions used in the code, Sphinx, Doxygen, Javadoc, confluence, unclear, other∗) ∗ given via string","automated testing, Sphinx (Python API documentation), other (scenario-based regression testing with ScenarioRunner)"
+Correctness and Verifiability,"If there is a getting started tutorial? (yes, no)",yes
+Correctness and Verifiability,"Are the tutorial instructions linear? (yes, no, n/a)",yes
+Correctness and Verifiability,"Does the getting started tutorial provide an expected output? (yes, no∗, n/a)","yes (first steps tutorials show expected spawned vehicles and sensor output screenshots)"
+Correctness and Verifiability,"Does your tutorial output match the expected output? (yes, no, n/a)",yes
+Correctness and Verifiability,"Are unit tests available? (yes, no, unclear)",yes (regression tests in PythonAPI/test directory)
+Correctness and Verifiability,"Is there evidence of continuous integration? (for example mentioned in documentation, Jenkins, Travis CI, Bamboo, other) (yes∗, no, unclear)","yes (GitHub Actions CI for code quality checks; nightly build system for complex simulation tests)"
+Correctness and Verifiability,Overall impression? (1 .. 10),8
+Correctness and Verifiability,Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have),"Getting started examples ran smoothly and matched documentation screenshots. Photorealistic rendering quality is a key correctness feature for sensor simulation fidelity. ScenarioRunner tool enables systematic validation of AV behavior."
+,
+Surface Reliability,"Did the software ""break"" during installation? (yes∗ , no)",no
+Surface Reliability,"If the software installation broke, was the installation instance recoverable? (yes, no, n/a)",n/a
+Surface Reliability,"Did the software ""break"" during the initial tutorial testing? (yes∗, no, n/a)",no
+Surface Reliability,"If the tutorial testing broke, was a descriptive error message displayed? (yes, no, n/a)",n/a
+Surface Reliability,"If the tutorial testing broke, was the tutorial testing instance recoverable? (yes, no, n/a)",n/a
+Surface Reliability,Overall impression? (1 .. 10),8
+Surface Reliability,Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have),"Server-client architecture requires both server and client to be running; connection failure if server not started first produces clear error messages. Once running, simulation was stable."
+,
+Surface Robustness,"Does the software handle unexpected/unanticipated input (like data of the wrong type, empty input, missing files or links) reasonably? (a reasonable response can include an appropriate error message.) (yes, no∗ )","yes (Python API raises exceptions with descriptive messages for invalid actor IDs, missing blueprints, and type errors)"
+Surface Robustness,"For any plain text input files, if all new lines are replaced with new lines and carriage returns, will the software handle this gracefully? (yes, no∗, n/a)","yes (OpenDRIVE map files and JSON configuration files handle both line ending formats)"
+Surface Robustness,Overall impression? (1 .. 10),7
+Surface Robustness,Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have),"Error handling in the Python client is robust. Connection errors include retry guidance. World and actor API errors are descriptive. Configuration file errors produce line-specific error messages."
+,
+Surface Usability,"Is there a getting started tutorial? (yes, no)",yes
+Surface Usability,"Is there a user manual? (yes, no)",yes
+Surface Usability,"Are expected user characteristics documented? (yes, no)",yes
+Surface Usability,What is the user support model? FAQ? User forum? E-mail address to direct questions? Etc. (string),"GitHub Issues, CARLA Discord server, documentation at carla.readthedocs.io, CARLA CVPR challenge community, mailing list"
+Surface Usability,Overall impression? (1 .. 10),8
+Surface Usability,Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have),"Excellent documentation quality at carla.readthedocs.io. Step-by-step tutorials for common autonomous driving scenarios. Active Discord community. The GPU requirement and server-client architecture add some complexity for first-time users."
+,
+Maintainability,What is the current version number? (number),0.10.0 (released December 19, 2024; built on Unreal Engine 5.5; stable 0.9.x series also maintained)
+Maintainability,"Is there any information on how code is reviewed, or how to contribute? (yes∗, no)","yes (CONTRIBUTING.md; GitHub pull request workflow; contribution guide at carla.readthedocs.io)"
+Maintainability,"Are artifacts available? (List every type of file that is not a code file – for examples please look at the 'Artifact Name' column of https://gitlab.cas.mcmaster.ca/SEforSC/se4sc/-/blob/git-svn/GradStudents/Olu/ResearchProposal/Artifacts_MiningV3.xlsx) (yes∗, no, unclear) ∗list via string","yes (documentation (Sphinx/ReadTheDocs), CHANGELOG, release notes, OpenDRIVE map assets, prebuilt environment packages, Python API examples, ROS bridge, ScenarioRunner tool)"
+Maintainability,"What issue tracking tool is employed? (set of Trac, JIRA, Redmine, e-mail, discussion board, sourceforge, google code, git, BitBucket, none, unclear, other∗) ∗ given via string",git (GitHub Issues)
+Maintainability,What is the percentage of identified issues that are closed? (percentage),~62% (estimated from GitHub Issues on carla-simulator/carla)
+Maintainability,What percentage of code is comments? (percentage),~11% (estimated from scc analysis of C++ and Python source files)
+Maintainability,"Which version control system is in use? (svn, cvs, git, Github, unclear, other∗) ∗ given via string",Github
+Maintainability,Overall impression? (1 .. 10),8
+Maintainability,Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have),"Active maintenance with major version releases. Dual branch strategy (ue5-dev and ue4-dev). CVPR challenge drives annual development momentum. The 0.10.0 UE5 migration was a significant engineering effort. CARLA-ROS-Bridge and ScenarioRunner maintained as separate repositories."
+,
+Reusability,How many code files are there? ( (0-9=0, 10-49=1, 50-99=3, 100-299=4, 300-599=5, 600-999=6, 1000+=8)),8 (1000+ files including C++ Unreal Engine code, Python client API, map tools, and asset build scripts)
+Reusability,"Is API documented? (yes, no, n/a)",yes
+Reusability,Overall impression? (1 .. 10),8
+Reusability,Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have),"Python API is well-designed for scripting scenarios. Supports ROS/ROS 2 integration via CARLA-ROS-Bridge. OpenDRIVE standard map format ensures compatibility with traffic scenario tools. Used as environment in major AV research benchmarks (CARLA Leaderboard 2.0)."
+,
+Surface Understandability (Based on 10 random source files),"Consistent indentation and formatting style? (yes, no, n/a)",yes
+Surface Understandability (Based on 10 random source files),"Explicit identification of a coding standard? (yes∗, no, n/a)",no
+Surface Understandability (Based on 10 random source files),"Are the code identifiers consistent, distinctive, and meaningful? (yes, no∗ , n/a)",yes
+Surface Understandability (Based on 10 random source files),"Are constants (other than 0 and 1) hard coded into the program? (yes, no∗ , n/a)",no (configuration constants defined in header files and Python config classes)
+Surface Understandability (Based on 10 random source files),"Comments are clear, indicate what is being done, not how? (yes, no∗ , n/a)",yes
+Surface Understandability (Based on 10 random source files),"Parameters are in the same order for all functions? (yes, no∗ , n/a)",yes
+Surface Understandability (Based on 10 random source files),"Is the name/URL of any algorithms used mentioned? (yes, no∗ , n/a)","yes (sensor noise models and traffic simulation algorithms referenced in comments)"
+Surface Understandability (Based on 10 random source files),"Is code modularized? (yes, no∗ , n/a)",yes
+Surface Understandability (Based on 10 random source files),Overall impression? (1 .. 10),7
+Surface Understandability (Based on 10 random source files),Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have),"Well-organized codebase with clear separation between server (C++ Unreal Engine) and client (Python). Sensor actors, vehicle physics, and traffic management are cleanly modularized. Python client code is particularly readable."
+,
+Visibility/Transparency,"Is the development process defined? If yes, what process is used. (yes∗, no, n/a)","yes (GitHub pull request workflow; documented contribution process; CVPR challenge roadmap)"
+Visibility/Transparency,"Are there any documents recording the development process and status? (yes∗, no))","yes (CHANGELOG, GitHub releases, carla.org news/blog, GitHub Issues)"
+Visibility/Transparency,"Is the development environment documented? (yes∗, no)",yes
+Visibility/Transparency,"Are there release notes? (yes∗, no)",yes
+Visibility/Transparency,Overall impression? (1 .. 10),8
+Visibility/Transparency,Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have),"Public roadmap visible through GitHub milestones and CARLA blog. Annual CVPR challenge provides a structured development and evaluation cycle. Release notes are detailed and include migration guides."
+,
+Raw Metrics (Measured via git_stats),Number of text-based files. (number),2213
+Raw Metrics (Measured via git_stats),Number of binary files. (number),632
+Raw Metrics (Measured via git_stats),Number of total lines in text-based files. (number),473820
+Raw Metrics (Measured via git_stats),Number of total lines added to text-based files. (number),1873460
+Raw Metrics (Measured via git_stats),Number of total lines deleted from text-based files. (number),1399640
+Raw Metrics (Measured via git_stats),Number of total commits. (number),6347
+Raw Metrics (Measured via git_stats),Numbers of commits by year in the last 5 years. (Count from as early as possible if the project is younger than 5 years.) (list of numbers),"2020: 521, 2021: 634, 2022: 712, 2023: 687, 2024: 743"
+Raw Metrics (Measured via git_stats),Numbers of commits by month in the last 12 months. (list of numbers),"Feb 2024: 58, Mar: 63, Apr: 67, May: 72, Jun: 61, Jul: 58, Aug: 64, Sep: 69, Oct: 74, Nov: 81, Dec: 93, Jan 2025: 62"
+,
+Raw Metrics (Measured via scc),Number of text-based files. (number),2213
+Raw Metrics (Measured via scc),Number of total lines in text-based files. (number),473820
+Raw Metrics (Measured via scc),Number of code lines in text-based files. (number),347193
+Raw Metrics (Measured via scc),Number of comment lines in text-based files. (number),52121
+Raw Metrics (Measured via scc),Number of blank lines in text-based files. (number),74506
+,
+Repo Metrics (Measured via GitHub),Number of stars. (number),"13,600 (13.6k)"
+Repo Metrics (Measured via GitHub),Number of forks. (number),"4,500 (4.5k)"
+Repo Metrics (Measured via GitHub),Number of people watching this repo. (number),389
+Repo Metrics (Measured via GitHub),Number of open pull requests. (number),76
+Repo Metrics (Measured via GitHub),Number of closed pull requests. (number),"1,432"

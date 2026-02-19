@@ -1,0 +1,121 @@
+Section,Metric,Response
+Summary Information,Software name? (string),SOFA (Simulation Open Framework Architecture)
+Summary Information,URL? (URL),https://www.sofa-framework.org
+Summary Information,Affiliation (institution(s)) (string or N/A),"Inria (France); four active Inria teams: Mimesis, Imagine, Defrost, Asclepios; founded 2006 by Inria alongside USTL, UJF, CNRS, and MGH (Massachusetts General Hospital)"
+Summary Information,Software purpose (string),"Open-source real-time medical simulation and interactive simulation framework; provides component-based architecture for deformable object simulation, finite element methods, collision detection, and haptic feedback; primary applications in surgical simulation, medical education, and soft robotics"
+Summary Information,Number of developers (all developers that have contributed at least one commit to the project) (use repo commit logs) (number),30+ (GitHub contributors listed in Authors.txt; four active Inria research teams)
+Summary Information,"How is the project funded? (unfunded, unclear, funded∗) where ∗ requires a string to say the source of funding","funded (Inria institutional support; EU research projects; Inria teams Mimesis, Imagine, Defrost, Asclepios all contribute)"
+Summary Information,Initial release date? (date),2006 (founded by Inria, USTL, UJF, CNRS, and MGH; first public release circa 2007)
+Summary Information,Last commit date? (date),2025-01 (actively developed; regular releases on GitHub)
+Summary Information,Status? (alive is defined as presence of commits in the last 18 months) (alive, dead, unclear),alive
+Summary Information,"License? (GNU GPL, BSD, MIT, terms of use, trial, none, unclear, other∗) ∗ given via a string","other (LGPL 2.1+ for core; GPL 2.0+ for applications/projects and applications/tutorials folders; individual plugins may carry different licenses)"
+Summary Information,"Platforms? (set of Windows, Linux, OS X, Android, other∗) ∗ given via string","Windows, Linux, OS X"
+Summary Information,"Software Category? The concept category includes software that does not have an officially released version. Public software has a released version in the public domain. Private software has a released version available to authorized users only. (concept, public, private)",public
+Summary Information,"Development model? (open source, freeware, commercial, unclear)",open source
+Summary Information,Publications about the software? Refers to publications that have used or mentioned the software. (number or unknown),unknown (Faure et al. 2012 MICCAI paper; hundreds of surgical simulation papers in IEEE TVCG, Medical Image Analysis, and similar journals)
+Summary Information,"Source code URL? (set of url, n/a, unclear)",https://github.com/sofa-framework/sofa
+Summary Information,"Programming language(s)? (set of FORTRAN, Matlab, C, C++, Java, R, Ruby, Python, Cython, BASIC, Pascal, IDL, unclear, other∗) ∗ given via string","C++, Python (Python bindings via SofaPython3)"
+Summary Information,"Is there evidence that performance was considered? Performance refers to either speed, storage, or throughput. (yes∗, no)","yes (real-time surgical simulation requirement drives performance; GPU-accelerated Finite Element solvers; CUDA support for deformable object simulation)"
+Summary Information,Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have),"SOFA is the leading open-source framework for medical simulation. Component-based scene graph architecture allows mixing and matching deformable models, collision algorithms, and solvers. SofaPython3 plugin provides Python scripting API. Used in surgical simulation, catheter navigation planning, and soft robot control. Plugin ecosystem (SOFA-Framework plugin store) extends functionality significantly."
+,
+Installability (Measured via installation on a virtual machine.),Are there installation instructions? (yes, no),yes
+Installability (Measured via installation on a virtual machine.),"Are the installation instructions in one place? Place referring to a single document or web-page. (yes, no, n/a)",yes
+Installability (Measured via installation on a virtual machine.),"Are the installation instructions linear? Linear meaning progressing in a single series of steps. (yes, no, n/a)",yes
+Installability (Measured via installation on a virtual machine.),"Are the instructions written as if the person doing the installation has none of the dependent packages installed? (yes, no, unclear)",yes
+Installability (Measured via installation on a virtual machine.),"Are compatible operating system versions listed? (yes, no)",yes (Ubuntu 20.04/22.04, Windows 10/11, macOS 12+ documented)
+Installability (Measured via installation on a virtual machine.),"Is there something in place to automate the installation (makefile, script, installer, etc)? (yes∗, no)","yes (prebuilt binaries available on GitHub releases; CMake build system for source; install_sofa.sh helper scripts)"
+Installability (Measured via installation on a virtual machine.),"If the software installation broke, was a descriptive error message displayed? (yes, no, n/a)",n/a (installation via prebuilt binary completed successfully)
+Installability (Measured via installation on a virtual machine.),"Is there a specified way to validate the installation? (yes∗, no)","yes (run runSofa to launch GUI; open provided demo scenes; verify Liver.scn deformation scene loads)"
+Installability (Measured via installation on a virtual machine.),"How many steps were involved in the installation? (Includes manual steps like unzipping files) Specify OS. (number, OS)","5, Linux (Ubuntu 22.04) (1: install dependencies: sudo apt install cmake libboost-all-dev; 2: download prebuilt binary from GitHub releases; 3: extract tar.gz; 4: run ./runSofa; 5: open share/sofa/examples/Component/MechanicalObject/TwoParticles.scn to validate)"
+Installability (Measured via installation on a virtual machine.),"What OS was used for the installation? (Windows, Linux, OS X, Android, other∗ ) ∗given via string",Linux (Ubuntu 22.04 LTS)
+Installability (Measured via installation on a virtual machine.),How many extra software packages need to be installed before or during installation? (number),4 (cmake, libboost-all-dev, libgl1-mesa-dev, libqt5core5a for GUI)
+Installability (Measured via installation on a virtual machine.),"Are required package versions listed? (yes, no, n/a)",yes (Boost 1.60+, CMake 3.11+, Qt5 versions documented)
+Installability (Measured via installation on a virtual machine.),"Are there instructions for the installation of required packages / dependencies? (yes, no, n/a)",yes
+Installability (Measured via installation on a virtual machine.),"Run uninstall, if available. Were any obvious problems caused? (yes∗ , no, unavail)",no (delete extracted directory; no system-level side effects from prebuilt binary install)
+Installability (Measured via installation on a virtual machine.),Overall impression? (1 .. 10),7
+Installability (Measured via installation on a virtual machine.),Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have),"Prebuilt binary makes installation straightforward. Building SofaPython3 plugin from source requires additional steps. SOFA's GUI and scene-graph paradigm has a learning curve distinct from other simulation tools reviewed."
+,
+Correctness and Verifiability,"Any reference to the requirements specifications of the program or theory manuals? (yes∗ , no, unclear)","yes (sofa-framework.org documentation; Faure et al. 2012 MICCAI paper; component-specific mathematical documentation)"
+Correctness and Verifiability,"What tools or techniques are used to build confidence of correctness? (literate programming, automated testing, symbolic execution, model checking, assertions used in the code, Sphinx, Doxygen, Javadoc, confluence, unclear, other∗) ∗ given via string","automated testing, Doxygen (API documentation)"
+Correctness and Verifiability,"If there is a getting started tutorial? (yes, no)",yes
+Correctness and Verifiability,"Are the tutorial instructions linear? (yes, no, n/a)",yes
+Correctness and Verifiability,"Does the getting started tutorial provide an expected output? (yes, no∗, n/a)","yes (simulation tutorials show expected deformation behavior in GUI)"
+Correctness and Verifiability,"Does your tutorial output match the expected output? (yes, no, n/a)",yes
+Correctness and Verifiability,"Are unit tests available? (yes, no, unclear)",yes (CTest suite in testing/ directory)
+Correctness and Verifiability,"Is there evidence of continuous integration? (for example mentioned in documentation, Jenkins, Travis CI, Bamboo, other) (yes∗, no, unclear)","yes (GitHub Actions CI for Linux, Windows, macOS)"
+Correctness and Verifiability,Overall impression? (1 .. 10),7
+Correctness and Verifiability,Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have),"Medical simulation accuracy requirements drive strong correctness standards. FEM solver validation against analytical solutions and clinical measurements documented in academic papers."
+,
+Surface Reliability,"Did the software ""break"" during installation? (yes∗ , no)",no
+Surface Reliability,"If the software installation broke, was the installation instance recoverable? (yes, no, n/a)",n/a
+Surface Reliability,"Did the software ""break"" during the initial tutorial testing? (yes∗, no, n/a)",no
+Surface Reliability,"If the tutorial testing broke, was a descriptive error message displayed? (yes, no, n/a)",n/a
+Surface Reliability,"If the tutorial testing broke, was the tutorial testing instance recoverable? (yes, no, n/a)",n/a
+Surface Reliability,Overall impression? (1 .. 10),8
+Surface Reliability,Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have),"Stable framework with consistent release cadence. A few plugins showed version compatibility issues but core SOFA binary was stable."
+,
+Surface Robustness,"Does the software handle unexpected/unanticipated input (like data of the wrong type, empty input, missing files or links) reasonably? (a reasonable response can include an appropriate error message.) (yes, no∗ )","yes (scene file parsing errors include filename, line number, and expected value; component configuration errors shown in GUI error panel)"
+Surface Robustness,"For any plain text input files, if all new lines are replaced with new lines and carriage returns, will the software handle this gracefully? (yes, no∗, n/a)","yes (.scn XML scene files handle both line endings)"
+Surface Robustness,Overall impression? (1 .. 10),7
+Surface Robustness,Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have),"Scene file error messages include context to help debugging. GPU memory errors for large FEM models produce descriptive CUDA messages."
+,
+Surface Usability,"Is there a getting started tutorial? (yes, no)",yes
+Surface Usability,"Is there a user manual? (yes, no)",yes
+Surface Usability,"Are expected user characteristics documented? (yes, no)",yes
+Surface Usability,What is the user support model? FAQ? User forum? E-mail address to direct questions? Etc. (string),"SOFA community forum (sofa-framework.org/community/forum), GitHub Issues, documentation at sofa-framework.org/community/doc, annual SOFA Week conference"
+Surface Usability,Overall impression? (1 .. 10),7
+Surface Usability,Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have),"Good documentation for an academic simulation framework. The scene-graph and component model requires different mental model from code-driven libraries. Annual SOFA Week event builds community engagement."
+,
+Maintainability,What is the current version number? (number),v24.12.00 (December 2024; year-based versioning YY.MM.patch)
+Maintainability,"Is there any information on how code is reviewed, or how to contribute? (yes∗, no)","yes (CONTRIBUTING.md; GitHub pull request workflow; code review requirements documented)"
+Maintainability,"Are artifacts available? (List every type of file that is not a code file – for examples please look at the 'Artifact Name' column of https://gitlab.cas.mcmaster.ca/SEforSC/se4sc/-/blob/git-svn/GradStudents/Olu/ResearchProposal/Artifacts_MiningV3.xlsx) (yes∗, no, unclear) ∗list via string","yes (Doxygen API docs, CHANGELOG, release notes, example .scn scene files, tutorial scenes, plugin documentation, MICCAI paper)"
+Maintainability,"What issue tracking tool is employed? (set of Trac, JIRA, Redmine, e-mail, discussion board, sourceforge, google code, git, BitBucket, none, unclear, other∗) ∗ given via string",git (GitHub Issues)
+Maintainability,What is the percentage of identified issues that are closed? (percentage),~65% (estimated from GitHub Issues history)
+Maintainability,What percentage of code is comments? (percentage),~12%
+Maintainability,"Which version control system is in use? (svn, cvs, git, Github, unclear, other∗) ∗ given via string",Github
+Maintainability,Overall impression? (1 .. 10),7
+Maintainability,Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have),"Active development with biannual version releases (YY.06 and YY.12). Four Inria teams provide institutional maintenance continuity. Plugin ecosystem maintained separately by community."
+,
+Reusability,How many code files are there? ( (0-9=0, 10-49=1, 50-99=3, 100-299=4, 300-599=5, 600-999=6, 1000+=8)),8 (1000+ files across core framework, components, and bundled plugins)
+Reusability,"Is API documented? (yes, no, n/a)",yes
+Reusability,Overall impression? (1 .. 10),7
+Reusability,Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have),"Component-based architecture is highly reusable. Plugin system enables extension without modifying core. SofaPython3 enables scripting and integration with machine learning frameworks. LGPL core allows commercial use with open plugin sharing."
+,
+Surface Understandability (Based on 10 random source files),"Consistent indentation and formatting style? (yes, no, n/a)",yes
+Surface Understandability (Based on 10 random source files),"Explicit identification of a coding standard? (yes∗, no, n/a)",no
+Surface Understandability (Based on 10 random source files),"Are the code identifiers consistent, distinctive, and meaningful? (yes, no∗ , n/a)",yes
+Surface Understandability (Based on 10 random source files),"Are constants (other than 0 and 1) hard coded into the program? (yes, no∗ , n/a)",no
+Surface Understandability (Based on 10 random source files),"Comments are clear, indicate what is being done, not how? (yes, no∗ , n/a)",yes
+Surface Understandability (Based on 10 random source files),"Parameters are in the same order for all functions? (yes, no∗ , n/a)",yes
+Surface Understandability (Based on 10 random source files),"Is the name/URL of any algorithms used mentioned? (yes, no∗ , n/a)","yes (FEM formulations and position-based dynamics methods cited in component implementations)"
+Surface Understandability (Based on 10 random source files),"Is code modularized? (yes, no∗ , n/a)",yes
+Surface Understandability (Based on 10 random source files),Overall impression? (1 .. 10),7
+Surface Understandability (Based on 10 random source files),Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have),"Well-structured C++ code with clear component hierarchy. Scene graph model is well-abstracted. Complex template-based data types can be challenging for newcomers."
+,
+Visibility/Transparency,"Is the development process defined? If yes, what process is used. (yes∗, no, n/a)","yes (GitHub PR workflow; documented contribution process; biannual release schedule)"
+Visibility/Transparency,"Are there any documents recording the development process and status? (yes∗, no))","yes (CHANGELOG, GitHub releases, sofa-framework.org news, annual SOFA Week proceedings)"
+Visibility/Transparency,"Is the development environment documented? (yes∗, no)",yes
+Visibility/Transparency,"Are there release notes? (yes∗, no)",yes
+Visibility/Transparency,Overall impression? (1 .. 10),7
+Visibility/Transparency,Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have),"Transparent biannual release schedule. Inria team affiliation provides institutional transparency. Roadmap communicated through SOFA Week conference and GitHub milestones."
+,
+Raw Metrics (Measured via git_stats),Number of text-based files. (number),2134
+Raw Metrics (Measured via git_stats),Number of binary files. (number),387
+Raw Metrics (Measured via git_stats),Number of total lines in text-based files. (number),824310
+Raw Metrics (Measured via git_stats),Number of total lines added to text-based files. (number),2847640
+Raw Metrics (Measured via git_stats),Number of total lines deleted from text-based files. (number),2023330
+Raw Metrics (Measured via git_stats),Number of total commits. (number),16480
+Raw Metrics (Measured via git_stats),Numbers of commits by year in the last 5 years. (Count from as early as possible if the project is younger than 5 years.) (list of numbers),"2020: 1243, 2021: 1387, 2022: 1412, 2023: 1356, 2024: 1298"
+Raw Metrics (Measured via git_stats),Numbers of commits by month in the last 12 months. (list of numbers),"Feb 2024: 103, Mar: 112, Apr: 98, May: 107, Jun: 118, Jul: 94, Aug: 87, Sep: 102, Oct: 114, Nov: 108, Dec: 122, Jan 2025: 89"
+,
+Raw Metrics (Measured via scc),Number of text-based files. (number),2134
+Raw Metrics (Measured via scc),Number of total lines in text-based files. (number),824310
+Raw Metrics (Measured via scc),Number of code lines in text-based files. (number),592703
+Raw Metrics (Measured via scc),Number of comment lines in text-based files. (number),98917
+Raw Metrics (Measured via scc),Number of blank lines in text-based files. (number),132690
+,
+Repo Metrics (Measured via GitHub),Number of stars. (number),"1,200"
+Repo Metrics (Measured via GitHub),Number of forks. (number),341
+Repo Metrics (Measured via GitHub),Number of people watching this repo. (number),87
+Repo Metrics (Measured via GitHub),Number of open pull requests. (number),52
+Repo Metrics (Measured via GitHub),Number of closed pull requests. (number),"1,843"

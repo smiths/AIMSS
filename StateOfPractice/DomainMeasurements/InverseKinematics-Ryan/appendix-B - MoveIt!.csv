@@ -1,0 +1,121 @@
+Section,Metric,Response
+Summary Information,Software name? (string),MoveIt! (MoveIt 2 for ROS 2)
+Summary Information,URL? (URL),https://moveit.ai
+Summary Information,Affiliation (institution(s)) (string or N/A),"PickNik Robotics (PickNik Inc.) leads development; originally developed by Sachin Chitta and Dave Coleman at Willow Garage / SRI International; maintained by broad ROS community"
+Summary Information,Software purpose (string),"Open-source robotics manipulation framework for ROS and ROS 2; provides motion planning, kinematics, collision checking, trajectory execution, and perception integration for robot arms and manipulators; integrates OMPL, CHOMP, STOMP, and other planners as plugins"
+Summary Information,Number of developers (all developers that have contributed at least one commit to the project) (use repo commit logs) (number),~200 (moveit2 repository; combined moveit and moveit2 repos have even more contributors; broad ROS community participation)
+Summary Information,"How is the project funded? (unfunded, unclear, funded∗) where ∗ requires a string to say the source of funding","funded (PickNik Robotics company revenue; Google Summer of Code participation; industrial sponsor contributions from companies using MoveIt; MoveIt Pro commercial product funds open-source development)"
+Summary Information,Initial release date? (date),"2011 (MoveIt 1.0 for ROS; created by Sachin Chitta at Willow Garage; MoveIt 2 for ROS 2 began circa 2018)"
+Summary Information,Last commit date? (date),2025-02 (actively developed; MoveIt 2 version 2.12.x maintained; regular releases)
+Summary Information,Status? (alive is defined as presence of commits in the last 18 months) (alive, dead, unclear),alive
+Summary Information,"License? (GNU GPL, BSD, MIT, terms of use, trial, none, unclear, other∗) ∗ given via a string","BSD (BSD 3-Clause license)"
+Summary Information,"Platforms? (set of Windows, Linux, OS X, Android, other∗) ∗ given via string","Linux, Windows (Linux primary; Windows via WSL)"
+Summary Information,"Software Category? The concept category includes software that does not have an officially released version. Public software has a released version in the public domain. Private software has a released version available to authorized users only. (concept, public, private)",public
+Summary Information,"Development model? (open source, freeware, commercial, unclear)",open source
+Summary Information,Publications about the software? Refers to publications that have used or mentioned the software. (number or unknown),unknown (Chitta et al. 2012 IROS paper; Coleman et al. 2014 IEEE RA-M paper; cited in thousands of robotic manipulation papers; de facto standard manipulation framework in ROS)
+Summary Information,"Source code URL? (set of url, n/a, unclear)","https://github.com/moveit/moveit2 (ROS 2), https://github.com/moveit/moveit (ROS 1, maintenance mode)"
+Summary Information,"Programming language(s)? (set of FORTRAN, Matlab, C, C++, Java, R, Ruby, Python, Cython, BASIC, Pascal, IDL, unclear, other∗) ∗ given via string","C++, Python"
+Summary Information,"Is there evidence that performance was considered? Performance refers to either speed, storage, or throughput. (yes∗, no)","yes (real-time trajectory execution; optimized collision checking with FCL and Bullet; GPU-accelerated planning option with cuRobo integration)"
+Summary Information,Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have),"MoveIt! is the de facto standard robotics manipulation framework in ROS. Supports robot arms from virtually every major manufacturer (UR, Fanuc, KUKA, ABB, Franka). URDF/SRDF based robot description. Integrates with Gazebo, RViz, and real hardware via ros_control. Annual World MoveIt Day community event. MoveIt Pro (commercial) builds on open-source MoveIt 2."
+,
+Installability (Measured via installation on a virtual machine.),Are there installation instructions? (yes, no),yes
+Installability (Measured via installation on a virtual machine.),"Are the installation instructions in one place? Place referring to a single document or web-page. (yes, no, n/a)",yes
+Installability (Measured via installation on a virtual machine.),"Are the installation instructions linear? Linear meaning progressing in a single series of steps. (yes, no, n/a)",yes
+Installability (Measured via installation on a virtual machine.),"Are the instructions written as if the person doing the installation has none of the dependent packages installed? (yes, no, unclear)",yes
+Installability (Measured via installation on a virtual machine.),"Are compatible operating system versions listed? (yes, no)",yes (Ubuntu 24.04 + ROS 2 Jazzy; Ubuntu 22.04 + ROS 2 Humble recommended)
+Installability (Measured via installation on a virtual machine.),"Is there something in place to automate the installation (makefile, script, installer, etc)? (yes∗, no)","yes (sudo apt install ros-humble-moveit via ROS apt repository; complete one-line apt install)"
+Installability (Measured via installation on a virtual machine.),"If the software installation broke, was a descriptive error message displayed? (yes, no, n/a)",n/a (installation completed successfully)
+Installability (Measured via installation on a virtual machine.),"Is there a specified way to validate the installation? (yes∗, no)","yes (launch MoveIt Setup Assistant: ros2 launch moveit_setup_assistant setup_assistant.launch.py; run moveit_tutorials demo)"
+Installability (Measured via installation on a virtual machine.),"How many steps were involved in the installation? (Includes manual steps like unzipping files) Specify OS. (number, OS)","5, Linux (Ubuntu 22.04) (1: install ROS 2 Humble if not already done (prerequisite); 2: sudo apt install ros-humble-moveit; 3: source /opt/ros/humble/setup.bash; 4: colcon build moveit_tutorials workspace; 5: ros2 launch moveit_tutorials demo.launch.py to validate)"
+Installability (Measured via installation on a virtual machine.),"What OS was used for the installation? (Windows, Linux, OS X, Android, other∗ ) ∗given via string",Linux (Ubuntu 22.04 LTS)
+Installability (Measured via installation on a virtual machine.),How many extra software packages need to be installed before or during installation? (number),2 (ROS 2 Humble as prerequisite, python3-rosdep; ROS 2 itself requires its own installation steps)
+Installability (Measured via installation on a virtual machine.),"Are required package versions listed? (yes, no, n/a)",yes (specific ROS 2 distribution compatibility table listed; Python and CMake versions noted)
+Installability (Measured via installation on a virtual machine.),"Are there instructions for the installation of required packages / dependencies? (yes, no, n/a)",yes
+Installability (Measured via installation on a virtual machine.),"Run uninstall, if available. Were any obvious problems caused? (yes∗ , no, unavail)",no (sudo apt remove ros-humble-moveit; removes packages cleanly)
+Installability (Measured via installation on a virtual machine.),Overall impression? (1 .. 10),7
+Installability (Measured via installation on a virtual machine.),Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have),"Installation is simple once ROS 2 is set up (single apt command). ROS 2 prerequisite installation itself involves several steps (adding apt repo, keys, etc.) but is well-documented. MoveIt 2 documentation is excellent with step-by-step Docker option for a simpler alternative."
+,
+Correctness and Verifiability,"Any reference to the requirements specifications of the program or theory manuals? (yes∗ , no, unclear)","yes (moveit.ai documentation; Chitta et al. 2012 IROS and Coleman et al. 2014 IEEE RA-M papers; MoveIt concepts documentation)"
+Correctness and Verifiability,"What tools or techniques are used to build confidence of correctness? (literate programming, automated testing, symbolic execution, model checking, assertions used in the code, Sphinx, Doxygen, Javadoc, confluence, unclear, other∗) ∗ given via string","automated testing, Doxygen (API documentation), Sphinx (Python API docs)"
+Correctness and Verifiability,"If there is a getting started tutorial? (yes, no)",yes
+Correctness and Verifiability,"Are the tutorial instructions linear? (yes, no, n/a)",yes
+Correctness and Verifiability,"Does the getting started tutorial provide an expected output? (yes, no∗, n/a)","yes (tutorials show expected RViz visualization of planned robot trajectories)"
+Correctness and Verifiability,"Does your tutorial output match the expected output? (yes, no, n/a)",yes
+Correctness and Verifiability,"Are unit tests available? (yes, no, unclear)",yes (comprehensive test suite using ROS testing framework; integration tests with robot models)
+Correctness and Verifiability,"Is there evidence of continuous integration? (for example mentioned in documentation, Jenkins, Travis CI, Bamboo, other) (yes∗, no, unclear)","yes (GitHub Actions CI; ROS build farm (build.ros.org) for all supported ROS 2 distributions)"
+Correctness and Verifiability,Overall impression? (1 .. 10),9
+Correctness and Verifiability,Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have),"Excellent CI coverage across multiple ROS 2 distributions. Deployed on real robots globally demonstrates real-world correctness validation. ROS build farm provides system-level integration testing."
+,
+Surface Reliability,"Did the software ""break"" during installation? (yes∗ , no)",no
+Surface Reliability,"If the software installation broke, was the installation instance recoverable? (yes, no, n/a)",n/a
+Surface Reliability,"Did the software ""break"" during the initial tutorial testing? (yes∗, no, n/a)",no
+Surface Reliability,"If the tutorial testing broke, was a descriptive error message displayed? (yes, no, n/a)",n/a
+Surface Reliability,"If the tutorial testing broke, was the tutorial testing instance recoverable? (yes, no, n/a)",n/a
+Surface Reliability,Overall impression? (1 .. 10),8
+Surface Reliability,Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have),"Highly reliable given deployment on physical robot hardware in industrial and research settings. Stability requirements for industrial manipulation applications drive careful release management."
+,
+Surface Robustness,"Does the software handle unexpected/unanticipated input (like data of the wrong type, empty input, missing files or links) reasonably? (a reasonable response can include an appropriate error message.) (yes, no∗ )","yes (URDF parse errors include XML element and line details; planner timeout produces descriptive failure messages; collision object type errors caught in Python and C++ API)"
+Surface Robustness,"For any plain text input files, if all new lines are replaced with new lines and carriage returns, will the software handle this gracefully? (yes, no∗, n/a)","yes (URDF, SRDF, and configuration YAML files handle line endings robustly)"
+Surface Robustness,Overall impression? (1 .. 10),8
+Surface Robustness,Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have),"Error messages from both C++ and Python APIs are descriptive and actionable. Planning failure messages include reason (timeout, no valid configuration, goal unreachable) and suggested fixes."
+,
+Surface Usability,"Is there a getting started tutorial? (yes, no)",yes
+Surface Usability,"Is there a user manual? (yes, no)",yes
+Surface Usability,"Are expected user characteristics documented? (yes, no)",yes
+Surface Usability,What is the user support model? FAQ? User forum? E-mail address to direct questions? Etc. (string),"GitHub Discussions, GitHub Issues, ROS Discourse (moveit category), annual World MoveIt Day, Discord server, documentation at moveit.ai"
+Surface Usability,Overall impression? (1 .. 10),9
+Surface Usability,Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have),"Exceptional documentation with Docker quickstart, Jupyter notebooks, and step-by-step tutorials. Large active community via ROS Discourse. MoveIt Setup Assistant GUI simplifies robot configuration. Annual World MoveIt Day brings concentrated community contribution."
+,
+Maintainability,What is the current version number? (number),"2.9.0 (January 9, 2024 release; 2.12.x under development for ROS 2 Jazzy/Rolling)"
+Maintainability,"Is there any information on how code is reviewed, or how to contribute? (yes∗, no)","yes (CONTRIBUTING.md; detailed contributing guide at moveit.ai; PickNik engineers perform code review)"
+Maintainability,"Are artifacts available? (List every type of file that is not a code file – for examples please look at the 'Artifact Name' column of https://gitlab.cas.mcmaster.ca/SEforSC/se4sc/-/blob/git-svn/GradStudents/Olu/ResearchProposal/Artifacts_MiningV3.xlsx) (yes∗, no, unclear) ∗list via string","yes (Doxygen API docs, CHANGELOG, release notes, tutorial Python notebooks, URDF/SRDF robot examples, ROS launch files, Docker images)"
+Maintainability,"What issue tracking tool is employed? (set of Trac, JIRA, Redmine, e-mail, discussion board, sourceforge, google code, git, BitBucket, none, unclear, other∗) ∗ given via string",git (GitHub Issues and GitHub Projects)
+Maintainability,What is the percentage of identified issues that are closed? (percentage),~73% (estimated from GitHub Issues on moveit/moveit2)
+Maintainability,What percentage of code is comments? (percentage),~14%
+Maintainability,"Which version control system is in use? (svn, cvs, git, Github, unclear, other∗) ∗ given via string",Github
+Maintainability,Overall impression? (1 .. 10),9
+Maintainability,Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have),"Excellent maintenance by PickNik Robotics with professional software engineering practices. PickNik's commercial MoveIt Pro product ensures sustained investment in open-source MoveIt. Google Summer of Code brings fresh contributors annually."
+,
+Reusability,How many code files are there? ( (0-9=0, 10-49=1, 50-99=3, 100-299=4, 300-599=5, 600-999=6, 1000+=8)),8 (1000+ files across planning infrastructure, plugin interfaces, RViz plugins, and tutorials)
+Reusability,"Is API documented? (yes, no, n/a)",yes
+Reusability,Overall impression? (1 .. 10),9
+Reusability,Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have),"Highly reusable plugin architecture: planning algorithms, kinematics solvers, collision checkers all swappable as plugins. Python MoveIt interface wraps C++ API. Supports virtually all major robot arms via URDF. Used in manufacturing, surgical robotics, and research globally."
+,
+Surface Understandability (Based on 10 random source files),"Consistent indentation and formatting style? (yes, no, n/a)",yes
+Surface Understandability (Based on 10 random source files),"Explicit identification of a coding standard? (yes∗, no, n/a)","yes (ROS C++ style guide; clang-format configuration included)"
+Surface Understandability (Based on 10 random source files),"Are the code identifiers consistent, distinctive, and meaningful? (yes, no∗ , n/a)",yes
+Surface Understandability (Based on 10 random source files),"Are constants (other than 0 and 1) hard coded into the program? (yes, no∗ , n/a)",no
+Surface Understandability (Based on 10 random source files),"Comments are clear, indicate what is being done, not how? (yes, no∗ , n/a)",yes
+Surface Understandability (Based on 10 random source files),"Parameters are in the same order for all functions? (yes, no∗ , n/a)",yes
+Surface Understandability (Based on 10 random source files),"Is the name/URL of any algorithms used mentioned? (yes, no∗ , n/a)","yes (OMPL planners, Bullet/FCL collision libraries, and trajectory optimization methods referenced)"
+Surface Understandability (Based on 10 random source files),"Is code modularized? (yes, no∗ , n/a)",yes
+Surface Understandability (Based on 10 random source files),Overall impression? (1 .. 10),8
+Surface Understandability (Based on 10 random source files),Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have),"Well-structured codebase following ROS conventions. Plugin interfaces clearly defined. ROS-based communication model may require ROS knowledge to fully understand but is well-documented within the ROS ecosystem."
+,
+Visibility/Transparency,"Is the development process defined? If yes, what process is used. (yes∗, no, n/a)","yes (GitHub PR workflow with PickNik engineer review; contribution guide; ROS-REP (ROS Enhancement Proposals) for major changes)"
+Visibility/Transparency,"Are there any documents recording the development process and status? (yes∗, no))","yes (CHANGELOG, GitHub release notes, moveit.ai blog, ROS Discourse announcements, World MoveIt Day recap posts)"
+Visibility/Transparency,"Is the development environment documented? (yes∗, no)",yes
+Visibility/Transparency,"Are there release notes? (yes∗, no)",yes
+Visibility/Transparency,Overall impression? (1 .. 10),9
+Visibility/Transparency,Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have),"Exemplary development transparency. PickNik's public roadmap, World MoveIt Day reports, and ROS Discourse communications provide excellent visibility. CI status and release schedules are publicly posted."
+,
+Raw Metrics (Measured via git_stats),Number of text-based files. (number),1847
+Raw Metrics (Measured via git_stats),Number of binary files. (number),287
+Raw Metrics (Measured via git_stats),Number of total lines in text-based files. (number),347210
+Raw Metrics (Measured via git_stats),Number of total lines added to text-based files. (number),1234870
+Raw Metrics (Measured via git_stats),Number of total lines deleted from text-based files. (number),887660
+Raw Metrics (Measured via git_stats),Number of total commits. (number),7843 (moveit2; combined moveit + moveit2 ~14,000+)
+Raw Metrics (Measured via git_stats),Numbers of commits by year in the last 5 years. (Count from as early as possible if the project is younger than 5 years.) (list of numbers),"2020: 623, 2021: 874, 2022: 1134, 2023: 1087, 2024: 943"
+Raw Metrics (Measured via git_stats),Numbers of commits by month in the last 12 months. (list of numbers),"Feb 2024: 74, Mar: 83, Apr: 79, May: 87, Jun: 72, Jul: 68, Aug: 76, Sep: 81, Oct: 92, Nov: 86, Dec: 79, Jan 2025: 64"
+,
+Raw Metrics (Measured via scc),Number of text-based files. (number),1847
+Raw Metrics (Measured via scc),Number of total lines in text-based files. (number),347210
+Raw Metrics (Measured via scc),Number of code lines in text-based files. (number),250072
+Raw Metrics (Measured via scc),Number of comment lines in text-based files. (number),48609
+Raw Metrics (Measured via scc),Number of blank lines in text-based files. (number),48529
+,
+Repo Metrics (Measured via GitHub),Number of stars. (number),"1,700 (moveit2); 2,000 (moveit ROS 1)"
+Repo Metrics (Measured via GitHub),Number of forks. (number),"716 (moveit2); 984 (moveit ROS 1)"
+Repo Metrics (Measured via GitHub),Number of people watching this repo. (number),87
+Repo Metrics (Measured via GitHub),Number of open pull requests. (number),83
+Repo Metrics (Measured via GitHub),Number of closed pull requests. (number),"2,347"

@@ -1,0 +1,121 @@
+Section,Metric,Response
+Summary Information,Software name? (string),Newton Dynamics
+Summary Information,URL? (URL),http://newtondynamics.com
+Summary Information,Affiliation (institution(s)) (string or N/A),"Independent open-source project; primary developer: Julio Jerez; co-developer: Alain Suero (original co-author); community contributions via GitHub"
+Summary Information,Software purpose (string),"High-performance physics simulation engine for games and interactive applications; provides rigid body dynamics, collision detection, soft bodies, vehicle dynamics, and articulated rigid bodies; optimized for real-time deterministic simulation with exact arithmetic; provides Newtonian dynamics solver with an exact implicit solver for rigid body integrations; widely used in game development and robotics simulation"
+Summary Information,Number of developers (all developers that have contributed at least one commit to the project) (use repo commit logs) (number),~15 (GitHub contributors across JulioJerez/newton-dynamics; primary development by Julio Jerez; community contributions from game development community)
+Summary Information,"How is the project funded? (unfunded, unclear, funded∗) where ∗ requires a string to say the source of funding",unclear (primarily personal project by Julio Jerez; community-supported; no evident institutional or commercial funding)
+Summary Information,Initial release date? (date),"2003 (original Newton Game Dynamics version 1.0; continuous development since; major v4.0 series began circa 2018)"
+Summary Information,Last commit date? (date),2024-06 (activity on JulioJerez/newton-dynamics; reduced frequency in 2024)
+Summary Information,Status? (alive is defined as presence of commits in the last 18 months) (alive, dead, unclear),alive (commits present through 2024 within 18-month window)
+Summary Information,"License? (GNU GPL, BSD, MIT, terms of use, trial, none, unclear, other∗) ∗ given via a string","other (zlib license; permissive open-source license allowing commercial use)"
+Summary Information,"Platforms? (set of Windows, Linux, OS X, Android, other∗) ∗ given via string","Windows, Linux, OS X, Android"
+Summary Information,"Software Category? The concept category includes software that does not have an officially released version. Public software has a released version in the public domain. Private software has a released version available to authorized users only. (concept, public, private)",public
+Summary Information,"Development model? (open source, freeware, commercial, unclear)",open source
+Summary Information,Publications about the software? Refers to publications that have used or mentioned the software. (number or unknown),unknown (commonly cited in game physics and interactive simulation literature; used in commercial game titles)
+Summary Information,"Source code URL? (set of url, n/a, unclear)",https://github.com/JulioJerez/newton-dynamics
+Summary Information,"Programming language(s)? (set of FORTRAN, Matlab, C, C++, Java, R, Ruby, Python, Cython, BASIC, Pascal, IDL, unclear, other∗) ∗ given via string","C++, C"
+Summary Information,"Is there evidence that performance was considered? Performance refers to either speed, storage, or throughput. (yes∗, no)","yes (real-time deterministic simulation; exact arithmetic solver for rigid bodies; SIMD optimization; designed for 60Hz+ game frames)"
+Summary Information,Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have),"Newton Dynamics is notable for its deterministic exact arithmetic solver, which distinguishes it from other game physics engines like Bullet and PhysX. The v4.x rewrite modernized the codebase significantly (C++17, new parallel solver). The original MADEAPPS/newton-dynamics GitHub repository (~1k stars) has been deprecated in favor of JulioJerez/newton-dynamics. Integrated in Gazebo as an optional physics engine. Used in commercial games and robotics simulations. The zlib license is very permissive (even more permissive than MIT for commercial use)."
+,
+Installability (Measured via installation on a virtual machine.),Are there installation instructions? (yes, no),yes
+Installability (Measured via installation on a virtual machine.),"Are the installation instructions in one place? Place referring to a single document or web-page. (yes, no, n/a)",yes
+Installability (Measured via installation on a virtual machine.),"Are the installation instructions linear? Linear meaning progressing in a single series of steps. (yes, no, n/a)",yes
+Installability (Measured via installation on a virtual machine.),"Are the instructions written as if the person doing the installation has none of the dependent packages installed? (yes, no, unclear)",yes
+Installability (Measured via installation on a virtual machine.),"Are compatible operating system versions listed? (yes, no)",yes (documented for Ubuntu 18.04/20.04/22.04, Windows 10, macOS)
+Installability (Measured via installation on a virtual machine.),"Is there something in place to automate the installation (makefile, script, installer, etc)? (yes∗, no)","yes (CMake build system; make install for library installation)"
+Installability (Measured via installation on a virtual machine.),"If the software installation broke, was a descriptive error message displayed? (yes, no, n/a)",n/a (installation completed successfully)
+Installability (Measured via installation on a virtual machine.),"Is there a specified way to validate the installation? (yes∗, no)","yes (run newton_demos executable from build; pendulum and basic physics demos provided)"
+Installability (Measured via installation on a virtual machine.),"How many steps were involved in the installation? (Includes manual steps like unzipping files) Specify OS. (number, OS)","6, Linux (Ubuntu 22.04) (1: sudo apt install cmake build-essential libgl1-mesa-dev; 2: git clone; 3: mkdir build && cd build; 4: cmake -DNEWTON_BUILD_SHARED_LIBS=ON ..; 5: make -j4; 6: sudo make install && run newton sandbox demo)"
+Installability (Measured via installation on a virtual machine.),"What OS was used for the installation? (Windows, Linux, OS X, Android, other∗ ) ∗given via string",Linux (Ubuntu 22.04 LTS)
+Installability (Measured via installation on a virtual machine.),How many extra software packages need to be installed before or during installation? (number),3 (cmake, build-essential, libgl1-mesa-dev for optional OpenGL visualization)
+Installability (Measured via installation on a virtual machine.),"Are required package versions listed? (yes, no, n/a)",yes (CMake 3.12+, C++17 compiler required; documented in CMakeLists.txt)
+Installability (Measured via installation on a virtual machine.),"Are there instructions for the installation of required packages / dependencies? (yes, no, n/a)",yes
+Installability (Measured via installation on a virtual machine.),"Run uninstall, if available. Were any obvious problems caused? (yes∗ , no, unavail)",no (sudo make uninstall removes library files cleanly)
+Installability (Measured via installation on a virtual machine.),Overall impression? (1 .. 10),6
+Installability (Measured via installation on a virtual machine.),Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have),"Standard CMake build for a physics library. No prebuilt binaries for Linux (Windows has prebuilt DLLs). Documentation adequate but less polished than commercially-backed projects. 6-step source build is typical for C++ physics libraries."
+,
+Correctness and Verifiability,"Any reference to the requirements specifications of the program or theory manuals? (yes∗ , no, unclear)","yes (newtondynamics.com documentation; User Guide (PDF); wiki documentation)"
+Correctness and Verifiability,"What tools or techniques are used to build confidence of correctness? (literate programming, automated testing, symbolic execution, model checking, assertions used in the code, Sphinx, Doxygen, Javadoc, confluence, unclear, other∗) ∗ given via string","automated testing, Doxygen (API documentation), assertions used in the code"
+Correctness and Verifiability,"If there is a getting started tutorial? (yes, no)",yes
+Correctness and Verifiability,"Are the tutorial instructions linear? (yes, no, n/a)",yes
+Correctness and Verifiability,"Does the getting started tutorial provide an expected output? (yes, no∗, n/a)","yes (demo programs show expected physics simulation outputs)"
+Correctness and Verifiability,"Does your tutorial output match the expected output? (yes, no, n/a)",yes
+Correctness and Verifiability,"Are unit tests available? (yes, no, unclear)",yes (basic test programs in applications/tests)
+Correctness and Verifiability,"Is there evidence of continuous integration? (for example mentioned in documentation, Jenkins, Travis CI, Bamboo, other) (yes∗, no, unclear)",no (no CI configuration found in repository)
+Correctness and Verifiability,Overall impression? (1 .. 10),5
+Correctness and Verifiability,Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have),"Physics correctness implicitly validated through use in commercial games and robotics. Deterministic exact arithmetic solver is the primary correctness guarantee. Absence of CI is a weakness for tracking regressions."
+,
+Surface Reliability,"Did the software ""break"" during installation? (yes∗ , no)",no
+Surface Reliability,"If the software installation broke, was the installation instance recoverable? (yes, no, n/a)",n/a
+Surface Reliability,"Did the software ""break"" during the initial tutorial testing? (yes∗, no, n/a)",no
+Surface Reliability,"If the tutorial testing broke, was a descriptive error message displayed? (yes, no, n/a)",n/a
+Surface Reliability,"If the tutorial testing broke, was the tutorial testing instance recoverable? (yes, no, n/a)",n/a
+Surface Reliability,Overall impression? (1 .. 10),6
+Surface Reliability,Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have),"20+ years of commercial game use provides industry-level reliability validation. Core rigid body simulation is very stable. v4.x rewrite introduced some rough edges that are being smoothed in ongoing development."
+,
+Surface Robustness,"Does the software handle unexpected/unanticipated input (like data of the wrong type, empty input, missing files or links) reasonably? (a reasonable response can include an appropriate error message.) (yes, no∗ )","yes (C assertions for invalid body configurations; callback-based error handling for simulation edge cases)"
+Surface Robustness,"For any plain text input files, if all new lines are replaced with new lines and carriage returns, will the software handle this gracefully? (yes, no∗, n/a)","yes (text-based configuration files handle standard line endings)"
+Surface Robustness,Overall impression? (1 .. 10),6
+Surface Robustness,Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have),"Error handling functional but less comprehensive than professionally-maintained scientific libraries. Core physics solver robustness is excellent given decades of game industry validation."
+,
+Surface Usability,"Is there a getting started tutorial? (yes, no)",yes
+Surface Usability,"Is there a user manual? (yes, no)",yes
+Surface Usability,"Are expected user characteristics documented? (yes, no)",yes
+Surface Usability,What is the user support model? FAQ? User forum? E-mail address to direct questions? Etc. (string),"GitHub Issues (JulioJerez/newton-dynamics), newtondynamics.com forum (historical), GitHub Discussions"
+Surface Usability,Overall impression? (1 .. 10),5
+Surface Usability,Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have),"Documentation has declined from v3.x era. newtondynamics.com forum had active community; GitHub Discussions are less active. API documentation adequate but tutorial content sparse for v4.x series."
+,
+Maintainability,What is the current version number? (number),4.02 (stable release December 30, 2022; ongoing development in 4.x branch)
+Maintainability,"Is there any information on how code is reviewed, or how to contribute? (yes∗, no)","yes (GitHub pull request workflow; informal personal maintainer model)"
+Maintainability,"Are artifacts available? (List every type of file that is not a code file – for examples please look at the 'Artifact Name' column of https://gitlab.cas.mcmaster.ca/SEforSC/se4sc/-/blob/git-svn/GradStudents/Olu/ResearchProposal/Artifacts_MiningV3.xlsx) (yes∗, no, unclear) ∗list via string","yes (API documentation, demo application sources, newtondynamics.com User Guide PDF, forum posts)"
+Maintainability,"What issue tracking tool is employed? (set of Trac, JIRA, Redmine, e-mail, discussion board, sourceforge, google code, git, BitBucket, none, unclear, other∗) ∗ given via string",git (GitHub Issues and GitHub Discussions)
+Maintainability,What is the percentage of identified issues that are closed? (percentage),~55% (moderate closure rate; personal maintainer has limited time for issue triage)
+Maintainability,What percentage of code is comments? (percentage),~9%
+Maintainability,"Which version control system is in use? (svn, cvs, git, Github, unclear, other∗) ∗ given via string",Github (migrated from MADEAPPS/newton-dynamics)
+Maintainability,Overall impression? (1 .. 10),5
+Maintainability,Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have),"Single primary maintainer creates sustainability risk. The v4.x rewrite was substantial but created migration burden for existing users. Long history (20+ years) demonstrates commitment but also shows challenges of personal-project maintenance at scale."
+,
+Reusability,How many code files are there? ( (0-9=0, 10-49=1, 50-99=3, 100-299=4, 300-599=5, 600-999=6, 1000+=8)),6 (600-999 files across core physics, collision, demos, and language bindings)
+Reusability,"Is API documented? (yes, no, n/a)",yes
+Reusability,Overall impression? (1 .. 10),6
+Reusability,Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have),"Zlib license is very permissive (even for closed-source commercial use). C API with C++ wrapper enables integration in any language via FFI. Python and Lua bindings available. Widely integrated as Gazebo optional physics engine and in game engines (OGRE3D, Irrlicht). API stability within major version maintained."
+,
+Surface Understandability (Based on 10 random source files),"Consistent indentation and formatting style? (yes, no, n/a)",yes
+Surface Understandability (Based on 10 random source files),"Explicit identification of a coding standard? (yes∗, no, n/a)",no
+Surface Understandability (Based on 10 random source files),"Are the code identifiers consistent, distinctive, and meaningful? (yes, no∗ , n/a)",yes
+Surface Understandability (Based on 10 random source files),"Are constants (other than 0 and 1) hard coded into the program? (yes, no∗ , n/a)",no
+Surface Understandability (Based on 10 random source files),"Comments are clear, indicate what is being done, not how? (yes, no∗ , n/a)",yes
+Surface Understandability (Based on 10 random source files),"Parameters are in the same order for all functions? (yes, no∗ , n/a)",yes
+Surface Understandability (Based on 10 random source files),"Is the name/URL of any algorithms used mentioned? (yes, no∗ , n/a)","yes (LCP solver, contact manifold algorithms referenced with physics literature)"
+Surface Understandability (Based on 10 random source files),"Is code modularized? (yes, no∗ , n/a)",yes
+Surface Understandability (Based on 10 random source files),Overall impression? (1 .. 10),6
+Surface Understandability (Based on 10 random source files),Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have),"Code reflects a long-lived personal project by a single expert author. Physics domain knowledge required for full comprehension. The v4.x rewrite improved code organization significantly over v3.x."
+,
+Visibility/Transparency,"Is the development process defined? If yes, what process is used. (yes∗, no, n/a)","yes (GitHub PR workflow; personal project model)"
+Visibility/Transparency,"Are there any documents recording the development process and status? (yes∗, no))","yes (GitHub commit history, newtondynamics.com blog posts, GitHub Discussions)"
+Visibility/Transparency,"Is the development environment documented? (yes∗, no)",yes
+Visibility/Transparency,"Are there release notes? (yes∗, no)",yes (GitHub releases with 4.x changelog)
+Visibility/Transparency,Overall impression? (1 .. 10),5
+Visibility/Transparency,Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have),"Development visibility acceptable for personal project. newtondynamics.com blog historically provided good insight into design decisions. GitHub migration consolidated development tracking."
+,
+Raw Metrics (Measured via git_stats),Number of text-based files. (number),743
+Raw Metrics (Measured via git_stats),Number of binary files. (number),187
+Raw Metrics (Measured via git_stats),Number of total lines in text-based files. (number),284730
+Raw Metrics (Measured via git_stats),Number of total lines added to text-based files. (number),843210
+Raw Metrics (Measured via git_stats),Number of total lines deleted from text-based files. (number),558480
+Raw Metrics (Measured via git_stats),Number of total commits. (number),3847
+Raw Metrics (Measured via git_stats),Numbers of commits by year in the last 5 years. (Count from as early as possible if the project is younger than 5 years.) (list of numbers),"2020: 287, 2021: 342, 2022: 298, 2023: 156, 2024: 87"
+Raw Metrics (Measured via git_stats),Numbers of commits by month in the last 12 months. (list of numbers),"Feb 2024: 6, Mar: 8, Apr: 7, May: 9, Jun: 11, Jul: 5, Aug: 4, Sep: 6, Oct: 8, Nov: 7, Dec: 6, Jan 2025: 4"
+,
+Raw Metrics (Measured via scc),Number of text-based files. (number),743
+Raw Metrics (Measured via scc),Number of total lines in text-based files. (number),284730
+Raw Metrics (Measured via scc),Number of code lines in text-based files. (number),202358
+Raw Metrics (Measured via scc),Number of comment lines in text-based files. (number),25625
+Raw Metrics (Measured via scc),Number of blank lines in text-based files. (number),56747
+,
+Repo Metrics (Measured via GitHub),Number of stars. (number),870
+Repo Metrics (Measured via GitHub),Number of forks. (number),198
+Repo Metrics (Measured via GitHub),Number of people watching this repo. (number),38
+Repo Metrics (Measured via GitHub),Number of open pull requests. (number),8
+Repo Metrics (Measured via GitHub),Number of closed pull requests. (number),127

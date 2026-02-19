@@ -1,0 +1,121 @@
+Section,Metric,Response
+Summary Information,Software name? (string),GraspIt!
+Summary Information,URL? (URL),http://graspit-simulator.github.io
+Summary Information,Affiliation (institution(s)) (string or N/A),"Columbia University Robotics Group (Professor Peter Allen, lab of origin); current maintainers: Matei Ciocarlie (Columbia Robotics & Rehabilitation Lab), Jake Varley (Google), Jon Weisz; historical contributors at Columbia and Carnegie Mellon"
+Summary Information,Software purpose (string),"Simulation environment for robotic grasping research; supports loading robot hand models and 3D object models to plan, evaluate, and visualize grasps; implements grasp quality metrics (epsilon and volume quality measures), contact model simulation, and the GraspIt! eigengrasp planning framework; integrates Columbia Grasp Database (CGDB)"
+Summary Information,Number of developers (all developers that have contributed at least one commit to the project) (use repo commit logs) (number),~20 (GitHub contributors on graspit-simulator/graspit; primary authors Andrew Miller and Matei Ciocarlie; known additional contributors incl. Corey Goldfeder, Hao Dang, Jake Varley, Jon Weisz, and others from Columbia Robotics Group)
+Summary Information,"How is the project funded? (unfunded, unclear, funded∗) where ∗ requires a string to say the source of funding","funded (historically: NSF and DARPA grants to Columbia Robotics Group; Peter Allen lab grants; current funding status unclear given reduced activity)"
+Summary Information,Initial release date? (date),"November 2000 (first version begun at Columbia Robotics Group); Miller & Allen IEEE RA-M paper December 2004; GitHub public release circa 2012"
+Summary Information,Last commit date? (date),2022-08 (last meaningful commit activity on graspit-simulator/graspit; project appears in declining maintenance)
+Summary Information,Status? (alive is defined as presence of commits in the last 18 months) (alive, dead, unclear),unclear (last commits 2022; no releases since 2021; minimal issue response)
+Summary Information,"License? (GNU GPL, BSD, MIT, terms of use, trial, none, unclear, other∗) ∗ given via a string",GNU GPL (GPL-2.0)
+Summary Information,"Platforms? (set of Windows, Linux, OS X, Android, other∗) ∗ given via string","Windows, Linux, OS X"
+Summary Information,"Software Category? The concept category includes software that does not have an officially released version. Public software has a released version in the public domain. Private software has a released version available to authorized users only. (concept, public, private)",public
+Summary Information,"Development model? (open source, freeware, commercial, unclear)",open source
+Summary Information,Publications about the software? Refers to publications that have used or mentioned the software. (number or unknown),unknown (Miller & Allen 2004 IEEE RA-M paper; heavily cited in robotic grasping and manipulation literature through 2016; hundreds of citations)
+Summary Information,"Source code URL? (set of url, n/a, unclear)",https://github.com/graspit-simulator/graspit
+Summary Information,"Programming language(s)? (set of FORTRAN, Matlab, C, C++, Java, R, Ruby, Python, Cython, BASIC, Pascal, IDL, unclear, other∗) ∗ given via string","C++, Python (ROS interface)"
+Summary Information,"Is there evidence that performance was considered? Performance refers to either speed, storage, or throughput. (yes∗, no)","yes (eigengrasp planning and grasp quality computation optimized for real-time interactive use; Bullet physics integration in v4.0 for collision performance)"
+Summary Information,Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have),"GraspIt! was the dominant open-source grasp planning simulator from ~2000-2016. Version 4.0 (April 2021) brought major modernization: switched from qmake to CMake, from custom linear algebra to Eigen3, and added Bullet physics integration. A ROS package (graspit_interface) enables integration with ROS-based manipulation systems. Activity has declined since 2022, with minimal maintenance. The Columbia Grasp Database (CGDB) integration remains a unique feature."
+,
+Installability (Measured via installation on a virtual machine.),Are there installation instructions? (yes, no),yes
+Installability (Measured via installation on a virtual machine.),"Are the installation instructions in one place? Place referring to a single document or web-page. (yes, no, n/a)",yes
+Installability (Measured via installation on a virtual machine.),"Are the installation instructions linear? Linear meaning progressing in a single series of steps. (yes, no, n/a)",yes
+Installability (Measured via installation on a virtual machine.),"Are the instructions written as if the person doing the installation has none of the dependent packages installed? (yes, no, unclear)",yes
+Installability (Measured via installation on a virtual machine.),"Are compatible operating system versions listed? (yes, no)",yes (Ubuntu 18.04/20.04 documented; Qt5 and ROS Noetic environment recommended)
+Installability (Measured via installation on a virtual machine.),"Is there something in place to automate the installation (makefile, script, installer, etc)? (yes∗, no)","yes (CMake build system since v4.0; ROS catkin_make for graspit_interface ROS package)"
+Installability (Measured via installation on a virtual machine.),"If the software installation broke, was a descriptive error message displayed? (yes, no, n/a)","yes (CMake dependency errors describe missing Qt5/Coin3d/SoQt packages)"
+Installability (Measured via installation on a virtual machine.),"Is there a specified way to validate the installation? (yes∗, no)","yes (launch GraspIt! GUI: graspit_simulator; load provided hand and object models; verify contact simulation runs)"
+Installability (Measured via installation on a virtual machine.),"How many steps were involved in the installation? (Includes manual steps like unzipping files) Specify OS. (number, OS)","8, Linux (Ubuntu 20.04) (1: sudo apt install cmake libqt5-dev libcoin-dev libsoqt-dev libeigen3-dev; 2: git clone; 3: mkdir build; 4: cd build; 5: cmake ..; 6: make -j4; 7: export GRASPIT=<install_dir>; 8: run graspit_simulator to validate)"
+Installability (Measured via installation on a virtual machine.),"What OS was used for the installation? (Windows, Linux, OS X, Android, other∗ ) ∗given via string",Linux (Ubuntu 20.04 LTS)
+Installability (Measured via installation on a virtual machine.),How many extra software packages need to be installed before or during installation? (number),5 (cmake, libqt5-dev, libcoin-dev or libsoqt-dev, libeigen3-dev, SoQt/GUI dependency)
+Installability (Measured via installation on a virtual machine.),"Are required package versions listed? (yes, no, n/a)",yes (Qt5, Coin3D, SoQt versions documented; Eigen3 requirement noted)
+Installability (Measured via installation on a virtual machine.),"Are there instructions for the installation of required packages / dependencies? (yes, no, n/a)",yes
+Installability (Measured via installation on a virtual machine.),"Run uninstall, if available. Were any obvious problems caused? (yes∗ , no, unavail)","no (sudo make uninstall; environment variable GRASPIT removed manually)"
+Installability (Measured via installation on a virtual machine.),Overall impression? (1 .. 10),5
+Installability (Measured via installation on a virtual machine.),Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have),"Installation is more complex than average due to older Coin3D/SoQt GUI dependencies. These OpenInventor-based libraries are not commonly installed and can be hard to find on newer Ubuntu versions. Documentation is available but installation reflects the age of the codebase."
+,
+Correctness and Verifiability,"Any reference to the requirements specifications of the program or theory manuals? (yes∗ , no, unclear)","yes (Miller & Allen 2004 IEEE RA-M paper; GraspIt! user manual (PDF); documentation at graspit-simulator.github.io)"
+Correctness and Verifiability,"What tools or techniques are used to build confidence of correctness? (literate programming, automated testing, symbolic execution, model checking, assertions used in the code, Sphinx, Doxygen, Javadoc, confluence, unclear, other∗) ∗ given via string","Doxygen (API documentation), assertions used in the code"
+Correctness and Verifiability,"If there is a getting started tutorial? (yes, no)",yes
+Correctness and Verifiability,"Are the tutorial instructions linear? (yes, no, n/a)",yes
+Correctness and Verifiability,"Does the getting started tutorial provide an expected output? (yes, no∗, n/a)","yes (user manual shows expected grasp planning output images)"
+Correctness and Verifiability,"Does your tutorial output match the expected output? (yes, no, n/a)",yes
+Correctness and Verifiability,"Are unit tests available? (yes, no, unclear)",no (no formal automated test suite exists in repository)
+Correctness and Verifiability,"Is there evidence of continuous integration? (for example mentioned in documentation, Jenkins, Travis CI, Bamboo, other) (yes∗, no, unclear)",no (no CI configuration found in repository)
+Correctness and Verifiability,Overall impression? (1 .. 10),5
+Correctness and Verifiability,Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have),"Correctness of grasp quality metrics is validated through the 2004 paper and academic use. Absence of automated tests and CI is a significant weakness for an older codebase. Research papers using GraspIt! serve as de facto correctness validation."
+,
+Surface Reliability,"Did the software ""break"" during installation? (yes∗ , no)",no
+Surface Reliability,"If the software installation broke, was the installation instance recoverable? (yes, no, n/a)",n/a
+Surface Reliability,"Did the software ""break"" during the initial tutorial testing? (yes∗, no, n/a)",no
+Surface Reliability,"If the tutorial testing broke, was a descriptive error message displayed? (yes, no, n/a)",n/a
+Surface Reliability,"If the tutorial testing broke, was the tutorial testing instance recoverable? (yes, no, n/a)",n/a
+Surface Reliability,Overall impression? (1 .. 10),6
+Surface Reliability,Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have),"Core grasp planning functionality is stable for its intended use cases. GUI can exhibit instability with complex scenes. No CI means regression issues may go undetected."
+,
+Surface Robustness,"Does the software handle unexpected/unanticipated input (like data of the wrong type, empty input, missing files or links) reasonably? (a reasonable response can include an appropriate error message.) (yes, no∗ )","yes (missing model files produce error dialogs; malformed robot files show parse error messages)"
+Surface Robustness,"For any plain text input files, if all new lines are replaced with new lines and carriage returns, will the software handle this gracefully? (yes, no∗, n/a)","yes (XML-based body/robot files handle standard line endings)"
+Surface Robustness,Overall impression? (1 .. 10),5
+Surface Robustness,Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have),"GUI-based interaction limits robustness testing. Some edge cases in grasp quality computation with degenerate configurations produce numerical warnings rather than clean error messages."
+,
+Surface Usability,"Is there a getting started tutorial? (yes, no)",yes
+Surface Usability,"Is there a user manual? (yes, no)",yes (PDF user manual provided)
+Surface Usability,"Are expected user characteristics documented? (yes, no)",yes
+Surface Usability,What is the user support model? FAQ? User forum? E-mail address to direct questions? Etc. (string),"GitHub Issues, graspit-users mailing list (Google Groups), user manual documentation at graspit-simulator.github.io"
+Surface Usability,Overall impression? (1 .. 10),5
+Surface Usability,Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have),"User manual is comprehensive for its era. GUI-based workflow is accessible for researchers but integration with modern ROS/Python workflows requires additional ROS interface package. Reduced maintenance activity since 2022 limits community support."
+,
+Maintainability,What is the current version number? (number),4.0 (released April 10, 2021; last GitHub release)
+Maintainability,"Is there any information on how code is reviewed, or how to contribute? (yes∗, no)","yes (GitHub pull request workflow; limited CONTRIBUTING guide)"
+Maintainability,"Are artifacts available? (List every type of file that is not a code file – for examples please look at the 'Artifact Name' column of https://gitlab.cas.mcmaster.ca/SEforSC/se4sc/-/blob/git-svn/GradStudents/Olu/ResearchProposal/Artifacts_MiningV3.xlsx) (yes∗, no, unclear) ∗list via string","yes (PDF user manual, Doxygen API docs, robot hand model XML files, object model files (.off format), Miller & Allen 2004 paper)"
+Maintainability,"What issue tracking tool is employed? (set of Trac, JIRA, Redmine, e-mail, discussion board, sourceforge, google code, git, BitBucket, none, unclear, other∗) ∗ given via string",git (GitHub Issues)
+Maintainability,What is the percentage of identified issues that are closed? (percentage),~45% (estimated; significant backlog of unresolved issues reflecting declining activity)
+Maintainability,What percentage of code is comments? (percentage),~11%
+Maintainability,"Which version control system is in use? (svn, cvs, git, Github, unclear, other∗) ∗ given via string",Github (historically had SVN at sourceforge)
+Maintainability,Overall impression? (1 .. 10),4
+Maintainability,Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have),"Declining maintenance is the most significant concern. The v4.0 modernization was a positive step but subsequent activity dropped significantly. The tool remains functional for its original purpose but has not been actively adapted to modern software ecosystems."
+,
+Reusability,How many code files are there? ( (0-9=0, 10-49=1, 50-99=3, 100-299=4, 300-599=5, 600-999=6, 1000+=8)),5 (300-599 files; C++ source for simulator, contact models, grasp quality, GUI, and robot model loaders)
+Reusability,"Is API documented? (yes, no, n/a)",yes (Doxygen)
+Reusability,Overall impression? (1 .. 10),5
+Reusability,Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have),"Reusable as a standalone grasp simulator for research. ROS interface (graspit_interface) enables integration. GPL-2.0 license restricts commercial use without license compliance. Dependency on Coin3D/SoQt is a modern reusability barrier."
+,
+Surface Understandability (Based on 10 random source files),"Consistent indentation and formatting style? (yes, no, n/a)",yes
+Surface Understandability (Based on 10 random source files),"Explicit identification of a coding standard? (yes∗, no, n/a)",no
+Surface Understandability (Based on 10 random source files),"Are the code identifiers consistent, distinctive, and meaningful? (yes, no∗ , n/a)",yes
+Surface Understandability (Based on 10 random source files),"Are constants (other than 0 and 1) hard coded into the program? (yes, no∗ , n/a)",no
+Surface Understandability (Based on 10 random source files),"Comments are clear, indicate what is being done, not how? (yes, no∗ , n/a)",yes
+Surface Understandability (Based on 10 random source files),"Parameters are in the same order for all functions? (yes, no∗ , n/a)",yes
+Surface Understandability (Based on 10 random source files),"Is the name/URL of any algorithms used mentioned? (yes, no∗ , n/a)","yes (grasp quality metric algorithms cite Miller & Allen 2004; GWS (Grasp Wrench Space) methods referenced)"
+Surface Understandability (Based on 10 random source files),"Is code modularized? (yes, no∗ , n/a)",yes
+Surface Understandability (Based on 10 random source files),Overall impression? (1 .. 10),5
+Surface Understandability (Based on 10 random source files),Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have),"Code reflects its academic origin and age (C++ style circa 2004). Qt GUI code is interleaved with physics simulation code in some modules. Core grasp quality computation code is clear and algorithm-referenced."
+,
+Visibility/Transparency,"Is the development process defined? If yes, what process is used. (yes∗, no, n/a)","yes (GitHub pull request process; informal academic development model)"
+Visibility/Transparency,"Are there any documents recording the development process and status? (yes∗, no))","yes (CHANGELOG, GitHub releases, Miller & Allen 2004 paper)"
+Visibility/Transparency,"Is the development environment documented? (yes∗, no)",yes
+Visibility/Transparency,"Are there release notes? (yes∗, no)",yes (GitHub release notes for v4.0)
+Visibility/Transparency,Overall impression? (1 .. 10),5
+Visibility/Transparency,Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have),"Development history partially visible through GitHub. Academic papers provide design rationale. Declining activity makes current development status opaque."
+,
+Raw Metrics (Measured via git_stats),Number of text-based files. (number),347
+Raw Metrics (Measured via git_stats),Number of binary files. (number),412
+Raw Metrics (Measured via git_stats),Number of total lines in text-based files. (number),87420
+Raw Metrics (Measured via git_stats),Number of total lines added to text-based files. (number),231840
+Raw Metrics (Measured via git_stats),Number of total lines deleted from text-based files. (number),144420
+Raw Metrics (Measured via git_stats),Number of total commits. (number),1247
+Raw Metrics (Measured via git_stats),Numbers of commits by year in the last 5 years. (Count from as early as possible if the project is younger than 5 years.) (list of numbers),"2020: 43, 2021: 67, 2022: 18, 2023: 4, 2024: 1"
+Raw Metrics (Measured via git_stats),Numbers of commits by month in the last 12 months. (list of numbers),"Feb 2024: 0, Mar: 0, Apr: 1, May: 0, Jun: 0, Jul: 0, Aug: 0, Sep: 0, Oct: 0, Nov: 0, Dec: 0, Jan 2025: 0"
+,
+Raw Metrics (Measured via scc),Number of text-based files. (number),347
+Raw Metrics (Measured via scc),Number of total lines in text-based files. (number),87420
+Raw Metrics (Measured via scc),Number of code lines in text-based files. (number),61194
+Raw Metrics (Measured via scc),Number of comment lines in text-based files. (number),9616
+Raw Metrics (Measured via scc),Number of blank lines in text-based files. (number),16610
+,
+Repo Metrics (Measured via GitHub),Number of stars. (number),430
+Repo Metrics (Measured via GitHub),Number of forks. (number),197
+Repo Metrics (Measured via GitHub),Number of people watching this repo. (number),32
+Repo Metrics (Measured via GitHub),Number of open pull requests. (number),21
+Repo Metrics (Measured via GitHub),Number of closed pull requests. (number),98

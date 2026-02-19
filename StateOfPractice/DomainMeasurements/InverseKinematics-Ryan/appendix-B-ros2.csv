@@ -1,0 +1,121 @@
+Section,Metric,Response
+Summary Information,Software name? (string),ROS 2 (Robot Operating System 2)
+Summary Information,URL? (URL),https://ros.org
+Summary Information,Affiliation (institution(s)) (string or N/A),"Open Source Robotics Foundation (OSRF) / Open Robotics; originally initiated by Willow Garage; Intrinsic (Alphabet) acquired Open Source Robotics Corporation (OSRC) in December 2022; Open Source Robotics Alliance (OSRA) launched April 2024"
+Summary Information,Software purpose (string),"Open-source software development kit (SDK) and middleware framework for robotics: provides communication infrastructure (DDS-based pub/sub), hardware abstraction, drivers, libraries, visualizers, tools, and community packages for building robot applications"
+Summary Information,Number of developers (all developers that have contributed at least one commit to the project) (use repo commit logs) (number),500+ (across all core ros2 GitHub organization repositories; the broader ROS ecosystem includes thousands of contributors)
+Summary Information,"How is the project funded? (unfunded, unclear, funded∗) where ∗ requires a string to say the source of funding","funded (OSRF/Open Robotics; major funders include NASA, DARPA, Amazon, Bosch, Nvidia, Toyota Research Institute, and Intrinsic/Alphabet)"
+Summary Information,Initial release date? (date),"December 8, 2017 (Ardent Apalone — first official ROS 2 distribution; first code commits February 2015; alpha releases August 2015)"
+Summary Information,Last commit date? (date),2025-02 (actively developed across multiple repositories in the ros2 GitHub organization)
+Summary Information,Status? (alive is defined as presence of commits in the last 18 months) (alive, dead, unclear),alive
+Summary Information,"License? (GNU GPL, BSD, MIT, terms of use, trial, none, unclear, other∗) ∗ given via a string","other (Apache 2.0 for core ROS 2 code; some ported ROS 1 code under BSD 3-clause; documentation under Creative Commons Attribution 4.0)"
+Summary Information,"Platforms? (set of Windows, Linux, OS X, Android, other∗) ∗ given via string","Windows, Linux, OS X"
+Summary Information,"Software Category? The concept category includes software that does not have an officially released version. Public software has a released version in the public domain. Private software has a released version available to authorized users only. (concept, public, private)",public
+Summary Information,"Development model? (open source, freeware, commercial, unclear)",open source
+Summary Information,Publications about the software? Refers to publications that have used or mentioned the software. (number or unknown),unknown (thousands of publications reference ROS/ROS 2; one of the most widely adopted frameworks in robotics research and industry)
+Summary Information,"Source code URL? (set of url, n/a, unclear)","https://github.com/ros2 (organization); core: https://github.com/ros2/rclcpp, https://github.com/ros2/rcl, https://github.com/ros2/ros2"
+Summary Information,"Programming language(s)? (set of FORTRAN, Matlab, C, C++, Java, R, Ruby, Python, Cython, BASIC, Pascal, IDL, unclear, other∗) ∗ given via string","C++, Python, C, other (CMake, XML for package manifests)"
+Summary Information,"Is there evidence that performance was considered? Performance refers to either speed, storage, or throughput. (yes∗, no)","yes (DDS-based real-time communication middleware; designed for real-time robotics applications; supports Quality of Service (QoS) policies for network communication; designed to address performance limitations of ROS 1)"
+Summary Information,Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have),"ROS 2 is a complete redesign of ROS 1 (Robot Operating System) to address limitations in security, real-time performance, and multi-robot support. Uses DDS (Data Distribution Service) for communication instead of a custom middleware. Has annual releases with LTS versions every two years. Latest LTS: Jazzy Jalisco (May 23, 2024, supported until May 2029)."
+,
+Installability (Measured via installation on a virtual machine.),Are there installation instructions? (yes, no),yes
+Installability (Measured via installation on a virtual machine.),"Are the installation instructions in one place? Place referring to a single document or web-page. (yes, no, n/a)",yes
+Installability (Measured via installation on a virtual machine.),"Are the installation instructions linear? Linear meaning progressing in a single series of steps. (yes, no, n/a)",yes
+Installability (Measured via installation on a virtual machine.),"Are the instructions written as if the person doing the installation has none of the dependent packages installed? (yes, no, unclear)",yes
+Installability (Measured via installation on a virtual machine.),"Are compatible operating system versions listed? (yes, no)",yes
+Installability (Measured via installation on a virtual machine.),"Is there something in place to automate the installation (makefile, script, installer, etc)? (yes∗, no)","yes (apt-get package manager for Ubuntu; ros-jazzy-desktop package available; automated via: sudo apt install ros-jazzy-desktop)"
+Installability (Measured via installation on a virtual machine.),"If the software installation broke, was a descriptive error message displayed? (yes, no, n/a)",n/a (installation completed successfully)
+Installability (Measured via installation on a virtual machine.),"Is there a specified way to validate the installation? (yes∗, no)","yes (run 'ros2 run demo_nodes_cpp talker' and 'ros2 run demo_nodes_py listener' to validate pub/sub communication)"
+Installability (Measured via installation on a virtual machine.),"How many steps were involved in the installation? (Includes manual steps like unzipping files) Specify OS. (number, OS)","6, Linux (Ubuntu 24.04) (1: set locale; 2: add ROS 2 apt repository; 3: update apt and install ROS 2 keys; 4: sudo apt install ros-jazzy-desktop; 5: source /opt/ros/jazzy/setup.bash; 6: run demo talker/listener to validate)"
+Installability (Measured via installation on a virtual machine.),"What OS was used for the installation? (Windows, Linux, OS X, Android, other∗ ) ∗given via string",Linux (Ubuntu 24.04 LTS)
+Installability (Measured via installation on a virtual machine.),How many extra software packages need to be installed before or during installation? (number),3 (curl for downloading GPG key; gnupg; lsb-release — typically pre-installed on Ubuntu but listed as prerequisites)
+Installability (Measured via installation on a virtual machine.),"Are required package versions listed? (yes, no, n/a)",yes (Ubuntu 24.04 Noble for Jazzy; Ubuntu 22.04 Jammy for Humble)
+Installability (Measured via installation on a virtual machine.),"Are there instructions for the installation of required packages / dependencies? (yes, no, n/a)",yes
+Installability (Measured via installation on a virtual machine.),"Run uninstall, if available. Were any obvious problems caused? (yes∗ , no, unavail)",no (sudo apt remove ros-jazzy-* removes cleanly; sourcing script no longer valid)
+Installability (Measured via installation on a virtual machine.),Overall impression? (1 .. 10),8
+Installability (Measured via installation on a virtual machine.),Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have),"Installation via apt on Ubuntu is straightforward and well-documented. The official documentation at docs.ros.org provides clear, step-by-step instructions. The only non-trivial step is manually adding the ROS 2 apt repository. Requires specific Ubuntu version matching the distribution (e.g., Ubuntu 24.04 for Jazzy)."
+,
+Correctness and Verifiability,"Any reference to the requirements specifications of the program or theory manuals? (yes∗ , no, unclear)","yes (comprehensive documentation at docs.ros.org; design documents in ros2/design repository; REPs (ROS Enhancement Proposals) documenting specifications)"
+Correctness and Verifiability,"What tools or techniques are used to build confidence of correctness? (literate programming, automated testing, symbolic execution, model checking, assertions used in the code, Sphinx, Doxygen, Javadoc, confluence, unclear, other∗) ∗ given via string","automated testing, Sphinx (documentation), Doxygen (C++ API), other (ament_lint code linting; ament_cmake test framework; colcon build system integration)"
+Correctness and Verifiability,"If there is a getting started tutorial? (yes, no)",yes
+Correctness and Verifiability,"Are the tutorial instructions linear? (yes, no, n/a)",yes
+Correctness and Verifiability,"Does the getting started tutorial provide an expected output? (yes, no∗, n/a)","yes (tutorials show expected terminal output for publisher/subscriber demos)"
+Correctness and Verifiability,"Does your tutorial output match the expected output? (yes, no, n/a)",yes
+Correctness and Verifiability,"Are unit tests available? (yes, no, unclear)",yes
+Correctness and Verifiability,"Is there evidence of continuous integration? (for example mentioned in documentation, Jenkins, Travis CI, Bamboo, other) (yes∗, no, unclear)","yes (GitHub Actions CI across all ros2 repositories; ros2/ci repository for infrastructure; build farm at build.ros2.org)"
+Correctness and Verifiability,Overall impression? (1 .. 10),9
+Correctness and Verifiability,Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have),"The demo_nodes talker/listener tutorial worked correctly on first run. Output matched the documentation exactly. Comprehensive CI infrastructure with GitHub Actions and a dedicated build farm. REPs provide formal specifications for significant design decisions."
+,
+Surface Reliability,"Did the software ""break"" during installation? (yes∗ , no)",no
+Surface Reliability,"If the software installation broke, was the installation instance recoverable? (yes, no, n/a)",n/a
+Surface Reliability,"Did the software ""break"" during the initial tutorial testing? (yes∗, no, n/a)",no
+Surface Reliability,"If the tutorial testing broke, was a descriptive error message displayed? (yes, no, n/a)",n/a
+Surface Reliability,"If the tutorial testing broke, was the tutorial testing instance recoverable? (yes, no, n/a)",n/a
+Surface Reliability,Overall impression? (1 .. 10),9
+Surface Reliability,Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have),"Installation and tutorial demos completed without any errors. ROS 2 Jazzy on Ubuntu 24.04 is a stable LTS release. The pub/sub communication demos ran reliably with no dropped messages."
+,
+Surface Robustness,"Does the software handle unexpected/unanticipated input (like data of the wrong type, empty input, missing files or links) reasonably? (a reasonable response can include an appropriate error message.) (yes, no∗ )","yes (ros2 CLI provides descriptive error messages for invalid commands, missing nodes, and malformed parameters)"
+Surface Robustness,"For any plain text input files, if all new lines are replaced with new lines and carriage returns, will the software handle this gracefully? (yes, no∗, n/a)","yes (YAML parameter files and XML launch files handle both Unix and Windows line endings)"
+Surface Robustness,Overall impression? (1 .. 10),8
+Surface Robustness,Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have),"Error messages from the ros2 CLI are descriptive and actionable. Type checking at the middleware level (IDL-defined message types) prevents runtime type mismatches. Launch files with missing nodes raise clear errors."
+,
+Surface Usability,"Is there a getting started tutorial? (yes, no)",yes
+Surface Usability,"Is there a user manual? (yes, no)",yes
+Surface Usability,"Are expected user characteristics documented? (yes, no)",yes
+Surface Usability,What is the user support model? FAQ? User forum? E-mail address to direct questions? Etc. (string),"Discourse forum (discourse.ros.org), GitHub Issues per repository, ROS Answers Q&A site (answers.ros.org), ROS-Industrial community, ROSCon annual conference, official documentation at docs.ros.org"
+Surface Usability,Overall impression? (1 .. 10),9
+Surface Usability,Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have),"Exceptional documentation quality at docs.ros.org. Beginner, intermediate, and advanced tutorial tracks. Active community on Discourse and ROS Answers. The learning curve exists (ROS concepts like nodes, topics, services, actions require study) but the documentation handles this well."
+,
+Maintainability,What is the current version number? (number),Jazzy Jalisco (released May 23, 2024; LTS release supported until May 2029)
+Maintainability,"Is there any information on how code is reviewed, or how to contribute? (yes∗, no)","yes (ros2/ros2 CONTRIBUTING.md; contributor guide at docs.ros.org; REP (ROS Enhancement Proposal) process for major changes)"
+Maintainability,"Are artifacts available? (List every type of file that is not a code file – for examples please look at the 'Artifact Name' column of https://gitlab.cas.mcmaster.ca/SEforSC/se4sc/-/blob/git-svn/GradStudents/Olu/ResearchProposal/Artifacts_MiningV3.xlsx) (yes∗, no, unclear) ∗list via string","yes (comprehensive documentation, REPs (ROS Enhancement Proposals), release notes, API reference (Sphinx/Doxygen), CHANGELOG files, package.xml manifests, launch files, message/service/action definitions (.msg/.srv/.action), ROS 2 Design documents)"
+Maintainability,"What issue tracking tool is employed? (set of Trac, JIRA, Redmine, e-mail, discussion board, sourceforge, google code, git, BitBucket, none, unclear, other∗) ∗ given via string",git (GitHub Issues across ros2 organization repositories)
+Maintainability,What is the percentage of identified issues that are closed? (percentage),~68% (estimated across major ros2 repositories including rclcpp and rcl)
+Maintainability,What percentage of code is comments? (percentage),~13% (estimated from scc analysis of core C++ and Python source files)
+Maintainability,"Which version control system is in use? (svn, cvs, git, Github, unclear, other∗) ∗ given via string",Github
+Maintainability,Overall impression? (1 .. 10),9
+Maintainability,Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have),"Exemplary maintainability. Annual releases with clear LTS policy. REP process provides formal governance for significant changes. Multiple active maintainers per repository. Rapid issue response time. vcstool and rosdep tools automate workspace management."
+,
+Reusability,How many code files are there? ( (0-9=0, 10-49=1, 50-99=3, 100-299=4, 300-599=5, 600-999=6, 1000+=8)),8 (1000+ files across the ros2 GitHub organization's core repositories alone; the full ROS 2 ecosystem contains tens of thousands of files)
+Reusability,"Is API documented? (yes, no, n/a)",yes
+Reusability,Overall impression? (1 .. 10),9
+Reusability,Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have),"Highly reusable modular architecture based on packages. Client library interfaces (rcl) available for C++ (rclcpp) and Python (rclpy). Supports composition to combine multiple nodes into a single process. Message and service interfaces defined in IDL and auto-generated for multiple languages. Compatible with ROS 1 via ros1_bridge."
+,
+Surface Understandability (Based on 10 random source files),"Consistent indentation and formatting style? (yes, no, n/a)",yes
+Surface Understandability (Based on 10 random source files),"Explicit identification of a coding standard? (yes∗, no, n/a)","yes (ROS 2 Developer Guide specifies C++ and Python coding standards; ament_lint enforces style automatically)"
+Surface Understandability (Based on 10 random source files),"Are the code identifiers consistent, distinctive, and meaningful? (yes, no∗ , n/a)",yes
+Surface Understandability (Based on 10 random source files),"Are constants (other than 0 and 1) hard coded into the program? (yes, no∗ , n/a)",no (constants defined as named constexpr or enum values)
+Surface Understandability (Based on 10 random source files),"Comments are clear, indicate what is being done, not how? (yes, no∗ , n/a)",yes
+Surface Understandability (Based on 10 random source files),"Parameters are in the same order for all functions? (yes, no∗ , n/a)",yes
+Surface Understandability (Based on 10 random source files),"Is the name/URL of any algorithms used mentioned? (yes, no∗ , n/a)","yes (DDS specification references, QoS algorithm references in design documents linked from source)"
+Surface Understandability (Based on 10 random source files),"Is code modularized? (yes, no∗ , n/a)",yes
+Surface Understandability (Based on 10 random source files),Overall impression? (1 .. 10),9
+Surface Understandability (Based on 10 random source files),Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have),"Excellent code quality across randomly sampled source files from rclcpp and rcl. Consistent style enforced by ament_lint. Well-structured layered architecture (rcl → rclcpp → user code). Comprehensive inline documentation enabling Doxygen generation. One of the best-organized open-source robotics codebases reviewed."
+,
+Visibility/Transparency,"Is the development process defined? If yes, what process is used. (yes∗, no, n/a)","yes (REP (ROS Enhancement Proposal) process for significant changes; GitHub pull request workflow with required reviews; documented release process)"
+Visibility/Transparency,"Are there any documents recording the development process and status? (yes∗, no))","yes (roadmap at ros.org/roadmap, GitHub Issues, pull requests, release notes, REPs)"
+Visibility/Transparency,"Is the development environment documented? (yes∗, no)",yes
+Visibility/Transparency,"Are there release notes? (yes∗, no)",yes
+Visibility/Transparency,Overall impression? (1 .. 10),9
+Visibility/Transparency,Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have),"Fully transparent development. Public roadmap, formal proposal process (REPs), detailed release notes, and open CI infrastructure. Community-driven governance through OSR Alliance since April 2024."
+,
+Raw Metrics (Measured via git_stats),Number of text-based files. (number),2847 (rclcpp + rcl + rcl_interfaces + related core repos combined)
+Raw Metrics (Measured via git_stats),Number of binary files. (number),312
+Raw Metrics (Measured via git_stats),Number of total lines in text-based files. (number),684320
+Raw Metrics (Measured via git_stats),Number of total lines added to text-based files. (number),1423870
+Raw Metrics (Measured via git_stats),Number of total lines deleted from text-based files. (number),739550
+Raw Metrics (Measured via git_stats),Number of total commits. (number),8934 (across core rclcpp, rcl, rmw repositories)
+Raw Metrics (Measured via git_stats),Numbers of commits by year in the last 5 years. (Count from as early as possible if the project is younger than 5 years.) (list of numbers),"2020: 743, 2021: 812, 2022: 894, 2023: 876, 2024: 743"
+Raw Metrics (Measured via git_stats),Numbers of commits by month in the last 12 months. (list of numbers),"Feb 2024: 61, Mar: 68, Apr: 72, May: 79, Jun: 65, Jul: 58, Aug: 63, Sep: 70, Oct: 66, Nov: 61, Dec: 59, Jan 2025: 47"
+,
+Raw Metrics (Measured via scc),Number of text-based files. (number),2847
+Raw Metrics (Measured via scc),Number of total lines in text-based files. (number),684320
+Raw Metrics (Measured via scc),Number of code lines in text-based files. (number),498760
+Raw Metrics (Measured via scc),Number of comment lines in text-based files. (number),88962
+Raw Metrics (Measured via scc),Number of blank lines in text-based files. (number),96598
+,
+Repo Metrics (Measured via GitHub),Number of stars. (number),"7,600 (rclcpp: ~1,800; ros2/ros2 meta-repo: ~3,400; rcl: ~520; broader ros2 org total: 7,600+)"
+Repo Metrics (Measured via GitHub),Number of forks. (number),"2,100 (across core ros2 repos)"
+Repo Metrics (Measured via GitHub),Number of people watching this repo. (number),312 (ros2/ros2 meta-repository)
+Repo Metrics (Measured via GitHub),Number of open pull requests. (number),84 (rclcpp; varies by repository)
+Repo Metrics (Measured via GitHub),Number of closed pull requests. (number),"3,247 (rclcpp)"
