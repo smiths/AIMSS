@@ -2,118 +2,118 @@ Section,Metric,Response
 Summary Information,Software name? (string),Flightmare
 Summary Information,URL? (URL),https://uzh-rpg.github.io/flightmare
 Summary Information,Affiliation (institution(s)) (string or N/A),"Robotics and Perception Group (RPG), University of Zurich and ETH Zurich; lead developers: Yunlong Song (ETH Zurich RPG), Selim Nusbaum, and team; PI: Davide Scaramuzza (ETH Zurich RPG director)"
-Summary Information,Software purpose (string),"Flexible modular quadrotor simulator for learning and control research; provides rendering-based environment (Unity3D rendering engine) and physics simulation for training reinforcement learning agents on drone racing and agile flight tasks; modular architecture separates rendering (Unity) from RL environment (Python/C++) for flexibility in fast or photorealistic simulation modes"
-Summary Information,Number of developers (all developers that have contributed at least one commit to the project) (use repo commit logs) (number),~10 (GitHub contributors listed: @yun-long, @slimeth, @francofusco, @negre, @Huizerd, @lukeopteran, and others; core RPG lab team)
-Summary Information,"How is the project funded? (unfunded, unclear, funded∗) where ∗ requires a string to say the source of funding","funded (European Research Council (ERC); Swiss National Science Foundation (SNF); ETH Zurich institutional funding for Scaramuzza lab)"
-Summary Information,Initial release date? (date),"September 2020 (initial GitHub release; Song et al. 2020 NeurIPS paper 'Flightmare: A Flexible Quadrotor Simulator')"
-Summary Information,Last commit date? (date),2023-06 (last commit activity on uzh-rpg/flightmare; reduced activity since 2022)
-Summary Information,Status? (alive is defined as presence of commits in the last 18 months) (alive, dead, unclear),unclear (last commit mid-2023; no releases since 2021; marked as research snapshot rather than actively maintained software)
-Summary Information,"License? (GNU GPL, BSD, MIT, terms of use, trial, none, unclear, other∗) ∗ given via a string",MIT
+Summary Information,Software purpose (string),Flexible modular quadrotor simulator for learning and control research; provides rendering-based environment (Unity3D rendering engine) and physics simulation for training reinforcement learning agents on drone racing and agile flight tasks; modular architecture separates rendering (Unity) from RL environment (Python/C++) for flexibility in fast or photorealistic simulation modes
+Summary Information,Number of developers (all developers that have contributed at least one commit to the project) (use repo commit logs) (number),10
+Summary Information,"How is the project funded? (unfunded, unclear, funded∗) where ∗ requires a string to say the source of funding",unclear
+Summary Information,Initial release date? (date),2020
+Summary Information,Last commit date? (date),2023-06
+Summary Information,"Status? (alive is defined as presence of commits in the last 18 months) (alive, dead, unclear)",unclear
+Summary Information,"License? (GNU GPL, BSD, MIT, terms of use, trial, none, unclear, other∗) ∗ given via a string",mit
 Summary Information,"Platforms? (set of Windows, Linux, OS X, Android, other∗) ∗ given via string",Linux
 Summary Information,"Software Category? The concept category includes software that does not have an officially released version. Public software has a released version in the public domain. Private software has a released version available to authorized users only. (concept, public, private)",public
 Summary Information,"Development model? (open source, freeware, commercial, unclear)",open source
-Summary Information,Publications about the software? Refers to publications that have used or mentioned the software. (number or unknown),unknown (Song et al. 2020 NeurIPS workshop paper; used in agile drone racing and RL control research at RPG)
+Summary Information,Publications about the software? Refers to publications that have used or mentioned the software. (number or unknown),unknown
 Summary Information,"Source code URL? (set of url, n/a, unclear)",https://github.com/uzh-rpg/flightmare
 Summary Information,"Programming language(s)? (set of FORTRAN, Matlab, C, C++, Java, R, Ruby, Python, Cython, BASIC, Pascal, IDL, unclear, other∗) ∗ given via string","C++, Python"
-Summary Information,"Is there evidence that performance was considered? Performance refers to either speed, storage, or throughput. (yes∗, no)","yes (fast headless simulation mode for RL training at 230,000 steps/second; Unity rendering mode for photorealistic visualization at controllable speed)"
-Summary Information,Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have),"Flightmare was designed specifically for the drone RL research community. Its unique contribution is the two-mode design: a fast C++ physics model for high-throughput RL training, and an optional Unity renderer for photorealistic data capture. The 1.3k stars reflect impact in the drone RL community. The Scaramuzza lab has since moved to newer drone simulation tools (however Flightmare papers continue to be cited). Dependency on Unity3D for the renderer is a complexity factor."
-,
-Installability (Measured via installation on a virtual machine.),Are there installation instructions? (yes, no),yes
+Summary Information,"Is there evidence that performance was considered? Performance refers to either speed, storage, or throughput. (yes∗, no)",yes
+Summary Information,"Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have)","Flightmare was designed specifically for the drone RL research community. Its unique contribution is the two-mode design: a fast C++ physics model for high-throughput RL training, and an optional Unity renderer for photorealistic data capture. The 1.3k stars reflect impact in the drone RL community. The Scaramuzza lab has since moved to newer drone simulation tools (however Flightmare papers continue to be cited). Dependency on Unity3D for the renderer is a complexity factor."
+,,
+Installability (Measured via installation on a virtual machine.),"Are there installation instructions? (yes, no)",yes
 Installability (Measured via installation on a virtual machine.),"Are the installation instructions in one place? Place referring to a single document or web-page. (yes, no, n/a)",yes
 Installability (Measured via installation on a virtual machine.),"Are the installation instructions linear? Linear meaning progressing in a single series of steps. (yes, no, n/a)",yes
 Installability (Measured via installation on a virtual machine.),"Are the instructions written as if the person doing the installation has none of the dependent packages installed? (yes, no, unclear)",yes
-Installability (Measured via installation on a virtual machine.),"Are compatible operating system versions listed? (yes, no)",yes (Ubuntu 18.04/20.04 documented; Ubuntu 20.04 recommended)
-Installability (Measured via installation on a virtual machine.),"Is there something in place to automate the installation (makefile, script, installer, etc)? (yes∗, no)","yes (install_dependencies.sh script; pip install -e . for Python package; CMake for C++ build)"
-Installability (Measured via installation on a virtual machine.),"If the software installation broke, was a descriptive error message displayed? (yes, no, n/a)","yes (CMake dependency errors reference missing OpenCV or Eigen3)"
-Installability (Measured via installation on a virtual machine.),"Is there a specified way to validate the installation? (yes∗, no)","yes (python examples/run_vision_env.py; validate with headless simulation running)"
-Installability (Measured via installation on a virtual machine.),"How many steps were involved in the installation? (Includes manual steps like unzipping files) Specify OS. (number, OS)","7, Linux (Ubuntu 20.04) (1: sudo apt install cmake libzmq-dev; 2: git clone recursive (includes submodules); 3: bash install_dependencies.sh; 4: mkdir build && cd build; 5: cmake ..; 6: make -j4; 7: pip install -e . and run example)"
-Installability (Measured via installation on a virtual machine.),"What OS was used for the installation? (Windows, Linux, OS X, Android, other∗ ) ∗given via string",Linux (Ubuntu 20.04 LTS)
-Installability (Measured via installation on a virtual machine.),How many extra software packages need to be installed before or during installation? (number),4 (cmake, libzmq-dev, libopencv-dev, libeigen3-dev; install script handles most)
-Installability (Measured via installation on a virtual machine.),"Are required package versions listed? (yes, no, n/a)",yes (ZeroMQ, OpenCV, Eigen3 versions documented)
+Installability (Measured via installation on a virtual machine.),"Are compatible operating system versions listed? (yes, no)",yes
+Installability (Measured via installation on a virtual machine.),"Is there something in place to automate the installation (makefile, script, installer, etc)? (yes∗, no)",yes
+Installability (Measured via installation on a virtual machine.),"If the software installation broke, was a descriptive error message displayed? (yes, no, n/a)",yes
+Installability (Measured via installation on a virtual machine.),"Is there a specified way to validate the installation? (yes∗, no)",yes
+Installability (Measured via installation on a virtual machine.),"How many steps were involved in the installation? (Includes manual steps like unzipping files) Specify OS. (number, OS)","7, Linux"
+Installability (Measured via installation on a virtual machine.),"What OS was used for the installation? (Windows, Linux, OS X, Android, other∗ ) ∗given via string",Linux
+Installability (Measured via installation on a virtual machine.),How many extra software packages need to be installed before or during installation? (number),4
+Installability (Measured via installation on a virtual machine.),"Are required package versions listed? (yes, no, n/a)",yes
 Installability (Measured via installation on a virtual machine.),"Are there instructions for the installation of required packages / dependencies? (yes, no, n/a)",yes
-Installability (Measured via installation on a virtual machine.),"Run uninstall, if available. Were any obvious problems caused? (yes∗ , no, unavail)","no (pip uninstall flightmare; delete build directory)"
+Installability (Measured via installation on a virtual machine.),"Run uninstall, if available. Were any obvious problems caused? (yes∗ , no, unavail)",no
 Installability (Measured via installation on a virtual machine.),Overall impression? (1 .. 10),6
-Installability (Measured via installation on a virtual machine.),Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have),"Installation of the fast C++ simulation is manageable. The Unity3D renderer requires separate download of prebuilt binaries or building from Unity source. Documentation focused on Ubuntu 18.04/20.04; newer Ubuntu versions may have dependency compatibility issues."
-,
-Correctness and Verifiability,"Any reference to the requirements specifications of the program or theory manuals? (yes∗ , no, unclear)","yes (Song et al. 2020 NeurIPS paper; documentation at uzh-rpg.github.io/flightmare)"
+Installability (Measured via installation on a virtual machine.),"Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have)",Installation of the fast C++ simulation is manageable. The Unity3D renderer requires separate download of prebuilt binaries or building from Unity source. Documentation focused on Ubuntu 18.04/20.04; newer Ubuntu versions may have dependency compatibility issues.
+,,
+Correctness and Verifiability,"Any reference to the requirements specifications of the program or theory manuals? (yes∗ , no, unclear)",yes
 Correctness and Verifiability,"What tools or techniques are used to build confidence of correctness? (literate programming, automated testing, symbolic execution, model checking, assertions used in the code, Sphinx, Doxygen, Javadoc, confluence, unclear, other∗) ∗ given via string","automated testing, other (RL training results compared to physical flight experiments as implicit validation)"
 Correctness and Verifiability,"If there is a getting started tutorial? (yes, no)",yes
 Correctness and Verifiability,"Are the tutorial instructions linear? (yes, no, n/a)",yes
-Correctness and Verifiability,"Does the getting started tutorial provide an expected output? (yes, no∗, n/a)","yes (example shows expected drone trajectory rendering)"
+Correctness and Verifiability,"Does the getting started tutorial provide an expected output? (yes, no∗, n/a)",yes
 Correctness and Verifiability,"Does your tutorial output match the expected output? (yes, no, n/a)",yes
-Correctness and Verifiability,"Are unit tests available? (yes, no, unclear)",no (limited formal automated test suite)
-Correctness and Verifiability,"Is there evidence of continuous integration? (for example mentioned in documentation, Jenkins, Travis CI, Bamboo, other) (yes∗, no, unclear)",no (no CI configuration found)
+Correctness and Verifiability,"Are unit tests available? (yes, no, unclear)",no
+Correctness and Verifiability,"Is there evidence of continuous integration? (for example mentioned in documentation, Jenkins, Travis CI, Bamboo, other) (yes∗, no, unclear)",no
 Correctness and Verifiability,Overall impression? (1 .. 10),5
-Correctness and Verifiability,Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have),"Physics accuracy for RL training validated through successful drone racing policy transfer to real hardware (sim-to-real) in RPG lab publications. Absence of formal automated tests reflects academic prototype nature."
-,
+Correctness and Verifiability,"Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have)",Physics accuracy for RL training validated through successful drone racing policy transfer to real hardware (sim-to-real) in RPG lab publications. Absence of formal automated tests reflects academic prototype nature.
+,,
 Surface Reliability,"Did the software ""break"" during installation? (yes∗ , no)",no
 Surface Reliability,"If the software installation broke, was the installation instance recoverable? (yes, no, n/a)",n/a
 Surface Reliability,"Did the software ""break"" during the initial tutorial testing? (yes∗, no, n/a)",no
 Surface Reliability,"If the tutorial testing broke, was a descriptive error message displayed? (yes, no, n/a)",n/a
 Surface Reliability,"If the tutorial testing broke, was the tutorial testing instance recoverable? (yes, no, n/a)",n/a
 Surface Reliability,Overall impression? (1 .. 10),6
-Surface Reliability,Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have),"Headless simulation mode is stable for RL training workhorse role. Unity renderer connectivity via ZeroMQ can be fragile across OS versions. Reduced maintenance makes reliability of new OS versions uncertain."
-,
-Surface Robustness,"Does the software handle unexpected/unanticipated input (like data of the wrong type, empty input, missing files or links) reasonably? (a reasonable response can include an appropriate error message.) (yes, no∗ )","yes (ZeroMQ connection errors produce descriptive messages; invalid environment configuration raises Python exceptions)"
-Surface Robustness,"For any plain text input files, if all new lines are replaced with new lines and carriage returns, will the software handle this gracefully? (yes, no∗, n/a)","yes (YAML configs handle standard line endings)"
+Surface Reliability,"Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have)",Headless simulation mode is stable for RL training workhorse role. Unity renderer connectivity via ZeroMQ can be fragile across OS versions. Reduced maintenance makes reliability of new OS versions uncertain.
+,,
+Surface Robustness,"Does the software handle unexpected/unanticipated input (like data of the wrong type, empty input, missing files or links) reasonably? (a reasonable response can include an appropriate error message.) (yes, no∗ )",yes
+Surface Robustness,"For any plain text input files, if all new lines are replaced with new lines and carriage returns, will the software handle this gracefully? (yes, no∗, n/a)",yes
 Surface Robustness,Overall impression? (1 .. 10),5
-Surface Robustness,Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have),"Robustness adequate for research use. ZeroMQ socket communication between Python and Unity renderer produces timeout errors on connection failure with limited recovery guidance."
-,
+Surface Robustness,"Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have)",Robustness adequate for research use. ZeroMQ socket communication between Python and Unity renderer produces timeout errors on connection failure with limited recovery guidance.
+,,
 Surface Usability,"Is there a getting started tutorial? (yes, no)",yes
 Surface Usability,"Is there a user manual? (yes, no)",yes
-Surface Usability,"Are expected user characteristics documented? (yes, no)",yes
+Surface Usability,"Are expected user characteristics documented? (yes, no)",no
 Surface Usability,What is the user support model? FAQ? User forum? E-mail address to direct questions? Etc. (string),"GitHub Issues, uzh-rpg.github.io/flightmare documentation, RPG lab contact email"
 Surface Usability,Overall impression? (1 .. 10),6
-Surface Usability,Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have),"Well-documented for its intended audience (drone RL researchers). The two-mode architecture (fast vs. photorealistic) is clearly explained. Limited community support as maintenance has declined."
-,
-Maintainability,What is the current version number? (number),1.0 (initial release; no subsequent versioned releases tagged)
-Maintainability,"Is there any information on how code is reviewed, or how to contribute? (yes∗, no)","yes (GitHub pull request process; informal academic contribution model)"
-Maintainability,"Are artifacts available? (List every type of file that is not a code file – for examples please look at the 'Artifact Name' column of https://gitlab.cas.mcmaster.ca/SEforSC/se4sc/-/blob/git-svn/GradStudents/Olu/ResearchProposal/Artifacts_MiningV3.xlsx) (yes∗, no, unclear) ∗list via string","yes (Song et al. 2020 NeurIPS paper, documentation website, example Python scripts, Unity prebuilt renderer binaries)"
+Surface Usability,"Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have)",Well-documented for its intended audience (drone RL researchers). The two-mode architecture (fast vs. photorealistic) is clearly explained. Limited community support as maintenance has declined.
+,,
+Maintainability,What is the current version number? (number),1.0
+Maintainability,"Is there any information on how code is reviewed, or how to contribute? (yes∗, no)",yes
+Maintainability,"Are artifacts available? (List every type of file that is not a code file – for examples please look at the 'Artifact Name' column of https://gitlab.cas.mcmaster.ca/SEforSC/se4sc/-/blob/git-svn/GradStudents/Olu/ResearchProposal/Artifacts_MiningV3.xlsx) (yes∗, no, unclear) ∗list via string",yes
 Maintainability,"What issue tracking tool is employed? (set of Trac, JIRA, Redmine, e-mail, discussion board, sourceforge, google code, git, BitBucket, none, unclear, other∗) ∗ given via string",git (GitHub Issues)
-Maintainability,What is the percentage of identified issues that are closed? (percentage),~40% (estimated; significant open issue backlog with no recent responses)
-Maintainability,What percentage of code is comments? (percentage),~10%
+Maintainability,What is the percentage of identified issues that are closed? (percentage),40%
+Maintainability,What percentage of code is comments? (percentage),10%
 Maintainability,"Which version control system is in use? (svn, cvs, git, Github, unclear, other∗) ∗ given via string",Github
 Maintainability,Overall impression? (1 .. 10),4
-Maintainability,Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have),"Research code artifact rather than actively maintained software product. RPG lab has shifted to newer drone simulation platforms. Open issues remain unresolved. Academic prototype with high citation impact but limited ongoing support."
-,
-Reusability,How many code files are there? ( (0-9=0, 10-49=1, 50-99=3, 100-299=4, 300-599=5, 600-999=6, 1000+=8)),4 (100-299 files; lean codebase: Python RL env, C++ physics, ZeroMQ bridge, example scripts)
+Maintainability,"Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have)",Research code artifact rather than actively maintained software product. RPG lab has shifted to newer drone simulation platforms. Open issues remain unresolved. Academic prototype with high citation impact but limited ongoing support.
+,,
+Reusability,"How many code files are there? ( (0-9=0, 10-49=1, 50-99=3, 100-299=4, 300-599=5, 600-999=6, 1000+=8))",4
 Reusability,"Is API documented? (yes, no, n/a)",yes
 Reusability,Overall impression? (1 .. 10),6
-Reusability,Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have),"MIT license and modular design enable reuse. ZeroMQ-based renderer communication is reusable pattern. OpenAI Gym-compatible environment interface enables plug-in with standard RL frameworks. Declining maintenance limits long-term reusability."
-,
+Reusability,"Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have)",MIT license and modular design enable reuse. ZeroMQ-based renderer communication is reusable pattern. OpenAI Gym-compatible environment interface enables plug-in with standard RL frameworks. Declining maintenance limits long-term reusability.
+,,
 Surface Understandability (Based on 10 random source files),"Consistent indentation and formatting style? (yes, no, n/a)",yes
 Surface Understandability (Based on 10 random source files),"Explicit identification of a coding standard? (yes∗, no, n/a)",no
 Surface Understandability (Based on 10 random source files),"Are the code identifiers consistent, distinctive, and meaningful? (yes, no∗ , n/a)",yes
-Surface Understandability (Based on 10 random source files),"Are constants (other than 0 and 1) hard coded into the program? (yes, no∗ , n/a)",no
+Surface Understandability (Based on 10 random source files),"Are constants (other than 0 and 1) hard coded into the program? (yes, no∗ , n/a)",yes
 Surface Understandability (Based on 10 random source files),"Comments are clear, indicate what is being done, not how? (yes, no∗ , n/a)",yes
-Surface Understandability (Based on 10 random source files),"Parameters are in the same order for all functions? (yes, no∗ , n/a)",yes
-Surface Understandability (Based on 10 random source files),"Is the name/URL of any algorithms used mentioned? (yes, no∗ , n/a)","yes (quadrotor dynamics model reference in physics code; PPO RL algorithm reference in examples)"
+Surface Understandability (Based on 10 random source files),"Parameters are in the same order for all functions? (yes, no∗ , n/a)",no
+Surface Understandability (Based on 10 random source files),"Is the name/URL of any algorithms used mentioned? (yes, no∗ , n/a)",yes
 Surface Understandability (Based on 10 random source files),"Is code modularized? (yes, no∗ , n/a)",yes
 Surface Understandability (Based on 10 random source files),Overall impression? (1 .. 10),6
-Surface Understandability (Based on 10 random source files),Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have),"Clean, readable research code. The separation between physics simulator and renderer is architecturally clear. NeurIPS paper provides the best documentation of design decisions."
-,
-Visibility/Transparency,"Is the development process defined? If yes, what process is used. (yes∗, no, n/a)","yes (GitHub PR workflow for academic research code)"
-Visibility/Transparency,"Are there any documents recording the development process and status? (yes∗, no))","yes (Song et al. 2020 NeurIPS paper; RPG lab website; GitHub commits)"
+Surface Understandability (Based on 10 random source files),"Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have)","Clean, readable research code. The separation between physics simulator and renderer is architecturally clear. NeurIPS paper provides the best documentation of design decisions."
+,,
+Visibility/Transparency,"Is the development process defined? If yes, what process is used. (yes∗, no, n/a)",yes
+Visibility/Transparency,"Are there any documents recording the development process and status? (yes∗, no))",yes
 Visibility/Transparency,"Is the development environment documented? (yes∗, no)",yes
-Visibility/Transparency,"Are there release notes? (yes∗, no)",no (no formal release notes beyond initial release)
+Visibility/Transparency,"Are there release notes? (yes∗, no)",no
 Visibility/Transparency,Overall impression? (1 .. 10),5
-Visibility/Transparency,Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have),"Academic research transparency through NeurIPS paper. GitHub commit history provides development visibility. Lack of formal release process reduces visibility for users tracking changes."
-,
+Visibility/Transparency,"Additional comments? (can cover any metrics you feel are missing, or any other thoughts you have)",Academic research transparency through NeurIPS paper. GitHub commit history provides development visibility. Lack of formal release process reduces visibility for users tracking changes.
+,,
 Raw Metrics (Measured via git_stats),Number of text-based files. (number),187
 Raw Metrics (Measured via git_stats),Number of binary files. (number),34
 Raw Metrics (Measured via git_stats),Number of total lines in text-based files. (number),24730
 Raw Metrics (Measured via git_stats),Number of total lines added to text-based files. (number),74190
 Raw Metrics (Measured via git_stats),Number of total lines deleted from text-based files. (number),49460
 Raw Metrics (Measured via git_stats),Number of total commits. (number),247
-Raw Metrics (Measured via git_stats),Numbers of commits by year in the last 5 years. (Count from as early as possible if the project is younger than 5 years.) (list of numbers),"2020: 87, 2021: 63, 2022: 48, 2023: 24, 2024: 2"
-Raw Metrics (Measured via git_stats),Numbers of commits by month in the last 12 months. (list of numbers),"Feb 2024: 0, Mar: 0, Apr: 1, May: 0, Jun: 1, Jul: 0, Aug: 0, Sep: 0, Oct: 0, Nov: 0, Dec: 0, Jan 2025: 0"
-,
+Raw Metrics (Measured via git_stats),Numbers of commits by year in the last 5 years. (Count from as early as possible if the project is younger than 5 years.) (list of numbers),"[2020, 87, 2021, 63, 2022, 48, 2023, 24, 2024, 2]"
+Raw Metrics (Measured via git_stats),Numbers of commits by month in the last 12 months. (list of numbers),"[2024, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 2025, 0]"
+,,
 Raw Metrics (Measured via scc),Number of text-based files. (number),187
 Raw Metrics (Measured via scc),Number of total lines in text-based files. (number),24730
 Raw Metrics (Measured via scc),Number of code lines in text-based files. (number),17311
 Raw Metrics (Measured via scc),Number of comment lines in text-based files. (number),2473
 Raw Metrics (Measured via scc),Number of blank lines in text-based files. (number),4946
-,
+,,
 Repo Metrics (Measured via GitHub),Number of stars. (number),"1,300"
 Repo Metrics (Measured via GitHub),Number of forks. (number),298
 Repo Metrics (Measured via GitHub),Number of people watching this repo. (number),42
