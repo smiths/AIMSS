@@ -430,7 +430,7 @@
 * Project Chrono
 * Blender
 
-## Brugali et al. (2008) – “A Survey of Development Frameworks for Robotics”
+## Brugali et al. (2007) – “Trends in Robotic Software Frameworks”
 
 * ROS
 * Orocos
